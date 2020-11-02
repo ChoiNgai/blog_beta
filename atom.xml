@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title></title>
+  
+  <subtitle>🕑</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://studydrive.club/"/>
+  <updated>2020-11-02T09:00:31.693Z</updated>
+  <id>https://studydrive.club/</id>
+  
+  <author>
+    <name>赤沙咀-菜虚坤</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>模糊C均值聚类(FCM)</title>
+    <link href="https://studydrive.club/2020/11/02/mo-hu-c-jun-zhi-ju-lei-fcm/"/>
+    <id>https://studydrive.club/2020/11/02/mo-hu-c-jun-zhi-ju-lei-fcm/</id>
+    <published>2020-11-02T06:52:12.000Z</published>
+    <updated>2020-11-02T09:00:31.693Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="模糊聚类" scheme="https://studydrive.club/tags/%E6%A8%A1%E7%B3%8A%E8%81%9A%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gitbook安装—_install卡住解决</title>
+    <link href="https://studydrive.club/2020/07/21/gitbook-an-zhuang-install-qia-zhu-jie-jue/"/>
+    <id>https://studydrive.club/2020/07/21/gitbook-an-zhuang-install-qia-zhu-jie-jue/</id>
+    <published>2020-07-20T22:01:09.000Z</published>
+    <updated>2020-09-21T14:19:58.247Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web" scheme="https://studydrive.club/categories/web/"/>
+    
+    
+      <category term="建站" scheme="https://studydrive.club/tags/%E5%BB%BA%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python伪装ip以及浏览器型号</title>
+    <link href="https://studydrive.club/2020/07/13/python-wei-zhuang-ip-yi-ji-liu-lan-qi-xing-hao/"/>
+    <id>https://studydrive.club/2020/07/13/python-wei-zhuang-ip-yi-ji-liu-lan-qi-xing-hao/</id>
+    <published>2020-07-13T13:47:13.000Z</published>
+    <updated>2020-09-21T14:19:58.249Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="运维" scheme="https://studydrive.club/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+      <category term="python" scheme="https://studydrive.club/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图床</title>
+    <link href="https://studydrive.club/2020/07/06/da-jian-tu-chuang/"/>
+    <id>https://studydrive.club/2020/07/06/da-jian-tu-chuang/</id>
+    <published>2020-07-06T15:05:41.000Z</published>
+    <updated>2020-09-21T14:19:58.254Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;为什么要搭建图床？&quot;&gt;&lt;a href=&quot;#为什么要搭建图床？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="tool" scheme="https://studydrive.club/categories/tool/"/>
+    
+    
+      <category term="tips" scheme="https://studydrive.club/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark SQL 上机实验</title>
+    <link href="https://studydrive.club/2020/07/03/spark-sql-shang-ji-shi-yan/"/>
+    <id>https://studydrive.club/2020/07/03/spark-sql-shang-ji-shi-yan/</id>
+    <published>2020-07-03T15:18:55.000Z</published>
+    <updated>2020-09-21T14:19:58.246Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;一、实验目的：&lt;/p&gt;
+&lt;p&gt;1、通过实验掌握Spark SQL的基本编程方法；&lt;/p&gt;
+&lt;p&gt;2、熟悉RDD到DataFrame的转化方法；&lt;/p&gt;
+&lt;p&gt;二、实验要求：&lt;/p&gt;
+&lt;p&gt;  按实验要求完成实验。&lt;/p&gt;
+&lt;p&gt;三、实验方案&lt;/p&gt;
+&lt;p&gt;1．Spark
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="hadoop" scheme="https://studydrive.club/tags/hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Win10禁止更新以及BOIS更新</title>
+    <link href="https://studydrive.club/2020/06/30/win10-jin-zhi-geng-xin-yi-ji-lian-jie-gua-pei-qi-geng-xin/"/>
+    <id>https://studydrive.club/2020/06/30/win10-jin-zhi-geng-xin-yi-ji-lian-jie-gua-pei-qi-geng-xin/</id>
+    <published>2020-06-30T13:04:03.000Z</published>
+    <updated>2020-09-21T14:19:58.247Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Windows更新历来都是挺坑，为了安全起见还是禁止更新吧&lt;/p&gt;
+&lt;p&gt;如果不幸更新了，特别是双系统更新了其中的Windows系统，需要连接下适配器（插上电源）更新一下BOIS系统&lt;/p&gt;
+&lt;h3 id=&quot;win10禁止更新&quot;&gt;&lt;a href=&quot;#win10禁止更新&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="基础" scheme="https://studydrive.club/categories/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="tips" scheme="https://studydrive.club/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>指派问题求解</title>
+    <link href="https://studydrive.club/2020/06/30/zhi-pai-wen-ti-qiu-jie/"/>
+    <id>https://studydrive.club/2020/06/30/zhi-pai-wen-ti-qiu-jie/</id>
+    <published>2020-06-30T02:54:02.000Z</published>
+    <updated>2020-09-21T14:19:58.253Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;运筹学中的指派问题，这里并非用匈牙利法求解。其中C为效率矩阵。&lt;/p&gt;
+&lt;pre class=&quot; language-matlab&quot;&gt;&lt;code class=&quot;language-matlab&quot;&gt;&lt;span class=&quot;token comment&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="数学建模" scheme="https://studydrive.club/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+      <category term="基础数学" scheme="https://studydrive.club/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R语言试验上机考试</title>
+    <link href="https://studydrive.club/2020/06/29/r-yu-yan-shi-yan-shang-ji-kao-shi/"/>
+    <id>https://studydrive.club/2020/06/29/r-yu-yan-shi-yan-shang-ji-kao-shi/</id>
+    <published>2020-06-29T08:24:27.000Z</published>
+    <updated>2020-09-21T14:19:58.246Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;一、某单位招聘2500人，按考试成绩从高到低依次录用，共有10000人报名，假设报名者的成绩$X~N(u,\sigma^2)$
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="R语言" scheme="https://studydrive.club/tags/R%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>统计计算方法上机考试</title>
+    <link href="https://studydrive.club/2020/06/25/tong-ji-ji-suan-fang-fa-shang-ji-kao-shi/"/>
+    <id>https://studydrive.club/2020/06/25/tong-ji-ji-suan-fang-fa-shang-ji-kao-shi/</id>
+    <published>2020-06-25T13:56:56.000Z</published>
+    <updated>2020-09-21T14:19:58.256Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; 设X服从正态分布N(1,4)，用R计算Pr(X&amp;lt;1.5)。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="R语言" scheme="https://studydrive.club/tags/R%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hadoop HDFS使用指南</title>
+    <link href="https://studydrive.club/2020/06/25/hadoop-hdfs-shi-yong-zhi-nan/"/>
+    <id>https://studydrive.club/2020/06/25/hadoop-hdfs-shi-yong-zhi-nan/</id>
+    <published>2020-06-25T13:41:08.000Z</published>
+    <updated>2020-09-21T14:19:58.244Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;此文章转载于&lt;a href=&quot;http://hadoop.apache.org/docs/r1.0.4/cn/hdfs_user_guide.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hadoop官方中文文档&lt;/a&gt;&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="hadoop" scheme="https://studydrive.club/tags/hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hadoop MapReduce教程</title>
+    <link href="https://studydrive.club/2020/06/25/hadoop-mapreduce-jiao-cheng/"/>
+    <id>https://studydrive.club/2020/06/25/hadoop-mapreduce-jiao-cheng/</id>
+    <published>2020-06-25T13:32:40.000Z</published>
+    <updated>2020-09-21T14:19:58.245Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;此文章转载于&lt;a href=&quot;http://hadoop.apache.org/docs/r1.0.4/cn/mapred_tutorial.html&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="hadoop" scheme="https://studydrive.club/tags/hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ArtiPub安装</title>
+    <link href="https://studydrive.club/2020/06/25/artipub-an-zhuang/"/>
+    <id>https://studydrive.club/2020/06/25/artipub-an-zhuang/</id>
+    <published>2020-06-25T09:53:23.000Z</published>
+    <updated>2020-09-21T14:19:58.239Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;博客一文多发工具我也用过&lt;strong&gt;openwrite&lt;/strong&gt;，那个免费版的是真心不好用（接口也有点问题）。&lt;/p&gt;
+&lt;p&gt;ArtiPub网上一堆安装教程，但都没法用，这是有原因(&lt;strong&gt;接口很很大问题，原因和后果看最后面~参考资料上一点&lt;/stron
+        
+      
+    
+    </summary>
+    
+    
+      <category term="tool" scheme="https://studydrive.club/categories/tool/"/>
+    
+    
+      <category term="tips" scheme="https://studydrive.club/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>五分钟读懂电脑配置</title>
+    <link href="https://studydrive.club/2020/06/22/wu-fen-zhong-du-dong-dian-nao-pei-zhi/"/>
+    <id>https://studydrive.club/2020/06/22/wu-fen-zhong-du-dong-dian-nao-pei-zhi/</id>
+    <published>2020-06-21T16:00:00.000Z</published>
+    <updated>2020-09-21T14:19:58.250Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="基础" scheme="https://studydrive.club/categories/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="tips" scheme="https://studydrive.club/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL增删改查</title>
+    <link href="https://studydrive.club/2020/06/21/sql-zeng-shan-gai-cha/"/>
+    <id>https://studydrive.club/2020/06/21/sql-zeng-shan-gai-cha/</id>
+    <published>2020-06-20T18:28:51.000Z</published>
+    <updated>2020-09-21T14:19:58.246Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;增&quot;&gt;&lt;a href=&quot;#增&quot; class=&quot;headerlink&quot; title=&quot;增&quot;&gt;&lt;/a&gt;增&lt;/h2&gt;&lt;h3 id=&quot;INSERT-INTO&quot;&gt;&lt;a href=&quot;#INSERT-INTO&quot; class=&quot;headerlink&quot; title=&quot;INSERT
+        
+      
+    
+    </summary>
+    
+    
+      <category term="基础" scheme="https://studydrive.club/categories/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="数据库" scheme="https://studydrive.club/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hive实验</title>
+    <link href="https://studydrive.club/2020/06/19/hive-shi-yan/"/>
+    <id>https://studydrive.club/2020/06/19/hive-shi-yan/</id>
+    <published>2020-06-18T16:00:00.000Z</published>
+    <updated>2020-09-21T14:19:58.245Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;该文为Hadoop基础实验中的hive实验&lt;/p&gt;
+&lt;h2 id=&quot;实验目的：&quot;&gt;&lt;a href=&quot;#实验目的：&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="hadoop" scheme="https://studydrive.club/tags/hadoop/"/>
+    
+      <category term="数据库" scheme="https://studydrive.club/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux版python升级依赖项问题</title>
+    <link href="https://studydrive.club/2020/06/15/linux-ban-python-sheng-ji-yi-lai-xiang-wen-ti/"/>
+    <id>https://studydrive.club/2020/06/15/linux-ban-python-sheng-ji-yi-lai-xiang-wen-ti/</id>
+    <published>2020-06-15T04:30:15.000Z</published>
+    <updated>2020-09-21T14:19:58.249Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;linux中python2升级到python3，会出现一系列的依赖项未配置问题，如果不解决，将会影响其他环境的安装配置。
+        
+      
+    
+    </summary>
+    
+    
+      <category term="运维" scheme="https://studydrive.club/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+      <category term="linux" scheme="https://studydrive.club/tags/linux/"/>
+    
+      <category term="python" scheme="https://studydrive.club/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HBase应用实验</title>
+    <link href="https://studydrive.club/2020/06/05/hbase-shi-yan/"/>
+    <id>https://studydrive.club/2020/06/05/hbase-shi-yan/</id>
+    <published>2020-06-04T18:28:11.000Z</published>
+    <updated>2020-09-21T14:19:58.242Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;该文为Hadoop课程的HBase的应用实验&lt;/p&gt;
+&lt;h2 id=&quot;实验题目&quot;&gt;&lt;a href=&quot;#实验题目&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="hadoop" scheme="https://studydrive.club/tags/hadoop/"/>
+    
+      <category term="数据库" scheme="https://studydrive.club/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Matlab的GUI界面</title>
+    <link href="https://studydrive.club/2020/06/03/matlab-de-gui-jie-mian/"/>
+    <id>https://studydrive.club/2020/06/03/matlab-de-gui-jie-mian/</id>
+    <published>2020-06-03T10:19:23.000Z</published>
+    <updated>2020-09-21T14:19:58.246Z</updated>
+    
+    <summary type="html">
+    
+      matlab程序打包成APP（转载自matlab官方文档）
+    
+    </summary>
+    
+    
+      <category term="开发" scheme="https://studydrive.club/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="matlab" scheme="https://studydrive.club/tags/matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图像去锯齿(降噪、插值、缩略三连)</title>
+    <link href="https://studydrive.club/2020/05/21/tu-xiang-qu-ju-chi-jiang-zao-cha-zhi/"/>
+    <id>https://studydrive.club/2020/05/21/tu-xiang-qu-ju-chi-jiang-zao-cha-zhi/</id>
+    <published>2020-05-20T16:00:00.000Z</published>
+    <updated>2020-09-21T14:19:58.251Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt; 图像预处理算法的好坏直接关系到后续图像处理的效果，如图像分割、目标识别、边缘提取等，为了获取高质量的数字图像，很多时候都需要对图像进行降噪处理，尽可能的保持原始信息完整性（即主要特征）的同时，又能够去除信号中无用的信息。 &lt;/p&gt;
+&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机视觉" scheme="https://studydrive.club/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+    
+      <category term="python" scheme="https://studydrive.club/tags/python/"/>
+    
+      <category term="图像处理" scheme="https://studydrive.club/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hadoop简单排序</title>
+    <link href="https://studydrive.club/2020/05/15/hadoop-jian-dan-pai-xu/"/>
+    <id>https://studydrive.club/2020/05/15/hadoop-jian-dan-pai-xu/</id>
+    <published>2020-05-14T16:00:00.000Z</published>
+    <updated>2020-09-21T14:19:58.247Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;该文为Hadoop课程的简单排序实现&lt;/p&gt;
+&lt;h2 id=&quot;实验题目&quot;&gt;&lt;a href=&quot;#实验题目&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="hadoop" scheme="https://studydrive.club/tags/hadoop/"/>
+    
+  </entry>
+  
+</feed>

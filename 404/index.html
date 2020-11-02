@@ -1,0 +1,52 @@
+
+		
+		<div class="logo" id="a" onclick="a();" title="点击我有惊喜！">
+				<img src="img/20171216094159_QaLXP.jpeg">
+			</div>
+			<br><br>
+			<div class="container">
+		<p id="roloadText">404！网页君找不到这个网页了哦...</p>
+	</div>
+
+		<div class="box bg-1">
+				<button class="button button--antiman button--round-l button--text-medium" onclick="window.open('https://www.studydrive.club/')"><span>返回首页</span></button>
+	</div>
+	
+	<div class="body_buttom">
+		
+			
+<audio autoplay="" loop="" id="music">
+<source src="music/music.mp3" type="audio/mpeg">
+</audio>
+<script>   
+   function a(){
+     var audio = document.getElementById('music'); 
+     if(audio.paused){                 
+         audio.play();//audio.play();// 播放  
+     }
+     else{
+          audio.pause();// 暂停
+     } 
+   }
+</script>
+	
+
+</div><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
