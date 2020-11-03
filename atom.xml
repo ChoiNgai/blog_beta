@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://studydrive.club/"/>
-  <updated>2020-11-02T09:00:31.693Z</updated>
+  <updated>2020-11-03T14:03:49.146Z</updated>
   <id>https://studydrive.club/</id>
   
   <author>
@@ -17,11 +17,92 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>特征选择FisherScore</title>
+    <link href="https://studydrive.club/2020/11/03/te-zheng-xuan-ze-fisherscore/"/>
+    <id>https://studydrive.club/2020/11/03/te-zheng-xuan-ze-fisherscore/</id>
+    <published>2020-11-03T13:45:08.000Z</published>
+    <updated>2020-11-03T14:03:49.146Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="特征工程" scheme="https://studydrive.club/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拟合&amp;插值&amp;函数逼近</title>
+    <link href="https://studydrive.club/2020/11/03/ni-he-cha-zhi-han-shu-bi-jin/"/>
+    <id>https://studydrive.club/2020/11/03/ni-he-cha-zhi-han-shu-bi-jin/</id>
+    <published>2020-11-03T01:49:42.000Z</published>
+    <updated>2020-11-03T01:53:08.809Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;h2 id=&quot;插值&quot;&gt;&lt;a href=&quot;#插值&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="基础数学" scheme="https://studydrive.club/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>半监督模糊聚类(SFCM)</title>
+    <link href="https://studydrive.club/2020/11/02/ban-jian-du-mo-hu-ju-lei-sfcm/"/>
+    <id>https://studydrive.club/2020/11/02/ban-jian-du-mo-hu-ju-lei-sfcm/</id>
+    <published>2020-11-02T09:06:24.000Z</published>
+    <updated>2020-11-03T13:43:59.078Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;在上一篇中已经介绍过&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="模糊聚类 弱监督学习" scheme="https://studydrive.club/tags/%E6%A8%A1%E7%B3%8A%E8%81%9A%E7%B1%BB-%E5%BC%B1%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>模糊C均值聚类(FCM)</title>
     <link href="https://studydrive.club/2020/11/02/mo-hu-c-jun-zhi-ju-lei-fcm/"/>
     <id>https://studydrive.club/2020/11/02/mo-hu-c-jun-zhi-ju-lei-fcm/</id>
     <published>2020-11-02T06:52:12.000Z</published>
-    <updated>2020-11-02T09:00:31.693Z</updated>
+    <updated>2020-11-02T12:33:39.856Z</updated>
     
     <summary type="html">
     
@@ -494,85 +575,6 @@
       <category term="hadoop" scheme="https://studydrive.club/tags/hadoop/"/>
     
       <category term="数据库" scheme="https://studydrive.club/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matlab的GUI界面</title>
-    <link href="https://studydrive.club/2020/06/03/matlab-de-gui-jie-mian/"/>
-    <id>https://studydrive.club/2020/06/03/matlab-de-gui-jie-mian/</id>
-    <published>2020-06-03T10:19:23.000Z</published>
-    <updated>2020-09-21T14:19:58.246Z</updated>
-    
-    <summary type="html">
-    
-      matlab程序打包成APP（转载自matlab官方文档）
-    
-    </summary>
-    
-    
-      <category term="开发" scheme="https://studydrive.club/categories/%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="matlab" scheme="https://studydrive.club/tags/matlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图像去锯齿(降噪、插值、缩略三连)</title>
-    <link href="https://studydrive.club/2020/05/21/tu-xiang-qu-ju-chi-jiang-zao-cha-zhi/"/>
-    <id>https://studydrive.club/2020/05/21/tu-xiang-qu-ju-chi-jiang-zao-cha-zhi/</id>
-    <published>2020-05-20T16:00:00.000Z</published>
-    <updated>2020-09-21T14:19:58.251Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt; 图像预处理算法的好坏直接关系到后续图像处理的效果，如图像分割、目标识别、边缘提取等，为了获取高质量的数字图像，很多时候都需要对图像进行降噪处理，尽可能的保持原始信息完整性（即主要特征）的同时，又能够去除信号中无用的信息。 &lt;/p&gt;
-&lt;p&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-    
-      <category term="计算机视觉" scheme="https://studydrive.club/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-    
-      <category term="python" scheme="https://studydrive.club/tags/python/"/>
-    
-      <category term="图像处理" scheme="https://studydrive.club/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hadoop简单排序</title>
-    <link href="https://studydrive.club/2020/05/15/hadoop-jian-dan-pai-xu/"/>
-    <id>https://studydrive.club/2020/05/15/hadoop-jian-dan-pai-xu/</id>
-    <published>2020-05-14T16:00:00.000Z</published>
-    <updated>2020-09-21T14:19:58.247Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;该文为Hadoop课程的简单排序实现&lt;/p&gt;
-&lt;h2 id=&quot;实验题目&quot;&gt;&lt;a href=&quot;#实验题目&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
-    
-    
-      <category term="hadoop" scheme="https://studydrive.club/tags/hadoop/"/>
     
   </entry>
   
