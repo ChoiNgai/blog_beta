@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://studydrive.club/"/>
-  <updated>2020-11-04T00:59:01.524Z</updated>
+  <updated>2020-11-06T12:57:17.964Z</updated>
   <id>https://studydrive.club/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>特征选择 Laplacian Score</title>
+    <title>特征选择 LaplacianScore</title>
     <link href="https://studydrive.club/2020/11/03/te-zheng-xuan-ze-laplacian-score/"/>
     <id>https://studydrive.club/2020/11/03/te-zheng-xuan-ze-laplacian-score/</id>
     <published>2020-11-03T15:21:24.000Z</published>
-    <updated>2020-11-04T00:59:01.524Z</updated>
+    <updated>2020-11-06T12:57:17.964Z</updated>
     
     <summary type="html">
     
@@ -48,7 +48,7 @@
     <link href="https://studydrive.club/2020/11/03/te-zheng-xuan-ze-fisherscore/"/>
     <id>https://studydrive.club/2020/11/03/te-zheng-xuan-ze-fisherscore/</id>
     <published>2020-11-03T13:45:08.000Z</published>
-    <updated>2020-11-06T12:53:51.246Z</updated>
+    <updated>2020-11-06T12:54:24.673Z</updated>
     
     <summary type="html">
     
@@ -310,7 +310,9 @@
         
         
           &lt;p&gt;运筹学中的指派问题，这里并非用匈牙利法求解。其中C为效率矩阵。&lt;/p&gt;
-&lt;pre class=&quot; language-matlab&quot;&gt;&lt;code class=&quot;language-matlab&quot;&gt;&lt;span class=&quot;token comment&quot;
+&lt;pre class=&quot; language-lang-matlab&quot;&gt;&lt;code class=&quot;language-lang-matlab&quot;&gt;%适用于任意n阶系数矩阵
+clear all；
+   
         
       
     
@@ -320,9 +322,9 @@
       <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
     
     
-      <category term="基础数学" scheme="https://studydrive.club/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="数学建模" scheme="https://studydrive.club/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+      <category term="基础数学" scheme="https://studydrive.club/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
