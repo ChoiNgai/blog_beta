@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://studydrive.club/"/>
-  <updated>2020-11-03T14:06:44.950Z</updated>
+  <updated>2020-11-04T00:59:01.524Z</updated>
   <id>https://studydrive.club/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>特征选择 Laplacian Score</title>
+    <link href="https://studydrive.club/2020/11/03/te-zheng-xuan-ze-laplacian-score/"/>
+    <id>https://studydrive.club/2020/11/03/te-zheng-xuan-ze-laplacian-score/</id>
+    <published>2020-11-03T15:21:24.000Z</published>
+    <updated>2020-11-04T00:59:01.524Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;上次介绍了&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="特征工程" scheme="https://studydrive.club/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>特征选择FisherScore</title>
     <link href="https://studydrive.club/2020/11/03/te-zheng-xuan-ze-fisherscore/"/>
     <id>https://studydrive.club/2020/11/03/te-zheng-xuan-ze-fisherscore/</id>
     <published>2020-11-03T13:45:08.000Z</published>
-    <updated>2020-11-03T14:06:44.950Z</updated>
+    <updated>2020-11-06T12:48:00.120Z</updated>
     
     <summary type="html">
     
@@ -48,7 +75,7 @@
     <link href="https://studydrive.club/2020/11/03/ni-he-cha-zhi-han-shu-bi-jin/"/>
     <id>https://studydrive.club/2020/11/03/ni-he-cha-zhi-han-shu-bi-jin/</id>
     <published>2020-11-03T01:49:42.000Z</published>
-    <updated>2020-11-03T14:06:08.048Z</updated>
+    <updated>2020-11-06T12:41:36.605Z</updated>
     
     <summary type="html">
     
@@ -283,9 +310,7 @@
         
         
           &lt;p&gt;运筹学中的指派问题，这里并非用匈牙利法求解。其中C为效率矩阵。&lt;/p&gt;
-&lt;pre class=&quot; language-lang-matlab&quot;&gt;&lt;code class=&quot;language-lang-matlab&quot;&gt;%适用于任意n阶系数矩阵
-clear all；
-   
+&lt;pre class=&quot; language-matlab&quot;&gt;&lt;code class=&quot;language-matlab&quot;&gt;&lt;span class=&quot;token comment&quot;
         
       
     
@@ -295,9 +320,9 @@ clear all；
       <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
     
     
-      <category term="基础数学" scheme="https://studydrive.club/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="数学建模" scheme="https://studydrive.club/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+      <category term="基础数学" scheme="https://studydrive.club/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -549,36 +574,6 @@ clear all；
       <category term="linux" scheme="https://studydrive.club/tags/linux/"/>
     
       <category term="python" scheme="https://studydrive.club/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HBase应用实验</title>
-    <link href="https://studydrive.club/2020/06/05/hbase-shi-yan/"/>
-    <id>https://studydrive.club/2020/06/05/hbase-shi-yan/</id>
-    <published>2020-06-04T18:28:11.000Z</published>
-    <updated>2020-09-21T14:19:58.242Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;该文为Hadoop课程的HBase的应用实验&lt;/p&gt;
-&lt;h2 id=&quot;实验题目&quot;&gt;&lt;a href=&quot;#实验题目&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
-    
-    
-      <category term="hadoop" scheme="https://studydrive.club/tags/hadoop/"/>
-    
-      <category term="数据库" scheme="https://studydrive.club/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
