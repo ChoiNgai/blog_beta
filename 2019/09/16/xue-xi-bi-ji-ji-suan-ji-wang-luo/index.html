@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3k
                 </div>
                 
 
@@ -726,9 +726,7 @@ E[接收设备]--&gt;F[信宿]</pre>
 </ol>
 <ul>
 <li><p>栗子二，接入网络：电缆网络</p>
-<center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200705192154360.png" width="50%"></center>
-FDM频分多路复用：在不同频带(载波)上传输不同频道
-
+<p></p><center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200705192154360.png" width="50%"></center><br>FDM频分多路复用：在不同频带(载波)上传输不同频道<p></p>
 <p>HFC：混合光纤同轴电缆（非对称，下行高达30Mbps传输速率，上行2Mbps传输速率）</p>
 </li>
 </ul>
@@ -738,10 +736,7 @@ FDM频分多路复用：在不同频带(载波)上传输不同频道
 <center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200705192228414.png" width="50%"></center>
 </li>
 <li><p>栗子四，接入网络：机构(企业)接入网络</p>
-<center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200705192307888.png" width="50%"></center>
-主要用于公司、高校等组织机构    (个人或家庭也可以用)
-
-
+<p></p><center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200705192307888.png" width="50%"></center><br>主要用于公司、高校等组织机构    (个人或家庭也可以用)<p></p>
 </li>
 </ul>
 <p>典型传输速率：10Mbps,100Mbps,1Gbps,10Gbps    </p>
@@ -774,38 +769,65 @@ FDM频分多路复用：在不同频带(载波)上传输不同频道
 
 
 
-<h3 id="Internet结构"><a href="#Internet结构" class="headerlink" title="Internet结构"></a>Internet结构</h3><p>端系统通过<strong>接入ISP（access ISPs）</strong>连接到Internet，例如家庭、公司和大学ISPs</p>
-<p>接入ISP必须进一步互联（这样任意两个主机才可以互相发送分组）</p>
-<p>构成复杂的网络互连的网络（经济和国家政策是网络演进的主要驱动力）</p>
-<p>当前Internet结构无人能给出精确描述</p>
-<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200705192518036.png" alt="数以百万计的ISP互连"></p>
-<h2 id="1-3-网络核心"><a href="#1-3-网络核心" class="headerlink" title="1.3 网络核心"></a>1.3 网络核心</h2><h4 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h4><p>考虑：$N^2$链路问题，连通性，网络规模</p>
-<p>交换的含义：1.动态转接；2.<strong>动态分配传输资源</strong>；</p>
-<p>数据交换的类型：    </p>
-<ol>
-<li>电路交换</li>
-<li>报文交换</li>
-<li>分组交换</li>
-</ol>
-<ul>
-<li><p>电路交换的特点</p>
-<ul>
-<li>最典型的交换网络：电话网络</li>
-</ul>
-<center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200705235934426.png" width="50%"></center></li>
-<li><p>电路交换的三个阶段:</p>
-<ol>
-<li>建立连接（呼叫/电路建立）</li>
-<li>通信</li>
-<li>释放连接（拆除电路）</li>
-</ol>
-</li>
-<li><p><strong>独占资源</strong>（释放连接之后电路资源才可被第三方占有）</p>
-<p>【然而电路交换网络中，每条电路<strong>不是</strong>独占其经过的物理链路的，至于电路交换网络如何实现<strong>链路共享</strong>，这又扯到<strong>多路复用</strong>】 </p>
-<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200706001014777.png" alt=""></p>
-</li>
-</ul>
-<h4 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h4><p>多路复用(multiplexing)，简称<strong>复用</strong>，是通信技术中的基本概念。</p>
+### Internet结构
+
+端系统通过**接入ISP（access ISPs）**连接到Internet，例如家庭、公司和大学ISPs
+
+接入ISP必须进一步互联（这样任意两个主机才可以互相发送分组）
+
+构成复杂的网络互连的网络（经济和国家政策是网络演进的主要驱动力）
+
+当前Internet结构无人能给出精确描述
+
+
+
+![数以百万计的ISP互连](https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200705192518036.png)
+
+## 1.3 网络核心
+
+
+
+#### 电路交换
+
+
+
+考虑：$N^2$链路问题，连通性，网络规模
+
+
+
+交换的含义：1.动态转接；2.**动态分配传输资源**；
+
+
+
+数据交换的类型：    
+
+1. 电路交换
+2. 报文交换
+3. 分组交换
+
+
+
+- 电路交换的特点
+
+  - 最典型的交换网络：电话网络
+
+  <center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200705235934426.png" width="50%"></center>
+- 电路交换的三个阶段:
+
+    1. 建立连接（呼叫/电路建立）
+    2. 通信
+    3. 释放连接（拆除电路）
+
+- **独占资源**（释放连接之后电路资源才可被第三方占有）
+
+  【然而电路交换网络中，每条电路**不是**独占其经过的物理链路的，至于电路交换网络如何实现**链路共享**，这又扯到**多路复用**】 
+
+  ![](https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200706001014777.png)
+
+#### 多路复用
+
+多路复用(multiplexing)，简称**复用**，是通信技术中的基本概念。
+
 <center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200706001117993.png" width="50%"></center>
 
 <ul>
@@ -865,18 +887,19 @@ FDM频分多路复用：在不同频带(载波)上传输不同频道
 <p>如发送比特 0 （-1），则发送自己的m bit 码片序列的反码</p>
 </li>
 <li><p>各用户序列相互正交（orthogonal）</p>
-<p>$$<br>\frac{1}{m} S_0 \cdot S_j = \left {</p>
-<pre><code>      \begin{aligned}   1, i=j          \\\\
-  0, i \not = j   \end{aligned}        \right.  \\\\        \frac{1}{m} S_0 \cdot S_j = \left \{    \begin{aligned}      -1, i=j    \\\\      0, i \not = j \end{aligned} \right.</code></pre><p>$$</p>
-<p>此用于判断是否为用户自己的码片序列，令$d_i$为原始数据序列，各用户的叠加向量为：</p>
+<script type="math/tex; mode=display">
+\frac{1}{m} S_0 \cdot S_j = \left \{
+          \begin{aligned}   1, i=j          \\\\
+      0, i \not = j   \end{aligned}        \right.  \\\\        \frac{1}{m} S_0 \cdot S_j = \left \{    \begin{aligned}      -1, i=j    \\\\      0, i \not = j \end{aligned} \right.</script><p>此用于判断是否为用户自己的码片序列，令$d_i$为原始数据序列，各用户的叠加向量为：</p>
 </li>
 </ul>
-<p>$$<br>P = \sum_{i=1}^N d_i \cdot S_i = \sum_{i=1}^N  \overset{(-)} S_i<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+P = \sum_{i=1}^N d_i \cdot S_i = \sum_{i=1}^N  \overset{(-)} S_i</script></li>
 </ul>
 <p>​    </p>
 <ul>
-<li><strong>解码</strong>：码片序列与编码信号的<strong>内积</strong><br>$$<br>\frac{1}{m} S_i \cdot P = \left {    \begin{aligned}    &amp;1,    &amp; S_i \in j \    &amp;-1,&amp;  \overset{-} S_i \in P    \    &amp;0,    &amp;    S_i,\overset{-} S_i \not \in P  \end{aligned}    \right.<br>$$</li>
+<li><strong>解码</strong>：码片序列与编码信号的<strong>内积</strong><script type="math/tex; mode=display">
+\frac{1}{m} S_i \cdot P = \left \{    \begin{aligned}    &1,    & S_i \in j \\    &-1,&  \overset{-} S_i \in P    \\    &0,    &    S_i,\overset{-} S_i \not \in P  \end{aligned}    \right.</script></li>
 </ul>
 <p>​    <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200706010859310.png" alt="单个用户"></p>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200706010939848.png" alt="多个用户"></p>
@@ -887,7 +910,7 @@ FDM频分多路复用：在不同频带(载波)上传输不同频道
 <p>C.110</p>
 <p>D.111</p>
 <p>正确答案是 B</p>
-<p>C接收到的是A，B发送过来的叠加码片，C想要看A发送的数据，就将接收到的叠加码片与A的码片序列进行规格化内积操作：（2，0，2，0；0，-2，0，-2；0，2，0，2）每四位与（1，1，1，1）进行规格化内积，（2 * 1+0 * 1+2 * 1+0 * 1)/4=1;（0 * 1+2 * 1+0 * 1+2 * 1)/4=-1，-1即0;（0 * 1+2 * 1+0 * 1+2 * 1)/4=1;可以得到结果101</p>
+<p>C接收到的是A，B发送过来的叠加码片，C想要看A发送的数据，就将接收到的叠加码片与A的码片序列进行规格化内积操作：（2，0，2，0；0，-2，0，-2；0，2，0，2）每四位与（1，1，1，1）进行规格化内积，（2 <em> 1+0 </em> 1+2 <em> 1+0 </em> 1)/4=1;（0 <em> 1+2 </em> 1+0 <em> 1+2 </em> 1)/4=-1，-1即0;（0 <em> 1+2 </em> 1+0 <em> 1+2 </em> 1)/4=1;可以得到结果101</p>
 </blockquote>
 <h4 id="报文交换与分组交换"><a href="#报文交换与分组交换" class="headerlink" title="报文交换与分组交换"></a>报文交换与分组交换</h4><ul>
 <li><p>报文交换（message switching）</p>
@@ -930,8 +953,9 @@ FDM频分多路复用：在不同频带(载波)上传输不同频道
 </li>
 <li><p>拆分为较小长度为<strong>L</strong></p>
 </li>
-<li><p>在传输速率为<strong>R</strong>的链路上传输妇分组<br>$$<br>分组传输延迟(时延delay)= \frac{L(bits)}{R(bits/sec)}<br>$$</p>
-</li>
+<li><p>在传输速率为<strong>R</strong>的链路上传输妇分组</p>
+<script type="math/tex; mode=display">
+分组传输延迟(时延delay)= \frac{L(bits)}{R(bits/sec)}</script></li>
 </ul>
 </li>
 </ul>
@@ -1346,19 +1370,19 @@ FDM频分多路复用：在不同频带(载波)上传输不同频道
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/20/shu-xue-jian-mo-chang-yong-de-fen-xi-fa-ji-qi-matlab-shi-xian/">
+                <a href="/2019/09/20/qu-xian-ni-he/">
                     <div class="card-image">
                         
                         
-                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_436.jpg" class="responsive-img" alt="数学建模常用的分析法MATLAB实现">
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1204.jpg" class="responsive-img" alt="曲线拟合">
                         
-                        <span class="card-title">数学建模常用的分析法MATLAB实现</span>
+                        <span class="card-title">曲线拟合</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            主成分分析，层次分析,聚类分析,因子分析的简单介绍以及在MATLAB（2018a）上使用的简单介绍 ( 附源码 )
+                            拟合
                         
                     </div>
                     <div class="publish-info">
@@ -1382,10 +1406,6 @@ FDM频分多路复用：在不同频带(载波)上传输不同频道
                     
                     <a href="/tags/matlab/">
                         <span class="chip bg-color">matlab</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
-                        <span class="chip bg-color">数学建模</span>
                     </a>
                     
                 </div>
@@ -1647,7 +1667,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71k</span>&nbsp;字
+                class="white-color">68.3k</span>&nbsp;字
             
             
             
