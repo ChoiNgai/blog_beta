@@ -1,4 +1,4 @@
-/*
+﻿/*
  * @auther	 rstyro
  * @blog	 http://sealo.xyz/
  * @Date	 2018-04-05 
@@ -22,7 +22,7 @@
             };
             var text = obj.text();
             var newMarkup = '';
-            for (var i = 0; i &lt;= text.length; i++) {
+            for (var i = 0; i <= text.length; i++) {
                 var character = text.slice(i, i + 1);
                 newMarkup += ($.trim(character)) ? '<span class="beat-char">' + character + '</span>' : character
             }
@@ -94,22 +94,4 @@
 		
 	}
 
-})(jQuery);<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+})(jQuery);

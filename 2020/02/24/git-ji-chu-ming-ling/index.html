@@ -622,31 +622,40 @@
 <p>这样就能在电脑的任意文件夹位置打开git</p>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/80ef2b6371e96bf39133297493ccf7e.png" alt=""></p>
 <h2 id="本地"><a href="#本地" class="headerlink" title="本地"></a>本地</h2><h3 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h3><p>在你存放项目代码的文件夹，输入代码新建Git本地仓库</p>
-<pre><code>  git init</code></pre><p>新建之后会出现一个git文件夹，并且存放项目代码的文件夹会出现一个<strong>绿色的勾</strong>,表示已经同步到本地分支；命令行用户最后面有个<strong>master</strong>，表示在本地的master分支。</p>
+<pre><code>  git init
+</code></pre><p>新建之后会出现一个git文件夹，并且存放项目代码的文件夹会出现一个<strong>绿色的勾</strong>,表示已经同步到本地分支；命令行用户最后面有个<strong>master</strong>，表示在本地的master分支。</p>
 <p> 此时可以通过命令git branch查看本地分支</p>
 <pre><code> git branch  #查看本地分支
  git branch -r  #查看远程分支
- git branch -a  #查看所有分支</code></pre><p>在这里先不介绍远程，先学会本地版本控制</p>
+ git branch -a  #查看所有分支
+</code></pre><p>在这里先不介绍远程，先学会本地版本控制</p>
 <p>如果需要创建其他分支，可以用切换分支的命令加上参数创建分支</p>
 <pre><code>  git checkout dev #切换到本地的dev分支
-  git checkout -b dev #创建并切换到本地的dev分支</code></pre><h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>修改文件后，<strong>绿色的勾</strong>会变成<strong>红色的感叹号</strong>，表示更新到git的分支(如果切换到了master分支，就表示该文件没有更新到master分支，如果切换到dev分支就表示该文件没有更新到dev分支)</p>
+  git checkout -b dev #创建并切换到本地的dev分支
+</code></pre><h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>修改文件后，<strong>绿色的勾</strong>会变成<strong>红色的感叹号</strong>，表示更新到git的分支(如果切换到了master分支，就表示该文件没有更新到master分支，如果切换到dev分支就表示该文件没有更新到dev分支)</p>
 <pre><code>  git add -A  #将所有文件添加到暂存区
   git commit -m "first commit" #这一步是备注，注意这个步骤一定要有，否则会提交失败
-  git push -u origin master #表示提交到远程master分支，在此只是因为没有关联远程分支暂且不管</code></pre><h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>如果某个分支要更新到跟另一个分支的文件一样，使用merge</p>
+  git push -u origin master #表示提交到远程master分支，在此只是因为没有关联远程分支暂且不管
+</code></pre><h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>如果某个分支要更新到跟另一个分支的文件一样，使用merge</p>
 <p>假设现在是在本地dev分支</p>
 <pre><code>  git checkout master #切换到本地master
-  git merge dev #把本地dev分支合并到当前本地分支(master)中</code></pre><h3 id="关联远程"><a href="#关联远程" class="headerlink" title="关联远程"></a>关联远程</h3><pre><code>  git checkout master
+  git merge dev #把本地dev分支合并到当前本地分支(master)中
+</code></pre><h3 id="关联远程"><a href="#关联远程" class="headerlink" title="关联远程"></a>关联远程</h3><pre><code>  git checkout master
   git remote add origin https://github.com/coneycode/hexo-git-backup.git #使用https，之后介绍ssh
-  git fetch origin master #取回(名称为)origin服务器的master分支，即拉取远程master分支</code></pre><h2 id="远程"><a href="#远程" class="headerlink" title="远程"></a>远程</h2><h4 id="首次创建仓库提交"><a href="#首次创建仓库提交" class="headerlink" title="首次创建仓库提交"></a>首次创建仓库提交</h4><pre><code>git init   # 本地创建仓库 
+  git fetch origin master #取回(名称为)origin服务器的master分支，即拉取远程master分支
+</code></pre><h2 id="远程"><a href="#远程" class="headerlink" title="远程"></a>远程</h2><h4 id="首次创建仓库提交"><a href="#首次创建仓库提交" class="headerlink" title="首次创建仓库提交"></a>首次创建仓库提交</h4><pre><code>git init   # 本地创建仓库 
 git add -A  # 提交所有文件
 git commit -m "first commit"  # 提交文件至本地缓存区
 git remote add origin https://github.com/githubusername/githubrepositories.git #添加远程仓库
-git push -u origin master #提交代码至远程仓库master分支</code></pre><h4 id="已有本地仓库提交"><a href="#已有本地仓库提交" class="headerlink" title="已有本地仓库提交"></a>已有本地仓库提交</h4><pre><code>git remote add origin https://github.com/githubusername/githubrepositories.git #添加远程仓库
-git push -u origin master #提交代码至远程仓库master分支</code></pre><p>如果是按照上面的方式提交，那么输入完<code>git push -u origin master</code>会弹出openssh的窗口，先输入<strong>账号名</strong>（就是仓库前的那个名字），再输入密码。每次都要这样岂不是很烦，所以推荐用SSH的方式提交。</p>
+git push -u origin master #提交代码至远程仓库master分支
+</code></pre><h4 id="已有本地仓库提交"><a href="#已有本地仓库提交" class="headerlink" title="已有本地仓库提交"></a>已有本地仓库提交</h4><pre><code>git remote add origin https://github.com/githubusername/githubrepositories.git #添加远程仓库
+git push -u origin master #提交代码至远程仓库master分支
+</code></pre><p>如果是按照上面的方式提交，那么输入完<code>git push -u origin master</code>会弹出openssh的窗口，先输入<strong>账号名</strong>（就是仓库前的那个名字），再输入密码。每次都要这样岂不是很烦，所以推荐用SSH的方式提交。</p>
 <h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>如果是使用https拉取远程分支或者提交代码的话，是要输入账号密码的，麻烦的很，但是只要使用ssh就能省去填写账号密码啦～</p>
 <p>原理是本地生产ssh公钥和私钥，将<strong>公钥</strong>放在远程服务器（github、gitlab、coding、gitee），私钥放在本地，识别到能配对就不用填账号密码了。</p>
 <ul>
-<li><pre><code>  ssh-keygen -t rsa -C "your_email@example.com" #生产ssh密钥，文件位置在C:\Users\用户名\.ssh</code></pre></li>
+<li><pre><code>  ssh-keygen -t rsa -C "your_email@example.com" #生产ssh密钥，文件位置在C:\Users\用户名\.ssh
+</code></pre></li>
 </ul>
 <ul>
 <li>登录github，头像处下拉框选择settings ；</li>
@@ -658,7 +667,8 @@ git push -u origin master #提交代码至远程仓库master分支</code></pre><
 <li>点击<code>New SSH key</code>,title可以任意填，并且将之前生成的 id_rsa.pub 的内容用文本编辑器打开复制到key`输入框中。</li>
 </ul>
 <ul>
-<li><pre><code>  ssh -T git@github.com   #在本地电脑任意位置打开git bash输入此命令确认是否成功</code></pre><p>如果返回<code>Hi username! You’ve successfully authenticated, but GitHub does not provide shell access.</code>就说明成功啦！</p>
+<li><pre><code>  ssh -T git@github.com   #在本地电脑任意位置打开git bash输入此命令确认是否成功
+</code></pre><p>如果返回<code>Hi username! You’ve successfully authenticated, but GitHub does not provide shell access.</code>就说明成功啦！</p>
 <p>接下来就可以愉快地push代码了（前提是网速行，像baidu.com都打开的网速绝对不愉快）</p>
 </li>
 </ul>
@@ -1357,7 +1367,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">74.6k</span>&nbsp;字
+                class="white-color">71.3k</span>&nbsp;字
             
             
             

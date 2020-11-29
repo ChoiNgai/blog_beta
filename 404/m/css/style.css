@@ -1,4 +1,4 @@
-/*大佬们-大神们，不要喷我
+﻿/*大佬们-大神们，不要喷我
  小白们-新手们，不懂的先问百度，百度实在找不到问我谢谢
  QQ202800100*/
 
@@ -54,22 +54,3 @@ body{
 	font-size: 40px;
 	color: red;
 }
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
