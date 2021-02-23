@@ -609,11 +609,13 @@
 <p>$$<br>s.t. \quad u_{ij} \in [0,1]; \sum_{i=1}^c u_{ij}=1<br>$$</p>
 <h2 id="SFCM"><a href="#SFCM" class="headerlink" title="SFCM"></a>SFCM</h2><p>再看SFCM的目标函数：<br>$$<br>J_{sfcm}(U,V) = \sum_{i=1}^c \sum_{j=1}^n u_{ij}^m ||x_j-v_i||^2 + \alpha \sum_{i=1}^c \sum_{j=1}^n (u_{ij} - \widetilde{u}_{ij})^m ||x_j - v_i||^2<br>$$</p>
 <p>$$<br>s.t. \quad u_{ij} \in [0,1]; \sum_{i=1}^c u_{ij}=1<br>$$</p>
-<p>仔细看一下的话就会发现SFCM的目标函数相比FCM增加了$\alpha \sum_{i=1}^c \sum_{j=1}^n (u_{ij} - \widetilde{u}<em>{ij})^m ||x_j - v_i||^2$这一项，再看一下增加的这一项是不是跟FCM也很像? 对，就在隶属度矩阵$u</em>{ij}$后面减去一个$\widetilde{u}_{ij}$（注意区分符号上面有无波浪线），以及在该项前面增加一个正则化项系数$\alpha$（这参数的值是自己设定的，通常设置为5或6效果比较好）。</p>
-<p>这里来解释一下<strong>先验隶属度矩阵</strong>$\widetilde{u}_{ij}$</p>
-<p><strong>先验隶属度矩阵</strong>$\widetilde{u}<em>{ij}$的大小与<strong>隶属度矩阵</strong>$u</em>{ij}$相同，与$u_{ij}$一样都是$c$行$n$列。( i={1,2…c}; j={1,2…n} )</p>
+<p>仔细看一下的话就会发现SFCM的目标函数相比FCM增加了</p>
+<p>$$\alpha \sum_{i=1}^c \sum_{j=1}^n (u_{ij} - \widetilde{u}_{ij})^m ||x_j - v_i||^2$$</p>
+<p>这一项，再看一下增加的这一项是不是跟FCM也很像? 对，就在隶属度矩阵$u_{ij}$后面减去一个$\widetilde{u}_{ij}$（注意区分符号上面有无波浪线），以及在该项前面增加一个正则化项系数$\alpha$（这参数的值是自己设定的）。</p>
+<p>这里来解释一下先验隶属度矩阵$ \widetilde{u}<em>{ij} $，先验隶属度矩阵$\widetilde{u}</em>{ij}$的大小与隶属度矩阵$u_{ij}$相同，与$u_{ij}$一样都是​c行​n列。( i={1,2…c}; j={1,2…n} )</p>
 <p>假设某个数据集有5个样本，分为3类，即$n=5,c=3$。假设只给定前面三个样本标签，且前面三个样本分别属于第一类、第二类、第三类，第四第五个样本的标签信息未知（即没有给定标签），则其$\widetilde{u}<em>{ij}$为：<br>$$<br>\left[ \begin{matrix} 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \end{matrix} \right]<br>$$<br>即样本第i个样本属于第几类，就在第几行写为1，其余的元素全为0。由于需要求目标函数值最小的极小值点，在没有给定样本的隶属度一定的i情况下，SFCM的隶属度矩阵$u</em>{ij}$与给定的先验信息$\widetilde{u}_{ij}$越接近则目标函数值越小（其他标签未知样本的隶属度固定的情况下）。</p>
-<p>再来看迭代式，仍然是用拉格朗日乘数法推导得到，在这里设定$m=2$,得到：<br>$$<br>u_{ij} = \frac{1}{1+a} [ \frac{1+\alpha(1-\sum_{i=1}^c \widetilde{u}<em>{ij} ) }{ \sum</em>{i=1}^c \frac{||x_j-v_i||^2 }{ ||x_j-v_k||^2 } } +\alpha \widetilde{u}_{ij} ]<br>$$</p>
+<p>再来看迭代式，仍然是用拉格朗日乘数法推导得到，在这里设定$m=2$,得到：</p>
+<p>$$<br>u_{ij} = \frac{1}{1+a} [ \frac{1+\alpha(1-\sum_{i=1}^c \widetilde{u}<em>{ij} ) }{ \sum</em>{i=1}^c \frac{||x_j-v_i||^2 }{ ||x_j-v_k||^2 } } +\alpha \widetilde{u}_{ij} ]<br>$$</p>
 <p>$$<br>v_i = \frac{\sum_{j=1}^n u_{ij}^2 x_j }{ \sum_{j=1}^n u_{ij}^2 }<br>$$</p>
 <h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><pre class=" language-matlab"><code class="language-matlab"><span class="token keyword">function</span> <span class="token punctuation">[</span>U<span class="token punctuation">,</span>center<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">SFCMclust</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> cluster_n<span class="token punctuation">,</span>data_label<span class="token punctuation">)</span>
 data_n <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">% 求出data的第一维(rows)数,即样本个数</span>
@@ -1388,6 +1390,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1456,7 +1465,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">76.4k</span>&nbsp;字
+                class="white-color">76.3k</span>&nbsp;字
             
             
             
