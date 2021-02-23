@@ -578,14 +578,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -820,7 +820,7 @@
 <p>5.</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> title <span class="token keyword">from</span> movies <span class="token keyword">where</span> director <span class="token operator">=</span> <span class="token string">'John Lasseter'</span>
 <span class="token keyword">order</span> <span class="token keyword">by</span> length_minutes <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">1</span> <span class="token keyword">offset</span> <span class="token number">2</span></code></pre>
-<h3 id="Review-复习-SELECT-查询"><a href="#Review-复习-SELECT-查询" class="headerlink" title="Review: 复习 SELECT 查询"></a><strong>Review: 复习 SELECT 查询</strong></h3><p>Table(表）: North_american_cities</p>
+<h3 id="Lesson-5（Review）-复习-SELECT-查询"><a href="#Lesson-5（Review）-复习-SELECT-查询" class="headerlink" title="Lesson 5（Review） 复习 SELECT 查询"></a><strong>Lesson 5（Review） 复习 SELECT 查询</strong></h3><p>Table(表）: North_american_cities</p>
 <table>
 <thead>
 <tr>
@@ -926,9 +926,117 @@
 <p>1.</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> North_american_cities <span class="token keyword">where</span> country<span class="token operator">=</span><span class="token string">'Canada'</span></code></pre>
 <p>2.</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> North_american_cities <span class="token keyword">where</span> longitude <span class="token operator">&lt;</span> <span class="token operator">-</span><span class="token number">87.629798</span> <span class="token keyword">order</span> <span class="token keyword">by</span> longitude
-
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> North_american_cities <span class="token keyword">where</span> longitude <span class="token operator">&lt;</span> <span class="token operator">-</span><span class="token number">87.629798</span> <span class="token keyword">order</span> <span class="token keyword">by</span> longitude</code></pre>
+<p>（此处需改进）</p>
+<p>3.</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> North_american_cities <span class="token keyword">where</span> country <span class="token operator">=</span> <span class="token string">'Mexico'</span> <span class="token keyword">order</span> <span class="token keyword">by</span> population <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">2</span></code></pre>
+<p>4.</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> North_american_cities <span class="token keyword">where</span> country <span class="token operator">=</span> <span class="token string">'United States'</span> <span class="token keyword">order</span> <span class="token keyword">by</span> population <span class="token keyword">desc</span>  <span class="token keyword">limit</span> <span class="token number">2</span> <span class="token keyword">offset</span> <span class="token number">2</span></code></pre>
+<h3 id="Lesson-6-用JOINs进行多表联合查询"><a href="#Lesson-6-用JOINs进行多表联合查询" class="headerlink" title="Lesson 6: 用JOINs进行多表联合查询"></a><strong>Lesson 6: 用JOINs进行多表联合查询</strong></h3><p>在<strong>Lesson0</strong>的Movies表基础上增加另外一个表：</p>
+<p>Table: Boxoffice (Read-Only)</p>
+<table>
+<thead>
+<tr>
+<th>Movie_id</th>
+<th>Rating</th>
+<th>Domestic_sales</th>
+<th>International_sales</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>5</td>
+<td>8.2</td>
+<td>380843261</td>
+<td>555900000</td>
+</tr>
+<tr>
+<td>14</td>
+<td>7.4</td>
+<td>268492764</td>
+<td>475066843</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8</td>
+<td>206445654</td>
+<td>417277164</td>
+</tr>
+<tr>
+<td>12</td>
+<td>6.4</td>
+<td>191452396</td>
+<td>368400000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7.9</td>
+<td>245852179</td>
+<td>239163000</td>
+</tr>
+<tr>
+<td>6</td>
+<td>8</td>
+<td>261441092</td>
+<td>370001000</td>
+</tr>
+<tr>
+<td>9</td>
+<td>8.5</td>
+<td>223808164</td>
+<td>297503696</td>
+</tr>
+<tr>
+<td>11</td>
+<td>8.4</td>
+<td>415004880</td>
+<td>648167031</td>
+</tr>
+<tr>
+<td>1</td>
+<td>8.3</td>
+<td>191796233</td>
+<td>170162503</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7.2</td>
+<td>244082982</td>
+<td>217900167</td>
+</tr>
+<tr>
+<td>10</td>
+<td>8.3</td>
+<td>293004164</td>
+<td>438338580</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8.1</td>
+<td>289916256</td>
+<td>272900000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>7.2</td>
+<td>162798565</td>
+<td>200600000</td>
+</tr>
+<tr>
+<td>13</td>
+<td>7.2</td>
+<td>237283207</td>
+<td>301700000</td>
+</tr>
+</tbody></table>
+<p>练习 do it — 请完成如下任务</p>
+<ol>
+<li>【联表】找到所有电影的国内<code>Domestic_sales</code>和国际销售额</li>
+<li>【联表】找到所有国际销售额比国内销售大的电影</li>
+<li>【联表】找出所有电影按市场占有率<code>rating</code>倒序排列</li>
+<li>【联表】每部电影按国际销售额比较,排名最靠前的导演是谁,国际销量多少</li>
+</ol>
+<p>1.</p>
+<p> <code>INNER JOIN</code> 可以简写做 <code>JOIN</code> </p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a href="http://xuesql.cn/" target="_blank" rel="noopener">http://xuesql.cn/</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1621,7 +1729,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">76.1k</span>&nbsp;字
+                class="white-color">76.4k</span>&nbsp;字
             
             
             

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://studydrive.club/"/>
-  <updated>2021-02-23T17:13:35.222Z</updated>
+  <updated>2021-02-23T17:38:08.370Z</updated>
   <id>https://studydrive.club/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://studydrive.club/2021/02/23/sql-lian-xi/"/>
     <id>https://studydrive.club/2021/02/23/sql-lian-xi/</id>
     <published>2021-02-23T15:39:14.000Z</published>
-    <updated>2021-02-23T17:13:35.222Z</updated>
+    <updated>2021-02-23T17:38:08.370Z</updated>
     
     <summary type="html">
     
@@ -129,7 +129,7 @@
     <link href="https://studydrive.club/2020/11/02/ban-jian-du-mo-hu-ju-lei-sfcm/"/>
     <id>https://studydrive.club/2020/11/02/ban-jian-du-mo-hu-ju-lei-sfcm/</id>
     <published>2020-11-02T09:06:24.000Z</published>
-    <updated>2020-11-03T14:15:22.098Z</updated>
+    <updated>2021-02-23T17:39:18.383Z</updated>
     
     <summary type="html">
     
@@ -347,9 +347,9 @@
       <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
     
     
-      <category term="数学建模" scheme="https://studydrive.club/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
-    
       <category term="基础数学" scheme="https://studydrive.club/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="数学建模" scheme="https://studydrive.club/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
     
   </entry>
   
