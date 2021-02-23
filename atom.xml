@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://studydrive.club/"/>
-  <updated>2020-11-06T12:57:17.964Z</updated>
+  <updated>2021-02-23T17:13:35.222Z</updated>
   <id>https://studydrive.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL练习</title>
+    <link href="https://studydrive.club/2021/02/23/sql-lian-xi/"/>
+    <id>https://studydrive.club/2021/02/23/sql-lian-xi/</id>
+    <published>2021-02-23T15:39:14.000Z</published>
+    <updated>2021-02-23T17:13:35.222Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://studydrive.club/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="数据库" scheme="https://studydrive.club/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>特征选择 LaplacianScore</title>
@@ -310,9 +337,7 @@
         
         
           &lt;p&gt;运筹学中的指派问题，这里并非用匈牙利法求解。其中C为效率矩阵。&lt;/p&gt;
-&lt;pre class=&quot; language-lang-matlab&quot;&gt;&lt;code class=&quot;language-lang-matlab&quot;&gt;%适用于任意n阶系数矩阵
-clear all；
-   
+&lt;pre class=&quot; language-matlab&quot;&gt;&lt;code class=&quot;language-matlab&quot;&gt;&lt;span class=&quot;token comment&quot;
         
       
     
@@ -547,35 +572,6 @@ clear all；
       <category term="hadoop" scheme="https://studydrive.club/tags/hadoop/"/>
     
       <category term="数据库" scheme="https://studydrive.club/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux版python升级依赖项问题</title>
-    <link href="https://studydrive.club/2020/06/15/linux-ban-python-sheng-ji-yi-lai-xiang-wen-ti/"/>
-    <id>https://studydrive.club/2020/06/15/linux-ban-python-sheng-ji-yi-lai-xiang-wen-ti/</id>
-    <published>2020-06-15T04:30:15.000Z</published>
-    <updated>2020-09-21T14:19:58.249Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;linux中python2升级到python3，会出现一系列的依赖项未配置问题，如果不解决，将会影响其他环境的安装配置。
-        
-      
-    
-    </summary>
-    
-    
-      <category term="运维" scheme="https://studydrive.club/categories/%E8%BF%90%E7%BB%B4/"/>
-    
-    
-      <category term="linux" scheme="https://studydrive.club/tags/linux/"/>
-    
-      <category term="python" scheme="https://studydrive.club/tags/python/"/>
     
   </entry>
   
