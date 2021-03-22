@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-03-19T12:47:52.937Z</updated>
+  <updated>2021-03-22T16:08:27.613Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习练习笔记</title>
+    <link href="https://www.memorydrive.online/article/ji-qi-xue-xi-lian-xi-bi-ji.html"/>
+    <id>https://www.memorydrive.online/article/ji-qi-xue-xi-lian-xi-bi-ji.html</id>
+    <published>2021-03-22T16:08:27.000Z</published>
+    <updated>2021-03-22T16:08:27.613Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;h2 id=&quot;References&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>SQL实战</title>
@@ -375,9 +398,9 @@
       <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
     
     
-      <category term="数学建模" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
-    
       <category term="基础数学" scheme="https://www.memorydrive.online/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="数学建模" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
     
   </entry>
   
@@ -543,33 +566,6 @@
     
     
       <category term="tips" scheme="https://www.memorydrive.online/tags/tips/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SQL增删改查</title>
-    <link href="https://www.memorydrive.online/article/sql-zeng-shan-gai-cha.html"/>
-    <id>https://www.memorydrive.online/article/sql-zeng-shan-gai-cha.html</id>
-    <published>2020-06-20T18:28:51.000Z</published>
-    <updated>2020-09-21T14:19:58.246Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;增&quot;&gt;&lt;a href=&quot;#增&quot; class=&quot;headerlink&quot; title=&quot;增&quot;&gt;&lt;/a&gt;增&lt;/h2&gt;&lt;h3 id=&quot;INSERT-INTO&quot;&gt;&lt;a href=&quot;#INSERT-INTO&quot; class=&quot;headerlink&quot; title=&quot;INSERT
-        
-      
-    
-    </summary>
-    
-    
-      <category term="基础" scheme="https://www.memorydrive.online/categories/%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="数据库" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
