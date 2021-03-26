@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    116
+                    190
                 </div>
                 
 
@@ -612,26 +612,22 @@ Age int,
 sex varchar,
 login_day     date,
 login_time     time
-)
-</code></pre><ol>
+) </code></pre><ol>
 <li><p>半小时内登录的用户</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">select * from A
-where datediff('h',DateTime,now())<=0.5
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> A
+<span class="token keyword">where</span> datediff<span class="token punctuation">(</span><span class="token string">'h'</span><span class="token punctuation">,</span><span class="token keyword">DateTime</span><span class="token punctuation">,</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">0.5</span></code></pre>
 </li>
 <li><p>某一天登录的用户</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">select * from A
-where login_day = '2021-3-19'
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> A
+<span class="token keyword">where</span> login_day <span class="token operator">=</span> <span class="token string">'2021-3-19'</span></code></pre>
 </li>
 <li><p>连续三天登录的用户</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT userid,time,
-DATE_SUB(left(time,10),INTERVAL t.rn DAY) as flag_date,count(distinct left(time,10))
-from (SELECT userid,time,dense_rank ()over(PARTITION by userid ORDER BY time) as rn
-from  table_A) as t
-GROUP BY user_id,flag_date
-HAVING count(distinct left(time,10))>=3;
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> userid<span class="token punctuation">,</span>time<span class="token punctuation">,</span>
+DATE_SUB<span class="token punctuation">(</span><span class="token keyword">left</span><span class="token punctuation">(</span>time<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>INTERVAL t<span class="token punctuation">.</span>rn DAY<span class="token punctuation">)</span> <span class="token keyword">as</span> flag_date<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">left</span><span class="token punctuation">(</span>time<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> userid<span class="token punctuation">,</span>time<span class="token punctuation">,</span>dense_rank <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">by</span> userid <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> time<span class="token punctuation">)</span> <span class="token keyword">as</span> rn
+<span class="token keyword">from</span>  table_A<span class="token punctuation">)</span> <span class="token keyword">as</span> t
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">,</span>flag_date
+<span class="token keyword">HAVING</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">left</span><span class="token punctuation">(</span>time<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">3</span><span class="token punctuation">;</span></code></pre>
 </li>
 <li></li>
 </ol>
@@ -1038,10 +1034,7 @@ HAVING count(distinct left(time,10))>=3;
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            IntroductionReferences
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el
+                            机器学习练习笔记
                         
                     </div>
                     <div class="publish-info">
@@ -1050,11 +1043,23 @@ HAVING count(distinct left(time,10))>=3;
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            赤沙咀-菜虚坤
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" class="post-category">
+                                    数据科学
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">基础数学</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1315,7 +1320,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.8k</span>&nbsp;字
+                class="white-color">78.5k</span>&nbsp;字
             
             
             

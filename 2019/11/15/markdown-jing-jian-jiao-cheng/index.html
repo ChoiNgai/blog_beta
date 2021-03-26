@@ -610,18 +610,17 @@
 <ul>
 <li>支持latex</li>
 </ul>
-<script type="math/tex; mode=display">
-y_{\theta}=\sum_{i=1}^n   \int_0^{+\infty}\frac{\sigma}{x^2} dx</script><ul>
+<p>$$<br>y_{\theta}=\sum_{i=1}^n   \int_0^{+\infty}\frac{\sigma}{x^2} dx<br>$$</p>
+<ul>
 <li>代码块~语法高亮</li>
 </ul>
-<pre class=" language-lang-python"><code class="language-lang-python">import cv2
-import numpy as np
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> cv2
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 
-def cv_imread(file_path):
-                 cv_img=cv2.imdecode(np.fromfile(file_path, dtype=np.uint8), -1)
-                 cv_img = cv2.IMREAD_GRAYSCALE(img)
-        return cv_img
-</code></pre>
+<span class="token keyword">def</span> <span class="token function">cv_imread</span><span class="token punctuation">(</span>file_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                 cv_img<span class="token operator">=</span>cv2<span class="token punctuation">.</span>imdecode<span class="token punctuation">(</span>np<span class="token punctuation">.</span>fromfile<span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>uint8<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+                 cv_img <span class="token operator">=</span> cv2<span class="token punctuation">.</span>IMREAD_GRAYSCALE<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> cv_img</code></pre>
 <ul>
 <li>流程图</li>
 </ul>
@@ -672,7 +671,20 @@ E[接收设备]--&gt;F[信宿]</pre>
 </ul>
 <ul>
 <li><p>表格</p>
-<p>| A    |  B   |    C |<br>| —— | :—: | —-: |<br>| 哈哈 | 呵呵 | 嗯哼 |</p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th align="center">B</th>
+<th align="right">C</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>哈哈</td>
+<td align="center">呵呵</td>
+<td align="right">嗯哼</td>
+</tr>
+</tbody></table>
 </li>
 </ul>
 <p>编写的文档很自然地可以导出成<kbd>html</kbd>或者<kbd>PDF</kbd>、<kbd>word</kbd>等,图像品质不会压缩。另外大多数博客平台都支持markdown排版，例如这篇就是用markdown写的(都是统一的，就不会像word那样出现乱码或者排版不对这些情况)。相比word，markdown更简洁，功能较少但能让人<strong>专注于写作</strong>（就是不需要去排版，但排版仍然会很好看）</p>
@@ -685,7 +697,7 @@ E[接收设备]--&gt;F[信宿]</pre>
 <p>六级标题: <kbd>######</kbd>+<kbd>空格</kbd>+<kbd>文字</kbd></p>
 <h2 id="黑体斜体"><a href="#黑体斜体" class="headerlink" title="黑体斜体"></a>黑体斜体</h2><p><kbd> * </kbd>  + <kbd>文字</kbd>+ <kbd> * </kbd>让文字变成斜体，注意中间不带空格，如：</p>
 <p><em>文字</em></p>
-<p><kbd><em> </em></kbd>+<kbd>文字</kbd>+ <kbd>**</kbd>  让文字变成黑体，注意中间不带空格，如：</p>
+<p><kbd>* *</kbd>+<kbd>文字</kbd>+ <kbd>**</kbd>  让文字变成黑体，注意中间不带空格，如：</p>
 <p><strong>文字</strong></p>
 <p>只一个<kbd>*</kbd>+<kbd>空格</kbd> 会出现一个点，如：</p>
 <ul>
@@ -1396,7 +1408,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.8k</span>&nbsp;字
+                class="white-color">78.5k</span>&nbsp;字
             
             
             

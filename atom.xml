@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-03-22T16:08:27.613Z</updated>
+  <updated>2021-03-26T17:52:47.348Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>机器学习练习笔记</title>
-    <link href="https://www.memorydrive.online/2021/03/23/ji-qi-xue-xi-lian-xi-bi-ji/"/>
-    <id>https://www.memorydrive.online/2021/03/23/ji-qi-xue-xi-lian-xi-bi-ji/</id>
-    <published>2021-03-22T16:08:27.000Z</published>
-    <updated>2021-03-22T16:08:27.613Z</updated>
+    <title>模糊聚类算法python版</title>
+    <link href="https://www.memorydrive.online/2021/03/27/mo-hu-ju-lei-suan-fa-python-ban/"/>
+    <id>https://www.memorydrive.online/2021/03/27/mo-hu-ju-lei-suan-fa-python-ban/</id>
+    <published>2021-03-26T17:48:26.000Z</published>
+    <updated>2021-03-26T17:52:47.348Z</updated>
     
     <summary type="html">
     
@@ -29,13 +29,45 @@
       
         
         
-          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;h2 id=&quot;References&quot;&gt;&lt;a
+          &lt;h2 id=&quot;introduce&quot;&gt;&lt;a href=&quot;#introduce&quot; class=&quot;headerlink&quot;
         
       
     
     </summary>
     
     
+      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="python 弱监督学习 模糊聚类" scheme="https://www.memorydrive.online/tags/python-%E5%BC%B1%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E7%B3%8A%E8%81%9A%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习练习笔记</title>
+    <link href="https://www.memorydrive.online/2021/03/23/ji-qi-xue-xi-lian-xi-bi-ji/"/>
+    <id>https://www.memorydrive.online/2021/03/23/ji-qi-xue-xi-lian-xi-bi-ji/</id>
+    <published>2021-03-22T16:08:27.000Z</published>
+    <updated>2021-03-22T17:18:26.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;知识&quot;&gt;&lt;a href=&quot;#知识&quot; class=&quot;headerlink&quot; title=&quot;知识&quot;&gt;&lt;/a&gt;知识&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;计算三个稠密矩阵A,B,C的乘积ABC，假设三个矩阵的尺寸分别是m * n,n * p,p* q,且m &amp;lt; n
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="基础数学" scheme="https://www.memorydrive.online/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -388,9 +420,7 @@
         
         
           &lt;p&gt;运筹学中的指派问题，这里并非用匈牙利法求解。其中C为效率矩阵。&lt;/p&gt;
-&lt;pre class=&quot; language-lang-matlab&quot;&gt;&lt;code class=&quot;language-lang-matlab&quot;&gt;%适用于任意n阶系数矩阵
-clear all；
-   
+&lt;pre class=&quot; language-matlab&quot;&gt;&lt;code class=&quot;language-matlab&quot;&gt;&lt;span class=&quot;token comment&quot;
         
       
     
@@ -538,33 +568,6 @@ clear all；
     
     
       <category term="tool" scheme="https://www.memorydrive.online/categories/tool/"/>
-    
-    
-      <category term="tips" scheme="https://www.memorydrive.online/tags/tips/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>五分钟读懂电脑配置</title>
-    <link href="https://www.memorydrive.online/2020/06/22/wu-fen-zhong-du-dong-dian-nao-pei-zhi/"/>
-    <id>https://www.memorydrive.online/2020/06/22/wu-fen-zhong-du-dong-dian-nao-pei-zhi/</id>
-    <published>2020-06-21T16:00:00.000Z</published>
-    <updated>2020-09-21T14:19:58.250Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="基础" scheme="https://www.memorydrive.online/categories/%E5%9F%BA%E7%A1%80/"/>
     
     
       <category term="tips" scheme="https://www.memorydrive.online/tags/tips/"/>

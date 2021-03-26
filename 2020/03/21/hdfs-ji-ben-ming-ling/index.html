@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    316
+                    315
                 </div>
                 
 
@@ -605,47 +605,42 @@
 <p>掌握Java程序编写，编译，运行的基本方法。</p>
 <h3 id="实验过程："><a href="#实验过程：" class="headerlink" title="实验过程："></a>实验过程：</h3><p>1、Linux基本命令和HDFS基本命令完成以下操作：（30分）</p>
 <p>（1）在Linux根目录下创建一个名为a的文件夹，</p>
-<pre><code>mkdir a
-</code></pre><p>（2）用vim命令在文件夹a中创建一个文件b.txt，文件内容是“Hello world”，</p>
+<pre><code>mkdir a</code></pre><p>（2）用vim命令在文件夹a中创建一个文件b.txt，文件内容是“Hello world”，</p>
 <pre><code>cd mkdir
 touch b.txt
-echo "Hello world" &gt; b.txt
-</code></pre><p>（3）在HDFS根目录下创建一个名为test的文件夹，</p>
-<pre><code>hadoop fs -mkdir test
-</code></pre><p>（4）将b.txt上传到test文件夹中。</p>
-<pre><code>hdfs dfs -put ~/b.txt
-</code></pre><p>2、在eclipse环境下调试下列程序，在HDFS上创建/test/aw1.txt，并写入”hello”</p>
-<pre class=" language-lang-java"><code class="language-lang-java">import org.apache.hadoop.conf.Configuration;
+echo "Hello world" &gt; b.txt</code></pre><p>（3）在HDFS根目录下创建一个名为test的文件夹，</p>
+<pre><code>hadoop fs -mkdir test</code></pre><p>（4）将b.txt上传到test文件夹中。</p>
+<pre><code>hdfs dfs -put ~/b.txt</code></pre><p>2、在eclipse环境下调试下列程序，在HDFS上创建/test/aw1.txt，并写入”hello”</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>Configuration<span class="token punctuation">;</span>
 
-import org.apache.hadoop.fs.FSDataInputStream;
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>fs<span class="token punctuation">.</span>FSDataInputStream<span class="token punctuation">;</span>
 
-import org.apache.hadoop.fs.FSDataOutputStream;
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>fs<span class="token punctuation">.</span>FSDataOutputStream<span class="token punctuation">;</span>
 
-import org.apache.hadoop.fs.Path;
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>fs<span class="token punctuation">.</span>Path<span class="token punctuation">;</span>
 
-import org.apache.hadoop.fs.FileSystem;
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>fs<span class="token punctuation">.</span>FileSystem<span class="token punctuation">;</span>
 
 
- public class WordCount {
+ <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WordCount</span> <span class="token punctuation">{</span>
 
-  public static void main(String[] args) throws Exception{
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception<span class="token punctuation">{</span>
 
-   Configuration conf=new Configuration();
+   Configuration conf<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Configuration</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    conf.set("fs.defaultFS","hdfs://Cent12:9000/");
+    conf<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"fs.defaultFS"</span><span class="token punctuation">,</span><span class="token string">"hdfs://Cent12:9000/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-     FileSystem fs=FileSystem.get(conf);
+     FileSystem fs<span class="token operator">=</span>FileSystem<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>conf<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-     Path path = new Path("/test/aw1.txt");
+     Path path <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Path</span><span class="token punctuation">(</span><span class="token string">"/test/aw1.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-     FSDataOutputStream fos = fs.create(path);        
+     FSDataOutputStream fos <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>        
 
-     fos.writeBytes("hello");
+     fos<span class="token punctuation">.</span><span class="token function">writeBytes</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  }
+  <span class="token punctuation">}</span>
 
- }
-</code></pre>
+ <span class="token punctuation">}</span></code></pre>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1329,7 +1324,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.8k</span>&nbsp;字
+                class="white-color">78.5k</span>&nbsp;字
             
             
             
