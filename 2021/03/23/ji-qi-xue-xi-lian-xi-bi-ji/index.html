@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    187
+                    135
                 </div>
                 
 
@@ -601,33 +601,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h1><ol>
-<li><p>计算三个稠密矩阵A,B,C的乘积ABC，假设三个矩阵的尺寸分别是m * n,n * p,p* q,且m &lt; n &lt; p &lt; q，则计算效率最高顺序是：</p>
+<li><p>计算三个稠密矩阵A,B,C的乘积ABC，假设三个矩阵的尺寸分别是m <em> n,n </em> p,p* q,且m &lt; n &lt; p &lt; q，则计算效率最高顺序是：</p>
 <p>ABC</p>
 <p>解析：(AB)C</p>
-<p>(AB)C先计算AB，AB相乘的计算次数为m * n * p（m行，每一行中又n列乘以p行，画出矩阵来容易理解），（AB）与C相乘的次数为 m * p * q，则计算总次数为：m * n * p + m * p * q</p>
-<p>而A(BC)的计算次数为n * p * q + m * n * q</p>
+<p>(AB)C先计算AB，AB相乘的计算次数为m <em> n </em> p（m行，每一行中又n列乘以p行，画出矩阵来容易理解），（AB）与C相乘的次数为 m <em> p </em> q，则计算总次数为：m <em> n </em> p + m <em> p </em> q</p>
+<p>而A(BC)的计算次数为n <em> p </em> q + m <em> n </em> q</p>
 </li>
 <li></li>
 </ol>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
             </div>
             <hr/>
 
@@ -1298,7 +1280,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">78.5k</span>&nbsp;字
+                class="white-color">69.2k</span>&nbsp;字
             
             
             

@@ -586,7 +586,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    275
+                    223
                 </div>
                 
 
@@ -608,76 +608,58 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="http://mmlab.ie.cuhk.edu.hk/projects/SRCNN/SRCNN_v1.zip" target="_blank" rel="noopener">下载matlab版完整代码</a><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/%E8%B6%85%E5%88%86%E8%BE%A8-figure1.png" alt="效果图"> </p>
-<pre class=" language-matlab"><code class="language-matlab">close all<span class="token punctuation">;</span>
-clear all<span class="token punctuation">;</span>
+                <p><a href="http://mmlab.ie.cuhk.edu.hk/projects/SRCNN/SRCNN_v1.zip" target="_blank" rel="noopener">下载matlab版完整代码</a><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/超分辨-figure1.png" alt="效果图"> </p>
+<pre class=" language-lang-matlab"><code class="language-lang-matlab">close all;
+clear all;
 
-<span class="token comment" spellcheck="true">%% 读取真实图像</span>
-im  <span class="token operator">=</span> <span class="token function">imread</span><span class="token punctuation">(</span><span class="token string">'Set5\butterfly_GT.bmp'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">%im  = imread(</span><span class="token string">'Set14\zebra.bmp'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+%% 读取真实图像
+im  = imread('Set5\butterfly_GT.bmp');
+%im  = imread('Set14\zebra.bmp');
 
-<span class="token comment" spellcheck="true">%% 设定参数</span>
-up_scale <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-model <span class="token operator">=</span> <span class="token string">'model\x3.mat'</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">% up_scale = 2;</span>
-<span class="token comment" spellcheck="true">% model = </span><span class="token string">'model\x2.mat'</span><span class="token punctuation">;</span> 
-<span class="token comment" spellcheck="true">% up_scale = 4;</span>
-<span class="token comment" spellcheck="true">% model = </span><span class="token string">'model\x4.mat'</span><span class="token punctuation">;</span>
+%% 设定参数
+up_scale = 3;
+model = 'model\x3.mat';
+% up_scale = 2;
+% model = 'model\x2.mat'; 
+% up_scale = 4;
+% model = 'model\x4.mat';
 
-<span class="token comment" spellcheck="true">%% 仅在照度方面工作</span>
-<span class="token keyword">if</span> <span class="token function">size</span><span class="token punctuation">(</span>im<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span>
-    im <span class="token operator">=</span> <span class="token function">rgb2ycbcr</span><span class="token punctuation">(</span>im<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    im <span class="token operator">=</span> <span class="token function">im</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span> <span class="token operator">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">end</span>
-im_gnd <span class="token operator">=</span> <span class="token function">modcrop</span><span class="token punctuation">(</span>im<span class="token punctuation">,</span> up_scale<span class="token punctuation">)</span><span class="token punctuation">;</span>
-im_gnd <span class="token operator">=</span> <span class="token function">double</span><span class="token punctuation">(</span>im_gnd<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">255</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%single 这里换成double Matlab 7.0就可以运行了</span>
+%% 仅在照度方面工作
+if size(im,3)>1
+    im = rgb2ycbcr(im);
+    im = im(:, :, 1);
+end
+im_gnd = modcrop(im, up_scale);
+im_gnd = double(im_gnd)/255;%single 这里换成double Matlab 7.0就可以运行了
 
-<span class="token comment" spellcheck="true">%% 双三次插值</span>
-im_l <span class="token operator">=</span> <span class="token function">imresize</span><span class="token punctuation">(</span>im_gnd<span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">/</span>up_scale<span class="token punctuation">,</span> <span class="token string">'bicubic'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">%缩小</span>
-im_b <span class="token operator">=</span> <span class="token function">imresize</span><span class="token punctuation">(</span>im_l<span class="token punctuation">,</span> up_scale<span class="token punctuation">,</span> <span class="token string">'bicubic'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%再放大</span>
+%% 双三次插值
+im_l = imresize(im_gnd, 1/up_scale, 'bicubic'); %缩小
+im_b = imresize(im_l, up_scale, 'bicubic');%再放大
 
-<span class="token comment" spellcheck="true">%% SRCNN</span>
-im_h <span class="token operator">=</span> <span class="token function">SRCNN</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> im_b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+%% SRCNN
+im_h = SRCNN(model, im_b);
 
-<span class="token comment" spellcheck="true">%% 删除边框</span>
-im_h <span class="token operator">=</span> <span class="token function">shave</span><span class="token punctuation">(</span><span class="token function">uint8</span><span class="token punctuation">(</span>im_h <span class="token operator">*</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>up_scale<span class="token punctuation">,</span> up_scale<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-im_gnd <span class="token operator">=</span> <span class="token function">shave</span><span class="token punctuation">(</span><span class="token function">uint8</span><span class="token punctuation">(</span>im_gnd <span class="token operator">*</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>up_scale<span class="token punctuation">,</span> up_scale<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-im_b <span class="token operator">=</span> <span class="token function">shave</span><span class="token punctuation">(</span><span class="token function">uint8</span><span class="token punctuation">(</span>im_b <span class="token operator">*</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>up_scale<span class="token punctuation">,</span> up_scale<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+%% 删除边框
+im_h = shave(uint8(im_h * 255), [up_scale, up_scale]);
+im_gnd = shave(uint8(im_gnd * 255), [up_scale, up_scale]);
+im_b = shave(uint8(im_b * 255), [up_scale, up_scale]);
 
-<span class="token comment" spellcheck="true">%% 计算 PSNR</span>
-psnr_bic <span class="token operator">=</span> <span class="token function">compute_psnr</span><span class="token punctuation">(</span>im_gnd<span class="token punctuation">,</span>im_b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-psnr_srcnn <span class="token operator">=</span> <span class="token function">compute_psnr</span><span class="token punctuation">(</span>im_gnd<span class="token punctuation">,</span>im_h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+%% 计算 PSNR
+psnr_bic = compute_psnr(im_gnd,im_b);
+psnr_srcnn = compute_psnr(im_gnd,im_h);
 
-<span class="token comment" spellcheck="true">%% 显示结果</span>
-<span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token string">'双三次插值的峰值信噪比: %f dB\n'</span><span class="token punctuation">,</span> psnr_bic<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token string">'SRCNN 重建的峰值信噪比: %f dB\n'</span><span class="token punctuation">,</span> psnr_srcnn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+%% 显示结果
+fprintf('双三次插值的峰值信噪比: %f dB\n', psnr_bic);
+fprintf('SRCNN 重建的峰值信噪比: %f dB\n', psnr_srcnn);
 
-figure<span class="token punctuation">,</span> <span class="token function">imshow</span><span class="token punctuation">(</span>im_b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'双三次插值'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-figure<span class="token punctuation">,</span> <span class="token function">imshow</span><span class="token punctuation">(</span>im_h<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">title</span><span class="token punctuation">(</span><span class="token string">'SRCNN 重建'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+figure, imshow(im_b); title('双三次插值');
+figure, imshow(im_h); title('SRCNN 重建');
 
-<span class="token function">imwrite</span><span class="token punctuation">(</span>im_b<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'双三次插值'</span> <span class="token string">'.bmp'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">imwrite</span><span class="token punctuation">(</span>im_h<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'SRCNN 重建'</span> <span class="token string">'.bmp'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+imwrite(im_b, ['双三次插值' '.bmp']);
+imwrite(im_h, ['SRCNN 重建' '.bmp']);
 </code></pre>
 <p><a href="http://mmlab.ie.cuhk.edu.hk/projects/SRCNN.html" target="_blank" rel="noopener">官方地址</a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1353,7 +1335,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">78.5k</span>&nbsp;字
+                class="white-color">69.2k</span>&nbsp;字
             
             
             

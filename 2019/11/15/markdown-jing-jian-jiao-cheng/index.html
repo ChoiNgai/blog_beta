@@ -578,14 +578,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    840
+                    783
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -610,27 +610,28 @@
 <ul>
 <li>支持latex</li>
 </ul>
-<p>$$<br>y_{\theta}=\sum_{i=1}^n   \int_0^{+\infty}\frac{\sigma}{x^2} dx<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+y_{\theta}=\sum_{i=1}^n   \int_0^{+\infty}\frac{\sigma}{x^2} dx</script><ul>
 <li>代码块~语法高亮</li>
 </ul>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> cv2
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<pre class=" language-lang-python"><code class="language-lang-python">import cv2
+import numpy as np
 
-<span class="token keyword">def</span> <span class="token function">cv_imread</span><span class="token punctuation">(</span>file_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                 cv_img<span class="token operator">=</span>cv2<span class="token punctuation">.</span>imdecode<span class="token punctuation">(</span>np<span class="token punctuation">.</span>fromfile<span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>uint8<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-                 cv_img <span class="token operator">=</span> cv2<span class="token punctuation">.</span>IMREAD_GRAYSCALE<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> cv_img</code></pre>
+def cv_imread(file_path):
+                 cv_img=cv2.imdecode(np.fromfile(file_path, dtype=np.uint8), -1)
+                 cv_img = cv2.IMREAD_GRAYSCALE(img)
+        return cv_img
+</code></pre>
 <ul>
 <li>流程图</li>
 </ul>
 <pre class="mermaid">graph LR
 
-A[信源]--&gt;B[发送设备]
-B[发送设备]--&gt;C[信道]
-D[噪声源]--&gt;C[信道]
-C[信道]--&gt;E[接收设备]
-E[接收设备]--&gt;F[信宿]</pre>
+A[信源]-->B[发送设备]
+B[发送设备]-->C[信道]
+D[噪声源]-->C[信道]
+C[信道]-->E[接收设备]
+E[接收设备]-->F[信宿]</pre>
 
 <ul>
 <li>有序列表</li>
@@ -663,7 +664,7 @@ E[接收设备]--&gt;F[信宿]</pre>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/paper/caiwei_study_2020.3-1.jpg" alt="引入图像"></p>
 <ul>
 <li><p>支持html，例如用html的<kbd>img</kbd>标签引入图像,<kbd>center</kbd>标签控制居中，<kbd>width</kbd>控制图片大小</p>
-<center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/paper/caiwei_study_2020.3-1.jpg" width="30%"></center>
+<center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/paper/caiwei_study_2020.3-1.jpg" width="30%"/></center>
 
 
 
@@ -671,20 +672,7 @@ E[接收设备]--&gt;F[信宿]</pre>
 </ul>
 <ul>
 <li><p>表格</p>
-<table>
-<thead>
-<tr>
-<th>A</th>
-<th align="center">B</th>
-<th align="right">C</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>哈哈</td>
-<td align="center">呵呵</td>
-<td align="right">嗯哼</td>
-</tr>
-</tbody></table>
+<p>| A    |  B   |    C |<br>| —— | :—: | —-: |<br>| 哈哈 | 呵呵 | 嗯哼 |</p>
 </li>
 </ul>
 <p>编写的文档很自然地可以导出成<kbd>html</kbd>或者<kbd>PDF</kbd>、<kbd>word</kbd>等,图像品质不会压缩。另外大多数博客平台都支持markdown排版，例如这篇就是用markdown写的(都是统一的，就不会像word那样出现乱码或者排版不对这些情况)。相比word，markdown更简洁，功能较少但能让人<strong>专注于写作</strong>（就是不需要去排版，但排版仍然会很好看）</p>
@@ -697,7 +685,7 @@ E[接收设备]--&gt;F[信宿]</pre>
 <p>六级标题: <kbd>######</kbd>+<kbd>空格</kbd>+<kbd>文字</kbd></p>
 <h2 id="黑体斜体"><a href="#黑体斜体" class="headerlink" title="黑体斜体"></a>黑体斜体</h2><p><kbd> * </kbd>  + <kbd>文字</kbd>+ <kbd> * </kbd>让文字变成斜体，注意中间不带空格，如：</p>
 <p><em>文字</em></p>
-<p><kbd>* *</kbd>+<kbd>文字</kbd>+ <kbd>**</kbd>  让文字变成黑体，注意中间不带空格，如：</p>
+<p><kbd><em> </em></kbd>+<kbd>文字</kbd>+ <kbd>**</kbd>  让文字变成黑体，注意中间不带空格，如：</p>
 <p><strong>文字</strong></p>
 <p>只一个<kbd>*</kbd>+<kbd>空格</kbd> 会出现一个点，如：</p>
 <ul>
@@ -713,25 +701,7 @@ E[接收设备]--&gt;F[信宿]</pre>
 <p>markdown编辑器有很多，我个人比较喜欢用typora，附上win10_64位的下载链接，<a href="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/download/typora-setup-x64.exe" target="_blank" rel="noopener">Typora</a></p>
 <p>官网： <a href="https://www.typora.io/" target="_blank" rel="noopener">https://www.typora.io/</a> (官网下载很慢哦)</p>
 <h2 id="emoji表情"><a href="#emoji表情" class="headerlink" title="emoji表情"></a>emoji表情</h2><p>此外还支持一堆emoji表情，不信你看👉 <a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">emoji</a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1408,7 +1378,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">78.5k</span>&nbsp;字
+                class="white-color">69.2k</span>&nbsp;字
             
             
             
