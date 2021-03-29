@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-03-26T17:52:47.348Z</updated>
+  <updated>2021-03-28T18:42:03.262Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL45讲</title>
+    <link href="https://www.memorydrive.online/2021/03/29/mysql45-jiang/"/>
+    <id>https://www.memorydrive.online/2021/03/29/mysql45-jiang/</id>
+    <published>2021-03-28T18:27:14.000Z</published>
+    <updated>2021-03-28T18:42:03.262Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;《MySQL45》讲转载，侵删&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://sao-operation.gitee.io/my-sql45/01.基础架构：一条SQL查询语句是如何执行的？.html&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>模糊聚类算法python版</title>
@@ -57,7 +81,7 @@
         
         
           &lt;h1 id=&quot;知识&quot;&gt;&lt;a href=&quot;#知识&quot; class=&quot;headerlink&quot; title=&quot;知识&quot;&gt;&lt;/a&gt;知识&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;计算三个稠密矩阵A,B,C的乘积ABC，假设三个矩阵的尺寸分别是m &lt;em&gt; n,n &lt;/em&gt; p,p* q,且m
+&lt;li&gt;&lt;p&gt;计算三个稠密矩阵A,B,C的乘积ABC，假设三个矩阵的尺寸分别是m * n,n * p,p* q,且m &amp;lt; n
         
       
     
@@ -420,9 +444,7 @@
         
         
           &lt;p&gt;运筹学中的指派问题，这里并非用匈牙利法求解。其中C为效率矩阵。&lt;/p&gt;
-&lt;pre class=&quot; language-lang-matlab&quot;&gt;&lt;code class=&quot;language-lang-matlab&quot;&gt;%适用于任意n阶系数矩阵
-clear all；
-   
+&lt;pre class=&quot; language-matlab&quot;&gt;&lt;code class=&quot;language-matlab&quot;&gt;&lt;span class=&quot;token comment&quot;
         
       
     
@@ -545,34 +567,6 @@ clear all；
     
     
       <category term="hadoop" scheme="https://www.memorydrive.online/tags/hadoop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ArtiPub安装</title>
-    <link href="https://www.memorydrive.online/2020/06/25/artipub-an-zhuang/"/>
-    <id>https://www.memorydrive.online/2020/06/25/artipub-an-zhuang/</id>
-    <published>2020-06-25T09:53:23.000Z</published>
-    <updated>2020-09-21T14:19:58.239Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;博客一文多发工具我也用过&lt;strong&gt;openwrite&lt;/strong&gt;，那个免费版的是真心不好用（接口也有点问题）。&lt;/p&gt;
-&lt;p&gt;ArtiPub网上一堆安装教程，但都没法用，这是有原因(&lt;strong&gt;接口很很大问题，原因和后果看最后面~参考资料上一点&lt;/stron
-        
-      
-    
-    </summary>
-    
-    
-      <category term="tool" scheme="https://www.memorydrive.online/categories/tool/"/>
-    
-    
-      <category term="tips" scheme="https://www.memorydrive.online/tags/tips/"/>
     
   </entry>
   

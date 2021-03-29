@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    997
+                    987
                 </div>
                 
 
@@ -606,20 +606,19 @@
 <p>安装这里就一笔带过喽，进入的链接选择合适版本即可：</p>
 <p><a href="http://www.ctex.org/HomePage" target="_blank" rel="noopener">http://www.ctex.org/HomePage</a></p>
 <h1 id="纯latex中使用"><a href="#纯latex中使用" class="headerlink" title="纯latex中使用"></a>纯latex中使用</h1><h2 id="基本框架："><a href="#基本框架：" class="headerlink" title="基本框架："></a>基本框架：</h2><p>首先建立一个test.tex文件，在其中输入：</p>
-<pre class=" language-lang-tex"><code class="language-lang-tex">\documentclass{article}
+<pre class=" language-tex"><code class="language-tex">\documentclass{article}
 \begin{document} 
 
 Hello world! 
 
-\end{document}
-</code></pre>
+\end{document}</code></pre>
 <p>这样就生成了一个最基本的tex文件，在TeXShop中点击Typeset或者command+T快捷键(在Sublime Text中是Command+B)就可以编译并生成PDF了</p>
 <h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a><strong>基本语法</strong></h2><p><strong>1. 选择文档类型</strong></p>
 <p>\documentclass{}规定文档的类型，可以选择文章article，也可以选择其它类型，如book、letter等等</p>
 <p><strong>2. 添加注释</strong></p>
 <p>在每一行的末尾加上%，然后就可以添加注释了，编译后注释的内容不会出现在文档中。如果文章内容中需要使用%的话，需要在%前面加上反斜杠\。</p>
 <p><strong>3. 添加标题、作者、日期等信息</strong></p>
-<pre class=" language-lang-text"><code class="language-lang-text">\documentclass{article}  
+<pre class=" language-text"><code class="language-text">\documentclass{article}  
 \title{My first Latex document} 
 \author{Yingshan Li} 
 \date{8/26/2018} 
@@ -628,12 +627,11 @@ Hello world!
 
 Hello world! 
 
-\end{document}
-</code></pre>
+\end{document}</code></pre>
 <p>这样就可以将文章的标题、作者、日期等信息添加到文章中了，\maketitle这个控制序列可以将这些信息按照预定的格式打印出来。</p>
 <p><strong>4. 添加目录</strong></p>
 <p>只需要在导言区中添加\tableofcontents就可以了</p>
-<pre class=" language-lang-text"><code class="language-lang-text">\documentclass{article}  
+<pre class=" language-text"><code class="language-text">\documentclass{article}  
 \title{My first Latex document} 
 \author{Yingshan Li} 
 \date{8/26/2018} 
@@ -643,18 +641,15 @@ Hello world!
 
 Hello world! 
 
-\end{document}
-</code></pre>
-<h2 id="添加章节"><a href="#添加章节" class="headerlink" title="添加章节"></a><strong>添加章节</strong></h2><pre class=" language-lang-text"><code class="language-lang-text">\section{} 
+\end{document}</code></pre>
+<h2 id="添加章节"><a href="#添加章节" class="headerlink" title="添加章节"></a><strong>添加章节</strong></h2><pre class=" language-text"><code class="language-text">\section{} 
 \subsection{} 
-\subsubsection{}
-</code></pre>
-<h2 id="添加段落"><a href="#添加段落" class="headerlink" title="添加段落"></a><strong>添加段落</strong></h2><pre class=" language-lang-text"><code class="language-lang-text">\paragraph{} 
+\subsubsection{}</code></pre>
+<h2 id="添加段落"><a href="#添加段落" class="headerlink" title="添加段落"></a><strong>添加段落</strong></h2><pre class=" language-text"><code class="language-text">\paragraph{} 
 \subparagraph{} 
-\subsubparagraph{}
-</code></pre>
+\subsubparagraph{}</code></pre>
 <h2 id="添加包"><a href="#添加包" class="headerlink" title="添加包"></a><strong>添加包</strong></h2><p>当需要用到非默认存在的包时，需要在导言区中添加，如</p>
-<pre class=" language-lang-text"><code class="language-lang-text">\documentclass{article}  
+<pre class=" language-text"><code class="language-text">\documentclass{article}  
 \usepackage{amsmath} 
 \title{My first Latex document} 
 \author{Yingshan Li} 
@@ -664,23 +659,17 @@ Hello world!
 
 Hello world! 
 
-\end{document}
-</code></pre>
+\end{document}</code></pre>
 <h2 id="字体设置"><a href="#字体设置" class="headerlink" title="字体设置"></a><strong>字体设置</strong></h2><p>一般我们用fontspec包来设置字体</p>
-<pre class=" language-lang-text"><code class="language-lang-text">\usepackage{fontspec} 
-\setmainfont{Times New Roman}
-</code></pre>
+<pre class=" language-text"><code class="language-text">\usepackage{fontspec} 
+\setmainfont{Times New Roman}</code></pre>
 <h1 id="可以在markdown中使用"><a href="#可以在markdown中使用" class="headerlink" title="可以在markdown中使用"></a>可以在markdown中使用</h1><p>注意，既然都可以在markdown中使用，那这些语法也肯定可以在latex中使用。</p>
 <p>以下都是代码块中的是语法，紧接着是效果。</p>
-<h2 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h2><pre><code>\quad
-</code></pre><script type="math/tex; mode=display">
-哈哈哈呵呵呵（中间没有\verb|\quad|）        \\
-哈哈哈 \quad    呵呵呵（中间有\verb|\quad|）</script><h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><pre><code>\\
-</code></pre><script type="math/tex; mode=display">
-哈哈哈 \quad    呵呵呵（中间没有\verb|\|\verb|\|）        \\
-
-哈哈哈 \quad\\    呵呵呵（中间有\verb|\|\verb|\|）</script><p>(PS：为了演示处美观，演示每个公式之后我都换写个<kbd>\ \ </kbd>换下行哈)</p>
-<h2 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a><strong>字体大小</strong></h2><pre class=" language-lang-text"><code class="language-lang-text">\tiny 
+<h2 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h2><pre><code>\quad</code></pre><p>$$<br>哈哈哈呵呵呵（中间没有\verb|\quad|）        \<br>哈哈哈 \quad    呵呵呵（中间有\verb|\quad|）<br>$$</p>
+<h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><pre><code>\\</code></pre><p>$$<br>哈哈哈 \quad    呵呵呵（中间没有\verb||\verb||）        \</p>
+<p>哈哈哈 \quad\    呵呵呵（中间有\verb||\verb||）<br>$$</p>
+<p>(PS：为了演示处美观，演示每个公式之后我都换写个<kbd>\ \ </kbd>换下行哈)</p>
+<h2 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a><strong>字体大小</strong></h2><pre class=" language-text"><code class="language-text">\tiny 
 \scriptsize 
 \small 
 \normalsize 
@@ -688,135 +677,48 @@ Hello world!
 \large 
 \LARGE 
 \huge 
-\Huge
-</code></pre>
-<script type="math/tex; mode=display">
-\tiny sd    \\
-\scriptsize sd    \\
-\small sd        \\
-\normalsize sd        \\
-\large sd        \\
-\large sd        \\
-\LARGE sd        \\
-\huge sd        \\
-\Huge sd        \\</script><h2 id="添加数学公式"><a href="#添加数学公式" class="headerlink" title="添加数学公式"></a><strong>添加数学公式</strong></h2><h2 id="插入行内公式"><a href="#插入行内公式" class="headerlink" title="插入行内公式"></a><strong>插入行内公式</strong></h2><pre class=" language-lang-text"><code class="language-lang-text"> $E=mc^2$.          两个$中间的就会渲染成公式
-</code></pre>
+\Huge</code></pre>
+<p>$$<br>\tiny sd    \<br>\scriptsize sd    \<br>\small sd        \<br>\normalsize sd        \<br>\large sd        \<br>\large sd        \<br>\LARGE sd        \<br>\huge sd        \<br>\Huge sd        \<br>$$</p>
+<h2 id="添加数学公式"><a href="#添加数学公式" class="headerlink" title="添加数学公式"></a><strong>添加数学公式</strong></h2><h2 id="插入行内公式"><a href="#插入行内公式" class="headerlink" title="插入行内公式"></a><strong>插入行内公式</strong></h2><pre class=" language-text"><code class="language-text"> $E=mc^2$.          两个$中间的就会渲染成公式</code></pre>
 <p>哈哈哈$E=mc^2$呵呵</p>
-<h2 id="插入行间公式"><a href="#插入行间公式" class="headerlink" title="插入行间公式"></a><strong>插入行间公式</strong></h2><pre class=" language-lang-text"><code class="language-lang-text">$$
+<h2 id="插入行间公式"><a href="#插入行间公式" class="headerlink" title="插入行间公式"></a><strong>插入行间公式</strong></h2><pre class=" language-text"><code class="language-text">$$
 
-$$
-</code></pre>
-<p>哈哈</p>
-<script type="math/tex; mode=display">
-E=mc^2.</script><p>呵呵</p>
+$$</code></pre>
+<p>哈哈<br>$$<br>E=mc^2.<br>$$<br>呵呵</p>
 <p>（发现了没，相比行间公式，行内公式可以公式与文字在同一行）</p>
-<h2 id="对行间公式进行编号"><a href="#对行间公式进行编号" class="headerlink" title="对行间公式进行编号"></a><strong>对行间公式进行编号</strong></h2><pre class=" language-lang-text"><code class="language-lang-text">\begin{equation} 
+<h2 id="对行间公式进行编号"><a href="#对行间公式进行编号" class="headerlink" title="对行间公式进行编号"></a><strong>对行间公式进行编号</strong></h2><pre class=" language-text"><code class="language-text">\begin{equation} 
 ... 
-\end{equation}
-</code></pre>
-<script type="math/tex; mode=display">{\begin{equation} }
-S_{n+1} = S_{n} + S_{n}    \\
-S_{n}=1=2^{n}
-$$ {\end{equation}
-
-
-
-## **上下标**
-
-```text
-^ %上标
+\end{equation}</code></pre>
+<p>$$ {\begin{equation} }<br>S_{n+1} = S_{n} + S_{n}    \<br>S_{n}=1=2^{n}<br>$$ {\end{equation}</p>
+<h2 id="上下标"><a href="#上下标" class="headerlink" title="上下标"></a><strong>上下标</strong></h2><pre class=" language-text"><code class="language-text">^ %上标
 _ %下标
 
 x^1    
-x_{ij}^m
-```</script><p>x^1    \<br>x_{ij}^m</p>
-<script type="math/tex; mode=display">
-
-
-
-## **分式**
-
-```text
-\frac{m}{n} 
-```</script><p>\frac{m}{n}</p>
-<script type="math/tex; mode=display">
-
-
-
-## **开方**
-
-```text
-\sqrt{a} 
-\sqrt[m]{n} 
-```</script><p>\sqrt{a}     \<br>\sqrt[m]{n} </p>
-<script type="math/tex; mode=display">
-
-
-
-## **累计求和**
-
-```text
-\sum_{i=m}^{n}  
-```</script><p>\sum_{i=m}^{n}</p>
-<script type="math/tex; mode=display">
-
-
-
-## **累计求积**
-
-```text
-\prod_{i=m}^{n} 
-```</script><p>\prod_{i=m}^{n} </p>
-<script type="math/tex; mode=display">
-
-
-
-## **积分**
-
-```text
-\int_{i=m}^{n}
-```</script><p>\int_{i=m}^{n}</p>
-<script type="math/tex; mode=display">
-
-
-
-## **向量**
-
-```text
-\vec a  %a向量 
-\overrightarrow{AB} %A到B的向量
-```</script><p>\vec a    \<br>\overrightarrow{AB}</p>
-<script type="math/tex; mode=display">
-
-
-
-## **省略号**
-
-```text
-a+b+\cdots+z   
-```</script><p>a+b+\cdots+z </p>
-<script type="math/tex; mode=display">
-
-
-
-## **大括号**
-
-```text
-\underbrace{a+b+\cdots+z}_{26} 
-```</script><p>\underbrace{a+b+\cdots+z}_{26} </p>
-<script type="math/tex; mode=display">
-
-
-
-## **横杠**
-
-```text
-\overline{m+n}  %m+n公式上面加上横杠 
-\underline{m+n} %m+n公式下面加上横杠
-```</script><p>\overline{m+n}     \<br>\underline{m+n}</p>
-<p>$$</p>
+x_{ij}^m</code></pre>
+<p>$$<br>x^1    \<br>x_{ij}^m<br>$$</p>
+<h2 id="分式"><a href="#分式" class="headerlink" title="分式"></a><strong>分式</strong></h2><pre class=" language-text"><code class="language-text">\frac{m}{n} </code></pre>
+<p>$$<br>\frac{m}{n}<br>$$</p>
+<h2 id="开方"><a href="#开方" class="headerlink" title="开方"></a><strong>开方</strong></h2><pre class=" language-text"><code class="language-text">\sqrt{a} 
+\sqrt[m]{n} </code></pre>
+<p>$$<br>\sqrt{a}     \<br>\sqrt[m]{n}<br>$$</p>
+<h2 id="累计求和"><a href="#累计求和" class="headerlink" title="累计求和"></a><strong>累计求和</strong></h2><pre class=" language-text"><code class="language-text">\sum_{i=m}^{n}  </code></pre>
+<p>$$<br>\sum_{i=m}^{n}<br>$$</p>
+<h2 id="累计求积"><a href="#累计求积" class="headerlink" title="累计求积"></a><strong>累计求积</strong></h2><pre class=" language-text"><code class="language-text">\prod_{i=m}^{n} </code></pre>
+<p>$$<br>\prod_{i=m}^{n}<br>$$</p>
+<h2 id="积分"><a href="#积分" class="headerlink" title="积分"></a><strong>积分</strong></h2><pre class=" language-text"><code class="language-text">\int_{i=m}^{n}</code></pre>
+<p>$$<br>\int_{i=m}^{n}<br>$$</p>
+<h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a><strong>向量</strong></h2><pre class=" language-text"><code class="language-text">\vec a  %a向量 
+\overrightarrow{AB} %A到B的向量</code></pre>
+<p>$$<br>\vec a    \<br>\overrightarrow{AB}<br>$$</p>
+<h2 id="省略号"><a href="#省略号" class="headerlink" title="省略号"></a><strong>省略号</strong></h2><pre class=" language-text"><code class="language-text">a+b+\cdots+z   </code></pre>
+<p>$$<br>a+b+\cdots+z<br>$$</p>
+<h2 id="大括号"><a href="#大括号" class="headerlink" title="大括号"></a><strong>大括号</strong></h2><pre class=" language-text"><code class="language-text">\underbrace{a+b+\cdots+z}_{26} </code></pre>
+<p>$$<br>\underbrace{a+b+\cdots+z}_{26}<br>$$</p>
+<h2 id="横杠"><a href="#横杠" class="headerlink" title="横杠"></a><strong>横杠</strong></h2><pre class=" language-text"><code class="language-text">\overline{m+n}  %m+n公式上面加上横杠 
+\underline{m+n} %m+n公式下面加上横杠</code></pre>
+<p>$$<br>\overline{m+n}     \<br>\underline{m+n}<br>$$</p>
 <h1 id="希腊字符以及一些常用运算符"><a href="#希腊字符以及一些常用运算符" class="headerlink" title="希腊字符以及一些常用运算符"></a>希腊字符以及一些常用运算符</h1><p>这个太多了，不想写了，看这个:weary:</p>
-<p><a href="https://blog.csdn.net/qq_39232265/article/details/78868487?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">LaTeX数学符号总结 ：Asurada-Sugo</a></p>
+<p><a href="https://blog.csdn.net/qq_39232265/article/details/78868487?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">LaTeX数学符号总结 ：Asurada-Sugo</a></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://zhuanlan.zhihu.com/p/52347414" target="_blank" rel="noopener">Latex基础语法 李应山</a></p>
 
             </div>
@@ -1488,7 +1390,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">69.2k</span>&nbsp;字
+                class="white-color">75.8k</span>&nbsp;字
             
             
             
