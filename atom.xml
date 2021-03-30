@@ -48,7 +48,7 @@
     <link href="https://www.memorydrive.online/2021/03/29/hu-ya-zhi-bo-shu-ju-fen-xi-zhan-shi/"/>
     <id>https://www.memorydrive.online/2021/03/29/hu-ya-zhi-bo-shu-ju-fen-xi-zhan-shi/</id>
     <published>2021-03-29T15:38:42.000Z</published>
-    <updated>2021-03-30T17:30:28.971Z</updated>
+    <updated>2021-03-30T17:39:17.368Z</updated>
     
     <summary type="html">
     
@@ -139,7 +139,7 @@
         
         
           &lt;h1 id=&quot;知识&quot;&gt;&lt;a href=&quot;#知识&quot; class=&quot;headerlink&quot; title=&quot;知识&quot;&gt;&lt;/a&gt;知识&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;计算三个稠密矩阵A,B,C的乘积ABC，假设三个矩阵的尺寸分别是m * n,n * p,p* q,且m &amp;lt; n
+&lt;li&gt;&lt;p&gt;计算三个稠密矩阵A,B,C的乘积ABC，假设三个矩阵的尺寸分别是m &lt;em&gt; n,n &lt;/em&gt; p,p* q,且m
         
       
     
@@ -502,7 +502,9 @@
         
         
           &lt;p&gt;运筹学中的指派问题，这里并非用匈牙利法求解。其中C为效率矩阵。&lt;/p&gt;
-&lt;pre class=&quot; language-matlab&quot;&gt;&lt;code class=&quot;language-matlab&quot;&gt;&lt;span class=&quot;token comment&quot;
+&lt;pre class=&quot; language-lang-matlab&quot;&gt;&lt;code class=&quot;language-lang-matlab&quot;&gt;%适用于任意n阶系数矩阵
+clear all；
+   
         
       
     

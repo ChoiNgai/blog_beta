@@ -612,40 +612,41 @@
 <ul>
 <li>修改wxappUnpacker文件中的 <code>wuWxss.js</code></li>
 </ul>
-<pre class=" language-css"><code class="language-css"><span class="token selector">function runVM(name, code) </span><span class="token punctuation">{</span>
-      <span class="token selector">// let wxAppCode = </span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token selector">, handle = </span><span class="token punctuation">{</span><span class="token property">cssFile</span><span class="token punctuation">:</span> name<span class="token punctuation">}</span><span class="token selector">;
-      // let vm = new VM(</span><span class="token punctuation">{</span>
-      <span class="token selector">//    sandbox: Object<span class="token class">.assign</span>(new GwxCfg(), </span><span class="token punctuation">{</span>
-      //       <span class="token property">__wxAppCode__</span><span class="token punctuation">:</span> wxAppCode,
-      //       <span class="token property">setCssToHead</span><span class="token punctuation">:</span> cssRebuild<span class="token number">.</span><span class="token function">bind</span><span class="token punctuation">(</span>handle<span class="token punctuation">)</span>
-      //    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-      // <span class="token punctuation">}</span><span class="token selector">);
-      // vm<span class="token class">.run</span>(code);
-      // for (let name in wxAppCode) if (name<span class="token class">.endsWith</span>("<span class="token class">.wxss</span>")) </span><span class="token punctuation">{</span>
-      //    handle<span class="token number">.</span>cssFile = path<span class="token number">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>frameName, <span class="token string">".."</span>, name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      //    wxAppCode[name]<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      // <span class="token punctuation">}</span>
+<pre class=" language-lang-css"><code class="language-lang-css">function runVM(name, code) {
+      // let wxAppCode = {}, handle = {cssFile: name};
+      // let vm = new VM({
+      //    sandbox: Object.assign(new GwxCfg(), {
+      //       __wxAppCode__: wxAppCode,
+      //       setCssToHead: cssRebuild.bind(handle)
+      //    })
+      // });
+      // vm.run(code);
+      // for (let name in wxAppCode) if (name.endsWith(".wxss")) {
+      //    handle.cssFile = path.resolve(frameName, "..", name);
+      //    wxAppCode[name]();
+      // }
 
-      <span class="token selector">let wxAppCode = </span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token selector">;
-      let handle = </span><span class="token punctuation">{</span><span class="token property">cssFile</span><span class="token punctuation">:</span> name<span class="token punctuation">}</span><span class="token selector">;
+      let wxAppCode = {};
+      let handle = {cssFile: name};
       let gg = new GwxCfg();
-      let tsandbox = </span><span class="token punctuation">{</span>
-         $<span class="token property">gwx</span><span class="token punctuation">:</span> GwxCfg<span class="token number">.</span>prototype[<span class="token string">"$gwx"</span>],
-         <span class="token property">__mainPageFrameReady__</span><span class="token punctuation">:</span> GwxCfg<span class="token number">.</span>prototype[<span class="token string">"$gwx"</span>],   //解决 $gwx is not defined
-         <span class="token property">__vd_version_info__</span><span class="token punctuation">:</span> GwxCfg<span class="token number">.</span>prototype[<span class="token string">"$gwx"</span>],  //解决 __vd_version_info__ is not defined
-         <span class="token property">__wxAppCode__</span><span class="token punctuation">:</span> wxAppCode,
-         <span class="token property">setCssToHead</span><span class="token punctuation">:</span> cssRebuild<span class="token number">.</span><span class="token function">bind</span><span class="token punctuation">(</span>handle<span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
+      let tsandbox = {
+         $gwx: GwxCfg.prototype["$gwx"],
+         __mainPageFrameReady__: GwxCfg.prototype["$gwx"],   //解决 $gwx is not defined
+         __vd_version_info__: GwxCfg.prototype["$gwx"],  //解决 __vd_version_info__ is not defined
+         __wxAppCode__: wxAppCode,
+         setCssToHead: cssRebuild.bind(handle)
+      }
 
-      <span class="token selector">let vm = new VM(</span><span class="token punctuation">{</span><span class="token property">sandbox</span><span class="token punctuation">:</span> tsandbox<span class="token punctuation">}</span><span class="token selector">);
-      vm<span class="token class">.run</span>(code);
-      for (let name in wxAppCode) </span><span class="token punctuation">{</span>
-         <span class="token selector">if (name<span class="token class">.endsWith</span>("<span class="token class">.wxss</span>")) </span><span class="token punctuation">{</span>
-            handle<span class="token number">.</span>cssFile = path<span class="token number">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>frameName, <span class="token string">".."</span>, name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            wxAppCode[name]<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-         <span class="token punctuation">}</span>
-      <span class="token punctuation">}</span>
-   <span class="token punctuation">}</span></code></pre>
+      let vm = new VM({sandbox: tsandbox});
+      vm.run(code);
+      for (let name in wxAppCode) {
+         if (name.endsWith(".wxss")) {
+            handle.cssFile = path.resolve(frameName, "..", name);
+            wxAppCode[name]();
+         }
+      }
+   }
+</code></pre>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="获取wxapkg文件"><a href="#获取wxapkg文件" class="headerlink" title="获取wxapkg文件"></a>获取wxapkg文件</h3><ol>
 <li><p>安装夜深模拟器（但是这里有个问题，夜深模拟器可能用不了，我只记得是多开器里开一个新的才行，而且以后每次使用都得切换成那个新的）</p>
 <center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/FrontEnd/e09793ce1f6c1e1b7df8ee715ffe644.png" width="50%" /></center>
@@ -653,7 +654,7 @@
 <li><p>打开夜深模拟器登录微信，点击需要学(piao)习(qie)的微信小程序</p>
 </li>
 </ol>
-<ol start="3">
+<ol>
 <li><p>打开RE文件管理器（没有的话就先安装吧）,到如下目录,打开这个看着名字是十六进制且很长的文件夹（每个人的会不一样）</p>
 <center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/FrontEnd/ee216cc30578465e21856c8e9129287.png" width="50%" /></center>
 </li>
@@ -665,15 +666,18 @@
 </ol>
 <h3 id="反编译"><a href="#反编译" class="headerlink" title="反编译"></a>反编译</h3><ol>
 <li><p>打开nodejs</p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/19330433-85c7fe8788ed7a1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/338/format/webp" alt="img"></p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/19330433-85c7fe8788ed7a1f.png?imageMogr2/auto-orient/strip|imageView2/2/w/338/format/webp" alt="img"></p>
 <p> 跳转到反编译脚本的目录，例如反编译脚本呢放在D盘，且反编译脚本文件夹名为”wxappUnpacker“，如果是Windows系统( 如果是Linux去掉下面那个蛋疼的 /d)，则在node.js command pormpt输入：</p>
-<pre class=" language-shell"><code class="language-shell">cd/d D:\wxappUnpacker</code></pre>
+<pre class=" language-lang-shell"><code class="language-lang-shell">cd/d D:\wxappUnpacker
+</code></pre>
 <p>或</p>
-<pre class=" language-shell"><code class="language-shell">cd D:\wxappUnpacker
-cd D:</code></pre>
+<pre class=" language-lang-shell"><code class="language-lang-shell">cd D:\wxappUnpacker
+cd D:
+</code></pre>
 </li>
 <li><p>跳转到反编译脚本的根目录之后，在电脑文件夹里找到wxapkg文件，例如wxapkg文件放在D盘，且文件名为_000000_1.wxapkg，则在node.js command pormpt输入：</p>
-<pre class=" language-shell"><code class="language-shell">node wuWxapkg.js -d D:\_000000_1.wxapkg</code></pre>
+<pre class=" language-lang-shell"><code class="language-lang-shell">node wuWxapkg.js -d D:\_000000_1.wxapkg
+</code></pre>
 <p>再回车</p>
 </li>
 <li><p>最后去找和.wxapkg文件相同路径下的同名文件夹，该文件用<strong>微信开发者工具</strong>打开即可。</p>
@@ -1356,7 +1360,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">76.7k</span>&nbsp;字
+                class="white-color">71k</span>&nbsp;字
             
             
             
