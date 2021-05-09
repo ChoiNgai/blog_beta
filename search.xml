@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>大数据学习中文文档</title>
+      <link href="2021/04/09/da-shu-ju-xue-xi-zhong-wen-wen-dang/"/>
+      <url>2021/04/09/da-shu-ju-xue-xi-zhong-wen-wen-dang/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://www.docs4dev.com/docs/zh/python/3.7.2rc1/all" target="_blank" rel="noopener">Python中文文档</a></p><p><a href="https://www.docs4dev.com/docs/zh/mysql/5.7/reference" target="_blank" rel="noopener">MySql 中文文档</a></p><p><a href="https://www.docs4dev.com/docs/zh/apache-hive/3.1.1/reference/" target="_blank" rel="noopener">Apache Hive 中文手册</a></p><p><a href="https://www.docs4dev.com/docs/zh/apache-hbase/2.1/reference" target="_blank" rel="noopener">Apache HBase 中文文档</a></p><p><a href="https://www.docs4dev.com/docs/zh/flume/1.9.0/reference" target="_blank" rel="noopener">Apache Flume 用户指南</a></p><p><a href="https://www.docs4dev.com/docs/zh/zookeeper/r3.5.6/reference" target="_blank" rel="noopener">ZooKeeper</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据科学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SQL底层原理及实操记录</title>
+      <link href="2021/03/31/sql-di-ceng-yuan-li-ji-shi-cao-ji-lu/"/>
+      <url>2021/03/31/sql-di-ceng-yuan-li-ji-shi-cao-ji-lu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>MySQL45讲学习笔记,从底层原理上里理解关系型数据库并记录实操（MySQL8.0的一些新特性）</p><h1 id="MySQL底层原理"><a href="#MySQL底层原理" class="headerlink" title="MySQL底层原理"></a>MySQL底层原理</h1><h1 id="MySQL实操记录"><a href="#MySQL实操记录" class="headerlink" title="MySQL实操记录"></a>MySQL实操记录</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ol><li>安装MySQL</li><li>安装Navicat（新手建议安装，非必须）</li></ol><p>靠谱参考教程：<a href="https://blog.csdn.net/qq_37350706/article/details/81707862" target="_blank" rel="noopener">https://blog.csdn.net/qq_37350706/article/details/81707862</a></p><h2 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h2><p>MySQL8.0中的group by有新特性，默认开启参数ONLY_FULL_GROUP_BY，可以通过输入以下命令查看：</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> @<span class="token variable">@sql_mode</span><span class="token punctuation">;</span></code></pre><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/image-20210331105532759.png" alt=""></p><p>默认开启参数ONLY_FULL_GROUP_BY，表示开启group by完全模式：即select后面跟的列group by后面也必须有，但是group by后面跟的列，select后面不一定需要出现。</p><p>故会出现以下情况：</p><p>1）报错：</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> anchorinformation <span class="token keyword">group</span> <span class="token keyword">by</span> AnchorID<span class="token punctuation">;</span></code></pre><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/image-20210331105924043.png" alt=""></p><p>2） 成功执行</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> AnchorID <span class="token keyword">from</span> anchorinformation <span class="token keyword">group</span> <span class="token keyword">by</span> AnchorID<span class="token punctuation">;</span></code></pre><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> AnchorID<span class="token punctuation">,</span>ANY_VALUE<span class="token punctuation">(</span>anchor<span class="token punctuation">)</span> <span class="token keyword">from</span> anchorinformation <span class="token keyword">group</span> <span class="token keyword">by</span> AnchorID<span class="token punctuation">;</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据科学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL五十题</title>
       <link href="2021/03/30/sql-wu-shi-ti/"/>
       <url>2021/03/30/sql-wu-shi-ti/</url>
@@ -33,7 +83,7 @@
       <link href="2021/03/29/hu-ya-zhi-bo-shu-ju-fen-xi-zhan-shi/"/>
       <url>2021/03/29/hu-ya-zhi-bo-shu-ju-fen-xi-zhan-shi/</url>
       
-        <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>注：本项目仅用于学习/研究，图片等版权均归原公司所有，侵删</p><ul><li>python爬取虎牙直播某个时刻的直播数据</li><li>画图</li><li>制作PPT（此处仅放置图片，需要PPT请联系:caiwei-email@qq.com）</li></ul><p>项目地址（源码）：<a href="https://github.com/ChoiNgai/DataAnalysis_huya" target="_blank" rel="noopener">https://github.com/ChoiNgai/DataAnalysis_huya</a></p><h2 id="展示报告"><a href="#展示报告" class="headerlink" title="展示报告"></a>展示报告</h2><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/033100164494_0虎牙直播分析报告_1.Jpeg" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/033100164494_0虎牙直播分析报告_2.Jpeg" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/033100164494_0虎牙直播分析报告_3.Jpeg" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/033100164494_0虎牙直播分析报告_5-1.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/033100164494_0虎牙直播分析报告_6.Jpeg" alt=""></p><h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/033100164494_0虎牙直播分析报告_12.Jpeg" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>注：本项目仅用于学习/研究，图片等版权均归原公司所有，侵删</p><ul><li>python爬取虎牙直播某个时刻的直播数据</li><li>画图</li><li>制作PPT（此处仅放置图片，需要PPT请联系:<a href="mailto:caiwei-email@qq.com">caiwei-email@qq.com</a>）</li></ul><p>项目地址（源码）：<a href="https://github.com/ChoiNgai/DataAnalysis_huya" target="_blank" rel="noopener">https://github.com/ChoiNgai/DataAnalysis_huya</a></p><h2 id="展示报告"><a href="#展示报告" class="headerlink" title="展示报告"></a>展示报告</h2><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/033100164494_0%E8%99%8E%E7%89%99%E7%9B%B4%E6%92%AD%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_1.Jpeg" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/033100164494_0%E8%99%8E%E7%89%99%E7%9B%B4%E6%92%AD%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_2.Jpeg" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/033100164494_0%E8%99%8E%E7%89%99%E7%9B%B4%E6%92%AD%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_3.Jpeg" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/033100164494_0%E8%99%8E%E7%89%99%E7%9B%B4%E6%92%AD%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_5-1.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/033100164494_0%E8%99%8E%E7%89%99%E7%9B%B4%E6%92%AD%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_6.Jpeg" alt=""></p><h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2>]]></content>
       
       
       <categories>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-03-30T17:17:01.066Z</updated>
+  <updated>2021-04-09T03:40:29.690Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>大数据学习中文文档</title>
+    <link href="https://www.memorydrive.online/2021/04/09/da-shu-ju-xue-xi-zhong-wen-wen-dang/"/>
+    <id>https://www.memorydrive.online/2021/04/09/da-shu-ju-xue-xi-zhong-wen-wen-dang/</id>
+    <published>2021-04-09T02:12:39.000Z</published>
+    <updated>2021-04-09T03:40:29.690Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://www.docs4dev.com/docs/zh/python/3.7.2rc1/all&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Python中文文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="Hadoop" scheme="https://www.memorydrive.online/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL底层原理及实操记录</title>
+    <link href="https://www.memorydrive.online/2021/03/31/sql-di-ceng-yuan-li-ji-shi-cao-ji-lu/"/>
+    <id>https://www.memorydrive.online/2021/03/31/sql-di-ceng-yuan-li-ji-shi-cao-ji-lu/</id>
+    <published>2021-03-31T02:41:16.000Z</published>
+    <updated>2021-03-31T02:59:29.430Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="SQL" scheme="https://www.memorydrive.online/tags/SQL/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL五十题</title>
@@ -48,7 +103,7 @@
     <link href="https://www.memorydrive.online/2021/03/29/hu-ya-zhi-bo-shu-ju-fen-xi-zhan-shi/"/>
     <id>https://www.memorydrive.online/2021/03/29/hu-ya-zhi-bo-shu-ju-fen-xi-zhan-shi/</id>
     <published>2021-03-29T15:38:42.000Z</published>
-    <updated>2021-03-30T17:39:17.368Z</updated>
+    <updated>2021-05-03T13:08:16.673Z</updated>
     
     <summary type="html">
     
@@ -517,61 +572,6 @@ clear all；
       <category term="基础数学" scheme="https://www.memorydrive.online/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
     
       <category term="数学建模" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R语言试验上机考试</title>
-    <link href="https://www.memorydrive.online/2020/06/29/r-yu-yan-shi-yan-shang-ji-kao-shi/"/>
-    <id>https://www.memorydrive.online/2020/06/29/r-yu-yan-shi-yan-shang-ji-kao-shi/</id>
-    <published>2020-06-29T08:24:27.000Z</published>
-    <updated>2020-09-21T14:19:58.246Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;一、某单位招聘2500人，按考试成绩从高到低依次录用，共有10000人报名，假设报名者的成绩$X~N(u,\sigma^2)$
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
-    
-    
-      <category term="R语言" scheme="https://www.memorydrive.online/tags/R%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>统计计算方法上机考试</title>
-    <link href="https://www.memorydrive.online/2020/06/25/tong-ji-ji-suan-fang-fa-shang-ji-kao-shi/"/>
-    <id>https://www.memorydrive.online/2020/06/25/tong-ji-ji-suan-fang-fa-shang-ji-kao-shi/</id>
-    <published>2020-06-25T13:56:56.000Z</published>
-    <updated>2020-09-21T14:19:58.256Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; 设X服从正态分布N(1,4)，用R计算Pr(X&amp;lt;1.5)。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
-    
-    
-      <category term="R语言" scheme="https://www.memorydrive.online/tags/R%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
