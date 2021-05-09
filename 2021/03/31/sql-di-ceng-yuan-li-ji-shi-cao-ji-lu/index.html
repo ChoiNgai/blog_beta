@@ -607,16 +607,20 @@
 </ol>
 <p>靠谱参考教程：<a href="https://blog.csdn.net/qq_37350706/article/details/81707862" target="_blank" rel="noopener">https://blog.csdn.net/qq_37350706/article/details/81707862</a></p>
 <h2 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h2><p>MySQL8.0中的group by有新特性，默认开启参数ONLY_FULL_GROUP_BY，可以通过输入以下命令查看：</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> @<span class="token variable">@sql_mode</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-lang-sql"><code class="language-lang-sql">select @@sql_mode;
+</code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/image-20210331105532759.png" alt=""></p>
 <p>默认开启参数ONLY_FULL_GROUP_BY，表示开启group by完全模式：即select后面跟的列group by后面也必须有，但是group by后面跟的列，select后面不一定需要出现。</p>
 <p>故会出现以下情况：</p>
 <p>1）报错：</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> anchorinformation <span class="token keyword">group</span> <span class="token keyword">by</span> AnchorID<span class="token punctuation">;</span></code></pre>
+<pre class=" language-lang-sql"><code class="language-lang-sql">select * from anchorinformation group by AnchorID;
+</code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/image-20210331105924043.png" alt=""></p>
 <p>2） 成功执行</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> AnchorID <span class="token keyword">from</span> anchorinformation <span class="token keyword">group</span> <span class="token keyword">by</span> AnchorID<span class="token punctuation">;</span></code></pre>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> AnchorID<span class="token punctuation">,</span>ANY_VALUE<span class="token punctuation">(</span>anchor<span class="token punctuation">)</span> <span class="token keyword">from</span> anchorinformation <span class="token keyword">group</span> <span class="token keyword">by</span> AnchorID<span class="token punctuation">;</span></code></pre>
+<pre class=" language-lang-sql"><code class="language-lang-sql">select AnchorID from anchorinformation group by AnchorID;
+</code></pre>
+<pre class=" language-lang-sql"><code class="language-lang-sql">select AnchorID,ANY_VALUE(anchor) from anchorinformation group by AnchorID;
+</code></pre>
 
             </div>
             <hr/>
@@ -990,19 +994,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/09/da-shu-ju-zhong-wen-wen-dang/">
+                <a href="/2021/04/09/da-shu-ju-guan-fang-zhong-wen-wen-dang/">
                     <div class="card-image">
                         
                         
-                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_2501.jpg" class="responsive-img" alt="大数据中文文档">
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_957.jpg" class="responsive-img" alt="大数据官方中文文档">
                         
-                        <span class="card-title">大数据中文文档</span>
+                        <span class="card-title">大数据官方中文文档</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            中文文档
+                            中文学习文档（很详细）
                         
                     </div>
                     <div class="publish-info">
@@ -1296,7 +1300,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">77.5k</span>&nbsp;字
+                class="white-color">72k</span>&nbsp;字
             
             
             

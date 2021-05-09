@@ -618,8 +618,8 @@
 <li>SMUC （基于度量学习与信息熵的半监督模糊聚类算法）</li>
 </ul>
 <p>项目链接：<a href="https://github.com/ChoiNgai/FuzzyClustering" target="_blank" rel="noopener">https://github.com/ChoiNgai/FuzzyClustering</a></p>
-<p>以这些算法为基础的相关论文可参考本人的谷歌学术主页：<a href="https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&user=pYX8lisAAAAJ" target="_blank" rel="noopener">Wei Cai，Guangdong University of Technology</a></p>
-<p>如有问题欢迎邮件一起探讨：<a href="mailto:caiwei-email@qq.com">caiwei-email@qq.com</a></p>
+<p>以这些算法为基础的相关论文可参考本人的谷歌学术主页：<a href="https://scholar.google.com/citations?view_op=list_works&amp;hl=zh-CN&amp;user=pYX8lisAAAAJ" target="_blank" rel="noopener">Wei Cai，Guangdong University of Technology</a></p>
+<p>如有问题欢迎邮件一起探讨：caiwei-email@qq.com</p>
 <h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><ul>
 <li>dataset：数据集</li>
 <li>ClusterAidedComputing.py ：包括聚类常用的一些函数</li>
@@ -638,14 +638,17 @@
 <h3 id="算法函数"><a href="#算法函数" class="headerlink" title="算法函数"></a>算法函数</h3><ul>
 <li>FCM</li>
 </ul>
-<pre class=" language-python"><code class="language-python">U<span class="token punctuation">,</span>V<span class="token punctuation">,</span>obj_fcn <span class="token operator">=</span> fcm<span class="token punctuation">(</span>data<span class="token punctuation">,</span>cluster_n<span class="token punctuation">,</span>m <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>max_iter <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">,</span>e <span class="token operator">=</span> <span class="token number">0.00001</span><span class="token punctuation">,</span>printOn <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">U,V,obj_fcn = fcm(data,cluster_n,m = 2,max_iter = 1000,e = 0.00001,printOn = 1)
+</code></pre>
 <p>或</p>
-<pre class=" language-python"><code class="language-python">U<span class="token punctuation">,</span>V<span class="token punctuation">,</span>obj_fcn <span class="token operator">=</span> fcm<span class="token punctuation">(</span>data<span class="token punctuation">,</span>cluster_n<span class="token punctuation">)</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">U,V,obj_fcn = fcm(data,cluster_n)
+</code></pre>
 <p>如上，m ,max_iter,e ,printOn这四个参数已有默认参数，可不设置 </p>
 <ul>
 <li>MEC</li>
 </ul>
-<pre class=" language-python"><code class="language-python">U<span class="token punctuation">,</span>V<span class="token punctuation">,</span>obj_fcn <span class="token operator">=</span> mec<span class="token punctuation">(</span>data<span class="token punctuation">,</span>cluster_n<span class="token punctuation">,</span>gamma<span class="token operator">=</span><span class="token number">0.01</span><span class="token punctuation">,</span>max_iter <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">,</span>e <span class="token operator">=</span> <span class="token number">0.00001</span><span class="token punctuation">,</span>printOn <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">U,V,obj_fcn = mec(data,cluster_n,gamma=0.01,max_iter = 1000,e = 0.00001,printOn = 1)
+</code></pre>
 <p>gamma ：惩罚系数</p>
 <ul>
 <li><p>KFCM</p>
@@ -653,22 +656,26 @@
 <p>lamda ：惩罚系数</p>
 </li>
 </ul>
-<pre class=" language-python"><code class="language-python">kfcm<span class="token punctuation">(</span>data<span class="token punctuation">,</span>cluster_n<span class="token punctuation">,</span>sigma<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>m<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>lamda<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">,</span>max_iter <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">,</span>e <span class="token operator">=</span> <span class="token number">0.00001</span><span class="token punctuation">,</span>printOn <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">kfcm(data,cluster_n,sigma=2,m=2,lamda=0.1,max_iter = 1000,e = 0.00001,printOn = 1)
+</code></pre>
 <ul>
 <li>SFCM</li>
 </ul>
-<pre class=" language-python"><code class="language-python">U<span class="token punctuation">,</span>V<span class="token punctuation">,</span>obj_fcn <span class="token operator">=</span> sfcm<span class="token punctuation">(</span>data<span class="token punctuation">,</span>cluster_n<span class="token punctuation">,</span>label<span class="token punctuation">,</span>m <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>max_iter <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">,</span>e <span class="token operator">=</span> <span class="token number">0.00001</span><span class="token punctuation">,</span>alpha<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>printOn <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">U,V,obj_fcn = sfcm(data,cluster_n,label,m = 2,max_iter = 1000,e = 0.00001,alpha=5,printOn = 1)
+</code></pre>
 <p>label ：标签（array格式）</p>
 <ul>
 <li>eSFCM</li>
 </ul>
-<pre class=" language-python"><code class="language-python">U<span class="token punctuation">,</span>V<span class="token punctuation">,</span>obj_fcn <span class="token operator">=</span> esfcm<span class="token punctuation">(</span>data<span class="token punctuation">,</span>cluster_n<span class="token punctuation">,</span>label<span class="token punctuation">,</span>max_iter <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">,</span>e <span class="token operator">=</span> <span class="token number">0.00001</span><span class="token punctuation">,</span>lamda<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>printOn <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">U,V,obj_fcn = esfcm(data,cluster_n,label,max_iter = 1000,e = 0.00001,lamda=1,printOn = 1)
+</code></pre>
 <ul>
 <li>SMUC</li>
 </ul>
-<pre class=" language-smuc"><code class="language-smuc">U,V,obj_fcn = smuc(data,cluster_n,label,max_iter = 1000,e = 0.5,lamda=1,printOn = 1)</code></pre>
+<pre class=" language-lang-smuc"><code class="language-lang-smuc">U,V,obj_fcn = smuc(data,cluster_n,label,max_iter = 1000,e = 0.5,lamda=1,printOn = 1)
+</code></pre>
 <h3 id="例"><a href="#例" class="headerlink" title="例"></a>例</h3><p>迭代目标函数值变化图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/Figure_1.png" alt="Figure_1">)<img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/image-20210325193158437.png" alt="image-20210325193158437"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/Figure_1.png" alt="Figure_1"><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/image-20210325193158437.png" alt="image-20210325193158437"></p>
 
             </div>
             <hr/>
@@ -1336,7 +1343,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">77.5k</span>&nbsp;字
+                class="white-color">72k</span>&nbsp;字
             
             
             

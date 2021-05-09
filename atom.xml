@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-05-09T16:20:13.340Z</updated>
+  <updated>2021-05-09T16:51:26.916Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>win10安装Hadoop以及pyspark</title>
+    <link href="https://www.memorydrive.online/2021/05/10/win10-an-zhuang-hadoop-yi-ji-pyspark/"/>
+    <id>https://www.memorydrive.online/2021/05/10/win10-an-zhuang-hadoop-yi-ji-pyspark/</id>
+    <published>2021-05-09T16:38:45.000Z</published>
+    <updated>2021-05-09T16:51:26.916Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Hadoop&quot;&gt;&lt;a href=&quot;#Hadoop&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Hadoop" scheme="https://www.memorydrive.online/tags/Hadoop/"/>
+    
+      <category term="Spark" scheme="https://www.memorydrive.online/tags/Spark/"/>
+    
+  </entry>
+  
+  <entry>
     <title>优秀博文收录(BigData)</title>
     <link href="https://www.memorydrive.online/2021/05/09/you-xiu-bo-wen-shou-lu-bigdata/"/>
     <id>https://www.memorydrive.online/2021/05/09/you-xiu-bo-wen-shou-lu-bigdata/</id>
     <published>2021-05-09T15:26:11.000Z</published>
-    <updated>2021-05-09T16:20:13.340Z</updated>
+    <updated>2021-05-09T16:49:23.080Z</updated>
     
     <summary type="html">
     
@@ -48,11 +77,11 @@
   </entry>
   
   <entry>
-    <title>大数据中文文档</title>
-    <link href="https://www.memorydrive.online/2021/04/09/da-shu-ju-zhong-wen-wen-dang/"/>
-    <id>https://www.memorydrive.online/2021/04/09/da-shu-ju-zhong-wen-wen-dang/</id>
+    <title>大数据官方中文文档</title>
+    <link href="https://www.memorydrive.online/2021/04/09/da-shu-ju-guan-fang-zhong-wen-wen-dang/"/>
+    <id>https://www.memorydrive.online/2021/04/09/da-shu-ju-guan-fang-zhong-wen-wen-dang/</id>
     <published>2021-04-09T02:12:39.000Z</published>
-    <updated>2021-05-09T16:21:01.847Z</updated>
+    <updated>2021-05-09T16:52:18.087Z</updated>
     
     <summary type="html">
     
@@ -60,8 +89,8 @@
       
         
         
-          &lt;p&gt;&lt;a href=&quot;https://www.docs4dev.com/docs/zh/python/3.7.2rc1/all&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Python中文文档&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a
+          &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.docs4dev.com/docs/zh/python/3.7.2rc1/all&quot; target=&quot;_blank&quot;
         
       
     
@@ -138,7 +167,7 @@
     <link href="https://www.memorydrive.online/2021/03/29/hu-ya-zhi-bo-shu-ju-fen-xi-zhan-shi/"/>
     <id>https://www.memorydrive.online/2021/03/29/hu-ya-zhi-bo-shu-ju-fen-xi-zhan-shi/</id>
     <published>2021-03-29T15:38:42.000Z</published>
-    <updated>2021-05-03T13:08:16.673Z</updated>
+    <updated>2021-05-09T16:28:08.991Z</updated>
     
     <summary type="html">
     
@@ -546,35 +575,6 @@
     
     
       <category term="Spark" scheme="https://www.memorydrive.online/tags/Spark/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Win10禁止更新以及BOIS更新</title>
-    <link href="https://www.memorydrive.online/2020/06/30/win10-jin-zhi-geng-xin-yi-ji-lian-jie-gua-pei-qi-geng-xin/"/>
-    <id>https://www.memorydrive.online/2020/06/30/win10-jin-zhi-geng-xin-yi-ji-lian-jie-gua-pei-qi-geng-xin/</id>
-    <published>2020-06-30T13:04:03.000Z</published>
-    <updated>2020-09-21T14:19:58.247Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Windows更新历来都是挺坑，为了安全起见还是禁止更新吧&lt;/p&gt;
-&lt;p&gt;如果不幸更新了，特别是双系统更新了其中的Windows系统，需要连接下适配器（插上电源）更新一下BOIS系统&lt;/p&gt;
-&lt;h3 id=&quot;win10禁止更新&quot;&gt;&lt;a href=&quot;#win10禁止更新&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="基础" scheme="https://www.memorydrive.online/categories/%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="tips" scheme="https://www.memorydrive.online/tags/tips/"/>
     
   </entry>
   

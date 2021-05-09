@@ -619,24 +619,25 @@
 <p>  并行是指多个线程同时运行，不用切换。</p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><ul>
 <li><p>Thread类创建</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> threading
-<span class="token keyword">import</span> time
+<pre class=" language-lang-python"><code class="language-lang-python">import threading
+import time
 
-<span class="token keyword">def</span> <span class="token function">countNum</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 定义某个线程要运行的函数</span>
+def countNum(n): # 定义某个线程要运行的函数
 
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"running on number:%s"</span> <span class="token operator">%</span>n<span class="token punctuation">)</span>
+    print("running on number:%s" %n)
 
-    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+    time.sleep(3)
 
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+if __name__ == '__main__':
 
-    t1 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>countNum<span class="token punctuation">,</span>args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#生成一个线程实例</span>
-    t2 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>countNum<span class="token punctuation">,</span>args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">34</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    t1 = threading.Thread(target=countNum,args=(23,)) #生成一个线程实例
+    t2 = threading.Thread(target=countNum,args=(34,))
 
-    t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#启动线程</span>
-    t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    t1.start() #启动线程
+    t2.start()
 
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"ending!"</span><span class="token punctuation">)</span></code></pre>
+    print("ending!")
+</code></pre>
 </li>
 </ul>
 
@@ -1302,7 +1303,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">77.5k</span>&nbsp;字
+                class="white-color">72k</span>&nbsp;字
             
             
             
