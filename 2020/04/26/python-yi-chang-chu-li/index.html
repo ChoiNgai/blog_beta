@@ -600,51 +600,47 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><pre class=" language-lang-python"><code class="language-lang-python">    try:
-        #运行可能产生异常的代码
-        except：
-        #如果try后面的代码运行错误则运行这部分代码
-</code></pre>
-<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><pre class=" language-lang-python"><code class="language-lang-python">    try:
-    #运行可能产生异常的代码
-    except：
-    #如果try后面的代码运行错误则运行这部分代码              
-    else：
-    #如果没有异常发生
-</code></pre>
+                <h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><pre class=" language-python"><code class="language-python">    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#运行可能产生异常的代码</span>
+        <span class="token keyword">except</span>：
+        <span class="token comment" spellcheck="true">#如果try后面的代码运行错误则运行这部分代码</span></code></pre>
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><pre class=" language-python"><code class="language-python">    <span class="token keyword">try</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#运行可能产生异常的代码</span>
+    <span class="token keyword">except</span>：
+    <span class="token comment" spellcheck="true">#如果try后面的代码运行错误则运行这部分代码              </span>
+    <span class="token keyword">else</span>：
+    <span class="token comment" spellcheck="true">#如果没有异常发生 </span></code></pre>
 <h3 id="没有异常处理的程序"><a href="#没有异常处理的程序" class="headerlink" title="没有异常处理的程序"></a>没有异常处理的程序</h3><p>以爬取王者荣耀图片为例子</p>
-<pre class=" language-lang-python"><code class="language-lang-python">import urllib.request
-import os
-# http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/191/191-bigskin-1.jpg 王者荣耀图床地址   文件夹191～529 -1表示皮肤 ，之后是-2 、-3...
-for num in range(105,600):
-    # try:
-        path = r'D:\文档\code\web前端\王者荣耀图库\皮肤\ '
-        # os.mkdir(path + str(num))         #创建文件夹
-        response = urllib.request.urlopen("http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/"+str(num)+"/"+str(num)+"-bigskin-1"+".jpg")  #图片地址
-        print(response)
-        wangzhe_img = response.read()
-        with open('D:\文档\code\web前端\王者荣耀图库\皮肤\ '+ str(num) + '.jpg','wb') as f:
-            f.write(wangzhe_img)
-    # except:
-    #     continue
-</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
+<span class="token keyword">import</span> os
+<span class="token comment" spellcheck="true"># http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/191/191-bigskin-1.jpg 王者荣耀图床地址   文件夹191～529 -1表示皮肤 ，之后是-2 、-3...</span>
+<span class="token keyword">for</span> num <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">105</span><span class="token punctuation">,</span><span class="token number">600</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># try:</span>
+        path <span class="token operator">=</span> r<span class="token string">'D:\文档\code\web前端\王者荣耀图库\皮肤\ '</span>
+        <span class="token comment" spellcheck="true"># os.mkdir(path + str(num))         #创建文件夹</span>
+        response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"/"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"-bigskin-1"</span><span class="token operator">+</span><span class="token string">".jpg"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#图片地址</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+        wangzhe_img <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'D:\文档\code\web前端\王者荣耀图库\皮肤\ '</span><span class="token operator">+</span> str<span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.jpg'</span><span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>wangzhe_img<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># except:</span>
+    <span class="token comment" spellcheck="true">#     continue</span></code></pre>
 <h3 id="有异常处理的程序"><a href="#有异常处理的程序" class="headerlink" title="有异常处理的程序"></a>有异常处理的程序</h3><p>按照上述方式爬取图片，会遇到当网址无法打开则无法进行下一步的问题（王者荣耀图片网站并不是191~529都有图片，有些英雄之间的编号可能有间隔，因而运行程序遇到这种情况会出现error）</p>
 <p>为解决该问题，使用try异常处理，当遇到无法打开的网址时，直接跳过继续循环的下一个步骤，如：</p>
-<pre class=" language-lang-python"><code class="language-lang-python">import urllib.request
-import os
-# http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/191/191-bigskin-1.jpg 王者荣耀图床地址   文件夹191～529 -1表示皮肤 ，之后是-2 、-3...
-for num in range(105,600):
-    try:
-        path = r'D:\文档\code\web前端\王者荣耀图库\皮肤\ '
-        # os.mkdir(path + str(num))         #创建文件夹
-        response = urllib.request.urlopen("http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/"+str(num)+"/"+str(num)+"-bigskin-1"+".jpg")  #图片地址
-        print(response)
-        wangzhe_img = response.read()
-        with open('D:\文档\code\web前端\王者荣耀图库\皮肤\ '+ str(num) + '.jpg','wb') as f:
-            f.write(wangzhe_img)
-    except:
-        continue
-</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
+<span class="token keyword">import</span> os
+<span class="token comment" spellcheck="true"># http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/191/191-bigskin-1.jpg 王者荣耀图床地址   文件夹191～529 -1表示皮肤 ，之后是-2 、-3...</span>
+<span class="token keyword">for</span> num <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">105</span><span class="token punctuation">,</span><span class="token number">600</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        path <span class="token operator">=</span> r<span class="token string">'D:\文档\code\web前端\王者荣耀图库\皮肤\ '</span>
+        <span class="token comment" spellcheck="true"># os.mkdir(path + str(num))         #创建文件夹</span>
+        response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">"http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"/"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"-bigskin-1"</span><span class="token operator">+</span><span class="token string">".jpg"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#图片地址</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+        wangzhe_img <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'D:\文档\code\web前端\王者荣耀图库\皮肤\ '</span><span class="token operator">+</span> str<span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.jpg'</span><span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>wangzhe_img<span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">continue</span></code></pre>
 
             </div>
             <hr/>
@@ -1071,17 +1067,15 @@ for num in range(105,600):
                     <div class="card-image">
                         
                         
-                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_2206.jpg" class="responsive-img" alt="hadoop大数据生态安装">
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1452.jpg" class="responsive-img" alt="Hadoop大数据生态安装">
                         
-                        <span class="card-title">hadoop大数据生态安装</span>
+                        <span class="card-title">Hadoop大数据生态安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            # Hadoop学习：大数据生态安装  
-Hadoop、spark安装Ubuntu18.04 照着这篇教程来啥问题也没有：Ubuntu 18.04下搭建单机Hadoop和Spark集群环境  
-关于系统考虑到可能大多数同学用的都是Windo
+                            环境配置
                         
                     </div>
                     <div class="publish-info">
@@ -1092,8 +1086,8 @@ Hadoop、spark安装Ubuntu18.04 照着这篇教程来啥问题也没有：Ubuntu
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" class="post-category">
-                                    数据科学
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    大数据技术
                                 </a>
                             
                             
@@ -1103,8 +1097,12 @@ Hadoop、spark安装Ubuntu18.04 照着这篇教程来啥问题也没有：Ubuntu
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hadoop/">
-                        <span class="chip bg-color">hadoop</span>
+                    <a href="/tags/Hadoop/">
+                        <span class="chip bg-color">Hadoop</span>
+                    </a>
+                    
+                    <a href="/tags/Spark/">
+                        <span class="chip bg-color">Spark</span>
                     </a>
                     
                 </div>
@@ -1311,7 +1309,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.2k</span>&nbsp;字
+                class="white-color">77.5k</span>&nbsp;字
             
             
             

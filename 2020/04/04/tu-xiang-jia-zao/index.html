@@ -582,7 +582,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    505
+                    506
                 </div>
                 
 
@@ -618,79 +618,77 @@
     │      Gussian_noise_test.jpg 
     │      
     └─salt-and-pepper_noise_img        #存放加入盐椒噪声图像的文件夹
-            salt-and-pepper_noise_test.jpg
-</code></pre><p>​        </p>
+            salt-and-pepper_noise_test.jpg    </code></pre><p>​        </p>
 </li>
 </ul>
-<h2 id="高斯噪声"><a href="#高斯噪声" class="headerlink" title="高斯噪声"></a>高斯噪声</h2><pre class=" language-lang-python"><code class="language-lang-python"># 增加高斯噪声
-from skimage import io
-import random
-import numpy as np
-import os
-import matplotlib
+<h2 id="高斯噪声"><a href="#高斯噪声" class="headerlink" title="高斯噪声"></a>高斯噪声</h2><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 增加高斯噪声</span>
+<span class="token keyword">from</span> skimage <span class="token keyword">import</span> io
+<span class="token keyword">import</span> random
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> matplotlib
 
-def gauss_noise(image):
-    img = image.astype(np.int16)  # 此步是为了避免像素点小于0，大于255的情况
-    mu = 0
-    sigma = 10
-    for i in range(img.shape[0]):
-        for j in range(img.shape[1]):
-            for k in range(img.shape[2]):
-                img[i, j, k] = img[i, j, k] + random.gauss(mu=mu, sigma=sigma)
-    img[img > 255] = 255
-    img[img < 0] = 0
-    img = img.astype(np.uint8)
-    return img
+<span class="token keyword">def</span> <span class="token function">gauss_noise</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    img <span class="token operator">=</span> image<span class="token punctuation">.</span>astype<span class="token punctuation">(</span>np<span class="token punctuation">.</span>int16<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 此步是为了避免像素点小于0，大于255的情况</span>
+    mu <span class="token operator">=</span> <span class="token number">0</span>
+    sigma <span class="token operator">=</span> <span class="token number">10</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> k <span class="token keyword">in</span> range<span class="token punctuation">(</span>img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                img<span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">,</span> k<span class="token punctuation">]</span> <span class="token operator">=</span> img<span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">,</span> k<span class="token punctuation">]</span> <span class="token operator">+</span> random<span class="token punctuation">.</span>gauss<span class="token punctuation">(</span>mu<span class="token operator">=</span>mu<span class="token punctuation">,</span> sigma<span class="token operator">=</span>sigma<span class="token punctuation">)</span>
+    img<span class="token punctuation">[</span>img <span class="token operator">></span> <span class="token number">255</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">255</span>
+    img<span class="token punctuation">[</span>img <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+    img <span class="token operator">=</span> img<span class="token punctuation">.</span>astype<span class="token punctuation">(</span>np<span class="token punctuation">.</span>uint8<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> img
 
 
-if __name__ == '__main__':
-    # 读取images文件夹内的图片名称
-    images_list = os.listdir('images/')
-    for i in range(0, len(images_list), 1):
-        img = io.imread(r"images/"+images_list[i])
-        # noise_img = salt_and_pepper_noise(img)
-        gauss_img = gauss_noise(img)
-        # io.imshow(gauss_img)
-        # io.show()
-        if (os.path.exists('noise_img\\Gussian_noise_img') == False):
-            os.mkdir("noise_img\\Gussian_noise_img")    #此步骤用于判断有无存放噪声图片的文件夹，没有则创建
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 读取images文件夹内的图片名称</span>
+    images_list <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span><span class="token string">'images/'</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>images_list<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        img <span class="token operator">=</span> io<span class="token punctuation">.</span>imread<span class="token punctuation">(</span>r<span class="token string">"images/"</span><span class="token operator">+</span>images_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># noise_img = salt_and_pepper_noise(img)</span>
+        gauss_img <span class="token operator">=</span> gauss_noise<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># io.imshow(gauss_img)</span>
+        <span class="token comment" spellcheck="true"># io.show()</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">'noise_img\\Gussian_noise_img'</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span><span class="token string">"noise_img\\Gussian_noise_img"</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#此步骤用于判断有无存放噪声图片的文件夹，没有则创建</span>
 
-        matplotlib.image.imsave("noise_img/Gussian_noise_img/"+"Gussian_noise_" + images_list[i], gauss_img) #numpy数组转换为图片保存
+        matplotlib<span class="token punctuation">.</span>image<span class="token punctuation">.</span>imsave<span class="token punctuation">(</span><span class="token string">"noise_img/Gussian_noise_img/"</span><span class="token operator">+</span><span class="token string">"Gussian_noise_"</span> <span class="token operator">+</span> images_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> gauss_img<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#numpy数组转换为图片保存</span>
 </code></pre>
-<h2 id="盐椒噪声"><a href="#盐椒噪声" class="headerlink" title="盐椒噪声"></a>盐椒噪声</h2><pre class=" language-lang-python"><code class="language-lang-python">#增加椒盐噪声
-from skimage import io
-import random
-import numpy as np
-import os
-import matplotlib
+<h2 id="盐椒噪声"><a href="#盐椒噪声" class="headerlink" title="盐椒噪声"></a>盐椒噪声</h2><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#增加椒盐噪声</span>
+<span class="token keyword">from</span> skimage <span class="token keyword">import</span> io
+<span class="token keyword">import</span> random
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> matplotlib
 
-def salt_and_pepper_noise(img, proportion=0.10):   #此处数值设置椒盐噪声强度
-    noise_img = img
-    height, width = noise_img.shape[0], noise_img.shape[1]
-    num = int(height * width * proportion)  # 多少个像素点添加椒盐噪声
-    for i in range(num):
-        w = random.randint(0, width - 1)
-        h = random.randint(0, height - 1)
-        if random.randint(0, 1) == 0:
-            noise_img[h, w] = 0
-        else:
-            noise_img[h, w] = 255
-    return noise_img
+<span class="token keyword">def</span> <span class="token function">salt_and_pepper_noise</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> proportion<span class="token operator">=</span><span class="token number">0.10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true">#此处数值设置椒盐噪声强度</span>
+    noise_img <span class="token operator">=</span> img
+    height<span class="token punctuation">,</span> width <span class="token operator">=</span> noise_img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> noise_img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    num <span class="token operator">=</span> int<span class="token punctuation">(</span>height <span class="token operator">*</span> width <span class="token operator">*</span> proportion<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 多少个像素点添加椒盐噪声</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        w <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> width <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        h <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> height <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            noise_img<span class="token punctuation">[</span>h<span class="token punctuation">,</span> w<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            noise_img<span class="token punctuation">[</span>h<span class="token punctuation">,</span> w<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">255</span>
+    <span class="token keyword">return</span> noise_img
 
 
-if __name__ == '__main__':
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
 
-    images_list = os.listdir('images/')
-    for i in range(0, len(images_list), 1):
-        img = io.imread(r"images/"+images_list[i])
-        noise_img = salt_and_pepper_noise(img)
-        # io.imshow(noise_img)
-        # io.show()
-        if (os.path.exists('noise_img\\salt-and-pepper_noise_img') == False):
-            os.mkdir("noise_img\\salt-and-pepper_noise_img")    #此步骤用于判断有无存放噪声图片的文件夹，没有则创建
+    images_list <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span><span class="token string">'images/'</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>images_list<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        img <span class="token operator">=</span> io<span class="token punctuation">.</span>imread<span class="token punctuation">(</span>r<span class="token string">"images/"</span><span class="token operator">+</span>images_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        noise_img <span class="token operator">=</span> salt_and_pepper_noise<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># io.imshow(noise_img)</span>
+        <span class="token comment" spellcheck="true"># io.show()</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">'noise_img\\salt-and-pepper_noise_img'</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span><span class="token string">"noise_img\\salt-and-pepper_noise_img"</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#此步骤用于判断有无存放噪声图片的文件夹，没有则创建</span>
 
-        matplotlib.image.imsave("noise_img/salt-and-pepper_noise_img/"+"salt-and-pepper_noise_" + images_list[i], noise_img) #numpy数组转换为图片保存
-</code></pre>
+        matplotlib<span class="token punctuation">.</span>image<span class="token punctuation">.</span>imsave<span class="token punctuation">(</span><span class="token string">"noise_img/salt-and-pepper_noise_img/"</span><span class="token operator">+</span><span class="token string">"salt-and-pepper_noise_"</span> <span class="token operator">+</span> images_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> noise_img<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#numpy数组转换为图片保存</span></code></pre>
 
             </div>
             <hr/>
@@ -1364,7 +1362,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.2k</span>&nbsp;字
+                class="white-color">77.5k</span>&nbsp;字
             
             
             

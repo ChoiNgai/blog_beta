@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="大数据学习中文文档, null">
+    <meta name="keywords" content="Hive上机实验, null">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>大数据学习中文文档 | null</title>
+    <title>Hive上机实验 | null</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -422,12 +422,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1489.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1028.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">大数据学习中文文档</h1>
+                    <h1 class="description center-align post-title">Hive上机实验</h1>
                 </div>
             </div>
         </div>
@@ -544,8 +544,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hadoop/">
-                                <span class="chip bg-color">Hadoop</span>
+                            <a href="/tags/Hive/">
+                                <span class="chip bg-color">Hive</span>
                             </a>
                         
                     </div>
@@ -556,8 +556,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" class="post-category">
-                                数据科学
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/" class="post-category">
+                                大数据技术
                             </a>
                         
                     </div>
@@ -569,7 +569,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-09
+                    2020-06-19
                 </div>
                 
 
@@ -578,14 +578,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    29
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -600,12 +600,119 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a href="https://www.docs4dev.com/docs/zh/python/3.7.2rc1/all" target="_blank" rel="noopener">Python中文文档</a></p>
-<p><a href="https://www.docs4dev.com/docs/zh/mysql/5.7/reference" target="_blank" rel="noopener">MySql 中文文档</a></p>
-<p><a href="https://www.docs4dev.com/docs/zh/apache-hive/3.1.1/reference/" target="_blank" rel="noopener">Apache Hive 中文手册</a></p>
-<p><a href="https://www.docs4dev.com/docs/zh/apache-hbase/2.1/reference" target="_blank" rel="noopener">Apache HBase 中文文档</a></p>
-<p><a href="https://www.docs4dev.com/docs/zh/flume/1.9.0/reference" target="_blank" rel="noopener">Apache Flume 用户指南</a></p>
-<p><a href="https://www.docs4dev.com/docs/zh/zookeeper/r3.5.6/reference" target="_blank" rel="noopener">ZooKeeper</a></p>
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>该文为Hadoop基础实验中的hive实验</p>
+<h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><p>掌握hive的编程技术</p>
+<h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><p>1、创建数据库stu。</p>
+<p>2、创建students表，表结构如下：</p>
+<p>id         int,</p>
+<p>name       string,</p>
+<p>gender      string,</p>
+<p>age         int,</p>
+<p>course_id    int,</p>
+<p>score      double,</p>
+<p>classes      string</p>
+<p>3、导入数据students_data.txt到students表。</p>
+<p>4、创建course表，表结构如下：</p>
+<p>course_id       int,</p>
+<p>course_name    string</p>
+<p>5、导入数据course.txt到course表。</p>
+<p>6、创建动态分区表students_dynamic，以classes为分区字段。</p>
+<p>7、从students表导入数据到students_dynamic。</p>
+<p>8、查询每个班的平均分数。</p>
+<p>9、查询students表中所有学生的姓名、分数。</p>
+<p>10、查询students表中成绩在80至90之间的记录的所有信息。</p>
+<p>11、查询students表中成绩在60以下的记录的姓名、课程编号（course_id）和分数。</p>
+<p>12、将students表中的所有记录先按分数降序，当分数一样时，再按姓名升序排列。</p>
+<p>13、统计students表中有多少门不同的课程。</p>
+<p>14、查询Mary所选修课程的课程编号和分数。</p>
+<p>15、找出所有学生中，course_id为30的课程，分数最高的同学。输出该同学姓名、分数、课程名称、所在班级到屏幕。</p>
+<h2 id="实验方案"><a href="#实验方案" class="headerlink" title="实验方案"></a>实验方案</h2><p>打开hive( 在hadoop根目录执行)</p>
+<pre class=" language-shell"><code class="language-shell">start-dfs.sh</code></pre>
+<p>该语句为打开hdfs分布式文件系统，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image002.jpg" alt="img"></p>
+<p>start-yarn.sh</p>
+<p>该语句为打开资源调度框架yarn，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image004.png" alt="img"></p>
+<pre class=" language-shell"><code class="language-shell">service mysqld start</code></pre>
+<p>该语句为打开mysql数据库，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image006.jpg" alt="img"></p>
+<pre class=" language-shell"><code class="language-shell">hive</code></pre>
+<p>该语句为打开hive，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image008.jpg" alt="img"></p>
+<p>由于hive是部署在hdfs上的组件，故打开hive之前要打开hdfs和yarn框架来调度资源，而hive产生的元数据存储在mysql中，故打开hdfs和yarn之后，且在打开hive之前要打开mysql。</p>
+<p>1.</p>
+<pre class=" language-sql"><code class="language-sql"> <span class="token keyword">create</span> <span class="token keyword">database</span> stu<span class="token punctuation">;</span></code></pre>
+<p>该语句为创建名为stu的数据库，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image010.jpg" alt="img"></p>
+<p>2.</p>
+<pre class=" language-shell"><code class="language-shell"> use stu;</code></pre>
+<p>该语句为使用数据库stu，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image012.jpg" alt="img"></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> students<span class="token punctuation">(</span>id <span class="token keyword">int</span><span class="token punctuation">,</span>name string<span class="token punctuation">,</span>gender string<span class="token punctuation">,</span>age <span class="token keyword">int</span><span class="token punctuation">,</span>course_id <span class="token keyword">int</span><span class="token punctuation">,</span>score <span class="token keyword">double</span><span class="token punctuation">,</span>classes string<span class="token punctuation">)</span> <span class="token keyword">row</span> format delimited <span class="token keyword">fields</span> <span class="token keyword">terminated by</span> <span class="token string">','</span><span class="token punctuation">;</span></code></pre>
+<p>创建名为students的表格，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image014.png" alt="img"></p>
+<p>3.</p>
+<pre class=" language-sql"><code class="language-sql"> <span class="token keyword">load</span> <span class="token keyword">data</span> <span class="token keyword">local</span> inpath <span class="token string">'/simple/data/students_data.txt'</span> overwrite <span class="token keyword">into</span> <span class="token keyword">table</span> students<span class="token punctuation">;</span></code></pre>
+<p>从本地加载数据到表students中，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image016.jpg" alt="img"></p>
+<p>4.</p>
+<pre class=" language-sql"><code class="language-sql">hive<span class="token operator">></span> <span class="token keyword">create</span> <span class="token keyword">table</span> course<span class="token punctuation">(</span>course_id <span class="token keyword">int</span><span class="token punctuation">,</span>course_name string<span class="token punctuation">)</span> <span class="token keyword">row</span> format delimited <span class="token keyword">fields</span> <span class="token keyword">terminated by</span> <span class="token string">','</span><span class="token punctuation">;</span></code></pre>
+<p>创建名为course的表，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image018.jpg" alt="img"></p>
+<p>5.</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">load</span> <span class="token keyword">data</span> <span class="token keyword">local</span> inpath <span class="token string">'/simple/data/course.txt'</span> overwrite <span class="token keyword">into</span> <span class="token keyword">table</span> course<span class="token punctuation">;</span></code></pre>
+<p>从本地加载数据到表course中，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image020.jpg" alt="img"></p>
+<p>6.</p>
+<pre class=" language-sql"><code class="language-sql"> <span class="token keyword">set</span> hive<span class="token punctuation">.</span><span class="token keyword">exec</span><span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span><span class="token keyword">partition</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">set</span> hive<span class="token punctuation">.</span><span class="token keyword">exec</span><span class="token punctuation">.</span>dynamic<span class="token punctuation">.</span><span class="token keyword">partition</span><span class="token punctuation">.</span>mode<span class="token operator">=</span>nostrict<span class="token punctuation">;</span></code></pre>
+<p>创建动态分区表之前要先开启分区，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image022.jpg" alt="img"></p>
+<pre class=" language-sql"><code class="language-sql"> <span class="token keyword">create</span> <span class="token keyword">table</span> students_dynamic<span class="token punctuation">(</span>id <span class="token keyword">int</span><span class="token punctuation">,</span>name string<span class="token punctuation">,</span>gender string<span class="token punctuation">,</span>age <span class="token keyword">int</span><span class="token punctuation">,</span>course_id <span class="token keyword">int</span><span class="token punctuation">,</span>score <span class="token keyword">double</span><span class="token punctuation">,</span>classes string<span class="token punctuation">)</span> partitioned <span class="token keyword">by</span><span class="token punctuation">(</span>class string<span class="token punctuation">)</span> <span class="token keyword">row</span> format delimited <span class="token keyword">fields</span> <span class="token keyword">terminated by</span> <span class="token string">','</span><span class="token punctuation">;</span></code></pre>
+<p>创建动态分区表，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image024.jpg" alt="img"></p>
+<p>7．</p>
+<pre class=" language-sql"><code class="language-sql"> <span class="token keyword">insert</span> overwrite <span class="token keyword">table</span> students_dynamic <span class="token keyword">partition</span><span class="token punctuation">(</span>class<span class="token operator">=</span><span class="token string">'classA'</span><span class="token punctuation">)</span><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span></code></pre>
+<p>在数据库stu中动态分区表students_dynamic中插入表students的数据，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image026.jpg" alt="img"></p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image028.jpg" alt="img"></p>
+<p>8.</p>
+<pre class=" language-sql"><code class="language-sql"> <span class="token keyword">select</span> classes<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span> <span class="token keyword">from</span> students <span class="token keyword">group</span> <span class="token keyword">by</span> classes<span class="token punctuation">;</span></code></pre>
+<p>查询每个班的平均分数，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image030.jpg" alt="img"></p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image032.jpg" alt="img"></p>
+<p>9.</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name<span class="token punctuation">,</span>score <span class="token keyword">from</span> students<span class="token punctuation">;</span></code></pre>
+<p>查询students表中所有学生的姓名、分数，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image034.jpg" alt="img"></p>
+<p>10.</p>
+<pre class=" language-sql"><code class="language-sql"> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> students <span class="token keyword">where</span> score<span class="token operator">>=</span><span class="token number">80</span> <span class="token operator">and</span> score<span class="token operator">&lt;=</span><span class="token number">90</span><span class="token punctuation">;</span></code></pre>
+<p>查询students表中成绩在80至90之间的记录的所有信息，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image036.jpg" alt="img"></p>
+<p>11.</p>
+<pre class=" language-sql"><code class="language-sql"> <span class="token keyword">select</span> name<span class="token punctuation">,</span>course_id<span class="token punctuation">,</span>score <span class="token keyword">from</span> students <span class="token keyword">where</span> score<span class="token operator">&lt;</span><span class="token number">60</span><span class="token punctuation">;</span></code></pre>
+<p>查询students表中成绩在60以下的记录的姓名、课程编号（course_id）和分数，查询结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image038.jpg" alt="img"></p>
+<p>12.</p>
+<pre class=" language-sql"><code class="language-sql"> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> students <span class="token keyword">order</span> <span class="token keyword">by</span> score <span class="token keyword">desc</span><span class="token punctuation">,</span>name <span class="token keyword">asc</span><span class="token punctuation">;</span></code></pre>
+<p>将students表中的所有记录先按分数降序，当分数一样时，再按姓名升序排列，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image040.jpg" alt="img"></p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image042.jpg" alt="img"></p>
+<p>13.</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span>
+
+<span class="token punctuation">(</span><span class="token keyword">distinct</span> course_id<span class="token punctuation">)</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span></code></pre>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image044.jpg" alt="img"></p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image046.jpg" alt="img"></p>
+<p>14.</p>
+<pre class=" language-sql"><code class="language-sql"> <span class="token keyword">select</span> course_id<span class="token punctuation">,</span>score <span class="token keyword">from</span> students <span class="token keyword">where</span> name<span class="token operator">=</span><span class="token operator">=</span><span class="token string">'Mary'</span><span class="token punctuation">;</span></code></pre>
+<p>查询Mary所选修课程的课程编号和分数，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image048.jpg" alt="img"></p>
+<p>15.</p>
+<pre class=" language-sql"><code class="language-sql"> <span class="token keyword">select</span> name<span class="token punctuation">,</span>score<span class="token punctuation">,</span>course_id<span class="token punctuation">,</span>classes <span class="token keyword">from</span> students <span class="token number">a</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">max</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span> max_score <span class="token keyword">from</span> students <span class="token keyword">where</span> course_id<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token number">b</span> <span class="token keyword">where</span> <span class="token number">a</span><span class="token punctuation">.</span>score<span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>max_score <span class="token operator">and</span> course_id<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">;</span></code></pre>
+<p>找出所有学生中，course_id为30的课程，分数最高的同学。输出该同学姓名、分数、 课程名称、所在班级到屏幕，运行结果如下：</p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image050.jpg" alt="img"></p>
 
             </div>
             <hr/>
@@ -631,7 +738,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.memorydrive.online/2021/04/09/da-shu-ju-xue-xi-zhong-wen-wen-dang/">https://www.memorydrive.online/2021/04/09/da-shu-ju-xue-xi-zhong-wen-wen-dang/</a>
+                    <a href="https://www.memorydrive.online/2020/06/19/hive-shang-ji-shi-yan/">https://www.memorydrive.online/2020/06/19/hive-shang-ji-shi-yan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -669,8 +776,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hadoop/">
-                                    <span class="chip bg-color">Hadoop</span>
+                                <a href="/tags/Hive/">
+                                    <span class="chip bg-color">Hive</span>
                                 </a>
                             
                         </div>
@@ -975,48 +1082,46 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/09/da-shu-ju-xue-xi-zhong-wen-wen-dang/">
+                <a href="/2020/06/21/sql-zeng-shan-gai-cha/">
                     <div class="card-image">
                         
                         
-                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1489.jpg" class="responsive-img" alt="大数据学习中文文档">
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1081.jpg" class="responsive-img" alt="SQL增删改查">
                         
-                        <span class="card-title">大数据学习中文文档</span>
+                        <span class="card-title">SQL增删改查</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            中文文档
+                            数据库curd
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" class="post-category">
-                                    数据科学
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hadoop/">
-                        <span class="chip bg-color">Hadoop</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
@@ -1030,31 +1135,33 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/31/sql-di-ceng-yuan-li-ji-shi-cao-ji-lu/">
+                <a href="/2020/06/15/linux-ban-python-sheng-ji-yi-lai-xiang-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_651.jpg" class="responsive-img" alt="SQL底层原理及实操记录">
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1861.jpg" class="responsive-img" alt="linux版python升级依赖项问题">
                         
-                        <span class="card-title">SQL底层原理及实操记录</span>
+                        <span class="card-title">linux版python升级依赖项问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MySQL45讲学习笔记,从底层原理上里理解关系型数据库并记录实操（MySQL8.0的一些新特性）
+                            介绍linux中python2升级到python3，会出现一系列的依赖项未配置问题，如果不解决，将会影响其他环境的安装配置。 
+比如python2升级到3之后，安装docker就会出现(大量文字高能警告，可以忽略跳到后面)
+正在读取软件包列
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" class="post-category">
-                                    数据科学
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                    运维
                                 </a>
                             
                             
@@ -1064,8 +1171,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
@@ -1204,13 +1315,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1279,7 +1383,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.2k</span>&nbsp;字
+                class="white-color">77.5k</span>&nbsp;字
             
             
             

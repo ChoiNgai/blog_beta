@@ -418,158 +418,92 @@
 
 </header>
 
-    <link rel="stylesheet" href="/css/gallery.css">
-<link type="text/css" href="/libs/fancybox/jquery.fancybox.css" rel="stylesheet">
-<link type="text/css" href="/libs/justifiedGallery/justifiedGallery.min.css" rel="stylesheet">
+    .gallery-wrapper{
+  padding-top: 30px;
+}
+.gallery-wrapper .gallery-box{
+  padding: 5px !important;
+}
 
+.gallery-wrapper .gallery-item {
+  display: block;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 5px;
+  padding-bottom: 0;
+  position: relative;
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
+}
 
+.gallery-cover-box{
+  width: 100%;
+  padding-top: 60%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  background: center center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_377.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">游戏壁纸</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+.gallery-cover-box .gallery-cover-img {
+  display: inline-block;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.gallery-item .gallery-name{
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  color: #666;
+  margin: 0;
+}
 
+.waterfall {
+  column-count: 3;
+  column-gap: 1em;
+}
+.photo-wrapper{
+  padding-top: 20px;
+}
+.photo-item {
+  display: block;
+  padding: 10px;
+  padding-bottom: 0;
+  margin-bottom: 14px;
+  font-size: 0;
+  -moz-page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
+  background: white;
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
+}
+.photo-item img {
+  width: 100%;
+}
+.photo-item .photo-name{
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-top: 1px solid #dddddd;
+}
 
-
-<div class="container">
-    <div class="photo-wrapper">
-        <div class="waterfall" id="mygallery">
-            <a href="https://www.memorydrive.online/../medias/Glory_of_King/106.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/106.jpg"       alt=../medias/Glory_of_King/106.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/106_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/106_2.jpg"       alt=../medias/Glory_of_King/106_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/106_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/106_3.jpg"       alt=../medias/Glory_of_King/106_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/106_6.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/106_6.jpg"       alt=../medias/Glory_of_King/106_6.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/106_7.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/106_7.jpg"       alt=../medias/Glory_of_King/106_7.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/109.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/109.jpg"       alt=../medias/Glory_of_King/109.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/109_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/109_2.jpg"       alt=../medias/Glory_of_King/109_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/109_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/109_3.jpg"       alt=../medias/Glory_of_King/109_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/109_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/109_4.jpg"       alt=../medias/Glory_of_King/109_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/109_5.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/109_5.jpg"       alt=../medias/Glory_of_King/109_5.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/109_6.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/109_6.jpg"       alt=../medias/Glory_of_King/109_6.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/109_7.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/109_7.jpg"       alt=../medias/Glory_of_King/109_7.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/111.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/111.jpg"       alt=../medias/Glory_of_King/111.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/111_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/111_2.jpg"       alt=../medias/Glory_of_King/111_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/111_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/111_3.jpg"       alt=../medias/Glory_of_King/111_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/111_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/111_4.jpg"       alt=../medias/Glory_of_King/111_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/111_5.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/111_5.jpg"       alt=../medias/Glory_of_King/111_5.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/111_6.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/111_6.jpg"       alt=../medias/Glory_of_King/111_6.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/111_8.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/111_8.jpg"       alt=../medias/Glory_of_King/111_8.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/116.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/116.jpg"       alt=../medias/Glory_of_King/116.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/116_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/116_2.jpg"       alt=../medias/Glory_of_King/116_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/116_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/116_3.jpg"       alt=../medias/Glory_of_King/116_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/116_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/116_4.jpg"       alt=../medias/Glory_of_King/116_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/116_5.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/116_5.jpg"       alt=../medias/Glory_of_King/116_5.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/116_6.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/116_6.jpg"       alt=../medias/Glory_of_King/116_6.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/117.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/117.jpg"       alt=../medias/Glory_of_King/117.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/117_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/117_2.jpg"       alt=../medias/Glory_of_King/117_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/117_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/117_4.jpg"       alt=../medias/Glory_of_King/117_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/121.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/121.jpg"       alt=../medias/Glory_of_King/121.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/121_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/121_2.jpg"       alt=../medias/Glory_of_King/121_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/121_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/121_3.jpg"       alt=../medias/Glory_of_King/121_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/121_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/121_4.jpg"       alt=../medias/Glory_of_King/121_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/127.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/127.jpg"       alt=../medias/Glory_of_King/127.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/127_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/127_2.jpg"       alt=../medias/Glory_of_King/127_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/127_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/127_3.jpg"       alt=../medias/Glory_of_King/127_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/127_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/127_4.jpg"       alt=../medias/Glory_of_King/127_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/136.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/136.jpg"       alt=../medias/Glory_of_King/136.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/136_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/136_2.jpg"       alt=../medias/Glory_of_King/136_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/136_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/136_3.jpg"       alt=../medias/Glory_of_King/136_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/136_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/136_4.jpg"       alt=../medias/Glory_of_King/136_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/141.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/141.jpg"       alt=../medias/Glory_of_King/141.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/141_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/141_2.jpg"       alt=../medias/Glory_of_King/141_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/141_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/141_4.jpg"       alt=../medias/Glory_of_King/141_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/141_5.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/141_5.jpg"       alt=../medias/Glory_of_King/141_5.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/141_6.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/141_6.jpg"       alt=../medias/Glory_of_King/141_6.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/142.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/142.jpg"       alt=../medias/Glory_of_King/142.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/142_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/142_2.jpg"       alt=../medias/Glory_of_King/142_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/142_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/142_3.jpg"       alt=../medias/Glory_of_King/142_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/142_5.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/142_5.jpg"       alt=../medias/Glory_of_King/142_5.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/146.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/146.jpg"       alt=../medias/Glory_of_King/146.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/146_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/146_2.jpg"       alt=../medias/Glory_of_King/146_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/146_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/146_3.jpg"       alt=../medias/Glory_of_King/146_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/146_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/146_4.jpg"       alt=../medias/Glory_of_King/146_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/152.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/152.jpg"       alt=../medias/Glory_of_King/152.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/152_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/152_2.jpg"       alt=../medias/Glory_of_King/152_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/152_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/152_3.jpg"       alt=../medias/Glory_of_King/152_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/152_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/152_4.jpg"       alt=../medias/Glory_of_King/152_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/152_5.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/152_5.jpg"       alt=../medias/Glory_of_King/152_5.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/154.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/154.jpg"       alt=../medias/Glory_of_King/154.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/154_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/154_2.jpg"       alt=../medias/Glory_of_King/154_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/154_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/154_3.jpg"       alt=../medias/Glory_of_King/154_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/154_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/154_4.jpg"       alt=../medias/Glory_of_King/154_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/154_5.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/154_5.jpg"       alt=../medias/Glory_of_King/154_5.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/154_6.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/154_6.jpg"       alt=../medias/Glory_of_King/154_6.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/154_7.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/154_7.jpg"       alt=../medias/Glory_of_King/154_7.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/157.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/157.jpg"       alt=../medias/Glory_of_King/157.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/157_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/157_2.jpg"       alt=../medias/Glory_of_King/157_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/162.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/162.jpg"       alt=../medias/Glory_of_King/162.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/162_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/162_2.jpg"       alt=../medias/Glory_of_King/162_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/174.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/174.jpg"       alt=../medias/Glory_of_King/174.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/174_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/174_2.jpg"       alt=../medias/Glory_of_King/174_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/174_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/174_4.jpg"       alt=../medias/Glory_of_King/174_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/174_5.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/174_5.jpg"       alt=../medias/Glory_of_King/174_5.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/176.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/176.jpg"       alt=../medias/Glory_of_King/176.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/176_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/176_2.jpg"       alt=../medias/Glory_of_King/176_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/176_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/176_3.jpg"       alt=../medias/Glory_of_King/176_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/179.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/179.jpg"       alt=../medias/Glory_of_King/179.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/179_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/179_2.jpg"       alt=../medias/Glory_of_King/179_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/179_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/179_3.jpg"       alt=../medias/Glory_of_King/179_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/183.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/183.jpg"       alt=../medias/Glory_of_King/183.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/183_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/183_2.jpg"       alt=../medias/Glory_of_King/183_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/183_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/183_3.jpg"       alt=../medias/Glory_of_King/183_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/183_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/183_4.jpg"       alt=../medias/Glory_of_King/183_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/184.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/184.jpg"       alt=../medias/Glory_of_King/184.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/184_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/184_2.jpg"       alt=../medias/Glory_of_King/184_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/184_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/184_3.jpg"       alt=../medias/Glory_of_King/184_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/184_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/184_4.jpg"       alt=../medias/Glory_of_King/184_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/184_5.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/184_5.jpg"       alt=../medias/Glory_of_King/184_5.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/191.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/191.jpg"       alt=../medias/Glory_of_King/191.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/191_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/191_2.jpg"       alt=../medias/Glory_of_King/191_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/191_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/191_3.jpg"       alt=../medias/Glory_of_King/191_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/191_5.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/191_5.jpg"       alt=../medias/Glory_of_King/191_5.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/199.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/199.jpg"       alt=../medias/Glory_of_King/199.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/199_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/199_2.jpg"       alt=../medias/Glory_of_King/199_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/199_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/199_3.jpg"       alt=../medias/Glory_of_King/199_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/199_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/199_4.jpg"       alt=../medias/Glory_of_King/199_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/504_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/504_2.jpg"       alt=../medias/Glory_of_King/504_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/504_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/504_3.jpg"       alt=../medias/Glory_of_King/504_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/505.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/505.jpg"       alt=../medias/Glory_of_King/505.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/505_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/505_2.jpg"       alt=../medias/Glory_of_King/505_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/505_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/505_3.jpg"       alt=../medias/Glory_of_King/505_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/508.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/508.jpg"       alt=../medias/Glory_of_King/508.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/508_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/508_2.jpg"       alt=../medias/Glory_of_King/508_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/508_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/508_3.jpg"       alt=../medias/Glory_of_King/508_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/508_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/508_4.jpg"       alt=../medias/Glory_of_King/508_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/513.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/513.jpg"       alt=../medias/Glory_of_King/513.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/513_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/513_2.jpg"       alt=../medias/Glory_of_King/513_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/513_3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/513_3.jpg"       alt=../medias/Glory_of_King/513_3.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/513_4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/513_4.jpg"       alt=../medias/Glory_of_King/513_4.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/515.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/515.jpg"       alt=../medias/Glory_of_King/515.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/515_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/515_2.jpg"       alt=../medias/Glory_of_King/515_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/523.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/523.jpg"       alt=../medias/Glory_of_King/523.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/523_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/523_2.jpg"       alt=../medias/Glory_of_King/523_2.jpg>
-    </a><a href="https://www.memorydrive.online/../medias/Glory_of_King/531_2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/Glory_of_King/531_2.jpg"       alt=../medias/Glory_of_King/531_2.jpg>
-    </a>
-
-        </div>
-    </div>
-</div>
-
-
-<script src="/libs/fancybox/fancybox.js"></script>
-<script src="/libs/justifiedGallery/justifiedGallery.min.js"></script>
-<script>
-
-  $("a[rel=example_group]").fancybox();
-  $("#mygallery").justifiedGallery({margins: 5, rowHeight: 150});
-
-</script>
+/*适配移动端布局*/
+@media only screen and (max-width: 601px) {
+  .waterfall {
+    column-count: 2;
+    column-gap: 1em;
+  }
+}
 
     <footer class="page-footer bg-color">
     
@@ -637,7 +571,7 @@
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.2k</span>&nbsp;字
+                class="white-color">77.5k</span>&nbsp;字
             
             
             
