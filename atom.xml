@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-05-09T16:51:26.916Z</updated>
+  <updated>2021-05-23T13:01:25.139Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>刷题网站汇总</title>
+    <link href="https://www.memorydrive.online/2021/05/23/shua-ti-wang-zhan-hui-zong/"/>
+    <id>https://www.memorydrive.online/2021/05/23/shua-ti-wang-zhan-hui-zong/</id>
+    <published>2021-05-23T12:58:11.000Z</published>
+    <updated>2021-05-23T13:01:25.139Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;leetcode&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="tool" scheme="https://www.memorydrive.online/categories/tool/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python3爬虫学习笔记</title>
+    <link href="https://www.memorydrive.online/2021/05/18/python3-pa-chong-xue-xi-bi-ji/"/>
+    <id>https://www.memorydrive.online/2021/05/18/python3-pa-chong-xue-xi-bi-ji/</id>
+    <published>2021-05-18T13:01:43.000Z</published>
+    <updated>2021-05-18T13:13:11.957Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Python3语法复习&quot;&gt;&lt;a href=&quot;#Python3语法复习&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="爬虫" scheme="https://www.memorydrive.online/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="Python" scheme="https://www.memorydrive.online/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>win10安装Hadoop以及pyspark</title>
@@ -515,66 +569,6 @@
     
     
       <category term="python" scheme="https://www.memorydrive.online/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图床</title>
-    <link href="https://www.memorydrive.online/2020/07/06/da-jian-tu-chuang/"/>
-    <id>https://www.memorydrive.online/2020/07/06/da-jian-tu-chuang/</id>
-    <published>2020-07-06T15:05:41.000Z</published>
-    <updated>2020-09-21T14:19:58.254Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;为什么要搭建图床？&quot;&gt;&lt;a href=&quot;#为什么要搭建图床？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="tool" scheme="https://www.memorydrive.online/categories/tool/"/>
-    
-    
-      <category term="tips" scheme="https://www.memorydrive.online/tags/tips/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spark SQL 上机实验</title>
-    <link href="https://www.memorydrive.online/2020/07/03/spark-sql-shang-ji-shi-yan/"/>
-    <id>https://www.memorydrive.online/2020/07/03/spark-sql-shang-ji-shi-yan/</id>
-    <published>2020-07-03T15:18:55.000Z</published>
-    <updated>2021-05-09T15:34:15.399Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;一、实验目的：&lt;/p&gt;
-&lt;p&gt;1、通过实验掌握Spark SQL的基本编程方法；&lt;/p&gt;
-&lt;p&gt;2、熟悉RDD到DataFrame的转化方法；&lt;/p&gt;
-&lt;p&gt;二、实验要求：&lt;/p&gt;
-&lt;p&gt;  按实验要求完成实验。&lt;/p&gt;
-&lt;p&gt;三、实验方案&lt;/p&gt;
-&lt;p&gt;1．Spark
-        
-      
-    
-    </summary>
-    
-    
-      <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Spark" scheme="https://www.memorydrive.online/tags/Spark/"/>
     
   </entry>
   

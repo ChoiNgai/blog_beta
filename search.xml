@@ -4,6 +4,46 @@
   
     
     <entry>
+      <title>刷题网站汇总</title>
+      <link href="2021/05/23/shua-ti-wang-zhan-hui-zong/"/>
+      <url>2021/05/23/shua-ti-wang-zhan-hui-zong/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>leetcode</p><p><a href="https://leetcode-cn.com/" target="_blank" rel="noopener">https://leetcode-cn.com/</a></p></li><li><p>牛客网</p><p><a href="https://www.nowcoder.com/activity/oj" target="_blank" rel="noopener">https://www.nowcoder.com/activity/oj</a></p></li><li><p>CodeTop</p><p><a href="https://codetop.cc/#/home" target="_blank" rel="noopener">https://codetop.cc/#/home</a></p></li><li><p>使用”力扣”学习算法与数据结构</p><p><a href="https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style" target="_blank" rel="noopener">https://github.com/liweiwei1419/LeetCode-Solutions-in-Good-Style</a></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> tool </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python3爬虫学习笔记</title>
+      <link href="2021/05/18/python3-pa-chong-xue-xi-bi-ji/"/>
+      <url>2021/05/18/python3-pa-chong-xue-xi-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Python3语法复习"><a href="#Python3语法复习" class="headerlink" title="Python3语法复习"></a>Python3语法复习</h1><ul><li><p>输入与输出</p><ul><li><p>输入</p><pre class=" language-sql"><code class="language-sql"><span class="token number">a</span> <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></li><li><p>输出</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span></code></pre></li></ul></li><li><p>格式化</p><ul><li><p>格式化输出</p><pre><code></code></pre></li></ul></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 爬虫 </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>win10安装Hadoop以及pyspark</title>
       <link href="2021/05/10/win10-an-zhuang-hadoop-yi-ji-pyspark/"/>
       <url>2021/05/10/win10-an-zhuang-hadoop-yi-ji-pyspark/</url>
