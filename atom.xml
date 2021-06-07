@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-05-23T13:01:25.139Z</updated>
+  <updated>2021-06-07T10:04:25.035Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>大数据技术的演变：计算框架</title>
+    <link href="https://www.memorydrive.online/2021/06/07/da-shu-ju-ji-zhu-de-yan-bian-ji-suan-kuang-jia/"/>
+    <id>https://www.memorydrive.online/2021/06/07/da-shu-ju-ji-zhu-de-yan-bian-ji-suan-kuang-jia/</id>
+    <published>2021-06-07T10:02:18.000Z</published>
+    <updated>2021-06-07T10:04:25.035Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;开篇语&quot;&gt;&lt;a href=&quot;#开篇语&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Hadoop" scheme="https://www.memorydrive.online/tags/Hadoop/"/>
+    
+      <category term="Spark" scheme="https://www.memorydrive.online/tags/Spark/"/>
+    
+      <category term="Flink" scheme="https://www.memorydrive.online/tags/Flink/"/>
+    
+  </entry>
   
   <entry>
     <title>刷题网站汇总</title>
@@ -104,7 +135,7 @@
     <link href="https://www.memorydrive.online/2021/05/09/you-xiu-bo-wen-shou-lu-bigdata/"/>
     <id>https://www.memorydrive.online/2021/05/09/you-xiu-bo-wen-shou-lu-bigdata/</id>
     <published>2021-05-09T15:26:11.000Z</published>
-    <updated>2021-05-09T16:49:23.080Z</updated>
+    <updated>2021-06-07T10:03:58.347Z</updated>
     
     <summary type="html">
     
@@ -542,33 +573,6 @@
     
     
       <category term="建站" scheme="https://www.memorydrive.online/tags/%E5%BB%BA%E7%AB%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python伪装ip以及浏览器型号</title>
-    <link href="https://www.memorydrive.online/2020/07/13/python-wei-zhuang-ip-yi-ji-liu-lan-qi-xing-hao/"/>
-    <id>https://www.memorydrive.online/2020/07/13/python-wei-zhuang-ip-yi-ji-liu-lan-qi-xing-hao/</id>
-    <published>2020-07-13T13:47:13.000Z</published>
-    <updated>2020-09-21T14:19:58.249Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="运维" scheme="https://www.memorydrive.online/categories/%E8%BF%90%E7%BB%B4/"/>
-    
-    
-      <category term="python" scheme="https://www.memorydrive.online/tags/python/"/>
     
   </entry>
   
