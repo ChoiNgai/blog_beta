@@ -604,106 +604,105 @@
 <h2 id="获取代理ip"><a href="#获取代理ip" class="headerlink" title="获取代理ip"></a>获取代理ip</h2><p>芝麻http等可以拿到一些免费的代码ip，但说实话我不喜欢这样的（量太少）,下面用一个脚本来判断ip是否能ping 通。</p>
 <p>这里先随机生成ip地址放在<code>ip_original.txt</code>这个文件（每个ip地址独自一行），待判断的ip可以随机生成，也可以在某些网站获取，例如：<a href="http://www.shenjidaili.com/shareip/" target="_blank" rel="noopener">http://www.shenjidaili.com/shareip/</a></p>
 <p>把这些复制到的处理一下，去除<code>端口号</code>，只留ip地址，例如125.108.106.10存入txt文本中。</p>
-<pre class=" language-lang-python"><code class="language-lang-python">#judge_ip
-import os
-import xlwt
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#judge_ip</span>
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> xlwt
 
-#读取txt文件里的ip地址存储为列表
-def ReadTxtName(rootdir):
-    lines = []
-    with open(rootdir, 'r') as file_to_read:
-        while True:
-            line = file_to_read.readline()
-            if not line:
-                break
-            line = line.strip('\n')
-            lines.append(line)
-    return lines
-
-
-#保存列表
-def text_save(filename, data):#filename为写入文件的路径，data为要写入数据列表.
-    file = open(filename,'a')
-    for i in range(len(data)):
-        s = str(data[i]).replace('[','').replace(']','')#去除[],这两行按数据不同，可以选择
-        s = s.replace("'",'').replace(',','') +'\n'   #去除单引号，逗号，每行末尾追加换行符
-        file.write(s)
-    file.close()
-    print("保存文件成功")
-
-ip_list=ReadTxtName('ip_original.txt')      #读取待判断是否有效的ip列表
-Effective_ip = [ ]  #创建存储有效ip的列表
-
-#判断ip是否可用
-for i in range(3,len(ip_list)):
-    result=os.system('ping '+ ip_list[i])   #0为可用ip，1为不可用ip
-    #print("结果是",result)
-    if result == 0:
-        Effective_ip.append( ip_list[i])
-    else:
-        print("第"+str(i+1)+"个ip无效")
-
-    text_save('ip_list.txt', Effective_ip)        #保存有效ip
-</code></pre>
-<h2 id="伪装后打开网页"><a href="#伪装后打开网页" class="headerlink" title="伪装后打开网页"></a>伪装后打开网页</h2><pre class=" language-lang-python"><code class="language-lang-python">import urllib.request
-import requests
-import time
-import ssl
-import random
-
-def openUrl(ip, agent):
-    headers = {'User-Agent': agent}            #伪装浏览器型号
-    proxies = {'http' : ip}                    #伪装ip地址
-    requests.get("https://www.baidu.com/", headers=headers, proxies=proxies, verify=True)
-    ssl._create_default_https_context = ssl._create_unverified_context
-    print("Access to success.")
-
-#读取txt文件里的ip地址存储为列表
-def ReadTxtName(rootdir):
-    lines = []
-    with open(rootdir, 'r') as file_to_read:
-        while True:
-            line = file_to_read.readline()
-            if not line:
-                break
-            line = line.strip('\n')
-            lines.append(line)
-    return lines    
+<span class="token comment" spellcheck="true">#读取txt文件里的ip地址存储为列表</span>
+<span class="token keyword">def</span> <span class="token function">ReadTxtName</span><span class="token punctuation">(</span>rootdir<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    lines <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span>rootdir<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> file_to_read<span class="token punctuation">:</span>
+        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            line <span class="token operator">=</span> file_to_read<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> line<span class="token punctuation">:</span>
+                <span class="token keyword">break</span>
+            line <span class="token operator">=</span> line<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+            lines<span class="token punctuation">.</span>append<span class="token punctuation">(</span>line<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> lines
 
 
-#随机选取ip
-def randomIP(ip_list):
-    ip = random.choice(ip_list)
-    return ip
+<span class="token comment" spellcheck="true">#保存列表</span>
+<span class="token keyword">def</span> <span class="token function">text_save</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true">#filename为写入文件的路径，data为要写入数据列表.</span>
+    file <span class="token operator">=</span> open<span class="token punctuation">(</span>filename<span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        s <span class="token operator">=</span> str<span class="token punctuation">(</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'['</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">']'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#去除[],这两行按数据不同，可以选择</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"'"</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span> <span class="token operator">+</span><span class="token string">'\n'</span>   <span class="token comment" spellcheck="true">#去除单引号，逗号，每行末尾追加换行符</span>
+        file<span class="token punctuation">.</span>write<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+    file<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"保存文件成功"</span><span class="token punctuation">)</span>
+
+ip_list<span class="token operator">=</span>ReadTxtName<span class="token punctuation">(</span><span class="token string">'ip_original.txt'</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">#读取待判断是否有效的ip列表</span>
+Effective_ip <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">#创建存储有效ip的列表</span>
+
+<span class="token comment" spellcheck="true">#判断ip是否可用</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>ip_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    result<span class="token operator">=</span>os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'ping '</span><span class="token operator">+</span> ip_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#0为可用ip，1为不可用ip</span>
+    <span class="token comment" spellcheck="true">#print("结果是",result)</span>
+    <span class="token keyword">if</span> result <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        Effective_ip<span class="token punctuation">.</span>append<span class="token punctuation">(</span> ip_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"第"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"个ip无效"</span><span class="token punctuation">)</span>
+
+    text_save<span class="token punctuation">(</span><span class="token string">'ip_list.txt'</span><span class="token punctuation">,</span> Effective_ip<span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">#保存有效ip</span></code></pre>
+<h2 id="伪装后打开网页"><a href="#伪装后打开网页" class="headerlink" title="伪装后打开网页"></a>伪装后打开网页</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
+<span class="token keyword">import</span> requests
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> ssl
+<span class="token keyword">import</span> random
+
+<span class="token keyword">def</span> <span class="token function">openUrl</span><span class="token punctuation">(</span>ip<span class="token punctuation">,</span> agent<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'User-Agent'</span><span class="token punctuation">:</span> agent<span class="token punctuation">}</span>            <span class="token comment" spellcheck="true">#伪装浏览器型号</span>
+    proxies <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'http'</span> <span class="token punctuation">:</span> ip<span class="token punctuation">}</span>                    <span class="token comment" spellcheck="true">#伪装ip地址</span>
+    requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://www.baidu.com/"</span><span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> proxies<span class="token operator">=</span>proxies<span class="token punctuation">,</span> verify<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    ssl<span class="token punctuation">.</span>_create_default_https_context <span class="token operator">=</span> ssl<span class="token punctuation">.</span>_create_unverified_context
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Access to success."</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#读取txt文件里的ip地址存储为列表</span>
+<span class="token keyword">def</span> <span class="token function">ReadTxtName</span><span class="token punctuation">(</span>rootdir<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    lines <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span>rootdir<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> file_to_read<span class="token punctuation">:</span>
+        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            line <span class="token operator">=</span> file_to_read<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> line<span class="token punctuation">:</span>
+                <span class="token keyword">break</span>
+            line <span class="token operator">=</span> line<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+            lines<span class="token punctuation">.</span>append<span class="token punctuation">(</span>line<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> lines    
 
 
-#随机选取浏览器型号
-def randomUserAgent():
-    UserAgent = random.choice([
-        'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36',
-        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36',
-        'Mozilla/5.0(compatible;MSIE9.0;WindowsNT6.1;Trident/5.0)',
-        'Mozilla/4.0(compatible;MSIE8.0;WindowsNT6.0;Trident/4.0)',
-        'Mozilla/4.0(compatible;MSIE7.0;WindowsNT6.0)',
-        'Opera/9.80(WindowsNT6.1;U;en)Presto/2.8.131Version/11.11',
-        'Mozilla/5.0(WindowsNT6.1;rv:2.0.1)Gecko/20100101Firefox/4.0.1',
-        'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.71 Safari/537.1 LBBROWSER',
-        'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; QQDownload 732; .NET4.0C; .NET4.0E)',
-        'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.84 Safari/535.11 SE 2.X MetaSr 1.0',
-        'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Maxthon/4.4.3.4000 Chrome/30.0.1599.101 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 UBrowser/4.0.3214.0 Safari/537.36'
+<span class="token comment" spellcheck="true">#随机选取ip</span>
+<span class="token keyword">def</span> <span class="token function">randomIP</span><span class="token punctuation">(</span>ip_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ip <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>ip_list<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> ip
 
 
-    ])
-    return UserAgent
+<span class="token comment" spellcheck="true">#随机选取浏览器型号</span>
+<span class="token keyword">def</span> <span class="token function">randomUserAgent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    UserAgent <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token string">'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'</span><span class="token punctuation">,</span>
+        <span class="token string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36'</span><span class="token punctuation">,</span>
+        <span class="token string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36'</span><span class="token punctuation">,</span>
+        <span class="token string">'Mozilla/5.0(compatible;MSIE9.0;WindowsNT6.1;Trident/5.0)'</span><span class="token punctuation">,</span>
+        <span class="token string">'Mozilla/4.0(compatible;MSIE8.0;WindowsNT6.0;Trident/4.0)'</span><span class="token punctuation">,</span>
+        <span class="token string">'Mozilla/4.0(compatible;MSIE7.0;WindowsNT6.0)'</span><span class="token punctuation">,</span>
+        <span class="token string">'Opera/9.80(WindowsNT6.1;U;en)Presto/2.8.131Version/11.11'</span><span class="token punctuation">,</span>
+        <span class="token string">'Mozilla/5.0(WindowsNT6.1;rv:2.0.1)Gecko/20100101Firefox/4.0.1'</span><span class="token punctuation">,</span>
+        <span class="token string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.71 Safari/537.1 LBBROWSER'</span><span class="token punctuation">,</span>
+        <span class="token string">'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; QQDownload 732; .NET4.0C; .NET4.0E)'</span><span class="token punctuation">,</span>
+        <span class="token string">'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.84 Safari/535.11 SE 2.X MetaSr 1.0'</span><span class="token punctuation">,</span>
+        <span class="token string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Maxthon/4.4.3.4000 Chrome/30.0.1599.101 Safari/537.36'</span><span class="token punctuation">,</span>
+        <span class="token string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 UBrowser/4.0.3214.0 Safari/537.36'</span>
 
-if __name__ == '__main__':
-        ip_list = ReadTxtName('ip_list.txt')       #读入有效ip储存为列表
-        ip = randomIP(ip_list)                        #随机选择ip
-        agent = randomUserAgent()                    #随机选择浏览器型号
-        openUrl(ip, agent)                            #打开网页
-        time.sleep(10)
+
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> UserAgent
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+        ip_list <span class="token operator">=</span> ReadTxtName<span class="token punctuation">(</span><span class="token string">'ip_list.txt'</span><span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">#读入有效ip储存为列表</span>
+        ip <span class="token operator">=</span> randomIP<span class="token punctuation">(</span>ip_list<span class="token punctuation">)</span>                        <span class="token comment" spellcheck="true">#随机选择ip</span>
+        agent <span class="token operator">=</span> randomUserAgent<span class="token punctuation">(</span><span class="token punctuation">)</span>                    <span class="token comment" spellcheck="true">#随机选择浏览器型号</span>
+        openUrl<span class="token punctuation">(</span>ip<span class="token punctuation">,</span> agent<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true">#打开网页</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
 </code></pre>
 <p>戛然而止:stuck_out_tongue_closed_eyes:（因为剩下的要干什么我就不提供了，仅供学习或研究使用）</p>
 
@@ -1370,7 +1369,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">75.1k</span>&nbsp;字
+                class="white-color">80.9k</span>&nbsp;字
             
             
             

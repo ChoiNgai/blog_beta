@@ -607,13 +607,10 @@
 <p>上图a表达了初始的数据集，假设类簇数（分类数）k=2。在图b中，我们随机选择了两个k类所对应的类别质心，即图中的红色质心和蓝色质心，然后分别求样本中所有点到这两个质心的距离，并标记每个样本的类别为和该样本距离最小的质心的类别，如图c所示，经过计算样本和红色质心和蓝色质心的距离，我们得到了所有样本点的第一轮迭代后的类别。此时我们对我们当前标记为红色和蓝色的点分别求其新的质心，如图4所示，新的红色质心和蓝色质心的位置已经发生了变动。图e和图f重复了我们在图c和图d的过程，即将所有点的类别标记为距离最近的质心的类别并求新的质心。最终我们得到的两个类别如图f。</p>
 <p>当然在实际K-Mean算法中，我们一般会多次运行图c和图d，才能达到最终的比较优的类别。这个循环多次执行图c和d的过程称之为“迭代”。</p>
 <p>图和文字讲完了，现在来看看数学公式。</p>
-<p>kmeans的思想是让每个聚类中心到属于该类的距离之和<strong>最小</strong>，故这样设置kmeans的目标函数：</p>
-<script type="math/tex; mode=display">
-J = \sum_{i=1}^k \sum_{j=1}^n ||x_j-v_i||^2</script><p>因为想要让每个聚类中心到属于该类的距离之和<strong>最小</strong>，即让<strong>目标函数值最小</strong>。</p>
+<p>kmeans的思想是让每个聚类中心到属于该类的距离之和<strong>最小</strong>，故这样设置kmeans的目标函数：<br>$$<br>J = \sum_{i=1}^k \sum_{j=1}^n ||x_j-v_i||^2<br>$$<br>因为想要让每个聚类中心到属于该类的距离之和<strong>最小</strong>，即让<strong>目标函数值最小</strong>。</p>
 <p>其中$k$为类簇数，$n$为样本数；$x_j$表示第$ j $个样本( $j$的范围是 $[1,n]$ )，$v_i$表示第$i$个聚类中心（因为类簇数是$k$，所以$i$的范围是 $[1,k]$ ）</p>
 <p>注意，在上式中$x_j$和$v_i$都是一个向量。这里以经典聚类数据集<strong>iris</strong> (150个样本，每个样本4个特征，所有样本分为3类) 为例子说明：</p>
 <p><strong>iris前五个样本</strong>（每一行表示一个样本的数据，这里每个样本4个特征）</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -623,8 +620,7 @@ J = \sum_{i=1}^k \sum_{j=1}^n ||x_j-v_i||^2</script><p>因为想要让每个聚�
 <th>0.2</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>4.9</td>
 <td>3</td>
 <td>1.4</td>
@@ -648,141 +644,134 @@ J = \sum_{i=1}^k \sum_{j=1}^n ||x_j-v_i||^2</script><p>因为想要让每个聚�
 <td>1.4</td>
 <td>0.2</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>$x_1$表示第1个样本，例如iris数据集中$x_1= [5.1 , 3.5 , 1.4 ,0.2 ] $</p>
 <p>$v_1$表第一个聚类中心（类簇中心），因为样本是四个特征，所有类簇中心也是4个特征，4个数值分别是第一类样本的各个特征的均值。</p>
 <h2 id="FCM"><a href="#FCM" class="headerlink" title="FCM"></a>FCM</h2><p>在kmeans中，聚类中心$ v_i $确定之后就确定样本所属类别了，属于其他类别的程度为 <strong>0</strong>。在模糊聚类中，增加了一个<strong>隶属度</strong>来表示各个样本属于每一类的<strong>程度</strong>。</p>
 <p>在模糊聚类中通常用$u_{ij}$来表示<strong>隶属度矩阵</strong>，其中$i={1,..c }$，$j= { 1,2,…n }$；$c$为类簇数，$n$为样本数。（跟上面介绍kmeans的符号是一样的）</p>
-<p>模糊C均值聚类的目标函数：</p>
-<script type="math/tex; mode=display">
-J(U,V) = \sum_{i=1}^c \sum_{j=1}^n u_{ij}^m ||x_j-v_i||^2</script><script type="math/tex; mode=display">
-s.t. \quad u_{ij} \in [0,1]; \sum_{i=1}^c u_{ij}=1</script><p>其中$c$是类簇数（C均值聚类嘛，所以相比kmeans把k换成了c）。$m$是加权指数幂，是一个自己给定的大于2的参数。</p>
+<p>模糊C均值聚类的目标函数：<br>$$<br>J(U,V) = \sum_{i=1}^c \sum_{j=1}^n u_{ij}^m ||x_j-v_i||^2<br>$$</p>
+<p>$$<br>s.t. \quad u_{ij} \in [0,1]; \sum_{i=1}^c u_{ij}=1<br>$$</p>
+<p>其中$c$是类簇数（C均值聚类嘛，所以相比kmeans把k换成了c）。$m$是加权指数幂，是一个自己给定的大于2的参数。</p>
 <p>目标函数的约束条件是<strong>隶属度</strong>的范围是0~1，每个样本的隶属度之和为1。</p>
 <p>上述目标函数只有$ u_{ij} $和$v_i $是未知，其他都为已知。</p>
 <p>为了因为有等式约束条件，所以FCM中用拉格朗日乘数法引入拉格朗日因子让目标函数满足隶属度约束条件，具体方法不在这里讲解[2]。</p>
-<p>得到隶属度矩阵迭代式：</p>
-<script type="math/tex; mode=display">
-u_{ij} = \frac{1}{\sum_{k=1}^c \frac{||x_j-v_i||}{||x_j-v_k||}^ \frac{1}{m-1} }</script><p>聚类中心迭代式：</p>
-<script type="math/tex; mode=display">
-v_i = \frac{\sum_{j=1}^n u_{ij}^m x_j }{ \sum_{j=1}^n{u_{ij}^m}}</script><ul>
-<li><p><strong>随机初始聚类中心/隶属度矩阵:</strong>从上面的隶属度矩阵和聚类中心迭代式可看出，隶属度矩阵迭代式里的未知只有$v<em>i$，而聚类中心跌打式里不知道的只有$u</em>{ij}$。故迭代前先随机给定一个符合条件的隶属度矩阵或聚类中心矩阵，然后即可开始迭代。</p>
+<p>得到隶属度矩阵迭代式：<br>$$<br>u_{ij} = \frac{1}{\sum_{k=1}^c \frac{||x_j-v_i||}{||x_j-v_k||}^ \frac{1}{m-1} }<br>$$<br>聚类中心迭代式：<br>$$<br>v_i = \frac{\sum_{j=1}^n u_{ij}^m x_j }{ \sum_{j=1}^n{u_{ij}^m}}<br>$$</p>
+<ul>
+<li><p><strong>随机初始聚类中心/隶属度矩阵:</strong>从上面的隶属度矩阵和聚类中心迭代式可看出，隶属度矩阵迭代式里的未知只有$v_i$，而聚类中心跌打式里不知道的只有$u_{ij}$。故迭代前先随机给定一个符合条件的隶属度矩阵或聚类中心矩阵，然后即可开始迭代。</p>
 <p>如果初始化给定的是<strong>聚类中心矩阵</strong>，那么将聚类中心矩阵代入<strong>隶属度矩阵迭代式</strong>中计算得到新的隶属度矩阵；否则将初始化给定的<strong>隶属度矩阵</strong>代入<strong>聚类中心迭代式</strong>中计算。</p>
 </li>
-<li><p><strong>迭代</strong>：将聚类中心$v<em>i$（隶属度矩阵$u</em>{ij}$）代入隶属度矩阵迭代式（聚类中心迭代式）中计算得到新的隶属度矩阵$u<em>{ij}$（聚类中心矩阵$v</em>{i}$），再将新的隶属度矩阵$u_{ij}$和聚类中心$v_i$代入目标函数计算一次目标函数值，完成一次迭代。</p>
+<li><p><strong>迭代</strong>：将聚类中心$v_i$（隶属度矩阵$u_{ij}$）代入隶属度矩阵迭代式（聚类中心迭代式）中计算得到新的隶属度矩阵$u_{ij}$（聚类中心矩阵$v_{i}$），再将新的隶属度矩阵$u_{ij}$和聚类中心$v_i$代入目标函数计算一次目标函数值，完成一次迭代。</p>
 </li>
 <li><p><strong>迭代停止:</strong>当两次迭代的目标函数值变化不大（至于多少才算是不大，这个由自己根据情况设定，在此称为<strong>阈值</strong>）或达到预先设定的最大迭代次数，即停止迭代。此时隶属度矩阵$U$和聚类中心矩阵$V$即为聚类结果。（$U=u_{ij},V=v_i$）</p>
 </li>
 </ul>
 <p>没了，下次再写点半监督模糊聚类吧~</p>
 <h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><p>在matlab中调用自带的FCM</p>
-<pre class=" language-lang-matlab"><code class="language-lang-matlab">[center,U] = fcm(data, cluster_n)    % data为样本数据(样本数=数组行数)，cluster_n为类簇数
-</code></pre>
+<pre class=" language-matlab"><code class="language-matlab"><span class="token punctuation">[</span>center<span class="token punctuation">,</span>U<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">fcm</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> cluster_n<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">% data为样本数据(样本数=数组行数)，cluster_n为类簇数</span></code></pre>
 <p>FCM的详细实现：</p>
-<pre class=" language-lang-matlab"><code class="language-lang-matlab">function [U,center] = FCMclust(data, cluster_n)
+<pre class=" language-matlab"><code class="language-matlab"><span class="token keyword">function</span> <span class="token punctuation">[</span>U<span class="token punctuation">,</span>center<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">FCMclust</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> cluster_n<span class="token punctuation">)</span>
 
-%% 随机初始隶属度FCM（这个比较符合算法实际情况）
-data_n = size(data, 1); % 求出data的第一维(rows)数,即样本个数 [center, U, obj_fcn]= FCMClust(data, cluster_n)
-in_n = size(data, 2);   % 求出data的第二维(columns)数，即特征值长度
-% 默认操作参数
-options = [2; % 隶属度矩阵U的指数
-    100;                % 最大迭代次数
-    1e-5;               % 隶属度最小变化量,迭代终止条件
-    1];                 % 每次迭代是否输出信息标志
+<span class="token comment" spellcheck="true">%% 随机初始隶属度FCM（这个比较符合算法实际情况）</span>
+data_n <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">% 求出data的第一维(rows)数,即样本个数 [center, U, obj_fcn]= FCMClust(data, cluster_n)</span>
+in_n <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">% 求出data的第二维(columns)数，即特征值长度</span>
+<span class="token comment" spellcheck="true">% 默认操作参数</span>
+options <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">% 隶属度矩阵U的指数</span>
+    <span class="token number">100</span><span class="token punctuation">;</span>                <span class="token comment" spellcheck="true">% 最大迭代次数</span>
+    <span class="token number">1e-5</span><span class="token punctuation">;</span>               <span class="token comment" spellcheck="true">% 隶属度最小变化量,迭代终止条件</span>
+    <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">% 每次迭代是否输出信息标志</span>
 
-%将options 中的分量分别赋值给四个变量;
-expo = options(1);          % 隶属度矩阵U的指数
-max_iter = options(2);  % 最大迭代次数
-min_impro = options(3);  % 隶属度最小变化量,迭代终止条件
-display = options(4);  % 每次迭代是否输出信息标志
+<span class="token comment" spellcheck="true">%将options 中的分量分别赋值给四个变量;</span>
+expo <span class="token operator">=</span> <span class="token function">options</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">% 隶属度矩阵U的指数</span>
+max_iter <span class="token operator">=</span> <span class="token function">options</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">% 最大迭代次数</span>
+min_impro <span class="token operator">=</span> <span class="token function">options</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">% 隶属度最小变化量,迭代终止条件</span>
+display <span class="token operator">=</span> <span class="token function">options</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">% 每次迭代是否输出信息标志</span>
 
-obj_fcn = zeros(max_iter, 1); % 初始化输出参数obj_fcn
+obj_fcn <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span>max_iter<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">% 初始化输出参数obj_fcn</span>
 
-% U = initfcm(cluster_n, data_n);     % 初始化模糊分配矩阵,使U满足列上相加为1,cluster_n=2,用户填上去的种类数c=cluster_n
-temp=randperm(size(data,1));
-center = data(temp(1:cluster_n),:);
-dist = distfcm(center, data).^2;
-tmp = dist.^(-2/(expo-1));    
-U = tmp./(ones(cluster_n, 1)*sum(tmp));  %根据随机选取的样本作为初始聚类中心得到的初始隶属度矩阵
-[a,b] = find(isnan(U));
-U(a,b) = 0;
+<span class="token comment" spellcheck="true">% U = initfcm(cluster_n, data_n);     % 初始化模糊分配矩阵,使U满足列上相加为1,cluster_n=2,用户填上去的种类数c=cluster_n</span>
+temp<span class="token operator">=</span><span class="token function">randperm</span><span class="token punctuation">(</span><span class="token function">size</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+center <span class="token operator">=</span> <span class="token function">data</span><span class="token punctuation">(</span><span class="token function">temp</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span>cluster_n<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+dist <span class="token operator">=</span> <span class="token function">distfcm</span><span class="token punctuation">(</span>center<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token operator">.^</span><span class="token number">2</span><span class="token punctuation">;</span>
+tmp <span class="token operator">=</span> dist<span class="token operator">.^</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token operator">/</span><span class="token punctuation">(</span>expo<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+U <span class="token operator">=</span> tmp<span class="token operator">./</span><span class="token punctuation">(</span><span class="token function">ones</span><span class="token punctuation">(</span>cluster_n<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">sum</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">%根据随机选取的样本作为初始聚类中心得到的初始隶属度矩阵</span>
+<span class="token punctuation">[</span>a<span class="token punctuation">,</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token function">isnan</span><span class="token punctuation">(</span>U<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">U</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-% U = rand(cluster_n,size(data,1)).*100;
-% U = U./sum(U);
+<span class="token comment" spellcheck="true">% U = rand(cluster_n,size(data,1)).*100;</span>
+<span class="token comment" spellcheck="true">% U = U./sum(U);</span>
 
-% Main loop  主要循环
-for i = 1:max_iter
-    %在第k步循环中改变聚类中心ceneter,和分配函数U的隶属度值;
-    [U, center, obj_fcn(i)] = stepfcm(data, U, cluster_n, expo);
-    if display
-       fprintf('FCMclust:Iteration count = %d, obj. fcn = %f\n', i, obj_fcn(i));
-    end
- % 终止条件判别
-    if i>1
-      if abs(obj_fcn(i) - obj_fcn(i-1)) < min_impro
-            break;
-      end
-    end
-end
+<span class="token comment" spellcheck="true">% Main loop  主要循环</span>
+<span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span>max_iter
+    <span class="token comment" spellcheck="true">%在第k步循环中改变聚类中心ceneter,和分配函数U的隶属度值;</span>
+    <span class="token punctuation">[</span>U<span class="token punctuation">,</span> center<span class="token punctuation">,</span> <span class="token function">obj_fcn</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">stepfcm</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> U<span class="token punctuation">,</span> cluster_n<span class="token punctuation">,</span> expo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> display
+       <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token string">'FCMclust:Iteration count = %d, obj. fcn = %f\n'</span><span class="token punctuation">,</span> <span class="token number">i</span><span class="token punctuation">,</span> <span class="token function">obj_fcn</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">end</span>
+ <span class="token comment" spellcheck="true">% 终止条件判别</span>
+    <span class="token keyword">if</span> <span class="token number">i</span><span class="token operator">></span><span class="token number">1</span>
+      <span class="token keyword">if</span> <span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">obj_fcn</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">obj_fcn</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> min_impro
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token keyword">end</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span>
 
-iter_n = i; % 实际迭代次数
-%obj_fcn(iter_n+1:max_iter) = [];
-%% 评价指标
-%[V_pc,~,V_pe,V_xb] = V_pcpexb(U,data,center)
-end
-
-
-%% 子函数
-function U = initfcm(cluster_n, data_n)
-% 初始化fcm的隶属度函数矩阵
-% 输入:
-%   cluster_n   ---- 聚类中心个数
-%   data_n      ---- 样本点数
-% 输出：
-%   U           ---- 初始化的隶属度矩阵
-U = rand(cluster_n, data_n);
-col_sum = sum(U);
-U = U./col_sum(ones(cluster_n, 1), :);%归一化
-end
+iter_n <span class="token operator">=</span> <span class="token number">i</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">% 实际迭代次数</span>
+<span class="token comment" spellcheck="true">%obj_fcn(iter_n+1:max_iter) = [];</span>
+<span class="token comment" spellcheck="true">%% 评价指标</span>
+<span class="token comment" spellcheck="true">%[V_pc,~,V_pe,V_xb] = V_pcpexb(U,data,center)</span>
+<span class="token keyword">end</span>
 
 
-%% 子函数
-function [U_new, center, obj_fcn] = stepfcm(data, U, cluster_n, expo)
-% 模糊C均值聚类时迭代的一步
-% 输入：
-%   data        ---- nxm矩阵,表示n个样本,每个样本具有m的维特征值
-%   U           ---- 隶属度矩阵
-%   cluster_n   ---- 标量,表示聚合中心数目,即类别数
-%   expo        ---- 隶属度矩阵U的指数                     
-% 输出：
-%   U_new       ---- 迭代计算出的新的隶属度矩阵
-%   center      ---- 迭代计算出的新的聚类中心
-%   obj_fcn     ---- 目标函数值
-mf = U.^expo;       % 隶属度矩阵进行指数运算结果
-center = mf*data./((ones(size(data, 2), 1)*sum(mf'))'); % 新聚类中心(5.4)式
-dist = distfcm(center, data);       % 计算距离矩阵
-obj_fcn = sum(sum((dist.^2).*mf));  % 计算目标函数值 (5.1)式
-tmp = dist.^(-2/(expo-1));    
-U_new = tmp./(ones(cluster_n, 1)*sum(tmp));  % 计算新的隶属度矩阵 (5.3)式
-
-end
+<span class="token comment" spellcheck="true">%% 子函数</span>
+<span class="token keyword">function</span> U <span class="token operator">=</span> <span class="token function">initfcm</span><span class="token punctuation">(</span>cluster_n<span class="token punctuation">,</span> data_n<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">% 初始化fcm的隶属度函数矩阵</span>
+<span class="token comment" spellcheck="true">% 输入:</span>
+<span class="token comment" spellcheck="true">%   cluster_n   ---- 聚类中心个数</span>
+<span class="token comment" spellcheck="true">%   data_n      ---- 样本点数</span>
+<span class="token comment" spellcheck="true">% 输出：</span>
+<span class="token comment" spellcheck="true">%   U           ---- 初始化的隶属度矩阵</span>
+U <span class="token operator">=</span> <span class="token function">rand</span><span class="token punctuation">(</span>cluster_n<span class="token punctuation">,</span> data_n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+col_sum <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span>U<span class="token punctuation">)</span><span class="token punctuation">;</span>
+U <span class="token operator">=</span> U<span class="token operator">./</span><span class="token function">col_sum</span><span class="token punctuation">(</span><span class="token function">ones</span><span class="token punctuation">(</span>cluster_n<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%归一化</span>
+<span class="token keyword">end</span>
 
 
-%% 子函数
-function out = distfcm(center, data)
-% 计算样本点距离聚类中心的距离
-% 输入：
-%   center     ---- 聚类中心
-%   data       ---- 样本点
-% 输出：
-%   out        ---- 距离
-out = zeros(size(center, 1), size(data, 1));
-  for k = 1:size(center, 1) % 对每一个聚类中心
-    % 每一次循环求得所有样本点到一个聚类中心的距离
-    out(k, :) = sqrt(sum(((data-ones(size(data,1),1)*center(k,:)).^2)',1));
-  end
-end
+<span class="token comment" spellcheck="true">%% 子函数</span>
+<span class="token keyword">function</span> <span class="token punctuation">[</span>U_new<span class="token punctuation">,</span> center<span class="token punctuation">,</span> obj_fcn<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">stepfcm</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> U<span class="token punctuation">,</span> cluster_n<span class="token punctuation">,</span> expo<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">% 模糊C均值聚类时迭代的一步</span>
+<span class="token comment" spellcheck="true">% 输入：</span>
+<span class="token comment" spellcheck="true">%   data        ---- nxm矩阵,表示n个样本,每个样本具有m的维特征值</span>
+<span class="token comment" spellcheck="true">%   U           ---- 隶属度矩阵</span>
+<span class="token comment" spellcheck="true">%   cluster_n   ---- 标量,表示聚合中心数目,即类别数</span>
+<span class="token comment" spellcheck="true">%   expo        ---- 隶属度矩阵U的指数                     </span>
+<span class="token comment" spellcheck="true">% 输出：</span>
+<span class="token comment" spellcheck="true">%   U_new       ---- 迭代计算出的新的隶属度矩阵</span>
+<span class="token comment" spellcheck="true">%   center      ---- 迭代计算出的新的聚类中心</span>
+<span class="token comment" spellcheck="true">%   obj_fcn     ---- 目标函数值</span>
+mf <span class="token operator">=</span> U<span class="token operator">.^</span>expo<span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">% 隶属度矩阵进行指数运算结果</span>
+center <span class="token operator">=</span> mf<span class="token operator">*</span>data<span class="token operator">./</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">ones</span><span class="token punctuation">(</span><span class="token function">size</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">sum</span><span class="token punctuation">(</span>mf<span class="token operator">'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">% 新聚类中心(5.4)式</span>
+dist <span class="token operator">=</span> <span class="token function">distfcm</span><span class="token punctuation">(</span>center<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">% 计算距离矩阵</span>
+obj_fcn <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">(</span>dist<span class="token operator">.^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">.*</span>mf<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">% 计算目标函数值 (5.1)式</span>
+tmp <span class="token operator">=</span> dist<span class="token operator">.^</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token operator">/</span><span class="token punctuation">(</span>expo<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+U_new <span class="token operator">=</span> tmp<span class="token operator">./</span><span class="token punctuation">(</span><span class="token function">ones</span><span class="token punctuation">(</span>cluster_n<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">sum</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">% 计算新的隶属度矩阵 (5.3)式</span>
+
+<span class="token keyword">end</span>
+
+
+<span class="token comment" spellcheck="true">%% 子函数</span>
+<span class="token keyword">function</span> out <span class="token operator">=</span> <span class="token function">distfcm</span><span class="token punctuation">(</span>center<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">% 计算样本点距离聚类中心的距离</span>
+<span class="token comment" spellcheck="true">% 输入：</span>
+<span class="token comment" spellcheck="true">%   center     ---- 聚类中心</span>
+<span class="token comment" spellcheck="true">%   data       ---- 样本点</span>
+<span class="token comment" spellcheck="true">% 输出：</span>
+<span class="token comment" spellcheck="true">%   out        ---- 距离</span>
+out <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span><span class="token function">size</span><span class="token punctuation">(</span>center<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">size</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> k <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token function">size</span><span class="token punctuation">(</span>center<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">% 对每一个聚类中心</span>
+    <span class="token comment" spellcheck="true">% 每一次循环求得所有样本点到一个聚类中心的距离</span>
+    <span class="token function">out</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> <span class="token operator">:</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>data<span class="token operator">-</span><span class="token function">ones</span><span class="token punctuation">(</span><span class="token function">size</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">center</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">.^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
 </code></pre>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] <a href="https://blog.csdn.net/weixin_42029738/article/details/81978038" target="_blank" rel="noopener">K-means原理、优化及应用</a></p>
 <p>[2] <a href="https://www.cnblogs.com/wxl845235800/p/11053261.html" target="_blank" rel="noopener">模糊C均值聚类的公式推导</a></p>
@@ -1461,7 +1450,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">75.1k</span>&nbsp;字
+                class="white-color">80.9k</span>&nbsp;字
             
             
             
