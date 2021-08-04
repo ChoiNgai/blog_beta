@@ -578,14 +578,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    599
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    2 分
                 </div>
                 
 
@@ -606,29 +606,31 @@
 <p>四、环境保护署（EPA）对所有新车型推行广泛的测试以确定它们的行车里程等级（英里/加仑）。数据文件EPAGAS列出了某种新车型进行100次测试获得的行车里程等级数据。用R软件绘制直方图和QQ正态概率图，并判断数据是否服从近似正态分布。（30分）</p>
 <p>五、利用$\frac{\pi}{4}=1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}-…$公式求$\frac{\pi}{4}$的近似值，直到最后一项的绝对值小于10-３为止。（15分）</p>
 <h2 id="第一题答案"><a href="#第一题答案" class="headerlink" title="第一题答案"></a>第一题答案</h2><p><strong>1</strong>  程序</p>
-<pre class=" language-r"><code class="language-r">x<span class="token operator">=</span>matrix<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1.2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1.8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>ncol<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>nrow<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>byrow<span class="token operator">=</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span>x
+<pre class=" language-lang-r"><code class="language-lang-r">x=matrix(c(1,-1.2,1,1.8),ncol=2,nrow=2,byrow=T);x
 
-x1<span class="token operator">=</span>matrix<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">,</span>ncol<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>nrow<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>byrow<span class="token operator">=</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span>x1
+x1=matrix(c(60,90),ncol=1,nrow=2,byrow=T);x1
 
-solve<span class="token punctuation">(</span>x<span class="token punctuation">,</span>x1<span class="token punctuation">)</span>
+solve(x,x1)
 
-min<span class="token operator">=</span>qnorm<span class="token punctuation">(</span><span class="token number">0.75</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">10</span><span class="token operator">+</span><span class="token number">72</span><span class="token punctuation">;</span>min</code></pre>
+min=qnorm(0.75)*10+72;min
+</code></pre>
 <p><strong>2</strong>  程序运行截屏</p>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdXRvMmRldi5jb2RpbmcubmV0L3AvSW1hZ2VIb3N0aW5nU2VydmljZS9kL0ltYWdlSG9zdGluZ1NlcnZpY2UvZ2l0L3Jhdy9tYXN0ZXIvbWQvaW1hZ2UtMjAyMDA2MjkxNzM3NTQ5MDQucG5n?x-oss-process=image/format,png" alt=""></p>
 <p><strong>3</strong>  程序运行答案或结果解读</p>
 <p>运行最终结果为78.7449</p>
 <h2 id="第二题答案"><a href="#第二题答案" class="headerlink" title="第二题答案"></a>第二题答案</h2><p><strong>1</strong> 程序</p>
-<pre class=" language-r"><code class="language-r">x2 <span class="token operator">&lt;-</span> c<span class="token punctuation">(</span><span class="token number">75.0</span><span class="token punctuation">,</span><span class="token number">64.5</span><span class="token punctuation">,</span> <span class="token number">47.5</span><span class="token punctuation">,</span><span class="token number">66.9</span><span class="token punctuation">,</span><span class="token number">62.2</span><span class="token punctuation">,</span><span class="token number">62.2</span><span class="token punctuation">,</span> <span class="token number">58.7</span><span class="token punctuation">,</span> <span class="token number">63.5</span><span class="token punctuation">,</span> <span class="token number">66.7</span><span class="token punctuation">,</span> <span class="token number">64.0</span><span class="token punctuation">,</span> <span class="token number">57.8</span><span class="token punctuation">,</span> <span class="token number">56.9</span><span class="token punctuation">,</span> <span class="token number">50.2</span><span class="token punctuation">,</span> <span class="token number">72.8</span><span class="token punctuation">,</span> <span class="token number">65.3</span><span class="token punctuation">,</span> <span class="token number">52.3</span><span class="token punctuation">,</span> <span class="token number">63.6</span><span class="token punctuation">,</span> <span class="token number">70.0</span><span class="token punctuation">,</span> <span class="token number">63.9</span><span class="token punctuation">,</span> <span class="token number">68.1</span><span class="token punctuation">)</span>
+<pre class=" language-lang-r"><code class="language-lang-r">x2 <- c(75.0,64.5, 47.5,66.9,62.2,62.2, 58.7, 63.5, 66.7, 64.0, 57.8, 56.9, 50.2, 72.8, 65.3, 52.3, 63.6, 70.0, 63.9, 68.1)
 
 
 
-mean<span class="token punctuation">(</span>x2<span class="token punctuation">)</span>
+mean(x2)
 
-max<span class="token punctuation">(</span>x2<span class="token punctuation">)</span>
+max(x2)
 
-min<span class="token punctuation">(</span>x2<span class="token punctuation">)</span>
+min(x2)
 
-median<span class="token punctuation">(</span>x2<span class="token punctuation">)</span></code></pre>
+median(x2)
+</code></pre>
 <p><strong>2</strong>  程序运行截屏</p>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdXRvMmRldi5jb2RpbmcubmV0L3AvSW1hZ2VIb3N0aW5nU2VydmljZS9kL0ltYWdlSG9zdGluZ1NlcnZpY2UvZ2l0L3Jhdy9tYXN0ZXIvbWQvaW1hZ2UtMjAyMDA2MjkxNzM4MjA3NjkucG5n?x-oss-process=image/format,png" alt=""></p>
 <p><strong>3</strong> 程序运行答案或结果解读</p>
@@ -638,92 +640,101 @@ median<span class="token punctuation">(</span>x2<span class="token punctuation">
 <p>min( )函数求最小值</p>
 <p>median( ) 函数求中位数</p>
 <h2 id="第三题答案"><a href="#第三题答案" class="headerlink" title="第三题答案"></a>第三题答案</h2><p><strong>1</strong> 程序</p>
-<pre class=" language-r"><code class="language-r">x3 <span class="token operator">&lt;-</span> read.table<span class="token punctuation">(</span><span class="token string">"D:/R/FTC2.txt"</span><span class="token punctuation">,</span>header<span class="token operator">=</span>T<span class="token punctuation">,</span>na.strings <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"NA"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class=" language-lang-r"><code class="language-lang-r">x3 <- read.table("D:/R/FTC2.txt",header=T,na.strings = c("NA"))
 
-lm.sol<span class="token operator">=</span>lm<span class="token punctuation">(</span>TAR<span class="token operator">~</span>NICOTINE<span class="token operator">+</span>WEIGHT<span class="token operator">+</span>CO<span class="token punctuation">,</span>data<span class="token operator">=</span>x3<span class="token punctuation">)</span>
+lm.sol=lm(TAR~NICOTINE+WEIGHT+CO,data=x3)
 
-summary<span class="token punctuation">(</span>lm.sol<span class="token punctuation">)</span>
+summary(lm.sol)
 
-XX3<span class="token operator">&lt;-</span>cor<span class="token punctuation">(</span>x3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-kappa<span class="token punctuation">(</span>XX3<span class="token punctuation">,</span>exact<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span></code></pre>
+XX3<-cor(x3[1:4])
+kappa(XX3,exact=TRUE)
+</code></pre>
 <p><strong>2</strong> 程序运行截屏</p>
 <p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdXRvMmRldi5jb2RpbmcubmV0L3AvSW1hZ2VIb3N0aW5nU2VydmljZS9kL0ltYWdlSG9zdGluZ1NlcnZpY2UvZ2l0L3Jhdy9tYXN0ZXIvbWQvaW1hZ2UtMjAyMDA2MjkxNzM5MTk4MDMucG5n?x-oss-process=image/format,png" alt=""></p>
 <p><strong>2）</strong> <strong>程序运行答案或结果解读</strong></p>
-<pre class=" language-r"><code class="language-r">x3 <span class="token operator">&lt;-</span> read.table<span class="token punctuation">(</span><span class="token string">"D:/R/FTC2.txt"</span><span class="token punctuation">,</span>header<span class="token operator">=</span>T<span class="token punctuation">,</span>na.strings <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"NA"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<pre class=" language-r"><code class="language-r"><span class="token comment" spellcheck="true">#线性回归</span>
-lm.sol<span class="token operator">=</span>lm<span class="token punctuation">(</span>TAR<span class="token operator">~</span>NICOTINE<span class="token operator">+</span>WEIGHT<span class="token operator">+</span>CO<span class="token punctuation">,</span>data<span class="token operator">=</span>x3<span class="token punctuation">)</span>
+<pre class=" language-lang-r"><code class="language-lang-r">x3 <- read.table("D:/R/FTC2.txt",header=T,na.strings = c("NA"))
+</code></pre>
+<pre class=" language-lang-r"><code class="language-lang-r">#线性回归
+lm.sol=lm(TAR~NICOTINE+WEIGHT+CO,data=x3)
 
-summary<span class="token punctuation">(</span>lm.sol<span class="token punctuation">)</span></code></pre>
+summary(lm.sol)
+</code></pre>
 <p>得到拟合结果为y= -2.3696+ 10.0803<em>x1 + 0.1704</em>x2 + 0.4459 *x3<br>(x1~ NICOTINE ,x2~ WEIGHT,x3~ CO)</p>
-<pre class=" language-r"><code class="language-r">XX3<span class="token operator">&lt;-</span>cor<span class="token punctuation">(</span>x3<span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<pre class=" language-lang-r"><code class="language-lang-r">XX3<-cor(x3[1:4])
 
 
-kappa<span class="token punctuation">(</span>XX3<span class="token punctuation">,</span>exact<span class="token operator">=</span><span class="token boolean">TRUE</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#exact=TRUE表示精确计算条件数；</span></code></pre>
+kappa(XX3,exact=TRUE)   #exact=TRUE表示精确计算条件数；
+</code></pre>
 <p>运行结果为189.7185 ，远小于1000则可认为不存在共线性现象。 </p>
 <h2 id="第四题答案"><a href="#第四题答案" class="headerlink" title="第四题答案"></a>第四题答案</h2><p><strong>1</strong> 程序</p>
-<pre class=" language-r"><code class="language-r">x4 <span class="token operator">&lt;-</span> read.table<span class="token punctuation">(</span><span class="token string">"D:/R/EPAGAS.txt"</span><span class="token punctuation">,</span>header<span class="token operator">=</span>T<span class="token punctuation">,</span>na.strings <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"NA"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-hist<span class="token punctuation">(</span>x4<span class="token operator">$</span>MPG<span class="token punctuation">)</span>
-qqnorm<span class="token punctuation">(</span>x4<span class="token operator">$</span>MPG<span class="token punctuation">)</span>
-shapiro.test<span class="token punctuation">(</span>x4<span class="token operator">$</span>MPG<span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">#检验数据是否符合正态分布</span></code></pre>
+<pre class=" language-lang-r"><code class="language-lang-r">x4 <- read.table("D:/R/EPAGAS.txt",header=T,na.strings = c("NA"))
+hist(x4$MPG)
+qqnorm(x4$MPG)
+shapiro.test(x4$MPG)        #检验数据是否符合正态分布
+</code></pre>
 <p><strong>2</strong> 程序运行截屏</p>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdXRvMmRldi5jb2RpbmcubmV0L3AvSW1hZ2VIb3N0aW5nU2VydmljZS9kL0ltYWdlSG9zdGluZ1NlcnZpY2UvZ2l0L3Jhdy9tYXN0ZXIvbWQvaW1hZ2UtMjAyMDA2MjkxNzQxMjkxODIucG5n?x-oss-process=image/format,png" alt=""></p>
 <p><strong>3</strong> 程序运行答案或结果解读</p>
-<pre class=" language-r"><code class="language-r">x4 <span class="token operator">&lt;-</span> read.table<span class="token punctuation">(</span><span class="token string">"D:/R/EPAGAS.txt"</span><span class="token punctuation">,</span>header<span class="token operator">=</span>T<span class="token punctuation">,</span>na.strings <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"NA"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class=" language-lang-r"><code class="language-lang-r">x4 <- read.table("D:/R/EPAGAS.txt",header=T,na.strings = c("NA"))
 读入存储为一个数据框
 
-x4<span class="token operator">$</span>MPG为选取数据框MPG列
+x4$MPG为选取数据框MPG列
 
-hist<span class="token punctuation">(</span>x4<span class="token operator">$</span>MPG<span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">#画出直方图</span>
-qqnorm<span class="token punctuation">(</span>x4<span class="token operator">$</span>MPG<span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">#画出qq图</span>
+hist(x4$MPG)           #画出直方图
+qqnorm(x4$MPG)         #画出qq图
 
-shapiro.test<span class="token punctuation">(</span>x4<span class="token operator">$</span>MPG<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#正态分布检验</span>
+shapiro.test(x4$MPG)    #正态分布检验
 
-<span class="token comment" spellcheck="true">#p值大于0.05，所以数据为正态分布</span></code></pre>
-<h2 id="第五题答案"><a href="#第五题答案" class="headerlink" title="第五题答案"></a>第五题答案</h2><p>*<em>1 *</em> 程序</p>
-<pre class=" language-r"><code class="language-r">f<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+#p值大于0.05，所以数据为正态分布
+</code></pre>
+<h2 id="第五题答案"><a href="#第五题答案" class="headerlink" title="第五题答案"></a>第五题答案</h2><p><strong>1 </strong> 程序</p>
+<pre class=" language-lang-r"><code class="language-lang-r">f=function(n){
 
-sum<span class="token operator">=</span><span class="token number">0</span>
+sum=0
 
-a<span class="token operator">=</span><span class="token number">1</span>
+a=1
 
-b<span class="token operator">=</span><span class="token number">1</span>
+b=1
 
-<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+for(i in 1:n){
 
-sum<span class="token operator">=</span>sum<span class="token operator">+</span>a<span class="token operator">/</span>b
+sum=sum+a/b
 
-a<span class="token operator">=</span><span class="token operator">-</span>a
+a=-a
 
-b<span class="token operator">=</span>b<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">}</span>
+b=b+2}
 
-sum<span class="token punctuation">}</span> 
+sum} 
 
 
 
-f<span class="token punctuation">(</span><span class="token number">501</span><span class="token punctuation">)</span></code></pre>
+f(501)
+</code></pre>
 <p><strong>2</strong>  程序运行截屏</p>
 <p> <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdXRvMmRldi5jb2RpbmcubmV0L3AvSW1hZ2VIb3N0aW5nU2VydmljZS9kL0ltYWdlSG9zdGluZ1NlcnZpY2UvZ2l0L3Jhdy9tYXN0ZXIvbWQvaW1hZ2UtMjAyMDA2MjkxNzQyNDkwNDYucG5n?x-oss-process=image/format,png" alt=""></p>
 <p><strong>3</strong>  程序运行答案或结果解读</p>
 <p>首先定义函数</p>
-<pre class=" language-r"><code class="language-r">f<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre class=" language-lang-r"><code class="language-lang-r">f=function(n){
 
-sum<span class="token operator">=</span><span class="token number">0</span>
+sum=0
 
-a<span class="token operator">=</span><span class="token number">1</span>
+a=1
 
-b<span class="token operator">=</span><span class="token number">1</span>
+b=1
 
-<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+for(i in 1:n){
 
-sum<span class="token operator">=</span>sum<span class="token operator">+</span>a<span class="token operator">/</span>b
+sum=sum+a/b
 
-a<span class="token operator">=</span><span class="token operator">-</span>a
+a=-a
 
-b<span class="token operator">=</span>b<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">}</span>
+b=b+2}
 
-sum<span class="token punctuation">}</span> </code></pre>
+sum}
+</code></pre>
 <p>再调用</p>
-<pre class=" language-r"><code class="language-r">f<span class="token punctuation">(</span><span class="token number">501</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-lang-r"><code class="language-lang-r">f(501)
+</code></pre>
 
             </div>
             <hr/>
@@ -1398,7 +1409,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.9k</span>&nbsp;字
+                class="white-color">76.7k</span>&nbsp;字
             
             
             

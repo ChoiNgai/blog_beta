@@ -194,6 +194,41 @@
   </entry>
   
   <entry>
+    <title>算法：零基础动态规划入门</title>
+    <link href="https://www.memorydrive.online/2021/04/04/suan-fa-ling-ji-chu-dong-tai-gui-hua-ru-men/"/>
+    <id>https://www.memorydrive.online/2021/04/04/suan-fa-ling-ji-chu-dong-tai-gui-hua-ru-men/</id>
+    <published>2021-04-04T04:17:20.000Z</published>
+    <updated>2021-08-04T04:21:26.142Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;动态规划分为3个部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;确定状态&lt;/li&gt;
+&lt;li&gt;转移方程&lt;/li&gt;
+&lt;li&gt;初始条件和边界情况&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;确定状态&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;即数列每个元素$f[i]$或矩阵每个元素$f
+        
+      
+    
+    </summary>
+    
+    
+      <category term="基础" scheme="https://www.memorydrive.online/categories/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="数据结构" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SQL底层原理及实操记录</title>
     <link href="https://www.memorydrive.online/2021/03/31/sql-di-ceng-yuan-li-ji-shi-cao-ji-lu/"/>
     <id>https://www.memorydrive.online/2021/03/31/sql-di-ceng-yuan-li-ji-shi-cao-ji-lu/</id>
@@ -546,33 +581,6 @@
     
     
       <category term="模糊聚类" scheme="https://www.memorydrive.online/tags/%E6%A8%A1%E7%B3%8A%E8%81%9A%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gitbook安装—_install卡住解决</title>
-    <link href="https://www.memorydrive.online/2020/07/21/gitbook-an-zhuang-install-qia-zhu-jie-jue/"/>
-    <id>https://www.memorydrive.online/2020/07/21/gitbook-an-zhuang-install-qia-zhu-jie-jue/</id>
-    <published>2020-07-20T22:01:09.000Z</published>
-    <updated>2020-09-21T14:19:58.247Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://www.memorydrive.online/categories/web/"/>
-    
-    
-      <category term="建站" scheme="https://www.memorydrive.online/tags/%E5%BB%BA%E7%AB%99/"/>
     
   </entry>
   

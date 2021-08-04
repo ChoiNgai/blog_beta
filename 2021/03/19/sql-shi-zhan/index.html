@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    138
+                    64
                 </div>
                 
 
@@ -602,33 +602,37 @@
             <div id="articleContent">
                 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>主要是讲一些常见的实用命令</p>
 <h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>创建数据库DATAuser以及表A</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> DATAuser
-<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> A
-<span class="token punctuation">(</span>
-userid <span class="token keyword">int</span><span class="token punctuation">,</span>
-userName <span class="token keyword">varchar</span><span class="token punctuation">,</span>
-Address <span class="token keyword">varchar</span><span class="token punctuation">,</span>
-Age <span class="token keyword">int</span><span class="token punctuation">,</span>
-sex <span class="token keyword">varchar</span><span class="token punctuation">,</span>
-login_day     <span class="token keyword">date</span><span class="token punctuation">,</span>
+<pre class=" language-lang-sql"><code class="language-lang-sql">CREATE DATABASE DATAuser
+CREATE TABLE A
+(
+userid int,
+userName varchar,
+Address varchar,
+Age int,
+sex varchar,
+login_day     date,
 login_time     time
-<span class="token punctuation">)</span> </code></pre>
+)
+</code></pre>
 <ol>
 <li><p>半小时内登录的用户</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> A
-<span class="token keyword">where</span> datediff<span class="token punctuation">(</span><span class="token string">'h'</span><span class="token punctuation">,</span><span class="token keyword">DateTime</span><span class="token punctuation">,</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">0.5</span></code></pre>
+<pre class=" language-lang-sql"><code class="language-lang-sql">select * from A
+where datediff('h',DateTime,now())<=0.5
+</code></pre>
 </li>
 <li><p>某一天登录的用户</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> A
-<span class="token keyword">where</span> login_day <span class="token operator">=</span> <span class="token string">'2021-3-19'</span></code></pre>
+<pre class=" language-lang-sql"><code class="language-lang-sql">select * from A
+where login_day = '2021-3-19'
+</code></pre>
 </li>
 <li><p>连续三天登录的用户</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> userid<span class="token punctuation">,</span>time<span class="token punctuation">,</span>
-DATE_SUB<span class="token punctuation">(</span><span class="token keyword">left</span><span class="token punctuation">(</span>time<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>INTERVAL t<span class="token punctuation">.</span>rn DAY<span class="token punctuation">)</span> <span class="token keyword">as</span> flag_date<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">left</span><span class="token punctuation">(</span>time<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> userid<span class="token punctuation">,</span>time<span class="token punctuation">,</span>dense_rank <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">by</span> userid <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> time<span class="token punctuation">)</span> <span class="token keyword">as</span> rn
-<span class="token keyword">from</span>  table_A<span class="token punctuation">)</span> <span class="token keyword">as</span> t
-<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">,</span>flag_date
-<span class="token keyword">HAVING</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> <span class="token keyword">left</span><span class="token punctuation">(</span>time<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">3</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT userid,time,
+DATE_SUB(left(time,10),INTERVAL t.rn DAY) as flag_date,count(distinct left(time,10))
+from (SELECT userid,time,dense_rank ()over(PARTITION by userid ORDER BY time) as rn
+from  table_A) as t
+GROUP BY user_id,flag_date
+HAVING count(distinct left(time,10))>=3;
+</code></pre>
 </li>
 <li></li>
 </ol>
@@ -1303,7 +1307,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.9k</span>&nbsp;字
+                class="white-color">76.7k</span>&nbsp;字
             
             
             

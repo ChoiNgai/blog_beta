@@ -578,14 +578,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    915
+                    890
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
 
@@ -612,128 +612,129 @@
 <p>45 2365 68 -15 -18 -30</p>
 <p>编写一个简单排序的程序，如果将上面三个文件作为输入，则排序后的输出结果为。</p>
 <p>序号 数值 （从小到大）</p>
-<h2 id="实验方案"><a href="#实验方案" class="headerlink" title="实验方案"></a>实验方案</h2><p>在MapReduce过程中就有排序,它的默认排序规则按照key值进行排序的，如果key为封装int的IntWritable类型，那么MapReduce按照数字大小对key排序，如果key为封装为String的Text类型，那么MapReduce按照字典顺序对字符串排序。我们可以使用封装int的IntWritable型数据结构。也就是在map中将读入的数据转化成IntWritable型，然后作为key值输出（value任意）。reduce拿到&lt;key，value-list&gt;之后，将输入的key作为value输出，并根据value-list中元素的个数决定输出的次数。输出的key（即代码中的linenum）是一个全局变量，它统计当前key的位次。</p>
+<h2 id="实验方案"><a href="#实验方案" class="headerlink" title="实验方案"></a>实验方案</h2><p>在MapReduce过程中就有排序,它的默认排序规则按照key值进行排序的，如果key为封装int的IntWritable类型，那么MapReduce按照数字大小对key排序，如果key为封装为String的Text类型，那么MapReduce按照字典顺序对字符串排序。我们可以使用封装int的IntWritable型数据结构。也就是在map中将读入的数据转化成IntWritable型，然后作为key值输出（value任意）。reduce拿到<key，value-list>之后，将输入的key作为value输出，并根据value-list中元素的个数决定输出的次数。输出的key（即代码中的linenum）是一个全局变量，它统计当前key的位次。</p>
 <p>在示例代码中，需要将其分为Map和Reduce两部分来作修改。在Map部分中，“Text”需要改成“IntWritable”；“itr.nextToken()”需要改成“Integer.parseInt(itr.nextToken())”。在Reduce部分中，“Text”需要改成“IntWritable”；“IntWritable()”需要改成“IntWritable(1)”；for循环语句需要删除；“job.setCombinerClass(IntSumReducer.class);”和“result.set(sum)”这两段语句也需要删除；“word”和“one”则需要对调位置。</p>
 <p>下面是经过修改之后的代码：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span>
+<pre class=" language-lang-java"><code class="language-lang-java">import java.io.IOException;
 
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>StringTokenizer<span class="token punctuation">;</span>
+import java.util.StringTokenizer;
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>Configuration<span class="token punctuation">;</span>
+import org.apache.hadoop.conf.Configuration;
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>fs<span class="token punctuation">.</span>Path<span class="token punctuation">;</span>
+import org.apache.hadoop.fs.Path;
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IntWritable<span class="token punctuation">;</span>
+import org.apache.hadoop.io.IntWritable;
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IntWritable<span class="token punctuation">;</span>
+import org.apache.hadoop.io.IntWritable;
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapreduce<span class="token punctuation">.</span>Job<span class="token punctuation">;</span>
+import org.apache.hadoop.mapreduce.Job;
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapreduce<span class="token punctuation">.</span>Mapper<span class="token punctuation">;</span>
+import org.apache.hadoop.mapreduce.Mapper;
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapreduce<span class="token punctuation">.</span>Reducer<span class="token punctuation">;</span>
+import org.apache.hadoop.mapreduce.Reducer;
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapreduce<span class="token punctuation">.</span>lib<span class="token punctuation">.</span>input<span class="token punctuation">.</span>FileInputFormat<span class="token punctuation">;</span>
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapreduce<span class="token punctuation">.</span>lib<span class="token punctuation">.</span>output<span class="token punctuation">.</span>FileOutputFormat<span class="token punctuation">;</span>
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>util<span class="token punctuation">.</span>GenericOptionsParser<span class="token punctuation">;</span>
-
-
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WordCount</span> <span class="token punctuation">{</span>
-
- <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">TokenizerMapper</span> 
-
-​    <span class="token keyword">extends</span> <span class="token class-name">Mapper</span><span class="token operator">&lt;</span>Object<span class="token punctuation">,</span> IntWritable<span class="token punctuation">,</span> IntWritable<span class="token punctuation">,</span> IntWritable<span class="token operator">></span><span class="token punctuation">{</span>
+import org.apache.hadoop.util.GenericOptionsParser;
 
 
 
-  <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">static</span> IntWritable one <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntWritable</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+public class WordCount {
 
-  <span class="token keyword">private</span> IntWritable word <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntWritable</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ public static class TokenizerMapper 
+
+​    extends Mapper<Object, IntWritable, IntWritable, IntWritable>{
 
 
 
-  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">map</span><span class="token punctuation">(</span>Object key<span class="token punctuation">,</span> IntWritable value<span class="token punctuation">,</span> Context context
+  private final static IntWritable one = new IntWritable(1);
 
-​          <span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException<span class="token punctuation">,</span> InterruptedException <span class="token punctuation">{</span>
+  private IntWritable word = new IntWritable(1);
 
-   StringTokenizer itr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringTokenizer</span><span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-   <span class="token keyword">while</span> <span class="token punctuation">(</span>itr<span class="token punctuation">.</span><span class="token function">hasMoreTokens</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-​    word<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>itr<span class="token punctuation">.</span><span class="token function">nextToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  public void map(Object key, IntWritable value, Context context
 
-​    context<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>one<span class="token punctuation">,</span> word<span class="token punctuation">)</span><span class="token punctuation">;</span>
+​          ) throws IOException, InterruptedException {
 
-   <span class="token punctuation">}</span>
+   StringTokenizer itr = new StringTokenizer(value.toString());
 
-  <span class="token punctuation">}</span>
+   while (itr.hasMoreTokens()) {
 
- <span class="token punctuation">}</span>
+​    word.set(Integer.parseInt(itr.nextToken()));
 
- <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">IntSumReducer</span> 
+​    context.write(one, word);
 
-​    <span class="token keyword">extends</span> <span class="token class-name">Reducer</span><span class="token operator">&lt;</span>IntWritable<span class="token punctuation">,</span>IntWritable<span class="token punctuation">,</span>IntWritable<span class="token punctuation">,</span>IntWritable<span class="token operator">></span> <span class="token punctuation">{</span>
+   }
 
-  <span class="token keyword">private</span> IntWritable result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntWritable</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  }
 
-  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">reduce</span><span class="token punctuation">(</span>IntWritable key<span class="token punctuation">,</span> Iterable<span class="token operator">&lt;</span>IntWritable<span class="token operator">></span> values<span class="token punctuation">,</span> 
+ }
+
+ public static class IntSumReducer 
+
+​    extends Reducer<IntWritable,IntWritable,IntWritable,IntWritable> {
+
+  private IntWritable result = new IntWritable(1);
+
+  public void reduce(IntWritable key, Iterable<IntWritable> values, 
 
 ​            Context context
 
-​            <span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException<span class="token punctuation">,</span> InterruptedException <span class="token punctuation">{</span>
+​            ) throws IOException, InterruptedException {
 
-   <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+   int sum = 0;
 
-   context<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   context.write(key, result);
 
-  <span class="token punctuation">}</span>
+  }
 
- <span class="token punctuation">}</span>
+ }
 
- <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+ public static void main(String[] args) throws Exception {
 
-  Configuration conf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Configuration</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Configuration conf = new Configuration();
 
-  String<span class="token punctuation">[</span><span class="token punctuation">]</span> otherArgs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GenericOptionsParser</span><span class="token punctuation">(</span>conf<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getRemainingArgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
 
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>otherArgs<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  if (otherArgs.length < 2) {
 
-   System<span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Usage: wordcount &lt;in> [&lt;in>...] &lt;out>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   System.err.println("Usage: wordcount <in> [<in>...] <out>");
 
-   System<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   System.exit(2);
 
-  <span class="token punctuation">}</span>
+  }
 
-  Job job <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Job</span><span class="token punctuation">(</span>conf<span class="token punctuation">,</span> <span class="token string">"word count"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Job job = new Job(conf, "word count");
 
-  job<span class="token punctuation">.</span><span class="token function">setJarByClass</span><span class="token punctuation">(</span>WordCount<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  job.setJarByClass(WordCount.class);
 
-  job<span class="token punctuation">.</span><span class="token function">setMapperClass</span><span class="token punctuation">(</span>TokenizerMapper<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  job.setMapperClass(TokenizerMapper.class);
 
-  job<span class="token punctuation">.</span><span class="token function">setReducerClass</span><span class="token punctuation">(</span>IntSumReducer<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  job.setReducerClass(IntSumReducer.class);
 
-  job<span class="token punctuation">.</span><span class="token function">setOutputKeyClass</span><span class="token punctuation">(</span>IntWritable<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  job.setOutputKeyClass(IntWritable.class);
 
-  job<span class="token punctuation">.</span><span class="token function">setOutputValueClass</span><span class="token punctuation">(</span>IntWritable<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  job.setOutputValueClass(IntWritable.class);
 
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> otherArgs<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  for (int i = 0; i < otherArgs.length - 1; ++i) {
 
-   FileInputFormat<span class="token punctuation">.</span><span class="token function">addInputPath</span><span class="token punctuation">(</span>job<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Path</span><span class="token punctuation">(</span>otherArgs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   FileInputFormat.addInputPath(job, new Path(otherArgs[i]));
 
-  <span class="token punctuation">}</span>
+  }
 
-  FileOutputFormat<span class="token punctuation">.</span><span class="token function">setOutputPath</span><span class="token punctuation">(</span>job<span class="token punctuation">,</span>
+  FileOutputFormat.setOutputPath(job,
 
-   <span class="token keyword">new</span> <span class="token class-name">Path</span><span class="token punctuation">(</span>otherArgs<span class="token punctuation">[</span>otherArgs<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   new Path(otherArgs[otherArgs.length - 1]));
 
-  System<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span>job<span class="token punctuation">.</span><span class="token function">waitForCompletion</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  System.exit(job.waitForCompletion(true) ? 0 : 1);
 
- <span class="token punctuation">}</span>
+ }
 
-<span class="token punctuation">}</span></code></pre>
+}
+</code></pre>
 <p>在输入代码前，需要新建MapReduce项目并新建一个类，类名需要与代码相对应，即是WordCount。输入完上述代码过后，需要修改这个类的输入输出路径，即是在argument窗口中，将路径设置为用于存储需要排序的数据的文件。然后再运行代码，即可得到实验题目中所给出的排序结果（如“三、结论”中的插图所示）。</p>
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>本次实验的目的与要求均已达成。在实验中，可以熟练利用现成的虚拟机资源在VM上创建Master虚拟机及其slave虚拟机集群。基本能够运用MapReduce将数据从三个不同文件中提取出来并按照其自身的key值进行有小到大的排序，得到题目中给出的实验结果（下图即是代码运行后的到的结果）</p>
 <p>​         <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image002.png" alt="Hadoop简单排序结果">  </p>
@@ -1403,7 +1404,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.9k</span>&nbsp;字
+                class="white-color">76.7k</span>&nbsp;字
             
             
             
