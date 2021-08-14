@@ -622,31 +622,34 @@
 <h3 id="斐波那契问题"><a href="#斐波那契问题" class="headerlink" title="斐波那契问题"></a>斐波那契问题</h3><ul>
 <li><a href="https://leetcode-cn.com/problems/fibonacci-number/" target="_blank" rel="noopener">509. 斐波那契数</a></li>
 </ul>
-<p>$$<br>F(0) = 0,F(1) = 1    \<br>F(n) = F(n-1)+F(n-2),n&gt;1<br>$$</p>
-<p>给定$n$，计算$F(n)$</p>
+<script type="math/tex; mode=display">
+F(0) = 0,F(1) = 1    \\
+F(n) = F(n-1)+F(n-2),n>1</script><p>给定$n$，计算$F(n)$</p>
 <p>从上述问题可知，初始条件为$F(0)=1,F(1)=1$</p>
 <p>方法一（<strong>暴力递归-深度优先搜索</strong>）：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">fib</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-    <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token number">0</span>
-    <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token number">1</span>
-    <span class="token keyword">return</span> self<span class="token punctuation">.</span>fib<span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>fib<span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">def fib(self, n: int) -> int:
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return self.fib(n - 1) + self.fib(n - 2)
+</code></pre>
 <p>不超时算我输，这里暴力递归显然没有利用上此前已计算出来的结果</p>
 <p>方法二（<strong>带记忆的方法</strong>）：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">fib</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        f <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#初始化一个元素个数为n+1且元素全为0的列表</span>
-        <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token number">0</span>
-        <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token number">1</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
-            f<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                f<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">+</span> f<span class="token punctuation">[</span>i<span class="token number">-2</span><span class="token punctuation">]</span>    <span class="token comment" spellcheck="true">#转移方程</span>
-            <span class="token keyword">return</span> f<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>    <span class="token comment" spellcheck="true">#返回列表最后一个数</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">class Solution:
+    def fib(self, n: int) -> int:
+        f = [0] * (n+1)    #初始化一个元素个数为n+1且元素全为0的列表
+        if n == 0:
+            return 0
+        if n == 1:
+            return 1
+        else:
+            f[0] = 0
+            f[1] = 1
+            for i in range(2,len(f)):
+                f[i] = f[i-1] + f[i-2]    #转移方程
+            return f[-1]    #返回列表最后一个数
+</code></pre>
 <p>上述代码中，$f[i]$表示的是数列中第$i$个元素的数值（确定状态），$f(i) = f(i-1) + f(i-2)$（转移方程），$f(0) = f(1) = 1$（初始状态），迭代到第$n$个元素就停止（边界条件）</p>
 <p><a href="https://leetcode-cn.com/problems/climbing-stairs/solution/zhi-xin-hua-shi-pa-lou-ti-zhi-cong-bao-l-lo1t/" target="_blank" rel="noopener">参考：【知信】花式爬楼梯，从暴力爬楼梯，到动态规划爬楼梯</a></p>
 <p>斐波那契问题简单，如果换成具体问题呢？</p>
@@ -657,35 +660,37 @@
 <p>这里$f[i]$的值表示爬楼梯的方法数（确定状态）</p>
 <p>因为每次可以爬1或2步，所以到第$i$格楼梯的爬法（个数）都是由到$i-1$和到$i-2$阶楼梯的爬法相加，因而转移方程为$f(i) = f(i-1) + f(i-2)$</p>
 <p>初始条件$f(0) = f(1) = 1$（爬第一格楼梯和第二个楼梯只有一种方法），从2开始迭代到n+1（第一个元素用来存储第0格楼梯的爬法了，所以是n+1）从而可以确定边界条件</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        f <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">#生成n+1个元素的列表</span>
-        f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>   <span class="token comment" spellcheck="true"># 0格楼梯和1格楼梯只需要1步</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            f<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">+</span> f<span class="token punctuation">[</span>i<span class="token number">-2</span><span class="token punctuation">]</span>    <span class="token comment" spellcheck="true">#转移方程</span>
-        <span class="token keyword">return</span> f<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>    <span class="token comment" spellcheck="true">#列表的倒数第一个元素（最后一个元素）</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">class Solution:
+    def climbStairs(self, n: int) -> int:
+        f = [0]*(n+1)      #生成n+1个元素的列表
+        f[0] = f[1] = 1   # 0格楼梯和1格楼梯只需要1步
+        for i in range(2,n+1):
+            f[i] = f[i-1] + f[i-2]    #转移方程
+        return f[-1]    #列表的倒数第一个元素（最后一个元素）
+</code></pre>
 <p>这种是每次可以爬一步或两步的，同理，如果可以爬三步的，那转移方程则为$f(i) = f(i-1) + f(i-2) + f(i-3)$</p>
 <p>具体题目看</p>
 <ul>
 <li><a href="https://leetcode-cn.com/problems/three-steps-problem-lcci/" target="_blank" rel="noopener">面试题 08.01. 三步问题</a></li>
 </ul>
 <p>还是像之前那样先<strong>确定状态</strong>，然后写出<strong>转移方程</strong>，最后是<strong>初始条件和边界情况</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">waysToStep</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">or</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token number">1</span>
-        <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token number">2</span>
-        <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token number">4</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            dp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-            dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
-            dp<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
-            dp<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">4</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">+</span> dp<span class="token punctuation">[</span>i<span class="token number">-2</span><span class="token punctuation">]</span> <span class="token operator">+</span> dp<span class="token punctuation">[</span>i<span class="token number">-3</span><span class="token punctuation">]</span>
-        <span class="token keyword">return</span> dp<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">%</span><span class="token number">1000000007</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">class Solution:
+    def waysToStep(self, n: int) -> int:
+        if n == 0 or n == 1:
+            return 1
+        if n == 2:
+            return 2
+        if n == 3:
+            return 4
+        else:
+            dp = [0] * (n+1)
+            dp[0] = dp[1] = 1
+            dp[2] = 2
+            dp[3] = 4
+            for i in range(3,n+1):
+                dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
+        return dp[-1]%1000000007
+</code></pre>
 <p>上述代码中if部分为特例，else部分显然包括了状态（$f(i)$表示有多少种爬法）；转移方程则变成了$f(i) = f(i-1) + f(i-2) + f(i-3)$，迭代次数为到$n+1$停止（边界条件）</p>
 <ul>
 <li><a href="https://leetcode-cn.com/problems/min-cost-climbing-stairs/" target="_blank" rel="noopener">746. 使用最小花费爬楼梯</a></li>
@@ -700,18 +705,19 @@
 </ol>
 <p>所以，显然两种方式里哪个小，则哪种就是到第$i$阶的体力最低花费，因而得到转移方程</p>
 <p><strong>初始条件和边界情况</strong>：（懒得写了）</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">minCostClimbingStairs</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> cost<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+<pre class=" language-lang-python"><code class="language-lang-python">class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
 
-        n <span class="token operator">=</span> len<span class="token punctuation">(</span>cost<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> min<span class="token punctuation">(</span>cost<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> n
-            x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>cost<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>cost<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                x<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">(</span>x<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">+</span>cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>x<span class="token punctuation">[</span>i<span class="token number">-2</span><span class="token punctuation">]</span><span class="token operator">+</span>cost<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span> x<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span></code></pre>
+        n = len(cost)
+        if n == 2:
+            return min(cost)
+        else:
+            x = [0] * n
+            x[1] = min(cost[0],cost[1])
+            for i in range(2,len(x)):
+                x[i] = min(x[i-1]+cost[i],x[i-2]+cost[i-1])
+            return x[-1]
+</code></pre>
 <p>leetcode斐波那契问题合集：</p>
 <p><a href="https://leetcode-cn.com/problems/fibonacci-number/" target="_blank" rel="noopener">509. 斐波那契数</a></p>
 <p><a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">70. 爬楼梯</a></p>
@@ -731,21 +737,22 @@
 <p><strong>确定状态</strong>:$f(i,j)$表示到第$i$行第$j$列的位置有多少种走法</p>
 <p><strong>转移方程</strong>:因为只能向下或向右，所以$f(i,j) = f(i-1,j)+f(i,j-1)$</p>
 <p><strong>初始条件和边界情况</strong>：初始条件为$f(0,0)=1$，注意$0\le i\le m-1$，$0\le j \le n-1$（从零开始数嘛）</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">uniquePaths</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> m<span class="token punctuation">:</span> int<span class="token punctuation">,</span> n<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        f <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> n <span class="token punctuation">]</span> <span class="token operator">*</span> m <span class="token comment" spellcheck="true">#生成m*n大小的矩阵</span>
-        f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> i <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">and</span> j <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
-                    f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token number">-1</span><span class="token punctuation">]</span>
-                <span class="token keyword">elif</span> i <span class="token operator">></span> <span class="token number">0</span> <span class="token punctuation">:</span>
-                    f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-                <span class="token keyword">elif</span> j <span class="token operator">></span> <span class="token number">0</span> <span class="token punctuation">:</span>
-                    f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token number">-1</span><span class="token punctuation">]</span>
-                <span class="token keyword">else</span><span class="token punctuation">:</span>
-                    <span class="token keyword">continue</span>
-        <span class="token keyword">return</span> f<span class="token punctuation">[</span>m<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token punctuation">]</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        f = [ [0] * n ] * m #生成m*n大小的矩阵
+        f[0][0] = 1
+        for i in range(0,m):
+            for j in range(0,n):
+                if i > 0 and j > 0:
+                    f[i][j] = f[i-1][j] + f[i][j-1]
+                elif i > 0 :
+                    f[i][j] = f[i-1][j]
+                elif j > 0 :
+                    f[i][j] = f[i][j-1]
+                else:
+                    continue
+        return f[m-1][n-1]
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1443,7 +1450,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.1k</span>&nbsp;字
+                class="white-color">102.3k</span>&nbsp;字
             
             
             

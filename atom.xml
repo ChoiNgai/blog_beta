@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-08-14T20:16:59.936Z</updated>
+  <updated>2021-08-14T21:15:42.380Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>SQL牛客类型题解析</title>
-    <link href="https://www.memorydrive.online/2021/08/15/sql-niu-ke-lei-xing-ti-jie-xi/"/>
-    <id>https://www.memorydrive.online/2021/08/15/sql-niu-ke-lei-xing-ti-jie-xi/</id>
+    <title>SQL类型题总结</title>
+    <link href="https://www.memorydrive.online/2021/08/15/sql-lei-xing-ti-zong-jie/"/>
+    <id>https://www.memorydrive.online/2021/08/15/sql-lei-xing-ti-zong-jie/</id>
     <published>2021-08-14T18:48:13.000Z</published>
-    <updated>2021-08-14T20:16:59.936Z</updated>
+    <updated>2021-08-14T21:15:42.380Z</updated>
     
     <summary type="html">
     
@@ -33,7 +33,7 @@
 &lt;p&gt;&lt;strong&gt;阅读提示：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;为了SQL语句的简洁和便于阅读，每道题中的子查询在下一步骤中可能用表别名表示而不全写出来&lt;/p&gt;
 &lt;p&gt;例如：&lt;/p&gt;
-&lt;pre class=&quot; language-sql&quot;&gt;&lt;code
+&lt;pre class=&quot;
         
       
     
@@ -48,11 +48,38 @@
   </entry>
   
   <entry>
+    <title>维度建模</title>
+    <link href="https://www.memorydrive.online/2021/08/02/wei-du-jian-mo/"/>
+    <id>https://www.memorydrive.online/2021/08/02/wei-du-jian-mo/</id>
+    <published>2021-08-02T15:11:32.000Z</published>
+    <updated>2021-08-14T21:13:02.049Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;数据模型相关概念&quot;&gt;&lt;a href=&quot;#数据模型相关概念&quot; class=&quot;headerlink&quot; title=&quot;数据模型相关概念&quot;&gt;&lt;/a&gt;数据模型相关概念&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;01.
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据仓库" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+      <category term="数仓入门" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E4%BB%93%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数仓命名规范</title>
     <link href="https://www.memorydrive.online/2021/08/02/shu-cang-ming-ming-gui-fan/"/>
     <id>https://www.memorydrive.online/2021/08/02/shu-cang-ming-ming-gui-fan/</id>
     <published>2021-08-02T13:18:37.000Z</published>
-    <updated>2021-08-14T20:27:09.685Z</updated>
+    <updated>2021-08-14T21:00:55.916Z</updated>
     
     <summary type="html">
     
@@ -71,7 +98,61 @@
       <category term="数据仓库" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
     
     
-      <category term="数仓建设" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E4%BB%93%E5%BB%BA%E8%AE%BE/"/>
+      <category term="数仓入门" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E4%BB%93%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数仓主题域划分</title>
+    <link href="https://www.memorydrive.online/2021/08/01/shu-cang-zhu-ti-yu-hua-fen/"/>
+    <id>https://www.memorydrive.online/2021/08/01/shu-cang-zhu-ti-yu-hua-fen/</id>
+    <published>2021-08-01T11:55:07.000Z</published>
+    <updated>2021-08-14T21:18:29.689Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;因为数据仓库是面向主题的，所以主题域的划分显得很重要，因为主题域的确定也意味着数据的目的是干什么的。有关于主题划分的文章较少，阿里大数据之路这本书也没有单独的章节来讲主题域的划分，因为这个是需要对业务场景来说的，而且就算确定的业务场景也没有说百分百该如何划分，我还见过一群在
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据仓库" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+      <category term="数仓入门" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E4%BB%93%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数仓基础概念</title>
+    <link href="https://www.memorydrive.online/2021/07/30/shu-cang-ji-chu-gai-nian/"/>
+    <id>https://www.memorydrive.online/2021/07/30/shu-cang-ji-chu-gai-nian/</id>
+    <published>2021-07-30T10:56:25.000Z</published>
+    <updated>2021-08-14T20:59:10.837Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-数据仓库的定义&quot;&gt;&lt;a href=&quot;#1-数据仓库的定义&quot; class=&quot;headerlink&quot; title=&quot;1. 数据仓库的定义&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据仓库" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+      <category term="数仓入门" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E4%BB%93%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -502,89 +583,6 @@
     
     
       <category term="特征工程" scheme="https://www.memorydrive.online/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>拟合&amp;插值&amp;函数逼近</title>
-    <link href="https://www.memorydrive.online/2020/11/03/ni-he-cha-zhi-han-shu-bi-jin/"/>
-    <id>https://www.memorydrive.online/2020/11/03/ni-he-cha-zhi-han-shu-bi-jin/</id>
-    <published>2020-11-03T01:49:42.000Z</published>
-    <updated>2020-11-06T12:41:36.605Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;h2 id=&quot;插值&quot;&gt;&lt;a href=&quot;#插值&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
-    
-    
-      <category term="基础数学" scheme="https://www.memorydrive.online/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>半监督模糊聚类(SFCM)</title>
-    <link href="https://www.memorydrive.online/2020/11/02/ban-jian-du-mo-hu-ju-lei-sfcm/"/>
-    <id>https://www.memorydrive.online/2020/11/02/ban-jian-du-mo-hu-ju-lei-sfcm/</id>
-    <published>2020-11-02T09:06:24.000Z</published>
-    <updated>2021-05-09T16:19:50.778Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;在上一篇中已经介绍过&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
-    
-    
-      <category term="模糊聚类" scheme="https://www.memorydrive.online/tags/%E6%A8%A1%E7%B3%8A%E8%81%9A%E7%B1%BB/"/>
-    
-      <category term="弱监督学习" scheme="https://www.memorydrive.online/tags/%E5%BC%B1%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模糊C均值聚类(FCM)</title>
-    <link href="https://www.memorydrive.online/2020/11/02/mo-hu-c-jun-zhi-ju-lei-fcm/"/>
-    <id>https://www.memorydrive.online/2020/11/02/mo-hu-c-jun-zhi-ju-lei-fcm/</id>
-    <published>2020-11-02T06:52:12.000Z</published>
-    <updated>2020-11-02T12:33:39.856Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
-    
-    
-      <category term="模糊聚类" scheme="https://www.memorydrive.online/tags/%E6%A8%A1%E7%B3%8A%E8%81%9A%E7%B1%BB/"/>
     
   </entry>
   

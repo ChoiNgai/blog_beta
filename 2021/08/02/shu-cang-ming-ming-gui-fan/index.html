@@ -544,8 +544,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E4%BB%93%E5%BB%BA%E8%AE%BE/">
-                                <span class="chip bg-color">数仓建设</span>
+                            <a href="/tags/%E6%95%B0%E4%BB%93%E5%85%A5%E9%97%A8/">
+                                <span class="chip bg-color">数仓入门</span>
                             </a>
                         
                     </div>
@@ -605,20 +605,25 @@
 <ul>
 <li><p>ODS层</p>
 <p>即贴源层，由业务方直接导入，不会经过数据清洗转化。操作数据层定位于业务明细数据保留区，负责保留数据接入时点后历史变更数据，数据原则上全量保留。</p>
-<pre><code>项目名_ods.ods_系统名称(默认为空)_源表名_abc</code></pre></li>
+<pre><code>项目名_ods.ods_系统名称(默认为空)_源表名_abc
+</code></pre></li>
 <li><p>DW层</p>
 <p>由ODS层数据经过清洗转化而成。这一层整合后的业务过程明细数据，负责各业务场景整合、数据结构化、规范化，常用公共维度冗余加工，以及明细业务标签信息加工。另外，在该层也会做一部分的数据聚合，将相同主题的数据汇集到一张表中，提高数据的可用性。</p>
 <ul>
 <li><p>dim层（维表）</p>
-<pre><code>项目名_dw.dim_项目名_业务描述_abc</code></pre></li>
+<pre><code>项目名_dw.dim_项目名_业务描述_abc
+</code></pre></li>
 <li><p>dwv（业务明细）</p>
-<pre><code>项目名_dw.dwv_项目名_一级主题域_二级主题域_业务描述_abc</code></pre></li>
+<pre><code>项目名_dw.dwv_项目名_一级主题域_二级主题域_业务描述_abc
+</code></pre></li>
 <li><p>dwm（周期汇总）</p>
-<pre><code>项目名_dw.dws_项目名_数据粒度_业务描述_统计范围cycle[N]_abc</code></pre><p>例如：</p>
+<pre><code>项目名_dw.dws_项目名_数据粒度_业务描述_统计范围cycle[N]_abc
+</code></pre><p>例如：</p>
 <p><code>projectname_dw.dwm_projectname_store_activity_byr_currcy_order_cycle7_sdt</code>说明：projectname是项目名，其数据粒度为店铺（store）+活动（activity）+买家（byr）+币种（currcy）;业务描述为下单（order）；统计的时间范围为近7天。</p>
 </li>
 <li><p>dws层（数据汇总服务）</p>
-<pre><code>项目名_dw.dws_项目名_数据粒度_业务描述_abc</code></pre></li>
+<pre><code>项目名_dw.dws_项目名_数据粒度_业务描述_abc
+</code></pre></li>
 </ul>
 </li>
 </ul>
@@ -634,7 +639,8 @@
 <ul>
 <li><p>数据采集作业（后缀import）</p>
 <p>一般是采集变成ods层数据</p>
-<pre><code>项目名_ods.ods_系统名称_源表名_abc_import </code></pre><p>如：projectname_ods.ods_projectname_orders_fct_import</p>
+<pre><code>项目名_ods.ods_系统名称_源表名_abc_import
+</code></pre><p>如：projectname_ods.ods_projectname_orders_fct_import</p>
 </li>
 <li><p>数据导出作业（后缀export）</p>
 <p>同采集作业，但后缀改成export</p>
@@ -810,8 +816,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E4%BB%93%E5%BB%BA%E8%AE%BE/">
-                                    <span class="chip bg-color">数仓建设</span>
+                                <a href="/tags/%E6%95%B0%E4%BB%93%E5%85%A5%E9%97%A8/">
+                                    <span class="chip bg-color">数仓入门</span>
                                 </a>
                             
                         </div>
@@ -1120,31 +1126,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/15/sql-niu-ke-lei-xing-ti-jie-xi/">
+                <a href="/2021/08/02/wei-du-jian-mo/">
                     <div class="card-image">
                         
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_754.jpg" class="responsive-img" alt="维度建模">
                         
-                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_23.jpg" class="responsive-img" alt="SQL牛客类型题解析">
-                        
-                        <span class="card-title">SQL牛客类型题解析</span>
+                        <span class="card-title">维度建模</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            两万字SQL类
+                            数仓模型里最常见的建模方法：维度建模
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/" class="post-category">
-                                    大数据技术
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" class="post-category">
+                                    数据仓库
                                 </a>
                             
                             
@@ -1154,8 +1159,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
+                    <a href="/tags/%E6%95%B0%E4%BB%93%E5%85%A5%E9%97%A8/">
+                        <span class="chip bg-color">数仓入门</span>
                     </a>
                     
                 </div>
@@ -1169,30 +1174,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/07/da-shu-ju-ji-zhu-de-yan-bian-ji-suan-kuang-jia/">
+                <a href="/2021/08/01/shu-cang-zhu-ti-yu-hua-fen/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/F7vYmBsWSKph34u.jpg" class="responsive-img" alt="大数据技术的演变：计算框架">
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_233.jpg" class="responsive-img" alt="数仓主题域划分">
                         
-                        <span class="card-title">大数据技术的演变：计算框架</span>
+                        <span class="card-title">数仓主题域划分</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            从计算框架的角度来看大数据技术18年来的变化
+                            数据仓库主体域划分一直是个难题
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/" class="post-category">
-                                    大数据技术
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" class="post-category">
+                                    数据仓库
                                 </a>
                             
                             
@@ -1202,16 +1207,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hadoop/">
-                        <span class="chip bg-color">Hadoop</span>
-                    </a>
-                    
-                    <a href="/tags/Spark/">
-                        <span class="chip bg-color">Spark</span>
-                    </a>
-                    
-                    <a href="/tags/Flink/">
-                        <span class="chip bg-color">Flink</span>
+                    <a href="/tags/%E6%95%B0%E4%BB%93%E5%85%A5%E9%97%A8/">
+                        <span class="chip bg-color">数仓入门</span>
                     </a>
                     
                 </div>
@@ -1418,7 +1415,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.1k</span>&nbsp;字
+                class="white-color">102.3k</span>&nbsp;字
             
             
             

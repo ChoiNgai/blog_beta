@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    607
+                    606
                 </div>
                 
 
@@ -601,87 +601,88 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>以下代码统一为读入xlsx文件，其中第一列为因变量，其余列为自变量,每一行代表一个样本</p>
-<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><pre class=" language-matlab"><code class="language-matlab"><span class="token comment" spellcheck="true">%读取数据</span>
-<span class="token punctuation">[</span>X<span class="token punctuation">,</span>TXT<span class="token punctuation">,</span>RAW<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">xlsread</span><span class="token punctuation">(</span><span class="token string">'train_element.xlsx'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-y<span class="token operator">=</span><span class="token function">X</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">%第一列为y值</span>
-<span class="token function">X</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">%将第一列数值变为1</span>
-<span class="token punctuation">[</span>b<span class="token punctuation">,</span>bint<span class="token punctuation">,</span>r<span class="token punctuation">,</span>rint<span class="token punctuation">,</span>stats<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">regress</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span>X<span class="token punctuation">)</span><span class="token punctuation">;</span>
-b   <span class="token comment" spellcheck="true">%回归系数，第一个是常数项</span>
+<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><pre class=" language-lang-matlab"><code class="language-lang-matlab">%读取数据
+[X,TXT,RAW]=xlsread('train_element.xlsx');
+y=X(:,1);        %第一列为y值
+X(:,1)=[1];      %将第一列数值变为1
+[b,bint,r,rint,stats]=regress(y,X);
+b   %回归系数，第一个是常数项
 
-<span class="token comment" spellcheck="true">%测试</span>
-<span class="token punctuation">[</span>TX<span class="token punctuation">,</span>TXT<span class="token punctuation">,</span>RAW<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">xlsread</span><span class="token punctuation">(</span><span class="token string">'test_element.xlsx'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-TY_num <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>TX<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-TY <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span>TY_num<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token function">TY</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+%测试
+[TX,TXT,RAW]=xlsread('test_element.xlsx');
+TY_num = size(TX,1);
+TY = [1:TY_num];
+TY(1,:) = b(1);
 
-<span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">30</span>            <span class="token comment" spellcheck="true">%测试数据30行</span>
-    <span class="token keyword">for</span> <span class="token number">j</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">21</span>       <span class="token comment" spellcheck="true">%每一行21个自变量</span>
-        <span class="token function">TY</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">TX</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span><span class="token number">j</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">j</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">TY</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">% TX第一个是1，故j+1;b第一个是常数项系数，故j+1</span>
-      <span class="token keyword">end</span>  
-<span class="token keyword">end</span>
+for i = 1:30            %测试数据30行
+    for j = 1:21       %每一行21个自变量
+        TY(i) = TX(i,j+1) * b(j+1)+TY(i); % TX第一个是1，故j+1;b第一个是常数项系数，故j+1
+      end  
+end
 hold on
-<span class="token function">plot</span><span class="token punctuation">(</span>TY<span class="token punctuation">)</span>
-<span class="token function">plot</span><span class="token punctuation">(</span><span class="token function">TX</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token function">legend</span><span class="token punctuation">(</span><span class="token string">'预测值'</span><span class="token punctuation">,</span><span class="token string">'真实值'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+plot(TY)
+plot(TX(:,1))
+legend('预测值','真实值');
 TY
 </code></pre>
 <h2 id="BP网络"><a href="#BP网络" class="headerlink" title="BP网络"></a>BP网络</h2><p>在应用程序处打开<code>Neural Net Fitting</code>训练神经网络模型</p>
 <p>参见 (如何利用matlab做BP神经网络分析-利用matlab神经网络工具箱)[ <a href="https://blog.csdn.net/ljyljyok/article/details/81362465" target="_blank" rel="noopener">https://blog.csdn.net/ljyljyok/article/details/81362465</a> ]</p>
-<pre class=" language-matlab"><code class="language-matlab"><span class="token keyword">function</span> <span class="token punctuation">[</span> <span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">BP_Forecast</span><span class="token punctuation">(</span> X<span class="token punctuation">,</span>TX <span class="token punctuation">)</span>
-load BP_202054_14<span class="token punctuation">.</span>mat         <span class="token comment" spellcheck="true">%导入网络模型</span>
-X <span class="token operator">=</span> X<span class="token operator">'</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">%转置</span>
-Y<span class="token operator">=</span><span class="token function">sim</span><span class="token punctuation">(</span>net<span class="token punctuation">,</span>X<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">%使用训练好的BP网络模型预测</span></code></pre>
-<h2 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h2><pre class=" language-matlab"><code class="language-matlab"><span class="token keyword">function</span> <span class="token punctuation">[</span> <span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">SVM_R</span><span class="token punctuation">(</span> X<span class="token punctuation">,</span>TX <span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">%load svm_r            %若没有数据则读取模型</span>
+<pre class=" language-lang-matlab"><code class="language-lang-matlab">function [ ] = BP_Forecast( X,TX )
+load BP_202054_14.mat         %导入网络模型
+X = X';                     %转置
+Y=sim(net,X);         %使用训练好的BP网络模型预测
+</code></pre>
+<h2 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h2><pre class=" language-lang-matlab"><code class="language-lang-matlab">function [ ] = SVM_R( X,TX )
+%load svm_r            %若没有数据则读取模型
 
-<span class="token comment" spellcheck="true">%[X,TXT,RAW]=xlsread(</span><span class="token string">'train_element.xlsx'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">%读取训练数据</span>
-target <span class="token operator">=</span> <span class="token function">X</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">X</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-train <span class="token operator">=</span> X<span class="token punctuation">;</span>
+%[X,TXT,RAW]=xlsread('train_element.xlsx');      %读取训练数据
+target = X(:,1);
+X(:,1) = [];
+train = X;
 
-<span class="token comment" spellcheck="true">%% 最优参数选择</span>
-mse <span class="token operator">=</span> <span class="token number">10</span><span class="token operator">^</span><span class="token number">7</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span> log2c <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">10</span><span class="token operator">:</span><span class="token number">0.5</span><span class="token operator">:</span><span class="token number">3</span>
-    <span class="token keyword">for</span> log2g <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">10</span><span class="token operator">:</span><span class="token number">0.5</span><span class="token operator">:</span><span class="token number">3</span>
-        <span class="token comment" spellcheck="true">% -v 交叉验证参数：在训练的时候需要，测试的时候不需要，否则出错</span>
-        options <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'-v 3 -c '</span><span class="token punctuation">,</span> <span class="token function">num2str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span>log2c<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">' -g '</span><span class="token punctuation">,</span> <span class="token function">num2str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span>log2g<span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token string">' -s 3 -p 0.4 -t 3'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        cv <span class="token operator">=</span> <span class="token function">svmtrain</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>train<span class="token punctuation">,</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>cv <span class="token operator">&lt;</span> mse<span class="token punctuation">)</span>
-            mse <span class="token operator">=</span> cv<span class="token punctuation">;</span> bestc <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">^</span>log2c<span class="token punctuation">;</span> bestg <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">^</span>log2g<span class="token punctuation">;</span>
-        <span class="token keyword">end</span>
-    <span class="token keyword">end</span>
-<span class="token keyword">end</span>
-<span class="token comment" spellcheck="true">%%  训练</span>
-options <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'-c '</span><span class="token punctuation">,</span> <span class="token function">num2str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span>bestc<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">' -g '</span><span class="token punctuation">,</span> <span class="token function">num2str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span>bestg<span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token string">' -s 3 -p 0.4 -n 0.1'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-model <span class="token operator">=</span> <span class="token function">svmtrain</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>train<span class="token punctuation">,</span>options<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">% model</span>
-<span class="token comment" spellcheck="true">% 利用建立的模型看其在训练集合上的回归效果</span>
-<span class="token punctuation">[</span>predict_p<span class="token punctuation">,</span>accuracy<span class="token punctuation">,</span>dv<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">svmpredict</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>train<span class="token punctuation">,</span>model<span class="token punctuation">)</span><span class="token punctuation">;</span>
+%% 最优参数选择
+mse = 10^7;
+for log2c = -10:0.5:3
+    for log2g = -10:0.5:3
+        % -v 交叉验证参数：在训练的时候需要，测试的时候不需要，否则出错
+        options = ['-v 3 -c ', num2str(2^log2c), ' -g ', num2str(2^log2g) , ' -s 3 -p 0.4 -t 3'];
+        cv = svmtrain(target,train,options);
+        if (cv < mse)
+            mse = cv; bestc = 2^log2c; bestg = 2^log2g;
+        end
+    end
+end
+%%  训练
+options = ['-c ', num2str(2^bestc), ' -g ', num2str(2^bestg) , ' -s 3 -p 0.4 -n 0.1'];
+model = svmtrain(target,train,options)
+% model
+% 利用建立的模型看其在训练集合上的回归效果
+[predict_p,accuracy,dv] = svmpredict(target,train,model);
 figure
-<span class="token function">plot</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span><span class="token string">'o'</span><span class="token punctuation">)</span>
+plot(target,'o')
 hold on
-<span class="token function">plot</span><span class="token punctuation">(</span>predict_p<span class="token punctuation">,</span><span class="token string">'.'</span><span class="token punctuation">)</span>
+plot(predict_p,'.')
 
-test_target <span class="token operator">=</span> <span class="token function">TX</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">%这个随便给不影响预测的结果，但是会基于这个值计算预测准确率</span>
-<span class="token function">TX</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-test_train <span class="token operator">=</span> TX<span class="token punctuation">;</span>
+test_target = TX(:,1); %这个随便给不影响预测的结果，但是会基于这个值计算预测准确率
+TX(:,1)=[];
+test_train = TX;
 global dv_t
-<span class="token punctuation">[</span>predict_t<span class="token punctuation">,</span>accuracy_t<span class="token punctuation">,</span>dv_t<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">svmpredict</span><span class="token punctuation">(</span>test_target<span class="token punctuation">,</span>test_train<span class="token punctuation">,</span>model<span class="token punctuation">)</span><span class="token punctuation">;</span>
+[predict_t,accuracy_t,dv_t] = svmpredict(test_target,test_train,model);
 hold on
-<span class="token function">plot</span><span class="token punctuation">(</span>predict_t<span class="token punctuation">,</span><span class="token string">'*'</span><span class="token punctuation">)</span>
-<span class="token function">legend</span><span class="token punctuation">(</span><span class="token string">'原始数据'</span><span class="token punctuation">,</span><span class="token string">'回归数据'</span><span class="token punctuation">,</span><span class="token string">'新数据预测'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+plot(predict_t,'*')
+legend('原始数据','回归数据','新数据预测');
 
-<span class="token comment" spellcheck="true">%直观对比</span>
-<span class="token comment" spellcheck="true">%hold on</span>
-<span class="token comment" spellcheck="true">%plot(TY)</span>
-<span class="token comment" spellcheck="true">%plot(dv_t)</span>
-<span class="token comment" spellcheck="true">%legend(</span><span class="token string">'原始数据'</span><span class="token punctuation">,</span><span class="token string">'新数据预测'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+%直观对比
+%hold on
+%plot(TY)
+%plot(dv_t)
+%legend('原始数据','新数据预测');
 
 hold on
-<span class="token function">plot</span><span class="token punctuation">(</span>test_target<span class="token punctuation">)</span>
-<span class="token function">plot</span><span class="token punctuation">(</span>dv_t<span class="token punctuation">)</span>
-<span class="token function">xlswrite</span><span class="token punctuation">(</span><span class="token string">'预测结果.xlsx'</span><span class="token punctuation">,</span>dv_t<span class="token punctuation">)</span>
-<span class="token function">legend</span><span class="token punctuation">(</span><span class="token string">'原始数据'</span><span class="token punctuation">,</span><span class="token string">'新数据预测'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+plot(test_target)
+plot(dv_t)
+xlswrite('预测结果.xlsx',dv_t)
+legend('原始数据','新数据预测');
 </code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1368,7 +1369,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.1k</span>&nbsp;字
+                class="white-color">102.3k</span>&nbsp;字
             
             
             
