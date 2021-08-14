@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-06-15T10:56:11.930Z</updated>
+  <updated>2021-08-14T19:27:05.069Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SQL类型题总结</title>
+    <link href="https://www.memorydrive.online/2021/08/15/sql-lei-xing-ti-zong-jie/"/>
+    <id>https://www.memorydrive.online/2021/08/15/sql-lei-xing-ti-zong-jie/</id>
+    <published>2021-08-14T18:48:13.000Z</published>
+    <updated>2021-08-14T19:27:05.069Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;阅读提示：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;为了SQL语句的简洁和便于阅读，每道题中的子查询在下一步骤中可能用表别名表示而不全写出来&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;pre class=&quot; language-sql&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+      <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="SQL" scheme="https://www.memorydrive.online/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>大数据技术的演变：计算框架</title>
     <link href="https://www.memorydrive.online/2021/06/07/da-shu-ju-ji-zhu-de-yan-bian-ji-suan-kuang-jia/"/>
     <id>https://www.memorydrive.online/2021/06/07/da-shu-ju-ji-zhu-de-yan-bian-ji-suan-kuang-jia/</id>
     <published>2021-06-07T10:02:18.000Z</published>
-    <updated>2021-06-15T10:56:11.930Z</updated>
+    <updated>2021-08-14T18:47:01.337Z</updated>
     
     <summary type="html">
     
@@ -71,33 +102,6 @@
     
       <category term="tool" scheme="https://www.memorydrive.online/categories/tool/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Python3爬虫学习笔记</title>
-    <link href="https://www.memorydrive.online/2021/05/18/python3-pa-chong-xue-xi-bi-ji/"/>
-    <id>https://www.memorydrive.online/2021/05/18/python3-pa-chong-xue-xi-bi-ji/</id>
-    <published>2021-05-18T13:01:43.000Z</published>
-    <updated>2021-05-18T13:13:11.957Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Python3语法复习&quot;&gt;&lt;a href=&quot;#Python3语法复习&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="爬虫" scheme="https://www.memorydrive.online/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="Python" scheme="https://www.memorydrive.online/tags/Python/"/>
     
   </entry>
   
@@ -166,7 +170,7 @@
     <link href="https://www.memorydrive.online/2021/04/09/da-shu-ju-guan-fang-zhong-wen-wen-dang/"/>
     <id>https://www.memorydrive.online/2021/04/09/da-shu-ju-guan-fang-zhong-wen-wen-dang/</id>
     <published>2021-04-09T02:12:39.000Z</published>
-    <updated>2021-05-09T16:52:18.087Z</updated>
+    <updated>2021-08-14T18:46:19.092Z</updated>
     
     <summary type="html">
     
@@ -393,34 +397,6 @@
   </entry>
   
   <entry>
-    <title>SQL实战</title>
-    <link href="https://www.memorydrive.online/2021/03/19/sql-shi-zhan/"/>
-    <id>https://www.memorydrive.online/2021/03/19/sql-shi-zhan/</id>
-    <published>2021-03-19T02:20:08.000Z</published>
-    <updated>2021-05-09T16:23:11.399Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;主要是讲一些常见的实用命令&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-    
-      <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="数据库" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
     <title>SQL练习</title>
     <link href="https://www.memorydrive.online/2021/02/23/sql-lian-xi/"/>
     <id>https://www.memorydrive.online/2021/02/23/sql-lian-xi/</id>
@@ -581,6 +557,33 @@
     
     
       <category term="模糊聚类" scheme="https://www.memorydrive.online/tags/%E6%A8%A1%E7%B3%8A%E8%81%9A%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gitbook安装—_install卡住解决</title>
+    <link href="https://www.memorydrive.online/2020/07/21/gitbook-an-zhuang-install-qia-zhu-jie-jue/"/>
+    <id>https://www.memorydrive.online/2020/07/21/gitbook-an-zhuang-install-qia-zhu-jie-jue/</id>
+    <published>2020-07-20T22:01:09.000Z</published>
+    <updated>2020-09-21T14:19:58.247Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web" scheme="https://www.memorydrive.online/categories/web/"/>
+    
+    
+      <category term="建站" scheme="https://www.memorydrive.online/tags/%E5%BB%BA%E7%AB%99/"/>
     
   </entry>
   
