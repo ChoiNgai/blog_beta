@@ -612,41 +612,39 @@
 │     cut_test.jpg
 │
 └─images
-      test.jpg
-</code></pre></li>
+      test.jpg</code></pre></li>
 </ul>
 <hr>
-<pre class=" language-lang-python"><code class="language-lang-python"># 导入相关的库
-from PIL import Image
-import os
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 导入相关的库</span>
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">import</span> os
 
-#读取images文件夹内的图片名称
-images_list = os.listdir('images/')
+<span class="token comment" spellcheck="true">#读取images文件夹内的图片名称</span>
+images_list <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span><span class="token string">'images/'</span><span class="token punctuation">)</span>
 
-for i in range(0,len(images_list),1):
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>images_list<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    # 打开一张图
-    img = Image.open("images/"+images_list[i])
-    # 图片尺寸
-    img_size = img.size
-    h = img_size[1]  # 图片高度
-    w = img_size[0]  # 图片宽度
+    <span class="token comment" spellcheck="true"># 打开一张图</span>
+    img <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">"images/"</span><span class="token operator">+</span>images_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 图片尺寸</span>
+    img_size <span class="token operator">=</span> img<span class="token punctuation">.</span>size
+    h <span class="token operator">=</span> img_size<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 图片高度</span>
+    w <span class="token operator">=</span> img_size<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 图片宽度</span>
 
-    x = 0.2 * w
-    y = 0.1 * h
-    w = 0.55 * w
-    h = 0.75 * h
+    x <span class="token operator">=</span> <span class="token number">0.2</span> <span class="token operator">*</span> w
+    y <span class="token operator">=</span> <span class="token number">0.1</span> <span class="token operator">*</span> h
+    w <span class="token operator">=</span> <span class="token number">0.55</span> <span class="token operator">*</span> w
+    h <span class="token operator">=</span> <span class="token number">0.75</span> <span class="token operator">*</span> h
 
-    # 开始截取
-    region = img.crop((x, y, x + w, y + h))
+    <span class="token comment" spellcheck="true"># 开始截取</span>
+    region <span class="token operator">=</span> img<span class="token punctuation">.</span>crop<span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> x <span class="token operator">+</span> w<span class="token punctuation">,</span> y <span class="token operator">+</span> h<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    if (os.path.exists('cut_img')==False):
-        os.mkdir("cut_img")
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">'cut_img'</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span><span class="token string">"cut_img"</span><span class="token punctuation">)</span>
 
 
-    # 保存图片
-    region.save("cut_img"+"/"+"cut_"+images_list[i])
-</code></pre>
+    <span class="token comment" spellcheck="true"># 保存图片</span>
+    region<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"cut_img"</span><span class="token operator">+</span><span class="token string">"/"</span><span class="token operator">+</span><span class="token string">"cut_"</span><span class="token operator">+</span>images_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1340,7 +1338,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">102.3k</span>&nbsp;字
+                class="white-color">111k</span>&nbsp;字
             
             
             

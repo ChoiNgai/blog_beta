@@ -33,7 +33,7 @@
 &lt;p&gt;&lt;strong&gt;阅读提示：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;为了SQL语句的简洁和便于阅读，每道题中的子查询在下一步骤中可能用表别名表示而不全写出来&lt;/p&gt;
 &lt;p&gt;例如：&lt;/p&gt;
-&lt;pre class=&quot;
+&lt;pre class=&quot; language-sql&quot;&gt;&lt;code
         
       
     

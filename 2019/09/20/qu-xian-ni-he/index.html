@@ -611,14 +611,13 @@
 </ul>
 <p>PS:表格处的(0:1:10)是matlab的一种写法，表示从0到10以1为间距（步长），即0，1，2……10</p>
 <p>将图像用plot函数画出即下图：</p>
-<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/数据科学/20190920124407573.png" alt="xy&quot;曲线&quot;图（数据用得太少了）"><br>这。。。谁看得出来呀，显然不可能是简单的y=ax+b吧<br>所以接下来会用到polyfit这个函数</p>
-<h4 id="polyfit函数：示例"><a href="#polyfit函数：示例" class="headerlink" title="polyfit函数：示例"></a>polyfit函数：示例</h4><pre class=" language-lang-matlab"><code class="language-lang-matlab">x=(0:1:10);
-y=x.*x+2;
-plot(x,y)
-p=polyfit(x,y,3)  %polyfit(x,y,3)中的3为多项式最高次幂，在这里意为最高是3
-</code></pre>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/20190920124407573.png" alt="xy&quot;曲线&quot;图（数据用得太少了）"><br>这。。。谁看得出来呀，显然不可能是简单的y=ax+b吧<br>所以接下来会用到polyfit这个函数</p>
+<h4 id="polyfit函数：示例"><a href="#polyfit函数：示例" class="headerlink" title="polyfit函数：示例"></a>polyfit函数：示例</h4><pre class=" language-matlab"><code class="language-matlab">x<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+y<span class="token operator">=</span>x<span class="token operator">.*</span>x<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token function">plot</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+p<span class="token operator">=</span><span class="token function">polyfit</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">%polyfit(x,y,3)中的3为多项式最高次幂，在这里意为最高是3</span></code></pre>
 <p>得到结果：</p>
-<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/数据科学/img1fe53f8f6cff405a69960785e4564ab.png" alt="计算结果"></p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/img1fe53f8f6cff405a69960785e4564ab.png" alt="计算结果"></p>
 <p>即得到函数y= - 0.2422 x^3^ + 3.5845 x^2^ -11.2024 x + 25.7133</p>
 <p>在这里是设置成多项式最高次数为3，因为polyfit函数其数学基础是最小二乘法曲线拟合原理。曲线拟合：已知离散点上的数据集，即已知在点集上的函数值，构造一个解析函数（其图形为一曲线）使在原离散点上尽可能接近给定的值，所以<strong>无论设置多项式次数为多少，理论上得到的结果都是正确的</strong></p>
 <script>
@@ -1307,7 +1306,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">102.3k</span>&nbsp;字
+                class="white-color">111k</span>&nbsp;字
             
             
             
