@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-08-14T19:27:05.069Z</updated>
+  <updated>2021-08-14T20:16:59.936Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>SQL类型题总结</title>
-    <link href="https://www.memorydrive.online/2021/08/15/sql-lei-xing-ti-zong-jie/"/>
-    <id>https://www.memorydrive.online/2021/08/15/sql-lei-xing-ti-zong-jie/</id>
+    <title>SQL牛客类型题解析</title>
+    <link href="https://www.memorydrive.online/2021/08/15/sql-niu-ke-lei-xing-ti-jie-xi/"/>
+    <id>https://www.memorydrive.online/2021/08/15/sql-niu-ke-lei-xing-ti-jie-xi/</id>
     <published>2021-08-14T18:48:13.000Z</published>
-    <updated>2021-08-14T19:27:05.069Z</updated>
+    <updated>2021-08-14T20:16:59.936Z</updated>
     
     <summary type="html">
     
@@ -44,6 +44,34 @@
     
     
       <category term="SQL" scheme="https://www.memorydrive.online/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数仓命名规范</title>
+    <link href="https://www.memorydrive.online/2021/08/02/shu-cang-ming-ming-gui-fan/"/>
+    <id>https://www.memorydrive.online/2021/08/02/shu-cang-ming-ming-gui-fan/</id>
+    <published>2021-08-02T13:18:37.000Z</published>
+    <updated>2021-08-14T20:27:09.685Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这里分为&lt;strong&gt;表命名规范&lt;/strong&gt;、&lt;strong&gt;字段命名规范&lt;/strong&gt;、&lt;strong&gt;指标命名规范&lt;/strong&gt;、&lt;strong&gt;作业命名规范&lt;/strong&gt;，通常涉及表命名规范&lt;/p&gt;
+&lt;h2 id=&quot;表命名规范&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据仓库" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+      <category term="数仓建设" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E4%BB%93%E5%BB%BA%E8%AE%BE/"/>
     
   </entry>
   
@@ -291,7 +319,7 @@
     <link href="https://www.memorydrive.online/2021/03/29/hu-ya-zhi-bo-shu-ju-fen-xi-zhan-shi/"/>
     <id>https://www.memorydrive.online/2021/03/29/hu-ya-zhi-bo-shu-ju-fen-xi-zhan-shi/</id>
     <published>2021-03-29T15:38:42.000Z</published>
-    <updated>2021-05-09T16:28:08.991Z</updated>
+    <updated>2021-08-14T20:10:49.769Z</updated>
     
     <summary type="html">
     
@@ -557,33 +585,6 @@
     
     
       <category term="模糊聚类" scheme="https://www.memorydrive.online/tags/%E6%A8%A1%E7%B3%8A%E8%81%9A%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gitbook安装—_install卡住解决</title>
-    <link href="https://www.memorydrive.online/2020/07/21/gitbook-an-zhuang-install-qia-zhu-jie-jue/"/>
-    <id>https://www.memorydrive.online/2020/07/21/gitbook-an-zhuang-install-qia-zhu-jie-jue/</id>
-    <published>2020-07-20T22:01:09.000Z</published>
-    <updated>2020-09-21T14:19:58.247Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://www.memorydrive.online/categories/web/"/>
-    
-    
-      <category term="建站" scheme="https://www.memorydrive.online/tags/%E5%BB%BA%E7%AB%99/"/>
     
   </entry>
   

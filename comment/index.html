@@ -565,7 +565,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    25
+                    77
                 </div>
                 
 
@@ -587,8 +587,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-<div class="entry-content">
+                <div class="entry-content">
   <div class="poem-wrap">
     <div class="poem-border poem-left">
     </div>
@@ -602,7 +601,25 @@
     【宋代】吴文英《夜游宫·人去西楼雁杳》</p>
   </div>
 </div>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -985,7 +1002,6 @@
                     <div class="summary block-with-text">
                         
                             
-
   
     
     
@@ -1000,6 +1016,7 @@
   
 
 
+        document.querySelecto
                         
                     </div>
                     <div class="publish-info">
@@ -1038,7 +1055,6 @@
                     <div class="summary block-with-text">
                         
                             
-
   
     
     
@@ -1053,6 +1069,7 @@
   
 
 
+        document.querySelecto
                         
                     </div>
                     <div class="publish-info">
@@ -1271,7 +1288,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.9k</span>&nbsp;字
+                class="white-color">103.1k</span>&nbsp;字
             
             
             

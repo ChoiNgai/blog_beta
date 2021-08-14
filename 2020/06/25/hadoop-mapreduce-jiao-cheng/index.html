@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.1k
+                    11.2k
                 </div>
                 
 
@@ -756,7 +756,7 @@
 <p>应用程序能够使用-files选项来指定一个由逗号分隔的路径列表，这些路径是task的当前工作目录。使用选项-libjars可以向map和reduce的classpath中添加jar包。使用-archives选项程序可以传递档案文件做为参数，这些档案文件会被解压并且在task的当前工作目录下会创建一个指向解压生成的目录的符号链接（以压缩包的名字命名）。 有关命令行选项的更多细节请参考 <a href="http://hadoop.apache.org/docs/r1.0.4/cn/commands_manual.html" target="_blank" rel="noopener">Commands manual</a>。</p>
 <p>使用-libjars和-files运行wordcount例子：<br>hadoop jar hadoop-examples.jar wordcount -files cachefile.txt -libjars mylib.jar input output</p>
 <p>WordCount应用程序非常直截了当。</p>
-<p>Mapper(14-26行)中的map方法(18-25行)通过指定的 TextInputFormat(49行)一次处理一行。然后，它通过StringTokenizer 以空格为分隔符将一行切分为若干tokens，之后，输出&lt; <word>, 1&gt; 形式的键值对。</p>
+<p>Mapper(14-26行)中的map方法(18-25行)通过指定的 TextInputFormat(49行)一次处理一行。然后，它通过StringTokenizer 以空格为分隔符将一行切分为若干tokens，之后，输出&lt; <word>, 1&gt; 形式的键值对。</word></p>
 <p>对于示例中的第一个输入，map输出是：<br>&lt; Hello, 1&gt;<br>&lt; World, 1&gt;<br>&lt; Bye, 1&gt;<br>&lt; World, 1&gt;</p>
 <p>第二个输入，map输出是：<br>&lt; Hello, 1&gt;<br>&lt; Hadoop, 1&gt;<br>&lt; Goodbye, 1&gt;<br>&lt; Hadoop, 1&gt;</p>
 <p>关于组成一个指定作业的map数目的确定，以及如何以更精细的方式去控制这些map，我们将在教程的后续部分学习到更多的内容。</p>
@@ -992,10 +992,10 @@
 <p>DistributedCache可在map/reduce任务中作为 一种基础软件分发机制使用。它可以被用于分发jar包和本地库（native libraries）。 [DistributedCache.addArchiveToClassPath(Path, Configuration)](<a href="https://hadoop.apache.org/core/docs/r0.18.2/api/org/apache/hadoop/filecache/DistributedCache.html#addArchiveToClassPath" target="_blank" rel="noopener">https://hadoop.apache.org/core/docs/r0.18.2/api/org/apache/hadoop/filecache/DistributedCache.html#addArchiveToClassPath</a>(org.apache.hadoop.fs.Path, org.apache.hadoop.conf.Configuration))和 [DistributedCache.addFileToClassPath(Path, Configuration)](<a href="https://hadoop.apache.org/core/docs/r0.18.2/api/org/apache/hadoop/filecache/DistributedCache.html#addFileToClassPath" target="_blank" rel="noopener">https://hadoop.apache.org/core/docs/r0.18.2/api/org/apache/hadoop/filecache/DistributedCache.html#addFileToClassPath</a>(org.apache.hadoop.fs.Path, org.apache.hadoop.conf.Configuration)) API能够被用于 缓存文件和jar包，并把它们加入子jvm的<em>classpath</em>。也可以通过设置配置文档里的属性 mapred.job.classpath.{files|archives}达到相同的效果。缓存文件可用于分发和装载本地库。</p>
 <p><a href="https://hadoop.apache.org/core/docs/r0.18.2/api/org/apache/hadoop/util/Tool.html" target="_blank" rel="noopener">Tool</a> 接口支持处理常用的Hadoop命令行选项。</p>
 <p>Tool 是Map/Reduce工具或应用的标准。应用程序应只处理其定制参数， 要把标准命令行选项通过 [ToolRunner.run(Tool, String[])](<a href="https://hadoop.apache.org/core/docs/r0.18.2/api/org/apache/hadoop/util/ToolRunner.html#run" target="_blank" rel="noopener">https://hadoop.apache.org/core/docs/r0.18.2/api/org/apache/hadoop/util/ToolRunner.html#run</a>(org.apache.hadoop.util.Tool, java.lang.String[])) 委托给 <a href="https://hadoop.apache.org/core/docs/r0.18.2/api/org/apache/hadoop/util/GenericOptionsParser.html" target="_blank" rel="noopener">GenericOptionsParser</a>处理。</p>
-<p>Hadoop命令行的常用选项有：<br>-conf <configuration file><br>-D &lt;property=value&gt;<br>-fs &lt;local|namenode:port&gt;<br>-jt &lt;local|jobtracker:port&gt;</p>
+<p>Hadoop命令行的常用选项有：<br>-conf <configuration file=""><br>-D &lt;property=value&gt;<br>-fs &lt;local|namenode:port&gt;<br>-jt &lt;local|jobtracker:port&gt;</configuration></p>
 <p><a href="https://hadoop.apache.org/core/docs/r0.18.2/api/org/apache/hadoop/mapred/IsolationRunner.html" target="_blank" rel="noopener">IsolationRunner</a> 是帮助调试Map/Reduce程序的工具。</p>
 <p>使用IsolationRunner的方法是，首先设置 keep.failed.task.files属性为true （同时参考keep.task.files.pattern）。</p>
-<p>然后，登录到任务运行失败的节点上，进入 TaskTracker的本地路径运行 IsolationRunner：<br>$ cd <local path>/taskTracker/${taskid}/work<br>$ bin/hadoop org.apache.hadoop.mapred.IsolationRunner ../job.xml</p>
+<p>然后，登录到任务运行失败的节点上，进入 TaskTracker的本地路径运行 IsolationRunner：<br>$ cd <local path="">/taskTracker/${taskid}/work<br>$ bin/hadoop org.apache.hadoop.mapred.IsolationRunner ../job.xml</local></p>
 <p>IsolationRunner会把失败的任务放在单独的一个能够调试的jvm上运行，并且采用和之前完全一样的输入数据。</p>
 <p>Profiling是一个工具，它使用内置的java profiler工具进行分析获得(2-3个)map或reduce样例运行分析报告。</p>
 <p>用户可以通过设置属性mapred.task.profile指定系统是否采集profiler信息。 利用api<a href="https://hadoop.apache.org/core/docs/r0.18.2/api/org/apache/hadoop/mapred/JobConf.html#setProfileEnabled(boolean)" target="_blank" rel="noopener"> JobConf.setProfileEnabled(boolean)可以修改属性值</a>。如果设为true， 则开启profiling功能。profiler信息保存在用户日志目录下。缺省情况，profiling功能是关闭的。</p>
@@ -1113,7 +1113,7 @@
 </tr>
 <tr>
 <td align="center">23.</td>
-<td align="center">private Set<String> patternsToSkip = new HashSet<String>();</td>
+<td align="center">private Set<string> patternsToSkip = new HashSet<string>();</string></string></td>
 </tr>
 <tr>
 <td align="center">24.</td>
@@ -1333,7 +1333,7 @@
 </tr>
 <tr>
 <td align="center">78.</td>
-<td align="center">public void reduce(Text key, Iterator<IntWritable> values, OutputCollector&lt;Text, IntWritable&gt; output, Reporter reporter) throws IOException {</td>
+<td align="center">public void reduce(Text key, Iterator<intwritable> values, OutputCollector&lt;Text, IntWritable&gt; output, Reporter reporter) throws IOException {</intwritable></td>
 </tr>
 <tr>
 <td align="center">79.</td>
@@ -1425,7 +1425,7 @@
 </tr>
 <tr>
 <td align="center">101.</td>
-<td align="center">List<String> other_args = new ArrayList<String>();</td>
+<td align="center">List<string> other_args = new ArrayList<string>();</string></string></td>
 </tr>
 <tr>
 <td align="center">102.</td>
@@ -1543,7 +1543,25 @@
 <li>展示了应用程序如何使用Counters(68行)，如何通过传递给map（和reduce） 方法的Reporter实例来设置应用程序的状态信息(72行)。</li>
 </ul>
 <p><em>Java和JNI是Sun Microsystems, Inc.在美国和其它国家的注册商标。</em></p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -2206,7 +2224,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.9k</span>&nbsp;字
+                class="white-color">103.1k</span>&nbsp;字
             
             
             

@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    195
+                    247
                 </div>
                 
 
@@ -617,7 +617,25 @@
 <p>2） 成功执行</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> AnchorID <span class="token keyword">from</span> anchorinformation <span class="token keyword">group</span> <span class="token keyword">by</span> AnchorID<span class="token punctuation">;</span></code></pre>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> AnchorID<span class="token punctuation">,</span>ANY_VALUE<span class="token punctuation">(</span>anchor<span class="token punctuation">)</span> <span class="token keyword">from</span> anchorinformation <span class="token keyword">group</span> <span class="token keyword">by</span> AnchorID<span class="token punctuation">;</span></code></pre>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1288,7 +1306,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.9k</span>&nbsp;字
+                class="white-color">103.1k</span>&nbsp;字
             
             
             

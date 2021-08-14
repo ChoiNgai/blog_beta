@@ -565,7 +565,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    14
+                    66
                 </div>
                 
 
@@ -587,9 +587,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-<!-- 因为vue和botui更新导至bug,现将对话移至js下的botui中配置 -->
-<div class="entry-content">
+                <div class="entry-content">
   <div class="moe-mashiro" style="text-align:center; font-size: 50px; margin-bottom: 20px;">プログラマ</div>
   <div id="hello-mashiro" class="popcontainer" style="min-height: 300px; padding: 2px 6px 4px; background-color: rgba(242, 242, 242, 0.5); border-radius: 10px;">
     <center>
@@ -608,15 +606,33 @@
     <p>
     </p>
     </center>
-    <bot-ui></botui>
-  </div>
+    <bot-ui>
+  </bot-ui></div>
 </div>
 <script src="/js/botui.js"></script>
 <script>
 bot_ui_ini()
 </script>
 
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -999,8 +1015,6 @@ bot_ui_ini()
                     <div class="summary block-with-text">
                         
                             
-
-
   プログラマ
   
     
@@ -1017,7 +1031,8 @@ bot_ui_ini()
     
     对话中...
     
-   
+    
+
                         
                     </div>
                     <div class="publish-info">
@@ -1056,8 +1071,6 @@ bot_ui_ini()
                     <div class="summary block-with-text">
                         
                             
-
-
   プログラマ
   
     
@@ -1074,7 +1087,8 @@ bot_ui_ini()
     
     对话中...
     
-   
+    
+
                         
                     </div>
                     <div class="publish-info">
@@ -1293,7 +1307,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.9k</span>&nbsp;字
+                class="white-color">103.1k</span>&nbsp;字
             
             
             

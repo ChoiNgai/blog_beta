@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    658
+                    710
                 </div>
                 
 
@@ -629,7 +629,25 @@
 <li><strong><a href="https://ww2.mathworks.cn/help/matlab/guide-or-matlab-functions.html" target="_blank" rel="noopener">GUIDE 或编程工作流</a></strong><br>使用编程工作流或 GUIDE 开发 App</li>
 <li><strong><a href="https://ww2.mathworks.cn/help/matlab/packaging-guis-as-apps.html" target="_blank" rel="noopener">打包和共享 App</a></strong><br>直接与 MATLAB 用户共享 App，或打包并作为独立 App 共享</li>
 </ul>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1296,7 +1314,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.9k</span>&nbsp;字
+                class="white-color">103.1k</span>&nbsp;字
             
             
             

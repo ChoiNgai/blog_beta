@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    3.6k
                 </div>
                 
 
@@ -646,7 +646,7 @@
 <li><a href="http://hadoop.apache.org/docs/r1.0.4/cn/cluster_setup.html" target="_blank" rel="noopener">Hadoop集群搭建</a> 针对大规模分布式集群的搭建。</li>
 </ul>
 <p>文档余下部分假设用户已经安装并运行了至少包含一个Datanode节点的HDFS。就本文目的来说，Namenode和Datanode可以运行在同一个物理主机上。</p>
-<h2 id="Web接口"><a href="#Web接口" class="headerlink" title="Web接口"></a>Web接口</h2><p>NameNode和DataNode各自启动了一个内置的Web服务器，显示了集群当前的基本状态和信息。在默认配置下NameNode的首页地址是<a href="http://namenode-name:50070/。这个页面列出了集群里的所有DataNode和集群的基本状态。这个Web接口也可以用来浏览整个文件系统（使用NameNode首页上的&quot;Browse" target="_blank" rel="noopener">http://namenode-name:50070/。这个页面列出了集群里的所有DataNode和集群的基本状态。这个Web接口也可以用来浏览整个文件系统（使用NameNode首页上的&quot;Browse</a> the file system”链接）。</p>
+<h2 id="Web接口"><a href="#Web接口" class="headerlink" title="Web接口"></a>Web接口</h2><p>NameNode和DataNode各自启动了一个内置的Web服务器，显示了集群当前的基本状态和信息。在默认配置下NameNode的首页地址是<a href="http://namenode-name:50070/。这个页面列出了集群里的所有DataNode和集群的基本状态。这个Web接口也可以用来浏览整个文件系统（使用NameNode首页上的&quot;Browse" target="_blank" rel="noopener">http://namenode-name:50070/。这个页面列出了集群里的所有DataNode和集群的基本状态。这个Web接口也可以用来浏览整个文件系统（使用NameNode首页上的"Browse</a> the file system”链接）。</p>
 <h2 id="Shell命令"><a href="#Shell命令" class="headerlink" title="Shell命令"></a>Shell命令</h2><p>Hadoop包括一系列的类shell的命令，可直接和HDFS以及其他Hadoop支持的文件系统进行交互。bin/hadoop fs -help 命令列出所有Hadoop Shell支持的命令。而 bin/hadoop fs -help command-name 命令能显示关于某个命令的详细信息。这些命令支持大多数普通文件系统的操作，比如复制文件、改变文件权限等。它还支持一些HDFS特有的操作，比如改变文件副本数目。</p>
 <p>‘bin/hadoop dfsadmin’ 命令支持一些和HDFS管理相关的操作。bin/hadoop dfsadmin -help 命令能列出所有当前支持的命令。比如：</p>
 <ul>
@@ -706,7 +706,25 @@
 <li>查看conf/hadoop-default.xml文件。这里包括了大多数配置参数的简要描述。</li>
 <li><a href="http://hadoop.apache.org/docs/r1.0.4/cn/commands_manual.html" target="_blank" rel="noopener">命令手册</a>：命令使用说明。</li>
 </ul>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1368,7 +1386,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.9k</span>&nbsp;字
+                class="white-color">103.1k</span>&nbsp;字
             
             
             
