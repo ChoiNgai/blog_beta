@@ -33,7 +33,7 @@
 &lt;p&gt;&lt;strong&gt;阅读提示：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;为了SQL语句的简洁和便于阅读，每道题中的子查询在下一步骤中可能用表别名表示而不全写出来&lt;/p&gt;
 &lt;p&gt;例如：&lt;/p&gt;
-&lt;pre class=&quot; language-sql&quot;&gt;&lt;code
+&lt;pre class=&quot;
         
       
     
@@ -184,33 +184,6 @@
       <category term="Spark" scheme="https://www.memorydrive.online/tags/Spark/"/>
     
       <category term="Flink" scheme="https://www.memorydrive.online/tags/Flink/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刷题网站汇总</title>
-    <link href="https://www.memorydrive.online/2021/05/23/shua-ti-wang-zhan-hui-zong/"/>
-    <id>https://www.memorydrive.online/2021/05/23/shua-ti-wang-zhan-hui-zong/</id>
-    <published>2021-05-23T12:58:11.000Z</published>
-    <updated>2021-05-23T13:01:25.139Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;leetcode&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="tool" scheme="https://www.memorydrive.online/categories/tool/"/>
-    
     
   </entry>
   
@@ -583,6 +556,33 @@
     
     
       <category term="特征工程" scheme="https://www.memorydrive.online/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拟合&amp;插值&amp;函数逼近</title>
+    <link href="https://www.memorydrive.online/2020/11/03/ni-he-cha-zhi-han-shu-bi-jin/"/>
+    <id>https://www.memorydrive.online/2020/11/03/ni-he-cha-zhi-han-shu-bi-jin/</id>
+    <published>2020-11-03T01:49:42.000Z</published>
+    <updated>2020-11-06T12:41:36.605Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;h2 id=&quot;插值&quot;&gt;&lt;a href=&quot;#插值&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="基础数学" scheme="https://www.memorydrive.online/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
