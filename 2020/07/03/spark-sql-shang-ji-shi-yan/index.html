@@ -616,84 +616,76 @@
 <p>{ “id”:4 , “name”:”Jim”,”age”:28 }</p>
 <p>{ “id”:5 , “name”:”Damon” }</p>
 <p>{ “id”:5 , “name”:”Damon” }</p>
-<pre class=" language-lang-python"><code class="language-lang-python">#读取json文件
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#读取json文件</span>
 
-\# File location and type
+\# File location <span class="token operator">and</span> type
 
-file_location = "/FileStore/tables/employee.json"
+file_location <span class="token operator">=</span> <span class="token string">"/FileStore/tables/employee.json"</span>
 
-file_type = "json"
+file_type <span class="token operator">=</span> <span class="token string">"json"</span>
 
 
 
 \# CSV options
 
-infer_schema = "false"
+infer_schema <span class="token operator">=</span> <span class="token string">"false"</span>
 
-first_row_is_header = "false"
+first_row_is_header <span class="token operator">=</span> <span class="token string">"false"</span>
 
-delimiter = ","
-
-
-
-\# The applied options are for CSV files. For other file types, these will be ignored.
-
-df = spark.read.format(file_type) \
-
- .option("inferSchema", infer_schema) \
-
- .option("header", first_row_is_header) \
-
- .option("sep", delimiter) \
-
- .load(file_location)
+delimiter <span class="token operator">=</span> <span class="token string">","</span>
 
 
 
-display(df)                 #打印出文件
-</code></pre>
+\# The applied options are <span class="token keyword">for</span> CSV files<span class="token punctuation">.</span> For other file types<span class="token punctuation">,</span> these will be ignored<span class="token punctuation">.</span>
+
+df <span class="token operator">=</span> spark<span class="token punctuation">.</span>read<span class="token punctuation">.</span>format<span class="token punctuation">(</span>file_type<span class="token punctuation">)</span> \
+
+ <span class="token punctuation">.</span>option<span class="token punctuation">(</span><span class="token string">"inferSchema"</span><span class="token punctuation">,</span> infer_schema<span class="token punctuation">)</span> \
+
+ <span class="token punctuation">.</span>option<span class="token punctuation">(</span><span class="token string">"header"</span><span class="token punctuation">,</span> first_row_is_header<span class="token punctuation">)</span> \
+
+ <span class="token punctuation">.</span>option<span class="token punctuation">(</span><span class="token string">"sep"</span><span class="token punctuation">,</span> delimiter<span class="token punctuation">)</span> \
+
+ <span class="token punctuation">.</span>load<span class="token punctuation">(</span>file_location<span class="token punctuation">)</span>
+
+
+
+display<span class="token punctuation">(</span>df<span class="token punctuation">)</span>                 <span class="token comment" spellcheck="true">#打印出文件</span></code></pre>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image002-1593878295754.jpg" alt="1593862725"></p>
 <p># 创建employee临时表</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">df.registerTempTable("employee")
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token number">df</span><span class="token punctuation">.</span>registerTempTable<span class="token punctuation">(</span><span class="token string">"employee"</span><span class="token punctuation">)</span> </code></pre>
 <ol>
 <li>查询所有数据；</li>
 </ol>
-<pre class=" language-lang-sql"><code class="language-lang-sql">sqlDF_01 = spark.sql("SELECT * FROM employee");
+<pre class=" language-sql"><code class="language-sql">sqlDF_01 <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"SELECT * FROM employee"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-sqlDF_01.show();
-</code></pre>
+sqlDF_01<span class="token punctuation">.</span><span class="token keyword">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image004-1593878295755.jpg" alt="1593862841">]</p>
 <p> 2.查询所有的数据,并去重</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">sqlDF_02 = spark.sql("SELECT DISTINCT * FROM employee");
+<pre class=" language-sql"><code class="language-sql">sqlDF_02 <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"SELECT DISTINCT * FROM employee"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-sqlDF_02.show();
-</code></pre>
+sqlDF_02<span class="token punctuation">.</span><span class="token keyword">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image005-1593878295756.png" alt="ce49de6c106a6272e85fdcd160f88e0"></p>
 <p>3.查询所有的数据,打印去除id字段（这里只查询了name age）</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">sqlDF_03 = spark.sql("SELECT name,age FROM employee");
+<pre class=" language-sql"><code class="language-sql">sqlDF_03 <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"SELECT name,age FROM employee"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-sqlDF_03.show();
-</code></pre>
+sqlDF_03<span class="token punctuation">.</span><span class="token keyword">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     </code></pre>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image006-1593878295756.png" alt="61ab0ab0e4ee72618ab61f05ed7096b"></p>
 <p> 4.查询age&gt;30的数据</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">sqlDF_04 = spark.sql("SELECT * FROM employee WHERE age > 30")
+<pre class=" language-sql"><code class="language-sql">sqlDF_04 <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"SELECT * FROM employee WHERE age > 30"</span><span class="token punctuation">)</span>
 
-sqlDF_04.show();
-</code></pre>
+sqlDF_04<span class="token punctuation">.</span><span class="token keyword">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>​    </p>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image007-1593878295756.png" alt="1593859876">]</p>
 <p>5.age分组</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">sqlDF_05 = spark.sql("SELECT * FROM employee GROUP BY age");
+<pre class=" language-sql"><code class="language-sql">sqlDF_05 <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"SELECT * FROM employee GROUP BY age"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-sqlDF_05.show();
-</code></pre>
+sqlDF_05<span class="token punctuation">.</span><span class="token keyword">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image008-1593878295756.png" alt="1593860554">]</p>
 <p>6.name升序</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">sqlDF_06 = spark.sql("SELECT * FROM employee ORDER BY name")
+<pre class=" language-sql"><code class="language-sql">sqlDF_06 <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"SELECT * FROM employee ORDER BY name"</span><span class="token punctuation">)</span>
 
-sqlDF_06.show();
-</code></pre>
+sqlDF_06<span class="token punctuation">.</span><span class="token keyword">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image009-1593878295756.png" alt="1593860597">]</p>
 <p>​    </p>
 <p> 7.前三行</p>
@@ -701,40 +693,36 @@ sqlDF_06.show();
 <p>sqlDF_07.show(3);</p>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image010-1593878295756.png" alt="1593861176"></p>
 <p> 8.修改列名,name改成uersname</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">sqlDF_08 = spark.sql("SELECT name AS username FROM employee")
+<pre class=" language-sql"><code class="language-sql">sqlDF_08 <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"SELECT name AS username FROM employee"</span><span class="token punctuation">)</span>
 
-sqlDF_08.show();
-</code></pre>
+sqlDF_08<span class="token punctuation">.</span><span class="token keyword">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image011-1593878295756.png" alt="1593861916"></p>
 <p>9.查询age平均值</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">sqlDF_09 = spark.sql("SELECT AVG(age) AS ageAverage FROM employee")
+<pre class=" language-sql"><code class="language-sql">sqlDF_09 <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"SELECT AVG(age) AS ageAverage FROM employee"</span><span class="token punctuation">)</span>
 
-sqlDF_09.show();
-</code></pre>
+sqlDF_09<span class="token punctuation">.</span><span class="token keyword">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image012-1593878295756.png" alt="1593861967"></p>
 <p> 10.查询age最小值</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">sqlDF_10 = spark.sql("SELECT MIN(age) AS ageAverage FROM employee")
+<pre class=" language-sql"><code class="language-sql">sqlDF_10 <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"SELECT MIN(age) AS ageAverage FROM employee"</span><span class="token punctuation">)</span>
 
-sqlDF_10.show();
-</code></pre>
+sqlDF_10<span class="token punctuation">.</span><span class="token keyword">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image013-1593878295756.png" alt="1593862004">]</p>
 <p>2．编程实现将RDD转换为DataFrame. （Scala）</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">import org.apache.spark.sql.catalyst.encoders.ExpressionEncoder
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>spark<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>catalyst<span class="token punctuation">.</span>encoders<span class="token punctuation">.</span>ExpressionEncoder
 
-import org.apache.spark.sql.Encoder
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>spark<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Encoder
 
-import spark.implicits._ //导入包，支持把一个RDD隐式转换为一个DataFrame
+<span class="token keyword">import</span> spark<span class="token punctuation">.</span>implicits<span class="token punctuation">.</span>_ <span class="token comment" spellcheck="true">//导入包，支持把一个RDD隐式转换为一个DataFrame</span>
 
-case class students_data(id:Int,name:String,gender:String,age:Int,course_id:Int,score:Double,classes:String) //定义一个case class
+<span class="token keyword">case</span> class students_data<span class="token punctuation">(</span>id:<span class="token keyword">Int</span><span class="token punctuation">,</span>name:String<span class="token punctuation">,</span>gender:String<span class="token punctuation">,</span>age:<span class="token keyword">Int</span><span class="token punctuation">,</span>course_id:<span class="token keyword">Int</span><span class="token punctuation">,</span>score:<span class="token keyword">Double</span><span class="token punctuation">,</span>classes:String<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//定义一个case class</span>
 
-val stuDF = spark.sparkContext.textFile("/FileStore/tables/students_data-7.txt").map(_.split(",")).map(t => students_data(t(0).trim.toInt, t(1), t(2), t(3).trim.toInt, t(4).trim.toInt, t(5).trim.toDouble, t(6))).toDF()
+val stuDF <span class="token operator">=</span> spark<span class="token punctuation">.</span>sparkContext<span class="token punctuation">.</span>textFile<span class="token punctuation">(</span><span class="token string">"/FileStore/tables/students_data-7.txt"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>map<span class="token punctuation">(</span>_<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>map<span class="token punctuation">(</span>t <span class="token operator">=</span><span class="token operator">></span> students_data<span class="token punctuation">(</span>t<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toInt<span class="token punctuation">,</span> t<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> t<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> t<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toInt<span class="token punctuation">,</span> t<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toInt<span class="token punctuation">,</span> t<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toDouble<span class="token punctuation">,</span> t<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toDF<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-stuDF.createOrReplaceTempView("stu") //必须注册为临时表才能供下面的查询
+stuDF<span class="token punctuation">.</span>createOrReplaceTempView<span class="token punctuation">(</span><span class="token string">"stu"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//必须注册为临时表才能供下面的查询</span>
 
-val stuRDD = spark.sql("select * from stu")//最终生成一个DataFrame
+val stuRDD <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"select * from stu"</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//最终生成一个DataFrame</span>
 
-stuRDD.show()
-</code></pre>
+stuRDD<span class="token punctuation">.</span><span class="token keyword">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/clip_image015-1593878295756.jpg" alt="1593869941">]</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1418,7 +1406,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">102.2k</span>&nbsp;字
+                class="white-color">111k</span>&nbsp;字
             
             
             
