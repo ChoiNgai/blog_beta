@@ -611,13 +611,14 @@
 </ul>
 <p>PS:表格处的(0:1:10)是matlab的一种写法，表示从0到10以1为间距（步长），即0，1，2……10</p>
 <p>将图像用plot函数画出即下图：</p>
-<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/20190920124407573.png" alt="xy&quot;曲线&quot;图（数据用得太少了）"><br>这。。。谁看得出来呀，显然不可能是简单的y=ax+b吧<br>所以接下来会用到polyfit这个函数</p>
-<h4 id="polyfit函数：示例"><a href="#polyfit函数：示例" class="headerlink" title="polyfit函数：示例"></a>polyfit函数：示例</h4><pre class=" language-matlab"><code class="language-matlab">x<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-y<span class="token operator">=</span>x<span class="token operator">.*</span>x<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token function">plot</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
-p<span class="token operator">=</span><span class="token function">polyfit</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">%polyfit(x,y,3)中的3为多项式最高次幂，在这里意为最高是3</span></code></pre>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/数据科学/20190920124407573.png" alt="xy&quot;曲线&quot;图（数据用得太少了）"><br>这。。。谁看得出来呀，显然不可能是简单的y=ax+b吧<br>所以接下来会用到polyfit这个函数</p>
+<h4 id="polyfit函数：示例"><a href="#polyfit函数：示例" class="headerlink" title="polyfit函数：示例"></a>polyfit函数：示例</h4><pre class=" language-lang-matlab"><code class="language-lang-matlab">x=(0:1:10);
+y=x.*x+2;
+plot(x,y)
+p=polyfit(x,y,3)  %polyfit(x,y,3)中的3为多项式最高次幂，在这里意为最高是3
+</code></pre>
 <p>得到结果：</p>
-<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/img1fe53f8f6cff405a69960785e4564ab.png" alt="计算结果"></p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/数据科学/img1fe53f8f6cff405a69960785e4564ab.png" alt="计算结果"></p>
 <p>即得到函数y= - 0.2422 x^3^ + 3.5845 x^2^ -11.2024 x + 25.7133</p>
 <p>在这里是设置成多项式最高次数为3，因为polyfit函数其数学基础是最小二乘法曲线拟合原理。曲线拟合：已知离散点上的数据集，即已知在点集上的函数值，构造一个解析函数（其图形为一曲线）使在原离散点上尽可能接近给定的值，所以<strong>无论设置多项式次数为多少，理论上得到的结果都是正确的</strong></p>
 <script>
@@ -1011,58 +1012,6 @@ p<span class="token operator">=</span><span class="token function">polyfit</span
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/10/26/shen-du-xue-xi-kuang-jia-gpu-ban-qian-qi-zhun-bei-bi-keng-zhi-nan/">
-                    <div class="card-image">
-                        
-                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_922.jpg" class="responsive-img" alt="深度学习框架GPU版前期准备（避坑指南）">
-                        
-                        <span class="card-title">深度学习框架GPU版前期准备（避坑指南）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            深度学习框架安装：前期准备前情提要：相信安装过Pytorch、TensorFlow等框架的GPU版的人都知道，相比CPU版本安装，GPU版本的安装多么麻烦。但是，深度学习没GPU又不行啊（单纯靠CPU太慢了），故在此整理了教程上较为稀少的G
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-26
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" class="post-category">
-                                    计算机视觉
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2019/09/20/shu-xue-jian-mo-chang-yong-de-fen-xi-fa-ji-qi-matlab-shi-xian/">
                     <div class="card-image">
                         
@@ -1079,9 +1028,9 @@ p<span class="token operator">=</span><span class="token function">polyfit</span
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-20
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1103,6 +1052,55 @@ p<span class="token operator">=</span><span class="token function">polyfit</span
                     
                     <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
                         <span class="chip bg-color">数学建模</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/16/xue-xi-bi-ji-ji-suan-ji-wang-luo/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1127.jpg" class="responsive-img" alt="学习笔记：计算机网络（断更）">
+                        
+                        <span class="card-title">学习笔记：计算机网络（断更）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            计网经典教材+中国大学MOOC 哈工大版
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%90%86%E8%AE%BA/">
+                        <span class="chip bg-color">计算机理论</span>
                     </a>
                     
                 </div>
@@ -1309,7 +1307,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">111k</span>&nbsp;字
+                class="white-color">103.7k</span>&nbsp;字
             
             
             
