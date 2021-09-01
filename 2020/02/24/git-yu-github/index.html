@@ -603,13 +603,10 @@
                 <p>坊间流传着“知道github的程序员歧视不知道github的程序员”。我就纳闷了：程序员还会不知道github？<br>好啦，都快要全面迈入小康社会了，再不知道github就要被消灭了[滑稽]</p>
 <p><a href="https://blog.csdn.net/lqlqlq007/article/details/78983879" target="_blank" rel="noopener">首先要在远程仓库配置ssh</a>，然后建立远程仓库</p>
 <p>我们常常会根据远程分支创建本地分支，命令如下</p>
-<pre><code>git checkout -b dev origin/dev
-</code></pre><p>上面的命令我是想把远程分支 dev 拉到本地来，但是有时候没有用，提示远程分支不存在，我们需要通过下面的命令来操作</p>
-<pre><code>git fetch origin
-</code></pre><p>可以运行 <code>git fetch origin</code> 来同步远程服务器上的数据到本地。</p>
+<pre><code>git checkout -b dev origin/dev</code></pre><p>上面的命令我是想把远程分支 dev 拉到本地来，但是有时候没有用，提示远程分支不存在，我们需要通过下面的命令来操作</p>
+<pre><code>git fetch origin </code></pre><p>可以运行 <code>git fetch origin</code> 来同步远程服务器上的数据到本地。</p>
 <p>已经同步了分支，现在就可以拉取远程分支了</p>
-<pre><code>git checkout -b dev origin/dev
-</code></pre><script>
+<pre><code>git checkout -b dev origin/dev</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1295,7 +1292,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.7k</span>&nbsp;字
+                class="white-color">112.4k</span>&nbsp;字
             
             
             

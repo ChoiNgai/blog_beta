@@ -605,25 +605,20 @@
 <ul>
 <li><p>ODS层</p>
 <p>即贴源层，由业务方直接导入，不会经过数据清洗转化。操作数据层定位于业务明细数据保留区，负责保留数据接入时点后历史变更数据，数据原则上全量保留。</p>
-<pre><code>项目名_ods.ods_系统名称(默认为空)_源表名_abc
-</code></pre></li>
+<pre><code>项目名_ods.ods_系统名称(默认为空)_源表名_abc</code></pre></li>
 <li><p>DW层</p>
 <p>由ODS层数据经过清洗转化而成。这一层整合后的业务过程明细数据，负责各业务场景整合、数据结构化、规范化，常用公共维度冗余加工，以及明细业务标签信息加工。另外，在该层也会做一部分的数据聚合，将相同主题的数据汇集到一张表中，提高数据的可用性。</p>
 <ul>
 <li><p>dim层（维表）</p>
-<pre><code>项目名_dw.dim_项目名_业务描述_abc
-</code></pre></li>
+<pre><code>项目名_dw.dim_项目名_业务描述_abc</code></pre></li>
 <li><p>dwv（业务明细）</p>
-<pre><code>项目名_dw.dwv_项目名_一级主题域_二级主题域_业务描述_abc
-</code></pre></li>
+<pre><code>项目名_dw.dwv_项目名_一级主题域_二级主题域_业务描述_abc</code></pre></li>
 <li><p>dwm（周期汇总）</p>
-<pre><code>项目名_dw.dws_项目名_数据粒度_业务描述_统计范围cycle[N]_abc
-</code></pre><p>例如：</p>
+<pre><code>项目名_dw.dws_项目名_数据粒度_业务描述_统计范围cycle[N]_abc</code></pre><p>例如：</p>
 <p><code>projectname_dw.dwm_projectname_store_activity_byr_currcy_order_cycle7_sdt</code>说明：projectname是项目名，其数据粒度为店铺（store）+活动（activity）+买家（byr）+币种（currcy）;业务描述为下单（order）；统计的时间范围为近7天。</p>
 </li>
 <li><p>dws层（数据汇总服务）</p>
-<pre><code>项目名_dw.dws_项目名_数据粒度_业务描述_abc
-</code></pre></li>
+<pre><code>项目名_dw.dws_项目名_数据粒度_业务描述_abc</code></pre></li>
 </ul>
 </li>
 </ul>
@@ -639,8 +634,7 @@
 <ul>
 <li><p>数据采集作业（后缀import）</p>
 <p>一般是采集变成ods层数据</p>
-<pre><code>项目名_ods.ods_系统名称_源表名_abc_import
-</code></pre><p>如：projectname_ods.ods_projectname_orders_fct_import</p>
+<pre><code>项目名_ods.ods_系统名称_源表名_abc_import </code></pre><p>如：projectname_ods.ods_projectname_orders_fct_import</p>
 </li>
 <li><p>数据导出作业（后缀export）</p>
 <p>同采集作业，但后缀改成export</p>
@@ -1415,7 +1409,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.7k</span>&nbsp;字
+                class="white-color">112.4k</span>&nbsp;字
             
             
             

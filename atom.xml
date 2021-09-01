@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-08-28T07:41:59.571Z</updated>
+  <updated>2021-09-01T16:41:38.502Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.memorydrive.online/2021/08/28/wo-xin-li-you-b-shu/"/>
     <id>https://www.memorydrive.online/2021/08/28/wo-xin-li-you-b-shu/</id>
     <published>2021-08-28T06:07:07.000Z</published>
-    <updated>2021-08-28T07:41:59.571Z</updated>
+    <updated>2021-09-01T16:41:38.502Z</updated>
     
     <summary type="html">
     
@@ -60,7 +60,7 @@
 &lt;p&gt;&lt;strong&gt;阅读提示：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;为了SQL语句的简洁和便于阅读，每道题中的子查询在下一步骤中可能用表别名表示而不全写出来&lt;/p&gt;
 &lt;p&gt;例如：&lt;/p&gt;
-&lt;pre class=&quot;
+&lt;pre class=&quot; language-sql&quot;&gt;&lt;code
         
       
     

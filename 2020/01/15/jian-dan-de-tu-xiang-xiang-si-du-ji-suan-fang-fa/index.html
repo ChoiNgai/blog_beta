@@ -639,40 +639,40 @@
 </li>
 <li><p>互信息</p>
 </li>
-<li>余弦相似度 </li>
-<li>感知哈希算法</li>
+<li><p>余弦相似度 </p>
+</li>
+<li><p>感知哈希算法</p>
+</li>
 </ul>
-<h2 id="2-测试结果（单张图片比对）"><a href="#2-测试结果（单张图片比对）" class="headerlink" title="2.测试结果（单张图片比对）"></a>2.测试结果（单张图片比对）</h2><h3 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h3><pre class=" language-lang-python"><code class="language-lang-python">from time import *
-begin_time = time()
+<h2 id="2-测试结果（单张图片比对）"><a href="#2-测试结果（单张图片比对）" class="headerlink" title="2.测试结果（单张图片比对）"></a>2.测试结果（单张图片比对）</h2><h3 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> time <span class="token keyword">import</span> <span class="token operator">*</span>
+begin_time <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-from PIL import Image
-
-
-def make_regalur_image(img, size=(256, 256)):
-    return img.resize(size).convert('RGB')
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
 
 
-def hist_similar(lh, rh):
-    assert len(lh) == len(rh)
-    return sum(1 - (0 if l == r else float(abs(l - r)) / max(l, r)) for l, r in zip(lh, rh)) / len(lh)
+<span class="token keyword">def</span> <span class="token function">make_regalur_image</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> img<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">.</span>convert<span class="token punctuation">(</span><span class="token string">'RGB'</span><span class="token punctuation">)</span>
 
 
-def calc_similar(li, ri):
-    return hist_similar(li.histogram(), ri.histogram())
+<span class="token keyword">def</span> <span class="token function">hist_similar</span><span class="token punctuation">(</span>lh<span class="token punctuation">,</span> rh<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">assert</span> len<span class="token punctuation">(</span>lh<span class="token punctuation">)</span> <span class="token operator">==</span> len<span class="token punctuation">(</span>rh<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token keyword">if</span> l <span class="token operator">==</span> r <span class="token keyword">else</span> float<span class="token punctuation">(</span>abs<span class="token punctuation">(</span>l <span class="token operator">-</span> r<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> max<span class="token punctuation">(</span>l<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> l<span class="token punctuation">,</span> r <span class="token keyword">in</span> zip<span class="token punctuation">(</span>lh<span class="token punctuation">,</span> rh<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> len<span class="token punctuation">(</span>lh<span class="token punctuation">)</span>
 
 
-if __name__ == '__main__':
-    img1 = Image.open('images/WIN_20200111_21_56_10_Pro.jpg')
-    img1 = make_regalur_image(img1)
-    img2 = Image.open('images/WIN_20200111_21_56_52_Pro.jpg')
-    img2 = make_regalur_image(img2)
-    print(calc_similar(img1, img2))
+<span class="token keyword">def</span> <span class="token function">calc_similar</span><span class="token punctuation">(</span>li<span class="token punctuation">,</span> ri<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> hist_similar<span class="token punctuation">(</span>li<span class="token punctuation">.</span>histogram<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ri<span class="token punctuation">.</span>histogram<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-end_time = time()
-run_time = end_time-begin_time
-print ('该程序运行时间：',run_time)
-</code></pre>
-<div class="table-container">
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    img1 <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'images/WIN_20200111_21_56_10_Pro.jpg'</span><span class="token punctuation">)</span>
+    img1 <span class="token operator">=</span> make_regalur_image<span class="token punctuation">(</span>img1<span class="token punctuation">)</span>
+    img2 <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'images/WIN_20200111_21_56_52_Pro.jpg'</span><span class="token punctuation">)</span>
+    img2 <span class="token operator">=</span> make_regalur_image<span class="token punctuation">(</span>img2<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>calc_similar<span class="token punctuation">(</span>img1<span class="token punctuation">,</span> img2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+end_time <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+run_time <span class="token operator">=</span> end_time<span class="token operator">-</span>begin_time
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'该程序运行时间：'</span><span class="token punctuation">,</span>run_time<span class="token punctuation">)</span></code></pre>
 <table>
 <thead>
 <tr>
@@ -682,8 +682,7 @@ print ('该程序运行时间：',run_time)
 <th>Result</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>素材（自比）</td>
 <td>WIN_20200111_21_56_10_Pro.jpg</td>
 <td>0.055361032485961914</td>
@@ -713,34 +712,30 @@ print ('该程序运行时间：',run_time)
 <td>0.07813024520874023</td>
 <td>0.7189068678053613</td>
 </tr>
-</tbody>
-</table>
-</div>
-<h3 id="互信息"><a href="#互信息" class="headerlink" title="互信息"></a>互信息</h3><pre class=" language-lang-python"><code class="language-lang-python">from time import *
-begin_time = time()
+</tbody></table>
+<h3 id="互信息"><a href="#互信息" class="headerlink" title="互信息"></a>互信息</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> time <span class="token keyword">import</span> <span class="token operator">*</span>
+begin_time <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-from sklearn import metrics as mr
-from scipy.misc import imread
-import numpy as np
+<span class="token keyword">from</span> sklearn <span class="token keyword">import</span> metrics <span class="token keyword">as</span> mr
+<span class="token keyword">from</span> scipy<span class="token punctuation">.</span>misc <span class="token keyword">import</span> imread
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 
-img1 = imread('1.jpg')
-img2 = imread('2.jpg')
+img1 <span class="token operator">=</span> imread<span class="token punctuation">(</span><span class="token string">'1.jpg'</span><span class="token punctuation">)</span>
+img2 <span class="token operator">=</span> imread<span class="token punctuation">(</span><span class="token string">'2.jpg'</span><span class="token punctuation">)</span>
 
-img2 = np.resize(img2, (img1.shape[0], img1.shape[1], img1.shape[2]))
+img2 <span class="token operator">=</span> np<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>img2<span class="token punctuation">,</span> <span class="token punctuation">(</span>img1<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> img1<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> img1<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-img1 = np.reshape(img1, -1)
-img2 = np.reshape(img2, -1)
-print(img2.shape)
-print(img1.shape)
-mutual_infor = mr.mutual_info_score(img1, img2)
+img1 <span class="token operator">=</span> np<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>img1<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+img2 <span class="token operator">=</span> np<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>img2<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>img2<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>img1<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+mutual_infor <span class="token operator">=</span> mr<span class="token punctuation">.</span>mutual_info_score<span class="token punctuation">(</span>img1<span class="token punctuation">,</span> img2<span class="token punctuation">)</span>
 
-print(mutual_infor)
+<span class="token keyword">print</span><span class="token punctuation">(</span>mutual_infor<span class="token punctuation">)</span>
 
-end_time = time()
-run_time = end_time-begin_time
-print ('该程序运行时间：',run_time)
-</code></pre>
-<div class="table-container">
+end_time <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+run_time <span class="token operator">=</span> end_time<span class="token operator">-</span>begin_time
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'该程序运行时间：'</span><span class="token punctuation">,</span>run_time<span class="token punctuation">)</span></code></pre>
 <table>
 <thead>
 <tr>
@@ -750,8 +745,7 @@ print ('该程序运行时间：',run_time)
 <th>Result</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>素材（自比）</td>
 <td>WIN_20200111_21_56_10_Pro.jpg</td>
 <td>1.459466791152954</td>
@@ -781,51 +775,47 @@ print ('该程序运行时间：',run_time)
 <td>1.5644567012786865</td>
 <td>(6220800,)<br>(6220800,)<br>0.6813656974353114</td>
 </tr>
-</tbody>
-</table>
-</div>
-<h3 id="余弦相似度"><a href="#余弦相似度" class="headerlink" title="余弦相似度"></a>余弦相似度</h3><pre class=" language-lang-python"><code class="language-lang-python">from time import *
-begin_time = time()
+</tbody></table>
+<h3 id="余弦相似度"><a href="#余弦相似度" class="headerlink" title="余弦相似度"></a>余弦相似度</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> time <span class="token keyword">import</span> <span class="token operator">*</span>
+begin_time <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-from PIL import Image
-from numpy import average, linalg, dot
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">from</span> numpy <span class="token keyword">import</span> average<span class="token punctuation">,</span> linalg<span class="token punctuation">,</span> dot
 
-def get_thumbnail(image, size=(1200, 750), greyscale=False):
-    image = image.resize(size, Image.ANTIALIAS)
-    if greyscale:
-        image = image.convert('L')
-    return image
+<span class="token keyword">def</span> <span class="token function">get_thumbnail</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1200</span><span class="token punctuation">,</span> <span class="token number">750</span><span class="token punctuation">)</span><span class="token punctuation">,</span> greyscale<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    image <span class="token operator">=</span> image<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>size<span class="token punctuation">,</span> Image<span class="token punctuation">.</span>ANTIALIAS<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> greyscale<span class="token punctuation">:</span>
+        image <span class="token operator">=</span> image<span class="token punctuation">.</span>convert<span class="token punctuation">(</span><span class="token string">'L'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> image
 
 
-def image_similarity_vectors_via_numpy(image1, image2):
-    image1 = get_thumbnail(image1)
-    image2 = get_thumbnail(image2)
-    images = [image1, image2]
-    vectors = []
-    norms = []
-    for image in images:
-        vector = []
-        for pixel_tuple in image.getdata():
-            vector.append(average(pixel_tuple))
-        vectors.append(vector)
-        norms.append(linalg.norm(vector, 2))
-    a, b = vectors
-    a_norm, b_norm = norms
-    res = dot(a / a_norm, b / b_norm)
-    return res
+<span class="token keyword">def</span> <span class="token function">image_similarity_vectors_via_numpy</span><span class="token punctuation">(</span>image1<span class="token punctuation">,</span> image2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    image1 <span class="token operator">=</span> get_thumbnail<span class="token punctuation">(</span>image1<span class="token punctuation">)</span>
+    image2 <span class="token operator">=</span> get_thumbnail<span class="token punctuation">(</span>image2<span class="token punctuation">)</span>
+    images <span class="token operator">=</span> <span class="token punctuation">[</span>image1<span class="token punctuation">,</span> image2<span class="token punctuation">]</span>
+    vectors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    norms <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> image <span class="token keyword">in</span> images<span class="token punctuation">:</span>
+        vector <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> pixel_tuple <span class="token keyword">in</span> image<span class="token punctuation">.</span>getdata<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            vector<span class="token punctuation">.</span>append<span class="token punctuation">(</span>average<span class="token punctuation">(</span>pixel_tuple<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        vectors<span class="token punctuation">.</span>append<span class="token punctuation">(</span>vector<span class="token punctuation">)</span>
+        norms<span class="token punctuation">.</span>append<span class="token punctuation">(</span>linalg<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>vector<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    a<span class="token punctuation">,</span> b <span class="token operator">=</span> vectors
+    a_norm<span class="token punctuation">,</span> b_norm <span class="token operator">=</span> norms
+    res <span class="token operator">=</span> dot<span class="token punctuation">(</span>a <span class="token operator">/</span> a_norm<span class="token punctuation">,</span> b <span class="token operator">/</span> b_norm<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> res
 
 
-image1 = Image.open('images/WIN_20200111_21_56_10_Pro.jpg')
-image2 = Image.open('images/WIN_20200111_21_56_10_Pro.jpg')
-cosin = image_similarity_vectors_via_numpy(image1, image2)
+image1 <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'images/WIN_20200111_21_56_10_Pro.jpg'</span><span class="token punctuation">)</span>
+image2 <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'images/WIN_20200111_21_56_10_Pro.jpg'</span><span class="token punctuation">)</span>
+cosin <span class="token operator">=</span> image_similarity_vectors_via_numpy<span class="token punctuation">(</span>image1<span class="token punctuation">,</span> image2<span class="token punctuation">)</span>
 
-print(cosin)
+<span class="token keyword">print</span><span class="token punctuation">(</span>cosin<span class="token punctuation">)</span>
 
-end_time = time()
-run_time = end_time-begin_time
-print ('该程序运行时间：',run_time)
-</code></pre>
-<div class="table-container">
+end_time <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+run_time <span class="token operator">=</span> end_time<span class="token operator">-</span>begin_time
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'该程序运行时间：'</span><span class="token punctuation">,</span>run_time<span class="token punctuation">)</span></code></pre>
 <table>
 <thead>
 <tr>
@@ -835,8 +825,7 @@ print ('该程序运行时间：',run_time)
 <th>Result</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>素材（自比）</td>
 <td>WIN_20200111_21_56_10_Pro.jpg</td>
 <td>19.579540729522705</td>
@@ -866,69 +855,66 @@ print ('该程序运行时间：',run_time)
 <td>0.9038901804349453</td>
 <td>19.01563835144043</td>
 </tr>
-</tbody>
-</table>
-</div>
-<h3 id="感知哈希算法"><a href="#感知哈希算法" class="headerlink" title="感知哈希算法"></a>感知哈希算法</h3><pre class=" language-lang-python"><code class="language-lang-python">from time import *
-begin_time = time()
+</tbody></table>
+<h3 id="感知哈希算法"><a href="#感知哈希算法" class="headerlink" title="感知哈希算法"></a>感知哈希算法</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> time <span class="token keyword">import</span> <span class="token operator">*</span>
+begin_time <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-import cv2
-import numpy as np
-import os
+<span class="token keyword">import</span> cv2
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> os
 
-#感知哈希算法
-def pHash(image):
-    image = cv2.resize(image,(32,32), interpolation=cv2.INTER_CUBIC)
-    image = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-#     cv2.imshow('image', image)
-#     cv2.waitKey(0)
-#     cv2.destroyAllWindows()
-    # 将灰度图转为浮点型，再进行dct变换
-    dct = cv2.dct(np.float32(image))
-#     print(dct)
-    # 取左上角的8*8，这些代表图片的最低频率
-    # 这个操作等价于c++中利用opencv实现的掩码操作
-    # 在python中进行掩码操作，可以直接这样取出图像矩阵的某一部分
-    dct_roi = dct[0:8,0:8]
-    avreage = np.mean(dct_roi)
-    hash = []
-    for i in range(dct_roi.shape[0]):
-        for j in range(dct_roi.shape[1]):
-            if dct_roi[i,j] > avreage:
-                hash.append(1)
-            else:
-                hash.append(0)
-    return hash
+<span class="token comment" spellcheck="true">#感知哈希算法</span>
+<span class="token keyword">def</span> <span class="token function">pHash</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    image <span class="token operator">=</span> cv2<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>image<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">,</span> interpolation<span class="token operator">=</span>cv2<span class="token punctuation">.</span>INTER_CUBIC<span class="token punctuation">)</span>
+    image <span class="token operator">=</span> cv2<span class="token punctuation">.</span>cvtColor<span class="token punctuation">(</span>image<span class="token punctuation">,</span>cv2<span class="token punctuation">.</span>COLOR_BGR2GRAY<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#     cv2.imshow('image', image)</span>
+<span class="token comment" spellcheck="true">#     cv2.waitKey(0)</span>
+<span class="token comment" spellcheck="true">#     cv2.destroyAllWindows()</span>
+    <span class="token comment" spellcheck="true"># 将灰度图转为浮点型，再进行dct变换</span>
+    dct <span class="token operator">=</span> cv2<span class="token punctuation">.</span>dct<span class="token punctuation">(</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#     print(dct)</span>
+    <span class="token comment" spellcheck="true"># 取左上角的8*8，这些代表图片的最低频率</span>
+    <span class="token comment" spellcheck="true"># 这个操作等价于c++中利用opencv实现的掩码操作</span>
+    <span class="token comment" spellcheck="true"># 在python中进行掩码操作，可以直接这样取出图像矩阵的某一部分</span>
+    dct_roi <span class="token operator">=</span> dct<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">]</span>
+    avreage <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>dct_roi<span class="token punctuation">)</span>
+    hash <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>dct_roi<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>dct_roi<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> dct_roi<span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span> <span class="token operator">></span> avreage<span class="token punctuation">:</span>
+                hash<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                hash<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> hash
 
-#计算汉明距离
-def Hamming_distance(hash1,hash2):
-    num = 0
-    for index in range(len(hash1)):
-        if hash1[index] != hash2[index]:
-            num += 1
-    return num
+<span class="token comment" spellcheck="true">#计算汉明距离</span>
+<span class="token keyword">def</span> <span class="token function">Hamming_distance</span><span class="token punctuation">(</span>hash1<span class="token punctuation">,</span>hash2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    num <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> index <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>hash1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> hash1<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">!=</span> hash2<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            num <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> num
 
-if __name__ == "__main__":
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
 
-    image_file1 = 'images/WIN_20200111_21_56_10_Pro.jpg'
-    image_file2 = 'images/1.jpg'
+    image_file1 <span class="token operator">=</span> <span class="token string">'images/WIN_20200111_21_56_10_Pro.jpg'</span>
+    image_file2 <span class="token operator">=</span> <span class="token string">'images/1.jpg'</span>
 
-    img1 = cv2.imread(image_file1)
-    img2 = cv2.imread(image_file2)
-    hash1 = pHash(img1)
-    hash2 = pHash(img2)
-    dist = Hamming_distance(hash1, hash2)
-    #将距离转化为相似度
-    similarity = 1 - dist * 1.0 / 64
-    print(dist)
-    print(similarity)
+    img1 <span class="token operator">=</span> cv2<span class="token punctuation">.</span>imread<span class="token punctuation">(</span>image_file1<span class="token punctuation">)</span>
+    img2 <span class="token operator">=</span> cv2<span class="token punctuation">.</span>imread<span class="token punctuation">(</span>image_file2<span class="token punctuation">)</span>
+    hash1 <span class="token operator">=</span> pHash<span class="token punctuation">(</span>img1<span class="token punctuation">)</span>
+    hash2 <span class="token operator">=</span> pHash<span class="token punctuation">(</span>img2<span class="token punctuation">)</span>
+    dist <span class="token operator">=</span> Hamming_distance<span class="token punctuation">(</span>hash1<span class="token punctuation">,</span> hash2<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#将距离转化为相似度</span>
+    similarity <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">-</span> dist <span class="token operator">*</span> <span class="token number">1.0</span> <span class="token operator">/</span> <span class="token number">64</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>dist<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>similarity<span class="token punctuation">)</span>
 
-end_time = time()
+end_time <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-run_time = end_time-begin_time
-print ('该程序运行时间：',run_time)
+run_time <span class="token operator">=</span> end_time<span class="token operator">-</span>begin_time
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'该程序运行时间：'</span><span class="token punctuation">,</span>run_time<span class="token punctuation">)</span>
 </code></pre>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -939,8 +925,7 @@ print ('该程序运行时间：',run_time)
 <th>similarity</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>素材（自比）</td>
 <td>WIN_20200111_21_56_10_Pro.jpg</td>
 <td>0.20314764976501465</td>
@@ -975,9 +960,7 @@ print ('该程序运行时间：',run_time)
 <td>8</td>
 <td>0.875</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="3-评价"><a href="#3-评价" class="headerlink" title="3.评价"></a>3.评价</h2><ul>
 <li>直方图计算结果与直观视觉严重不符合</li>
 <li>余弦相似度准确度较高，但太耗时，比对平均耗时19s</li>
@@ -1665,7 +1648,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.7k</span>&nbsp;字
+                class="white-color">112.4k</span>&nbsp;字
             
             
             

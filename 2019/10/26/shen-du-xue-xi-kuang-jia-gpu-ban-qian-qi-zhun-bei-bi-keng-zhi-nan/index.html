@@ -582,7 +582,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    555
+                    601
                 </div>
                 
 
@@ -608,13 +608,11 @@
 <h4 id="1-下载cuda和cudnn"><a href="#1-下载cuda和cudnn" class="headerlink" title="1.  下载cuda和cudnn"></a>1.  下载cuda和cudnn</h4><p> 下载cudn之前先查看电脑显卡支持的最高版本：<br> 控制面板-硬件和声音-NVIDIA面板-帮助-系统信息<br><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025195852431.png" alt="在这里插入图片描述"><br> 例如此处则支持10.1.168版本的cuda</p>
 <p>在此我下载cudnn9.0<br>cdunn官网下载：<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-toolkit-archive</a><br><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025200201528.png" alt="在这里插入图片描述"><br>选择适合电脑操作系统的版本，Windows和MAC OSX提供network和local两种版本下载，<strong>建议local</strong>（network版在安装中容易出错）<br><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025200311349.png" alt="在这里插入图片描述"></p>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025201549771.png" alt="在这里插入图片描述"><br>安装完成之后等待检测<br><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025204744530.png" alt="在这里插入图片描述"><br>也可以选择自定义安装，但请记住安装的位置</p>
-<h4 id="2-CUDNN下载"><a href="#2-CUDNN下载" class="headerlink" title="2. CUDNN下载"></a>2. CUDNN下载</h4><p>cudnn下载官网：<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download</a>（注：cudnn下载需要注册登录NVIDIA）<br><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025200722785.png" alt="在这里插入图片描述"><br>下载与cuda对应的cudnn版本<br>将下载得到的cudnn解压包解压，别将cuda/include、cuda/lib、cuda/bin三个目录中的内容拷贝到C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0对应的include、lib、bin目录下即可。<br><img src="https://img-blog.csdnimg.cn/20191025205954318.pngcudnn安装
- cudnn不需要安装，解压出来之后有个cudn的文件夹，打开，里面有四个文件
-![在这里插入图片描述](https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025210047587.png" alt="在这里插入图片描述"><br>将其复制到安装CUDA的位置<br>使用精简（推荐）安装则在以下位置：<br>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0</p>
+<h4 id="2-CUDNN下载"><a href="#2-CUDNN下载" class="headerlink" title="2. CUDNN下载"></a>2. CUDNN下载</h4><p>cudnn下载官网：<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download</a>（注：cudnn下载需要注册登录NVIDIA）<br><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025200722785.png" alt="在这里插入图片描述"><br>下载与cuda对应的cudnn版本<br>将下载得到的cudnn解压包解压，别将cuda/include、cuda/lib、cuda/bin三个目录中的内容拷贝到C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0对应的include、lib、bin目录下即可。<br>![在这里插入图片描述](<a href="https://img-blog.csdnimg.cn/20191025205954318.pngcudnn安装" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20191025205954318.pngcudnn安装</a><br> cudnn不需要安装，解压出来之后有个cudn的文件夹，打开，里面有四个文件<br><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025210047587.png" alt="在这里插入图片描述"><br>将其复制到安装CUDA的位置<br>使用精简（推荐）安装则在以下位置：<br>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0</p>
 <p>（v9.0是版本号，如果是其他版本则对应其他版本的文件夹名称）<br><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025210211626.png" alt="在这里插入图片描述"></p>
 <h4 id="3-安装Anconada"><a href="#3-安装Anconada" class="headerlink" title="3.  安装Anconada"></a>3.  安装Anconada</h4><p>官网下载：<a href="https://www.anaconda.com/distribution/" target="_blank" rel="noopener">https://www.anaconda.com/distribution/</a></p>
 <p> 注意选择与操作系统匹配的版本<img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025194017560.png" alt="在这里插入图片描述"><br> <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025194513642.png" alt="在这里插入图片描述"><br>按照软件一般安装套路安装，但是建议添加环境变量这一步打上gou（否则得自己手动配置环境变量）<br>PS：勾选之后字体会变红色警告，不用管</p>
-<ol>
+<ol start="2">
 <li>下载安装完成进入anoconda Prompt<br><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20191025193754912.png" alt="在这里插入图片描述"><br>嗯，前期准备到此结束（CUDN和CUDNN以及anoconda安装）<br><a href="https://blog.csdn.net/kan2281123066/article/details/93789303" target="_blank" rel="noopener">pytorch安装</a></li>
 </ol>
 <script>
@@ -1068,19 +1066,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/20/shu-xue-jian-mo-chang-yong-de-fen-xi-fa-ji-qi-matlab-shi-xian/">
+                <a href="/2019/09/20/qu-xian-ni-he/">
                     <div class="card-image">
                         
                         
-                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_436.jpg" class="responsive-img" alt="数学建模常用的分析法MATLAB实现">
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1204.jpg" class="responsive-img" alt="曲线拟合">
                         
-                        <span class="card-title">数学建模常用的分析法MATLAB实现</span>
+                        <span class="card-title">曲线拟合</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            主成分分析，层次分析,聚类分析,因子分析的简单介绍以及在MATLAB（2018a）上使用的简单介绍 ( 附源码 )
+                            拟合
                         
                     </div>
                     <div class="publish-info">
@@ -1104,10 +1102,6 @@
                     
                     <a href="/tags/matlab/">
                         <span class="chip bg-color">matlab</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
-                        <span class="chip bg-color">数学建模</span>
                     </a>
                     
                 </div>
@@ -1314,7 +1308,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.7k</span>&nbsp;字
+                class="white-color">112.4k</span>&nbsp;字
             
             
             

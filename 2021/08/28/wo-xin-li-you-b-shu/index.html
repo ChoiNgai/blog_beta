@@ -578,14 +578,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -640,17 +640,17 @@
 <p>显然红黑树在努力的保证树的平衡性，这么做的主要目的是降低树的高度，因为树的查找性能取决于树的高度，因而通常二叉树越是平衡则查找性能越高。</p>
 <h2 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h2><p>红黑树这种结构已经让树的高度很低了，那有没有办法让树的高度更低呢？</p>
 <p>注意，红黑树还是<strong>二叉树</strong>的一种，它的每个节点的度不能大于2，即每个节点最多有2个子节点。</p>
-<p>这个时候出现不讲武的了：<strong>B树</strong>，它通常用在<strong>文件系统索引</strong></p>
+<p>这个时候出现不讲武德的了：<strong>B树</strong>，它通常用在<strong>文件系统索引</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210828151557.jpg" alt=""></p>
-<p>这是一个３路的B树，它的每个节点最多可以拥有３个孩子节点（也是搜索树的一种，但不是二叉树了）</p>
+<p>为什么说它不讲武德呢，因为这个已经不是二叉树了（也是搜索树的一种，但不是二叉树了）。上图这是一个３路的B树，它的每个节点最多可以拥有３个孩子节点。</p>
 <p>B树设计成多路的目的主要是进一步降低树的高度。虽说树的高度越低越好，但是如果无限所路的B树就退化成有序数组了：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210828151930.jpg" alt=""></p>
 <p>那按照之前这么说，树的高度越低查找性能越好，那有序数组查找性能岂不是最好？</p>
 <p>注意，B树通常用在文件系统和数据库的索引，而这些索引一般是存在硬盘上的，在写入到硬盘之前需要加载到内存上，如果数据量太大，并不一定能一次性加载到内存中。所以，用有序数组来当索引其实并不合适，因为可能会撑爆内存。</p>
-<p>这时候B树的多路存储的优越性就体现出来了，可以每次只加载B树的一个节点到内存，然后一步步往下找。</p>
+<p>这时候B树的多路存储的优越性就体现出来了，可以从根节点开始每次只加载B树的一个节点到内存，然后一步步往下找。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210828152556.png" alt=""></p>
 <p><strong>在内存中，红黑树比B树效率更高；但在磁盘操作中，B树更优</strong></p>
-<h2 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h2><p>B+树是以B树为基础的，它的<strong>数据都在叶子结点</strong>，同时叶子结点之间还加了指针形成列表。(如图，其实只有最下面的一排才存着数据，分治思想)</p>
+<h2 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h2><p>B+树是以B树为基础的，它的<strong>数据都在叶子结点</strong>，同时叶子结点之间还加了指针形成列表。(如图，跟B树一样都是利用分治思想，但B+树的最下面一层的叶子结点就存着所有的数据了)</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210828152811.png" alt=""></p>
 <p>B+树通常较多用在<strong>数据库索引</strong>，因为select数据通常并不只select一条，通常会select很多条。如果是多条，B树需要做局部的中序遍历，可能需要跨层访问。而B+树由于所有数据都在叶子结点，所以不用跨层，同时由于有链表结构，只需要找到首尾，通过链表就能把所有数据取出来了。</p>
 <p>例如从7找到19，B+树只需要在叶子结点中就能找到。而如果是B树，而可能要跑到上层根结点搜索。</p>
@@ -1340,7 +1340,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.7k</span>&nbsp;字
+                class="white-color">112.4k</span>&nbsp;字
             
             
             

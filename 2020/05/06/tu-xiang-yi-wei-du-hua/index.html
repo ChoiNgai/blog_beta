@@ -606,79 +606,75 @@
             <div id="articleContent">
                 <h2 id="灰度图像一维化"><a href="#灰度图像一维化" class="headerlink" title="灰度图像一维化"></a>灰度图像一维化</h2><p><del>众所周知</del> 灰度图像是由元素数值在 [0,255] 范围内的矩阵构成的，因此可以将一个n<em>m的矩阵（分辨率n</em>m）变成一个向量，即图像一维化。<br>常见的彩色图像由RGB三个通道组成（即有3个m*n的矩阵），因而操作其实也是类似的，三个通道分别处理再叠加即可。</p>
 <h3 id="直接拉伸"><a href="#直接拉伸" class="headerlink" title="直接拉伸"></a>直接拉伸</h3><p>在图像处理中，有时候需要将图像拉抻成向量进行处理。</p>
-<pre class=" language-lang-matlab"><code class="language-lang-matlab">file_path = 'D:\Documents\Project\clustering\Semi_Supervised\data\COVID_CT\CT_COVID\';% 需要一维化图像的文件夹路径 
-img_path_list = dir(strcat(file_path,'*.png'));%获取该文件夹中所有jpeg格式的图像
-img_num = length(img_path_list);%获取图像总数量
-data=zeros(img_num,600);             %创建零矩阵，大小为img_num*600，600自己按需修改
-I=cell(1,img_num);
-if img_num > 0 %有满足条件的图像
-            for j = 1:img_num %逐一读取图像 
-                 image_name = img_path_list(j).name;% 图像名 ?
-                 image = imread(strcat(file_path,image_name)); 
-                 I{j}=image;
-                 fprintf('%d %d %s\n',1i,j,strcat(file_path,image_name));% 显示正在处理的图像名
+<pre class=" language-matlab"><code class="language-matlab">file_path <span class="token operator">=</span> <span class="token string">'D:\Documents\Project\clustering\Semi_Supervised\data\COVID_CT\CT_COVID\'</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">% 需要一维化图像的文件夹路径 </span>
+img_path_list <span class="token operator">=</span> <span class="token function">dir</span><span class="token punctuation">(</span><span class="token function">strcat</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span><span class="token string">'*.png'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%获取该文件夹中所有jpeg格式的图像</span>
+img_num <span class="token operator">=</span> <span class="token function">length</span><span class="token punctuation">(</span>img_path_list<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%获取图像总数量</span>
+data<span class="token operator">=</span><span class="token function">zeros</span><span class="token punctuation">(</span>img_num<span class="token punctuation">,</span><span class="token number">600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">%创建零矩阵，大小为img_num*600，600自己按需修改</span>
+I<span class="token operator">=</span><span class="token function">cell</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>img_num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> img_num <span class="token operator">></span> <span class="token number">0</span> <span class="token comment" spellcheck="true">%有满足条件的图像</span>
+            <span class="token keyword">for</span> <span class="token number">j</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span>img_num <span class="token comment" spellcheck="true">%逐一读取图像 </span>
+                 image_name <span class="token operator">=</span> <span class="token function">img_path_list</span><span class="token punctuation">(</span><span class="token number">j</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span><span class="token comment" spellcheck="true">% 图像名 ?</span>
+                 image <span class="token operator">=</span> <span class="token function">imread</span><span class="token punctuation">(</span><span class="token function">strcat</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span>image_name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                 I<span class="token punctuation">{</span><span class="token number">j</span><span class="token punctuation">}</span><span class="token operator">=</span>image<span class="token punctuation">;</span>
+                 <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token string">'%d %d %s\n'</span><span class="token punctuation">,</span><span class="token number">1i</span><span class="token punctuation">,</span><span class="token number">j</span><span class="token punctuation">,</span><span class="token function">strcat</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span>image_name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">% 显示正在处理的图像名</span>
 
-                 %图像处理过程
-                 % image_gray = rgb2gray(image);        %将RGB图像转换成灰度图
-                 image=imresize(image,[600,600],'nearest');   %调整图像大小为160×160
-                 [r,c,p]=size(image);            %获取图片分辨率大小，大小为m*n
-                 B = reshape(image,1,r*c*p);        %根据图像分辨率拉伸成为长度m*n的向量
-                 data(j,1:r*c*p) = B;
-            end 
+                 <span class="token comment" spellcheck="true">%图像处理过程</span>
+                 <span class="token comment" spellcheck="true">% image_gray = rgb2gray(image);        %将RGB图像转换成灰度图</span>
+                 image<span class="token operator">=</span><span class="token function">imresize</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">600</span><span class="token punctuation">,</span><span class="token number">600</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'nearest'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">%调整图像大小为160×160</span>
+                 <span class="token punctuation">[</span>r<span class="token punctuation">,</span>c<span class="token punctuation">,</span>p<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">size</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">%获取图片分辨率大小，大小为m*n</span>
+                 B <span class="token operator">=</span> <span class="token function">reshape</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token operator">*</span>c<span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">%根据图像分辨率拉伸成为长度m*n的向量</span>
+                 <span class="token function">data</span><span class="token punctuation">(</span><span class="token number">j</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span>r<span class="token operator">*</span>c<span class="token operator">*</span>p<span class="token punctuation">)</span> <span class="token operator">=</span> B<span class="token punctuation">;</span>
+            <span class="token keyword">end</span> 
 
-end
-% xlswrite( "D:\ONE.xlsx",data)  %将一维化之后的图像数据保存为xlsx文件
-</code></pre>
+<span class="token keyword">end</span>
+<span class="token comment" spellcheck="true">% xlswrite( "D:\ONE.xlsx",data)  %将一维化之后的图像数据保存为xlsx文件</span></code></pre>
 <h3 id="希尔伯特曲线法"><a href="#希尔伯特曲线法" class="headerlink" title="希尔伯特曲线法"></a>希尔伯特曲线法</h3><p>相比直接拉伸，用希尔伯特曲线的方法将图像一维化可以保留图像结构特征</p>
-<pre class=" language-lang-matlab"><code class="language-lang-matlab">%leftright.m
-function [y] = leftright(x)
-    sizecol = size(x, 2);
-    y = zeros(sizecol);
-    for i = 1 : sizecol
-        y(:, i) = x(:, sizecol + 1 - i);
-    end
-end
+<pre class=" language-matlab"><code class="language-matlab"><span class="token comment" spellcheck="true">%leftright.m</span>
+<span class="token keyword">function</span> <span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">leftright</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    sizecol <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    y <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span>sizecol<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">:</span> sizecol
+        <span class="token function">y</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span> <span class="token number">i</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">x</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span> sizecol <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">-</span> <span class="token number">i</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span></code></pre>
+<pre class=" language-matlab"><code class="language-matlab"><span class="token comment" spellcheck="true">% show_curve.m</span>
+<span class="token keyword">function</span> <span class="token function">show_curve</span><span class="token punctuation">(</span>H<span class="token punctuation">)</span>
+size_col <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>H<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+map <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span>size_col <span class="token operator">*</span> size_col<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+count <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">:</span> size_col
+    <span class="token keyword">for</span> <span class="token number">j</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">:</span> size_col
+        <span class="token function">map</span><span class="token punctuation">(</span>count<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">i</span><span class="token punctuation">;</span>
+        <span class="token function">map</span><span class="token punctuation">(</span>count<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">j</span><span class="token punctuation">;</span>
+        <span class="token function">map</span><span class="token punctuation">(</span>count<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">H</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span> <span class="token number">j</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        count <span class="token operator">=</span> count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+map <span class="token operator">=</span> <span class="token function">sortrows</span><span class="token punctuation">(</span>map<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">plot</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">axis</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span> size_col <span class="token operator">+</span> <span class="token number">1</span> <span class="token number">0</span> size_col <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
 </code></pre>
-<pre class=" language-lang-matlab"><code class="language-lang-matlab">% show_curve.m
-function show_curve(H)
-size_col = size(H, 2);
-map = zeros(size_col * size_col, 3);
-count = 1;
-for i = 1 : size_col
-    for j = 1 : size_col
-        map(count, 1) = i;
-        map(count, 2) = j;
-        map(count, 3) = H(i, j);
-        count = count + 1;
-    end
-end
-map = sortrows(map, 3);
-plot(map(:,1), map(:, 2));
-axis([0 size_col + 1 0 size_col + 1]);
-end
-</code></pre>
-<pre class=" language-lang-matlab"><code class="language-lang-matlab">H2 = [1 2; 4 3];
-H = H2;
-for i = 1 : 9
-    if mod(i, 2) == 0
-        H = [H, 4^i + H';
-             (4^(i + 1) + 1) - updown(H), (3 * 4^i + 1) - (leftright(H)')];
-    else
-        H = [H, (4^(i + 1) + 1) - leftright(H); 
-            (4^i) + H', (3 * 4^i + 1) - leftright(H')];
-    end
+<pre class=" language-matlab"><code class="language-matlab">H2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token number">4</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+H <span class="token operator">=</span> H2<span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token number">9</span>
+    <span class="token keyword">if</span> <span class="token function">mod</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span>
+        H <span class="token operator">=</span> <span class="token punctuation">[</span>H<span class="token punctuation">,</span> <span class="token number">4</span><span class="token operator">^</span><span class="token number">i</span> <span class="token operator">+</span> H<span class="token operator">'</span><span class="token punctuation">;</span>
+             <span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">^</span><span class="token punctuation">(</span><span class="token number">i</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">updown</span><span class="token punctuation">(</span>H<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">*</span> <span class="token number">4</span><span class="token operator">^</span><span class="token number">i</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token function">leftright</span><span class="token punctuation">(</span>H<span class="token punctuation">)</span><span class="token operator">'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        H <span class="token operator">=</span> <span class="token punctuation">[</span>H<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">^</span><span class="token punctuation">(</span><span class="token number">i</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">leftright</span><span class="token punctuation">(</span>H<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">^</span><span class="token number">i</span><span class="token punctuation">)</span> <span class="token operator">+</span> H<span class="token operator">'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">*</span> <span class="token number">4</span><span class="token operator">^</span><span class="token number">i</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">leftright</span><span class="token punctuation">(</span>H<span class="token operator">'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">end</span>
     H
-end
-</code></pre>
-<pre class=" language-lang-matlab"><code class="language-lang-matlab">% updwon.m
-function [y] = updown(x)
-    sizerow = size(x, 1);
-    y = zeros(sizerow);
-    for i = 1 : sizerow
-        y(i, :) = x(sizerow + 1 - i, :);
-    end
-end
-</code></pre>
+<span class="token keyword">end</span></code></pre>
+<pre class=" language-matlab"><code class="language-matlab"><span class="token comment" spellcheck="true">% updwon.m</span>
+<span class="token keyword">function</span> <span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">updown</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    sizerow <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    y <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span>sizerow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">:</span> sizerow
+        <span class="token function">y</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span> <span class="token operator">:</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">x</span><span class="token punctuation">(</span>sizerow <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">-</span> <span class="token number">i</span><span class="token punctuation">,</span> <span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span></code></pre>
 <h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p><a href="https://github.com/clayliu" target="_blank" rel="noopener">@ClayLiu</a></p>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://www.cjig.cn/jig/ch/reader/view_abstract.aspx?file_no=20060119" target="_blank" rel="noopener">Hilbert曲线扫描矩阵的生成算法及其MATLAB程序代码</a></p>
 <script>
@@ -1366,7 +1362,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.7k</span>&nbsp;字
+                class="white-color">112.4k</span>&nbsp;字
             
             
             
