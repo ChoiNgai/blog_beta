@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-09-01T16:41:38.502Z</updated>
+  <updated>2021-10-04T07:09:15.335Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>牛客SQL二刷</title>
+    <link href="https://www.memorydrive.online/2021/10/04/niu-ke-sql-er-shua/"/>
+    <id>https://www.memorydrive.online/2021/10/04/niu-ke-sql-er-shua/</id>
+    <published>2021-10-04T07:04:37.000Z</published>
+    <updated>2021-10-04T07:09:15.335Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://www.nowcoder.com/activity/oj?tab=1&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;牛客SQL题&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据仓库" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+      <category term="SQL" scheme="https://www.memorydrive.online/tags/SQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hive同步业务库MySQL表方案</title>
+    <link href="https://www.memorydrive.online/2021/10/04/hive-tong-bu-ye-wu-ku-mysql-biao-fang-an/"/>
+    <id>https://www.memorydrive.online/2021/10/04/hive-tong-bu-ye-wu-ku-mysql-biao-fang-an/</id>
+    <published>2021-10-04T06:58:41.000Z</published>
+    <updated>2021-10-04T07:02:24.043Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Hive表数据同步（数据采集）业务库MySQL表的步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;找到MySQL表，查看表结构或建表语句&lt;/li&gt;
+&lt;li&gt;创建Hive表&lt;/li&gt;
+&lt;li&gt;创建调度作业&lt;/li&gt;
+&lt;li&gt;触发调度调度，核对数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;具体来看看常见
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据仓库" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+      <category term="Hive" scheme="https://www.memorydrive.online/tags/Hive/"/>
+    
+  </entry>
   
   <entry>
     <title>我心里有B树</title>
@@ -529,60 +591,6 @@
     
     
       <category term="数据库" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>特征选择 LaplacianScore</title>
-    <link href="https://www.memorydrive.online/2020/11/03/te-zheng-xuan-ze-laplacian-score/"/>
-    <id>https://www.memorydrive.online/2020/11/03/te-zheng-xuan-ze-laplacian-score/</id>
-    <published>2020-11-03T15:21:24.000Z</published>
-    <updated>2020-11-06T12:57:17.964Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;上次介绍了&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
-    
-    
-      <category term="特征工程" scheme="https://www.memorydrive.online/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>特征选择FisherScore</title>
-    <link href="https://www.memorydrive.online/2020/11/03/te-zheng-xuan-ze-fisherscore/"/>
-    <id>https://www.memorydrive.online/2020/11/03/te-zheng-xuan-ze-fisherscore/</id>
-    <published>2020-11-03T13:45:08.000Z</published>
-    <updated>2020-11-06T12:54:24.673Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
-    
-    
-      <category term="特征工程" scheme="https://www.memorydrive.online/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
     
   </entry>
   
