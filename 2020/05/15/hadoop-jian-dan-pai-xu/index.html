@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    973
+                    967
                 </div>
                 
 
@@ -645,7 +645,7 @@
 
  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">TokenizerMapper</span> 
 
-​    <span class="token keyword">extends</span> <span class="token class-name">Mapper</span><span class="token operator">&lt;</span>Object<span class="token punctuation">,</span> IntWritable<span class="token punctuation">,</span> IntWritable<span class="token punctuation">,</span> IntWritable<span class="token operator">&gt;</span><span class="token punctuation">{</span>
+​    <span class="token keyword">extends</span> <span class="token class-name">Mapper</span><span class="token operator">&lt;</span>Object<span class="token punctuation">,</span> IntWritable<span class="token punctuation">,</span> IntWritable<span class="token punctuation">,</span> IntWritable<span class="token operator">></span><span class="token punctuation">{</span>
 
 
 
@@ -675,11 +675,11 @@
 
  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">IntSumReducer</span> 
 
-​    <span class="token keyword">extends</span> <span class="token class-name">Reducer</span><span class="token operator">&lt;</span>IntWritable<span class="token punctuation">,</span>IntWritable<span class="token punctuation">,</span>IntWritable<span class="token punctuation">,</span>IntWritable<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+​    <span class="token keyword">extends</span> <span class="token class-name">Reducer</span><span class="token operator">&lt;</span>IntWritable<span class="token punctuation">,</span>IntWritable<span class="token punctuation">,</span>IntWritable<span class="token punctuation">,</span>IntWritable<span class="token operator">></span> <span class="token punctuation">{</span>
 
   <span class="token keyword">private</span> IntWritable result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntWritable</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">reduce</span><span class="token punctuation">(</span>IntWritable key<span class="token punctuation">,</span> Iterable<span class="token operator">&lt;</span>IntWritable<span class="token operator">&gt;</span> values<span class="token punctuation">,</span> 
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">reduce</span><span class="token punctuation">(</span>IntWritable key<span class="token punctuation">,</span> Iterable<span class="token operator">&lt;</span>IntWritable<span class="token operator">></span> values<span class="token punctuation">,</span> 
 
 ​            Context context
 
@@ -701,7 +701,7 @@
 
   <span class="token keyword">if</span> <span class="token punctuation">(</span>otherArgs<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-   System<span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Usage: wordcount &lt;in&gt; [&lt;in&gt;...] &lt;out&gt;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   System<span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Usage: wordcount &lt;in> [&lt;in>...] &lt;out>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
    System<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1421,7 +1421,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.2k</span>&nbsp;字
+                class="white-color">124.1k</span>&nbsp;字
             
             
             

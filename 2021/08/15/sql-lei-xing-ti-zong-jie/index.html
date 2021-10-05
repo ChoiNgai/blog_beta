@@ -731,7 +731,7 @@
     <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job
 <span class="token punctuation">)</span> <span class="token number">b</span>
 <span class="token keyword">ON</span> <span class="token number">a</span><span class="token punctuation">.</span>job <span class="token operator">=</span> <span class="token number">b</span><span class="token punctuation">.</span>job
-<span class="token keyword">WHERE</span> <span class="token number">a</span><span class="token punctuation">.</span>score <span class="token operator">&gt;</span> <span class="token number">b</span><span class="token punctuation">.</span>score
+<span class="token keyword">WHERE</span> <span class="token number">a</span><span class="token punctuation">.</span>score <span class="token operator">></span> <span class="token number">b</span><span class="token punctuation">.</span>score
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id</code></pre>
 <h4 id="SQL86-实习广场投递简历分析-三-（困难）"><a href="#SQL86-实习广场投递简历分析-三-（困难）" class="headerlink" title="SQL86 实习广场投递简历分析(三)（困难）"></a><a href="https://www.nowcoder.com/practice/83f84aa5c32b4cf5a75558d02dd7743c?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL86</strong> <strong>实习广场投递简历分析(三)</strong></a>（困难）</h4><blockquote>
 <p>描述</p>
@@ -864,8 +864,8 @@
     <span class="token keyword">FROM</span> class_grade
     <span class="token keyword">ORDER</span> <span class="token keyword">BY</span>  grade
 <span class="token punctuation">)</span> t
-<span class="token keyword">WHERE</span> t<span class="token punctuation">.</span>rs1 <span class="token operator">&gt;=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">FROM</span> class_grade<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span>
-<span class="token operator">AND</span> t<span class="token punctuation">.</span>rs2 <span class="token operator">&gt;=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">FROM</span> class_grade<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span></code></pre>
+<span class="token keyword">WHERE</span> t<span class="token punctuation">.</span>rs1 <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">FROM</span> class_grade<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span>
+<span class="token operator">AND</span> t<span class="token punctuation">.</span>rs2 <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">FROM</span> class_grade<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span></code></pre>
 <h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h4 id="SQL51-查找字符串-10-A-B-中逗号-出现的次数cnt（中等）"><a href="#SQL51-查找字符串-10-A-B-中逗号-出现的次数cnt（中等）" class="headerlink" title="SQL51 查找字符串 10,A,B 中逗号,出现的次数cnt（中等）"></a><a href="https://www.nowcoder.com/practice/e3870bd5d6744109a902db43c105bd50?tpId=82&amp;&amp;tqId=29819&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL51</strong> <strong>查找字符串 10,A,B 中逗号,出现的次数cnt</strong></a>（中等）</h4><blockquote>
 <p>描述</p>
 <p>查找字符串’10,A,B’ 中逗号’,’出现的次数cnt。</p>
@@ -947,13 +947,13 @@
      <span class="token keyword">SELECT</span> user_id <span class="token keyword">FROM</span> order_info
      <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
      <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
-     <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">&gt;</span> <span class="token string">'2025-10-15'</span>
+     <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
      <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
-     <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">2</span>
+     <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2</span>
  <span class="token punctuation">)</span>
  <span class="token operator">AND</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
  <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
- <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">&gt;</span> <span class="token string">'2025-10-15'</span></code></pre>
+ <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span></code></pre>
 </blockquote>
 </li>
 <li><p>上述已经是一个符合条件的数据，所以接下来只需要进行<code>GROUP BY</code>分组查询即可</p>
@@ -978,13 +978,13 @@
         <span class="token keyword">SELECT</span> user_id <span class="token keyword">FROM</span> order_info
         <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
         <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
-        <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">&gt;</span> <span class="token string">'2025-10-15'</span>
+        <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
         <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
-        <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">2</span>
+        <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2</span>
     <span class="token punctuation">)</span>
     <span class="token operator">AND</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
     <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
-    <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">&gt;</span> <span class="token string">'2025-10-15'</span>
+    <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
 
 <span class="token punctuation">)</span> <span class="token number">a</span>
 <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> client <span class="token keyword">ON</span> <span class="token number">a</span><span class="token punctuation">.</span>client_id <span class="token operator">=</span> client<span class="token punctuation">.</span>id
@@ -1198,7 +1198,7 @@
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> job<span class="token punctuation">,</span><span class="token function">ROUND</span><span class="token punctuation">(</span>t_rank<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
     <span class="token comment" spellcheck="true">-- 此前的三个子查询a</span>
  <span class="token punctuation">)</span> <span class="token number">b</span>
- <span class="token keyword">WHERE</span> t_rank <span class="token operator">&lt;&gt;</span> <span class="token string">'NULL'</span></code></pre>
+ <span class="token keyword">WHERE</span> t_rank <span class="token operator">&lt;></span> <span class="token string">'NULL'</span></code></pre>
 </blockquote>
 </li>
 <li><p>现在得到准确的(job,t_rank)格式了，那么对原表也用一次<code>ROW_NUMBER()</code>分组排序生成一个序号。都有(job,t_rank)，那么剩下就是老套的<code>WHERE 字段 IN</code>大法了</p>
@@ -1243,7 +1243,7 @@
         <span class="token punctuation">)</span> <span class="token number">a</span>
 
     <span class="token punctuation">)</span> <span class="token number">b</span>
-    <span class="token keyword">WHERE</span> t_rank <span class="token operator">&lt;&gt;</span> <span class="token string">'NULL'</span>
+    <span class="token keyword">WHERE</span> t_rank <span class="token operator">&lt;></span> <span class="token string">'NULL'</span>
 
 <span class="token punctuation">)</span>
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id
@@ -1318,7 +1318,7 @@
 <p>– 最终步骤</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> user_id <span class="token keyword">FROM</span> t3
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">,</span><span class="token number">d</span>
-<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">7</span></code></pre>
+<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">7</span></code></pre>
 </blockquote>
 </li>
 </ol>
@@ -1332,7 +1332,7 @@
     <span class="token punctuation">)</span> t2
 <span class="token punctuation">)</span> t3
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">,</span><span class="token number">d</span>
-<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">7</span></code></pre>
+<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">7</span></code></pre>
 <h2 id="比例"><a href="#比例" class="headerlink" title="比例"></a>比例</h2><h4 id="SQL65-异常的邮件概率（较难）"><a href="#SQL65-异常的邮件概率（较难）" class="headerlink" title="SQL65 异常的邮件概率（较难）"></a><a href="https://www.nowcoder.com/practice/d6dd656483b545159d3aa89b4c26004e?tpId=82&amp;&amp;tqId=35083&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL65</strong> <strong>异常的邮件概率</strong></a>（较难）</h4><p>（题目很长，你忍一下）简单来说就统计每天正常用户对正常用户发送邮件失败的比例</p>
 <blockquote>
 <p>描述</p>
@@ -1832,9 +1832,9 @@ Result 表：
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt <span class="token keyword">FROM</span> order_info
 <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span><span class="token string">'completed'</span>
 <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
-<span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">&gt;</span> <span class="token string">'2025-10-15'</span>
+<span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
-<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&gt;=</span><span class="token number">2</span>
+<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">2</span>
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id</code></pre>
 <h4 id="SQL81-牛客的课程订单分析-五-（困难）"><a href="#SQL81-牛客的课程订单分析-五-（困难）" class="headerlink" title="SQL81 牛客的课程订单分析(五)（困难）"></a><a href="https://www.nowcoder.com/practice/348afda488554ceb922efd2f3effc427?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL81</strong> <strong>牛客的课程订单分析(五)</strong></a>（困难）</h4><blockquote>
 <p>描述</p>
@@ -1859,7 +1859,7 @@ Result 表：
  <span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>user_id<span class="token punctuation">,</span><span class="token keyword">date</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rs <span class="token keyword">FROM</span> order_info
  <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
  <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
- <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">&gt;</span> <span class="token string">'2025-10-15'</span>
+ <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
  <span class="token punctuation">)</span> <span class="token number">a</span>
  <span class="token keyword">WHERE</span> rs <span class="token operator">=</span> <span class="token number">2</span>  <span class="token comment" spellcheck="true">--第二次下单</span>
  <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id</code></pre>
@@ -1889,7 +1889,7 @@ Result 表：
     <span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>user_id<span class="token punctuation">,</span><span class="token keyword">date</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rs <span class="token keyword">FROM</span> order_info
     <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
     <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
-    <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">&gt;</span> <span class="token string">'2025-10-15'</span>
+    <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
     <span class="token punctuation">)</span> <span class="token number">a</span>
     <span class="token keyword">WHERE</span> rs <span class="token operator">=</span> <span class="token number">2</span>
     <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id
@@ -1897,7 +1897,7 @@ Result 表：
 <span class="token keyword">ON</span> order_info<span class="token punctuation">.</span>user_id <span class="token operator">=</span> <span class="token number">b</span><span class="token punctuation">.</span>user_id
 <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
 <span class="token operator">AND</span> order_info<span class="token punctuation">.</span>product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
-<span class="token operator">AND</span> order_info<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">&gt;</span> <span class="token string">'2025-10-15'</span>
+<span class="token operator">AND</span> order_info<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> order_info<span class="token punctuation">.</span>user_id
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> order_info<span class="token punctuation">.</span>user_id</code></pre>
 <h4 id="SQL90-获得积分最多的人-二-（较难）"><a href="#SQL90-获得积分最多的人-二-（较难）" class="headerlink" title="SQL90 获得积分最多的人(二)（较难）"></a><a href="https://www.nowcoder.com/practice/b6248d075d2d4213948b2e768080dc92?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL90</strong> <strong>获得积分最多的人(二)</strong></a>（较难）</h4><blockquote>
@@ -2715,7 +2715,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.2k</span>&nbsp;字
+                class="white-color">124.1k</span>&nbsp;字
             
             
             

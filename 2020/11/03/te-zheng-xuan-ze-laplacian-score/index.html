@@ -585,7 +585,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    20 分
                 </div>
                 
 
@@ -629,7 +629,7 @@
 
 <span class="token comment" spellcheck="true">%                                       Complete graph</span>
 
-<span class="token comment" spellcheck="true">%                                    k &gt; 0</span>
+<span class="token comment" spellcheck="true">%                                    k > 0</span>
 
 <span class="token comment" spellcheck="true">%                                      Put an edge between two nodes if and</span>
 
@@ -647,7 +647,7 @@
 
 <span class="token comment" spellcheck="true">%                                       only if they belong to same class. </span>
 
-<span class="token comment" spellcheck="true">%                                    k &gt; 0</span>
+<span class="token comment" spellcheck="true">%                                    k > 0</span>
 
 <span class="token comment" spellcheck="true">%                                       Put an edge between two nodes if</span>
 
@@ -927,7 +927,7 @@ bCosine <span class="token operator">=</span> <span class="token number">0</span
 
             nSmp <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>fea<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            <span class="token keyword">if</span> nSmp <span class="token operator">&gt;</span> <span class="token number">3000</span>
+            <span class="token keyword">if</span> nSmp <span class="token operator">></span> <span class="token number">3000</span>
 
                 D <span class="token operator">=</span> <span class="token function">EuDist2</span><span class="token punctuation">(</span><span class="token function">fea</span><span class="token punctuation">(</span><span class="token function">randsample</span><span class="token punctuation">(</span>nSmp<span class="token punctuation">,</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1017,7 +1017,7 @@ BlockSize <span class="token operator">=</span> <span class="token function">flo
 
         <span class="token keyword">case</span> <span class="token punctuation">{</span><span class="token function">lower</span><span class="token punctuation">(</span><span class="token string">'Binary'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
 
-            <span class="token keyword">if</span> options<span class="token punctuation">.</span>k <span class="token operator">&gt;</span> <span class="token number">0</span>
+            <span class="token keyword">if</span> options<span class="token punctuation">.</span>k <span class="token operator">></span> <span class="token number">0</span>
 
                 G <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span>nSmp<span class="token operator">*</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1087,7 +1087,7 @@ BlockSize <span class="token operator">=</span> <span class="token function">flo
 
         <span class="token keyword">case</span> <span class="token punctuation">{</span><span class="token function">lower</span><span class="token punctuation">(</span><span class="token string">'HeatKernel'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
 
-            <span class="token keyword">if</span> options<span class="token punctuation">.</span>k <span class="token operator">&gt;</span> <span class="token number">0</span>
+            <span class="token keyword">if</span> options<span class="token punctuation">.</span>k <span class="token operator">></span> <span class="token number">0</span>
 
                 G <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span>nSmp<span class="token operator">*</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1171,7 +1171,7 @@ BlockSize <span class="token operator">=</span> <span class="token function">flo
 
 
 
-            <span class="token keyword">if</span> options<span class="token punctuation">.</span>k <span class="token operator">&gt;</span> <span class="token number">0</span>
+            <span class="token keyword">if</span> options<span class="token punctuation">.</span>k <span class="token operator">></span> <span class="token number">0</span>
 
                 G <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span>nSmp<span class="token operator">*</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1261,7 +1261,7 @@ BlockSize <span class="token operator">=</span> <span class="token function">flo
 
 
 
-<span class="token keyword">if</span> <span class="token function">strcmpi</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>NeighborMode<span class="token punctuation">,</span><span class="token string">'KNN'</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>k <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token function">strcmpi</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>NeighborMode<span class="token punctuation">,</span><span class="token string">'KNN'</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>k <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
 
     <span class="token keyword">if</span> <span class="token operator">~</span><span class="token punctuation">(</span>bCosine <span class="token operator">&amp;&amp;</span> options<span class="token punctuation">.</span>bNormalized<span class="token punctuation">)</span>
 
@@ -1573,7 +1573,7 @@ BlockSize <span class="token operator">=</span> <span class="token function">flo
 
         <span class="token keyword">end</span>
 
-        <span class="token function">W</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>semiSplit<span class="token punctuation">,</span>options<span class="token punctuation">.</span>semiSplit<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span>Wsup<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span>options<span class="token punctuation">.</span>SameCategoryWeight<span class="token punctuation">;</span>
+        <span class="token function">W</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>semiSplit<span class="token punctuation">,</span>options<span class="token punctuation">.</span>semiSplit<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span>Wsup<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span>options<span class="token punctuation">.</span>SameCategoryWeight<span class="token punctuation">;</span>
 
     <span class="token keyword">end</span>
 
@@ -1879,7 +1879,7 @@ redu<span class="token operator">=</span><span class="token function">List</span
 
     dim <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 
-<span class="token keyword">elseif</span> <span class="token punctuation">(</span>nargin <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">elseif</span> <span class="token punctuation">(</span>nargin <span class="token operator">></span> <span class="token number">2</span><span class="token punctuation">)</span>
 
     <span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'only accept inputs.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -2721,7 +2721,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.2k</span>&nbsp;字
+                class="white-color">124.1k</span>&nbsp;字
             
             
             
