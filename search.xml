@@ -449,9 +449,9 @@
             
             <tag> python </tag>
             
-            <tag> 模糊聚类 </tag>
-            
             <tag> 弱监督学习 </tag>
+            
+            <tag> 模糊聚类 </tag>
             
         </tags>
       
@@ -601,9 +601,9 @@
       
         <tags>
             
-            <tag> 模糊聚类 </tag>
-            
             <tag> 弱监督学习 </tag>
+            
+            <tag> 模糊聚类 </tag>
             
         </tags>
       
@@ -631,6 +631,19 @@
             <tag> 模糊聚类 </tag>
             
         </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的秋招之路</title>
+      <link href="/2020/09/30/wo-de-qiu-zhao-zhi-lu/"/>
+      <url>/2020/09/30/wo-de-qiu-zhao-zhi-lu/</url>
+      
+        <content type="html"><![CDATA[<p><strong>《秋招的第一个大厂offer》—— 非科班双非渣本无大厂实习，6个月自学大数据终于找到工作的磕磕碰碰之路</strong></p><p>诚如标题，在今年9月底收到快手2022届校招意向书，岗位是数据研发工程师（杭州）。秋招期间在牛客上看了很多帖子，也在牛客上认识到了一些在我实习和秋招上帮助过我的朋友，所以挺感谢牛客这个平台，不喜欢发帖子的我也写一次有且只有一次的秋招经历吧，希望能帮助正在读研/即将读研的朋友以及之后秋招的本科学弟学妹们少走一些坑。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005181554.png" alt=""></p><h2 id="3月"><a href="#3月" class="headerlink" title="3月"></a>3月</h2><h3 id="不考研啦"><a href="#不考研啦" class="headerlink" title="不考研啦"></a>不考研啦</h3><p>3月份的和实验室里师弟一次偶然谈话，才知道原来互联网资薪原来都是按16个月来算的了，之前我一直以为是13个月来着。。。师弟说：“时代变了，大人”</p><p>因为之前一直被家人亲戚老师怂恿考研，但是想想风险挺大的，发现互联网资薪还挺高，此前我以为互联网资薪的水平还停留在17年10月~18年4月那时候的资薪，也就是我高考那一届的秋招。</p><p>两相比较一下，觉得其实收益都差不多，但是考研风险还挺大（没考上直接无了，工作去不了大厂还能去小厂），立马准备工作！！！</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005180934.png" alt=""></p><h3 id="地狱难度开局"><a href="#地狱难度开局" class="headerlink" title="地狱难度开局"></a>地狱难度开局</h3><p><strong>双非本科</strong>嘛，那算法、数据挖掘这种岗位肯定没法投；我还是<strong>统计学</strong>专业的（高考的时候信了营销号的鬼话，读数学转计算机，其实这几个压根没多大关系），那开发岗这种难搞哦（虽然之前自学过点数据结构、也刷了点算法题，但基本上都忘光了），看了一圈发现好像只能投数据分析岗。</p><p>（这里提醒一下，要想好找工作，还是建议把数据结构、计网这些基础学好，具体案例下文会说）</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004115444.png" alt=""></p><p>然后我就一直在投“数据分析”这个岗，但是在这期间我发现很多国外学校例如卡耐基梅隆、新加坡国立、帝国理工，和国内985的研究生在投这个岗位，而且“数据分析”这个岗位投录比通常是几百：1，于是投了几十家知名互联网公司，面试次数是：<strong>0</strong> 。。。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004115549.png" alt=""></p><p>而且期间我也把技能优先级顺序搞错了，例如“数据分析”最重要的是SQL，但是我把机器学习方面的知识练得挺熟，故公司的笔试都GG了。。。（这里再次告诫一定要知道哪些是必备的基础项，哪些是加分项，基础项要求的能力过不了，加分项再牛逼也没用）</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004115616.png" alt=""></p><p>期间有投过一些小公司，但是发现这个岗位好像都很奇怪，有些是做报表数据处理的，有些是用mysql的，有些是做客服的。。。（关键是很多小公司的面试我都过不了。。。主要原因还是因为当时确实SQL都不会写了，算法也拉跨得离谱）</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005181449.png" alt=""></p><p>综合考量了一下，综合考量发现自己投数据分析肯定进不了大厂（很不愿意接受这个事实，但又不得不接受），毕竟名校学生投数据分析都很艰难，我这种双非本简历挂倒也正常。。。所以决定转投录比没那么恐怖的数据开发岗。3月底我开始整理Hadoop、spark这些大数据框架的笔记，冒出来投数据开发的想法。我当时的想法是：反正数据分析连知名公司的面试机会都没有，死马当活马医多点些技能，我两种岗位一起投了。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004115644.png" alt=""></p><h2 id="4月"><a href="#4月" class="headerlink" title="4月"></a>4月</h2><h3 id="转向开发"><a href="#转向开发" class="headerlink" title="转向开发"></a>转向开发</h3><p>4月1日，愚人节当天，我已经忘了我投过多少家公司，只记得当时还在学校刷<strong>leetcode算法题</strong>和<strong>牛客SQL题</strong>（数据开发挺注重SQL的，SQL题写不出来直接GG），当时甚至刷算法刷到过于激动睡不着通宵刷题。大一大二的时候没怎么刷过算法题，但是到了该找实习不得不刷，我记得那段时间刷题效率是真的高。。。另外背了一两万字的大数据Hadoop、Spark的八股。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004115719.png" alt=""></p><h3 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h3><p>4月上旬投了广州以前做直播的一个公司的数据开发岗，第一次面试开发岗，答得很烂，我甚至最后的题都不会，面完之后发了个短信给面试官自己的解决方案（因为面试前面试官给我打了电话）。</p><p>本来以为面试凉了，当天早上我还在BOSS直聘继续投简历的（实习海投简历，基础操作了），但是很意外地接到了面试通过的电话，HR问我有没有时间，我说有就来了十几分钟的HR面。然后约定入职时间，体验，入职……开启我的实习之旅</p><p>挺离谱的，认真准备了很久投递的“数据分析”，凉了；随便准备了一下投数据开发，面试却过了，魔幻。。。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004115813.png" alt=""></p><h3 id="新奇"><a href="#新奇" class="headerlink" title="新奇"></a>新奇</h3><p>当然，刚入职的时候接触到了很多新的东西，遇到了很好的导师和同事。</p><p>刚开始也因为某些事情不知道怎么做慌过，但总的来说都还行……</p><p>诶，经常看到导师上班在刷抖音、跟他老婆聊天、看女装给他老婆买衣服，挺爽的（这不比在实验室苦逼搬砖还没钱爽多了？我羡慕极了.jpg）</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004115840.png" alt=""></p><h2 id="5月"><a href="#5月" class="headerlink" title="5月"></a>5月</h2><h3 id="摸鱼"><a href="#摸鱼" class="headerlink" title="摸鱼"></a>摸鱼</h3><p>4月中旬入职，来了实习之后就有点得意忘形了，觉得自己刷题两周就能找到过得去的实习，照着势头秋招进大厂岂不是妥妥的（这里开始飘了）。</p><p>于是我每天上班时间都在刷知乎、脉脉，中午休息时间和晚上自愿加班时间都在打游戏（自愿呆在公司打游戏）……</p><h3 id="彷徨"><a href="#彷徨" class="headerlink" title="彷徨"></a>彷徨</h3><p>天天摸鱼心里也会慌，有空的时候我也会在各种渠道（牛客、脉脉、知乎）这些了解数据开发这个岗位。</p><p>对于数据开发岗，5月份我开始了对这个岗位的审视（感觉这个词不太妥当，毕竟我是菜鸡一枚，但是先这样写吧），因为我发现每天的工作其实也就那样，觉得是不是这种招谁来都会做咧（后来发现并不是，至少找后端的同学是不会或者做不好的）</p><p>我也会观察正式员工们做的工作，又在脉脉上看相关的帖子（问就是劝退，后端才是人上人，大数据都是sql boy），挺迷茫的吧，而且发现很多公司校招其实是没有对口的岗位的。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005180522.png" alt=""></p><h2 id="6月"><a href="#6月" class="headerlink" title="6月"></a>6月</h2><h3 id="试图跑路"><a href="#试图跑路" class="headerlink" title="试图跑路"></a>试图跑路</h3><p>实习了两个多月了，快要期末考的6月下旬（所以压根没准备过面试），某一天下午通过脉脉上加了一位在字节跳动TikTok广告工作的大佬，岗位方向对口，我以为可以迟点约面试，于是在完全没有准备的情况下就把简历发过去了。面试不出意外，我被毒打了一遍，面得我想找个地方钻进去（八股不会，题也做不出。。。）跑路失败，只能继续在原公司实习。。。</p><p>被毒打之后痛定思痛，决定以后不再摸鱼，好好学习</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005175001.png" alt=""></p><h2 id="7月"><a href="#7月" class="headerlink" title="7月"></a>7月</h2><h3 id="秋招前的琐事"><a href="#秋招前的琐事" class="headerlink" title="秋招前的琐事"></a>秋招前的琐事</h3><p>因为疫情原因，暑假学校不给住了，所以又得外面租房</p><p>7月份的时候比赛拿了个奖，诶，注意力有点被拉过去了，而且论文需要搞完投稿了，又浪费了一段时间</p><p>还有一些别的事……emmm，想不起来了，我只记得当时的状态是很放松的，可能是觉得秋招还不急，虽然很多大厂已经开了</p><p>（事实上，现在秋招已经金七银八了，我看了牛客很多七月份的面经，相对来说还是比较简单的，但这样都拿到意向了，想想早投的优势~当然早投的前提是你有实力能过基础关，如果连基础要求都答不到则建议按自己的节奏来继续准备）</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005175204.png" alt=""></p><h3 id="提前批"><a href="#提前批" class="headerlink" title="提前批"></a>提前批</h3><p>收拾完一堆乱七八糟的事（比如比赛、论文）开始准备面试</p><ul><li><p>触宝科技一轮游</p><p>提前批投了一个叫触宝科技的公司，八股还是答不上来，题也没做出来，秋招提前批第一面，卒</p><p>（不过这个面试有点离谱，面试官挺年轻的，问我接触过的数据量最大的是多少，我说接触过最大的库大小是2PB。他说他们那里很多单表就2PB了。。。我信你个鬼）</p></li><li><p>京东集团一轮游</p><p>另外有面试机会的是京东集团的数据服务，先问了问我Hadoop，GG。。。因为我简历上写着：了解spark、kafka原理，而且之前的Hadoop原理我答得实在太烂了，所以出现了以下名场面：</p><blockquote><p>面试官：“Spark我能问吗？”</p><p>我：“不能”</p><p>面试官战战兢兢地说：“Kafka呢？我能问吗？”</p><p>我：“哈哈哈，不能……”（此时我的节操已经碎了一地）</p><p>（面试官很无奈）</p></blockquote><p>面试官人挺好，就是他那边有点吵。。。半小时后京东流程结束</p></li></ul><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004115345.png" alt=""></p><h3 id="面试总结"><a href="#面试总结" class="headerlink" title="面试总结"></a>面试总结</h3><p>经过提前批的两次秋招预训练（虽然知道会是炮灰，不过一轮面试都没挺过去属实挺惨），总结了下：</p><ul><li>我发现面试是按照简历来问的，如果时间不够，学很多框架还不如把一个掌握好，至少面试还能顺利回答</li><li>刷题很重要，题做不出来基本上会挂</li><li>不熟的就不要写上去，不然被问到就是减分项</li></ul><p>然后针自己的情况，以及一次实习和两次提前批的失败面经，修改了自己的简历，也制定了秋招复习的方案</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004120535.png" alt=""></p><h2 id="8月"><a href="#8月" class="headerlink" title="8月"></a>8月</h2><h3 id="KPI面"><a href="#KPI面" class="headerlink" title="KPI面"></a>KPI面</h3><p>之前投递的虎牙提前批，突然被虎牙改成正式批了，预约面试的时候我选了最后的那天（注意这个坑点），因为我想慢慢准备到后面面试，8月下旬虎牙一面，电话面，电话十几分钟，周五面完下周二感谢信（除了框架的某个知识点我说我知道的有点零散随便说了点，其他都答上来了），看牛客另一个老哥也是跟我同一天收到感谢信</p><p>虎牙这个岗位是对口的，所以我当时挺崩溃的。。。</p><p>此外还面了陌陌，没问八股，但是做了三道SQL题，都做出来了但还是挂了。面试官劝我把算法练好，不然校招很吃亏。。。陌陌面试官看我简历一堆机器学习相关的，他说：”什么阶段就该干什么阶段该干的事，机器学习这些对高级数据开发来说可能是需要掌握的，但是你这个时间点更应该打好基础（比如练好算法、学好Java、掌握好大数据框架原理、有空看看框架源码）”，我觉得他说的很对（想想自己大学期间搞过一堆花里胡哨的东西，确实得不偿失）。。。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004120421.png" alt=""></p><h3 id="吃了学历的亏"><a href="#吃了学历的亏" class="headerlink" title="吃了学历的亏"></a>吃了学历的亏</h3><p>在牛客和实习群加到在阿里淘系、美团到家实习生的微信，都是一听我是双非本科生就顿时感到尴尬了……（都说同组的里没见过本科生）美团老哥表示帮我问问，但是8月下旬他说：“leader说不收校招生简历了”（？？？8月中旬就不收简历了）</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004120625.png" alt=""></p><h3 id="投递简历"><a href="#投递简历" class="headerlink" title="投递简历"></a>投递简历</h3><p>8月下旬投简历，其实我还想迟点再投的，但是大家都说这个时间点已经很迟了。（是的，秋招已经快结束了，以前说是金九银十，现在已经是金七银八了）</p><p>而且秋招提前批大厂的很多HC已经被占了，正式批基本上很少了，以至于后来我在实习群里看到了这么扎心的一句话：</p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211002005518.png" width="50%"><p>注意秋招一定要早准备早投（投的早只要你基础过关就能过面试，如果没HC了你再牛逼都会在流程中面着面着就挂了）</p><h3 id="要不跑路吧"><a href="#要不跑路吧" class="headerlink" title="要不跑路吧"></a>要不跑路吧</h3><p>8月21日左右我想过要不不搞数据开发了吧，但也就想想。</p><p>8月底我很认真地在想要不要再转一次岗位，转测试开发？转客户端？（因为相对来说这两个岗位确实没那么卡学历）也拜托朋友找了下在微信、快手做测开的朋友，问了下他们什么情况。在这之前已经有和我一起投数据开发的本科同学转投客户端了。。。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004115311.png" alt=""></p><h2 id="9月"><a href="#9月" class="headerlink" title="9月"></a>9月</h2><h3 id="秋招第一次大厂面试"><a href="#秋招第一次大厂面试" class="headerlink" title="秋招第一次大厂面试"></a>秋招第一次大厂面试</h3><p>快手，我投递的是杭州的数据研发岗，面试流程很快（注意，快的仅仅是面试流程，之后还要泡很久的池子），都是当天或者隔天约下一面。9月2日约面，9月8日面完HR面，HR说要等所有同学面完横向对比。</p><p>当时和快手时间接近的面试是阿里云的Ecs弹性计算数据团队，但是因为感觉岗位方向不对口，面试简历面之后我没问结果也没做阿里笔试了，虽然阿里后面还有两个志愿，但秋招与阿里就此别过吧（累了，不想做笔试了，不想面了）。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005175055.png" alt=""></p><h3 id="不知名小公司练不了手"><a href="#不知名小公司练不了手" class="headerlink" title="不知名小公司练不了手"></a>不知名小公司练不了手</h3><p>就在面快手的前后这段时间里，也面了一堆听都没听说过的小公司，不管是公司规模还是在数据开发领域其实都远比不上我在实习的公司（我实习的厂子虽小，但好歹是PC时代的直播霸主）。小公司的面试都过于简单了，而且很多公司流程上也很不规范（我遇到过技术面只有一面的，本来约了第二天技术面，结果HR一声不吭通知我晚上跟人力资源谈，我一脸懵逼，当晚才知道二面面试官没空所以不用面了。。。）</p><p>期间各种面试都感觉挺好，但是之后就没消息了（也可能是我报价太高了。。。）</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005172622.png" alt=""></p><h3 id="滑稽表演"><a href="#滑稽表演" class="headerlink" title="滑稽表演"></a>滑稽表演</h3><p>因为某些原因还是交了保研材料，答辩问英语和专业课（是的，我都不会）。老师们，我不秀一把还真以为你们教得很好了（其实以前我也有成为科学家的梦，想读硕读博并且混一段博后再留在高校，但在后来的经历里让我越来越厌倦了，我以前找了很多理由说服自己这样走，但后来认清现实……我觉得我不适合走这条路，虽然还没开始，但我已经不想走下去了），答辩场面如下：</p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005171529.png" width="70%"><p>结果当然是没保上，而且分数还很低，爆笑如雷了（nice~）</p><h3 id="三连败"><a href="#三连败" class="headerlink" title="三连败"></a>三连败</h3><p>在此之前，9月份的所有技术面我都是通过的，所以面完快手之后也没怎么准备了，觉得难度也就那样吧，再加上因为交保研申请材料的事情，费了很多时间，所以那段时间没刷题也没背八股。当我觉得9月份之后的秋招技术面不败记录能一直保持的时候，接下来的几轮面试把我啪啪打脸了。</p><ul><li><p>滴滴一面挂</p><p>面完快手之后我就处于摸鱼的状态，老实说滴滴不想去而且我以为会挺简单，所以9月17日直接约了第二天二面，结果面试的时候翻车了，八股算法SQL都不太行。。。</p></li><li><p>携程二面挂</p><p>笔试了携程，顺利约面试，一面过</p><p>二面聊人生：很魔幻的开局，没有自我介绍，对方也没开摄像头，上来就问我一个“数据分析”场景题（我：？？？）——感觉对方一开始就不要我的意思。他说看我这个本科生有两篇EI论文一作，很稀奇，所以捞了我简历（挺不自然的，有点像是被人当作稀奇动物在观看），聊着聊着面试官劝我读研，还建议我要练好表达（这个确实，诶）。。。</p><p>第二天看看状态：进人才池了。。。</p></li><li><p>网易互娱简历挂</p><p>网易互娱笔试选择题很简单，大题全A，然后被捞起来面了一顿，感觉对方都不会深入问（而且还一下子抛出三四个每个都需要回答很长的技术问题，我就没见过这样问的。。。）</p><p>然后另一个面试官问玩不玩游戏、假如过了能不能提前实习、为什么不想留实习公司。反问阶段我问了下对哪些游戏提供支持，回答：‘网易所有游戏”（懂了，网易互娱就是整个网易游戏，网易雷火不属于网易是吧？）；问数据团队人数，回答：“机密，不方便透露”（我第一次见这样的，问个人数都机密了）。。。</p><p>为什么说是简历挂呢，我感觉他这纯粹就是我笔试全A了不得不捞我面试，然后找个借口把我挂掉，比KPI面还恶心…</p><p>另外，我这个岗位里，网易互联网出的是测开的题，笔试挂；对网易雷火也没啥好感，没投（印象中是卡学历）</p><p>网易属实在秋招体验最差的公司，没有之一</p></li></ul><p>三连败之后麻了。。。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005180827.png" alt=""></p><h3 id="守得云看见月明"><a href="#守得云看见月明" class="headerlink" title="守得云看见月明"></a>守得云看见月明</h3><p>9月中旬，在各个实习群或校招群里陆续有人OC（offer call）或者意向（录用意向书）了，而我……0 offer，打算准备秋招补录了</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004120239.png" alt=""></p><p>9月底，我用了一天多的时间二刷了一遍牛客SQL，感觉最早刷的时候连解释都看不懂的题，现在可以秒了，但是想想自己还是0 offer就觉得很离谱</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211002020230.png" alt=""></p><p>9月29日，当天下午我还在刷牛客SQL。看到面试快手同一个部门的群里有人OC了，然后挺紧张的，我就一直等着看看有没有电话打来，还记得当时心跳好快。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005181214.png" alt=""></p><p>十几分钟后看到有个北京打来的电话，我就知道快手面试过了，接电话之后果然是快手校招组打电话来告诉我通过了。</p><p>9月30日，收到快手录用意向书</p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211002014254.png" width="30%"><p>腾讯校招是没有我这个岗位的，投过阿里云的某个团队但是方向不符合而且那个团队在我这个细分方向也不太行，字节笔试我应该是过不了了所以我就没投了。。。直接无缘BAT。</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211004120324.png" alt=""></p><p>我从实习到秋招这半年时间里，面试过的知名互联网公司总共只有11次（我实习的公司、字节跳动、触宝科技、京东集团、虎牙、陌陌、快手、阿里巴巴、滴滴、携程、网易），每一次的面试机会都挺难得，机不可失、失不再来。在我面试过的所有数据<strong>团队</strong>中，不管面试是否通过的（包括字节TikTok广告、京东集团数据服务、携程机票、阿里云Ecs弹性计算，网易互娱不知道<del>反问都不肯说的），无论是人员规模还是业界影响力都是快手这个团队最强（技术实力不清楚，但人数很大而且业界影响力都很强了，实力应该不会差吧），另外再综合这些公司开出的<strong>资薪</strong>，对我来说最好的offer就是这个喽，所以我已经很满意啦</del></p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211005181342.png" alt=""></p><h3 id="定格"><a href="#定格" class="headerlink" title="定格"></a>定格</h3><p>秋招的每一次日程我都会写在笔记上，最后的日程定格在这里</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211002000836.png" width="60%"></p><h3 id="感言"><a href="#感言" class="headerlink" title="感言"></a>感言</h3><p>实习的时候我跟导师说：“我觉得让一个二十几岁的年轻人想明白一辈子要做什么，挺离谱的”，导师笑了笑。很羡慕那些一开始就想明白自己要做什么的人，我是在大学里尝试了很多（想过做算法、前端、客户端、运维等，并且相应的技能我都去学过），在最后关头被迫做出了选择。今年互联网秋招挺不容易的，互联网在线教育被打压（猿辅导、好未来、作业帮、高途这些以往校招规模还挺大的公司都受影响了）、滴滴下架（滴滴官网都不开校招了）、腾讯阿里助力共同富裕（大厂助力共同富裕是好事，但是羊毛出在羊身上，所以……）。我3月份决定找工作，中间还经历了转型阵痛，没有过人的天赋，也没有各种buff（科班、大厂实习、秋招备战方案、岗位招聘渠道信息等我都没有），在跟名校学生、研究生面前，摇摇欲坠，9月份的很多个凌晨我不断告诫自己：“反复练习，几百道题和二十几万字的八股，在毕业前也终有一天会熟练的。”</p><p>在找实习到秋招中遇到过很多牛逼的人，比如</p><p>在字节广告实习了一年多的985研究生；</p><p>在抖音实习但因为9月份才开始投递而错过秋招的同乡；</p><p>在腾讯转正后试图养老故狂冲坡县和上海外企的Java后端大神；</p><p>同双非本卷数据开发，自学一周投字节客户端就卷到三面的老哥；</p><p>从18年开始就在互联网公司实习的海外本硕名校大佬；</p><p>有很久以前在四大会计师事务所实习，后来转到算法岗实习，又再转到数据产品，最后也转到数据开发的大哥</p><p>……</p><p>感觉每个人都很努力地奋斗…</p><p>很感谢秋招一起奋斗的伙伴们，也祝愿大家都拿到满意的offer</p><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211002015446.png" alt=""></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
       
     </entry>
     
@@ -2103,6 +2116,31 @@
     
     
     <entry>
+      <title>曲线拟合</title>
+      <link href="/2019/09/20/qu-xian-ni-he/"/>
+      <url>/2019/09/20/qu-xian-ni-he/</url>
+      
+        <content type="html"><![CDATA[<p>当遇到需要用函数表达自变量及因变量的关系时，往往会遇到许多不能直观地看出类似的函数关系式的情况，例如该组自变量和因变量:</p><ul><li><p>x</p><p>(1:1:10)</p></li><li><p>y</p><p>13 15 57 15 12 16 15 18 98 44 11</p></li></ul><p>PS:表格处的(0:1:10)是matlab的一种写法，表示从0到10以1为间距（步长），即0，1，2……10</p><p>将图像用plot函数画出即下图：</p><p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/20190920124407573.png" alt="xy&quot;曲线&quot;图（数据用得太少了）"><br>这。。。谁看得出来呀，显然不可能是简单的y=ax+b吧<br>所以接下来会用到polyfit这个函数</p><h4 id="polyfit函数：示例"><a href="#polyfit函数：示例" class="headerlink" title="polyfit函数：示例"></a>polyfit函数：示例</h4><pre class=" language-matlab"><code class="language-matlab">x<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>y<span class="token operator">=</span>x<span class="token operator">.*</span>x<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span><span class="token function">plot</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>p<span class="token operator">=</span><span class="token function">polyfit</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">%polyfit(x,y,3)中的3为多项式最高次幂，在这里意为最高是3</span></code></pre><p>得到结果：</p><p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/img1fe53f8f6cff405a69960785e4564ab.png" alt="计算结果"></p><p>即得到函数y= - 0.2422 x^3^ + 3.5845 x^2^ -11.2024 x + 25.7133</p><p>在这里是设置成多项式最高次数为3，因为polyfit函数其数学基础是最小二乘法曲线拟合原理。曲线拟合：已知离散点上的数据集，即已知在点集上的函数值，构造一个解析函数（其图形为一曲线）使在原离散点上尽可能接近给定的值，所以<strong>无论设置多项式次数为多少，理论上得到的结果都是正确的</strong></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据科学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> matlab </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数学建模常用的分析法MATLAB实现</title>
       <link href="/2019/09/20/shu-xue-jian-mo-chang-yong-de-fen-xi-fa-ji-qi-matlab-shi-xian/"/>
       <url>/2019/09/20/shu-xue-jian-mo-chang-yong-de-fen-xi-fa-ji-qi-matlab-shi-xian/</url>
@@ -2122,31 +2160,6 @@
             <tag> matlab </tag>
             
             <tag> 数学建模 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>曲线拟合</title>
-      <link href="/2019/09/20/qu-xian-ni-he/"/>
-      <url>/2019/09/20/qu-xian-ni-he/</url>
-      
-        <content type="html"><![CDATA[<p>当遇到需要用函数表达自变量及因变量的关系时，往往会遇到许多不能直观地看出类似的函数关系式的情况，例如该组自变量和因变量:</p><ul><li><p>x</p><p>(1:1:10)</p></li><li><p>y</p><p>13 15 57 15 12 16 15 18 98 44 11</p></li></ul><p>PS:表格处的(0:1:10)是matlab的一种写法，表示从0到10以1为间距（步长），即0，1，2……10</p><p>将图像用plot函数画出即下图：</p><p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/20190920124407573.png" alt="xy&quot;曲线&quot;图（数据用得太少了）"><br>这。。。谁看得出来呀，显然不可能是简单的y=ax+b吧<br>所以接下来会用到polyfit这个函数</p><h4 id="polyfit函数：示例"><a href="#polyfit函数：示例" class="headerlink" title="polyfit函数：示例"></a>polyfit函数：示例</h4><pre class=" language-matlab"><code class="language-matlab">x<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>y<span class="token operator">=</span>x<span class="token operator">.*</span>x<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span><span class="token function">plot</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>p<span class="token operator">=</span><span class="token function">polyfit</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">%polyfit(x,y,3)中的3为多项式最高次幂，在这里意为最高是3</span></code></pre><p>得到结果：</p><p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/blog/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/img1fe53f8f6cff405a69960785e4564ab.png" alt="计算结果"></p><p>即得到函数y= - 0.2422 x^3^ + 3.5845 x^2^ -11.2024 x + 25.7133</p><p>在这里是设置成多项式最高次数为3，因为polyfit函数其数学基础是最小二乘法曲线拟合原理。曲线拟合：已知离散点上的数据集，即已知在点集上的函数值，构造一个解析函数（其图形为一曲线）使在原离散点上尽可能接近给定的值，所以<strong>无论设置多项式次数为多少，理论上得到的结果都是正确的</strong></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 数据科学 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> matlab </tag>
             
         </tags>
       
