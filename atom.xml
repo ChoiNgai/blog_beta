@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-10-04T07:09:15.335Z</updated>
+  <updated>2021-11-10T03:38:51.825Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《ClickHouse原理解析与应用实践》阅读笔记</title>
+    <link href="https://www.memorydrive.online/2021/11/10/clickhouse-yuan-li-jie-xi-yu-ying-yong-shi-jian-yue-du-bi-ji/"/>
+    <id>https://www.memorydrive.online/2021/11/10/clickhouse-yuan-li-jie-xi-yu-ying-yong-shi-jian-yue-du-bi-ji/</id>
+    <published>2021-11-10T03:20:33.000Z</published>
+    <updated>2021-11-10T03:38:51.825Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;第2章-ClickHouse架构概述&quot;&gt;&lt;a href=&quot;#第2章-ClickHouse架构概述&quot; class=&quot;headerlink&quot; title=&quot;第2章 ClickHouse架构概述&quot;&gt;&lt;/a&gt;第2章 ClickHouse架构概述&lt;/h2&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="数据库" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>牛客SQL二刷</title>
@@ -435,7 +462,7 @@
     <link href="https://www.memorydrive.online/2021/03/30/sql-wu-shi-ti/"/>
     <id>https://www.memorydrive.online/2021/03/30/sql-wu-shi-ti/</id>
     <published>2021-03-30T14:38:07.000Z</published>
-    <updated>2021-05-09T15:33:06.410Z</updated>
+    <updated>2021-11-10T03:30:18.267Z</updated>
     
     <summary type="html">
     
@@ -453,7 +480,7 @@
       <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="数据库" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="SQL" scheme="https://www.memorydrive.online/tags/SQL/"/>
     
   </entry>
   
@@ -564,33 +591,6 @@
     
     
       <category term="基础数学" scheme="https://www.memorydrive.online/tags/%E5%9F%BA%E7%A1%80%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SQL练习</title>
-    <link href="https://www.memorydrive.online/2021/02/23/sql-lian-xi/"/>
-    <id>https://www.memorydrive.online/2021/02/23/sql-lian-xi/</id>
-    <published>2021-02-23T15:39:14.000Z</published>
-    <updated>2021-05-09T16:19:19.045Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="数据库" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
