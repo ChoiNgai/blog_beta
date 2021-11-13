@@ -578,7 +578,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    315
+                    265
                 </div>
                 
 
@@ -608,7 +608,7 @@
 <pre><code>mkdir a</code></pre><p>（2）用vim命令在文件夹a中创建一个文件b.txt，文件内容是“Hello world”，</p>
 <pre><code>cd mkdir
 touch b.txt
-echo "Hello world" &gt; b.txt</code></pre><p>（3）在HDFS根目录下创建一个名为test的文件夹，</p>
+echo &quot;Hello world&quot; &gt; b.txt</code></pre><p>（3）在HDFS根目录下创建一个名为test的文件夹，</p>
 <pre><code>hadoop fs -mkdir test</code></pre><p>（4）将b.txt上传到test文件夹中。</p>
 <pre><code>hdfs dfs -put ~/b.txt</code></pre><p>2、在eclipse环境下调试下列程序，在HDFS上创建/test/aw1.txt，并写入”hello”</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>Configuration<span class="token punctuation">;</span>
@@ -641,25 +641,7 @@ echo "Hello world" &gt; b.txt</code></pre><p>（3）在HDFS根目录下创建一
   <span class="token punctuation">}</span>
 
  <span class="token punctuation">}</span></code></pre>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2>
             </div>
             <hr/>
 
@@ -1324,7 +1306,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">131.4k</span>&nbsp;字
+                class="white-color">127k</span>&nbsp;字
             
             
             

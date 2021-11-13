@@ -631,7 +631,7 @@
 <pre><code>  git checkout dev #切换到本地的dev分支
   git checkout -b dev #创建并切换到本地的dev分支</code></pre><h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>修改文件后，<strong>绿色的勾</strong>会变成<strong>红色的感叹号</strong>，表示更新到git的分支(如果切换到了master分支，就表示该文件没有更新到master分支，如果切换到dev分支就表示该文件没有更新到dev分支)</p>
 <pre><code>  git add -A  #将所有文件添加到暂存区
-  git commit -m "first commit" #这一步是备注，注意这个步骤一定要有，否则会提交失败
+  git commit -m &quot;first commit&quot; #这一步是备注，注意这个步骤一定要有，否则会提交失败
   git push -u origin master #表示提交到远程master分支，在此只是因为没有关联远程分支暂且不管</code></pre><h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>如果某个分支要更新到跟另一个分支的文件一样，使用merge</p>
 <p>假设现在是在本地dev分支</p>
 <pre><code>  git checkout master #切换到本地master
@@ -639,14 +639,14 @@
   git remote add origin https://github.com/coneycode/hexo-git-backup.git #使用https，之后介绍ssh
   git fetch origin master #取回(名称为)origin服务器的master分支，即拉取远程master分支</code></pre><h2 id="远程"><a href="#远程" class="headerlink" title="远程"></a>远程</h2><h4 id="首次创建仓库提交"><a href="#首次创建仓库提交" class="headerlink" title="首次创建仓库提交"></a>首次创建仓库提交</h4><pre><code>git init   # 本地创建仓库 
 git add -A  # 提交所有文件
-git commit -m "first commit"  # 提交文件至本地缓存区
+git commit -m &quot;first commit&quot;  # 提交文件至本地缓存区
 git remote add origin https://github.com/githubusername/githubrepositories.git #添加远程仓库
 git push -u origin master #提交代码至远程仓库master分支</code></pre><h4 id="已有本地仓库提交"><a href="#已有本地仓库提交" class="headerlink" title="已有本地仓库提交"></a>已有本地仓库提交</h4><pre><code>git remote add origin https://github.com/githubusername/githubrepositories.git #添加远程仓库
 git push -u origin master #提交代码至远程仓库master分支</code></pre><p>如果是按照上面的方式提交，那么输入完<code>git push -u origin master</code>会弹出openssh的窗口，先输入<strong>账号名</strong>（就是仓库前的那个名字），再输入密码。每次都要这样岂不是很烦，所以推荐用SSH的方式提交。</p>
 <h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>如果是使用https拉取远程分支或者提交代码的话，是要输入账号密码的，麻烦的很，但是只要使用ssh就能省去填写账号密码啦～</p>
 <p>原理是本地生产ssh公钥和私钥，将<strong>公钥</strong>放在远程服务器（github、gitlab、coding、gitee），私钥放在本地，识别到能配对就不用填账号密码了。</p>
 <ul>
-<li><pre><code>  ssh-keygen -t rsa -C "your_email@example.com" #生产ssh密钥，文件位置在C:\Users\用户名\.ssh</code></pre></li>
+<li><pre><code>  ssh-keygen -t rsa -C &quot;your_email@example.com&quot; #生产ssh密钥，文件位置在C:\Users\用户名\.ssh</code></pre></li>
 </ul>
 <ul>
 <li>登录github，头像处下拉框选择settings ；</li>
@@ -663,25 +663,7 @@ git push -u origin master #提交代码至远程仓库master分支</code></pre><
 </li>
 </ul>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">git官方中文文档</a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1357,7 +1339,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">131.4k</span>&nbsp;字
+                class="white-color">127k</span>&nbsp;字
             
             
             
