@@ -146,7 +146,7 @@
     <ul class="sub-nav menus_item_child ">
       
       <li>
-        <a href="/musics">
+        <a href="/music">
           
           <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -301,7 +301,7 @@
               
                 <li>
 
-                  <a href="/musics " style="margin-left:75px">
+                  <a href="/music " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
 			      
@@ -418,148 +418,82 @@
 
 </header>
 
-    .gallery-wrapper{
-  padding-top: 30px;
-}
-.gallery-wrapper .gallery-box{
-  padding: 5px !important;
-}
+    <link rel="stylesheet" href="/css/gallery.css">
+<link type="text/css" href="/libs/fancybox/jquery.fancybox.css" rel="stylesheet">
+<link type="text/css" href="/libs/justifiedGallery/justifiedGallery.min.css" rel="stylesheet">
 
-.gallery-wrapper .gallery-item {
-  display: block;
-  overflow: hidden;
-  background-color: #fff;
-  padding: 5px;
-  padding-bottom: 0;
-  position: relative;
-  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
-  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
-}
 
-.gallery-cover-box{
-  width: 100%;
-  padding-top: 60%;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-  background: center center no-repeat;
-  -webkit-background-size: cover;
-  background-size: cover;
-}
 
-.gallery-cover-box .gallery-cover-img {
-  display: inline-block;
-  width: 100%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-}
-.gallery-item .gallery-name{
-  font-size: 14px;
-  line-height: 24px;
-  text-align: center;
-  color: #666;
-  margin: 0;
-}
-
-.waterfall {
-  column-count: 3;
-  column-gap: 1em;
-}
-.photo-wrapper{
-  padding-top: 20px;
-}
-.photo-item {
-  display: block;
-  padding: 10px;
-  padding-bottom: 0;
-  margin-bottom: 14px;
-  font-size: 0;
-  -moz-page-break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  break-inside: avoid;
-  background: white;
-  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
-  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.22);
-}
-.photo-item img {
-  width: 100%;
-}
-.photo-item .photo-name{
-  font-size: 14px;
-  line-height: 30px;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-top: 1px solid #dddddd;
-}
-
-/*适配移动端布局*/
-@media only screen and (max-width: 601px) {
-  .waterfall {
-    column-count: 2;
-    column-gap: 1em;
-  }
-}
-
-    <footer class="page-footer bg-color">
-    
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="5095104187"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1296.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">动漫壁纸</h1>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
+
+<div class="container">
+    <div class="photo-wrapper">
+        <div class="waterfall" id="mygallery">
+            <a href="https://www.memorydrive.online/../medias/banner/0.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/0.jpg"       alt=../medias/banner/0.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/1.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/1.jpg"       alt=../medias/banner/1.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/10.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/10.jpg"       alt=../medias/banner/10.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/11.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/11.jpg"       alt=../medias/banner/11.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/12.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/12.jpg"       alt=../medias/banner/12.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/13.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/13.jpg"       alt=../medias/banner/13.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/14.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/14.jpg"       alt=../medias/banner/14.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/15.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/15.jpg"       alt=../medias/banner/15.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/16.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/16.jpg"       alt=../medias/banner/16.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/17.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/17.jpg"       alt=../medias/banner/17.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/18.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/18.jpg"       alt=../medias/banner/18.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/19.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/19.jpg"       alt=../medias/banner/19.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/2.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/2.jpg"       alt=../medias/banner/2.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/20.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/20.jpg"       alt=../medias/banner/20.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/22.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/22.jpg"       alt=../medias/banner/22.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/23.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/23.jpg"       alt=../medias/banner/23.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/24.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/24.jpg"       alt=../medias/banner/24.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/25.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/25.jpg"       alt=../medias/banner/25.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/26.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/26.jpg"       alt=../medias/banner/26.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/27.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/27.jpg"       alt=../medias/banner/27.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/28.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/28.jpg"       alt=../medias/banner/28.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/29.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/29.jpg"       alt=../medias/banner/29.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/3.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/3.jpg"       alt=../medias/banner/3.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/30.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/30.jpg"       alt=../medias/banner/30.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/31.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/31.jpg"       alt=../medias/banner/31.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/32.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/32.jpg"       alt=../medias/banner/32.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/33.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/33.jpg"       alt=../medias/banner/33.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/34.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/34.jpg"       alt=../medias/banner/34.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/35.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/35.jpg"       alt=../medias/banner/35.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/36.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/36.jpg"       alt=../medias/banner/36.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/4.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/4.jpg"       alt=../medias/banner/4.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/5.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/5.jpg"       alt=../medias/banner/5.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/6.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/6.jpg"       alt=../medias/banner/6.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/7.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/7.jpg"       alt=../medias/banner/7.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/8.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/8.jpg"       alt=../medias/banner/8.jpg>
+    </a><a href="https://www.memorydrive.online/../medias/banner/9.jpg"     class="photo-item" rel="example_group"     data-fancybox="images">      <img src="https://www.memorydrive.online/../medias/banner/9.jpg"       alt=../medias/banner/9.jpg>
+    </a>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="/libs/fancybox/fancybox.js"></script>
+<script src="/libs/justifiedGallery/justifiedGallery.min.js"></script>
+<script>
+
+  $("a[rel=example_group]").fancybox();
+  $("#mygallery").justifiedGallery({margins: 5, rowHeight: 150});
+
+</script>
+
+    <footer class="page-footer bg-color">
     
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
@@ -572,8 +506,6 @@
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                 class="white-color">127k</span>&nbsp;字
-            
-            
             
             
             
@@ -594,7 +526,7 @@
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
+        <div class="col s12 m4 l4 social-link ">
     <a href="https://github.com/ChoiNgai" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -708,8 +640,6 @@ $(function () {
     
     <script src="/libs/others/clicklove.js" async="async"></script>
     
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
