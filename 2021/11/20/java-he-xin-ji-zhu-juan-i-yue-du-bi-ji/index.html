@@ -1,0 +1,2089 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="《Java核心技术 卷I》阅读笔记, null">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>《Java核心技术 卷I》阅读笔记 | null</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<!-- 每日一句 -->
+<script src="https://v1.hitokoto.cn/?c=d&encode=js&select=%23hitokoto" defer></script>
+
+<!-- 动态诗词 -->
+<!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span"></span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>联系</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/music">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name"></div>
+        <div class="logo-desc">
+            
+            愿你历尽千帆,归来仍是少年.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			联系
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/music " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/ChoiNgai" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/ChoiNgai" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_2683.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">《Java核心技术 卷I》阅读笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
+                                开发
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-11-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-11-20
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    27 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="第1章-Java程序设计概述"><a href="#第1章-Java程序设计概述" class="headerlink" title="第1章 Java程序设计概述"></a>第1章 Java程序设计概述</h2><h3 id="1-1-Java程序设计平台"><a href="#1-1-Java程序设计平台" class="headerlink" title="1.1 Java程序设计平台"></a>1.1 Java程序设计平台</h3><p>Java是一个完整的平台，提供了可移植性、垃圾回收、庞大的库、网络连接以及数据块存取等功能。</p>
+<h3 id="1-2-Java“白皮书”的关键术语"><a href="#1-2-Java“白皮书”的关键术语" class="headerlink" title="1.2 Java“白皮书”的关键术语"></a>1.2 Java“白皮书”的关键术语</h3><p>关键术语：</p>
+<p>1）简单性</p>
+<p>2）面向对象</p>
+<p>3）分布式</p>
+<p>4）健壮性</p>
+<p>5）安全性</p>
+<p>6）体系结构中立</p>
+<p>7）可移植性</p>
+<p>8）解释型</p>
+<p>9）高性能</p>
+<p>10）多线程</p>
+<p>11）动态性</p>
+<h2 id="第2章-Java程序设计环境"><a href="#第2章-Java程序设计环境" class="headerlink" title="第2章 Java程序设计环境"></a>第2章 Java程序设计环境</h2><p>下载地址：www.oracle.com/technetwork/java/javase/downloads</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211118140650.png" alt="表2-1 Java术语"></p>
+<p>接下来，Java SE会大量出现，相对于Java EE（Enterprise Edition）和Java ME（Micro Edition），它是Java的标准版。</p>
+<h2 id="第3章-Java的基本程序设计结构"><a href="#第3章-Java的基本程序设计结构" class="headerlink" title="第3章 Java的基本程序设计结构"></a>第3章 Java的基本程序设计结构</h2><h3 id="3-1-一个简单的Java应用程序"><a href="#3-1-一个简单的Java应用程序" class="headerlink" title="3.1 一个简单的Java应用程序"></a>3.1 一个简单的Java应用程序</h3><pre class=" language-lang-java"><code class="language-lang-java">public class FirstSample {
+    public static void main(String[] args)
+    {
+        System.out.println("Hello World");
+    }
+}
+</code></pre>
+<p>关键字<strong>public</strong>称为访问修饰符（accessmodifier），这些修饰符用于控制程序的其他部分对这段代码的访问级别。</p>
+<p>关键字<strong>class</strong>表明Java程序中的全部内容都包含在类中，class后面是类名（文件名跟公共类名必须相同，即这个文件为<code>FirstSample.java</code>），此外<strong>Java区分大小写</strong></p>
+<p>static void声明这个主程序的类型（Java的main方法必须是静态的，void也表示没有返回值），Java SE7 及之后的版本<strong>每个java程序都必须有一个main方法</strong></p>
+<h3 id="3-2-注释"><a href="#3-2-注释" class="headerlink" title="3.2 注释"></a>3.2 注释</h3><pre class=" language-lang-java"><code class="language-lang-java">// 单行注释
+
+/*
+多行注释
+多行注释
+*/
+</code></pre>
+<h3 id="3-3-数据类型"><a href="#3-3-数据类型" class="headerlink" title="3.3 数据类型"></a>3.3 数据类型</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>存储占用</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td>
+<td>4字节</td>
+<td>-2147483648 ~ 2147483647</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2字节</td>
+<td>-32768 ~ 32767</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8字节</td>
+<td></td>
+</tr>
+<tr>
+<td>byte</td>
+<td>1字节</td>
+<td>-128 ~ 127</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4字节</td>
+<td></td>
+</tr>
+<tr>
+<td>double</td>
+<td>8字节</td>
+<td></td>
+</tr>
+<tr>
+<td>char</td>
+<td></td>
+<td>false 或 true</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="3-4-变量"><a href="#3-4-变量" class="headerlink" title="3.4 变量"></a>3.4 变量</h3><ul>
+<li>变量声明</li>
+</ul>
+<p>变量声明示例：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">double salary;    //注意：需要以分号结尾
+int vacationDats;
+int i,j;    //一行声明多个变量（不提倡）
+</code></pre>
+<p>变量名必须是一个以字母开头并由字母或数字构成的序列</p>
+<ul>
+<li>初始化变量</li>
+</ul>
+<p>声明变量之后，需要初始化这个变量，例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">int i;
+i = 1;
+</code></pre>
+<p>也可以写成：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">int i = 1;
+</code></pre>
+<ul>
+<li>常量</li>
+</ul>
+<p>关键字final表示这个变量只能被赋值一次（习惯上，常量名使用全大写），例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">final float CM_PER_INCH = 2.54;
+</code></pre>
+<h3 id="3-5-运算符"><a href="#3-5-运算符" class="headerlink" title="3.5 运算符"></a>3.5 运算符</h3><p><strong>+</strong>   ：加</p>
+<p><strong>-</strong>    ：减</p>
+<p><strong>*</strong>    ：乘</p>
+<p><strong>/</strong>    ：除</p>
+<h4 id="3-5-1-数学函数与常量"><a href="#3-5-1-数学函数与常量" class="headerlink" title="3.5.1 数学函数与常量"></a>3.5.1 数学函数与常量</h4><p>计算平方根：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">double = 4;
+double y = Math.sqrt(x);
+System.out.println(y);    //输出结果：2.0
+</code></pre>
+<p>幂运算：</p>
+<pre><code>double y = Math.pow(x,a);    //x的a次幂
+</code></pre><p>此外Math类还提供了一些其他常用的函数：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">Math.sin
+Math.cos
+math.tan
+Math.exp
+Math.log
+Math.log10
+</code></pre>
+<h4 id="3-5-2-数值类型之间的转换"><a href="#3-5-2-数值类型之间的转换" class="headerlink" title="3.5.2 数值类型之间的转换"></a>3.5.2 数值类型之间的转换</h4><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211118151550.png" alt="数值类型之间的合法转换"></p>
+<p>实心箭头：表示无信息丢失的转换；</p>
+<p>虚箭头：表示可能有精度损失的转换。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211118151836.png" alt=" int型转成 float型会丢失一定精度"></p>
+<blockquote>
+<p>当使用上面两个数值进行二元操作时（例如n + f, n是整数，f是浮点数），先要将两个操作数转换为同一种类型，然后再进行计算。</p>
+<ul>
+<li>如果两个操作数中有一个是double类型，另一个操作数就会转换为double类型。</li>
+<li>否则，如果其中一个操作数是float类型，另一个操作数将会转换为float类型。</li>
+<li>否则，如果其中一个操作数是long类型，另一个操作数将会转换为long类型。</li>
+<li>否则，两个操作数都将被转换为int类型。</li>
+</ul>
+</blockquote>
+<h4 id="3-5-3-强制类型转换"><a href="#3-5-3-强制类型转换" class="headerlink" title="3.5.3 强制类型转换"></a>3.5.3 强制类型转换</h4><p>int型可能会转换成 double型，但是也可以把double型强制转换为 int型，例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">double x = 9.99;
+int nx = (int)x;    //此时nx变为9
+int nx = (int)Math.round(x);    //此时nx变为10
+</code></pre>
+<h4 id="3-5-4-结合赋值和运算符"><a href="#3-5-4-结合赋值和运算符" class="headerlink" title="3.5.4 结合赋值和运算符"></a>3.5.4 结合赋值和运算符</h4><p>可以在赋值中使用二元运算符来简化写法，例如</p>
+<pre class=" language-lang-java"><code class="language-lang-java">x += 4;
+x = x + 4;
+//上面两行语句是一样的
+</code></pre>
+<h4 id="3-5-5-自增与自减运算符"><a href="#3-5-5-自增与自减运算符" class="headerlink" title="3.5.5 自增与自减运算符"></a>3.5.5 自增与自减运算符</h4><pre class=" language-lang-java"><code class="language-lang-java">int n = 12;
+n++ ;    //n为13
+</code></pre>
+<h4 id="3-5-6-关系和boolean运算符"><a href="#3-5-6-关系和boolean运算符" class="headerlink" title="3.5.6 关系和boolean运算符"></a>3.5.6 关系和boolean运算符</h4><p>3 == 7； //false<br>3 != 7； //true</p>
+<h4 id="3-5-7-位运算符"><a href="#3-5-7-位运算符" class="headerlink" title="3.5.7 位运算符"></a>3.5.7 位运算符</h4><p><strong>&amp;</strong> ：and</p>
+<p><strong>|</strong>   ：or</p>
+<p><strong>^</strong>  ：xor</p>
+<p><strong>~</strong>  ：not</p>
+<h4 id="3-5-8-括号与运算符级别"><a href="#3-5-8-括号与运算符级别" class="headerlink" title="3.5.8 括号与运算符级别"></a>3.5.8 括号与运算符级别</h4><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211118152825.png" alt="运算符优先级"></p>
+<h4 id="3-5-9-枚举类型"><a href="#3-5-9-枚举类型" class="headerlink" title="3.5.9 枚举类型"></a>3.5.9 枚举类型</h4><p>有时候，变量的取值只在一个有限的集合内（比如衣服只有几种尺寸）。针对这种情况，可以自定义枚举类型。枚举类型包括有限个命名的值。例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">enum Size{SMALL,MEDIUM,LARGE,EXTRA_LARGE};
+</code></pre>
+<p>现在，可以声明这种类型的变量：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">Size s = Size.MEDIUM;
+</code></pre>
+<p>Size类型的变量只能存储这个类型声明中给定的某个枚举值，或者null值，null表示这个变量没有设置任何值。</p>
+<h3 id="3-6-字符串"><a href="#3-6-字符串" class="headerlink" title="3.6 字符串"></a>3.6 字符串</h3><h4 id="3-6-1-子串"><a href="#3-6-1-子串" class="headerlink" title="3.6.1 子串"></a>3.6.1 子串</h4><p>String类的substring方法可以从一个较大的字符串提取出一个子串。例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">String a = "Hello";
+String s = s.substring(0,3);    //s是"Hel"
+</code></pre>
+<p><code>s.substring(a, b)</code>表示字符串 s 取 a到 b，其字符长度为 b - a </p>
+<h4 id="3-6-2-拼接"><a href="#3-6-2-拼接" class="headerlink" title="3.6.2 拼接"></a>3.6.2 拼接</h4><p>Java允许使用+号连接（拼接）两个字符串，例如</p>
+<pre class=" language-lang-java"><code class="language-lang-java">String a = "Em";
+String b = "mmm";
+String c = a + b;
+</code></pre>
+<h4 id="3-6-3-不可变字符串"><a href="#3-6-3-不可变字符串" class="headerlink" title="3.6.3 不可变字符串"></a>3.6.3 不可变字符串</h4><p>字符串的部分内容不可修改，比如”Hello”不能直接修改为”Help! “，但是可以通过拼接实现，例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">String a = "Hello"
+String a = a.substring(0,3) + "p!"
+</code></pre>
+<h4 id="3-6-4-检测字符串是否相等"><a href="#3-6-4-检测字符串是否相等" class="headerlink" title="3.6.4 检测字符串是否相等"></a>3.6.4 检测字符串是否相等</h4><p>可以使用equals方法检测两个字符串是否相等。对于表达式：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">s = "Hello"
+t = "World"
+s.equals(t)
+</code></pre>
+<p>如果字符串s与字符串t相等，则返回true；否则，返回false。</p>
+<p>上述也可以写成：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">"Hello".equals("World")
+</code></pre>
+<h4 id="3-6-5-空串与Null串"><a href="#3-6-5-空串与Null串" class="headerlink" title="3.6.5 空串与Null串"></a>3.6.5 空串与Null串</h4><p>空串是长度为0的字符串，检验：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">if(str.length()==0)
+//或
+if(str.equals(""))
+</code></pre>
+<p>空串是一个Java对象，有自己的串长度（0）和内容（空）。而 <strong>null</strong> 表示目前没有任何对象与该变量关联，用以下语句判断：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">if(str == null)
+</code></pre>
+<p>检查一个字符串既不是null也不为空串：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">if(str.length() !=0) && str != null)
+</code></pre>
+<p>（因为显示问题，代码框中的 != 变成了<code>!=</code>，记住实际上是写<strong>!=</strong> ）</p>
+<h4 id="3-6-6-码点与代码单元"><a href="#3-6-6-码点与代码单元" class="headerlink" title="3.6.6 码点与代码单元"></a>3.6.6 码点与代码单元</h4><pre class=" language-lang-java"><code class="language-lang-java">String a = "Hello";
+int n = a.length();     // n = 5
+char b = a.charAt(0);    // b = "H"
+</code></pre>
+<h3 id="3-7-输入输出"><a href="#3-7-输入输出" class="headerlink" title="3.7 输入输出"></a>3.7 输入输出</h3><h4 id="3-7-1-读取输入"><a href="#3-7-1-读取输入" class="headerlink" title="3.7.1 读取输入"></a>3.7.1 读取输入</h4><p>要想通过控制台进行输入，首先需要构造一个Scanner对象，并与“标准输入流”System.in关联</p>
+<pre class=" language-lang-java"><code class="language-lang-java">Scanner in = new Scanner(System.in);
+</code></pre>
+<p>现在，就可以使用Scanner类的各种方法实现输入操作了。例如，nextLine方法将输入一行</p>
+<pre class=" language-lang-java"><code class="language-lang-java">System.out.println("What is your name?");
+String name = in.nextLine();
+</code></pre>
+<p>在这里，使用nextLine方法是因为在输入行中有可能包含空格。要想读取一个单词（以空白符作为分隔符），就调用</p>
+<pre class=" language-lang-java"><code class="language-lang-java">String firstName = in.next();
+
+int age = in.nextInt();    //读取整数
+</code></pre>
+<h4 id="3-7-2-格式化输出"><a href="#3-7-2-格式化输出" class="headerlink" title="3.7.2 格式化输出"></a>3.7.2 格式化输出</h4><pre class=" language-lang-java"><code class="language-lang-java">double x = 10000.00/3.0;
+System.out.print(x);                    //输出3333.3333333333335
+System.out.printf("%8.2f",x);            //表示8个字符的宽度和小数点后两位，输出3333.33
+System.out.printf("%.2f",10000.00/3.0);    //输出3,333.33
+System.out.printf("%tc",new Date());    //打印当前日期和时间
+</code></pre>
+<h4 id="3-7-3-文件输入与输出"><a href="#3-7-3-文件输入与输出" class="headerlink" title="3.7.3 文件输入与输出"></a>3.7.3 文件输入与输出</h4><pre class=" language-lang-java"><code class="language-lang-java">Scanner in = new Scanner(Paths.get("myfile.txt"),"UTF-8");
+</code></pre>
+<h3 id="3-8-控制流程"><a href="#3-8-控制流程" class="headerlink" title="3.8 控制流程"></a>3.8 控制流程</h3><h4 id="3-8-1-块作用域"><a href="#3-8-1-块作用域" class="headerlink" title="3.8.1 块作用域"></a>3.8.1 块作用域</h4><p>块（block）是指由一对大括号括起来的若干条简单的Java语句，块确定了变量的作用域</p>
+<h4 id="3-8-2-条件语句"><a href="#3-8-2-条件语句" class="headerlink" title="3.8.2 条件语句"></a>3.8.2 条件语句</h4><p>条件语句格式：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">if(condition) statement
+//或
+if(condition) statement else statement
+</code></pre>
+<p>例如：</p>
+<ul>
+<li>case1</li>
+</ul>
+<pre class=" language-lang-java"><code class="language-lang-java">if(yourSales > target)
+{
+    performance = "Satisfactory";
+    bonus = 100;
+}
+</code></pre>
+<ul>
+<li>case2</li>
+</ul>
+<pre class=" language-lang-java"><code class="language-lang-java">if(yourSales > target)
+{
+    performance = "Satisfactory";
+    bonus =100;
+}
+else
+{
+    performance = "UnSatisfactory";
+    bonus = 0;
+}
+</code></pre>
+<h4 id="3-8-3-while循环"><a href="#3-8-3-while循环" class="headerlink" title="3.8.3 while循环"></a>3.8.3 while循环</h4><pre class=" language-lang-java"><code class="language-lang-java">while(condition) statement
+//或
+do statement while(condition)
+</code></pre>
+<p>例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">int i = 10;
+while(i>1)
+{
+    i = i - 1;
+}
+
+// 或
+int i = 10;
+do
+{
+    i = i - 1;
+}
+while(i>1)
+</code></pre>
+<h4 id="3-8-4-for循环"><a href="#3-8-4-for循环" class="headerlink" title="3.8.4 for循环"></a>3.8.4 for循环</h4><pre class=" language-lang-java"><code class="language-lang-java">for（int i = 1; i < 10; i++)
+    System.out.println(i);
+</code></pre>
+<h4 id="3-8-5-多重选择：switch语句"><a href="#3-8-5-多重选择：switch语句" class="headerlink" title="3.8.5 多重选择：switch语句"></a>3.8.5 多重选择：switch语句</h4><pre class=" language-lang-java"><code class="language-lang-java">Scanner in = new Scanner(System.in);
+System.out.print("select an option (1,2)");
+int choice = in.nextln();
+switch (choice)
+{
+    case 1:
+        ...
+        break;
+    case 2:
+        ...
+        break;
+    default:
+        ...
+        break;
+}
+</code></pre>
+<h4 id="3-8-6-中断控制流程语句"><a href="#3-8-6-中断控制流程语句" class="headerlink" title="3.8.6 中断控制流程语句"></a>3.8.6 中断控制流程语句</h4><ul>
+<li>break：跳出该层循环（抵消掉整个for/while语句）</li>
+<li>continue：跳过这一次循环（抵消掉for/while中的一次执行）</li>
+</ul>
+<h3 id="3-9-大数值"><a href="#3-9-大数值" class="headerlink" title="3.9 大数值"></a>3.9 大数值</h3><p>如果基本的整数和浮点数精度不能够满足需求，那么可以使用java.math包中的两个很有用的类：<strong>BigInteger</strong>（任意精度的整数运算）和<strong>BigDecimal</strong>（任意精度的浮点数运算）。</p>
+<h3 id="3-10-数组"><a href="#3-10-数组" class="headerlink" title="3.10 数组"></a>3.10 数组</h3><p>声明数组（仅仅声明）：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">int[] a;    // 也可以写成 int a[]
+</code></pre>
+<p>（书上说Java程序员喜欢写第一种，我喜欢写成第二种）</p>
+<p>声明并初始化数组：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">int[] a =new int[100];    //创建一个可以存储100个整数的数组
+</code></pre>
+<h4 id="3-10-1-for-each循环"><a href="#3-10-1-for-each循环" class="headerlink" title="3.10.1 for each循环"></a>3.10.1 for each循环</h4><p>例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">for (int element:a)
+    System.out.println(element);
+</code></pre>
+<p>这个循环读作“循环a中的每一个元素”（for each element in a），当然也可以用传统的for循环代替：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">for(int i = 0;i < a.length; i++)
+    System.out.println(a[i]);
+</code></pre>
+<h4 id="3-10-2-数组初始化以及匿名数组"><a href="#3-10-2-数组初始化以及匿名数组" class="headerlink" title="3.10.2 数组初始化以及匿名数组"></a>3.10.2 数组初始化以及匿名数组</h4><pre class=" language-lang-java"><code class="language-lang-java">int[] smallPrimes = {2,3,5,7,11,13};
+</code></pre>
+<p>这种写法不需要new，甚至还可以初始化一个匿名数组：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">new int[] {17,19,23,29,31,37}
+</code></pre>
+<p>（备注：匿名数组一般用在只用一次的时候）</p>
+<h4 id="3-10-3-数组拷贝"><a href="#3-10-3-数组拷贝" class="headerlink" title="3.10.3 数组拷贝"></a>3.10.3 数组拷贝</h4><pre class=" language-lang-java"><code class="language-lang-java">int [] luckyNumbers = smallPrimes;
+luckyNumbers[5] = 12;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211118181002.png" alt="拷贝一个数组变量"></p>
+<p>如果希望将一个数组的所有值拷贝到一个新的数组中去，就要使用Arrays类的copyOf方法：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">int[] luckyNumbers2 = Arrays.copyOf(luckyNumbers,luckyNumbers.length);
+</code></pre>
+<h4 id="3-10-5-数组排序"><a href="#3-10-5-数组排序" class="headerlink" title="3.10.5 数组排序"></a>3.10.5 数组排序</h4><pre class=" language-lang-java"><code class="language-lang-java">int[] a = new int[100];
+Arrays.sort(a)
+</code></pre>
+<h4 id="3-10-6-多维数组"><a href="#3-10-6-多维数组" class="headerlink" title="3.10.6 多维数组"></a>3.10.6 多维数组</h4><pre class=" language-lang-java"><code class="language-lang-java">double[][] a;
+a = new double[100][100];
+</code></pre>
+<p>如果知道数组元素，就可以不调用new，而直接使用简化的书写形式对多维数组进行初始化。例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">int[][] magicSquare = 
+{
+    {16,3,2,13},
+    {5,10,11,8},
+    {9,6,7,12},
+    {4,15,14,1}
+}
+</code></pre>
+<p>（可以看出：Java实际上没有多维数组，只有一维数组。多维数组被解释为“数组的数组。）</p>
+<h2 id="第4章-对象与类"><a href="#第4章-对象与类" class="headerlink" title="第4章 对象与类"></a>第4章 对象与类</h2><h3 id="4-1-面向对象程序设计概述"><a href="#4-1-面向对象程序设计概述" class="headerlink" title="4.1 面向对象程序设计概述"></a>4.1 面向对象程序设计概述</h3><ul>
+<li>面向过程与面向对象的程序设计对比</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211118191554.png" width="50%"></img></p>
+<h4 id="4-1-1-类"><a href="#4-1-1-类" class="headerlink" title="4.1.1 类"></a>4.1.1 类</h4><p>由类（class）构造（construct）对象的过程称为创建类的实例（instance）</p>
+<p>封装（encapsulation，有时称为数据隐藏）是与对象有关的一个重要概念。从形式上看，封装是将数据和行为组合在一个包中，并对对象的使用者隐藏了数据的实现方式。</p>
+<h4 id="4-1-2-对象"><a href="#4-1-2-对象" class="headerlink" title="4.1.2 对象"></a>4.1.2 对象</h4><p>要想使用面向对象程序设计（OOP），一定要清楚对象的三个主要特性：</p>
+<ul>
+<li>对象的行为（behavior）——可以对对象施加哪些操作，或可以对对象施加哪些方法？</li>
+<li>对象的状态（state）——当施加那些方法时，对象如何响应？</li>
+<li>对象标识（identity）——如何辨别具有相同行为与状态的不同对象？</li>
+</ul>
+<h4 id="4-1-3-识别类"><a href="#4-1-3-识别类" class="headerlink" title="4.1.3 识别类"></a>4.1.3 识别类</h4><p>识别类的简单规则是在分析问题的过程中寻找名词，而方法对应着动词。例如，在订单处理系统中，有这样一些名词：</p>
+<ul>
+<li>商品（Item）</li>
+<li>订单（Order）</li>
+<li>送货地址（Shipping address）</li>
+<li>付款（Payment）</li>
+<li>账户（Account）</li>
+</ul>
+<p>这些名词很可能成为类Item、Order等</p>
+<h4 id="4-1-4-类之间的关系"><a href="#4-1-4-类之间的关系" class="headerlink" title="4.1.4 类之间的关系"></a>4.1.4 类之间的关系</h4><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211118194943.png" alt="表达类关系的UML符号"></p>
+<h3 id="4-2-使用预定义类"><a href="#4-2-使用预定义类" class="headerlink" title="4.2 使用预定义类"></a>4.2 使用预定义类</h3><p>在Java中，没有类就无法做任何事情</p>
+<p>并不是所有的类都具有面些对象特征，例如Math类，在程序中可以使用Math类的方法Math.random</p>
+<h4 id="4-2-1-对象与对象变量"><a href="#4-2-1-对象与对象变量" class="headerlink" title="4.2.1 对象与对象变量"></a>4.2.1 对象与对象变量</h4><p>在Java程序设计语言中，使用构造器（constructor）构造新实例。构造器是一种特殊的方法，用来构造并初始化对象。</p>
+<p>在标准Java库中包含一个Date类。它的对象将描述一个时间点，例如：“December 31, 1999, 23:59:59GMT”。</p>
+<p>构造器的名字应该与类名相同。因此Date类的构造器名为Date。要想构造一个Date对象，需要在构造器前面加上new操作符，如下所示：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">new Date()
+</code></pre>
+<p>这个表达式构造了一个新对象。这个对象被初始化为当前的日期和时间。</p>
+<p>如果需要的话，也可以将这个对象传递给一个方法：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">System.out.println(new Date())
+</code></pre>
+<p>Date类中有一个toString方法。这个方法将返回日期的字符串描述：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">String s = new Date().toString
+</code></pre>
+<h4 id="4-2-2-Java类库中的LocalDate类"><a href="#4-2-2-Java类库中的LocalDate类" class="headerlink" title="4.2.2 Java类库中的LocalDate类"></a>4.2.2 Java类库中的LocalDate类</h4><p>不要使用构造器来构造LocalDate类的对象。实际上，应当使用静态工厂方法（factory method）代表你调用构造器。下面的表达式：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">LocalDate.now()
+</code></pre>
+<p>会构造一个新对象，表示构造这个对象时的日期。</p>
+<p>可以提供年、月和日来构造对应一个特定日期的对象：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">LocalDate.of(1999,12,31)
+</code></pre>
+<h4 id="4-2-3-更改器方法与访问器方法"><a href="#4-2-3-更改器方法与访问器方法" class="headerlink" title="4.2.3 更改器方法与访问器方法"></a>4.2.3 更改器方法与访问器方法</h4><pre class=" language-lang-java"><code class="language-lang-java">LocalDate aThousandDaysLater = newYearsEve.plusDays(1000);
+</code></pre>
+<p>newYearsEve日期没变化，aThousandDaysLater是newYearsEve的1000天之后</p>
+<h3 id="4-3-用户自定义类"><a href="#4-3-用户自定义类" class="headerlink" title="4.3 用户自定义类"></a>4.3 用户自定义类</h3><h4 id="4-3-1-Employee类"><a href="#4-3-1-Employee类" class="headerlink" title="4.3.1 Employee类"></a>4.3.1 Employee类</h4><p>在Java中，最简单的类定义形式为：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">calss ClassName
+{
+    field_1
+    field_2
+    ...
+    constructor_1
+    constructor_2
+    ...
+    method_1
+    method_2
+}
+</code></pre>
+<p>下面看一个非常简单的Employee类（在编写薪金管理系统时可能会用到）：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">Class Employee
+{
+    // instance fields（所有的实例域）
+    private String name;
+    private double salary;
+    private LocalDate hireDay;
+
+    // constructor（构造器）
+    public Employee(String n, double s, int year, int month, int day)
+    {
+        name = n;
+        salary = s;
+        hireDay = LocalDate.of(year, month, day);
+    }
+
+    // a method（方法）
+    public String getName()
+    {
+        return name;
+    }
+
+    // more methods
+    // ...
+}
+</code></pre>
+<h4 id="4-3-2-多个源文件的使用"><a href="#4-3-2-多个源文件的使用" class="headerlink" title="4.3.2 多个源文件的使用"></a>4.3.2 多个源文件的使用</h4><p>如果有多个.java文件，编译其中一个使用了另一个时会自动跨文件查找另一个类</p>
+<h4 id="4-3-3-剖析Employee类"><a href="#4-3-3-剖析Employee类" class="headerlink" title="4.3.3 剖析Employee类"></a>4.3.3 剖析Employee类</h4><p>从Employee类开始，通过查看源码会发现这个类包含了1个<strong>构造器</strong>和4个<strong>方法</strong>：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public Employee(String n, double s, int year, int month, int day)
+public String getName()
+public double getSalary()
+public LocalDate getHireDay()
+public void raiseSalary(double byPercent)
+</code></pre>
+<p>这个类的所有方法都被标记为public，关键字<strong>public</strong>意味着任何类的<strong>任何方法都可以调用这个方法</strong>（共有4种访问级别）</p>
+<p>接下来，需要注意在Employee类的实例中有三个实例域用来存放将要操作的数据：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public String getName()
+public double getSalary()
+public LocalDate getHireDay()
+</code></pre>
+<blockquote>
+<p>注释：</p>
+<p>可以用public标记实例域，但这是一种极为不提倡的做法。public数据域允许程序中的任何方法对其进行读取和修改。这就完全破坏了封装。任何类的任何方法都可以修改public域，某些代码将使用这种存取权限，这样并不合适。</p>
+<p>因此，这里强烈建议将实例域标记为private。最后，请注意，有两个实例域本身就是对象：name域是String类对象，hireDay域是LocalDate类对象。这种情形十分常见：类通常包括类型属于某个类类型的实例域。</p>
+<p>最后，请注意，有两个实例域本身就是对象：name域是String类对象，hireDay域是LocalDate类对象。这种情形十分常见：类通常包括类型属于某个类类型的实例域。</p>
+</blockquote>
+<h4 id="4-3-4-从构造器开始"><a href="#4-3-4-从构造器开始" class="headerlink" title="4.3.4 从构造器开始"></a>4.3.4 从构造器开始</h4><p>下面来看看Employee类的构造器：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public Employee(String n, double s, int year, int month, int day)
+{
+    name = n;
+    salary = s;
+    hireDay = LocalDate.of(year,month,day)
+}
+</code></pre>
+<p>可以看到，构造器与类同名。在构造Employee类的对象时，构造器会运行，以便将实例域初始化为所希望的状态。</p>
+<pre class=" language-lang-java"><code class="language-lang-java">// 例如，当使用下面这条代码创建Employee类实例时：
+new Employee("James Bond",100000,1950,1,1)
+
+// 将会把实例域设置为：
+name = "James Bond";
+salary = 100000;
+hireDay = LocalDate.of(1950,1,1); // January 1,1950
+</code></pre>
+<p>构造器与其他的方法有一个重要的不同。构造器总是伴随着new操作符的执行被调用，而不能对一个已经存在的对象调用构造器来达到重新设置实例域的目的。例如以下操作会产生<code>编译错误</code>：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">james.Employee("James Bond",100000,1950,1,1)
+</code></pre>
+<p>（即构造器只能 new一个对象，而不能对已经存在的这个<code>james</code>对象重新设置数据）</p>
+<blockquote>
+<p>构造器的特点：</p>
+<ul>
+<li>构造器与类同名</li>
+<li>每个类可以有一个以上的构造器</li>
+<li>构造器可以有0个、1个或多个参数</li>
+<li>构造器没有返回值</li>
+<li>构造器总是伴随着new操作一起调用</li>
+</ul>
+</blockquote>
+<p>警告：请注意，不要在构造器中<strong>定义</strong>与实例域重名的局部变量。例如，下面的构造器将无法设置name和salary：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public Employee(String n, double s ...)
+{
+    String name = n;    //Error
+    double salary = s;    //Error
+    ...
+}
+</code></pre>
+<p>注意：上面的name、salary前面不应该写String、double（注意在所有的方法中不要命名与实例域同名的变量）</p>
+<h4 id="4-3-5-隐式参数与显式参数"><a href="#4-3-5-隐式参数与显式参数" class="headerlink" title="4.3.5 隐式参数与显式参数"></a>4.3.5 隐式参数与显式参数</h4><p>方法用于操作对象以及存取它们的实例域。例如，方法：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public void raiseSalary(double byPercent)
+{
+    double raise = salary * byPercent / 100;
+    salary += raise;    //也可以写成 this.salary += raise;
+}
+</code></pre>
+<p>将调用这个方法的对象的salary实例域设置为新值：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">number007.raiseSalary(5);
+</code></pre>
+<p>它的结果将number007.salary域的值增加5%</p>
+<p>raiseSalary方法有两个参数。第一个参数称为隐式（implicit）参数，是出现在方法名前的Employee类对象。第二个参数位于方法名后面括号中的数值，这是一个显式（explicit）参数。在raiseSalary方法中，隐式参数是salary，显式参数是byPercent。</p>
+<h4 id="4-3-6-封装的优点"><a href="#4-3-6-封装的优点" class="headerlink" title="4.3.6 封装的优点"></a>4.3.6 封装的优点</h4><p>有些时候，需要获得或设置实例域的值。因此，应该提供下面三项内容：</p>
+<ul>
+<li>一个私有的数据域；（实例域private）</li>
+<li>一个公有的域访问器方法；（方法public）</li>
+<li>一个公有的域更改器方法。（构造器）</li>
+</ul>
+<p>这样做要比提供一个简单的公有数据域复杂些，但是却有着下列明显的好处：</p>
+<p>首先，可以改变内部实现，除了该类的方法之外，不会影响其他代码。</p>
+<p>警告：注意不要编写返回引用可变对象的访问器方法。在Employee类中就违反了这个设计原则，其中的getHireDay方法返回了一个Date类对象：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">class Employee
+{
+    private Date getHireDay()
+    {
+        return hireDay;    //bad
+    }
+}
+</code></pre>
+<h4 id="4-3-7基于类的访问权限"><a href="#4-3-7基于类的访问权限" class="headerlink" title="4.3.7基于类的访问权限"></a>4.3.7基于类的访问权限</h4><p>方法可以访问所调用对象的私有数据，此外一个方法可以访问所属类的所有对象的私有数据。</p>
+<h4 id="4-3-8-私有方法"><a href="#4-3-8-私有方法" class="headerlink" title="4.3.8 私有方法"></a>4.3.8 私有方法</h4><p>在实现一个类时，由于公有数据非常危险，所以应该将所有的数据域都设置为私有的。</p>
+<p>在Java中，为了实现一个私有的方法，只需将关键字public改为private即可。</p>
+<h4 id="4-3-9-final实例域"><a href="#4-3-9-final实例域" class="headerlink" title="4.3.9 final实例域"></a>4.3.9 final实例域</h4><p>final声明的实例域在被构造器执行之后无法再修改</p>
+<p>例如，Employee类中的name域声明为final，因为咋对象构建之后这个值不会再被修改，即没有setName方法：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">calss Employee
+{
+    private final String name;
+    ...
+}
+</code></pre>
+<p>final修饰符大都应用于基本（primitive）类型域，或不可变（immutable）类的域</p>
+<p>（如果类中的每个方法都不会改变其对象，这种类就是不可变的类。例如，String类就是一个不可变的类）</p>
+<h3 id="4-4-静态域与静态方法"><a href="#4-4-静态域与静态方法" class="headerlink" title="4.4 静态域与静态方法"></a>4.4 静态域与静态方法</h3><h4 id="4-4-1-静态域"><a href="#4-4-1-静态域" class="headerlink" title="4.4.1 静态域"></a>4.4.1 静态域</h4><p>如果将域定义为static，每个类中只有一个这样的域。</p>
+<p>例如，假定需要给每一个雇员赋予唯一的标识码。这里给Employee类添加一个实例域id和一个静态域nextId：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">class Employee
+{
+    private static int nextId = 1;
+    private int id;
+    ...
+}
+</code></pre>
+<p>每一个雇员对象都有一个自己的id域（多个id），但这个类的所有实例将共享一个nextId域（一个静态数据域）。</p>
+<p>（即使没有一个雇员对象，静态域nextId也存在。它属于类，而不属于任何独立的对象。）</p>
+<h4 id="4-4-2-静态常量"><a href="#4-4-2-静态常量" class="headerlink" title="4.4.2 静态常量"></a>4.4.2 静态常量</h4><p>静态变量使用得比较少，但静态常量却使用得比较多。例如，在Math类中定义了一个静态常量</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public calss Math
+{
+    ...
+    public static final double PI = 3.14159265358979323846;
+    ...
+}
+</code></pre>
+<h4 id="4-4-3-静态方法"><a href="#4-4-3-静态方法" class="headerlink" title="4.4.3 静态方法"></a>4.4.3 静态方法</h4><p>静态方法是一种不能向对象实施操作的方法。例如，Math类的pow方法就是一个静态方法。表达式</p>
+<pre class=" language-lang-java"><code class="language-lang-java">Math.pow(x,a)
+</code></pre>
+<p>这里Math类是对象，显然没法对Math类施加操作</p>
+<h4 id="4-4-4-工厂方法"><a href="#4-4-4-工厂方法" class="headerlink" title="4.4.4 工厂方法"></a>4.4.4 工厂方法</h4><p>类似<code>LocalDate</code>和<code>NumberFormat</code>的类使用静态工厂方法（factory method）来构造对象。</p>
+<h4 id="4-4-5-main方法"><a href="#4-4-5-main方法" class="headerlink" title="4.4.5 main方法"></a>4.4.5 main方法</h4><p>不需要使用对象调用静态方法，例如：不需要构造Math类对象就可以调用Math.pow</p>
+<p>每一个类都有且只有一个main方法</p>
+<h3 id="4-6-对象构造"><a href="#4-6-对象构造" class="headerlink" title="4.6 对象构造"></a>4.6 对象构造</h3><p>象构造非常重要，所以Java提供了多种编写构造器的机制。</p>
+<h4 id="4-6-1-重载"><a href="#4-6-1-重载" class="headerlink" title="4.6.1 重载"></a>4.6.1 重载</h4><p>如果多个方法有相同的名字、不同的参数，便产生了重载。</p>
+<blockquote>
+<p>Java允许重载任何方法，而不只是构造器方法</p>
+</blockquote>
+<h4 id="4-6-2-默认域初始化"><a href="#4-6-2-默认域初始化" class="headerlink" title="4.6.2 默认域初始化"></a>4.6.2 默认域初始化</h4><p>如果在构造器中没有显式地给域赋予初值，那么就会被自动地赋为默认值：数值为0、布尔值为false、对象引用为null。（不提倡这样做，菜鸟才这样写）</p>
+<p>比如Employee类，假定没有在构造器中对某些域进行初始化，就会默认地将salary域初始化为0，将name和hireDay域初始化为null。</p>
+<h4 id="4-6-3-无参数的构造器"><a href="#4-6-3-无参数的构造器" class="headerlink" title="4.6.3 无参数的构造器"></a>4.6.3 无参数的构造器</h4><pre class=" language-lang-java"><code class="language-lang-java">public Employee()
+{
+    name = "";
+    salary = 0;
+    hireDay = LocalDate.now();
+}
+</code></pre>
+<p>如果类中提供了至少一个构造器，但是没有提供无参数的构造器，则在构造对象时如果没有提供参数就会被视为不合法。</p>
+<h4 id="4-6-4-显式域初始化"><a href="#4-6-4-显式域初始化" class="headerlink" title="4.6.4 显式域初始化"></a>4.6.4 显式域初始化</h4><p>通过重载类的构造器方法，有很多形式可以设置类的实例域的初始状态。确保不管怎样调用构造器，每个实例域都可以被设置为一个有意义的初值，这是一种很好的设计习惯。</p>
+<p>例如，可以在类定义中，直接将一个值赋给任何域：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">calss Employee
+{
+    private String name = "";
+}
+</code></pre>
+<h4 id="4-6-5-参数名"><a href="#4-6-5-参数名" class="headerlink" title="4.6.5 参数名"></a>4.6.5 参数名</h4><p>参数名写通俗易懂点，比如可以写成这样：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public Employee(String aName, double aSalary)    //如果这两个参数写成 n和 s别人就看不懂了
+{
+    name = aName;
+    salary = aSalary;
+}
+</code></pre>
+<h4 id="4-6-6-调用另一个构造器"><a href="#4-6-6-调用另一个构造器" class="headerlink" title="4.6.6 调用另一个构造器"></a>4.6.6 调用另一个构造器</h4><p><code>this</code>除了可以引用方法的隐式参数以外，还能调用同一个类的另一个构造器，例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public Employee(double s)
+{
+    // 调用 Employee(String,double)
+    this("Employee #" + nextId, s);
+    nextId++;
+}
+</code></pre>
+<p>当调用new Employee(60000)时，Employee(double)构造器将调用Employee(String, double)构造器。</p>
+<h4 id="4-6-7-初始化块"><a href="#4-6-7-初始化块" class="headerlink" title="4.6.7 初始化块"></a>4.6.7 初始化块</h4><p>前面已经讲过两种初始化数据域的方法：</p>
+<ul>
+<li>在构造器中设置值</li>
+<li>在声明中赋值</li>
+</ul>
+<p>此外，还有第三种机制：初始化块（initialization block）</p>
+<p>在一个类的声明中，可以包含多个代码块。只要构造类的对象，这些块就会被执行。例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">class Employee
+{
+    private static int nextId;
+    private int id;
+    private String name;
+    private double salary;
+
+    // 初始化块
+    {
+        id = nextId;
+        nextId++;
+    }
+
+    public Employee(String aName ,double aSalary)
+    {
+        name = aName;
+        salary = aSalary;
+    }
+
+    public Employee()
+    {
+        name = "";
+        salary = 0;
+    }
+    //...
+}
+</code></pre>
+<p>在这个示例中，无论使用哪个构造器构造对象，id域都在对象初始化块中被初始化。首先运行初始化块，然后才运行构造器的主体部分。（很少用这种，通常会直接将初始化代码放在构造器中）</p>
+<h4 id="4-6-8-对象析构与finalize方法"><a href="#4-6-8-对象析构与finalize方法" class="headerlink" title="4.6.8 对象析构与finalize方法"></a>4.6.8 对象析构与finalize方法</h4><p>C++中每个类都能有一个析构函数，用来回收分配给对象的存储空间。</p>
+<p>由于Java有自动的垃圾回收器，不需要人工回收内存，所以Java不支持析构器。</p>
+<p>可以为任何一个类添加finalize方法。finalize方法将在垃圾回收器清除对象之前调用。（一般不用，因为很难知道什么时候调用）</p>
+<h3 id="4-7-包"><a href="#4-7-包" class="headerlink" title="4.7 包"></a>4.7 包</h3><p>Java允许使用包（package）将类组织起来。借助于包可以方便地组织自己的代码，并将自己的代码与别人提供的代码库分开管理。使用包的主要原因是<strong>确保类名的唯一性</strong></p>
+<p>Sun公司建议将域名以逆序的形式作为包名，比如 horstmann.com 的逆序形式是 com.horstmann，这个包还可以被进一步地划分成子包，如com.horstmann. corejava</p>
+<h4 id="4-7-1-类的导入"><a href="#4-7-1-类的导入" class="headerlink" title="4.7.1 类的导入"></a>4.7.1 类的导入</h4><p>一个类可以使用所属包中的所有类，以及其他包中的公有类（public class），可以在每个类名前添加完整的包名访问，例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">java.time.LocalDate today = java.time.LocalDate.now()
+</code></pre>
+<p>写起来太麻烦，所以一般用<code>import</code>的方式导入（之后就不用写完整的包名了），例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">import java.time.*        //导入 java.time 包中所有的类
+
+LocalDate today = LocalDate.now()    //调用
+</code></pre>
+<h4 id="4-7-2-静态导入"><a href="#4-7-2-静态导入" class="headerlink" title="4.7.2 静态导入"></a>4.7.2 静态导入</h4><p><code>import</code>语句不仅可以导入类，还增加了导入静态方法和静态域的功能，例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">import static java.lang.System.*
+</code></pre>
+<p>就可以使用System类的静态方法和静态域，而不必加类名前缀：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">out.println("Goodbye, World!")
+</code></pre>
+<h4 id="4-7-3-将类放入包中"><a href="#4-7-3-将类放入包中" class="headerlink" title="4.7.3 将类放入包中"></a>4.7.3 将类放入包中</h4><p>如果没有在源文件中放置package语句，这个源文件中的类就被放置在一个默认包（defaulf package）中，默认包是一个没有名字的包。</p>
+<p>下面将类分别放在不同的包中（com. horstmann.corejava和com.mycompany）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211119203950.png" width="40%"></img></p>
+<p>在这种情况下，仍然要从基目录编译和运行类：</p>
+<p><code>java com/horstmann/corejava/Employee.java</code></p>
+<p><code>java com/horstmann/corejava/Employee</code></p>
+<h4 id="4-7-4-包作用域"><a href="#4-7-4-包作用域" class="headerlink" title="4.7.4 包作用域"></a>4.7.4 包作用域</h4><p>标记为public的部分可以被任意的类使用；标记为private的部分只能被定义它们的类使用</p>
+<p>如果没有指定public或private，这个部分（类、方法或变量）可以被同一个包中的所有方法访问。</p>
+<blockquote>
+<p>注意：声明和定义变量别忘了在前面加 private</p>
+</blockquote>
+<h3 id="4-8-类路径"><a href="#4-8-类路径" class="headerlink" title="4.8 类路径"></a>4.8 类路径</h3><p>类路径包括：</p>
+<ul>
+<li>基目录/home/user/classdir或c:\classes；</li>
+<li>当前目录(.)；</li>
+<li>JAR文件/home/user/archives/archive.jar或c:\archives\archive.jar</li>
+</ul>
+<p>例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">/home/user/calssdir:.:/home/user/archives/archive.jar
+</code></pre>
+<p>（在UNIX环境中，类路径中的不同项目之间采用冒号<code>:</code>分隔，window中用分号<code>;</code>分隔）</p>
+<p>SE6 开始用<code>*</code>或<code>&#39;*&#39;</code>表示通配符（但是UNIX中禁止使用<code>*</code>以防止shell命令进一步扩展，所以推荐用<code>&#39;*&#39;</code>）</p>
+<h3 id="4-9-文档注释"><a href="#4-9-文档注释" class="headerlink" title="4.9 文档注释"></a>4.9 文档注释</h3><p>JDK包含一个很有用的工具，叫做javadoc，它可以由源文件生成一个HTML文档。</p>
+<h4 id="4-9-1-注释的插入"><a href="#4-9-1-注释的插入" class="headerlink" title="4.9.1 注释的插入"></a>4.9.1 注释的插入</h4><p>这几部分一般要写一下注释：</p>
+<ul>
+<li>包</li>
+<li>公有类与接口</li>
+<li>公有的和受保护的构造器及方法</li>
+<li>公有的和受保护的域</li>
+</ul>
+<h4 id="4-9-2-类注释"><a href="#4-9-2-类注释" class="headerlink" title="4.9.2 类注释"></a>4.9.2 类注释</h4><p>类注释一般放在import语句之后，类定义之前</p>
+<pre class=" language-lang-java"><code class="language-lang-java">/*
+    这里写类注释
+*/
+public class Employee
+{
+    ...
+}
+</code></pre>
+<h4 id="4-9-3-方法注释"><a href="#4-9-3-方法注释" class="headerlink" title="4.9.3 方法注释"></a>4.9.3 方法注释</h4><p>每一个方法注释必须放在所描述的方法之前。除了通用标记之外，还可以使用下面的标记：</p>
+<ul>
+<li>@param变量描述这个标记将对当前方法的“param”（参数）部分添加一个条目。这个描述可以占据多行，并可以使用HTML标记。一个方法的所有@param标记必须放在一起。</li>
+<li>@return描述这个标记将对当前方法添加“return”（返回）部分。这个描述可以跨越多行，并可以使用HTML标记。</li>
+<li>@throws类描述这个标记将添加一个注释，用于表示这个方法有可能抛出异常。</li>
+</ul>
+<p>例如：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">/*
+    员工涨薪
+    @param byPercent涨薪百分比
+    @return 涨过后的资薪
+*/
+public double raiseSalary(double byPercent)
+{
+    double raise = salary * byPercent / 100;
+    this.salary += raise;
+    return raise;
+}
+</code></pre>
+<h3 id="4-10-类设计技巧"><a href="#4-10-类设计技巧" class="headerlink" title="4.10 类设计技巧"></a>4.10 类设计技巧</h3><ol>
+<li>一定要保证数据私有</li>
+<li>一定要对数据初始化</li>
+<li>不要在类中使用过多的实例域</li>
+<li>不是所有的域都需要独立的域访问器和域更改器</li>
+<li>将职责过多的类进行分解</li>
+<li>类名和方法名要能够体现它们的职责</li>
+<li>优先使用不可变的类（涉及在多个线程间的安全共享）</li>
+</ol>
+<h2 id="第5章-继承"><a href="#第5章-继承" class="headerlink" title="第5章 继承"></a>第5章 继承</h2><p>继承（inheritance）就是基于已存在的类构造一个新的类，简单讲就是复用类的方法和实例域</p>
+<h3 id="5-1-类、超类和子类"><a href="#5-1-类、超类和子类" class="headerlink" title="5.1 类、超类和子类"></a>5.1 类、超类和子类</h3><h4 id="5-1-1-定义子类"><a href="#5-1-1-定义子类" class="headerlink" title="5.1.1 定义子类"></a>5.1.1 定义子类</h4><p>由继承Employee类来定义Manager类的格式，关键字extends表示继承：</p>
+<pre class=" language-lang-java"><code class="language-lang-java">public class Manager extends Employee
+{
+    // 添加实例域和方法
+}
+</code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">赤沙咀-菜虚坤</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.memorydrive.online/2021/11/20/java-he-xin-ji-zhu-juan-i-yue-du-bi-ji/">https://www.memorydrive.online/2021/11/20/java-he-xin-ji-zhu-juan-i-yue-du-bi-ji/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">赤沙咀-菜虚坤</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'SBRP8BrjzgaaVUSSLVkFMB7W-gzGzoHsz',
+        appKey: 'qhVxMo6VBwDcXKq9PzE8lnyR',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/11/20/java-he-xin-ji-zhu-juan-i-yue-du-bi-ji/">
+                    <div class="card-image">
+                        
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_2683.jpg" class="responsive-img" alt="《Java核心技术 卷I》阅读笔记">
+                        
+                        <span class="card-title">《Java核心技术 卷I》阅读笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            未完待续...
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
+                                    开发
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/11/10/clickhouse-yuan-li-jie-xi-yu-ying-yong-shi-jian-yue-du-bi-ji/">
+                    <div class="card-image">
+                        
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_2187.jpg" class="responsive-img" alt="《ClickHouse原理解析与应用实践》阅读笔记">
+                        
+                        <span class="card-title">《ClickHouse原理解析与应用实践》阅读笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            秀啊
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    大数据技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <!-- <a href="/about" target="_blank">赤沙咀-菜虚坤</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br> -->
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">124.4k</span>&nbsp;字
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/ChoiNgai" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1354280129@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1354280129" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1354280129" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?868ac38553679cc31b5f7b7a71851500";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<!-- 流程图 -->
+
+  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'dark'});
+    }
+  </script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

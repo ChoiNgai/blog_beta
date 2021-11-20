@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-11-10T03:38:51.825Z</updated>
+  <updated>2021-11-20T14:57:37.425Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>《Java核心技术 卷I》阅读笔记</title>
+    <link href="https://www.memorydrive.online/2021/11/20/java-he-xin-ji-zhu-juan-i-yue-du-bi-ji/"/>
+    <id>https://www.memorydrive.online/2021/11/20/java-he-xin-ji-zhu-juan-i-yue-du-bi-ji/</id>
+    <published>2021-11-20T14:47:44.000Z</published>
+    <updated>2021-11-20T14:57:37.425Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;第1章-Java程序设计概述&quot;&gt;&lt;a href=&quot;#第1章-Java程序设计概述&quot; class=&quot;headerlink&quot; title=&quot;第1章 Java程序设计概述&quot;&gt;&lt;/a&gt;第1章 Java程序设计概述&lt;/h2&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="开发" scheme="https://www.memorydrive.online/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Java" scheme="https://www.memorydrive.online/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《ClickHouse原理解析与应用实践》阅读笔记</title>
     <link href="https://www.memorydrive.online/2021/11/10/clickhouse-yuan-li-jie-xi-yu-ying-yong-shi-jian-yue-du-bi-ji/"/>
     <id>https://www.memorydrive.online/2021/11/10/clickhouse-yuan-li-jie-xi-yu-ying-yong-shi-jian-yue-du-bi-ji/</id>
     <published>2021-11-10T03:20:33.000Z</published>
-    <updated>2021-11-10T03:38:51.825Z</updated>
+    <updated>2021-11-20T14:57:57.765Z</updated>
     
     <summary type="html">
     
@@ -149,7 +176,7 @@
 &lt;p&gt;&lt;strong&gt;阅读提示：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;为了SQL语句的简洁和便于阅读，每道题中的子查询在下一步骤中可能用表别名表示而不全写出来&lt;/p&gt;
 &lt;p&gt;例如：&lt;/p&gt;
-&lt;pre class=&quot; language-sql&quot;&gt;&lt;code
+&lt;pre class=&quot;
         
       
     
@@ -327,37 +354,6 @@
     
     
       <category term="Hadoop" scheme="https://www.memorydrive.online/tags/Hadoop/"/>
-    
-      <category term="Spark" scheme="https://www.memorydrive.online/tags/Spark/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>优秀博文收录(BigData)</title>
-    <link href="https://www.memorydrive.online/2021/05/09/you-xiu-bo-wen-shou-lu-bigdata/"/>
-    <id>https://www.memorydrive.online/2021/05/09/you-xiu-bo-wen-shou-lu-bigdata/</id>
-    <published>2021-05-09T15:26:11.000Z</published>
-    <updated>2021-06-07T10:03:58.347Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;数据结构&quot;&gt;&lt;a href=&quot;#数据结构&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Hadoop" scheme="https://www.memorydrive.online/tags/Hadoop/"/>
-    
-      <category term="Hive" scheme="https://www.memorydrive.online/tags/Hive/"/>
     
       <category term="Spark" scheme="https://www.memorydrive.online/tags/Spark/"/>
     
