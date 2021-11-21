@@ -583,14 +583,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    19 分
                 </div>
                 
 
@@ -601,843 +601,748 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><a href="https://www.nowcoder.com/activity/oj?tab=1" target="_blank" rel="noopener">牛客SQL题</a></p>
-<h4 id="1"><a href="#1" class="headerlink" title="1"></a>1</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT * FROM employees 
-WHERE hire_date == ( SELECT MAX(hire_date) FROM employees )
-</code></pre>
+<h4 id="1"><a href="#1" class="headerlink" title="1"></a>1</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> employees 
+<span class="token keyword">WHERE</span> hire_date <span class="token operator">=</span><span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>hire_date<span class="token punctuation">)</span> <span class="token keyword">FROM</span> employees <span class="token punctuation">)</span></code></pre>
 <p>或</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT * FROM employees 
-ORDER BY hire_date DESC
-LIMIT 0,1
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> employees 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> hire_date <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span></code></pre>
 <p>错误写法：</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT emp_no,MAX(hire_date),first_name,last_name,gender,hire_date FROM employees
-</code></pre>
-<h4 id="2"><a href="#2" class="headerlink" title="2"></a>2</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT * FROM employees 
-ORDER BY hire_date DESC
-LIMIT 2,1
-</code></pre>
-<h4 id="3"><a href="#3" class="headerlink" title="3"></a>3</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.emp_no,t1.salary,t1.from_date,t1.to_date,t2.dept_no 
-FROM salaries t1
-LEFT JOIN dept_manager t2
-ON t1.emp_no = t2.emp_no
-WHERE t2.dept_no IS NOT NULL
-ORDER BY t1.emp_no
-</code></pre>
-<h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.last_name,t1.first_name,t2.dept_no 
-FROM employees t1
-LEFT JOIN dept_emp t2
-ON t1.emp_no = t2.emp_no
-WHERE t2.dept_no IS NOT NULL
-</code></pre>
-<h4 id="5"><a href="#5" class="headerlink" title="5"></a>5</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.last_name,t1.first_name,t2.dept_no 
-FROM employees t1
-LEFT JOIN dept_emp t2
-ON t1.emp_no = t2.emp_no
-</code></pre>
-<h4 id="7"><a href="#7" class="headerlink" title="7"></a>7</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT emp_no,COUNT(emp_no) AS t FROM salaries
-GROUP BY emp_no
-HAVING COUNT(emp_no) > 15
-</code></pre>
-<h4 id="8"><a href="#8" class="headerlink" title="8"></a>8</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT DISTINCT salary FROM salaries
-ORDER BY salary DESC
-</code></pre>
-<h4 id="10"><a href="#10" class="headerlink" title="10"></a>10</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT emp_no FROM employees
-WHERE emp_no NOT IN (
-    SELECT emp_no FROM dept_manager
-)
-</code></pre>
-<h4 id="11"><a href="#11" class="headerlink" title="11"></a>11</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.emp_no,t2.emp_no 
-FROM dept_emp t1
-LEFT JOIN dept_manager t2
-ON t1.dept_no = t2.dept_no 
-WHERE t1.emp_no <> t2.emp_no
-</code></pre>
-<h4 id="12"><a href="#12" class="headerlink" title="12"></a>12</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.dept_no,t1.emp_no,t2.salary
-FROM dept_emp t1
-JOIN salaries t2
-ON t1.emp_no = t2.emp_no
-WHERE (dept_no,salary) IN (
-    SELECT dept_no,MAX(salary) AS salary 
-    FROM dept_emp t1
-    JOIN salaries t2
-    ON t1.emp_no = t2.emp_no
-    GROUP BY dept_no
-)
-ORDER BY t1.dept_no
-</code></pre>
-<h4 id="15"><a href="#15" class="headerlink" title="15"></a>15</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT * FROM employees
-WHERE emp_no % 2 == 1 AND last_name <> 'Mary'
-ORDER BY hire_date DESC
-</code></pre>
-<h4 id="16"><a href="#16" class="headerlink" title="16"></a>16</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.title,AVG(t2.salary) 
-FROM titles t1
-JOIN salaries t2
-ON t1.emp_no = t2.emp_no
-GROUP BY t1.title
-ORDER BY AVG(t2.salary)
-</code></pre>
-<h4 id="17"><a href="#17" class="headerlink" title="17"></a>17</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT emp_no,salary FROM salaries
-ORDER BY salary DESC
-LIMIT 1,1
-</code></pre>
-<h4 id="18"><a href="#18" class="headerlink" title="18"></a>18</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t2.emp_no,t2.salary,t1.last_name,t1.first_name 
-FROM employees t1
-JOIN salaries t2
-ON t1.emp_no = t2.emp_no
-WHERE salary IN (
-    SELECT MAX(salary) AS salary FROM salaries
-    WHERE salary < (SELECT MAX(salary) AS salary FROM salaries)
-)
-</code></pre>
-<h4 id="19"><a href="#19" class="headerlink" title="19"></a>19</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT last_name,first_name,dept_name FROM employees t1
-LEFT JOIN dept_emp t2 ON t1.emp_no = t2.emp_no
-LEFT JOIN departments t3 ON t2.dept_no = t3.dept_no
-</code></pre>
-<h4 id="21"><a href="#21" class="headerlink" title="21"></a>21</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT emp_no,(EndSalary- StartSalary) AS growth FROM (
-    SELECT t1.emp_no,t2.salary AS EndSalary,t3.salary AS StartSalary
-    FROM salaries t1
-    LEFT JOIN (
-        SELECT emp_no,salary FROM salaries
-        WHERE to_date='9999-01-01'
-    ) t2 ON t1.emp_no = t2.emp_no
-    LEFT JOIN (
-        SELECT salaries.emp_no,salary FROM salaries
-        LEFT JOIN employees ON salaries.emp_no = salaries.emp_no
-        WHERE from_date = hire_date
-        GROUP BY salaries.emp_no
-    ) t3 ON t2.emp_no = t3.emp_no
-    WHERE t1.emp_no IN (
-        -- 查询在职员工编号
-        SELECT emp_no FROM salaries
-        WHERE to_date='9999-01-01'
-    )
-    GROUP BY t1.emp_no
-) t
-ORDER BY (EndSalary- StartSalary)
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> emp_no<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>hire_date<span class="token punctuation">)</span><span class="token punctuation">,</span>first_name<span class="token punctuation">,</span>last_name<span class="token punctuation">,</span>gender<span class="token punctuation">,</span>hire_date <span class="token keyword">FROM</span> employees</code></pre>
+<h4 id="2"><a href="#2" class="headerlink" title="2"></a>2</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> employees 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> hire_date <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span></code></pre>
+<h4 id="3"><a href="#3" class="headerlink" title="3"></a>3</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>salary<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>from_date<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>to_date<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>dept_no 
+<span class="token keyword">FROM</span> salaries t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> dept_manager t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+<span class="token keyword">WHERE</span> t2<span class="token punctuation">.</span>dept_no <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>emp_no</code></pre>
+<h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>last_name<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>first_name<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>dept_no 
+<span class="token keyword">FROM</span> employees t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> dept_emp t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+<span class="token keyword">WHERE</span> t2<span class="token punctuation">.</span>dept_no <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span></code></pre>
+<h4 id="5"><a href="#5" class="headerlink" title="5"></a>5</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>last_name<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>first_name<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>dept_no 
+<span class="token keyword">FROM</span> employees t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> dept_emp t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no</code></pre>
+<h4 id="7"><a href="#7" class="headerlink" title="7"></a>7</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> emp_no<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span>emp_no<span class="token punctuation">)</span> <span class="token keyword">AS</span> t <span class="token keyword">FROM</span> salaries
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> emp_no
+<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>emp_no<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">15</span></code></pre>
+<h4 id="8"><a href="#8" class="headerlink" title="8"></a>8</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> salary <span class="token keyword">FROM</span> salaries
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary <span class="token keyword">DESC</span></code></pre>
+<h4 id="10"><a href="#10" class="headerlink" title="10"></a>10</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> emp_no <span class="token keyword">FROM</span> employees
+<span class="token keyword">WHERE</span> emp_no <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> emp_no <span class="token keyword">FROM</span> dept_manager
+<span class="token punctuation">)</span></code></pre>
+<h4 id="11"><a href="#11" class="headerlink" title="11"></a>11</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>emp_no 
+<span class="token keyword">FROM</span> dept_emp t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> dept_manager t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>dept_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>dept_no 
+<span class="token keyword">WHERE</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">&lt;></span> t2<span class="token punctuation">.</span>emp_no</code></pre>
+<h4 id="12"><a href="#12" class="headerlink" title="12"></a>12</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>dept_no<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>salary
+<span class="token keyword">FROM</span> dept_emp t1
+<span class="token keyword">JOIN</span> salaries t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>dept_no<span class="token punctuation">,</span>salary<span class="token punctuation">)</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> dept_no<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> salary 
+    <span class="token keyword">FROM</span> dept_emp t1
+    <span class="token keyword">JOIN</span> salaries t2
+    <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> dept_no
+<span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>dept_no</code></pre>
+<h4 id="15"><a href="#15" class="headerlink" title="15"></a>15</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> employees
+<span class="token keyword">WHERE</span> emp_no <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">=</span><span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">AND</span> last_name <span class="token operator">&lt;></span> <span class="token string">'Mary'</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> hire_date <span class="token keyword">DESC</span></code></pre>
+<h4 id="16"><a href="#16" class="headerlink" title="16"></a>16</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>title<span class="token punctuation">,</span><span class="token function">AVG</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span>salary<span class="token punctuation">)</span> 
+<span class="token keyword">FROM</span> titles t1
+<span class="token keyword">JOIN</span> salaries t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>title
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token function">AVG</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span>salary<span class="token punctuation">)</span></code></pre>
+<h4 id="17"><a href="#17" class="headerlink" title="17"></a>17</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> emp_no<span class="token punctuation">,</span>salary <span class="token keyword">FROM</span> salaries
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span></code></pre>
+<h4 id="18"><a href="#18" class="headerlink" title="18"></a>18</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t2<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>salary<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>last_name<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>first_name 
+<span class="token keyword">FROM</span> employees t1
+<span class="token keyword">JOIN</span> salaries t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+<span class="token keyword">WHERE</span> salary <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> salary <span class="token keyword">FROM</span> salaries
+    <span class="token keyword">WHERE</span> salary <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> salary <span class="token keyword">FROM</span> salaries<span class="token punctuation">)</span>
+<span class="token punctuation">)</span></code></pre>
+<h4 id="19"><a href="#19" class="headerlink" title="19"></a>19</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> last_name<span class="token punctuation">,</span>first_name<span class="token punctuation">,</span>dept_name <span class="token keyword">FROM</span> employees t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> dept_emp t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> departments t3 <span class="token keyword">ON</span> t2<span class="token punctuation">.</span>dept_no <span class="token operator">=</span> t3<span class="token punctuation">.</span>dept_no</code></pre>
+<h4 id="21"><a href="#21" class="headerlink" title="21"></a>21</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> emp_no<span class="token punctuation">,</span><span class="token punctuation">(</span>EndSalary<span class="token operator">-</span> StartSalary<span class="token punctuation">)</span> <span class="token keyword">AS</span> growth <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>salary <span class="token keyword">AS</span> EndSalary<span class="token punctuation">,</span>t3<span class="token punctuation">.</span>salary <span class="token keyword">AS</span> StartSalary
+    <span class="token keyword">FROM</span> salaries t1
+    <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> emp_no<span class="token punctuation">,</span>salary <span class="token keyword">FROM</span> salaries
+        <span class="token keyword">WHERE</span> to_date<span class="token operator">=</span><span class="token string">'9999-01-01'</span>
+    <span class="token punctuation">)</span> t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+    <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> salaries<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span>salary <span class="token keyword">FROM</span> salaries
+        <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> employees <span class="token keyword">ON</span> salaries<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> salaries<span class="token punctuation">.</span>emp_no
+        <span class="token keyword">WHERE</span> from_date <span class="token operator">=</span> hire_date
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> salaries<span class="token punctuation">.</span>emp_no
+    <span class="token punctuation">)</span> t3 <span class="token keyword">ON</span> t2<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t3<span class="token punctuation">.</span>emp_no
+    <span class="token keyword">WHERE</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">IN</span> <span class="token punctuation">(</span>
+        <span class="token comment" spellcheck="true">-- 查询在职员工编号</span>
+        <span class="token keyword">SELECT</span> emp_no <span class="token keyword">FROM</span> salaries
+        <span class="token keyword">WHERE</span> to_date<span class="token operator">=</span><span class="token string">'9999-01-01'</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>emp_no
+<span class="token punctuation">)</span> t
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token punctuation">(</span>EndSalary<span class="token operator">-</span> StartSalary<span class="token punctuation">)</span></code></pre>
 <p>错误写法（这种没考虑到降薪的情况）：</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT emp_no,(MaxSalary- MinSalary) AS growth FROM (
-    SELECT emp_no,MAX(salary) AS MaxSalary,MIN(salary)  AS MinSalary
-    FROM salaries
-    WHERE emp_no IN (
-        -- 查询在职员工编号
-        SELECT emp_no FROM salaries
-        WHERE to_date='9999-01-01'
-    )
-    GROUP BY emp_no
-) t
-ORDER BY (MaxSalary- MinSalary)
-</code></pre>
-<h4 id="22"><a href="#22" class="headerlink" title="22"></a>22</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t3.dept_no,t3.dept_name,COUNT(*) FROM salaries t1
-LEFT JOIN dept_emp t2 ON t1.emp_no = t2.emp_no
-LEFT JOIN departments t3 ON t2.dept_no = t3.dept_no
-GROUP BY t3.dept_no
-ORDER BY t3.dept_no
-</code></pre>
-<h4 id="23"><a href="#23" class="headerlink" title="23"></a>23</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT emp_no,salary,DENSE_RANK() OVER(ORDER BY salary DESC) FROM salaries
-</code></pre>
-<h4 id="24"><a href="#24" class="headerlink" title="24"></a>24</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t3.dept_no,t1.emp_no,t2.salary FROM (
-    SELECT * FROM employees
-    WHERE emp_no NOT IN (
-        SELECT emp_no FROM dept_manager
-    )
-) t1 
-LEFT JOIN (
-    SELECT * FROM salaries
-) t2 ON t1.emp_no = t2.emp_no 
-LEFT JOIN (
-    SELECT * FROM dept_emp
-) t3 ON t2.emp_no = t3.emp_no
-WHERE t3.dept_no IS NOT NULL
-</code></pre>
-<h4 id="25"><a href="#25" class="headerlink" title="25"></a>25</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.emp_no,t4.emp_no,t1.salary,t4.salary
-FROM salaries t1
-LEFT JOIN dept_emp t2 ON t1.emp_no = t2.emp_no
-LEFT JOIN dept_manager t3 ON t2.dept_no = t3.dept_no
-LEFT JOIN salaries t4 ON t3.emp_no = t4.emp_no
-WHERE t1.salary > t4.salary
-</code></pre>
-<h4 id="26"><a href="#26" class="headerlink" title="26"></a>26</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.dept_no,t3.dept_name,t2.title,COUNT(1)
-FROM dept_emp t1
-LEFT JOIN titles t2 ON t1.emp_no = t2.emp_no
-LEFT JOIN departments t3 ON t1.dept_no = t3.dept_no
-GROUP BY t1.dept_no,t3.dept_name,t2.title
-ORDER BY t1.dept_no
-</code></pre>
-<h4 id="28"><a href="#28" class="headerlink" title="28"></a>28</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t3.name,COUNT(*) FROM film t1
-LEFT JOIN film_category t2 ON t1.film_id = t2.film_id
-LEFT JOIN category t3 ON t2.category_id = t3.category_id
-WHERE t1.description LIKE '%robot%' AND t2.category_id IN (
-    SELECT category_id FROM film_category
-    GROUP BY category_id
-    HAVING COUNT(*) >= 5
-)
-GROUP BY t3.name
-</code></pre>
-<h4 id="29"><a href="#29" class="headerlink" title="29"></a>29</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.film_id,t1.title FROM film t1
-LEFT JOIN film_category t2 ON t1.film_id = t2.film_id
-WHERE t2.category_id IS NULL
-</code></pre>
-<h4 id="30"><a href="#30" class="headerlink" title="30"></a>30</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.title,t1.description FROM film t1
-LEFT JOIN film_category t2 ON t1.film_id = t2.film_id
-LEFT JOIN category t3 ON t2.category_id = t3.category_id
-WHERE t3.name = 'Action'
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> emp_no<span class="token punctuation">,</span><span class="token punctuation">(</span>MaxSalary<span class="token operator">-</span> MinSalary<span class="token punctuation">)</span> <span class="token keyword">AS</span> growth <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> emp_no<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> MaxSalary<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>  <span class="token keyword">AS</span> MinSalary
+    <span class="token keyword">FROM</span> salaries
+    <span class="token keyword">WHERE</span> emp_no <span class="token operator">IN</span> <span class="token punctuation">(</span>
+        <span class="token comment" spellcheck="true">-- 查询在职员工编号</span>
+        <span class="token keyword">SELECT</span> emp_no <span class="token keyword">FROM</span> salaries
+        <span class="token keyword">WHERE</span> to_date<span class="token operator">=</span><span class="token string">'9999-01-01'</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> emp_no
+<span class="token punctuation">)</span> t
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token punctuation">(</span>MaxSalary<span class="token operator">-</span> MinSalary<span class="token punctuation">)</span></code></pre>
+<h4 id="22"><a href="#22" class="headerlink" title="22"></a>22</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t3<span class="token punctuation">.</span>dept_no<span class="token punctuation">,</span>t3<span class="token punctuation">.</span>dept_name<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> salaries t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> dept_emp t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> departments t3 <span class="token keyword">ON</span> t2<span class="token punctuation">.</span>dept_no <span class="token operator">=</span> t3<span class="token punctuation">.</span>dept_no
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t3<span class="token punctuation">.</span>dept_no
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t3<span class="token punctuation">.</span>dept_no</code></pre>
+<h4 id="23"><a href="#23" class="headerlink" title="23"></a>23</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> emp_no<span class="token punctuation">,</span>salary<span class="token punctuation">,</span>DENSE_RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> salaries</code></pre>
+<h4 id="24"><a href="#24" class="headerlink" title="24"></a>24</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t3<span class="token punctuation">.</span>dept_no<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>salary <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> employees
+    <span class="token keyword">WHERE</span> emp_no <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> emp_no <span class="token keyword">FROM</span> dept_manager
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span> t1 
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> salaries
+<span class="token punctuation">)</span> t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no 
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> dept_emp
+<span class="token punctuation">)</span> t3 <span class="token keyword">ON</span> t2<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t3<span class="token punctuation">.</span>emp_no
+<span class="token keyword">WHERE</span> t3<span class="token punctuation">.</span>dept_no <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span></code></pre>
+<h4 id="25"><a href="#25" class="headerlink" title="25"></a>25</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span>t4<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>salary<span class="token punctuation">,</span>t4<span class="token punctuation">.</span>salary
+<span class="token keyword">FROM</span> salaries t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> dept_emp t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> dept_manager t3 <span class="token keyword">ON</span> t2<span class="token punctuation">.</span>dept_no <span class="token operator">=</span> t3<span class="token punctuation">.</span>dept_no
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> salaries t4 <span class="token keyword">ON</span> t3<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t4<span class="token punctuation">.</span>emp_no
+<span class="token keyword">WHERE</span> t1<span class="token punctuation">.</span>salary <span class="token operator">></span> t4<span class="token punctuation">.</span>salary</code></pre>
+<h4 id="26"><a href="#26" class="headerlink" title="26"></a>26</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>dept_no<span class="token punctuation">,</span>t3<span class="token punctuation">.</span>dept_name<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>title<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dept_emp t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> titles t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> departments t3 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>dept_no <span class="token operator">=</span> t3<span class="token punctuation">.</span>dept_no
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>dept_no<span class="token punctuation">,</span>t3<span class="token punctuation">.</span>dept_name<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>title
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>dept_no</code></pre>
+<h4 id="28"><a href="#28" class="headerlink" title="28"></a>28</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t3<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> film t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> film_category t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>film_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>film_id
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> category t3 <span class="token keyword">ON</span> t2<span class="token punctuation">.</span>category_id <span class="token operator">=</span> t3<span class="token punctuation">.</span>category_id
+<span class="token keyword">WHERE</span> t1<span class="token punctuation">.</span>description <span class="token operator">LIKE</span> <span class="token string">'%robot%'</span> <span class="token operator">AND</span> t2<span class="token punctuation">.</span>category_id <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> category_id <span class="token keyword">FROM</span> film_category
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> category_id
+    <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">5</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t3<span class="token punctuation">.</span>name</code></pre>
+<h4 id="29"><a href="#29" class="headerlink" title="29"></a>29</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>film_id<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>title <span class="token keyword">FROM</span> film t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> film_category t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>film_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>film_id
+<span class="token keyword">WHERE</span> t2<span class="token punctuation">.</span>category_id <span class="token operator">IS</span> <span class="token boolean">NULL</span> </code></pre>
+<h4 id="30"><a href="#30" class="headerlink" title="30"></a>30</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>title<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>description <span class="token keyword">FROM</span> film t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> film_category t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>film_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>film_id
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> category t3 <span class="token keyword">ON</span> t2<span class="token punctuation">.</span>category_id <span class="token operator">=</span> t3<span class="token punctuation">.</span>category_id
+<span class="token keyword">WHERE</span> t3<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Action'</span></code></pre>
 <h4 id="32"><a href="#32" class="headerlink" title="32"></a>32</h4><ul>
 <li>sqlite</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT last_name||' '||first_name AS Name FROM employees
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> last_name<span class="token operator">||</span><span class="token string">' '</span><span class="token operator">||</span>first_name <span class="token keyword">AS</span> Name <span class="token keyword">FROM</span> employees</code></pre>
 <ul>
 <li>MySQL</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT CONCAT(last_name,' ',first_name) FROM employees
-</code></pre>
-<h4 id="33"><a href="#33" class="headerlink" title="33"></a>33</h4><pre class=" language-lang-sql"><code class="language-lang-sql">CREATE TABLE actor(
-    actor_id smallint(5) PRIMARY KEY,
-    first_name varchar(45) NOT NULL,
-    last_name varchar(45) NOT NULL,
-    last_update date NOT NULL
-)
-</code></pre>
-<h4 id="34"><a href="#34" class="headerlink" title="34"></a>34</h4><pre class=" language-lang-sql"><code class="language-lang-sql">INSERT INTO actor
-VALUES(1,'PENELOPE','GUINESS','2006-02-15 12:34:33'),
-      (2,'NICK','WAHLBERG','2006-02-15 12:34:33')
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> CONCAT<span class="token punctuation">(</span>last_name<span class="token punctuation">,</span><span class="token string">' '</span><span class="token punctuation">,</span>first_name<span class="token punctuation">)</span> <span class="token keyword">FROM</span> employees</code></pre>
+<h4 id="33"><a href="#33" class="headerlink" title="33"></a>33</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> actor<span class="token punctuation">(</span>
+    actor_id <span class="token keyword">smallint</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+    first_name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    last_name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    last_update <span class="token keyword">date</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+<span class="token punctuation">)</span></code></pre>
+<h4 id="34"><a href="#34" class="headerlink" title="34"></a>34</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> actor
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'PENELOPE'</span><span class="token punctuation">,</span><span class="token string">'GUINESS'</span><span class="token punctuation">,</span><span class="token string">'2006-02-15 12:34:33'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'NICK'</span><span class="token punctuation">,</span><span class="token string">'WAHLBERG'</span><span class="token punctuation">,</span><span class="token string">'2006-02-15 12:34:33'</span><span class="token punctuation">)</span></code></pre>
 <h4 id="35"><a href="#35" class="headerlink" title="35"></a>35</h4><ul>
 <li>MySQL</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">INSERT IGNORE INTO actor VALUES('3','ED','CHASE','2006-02-15 12:34:33')
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">IGNORE</span> <span class="token keyword">INTO</span> actor <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token string">'3'</span><span class="token punctuation">,</span><span class="token string">'ED'</span><span class="token punctuation">,</span><span class="token string">'CHASE'</span><span class="token punctuation">,</span><span class="token string">'2006-02-15 12:34:33'</span><span class="token punctuation">)</span></code></pre>
 <ul>
 <li>sqlite</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">INSERT OR IGNORE INTO actor VALUES('3','ED','CHASE','2006-02-15 12:34:33')
-</code></pre>
-<h4 id="36"><a href="#36" class="headerlink" title="36"></a>36</h4><pre class=" language-lang-sql"><code class="language-lang-sql">CREATE TABLE actor_name(
-    first_name varchar(45) NOT NULL,
-    last_name varchar(45) NOT NULL
-);
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token operator">OR</span> <span class="token keyword">IGNORE</span> <span class="token keyword">INTO</span> actor <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token string">'3'</span><span class="token punctuation">,</span><span class="token string">'ED'</span><span class="token punctuation">,</span><span class="token string">'CHASE'</span><span class="token punctuation">,</span><span class="token string">'2006-02-15 12:34:33'</span><span class="token punctuation">)</span></code></pre>
+<h4 id="36"><a href="#36" class="headerlink" title="36"></a>36</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> actor_name<span class="token punctuation">(</span>
+    first_name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    last_name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-INSERT INTO actor_name
-SELECT first_name,last_name FROM actor
-</code></pre>
-<h4 id="37"><a href="#37" class="headerlink" title="37"></a>37</h4><pre class=" language-lang-sql"><code class="language-lang-sql">ALTER TABLE actor ADD UNIQUE uniq_idx_firstname(first_name);
-ALTER TABLE actor ADD UNIQUE idx_lastname(last_name);
-</code></pre>
-<h4 id="38"><a href="#38" class="headerlink" title="38"></a>38</h4><pre class=" language-lang-sql"><code class="language-lang-sql">CREATE VIEW actor_name_view AS 
-SELECT first_name AS first_name_v,last_name AS last_name_v FROM actor
-</code></pre>
-<h4 id="39"><a href="#39" class="headerlink" title="39"></a>39</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT * FROM salaries FORCE INDEX (idx_emp_no) WHERE emp_no = 10005
-</code></pre>
-<h4 id="40"><a href="#40" class="headerlink" title="40"></a>40</h4><pre class=" language-lang-sql"><code class="language-lang-sql">ALTER TABLE actor ADD create_date datetime NOT NULL DEFAULT '2020-10-01 00:00:00'
-</code></pre>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> actor_name
+<span class="token keyword">SELECT</span> first_name<span class="token punctuation">,</span>last_name <span class="token keyword">FROM</span> actor</code></pre>
+<h4 id="37"><a href="#37" class="headerlink" title="37"></a>37</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> actor <span class="token keyword">ADD</span> <span class="token keyword">UNIQUE</span> uniq_idx_firstname<span class="token punctuation">(</span>first_name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> actor <span class="token keyword">ADD</span> <span class="token keyword">UNIQUE</span> idx_lastname<span class="token punctuation">(</span>last_name<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="38"><a href="#38" class="headerlink" title="38"></a>38</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> actor_name_view <span class="token keyword">AS</span> 
+<span class="token keyword">SELECT</span> first_name <span class="token keyword">AS</span> first_name_v<span class="token punctuation">,</span>last_name <span class="token keyword">AS</span> last_name_v <span class="token keyword">FROM</span> actor</code></pre>
+<h4 id="39"><a href="#39" class="headerlink" title="39"></a>39</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> salaries <span class="token keyword">FORCE</span> <span class="token keyword">INDEX</span> <span class="token punctuation">(</span>idx_emp_no<span class="token punctuation">)</span> <span class="token keyword">WHERE</span> emp_no <span class="token operator">=</span> <span class="token number">10005</span></code></pre>
+<h4 id="40"><a href="#40" class="headerlink" title="40"></a>40</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> actor <span class="token keyword">ADD</span> create_date <span class="token keyword">datetime</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">'2020-10-01 00:00:00'</span></code></pre>
 <h4 id="41"><a href="#41" class="headerlink" title="41"></a>41</h4><p>（这个不是我写的）</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">create trigger audit_log
-after insert on employees_test
-for each row
-begin
-    insert into audit values(new.id,new.name);
-end
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">trigger</span> audit_log
+<span class="token keyword">after</span> <span class="token keyword">insert</span> <span class="token keyword">on</span> employees_test
+<span class="token keyword">for each row</span>
+<span class="token keyword">begin</span>
+    <span class="token keyword">insert</span> <span class="token keyword">into</span> audit <span class="token keyword">values</span><span class="token punctuation">(</span>new<span class="token punctuation">.</span>id<span class="token punctuation">,</span>new<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span></code></pre>
 <h4 id="42"><a href="#42" class="headerlink" title="42"></a>42</h4><ul>
 <li>MySQL</li>
 </ul>
 <p><strong>MySQL中不允许在子查询的同时删除表数据（不能一边查一边把查的表删了）</strong>，所以可以把得出的表重命名（因为那样就不是原表了）</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">DELETE FROM titles_test
-WHERE id NOT IN (
-    SELECT id FROM (
-        SELECT MIN(id) AS id,emp_no FROM titles_test
-        GROUP BY emp_no
-    ) t
-)
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> titles_test
+<span class="token keyword">WHERE</span> id <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> <span class="token function">MIN</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">AS</span> id<span class="token punctuation">,</span>emp_no <span class="token keyword">FROM</span> titles_test
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> emp_no
+    <span class="token punctuation">)</span> t
+<span class="token punctuation">)</span></code></pre>
 <p>sqlite也能这样写</p>
-<h4 id="43"><a href="#43" class="headerlink" title="43"></a>43</h4><pre class=" language-lang-sql"><code class="language-lang-sql">UPDATE titles_test SET to_date = null,from_date =  '2001-01-01' WHERE to_date = '9999-01-01'
-</code></pre>
-<h4 id="44"><a href="#44" class="headerlink" title="44"></a>44</h4><pre class=" language-lang-sql"><code class="language-lang-sql">UPDATE titles_test SET emp_no = REPLACE(emp_no,10001,10005) WHERE id = 5
-</code></pre>
-<h4 id="45"><a href="#45" class="headerlink" title="45"></a>45</h4><pre class=" language-lang-sql"><code class="language-lang-sql">ALTER TABLE titles_test RENAME TO titles_2017
-</code></pre>
-<h4 id="46"><a href="#46" class="headerlink" title="46"></a>46</h4><pre class=" language-lang-sql"><code class="language-lang-sql">ALTER TABLE audit
-ADD CONSTRAINT FOREIGN KEY (emp_no)
-REFERENCES employees_test(id)
-</code></pre>
-<h4 id="48"><a href="#48" class="headerlink" title="48"></a>48</h4><pre class=" language-lang-sql"><code class="language-lang-sql">UPDATE salaries JOIN emp_bonus ON emp_bonus.emp_no = salaries.emp_no
-SET salary=salary*1.1
-WHERE salaries.to_date='9999-01-01'
-</code></pre>
-<h4 id="50"><a href="#50" class="headerlink" title="50"></a>50</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT CONCAT(last_name,"'",first_name) FROM employees
-</code></pre>
-<h4 id="51"><a href="#51" class="headerlink" title="51"></a>51</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT LENGTH("10,A,B") - LENGTH(REPLACE("10,A,B",',',''))
-</code></pre>
-<h4 id="52"><a href="#52" class="headerlink" title="52"></a>52</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT first_name FROM employees
-ORDER BY SUBSTR(first_name,-2,2)     --从倒数第二开始，获取两个字符
-</code></pre>
-<h4 id="53"><a href="#53" class="headerlink" title="53"></a>53</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT dept_no,GROUP_CONCAT(emp_no SEPARATOR ',') FROM dept_emp
-GROUP BY dept_no
-</code></pre>
-<h4 id="54"><a href="#54" class="headerlink" title="54"></a>54</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT AVG(salary) FROM salaries
-WHERE to_date = '9999-01-01' AND 
-salary NOT IN (
-    SELECT MAX(salary) AS salary FROM salaries
-    WHERE to_date = '9999-01-01'
-    UNION ALL
-    SELECT MIN(salary) AS salary FROM salaries
-    WHERE to_date = '9999-01-01'
-)
-</code></pre>
-<h4 id="55"><a href="#55" class="headerlink" title="55"></a>55</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT * FROM employees LIMIT 5,5
-</code></pre>
-<h4 id="57"><a href="#57" class="headerlink" title="57"></a>57</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT * FROM employees
-WHERE NOT EXISTS (
-    SELECT emp_no FROM dept_emp WHERE dept_emp.emp_no = employees.emp_no
-)
-</code></pre>
+<h4 id="43"><a href="#43" class="headerlink" title="43"></a>43</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">UPDATE</span> titles_test <span class="token keyword">SET</span> to_date <span class="token operator">=</span> <span class="token boolean">null</span><span class="token punctuation">,</span>from_date <span class="token operator">=</span>  <span class="token string">'2001-01-01'</span> <span class="token keyword">WHERE</span> to_date <span class="token operator">=</span> <span class="token string">'9999-01-01'</span></code></pre>
+<h4 id="44"><a href="#44" class="headerlink" title="44"></a>44</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">UPDATE</span> titles_test <span class="token keyword">SET</span> emp_no <span class="token operator">=</span> REPLACE<span class="token punctuation">(</span>emp_no<span class="token punctuation">,</span><span class="token number">10001</span><span class="token punctuation">,</span><span class="token number">10005</span><span class="token punctuation">)</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">5</span></code></pre>
+<h4 id="45"><a href="#45" class="headerlink" title="45"></a>45</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> titles_test <span class="token keyword">RENAME</span> <span class="token keyword">TO</span> titles_2017</code></pre>
+<h4 id="46"><a href="#46" class="headerlink" title="46"></a>46</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> audit
+<span class="token keyword">ADD</span> <span class="token keyword">CONSTRAINT</span> <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>emp_no<span class="token punctuation">)</span>
+<span class="token keyword">REFERENCES</span> employees_test<span class="token punctuation">(</span>id<span class="token punctuation">)</span></code></pre>
+<h4 id="48"><a href="#48" class="headerlink" title="48"></a>48</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">UPDATE</span> salaries <span class="token keyword">JOIN</span> emp_bonus <span class="token keyword">ON</span> emp_bonus<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> salaries<span class="token punctuation">.</span>emp_no
+<span class="token keyword">SET</span> salary<span class="token operator">=</span>salary<span class="token operator">*</span><span class="token number">1.1</span>
+<span class="token keyword">WHERE</span> salaries<span class="token punctuation">.</span>to_date<span class="token operator">=</span><span class="token string">'9999-01-01'</span></code></pre>
+<h4 id="50"><a href="#50" class="headerlink" title="50"></a>50</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> CONCAT<span class="token punctuation">(</span>last_name<span class="token punctuation">,</span><span class="token string">"'"</span><span class="token punctuation">,</span>first_name<span class="token punctuation">)</span> <span class="token keyword">FROM</span> employees</code></pre>
+<h4 id="51"><a href="#51" class="headerlink" title="51"></a>51</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> LENGTH<span class="token punctuation">(</span><span class="token string">"10,A,B"</span><span class="token punctuation">)</span> <span class="token operator">-</span> LENGTH<span class="token punctuation">(</span>REPLACE<span class="token punctuation">(</span><span class="token string">"10,A,B"</span><span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<h4 id="52"><a href="#52" class="headerlink" title="52"></a>52</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> first_name <span class="token keyword">FROM</span> employees
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> SUBSTR<span class="token punctuation">(</span>first_name<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">--从倒数第二开始，获取两个字符</span></code></pre>
+<h4 id="53"><a href="#53" class="headerlink" title="53"></a>53</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> dept_no<span class="token punctuation">,</span>GROUP_CONCAT<span class="token punctuation">(</span>emp_no SEPARATOR <span class="token string">','</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> dept_emp
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> dept_no</code></pre>
+<h4 id="54"><a href="#54" class="headerlink" title="54"></a>54</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">FROM</span> salaries
+<span class="token keyword">WHERE</span> to_date <span class="token operator">=</span> <span class="token string">'9999-01-01'</span> <span class="token operator">AND</span> 
+salary <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> salary <span class="token keyword">FROM</span> salaries
+    <span class="token keyword">WHERE</span> to_date <span class="token operator">=</span> <span class="token string">'9999-01-01'</span>
+    <span class="token keyword">UNION</span> <span class="token keyword">ALL</span>
+    <span class="token keyword">SELECT</span> <span class="token function">MIN</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> salary <span class="token keyword">FROM</span> salaries
+    <span class="token keyword">WHERE</span> to_date <span class="token operator">=</span> <span class="token string">'9999-01-01'</span>
+<span class="token punctuation">)</span></code></pre>
+<h4 id="55"><a href="#55" class="headerlink" title="55"></a>55</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> employees <span class="token keyword">LIMIT</span> <span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span></code></pre>
+<h4 id="57"><a href="#57" class="headerlink" title="57"></a>57</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> employees
+<span class="token keyword">WHERE</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> emp_no <span class="token keyword">FROM</span> dept_emp <span class="token keyword">WHERE</span> dept_emp<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> employees<span class="token punctuation">.</span>emp_no
+<span class="token punctuation">)</span></code></pre>
 <p>也可以写成</p>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT * FROM employees
-WHERE emp_no = (
-    SELECT employees.emp_no FROM employees LEFT JOIN dept_emp
-    ON dept_emp.emp_no = employees.emp_no
-    WHERE dept_emp.emp_no is null
-)
-</code></pre>
-<h4 id="59"><a href="#59" class="headerlink" title="59"></a>59</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.emp_no,first_name,last_name,btype,salary,
-    IF(btype=1,salary*0.1,IF(btype=2,salary*0.2,salary*0.3)) AS bonu
-FROM employees t1
-JOIN emp_bonus t2 ON t1.emp_no = t2.emp_no
-JOIN salaries t3 ON t1.emp_no = t3.emp_no
-WHERE t3.to_date = '9999-01-01'
-</code></pre>
-<h4 id="60"><a href="#60" class="headerlink" title="60"></a>60</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT DISTINCT emp_no,salary,SUM(salary) OVER(ORDER BY emp_no) FROM salaries
-WHERE to_date = '9999-01-01'
-</code></pre>
-<h4 id="61"><a href="#61" class="headerlink" title="61"></a>61</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT first_name FROM employees
-WHERE first_name IN (
-    SELECT first_name FROM (
-        SELECT first_name,ROW_NUMBER() OVER(ORDER BY first_name) AS rn FROM employees
-    ) t 
-    WHERE rn%2 = 1
-)
-</code></pre>
-<h4 id="62"><a href="#62" class="headerlink" title="62"></a>62</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT number FROM grade
-GROUP BY number
-HAVING COUNT(*) >= 3
-</code></pre>
-<h4 id="63"><a href="#63" class="headerlink" title="63"></a>63</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT id,number,DENSE_RANK() OVER(ORDER BY number DESC) FROM passing_number
-</code></pre>
-<h4 id="64"><a href="#64" class="headerlink" title="64"></a>64</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT person.id,person.name,task.content FROM person
-LEFT JOIN task ON task.person_id = person.id
-</code></pre>
-<h4 id="65"><a href="#65" class="headerlink" title="65"></a>65</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT date,ROUND(SUM(type)/COUNT(*),3) AS p 
-FROM (
-    SELECT date,IF(type='no_completed',1,0) AS type
-    FROM email
-    WHERE send_id NOT IN (
-        SELECT id FROM user
-        WHERE is_blacklist = 1
-    )
-    AND receive_id NOT IN (
-        SELECT id FROM user
-        WHERE is_blacklist = 1
-    )
-) t
-GROUP BY date
-</code></pre>
-<h4 id="66"><a href="#66" class="headerlink" title="66"></a>66</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT user_id,MAX(date) FROM login
-GROUP BY user_id
-ORDER BY user_id
-</code></pre>
-<h4 id="67"><a href="#67" class="headerlink" title="67"></a>67</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t2.name,t3.name,date FROM login t1
-LEFT JOIN user t2 ON t1.user_id = t2.id
-LEFT JOIN client t3 ON t1.client_id = t3.id
-WHERE (user_id,date) IN (
-    SELECT user_id,MAX(date) FROM login
-    GROUP BY user_id
-)
-ORDER BY t2.name
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> employees
+<span class="token keyword">WHERE</span> emp_no <span class="token operator">=</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> employees<span class="token punctuation">.</span>emp_no <span class="token keyword">FROM</span> employees <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> dept_emp
+    <span class="token keyword">ON</span> dept_emp<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> employees<span class="token punctuation">.</span>emp_no
+    <span class="token keyword">WHERE</span> dept_emp<span class="token punctuation">.</span>emp_no <span class="token operator">is</span> <span class="token boolean">null</span>
+<span class="token punctuation">)</span></code></pre>
+<h4 id="59"><a href="#59" class="headerlink" title="59"></a>59</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>emp_no<span class="token punctuation">,</span>first_name<span class="token punctuation">,</span>last_name<span class="token punctuation">,</span>btype<span class="token punctuation">,</span>salary<span class="token punctuation">,</span>
+    <span class="token keyword">IF</span><span class="token punctuation">(</span>btype<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>salary<span class="token operator">*</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token keyword">IF</span><span class="token punctuation">(</span>btype<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>salary<span class="token operator">*</span><span class="token number">0.2</span><span class="token punctuation">,</span>salary<span class="token operator">*</span><span class="token number">0.3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> bonu
+<span class="token keyword">FROM</span> employees t1
+<span class="token keyword">JOIN</span> emp_bonus t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t2<span class="token punctuation">.</span>emp_no
+<span class="token keyword">JOIN</span> salaries t3 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>emp_no <span class="token operator">=</span> t3<span class="token punctuation">.</span>emp_no
+<span class="token keyword">WHERE</span> t3<span class="token punctuation">.</span>to_date <span class="token operator">=</span> <span class="token string">'9999-01-01'</span></code></pre>
+<h4 id="60"><a href="#60" class="headerlink" title="60"></a>60</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> emp_no<span class="token punctuation">,</span>salary<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> emp_no<span class="token punctuation">)</span> <span class="token keyword">FROM</span> salaries
+<span class="token keyword">WHERE</span> to_date <span class="token operator">=</span> <span class="token string">'9999-01-01'</span></code></pre>
+<h4 id="61"><a href="#61" class="headerlink" title="61"></a>61</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> first_name <span class="token keyword">FROM</span> employees
+<span class="token keyword">WHERE</span> first_name <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> first_name <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> first_name<span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> first_name<span class="token punctuation">)</span> <span class="token keyword">AS</span> rn <span class="token keyword">FROM</span> employees
+    <span class="token punctuation">)</span> t 
+    <span class="token keyword">WHERE</span> rn<span class="token operator">%</span><span class="token number">2</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">)</span></code></pre>
+<h4 id="62"><a href="#62" class="headerlink" title="62"></a>62</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> number <span class="token keyword">FROM</span> grade
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> number
+<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">3</span></code></pre>
+<h4 id="63"><a href="#63" class="headerlink" title="63"></a>63</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>number<span class="token punctuation">,</span>DENSE_RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> number <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> passing_number</code></pre>
+<h4 id="64"><a href="#64" class="headerlink" title="64"></a>64</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> person<span class="token punctuation">.</span>id<span class="token punctuation">,</span>person<span class="token punctuation">.</span>name<span class="token punctuation">,</span>task<span class="token punctuation">.</span>content <span class="token keyword">FROM</span> person
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> task <span class="token keyword">ON</span> task<span class="token punctuation">.</span>person_id <span class="token operator">=</span> person<span class="token punctuation">.</span>id</code></pre>
+<h4 id="65"><a href="#65" class="headerlink" title="65"></a>65</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">date</span><span class="token punctuation">,</span><span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">type</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> p 
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token keyword">date</span><span class="token punctuation">,</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token keyword">type</span><span class="token operator">=</span><span class="token string">'no_completed'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token keyword">type</span>
+    <span class="token keyword">FROM</span> email
+    <span class="token keyword">WHERE</span> send_id <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> <span class="token keyword">user</span>
+        <span class="token keyword">WHERE</span> is_blacklist <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token punctuation">)</span>
+    <span class="token operator">AND</span> receive_id <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> <span class="token keyword">user</span>
+        <span class="token keyword">WHERE</span> is_blacklist <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span> t
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token keyword">date</span></code></pre>
+<h4 id="66"><a href="#66" class="headerlink" title="66"></a>66</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> login
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id</code></pre>
+<h4 id="67"><a href="#67" class="headerlink" title="67"></a>67</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t2<span class="token punctuation">.</span>name<span class="token punctuation">,</span>t3<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token keyword">date</span> <span class="token keyword">FROM</span> login t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token keyword">user</span> t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>user_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>id
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> client t3 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>client_id <span class="token operator">=</span> t3<span class="token punctuation">.</span>id
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>user_id<span class="token punctuation">,</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> login
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+<span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t2<span class="token punctuation">.</span>name</code></pre>
 <h4 id="68"><a href="#68" class="headerlink" title="68"></a>68</h4><ul>
 <li>新写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT ROUND(SUM(tag)/COUNT(*),3) 
-FROM (
-    SELECT t1.user_id,IF(MIN(t2.date) IS NULL,0,1) AS tag FROM login t1
-    LEFT JOIN login t2
-    ON t1.user_id = t2.user_id AND t1.date = (t2.date - 1)
-    GROUP BY t1.user_id
-) t
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span> 
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>user_id<span class="token punctuation">,</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token function">MIN</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> tag <span class="token keyword">FROM</span> login t1
+    <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> login t2
+    <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>user_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>user_id <span class="token operator">AND</span> t1<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">=</span> <span class="token punctuation">(</span>t2<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>user_id
+<span class="token punctuation">)</span> t</code></pre>
 <ul>
 <li>旧写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT ROUND(COUNT(DISTINCT user_id) / (SELECT COUNT(DISTINCT user_id) FROM login),3)
-FROM login
-WHERE (user_id,date) IN (
-    SELECT user_id,DATE_ADD(MIN(date),INTERVAL 1 DAY) FROM login GROUP BY user_id
-)
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> user_id<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> user_id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> login<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> login
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>user_id<span class="token punctuation">,</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span>DATE_ADD<span class="token punctuation">(</span><span class="token function">MIN</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span><span class="token punctuation">,</span>INTERVAL <span class="token number">1</span> DAY<span class="token punctuation">)</span> <span class="token keyword">FROM</span> login <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+<span class="token punctuation">)</span></code></pre>
 <h4 id="69"><a href="#69" class="headerlink" title="69"></a>69</h4><ul>
 <li>新写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT DISTINCT t1.date,IF(cnt IS NULL,0,cnt) FROM login t1
-LEFT JOIN (
-    SELECT date,COUNT(*) AS cnt 
-    FROM (
-        SELECT user_id,MIN(date) AS date FROM login
-        GROUP BY user_id
-    ) t0
-    GROUP BY date
-) t2
-ON t1.date = t2.date
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> t1<span class="token punctuation">.</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token keyword">IF</span><span class="token punctuation">(</span>cnt <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>cnt<span class="token punctuation">)</span> <span class="token keyword">FROM</span> login t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token keyword">date</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt 
+    <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token keyword">date</span> <span class="token keyword">FROM</span> login
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+    <span class="token punctuation">)</span> t0
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token keyword">date</span>
+<span class="token punctuation">)</span> t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">=</span> t2<span class="token punctuation">.</span><span class="token keyword">date</span></code></pre>
 <ul>
 <li>旧写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql"># SELECT date,COUNT(*) FROM login
-# WHERE (user_id,date) IN (
-#     SELECT user_id,MIN(date) FROM login GROUP BY user_id
-# )
-# GROUP BY date
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># SELECT date,COUNT(*) FROM login</span>
+<span class="token comment" spellcheck="true"># WHERE (user_id,date) IN (</span>
+<span class="token comment" spellcheck="true">#     SELECT user_id,MIN(date) FROM login GROUP BY user_id</span>
+<span class="token comment" spellcheck="true"># )</span>
+<span class="token comment" spellcheck="true"># GROUP BY date</span>
 
-## 计数为 0 的日期没有现实(新写法基于这种写法改了下)
+<span class="token comment" spellcheck="true">## 计数为 0 的日期没有现实(新写法基于这种写法改了下)</span>
 
-SELECT DISTINCT date,SUM(
-    CASE WHEN (user_id,date) IN (
-    SELECT user_id,MIN(date) FROM login GROUP BY user_id
-    ) THEN 1 
-    ELSE 0
-    END
-)
-FROM login
-GROUP BY date
-</code></pre>
-<h4 id="70"><a href="#70" class="headerlink" title="70"></a>70</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT DISTINCT t5.date,IF(p IS NULL,0,p) FROM login t5
-LEFT JOIN (
-    SELECT t3.date,ROUND(t4.num/t3.num,3) AS p 
-    FROM (
-        -- 计算当天新用户数
-        SELECT date,COUNT(*) AS num FROM (
-            SELECT user_id,MIN(date) AS date FROM login
-            GROUP BY user_id
-        ) t1
-        GROUP BY date
-    ) t3
-    LEFT JOIN (
-        -- 计算新用户次日留存数
-        SELECT DATE(t2.date-1) AS date,COUNT(*) AS num FROM login t1
-        LEFT JOIN (
-            SELECT user_id,MIN(date)+1 AS date FROM login
-            GROUP BY user_id
-        ) t2 ON t1.user_id = t2.user_id AND t1.date = t2.date
-        GROUP BY t2.date 
-    ) t4
-    ON t3.date = t4.date
-) t6 ON t5.date = t6.date
-</code></pre>
-<h4 id="71"><a href="#71" class="headerlink" title="71"></a>71</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t2.name,t1.date,SUM(number) OVER(PARTITION BY user_id ORDER BY date) 
-FROM passing_number t1
-LEFT JOIN user t2 ON t1.user_id = t2.id
-ORDER BY date,name
-</code></pre>
-<h4 id="72"><a href="#72" class="headerlink" title="72"></a>72</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT job,ROUND(AVG(score),3) AS AvgScore FROM grade
-GROUP BY job
-ORDER BY AvgScore DESC
-</code></pre>
-<h4 id="73"><a href="#73" class="headerlink" title="73"></a>73</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.id,t1.job,t1.score FROM grade t1
-LEFT JOIN (
-    SELECT job,AVG(score) AS score FROM grade
-    GROUP BY job
-) t2
-ON t1.job = t2.job
-WHERE t1.score > t2.score
-ORDER BY t1.id
-</code></pre>
-<h4 id="74"><a href="#74" class="headerlink" title="74"></a>74</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT id,name,score FROM (
-    SELECT t1.id,name,score,DENSE_RANK() OVER(PARTITION BY language_id ORDER BY score DESC) AS rn
-    FROM grade t1
-    LEFT JOIN `language` t2
-    ON t1.language_id = t2.id
-) t
-WHERE rn <=2 
-ORDER BY name,score DESC
-</code></pre>
-<h4 id="75"><a href="#75" class="headerlink" title="75"></a>75</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT 
-    job,
-    IF(cnt%2=1,CEILING(cnt/2),ROUND(cnt/2,0)) AS `start`,
-    IF(cnt%2=1,CEILING(cnt/2),ROUND(cnt/2+1,0)) AS `end`
-FROM (
-    SELECT job,COUNT(*) AS cnt FROM grade
-    GROUP BY job
-) t
-ORDER BY job
-</code></pre>
+<span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">date</span><span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>
+    <span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> <span class="token punctuation">(</span>user_id<span class="token punctuation">,</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> login <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+    <span class="token punctuation">)</span> <span class="token keyword">THEN</span> <span class="token number">1</span> 
+    <span class="token keyword">ELSE</span> <span class="token number">0</span>
+    <span class="token keyword">END</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> login
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token keyword">date</span></code></pre>
+<h4 id="70"><a href="#70" class="headerlink" title="70"></a>70</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> t5<span class="token punctuation">.</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token keyword">IF</span><span class="token punctuation">(</span>p <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>p<span class="token punctuation">)</span> <span class="token keyword">FROM</span> login t5
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> t3<span class="token punctuation">.</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token function">ROUND</span><span class="token punctuation">(</span>t4<span class="token punctuation">.</span>num<span class="token operator">/</span>t3<span class="token punctuation">.</span>num<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> p 
+    <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+        <span class="token comment" spellcheck="true">-- 计算当天新用户数</span>
+        <span class="token keyword">SELECT</span> <span class="token keyword">date</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> num <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+            <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token keyword">date</span> <span class="token keyword">FROM</span> login
+            <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+        <span class="token punctuation">)</span> t1
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token keyword">date</span>
+    <span class="token punctuation">)</span> t3
+    <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+        <span class="token comment" spellcheck="true">-- 计算新用户次日留存数</span>
+        <span class="token keyword">SELECT</span> <span class="token keyword">DATE</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span><span class="token keyword">date</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token keyword">date</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> num <span class="token keyword">FROM</span> login t1
+        <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+            <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span> <span class="token keyword">AS</span> <span class="token keyword">date</span> <span class="token keyword">FROM</span> login
+            <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+        <span class="token punctuation">)</span> t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>user_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>user_id <span class="token operator">AND</span> t1<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">=</span> t2<span class="token punctuation">.</span><span class="token keyword">date</span>
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t2<span class="token punctuation">.</span><span class="token keyword">date</span> 
+    <span class="token punctuation">)</span> t4
+    <span class="token keyword">ON</span> t3<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">=</span> t4<span class="token punctuation">.</span><span class="token keyword">date</span>
+<span class="token punctuation">)</span> t6 <span class="token keyword">ON</span> t5<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">=</span> t6<span class="token punctuation">.</span><span class="token keyword">date</span></code></pre>
+<h4 id="71"><a href="#71" class="headerlink" title="71"></a>71</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t2<span class="token punctuation">.</span>name<span class="token punctuation">,</span>t1<span class="token punctuation">.</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">date</span><span class="token punctuation">)</span> 
+<span class="token keyword">FROM</span> passing_number t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token keyword">user</span> t2 <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>user_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>id
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">date</span><span class="token punctuation">,</span>name</code></pre>
+<h4 id="72"><a href="#72" class="headerlink" title="72"></a>72</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">AVG</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> AvgScore <span class="token keyword">FROM</span> grade
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> AvgScore <span class="token keyword">DESC</span></code></pre>
+<h4 id="73"><a href="#73" class="headerlink" title="73"></a>73</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>id<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>job<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>score <span class="token keyword">FROM</span> grade t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token function">AVG</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span> <span class="token keyword">AS</span> score <span class="token keyword">FROM</span> grade
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job
+<span class="token punctuation">)</span> t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>job <span class="token operator">=</span> t2<span class="token punctuation">.</span>job
+<span class="token keyword">WHERE</span> t1<span class="token punctuation">.</span>score <span class="token operator">></span> t2<span class="token punctuation">.</span>score
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>id</code></pre>
+<h4 id="74"><a href="#74" class="headerlink" title="74"></a>74</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>name<span class="token punctuation">,</span>score <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>id<span class="token punctuation">,</span>name<span class="token punctuation">,</span>score<span class="token punctuation">,</span>DENSE_RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> language_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> score <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rn
+    <span class="token keyword">FROM</span> grade t1
+    <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">`</span>language<span class="token punctuation">`</span> t2
+    <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>language_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>id
+<span class="token punctuation">)</span> t
+<span class="token keyword">WHERE</span> rn <span class="token operator">&lt;=</span><span class="token number">2</span> 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> name<span class="token punctuation">,</span>score <span class="token keyword">DESC</span></code></pre>
+<h4 id="75"><a href="#75" class="headerlink" title="75"></a>75</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> 
+    job<span class="token punctuation">,</span>
+    <span class="token keyword">IF</span><span class="token punctuation">(</span>cnt<span class="token operator">%</span><span class="token number">2</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>CEILING<span class="token punctuation">(</span>cnt<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">ROUND</span><span class="token punctuation">(</span>cnt<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token punctuation">`</span><span class="token keyword">start</span><span class="token punctuation">`</span><span class="token punctuation">,</span>
+    <span class="token keyword">IF</span><span class="token punctuation">(</span>cnt<span class="token operator">%</span><span class="token number">2</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>CEILING<span class="token punctuation">(</span>cnt<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">ROUND</span><span class="token punctuation">(</span>cnt<span class="token operator">/</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token punctuation">`</span><span class="token keyword">end</span><span class="token punctuation">`</span>
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt <span class="token keyword">FROM</span> grade
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job
+<span class="token punctuation">)</span> t
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> job</code></pre>
 <h4 id="76"><a href="#76" class="headerlink" title="76"></a>76</h4><ul>
 <li>新的写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT id,job,score,rn2 FROM (
-    SELECT 
-        t1.job,
-        t1.id,
-        t1.score,
-        t2.cnt,
-        ROW_NUMBER() OVER(PARTITION BY job ORDER BY score) AS rn1,
-        ROW_NUMBER() OVER(PARTITION BY job ORDER BY score DESC) AS rn2
-    FROM grade t1
-    LEFT JOIN (
-        SELECT job,COUNT(*) AS cnt FROM grade
-        GROUP BY job
-    ) t2
-    ON t1.job = t2.job
-) t
-WHERE rn1 >= cnt/2 AND rn2 >= cnt/2
-ORDER BY id
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>job<span class="token punctuation">,</span>score<span class="token punctuation">,</span>rn2 <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> 
+        t1<span class="token punctuation">.</span>job<span class="token punctuation">,</span>
+        t1<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+        t1<span class="token punctuation">.</span>score<span class="token punctuation">,</span>
+        t2<span class="token punctuation">.</span>cnt<span class="token punctuation">,</span>
+        ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> job <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> score<span class="token punctuation">)</span> <span class="token keyword">AS</span> rn1<span class="token punctuation">,</span>
+        ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> job <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> score <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rn2
+    <span class="token keyword">FROM</span> grade t1
+    <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt <span class="token keyword">FROM</span> grade
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job
+    <span class="token punctuation">)</span> t2
+    <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>job <span class="token operator">=</span> t2<span class="token punctuation">.</span>job
+<span class="token punctuation">)</span> t
+<span class="token keyword">WHERE</span> rn1 <span class="token operator">>=</span> cnt<span class="token operator">/</span><span class="token number">2</span> <span class="token operator">AND</span> rn2 <span class="token operator">>=</span> cnt<span class="token operator">/</span><span class="token number">2</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id</code></pre>
 <ul>
 <li>旧的写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT id,job,score,t_rank FROM (
-    SELECT id,job,score,ROW_NUMBER() OVER(PARTITION BY job ORDER BY score DESC) AS t_rank
-    FROM grade
-) c
-WHERE (job,t_rank) IN (
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>job<span class="token punctuation">,</span>score<span class="token punctuation">,</span>t_rank <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>job<span class="token punctuation">,</span>score<span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> job <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> score <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> t_rank
+    <span class="token keyword">FROM</span> grade
+<span class="token punctuation">)</span> <span class="token number">c</span>
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>job<span class="token punctuation">,</span>t_rank<span class="token punctuation">)</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
 
-    SELECT DISTINCT job,ROUND(t_rank,0) FROM (
+    <span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> job<span class="token punctuation">,</span><span class="token function">ROUND</span><span class="token punctuation">(</span>t_rank<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
 
-    SELECT job,IF(num%2=1,CEILING(num/2),null) AS t_rank
-    FROM ( 
-        SELECT job,COUNT(*) AS num FROM grade
-        GROUP BY job
-    ) a
-    UNION
-    SELECT job,IF(num%2=0,num/2,null) AS t_rank
-    FROM ( 
-        SELECT job,COUNT(*) AS num FROM grade
-        GROUP BY job
-    ) a
-    UNION
-    SELECT job,IF(num%2=0,num/2+1,null) AS t_rank
-    FROM ( 
-        SELECT job,COUNT(*) AS num FROM grade
-        GROUP BY job
-        ) a
+    <span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token keyword">IF</span><span class="token punctuation">(</span>num<span class="token operator">%</span><span class="token number">2</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>CEILING<span class="token punctuation">(</span>num<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token boolean">null</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> t_rank
+    <span class="token keyword">FROM</span> <span class="token punctuation">(</span> 
+        <span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> num <span class="token keyword">FROM</span> grade
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job
+    <span class="token punctuation">)</span> <span class="token number">a</span>
+    <span class="token keyword">UNION</span>
+    <span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token keyword">IF</span><span class="token punctuation">(</span>num<span class="token operator">%</span><span class="token number">2</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>num<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token boolean">null</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> t_rank
+    <span class="token keyword">FROM</span> <span class="token punctuation">(</span> 
+        <span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> num <span class="token keyword">FROM</span> grade
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job
+    <span class="token punctuation">)</span> <span class="token number">a</span>
+    <span class="token keyword">UNION</span>
+    <span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token keyword">IF</span><span class="token punctuation">(</span>num<span class="token operator">%</span><span class="token number">2</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>num<span class="token operator">/</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token boolean">null</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> t_rank
+    <span class="token keyword">FROM</span> <span class="token punctuation">(</span> 
+        <span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> num <span class="token keyword">FROM</span> grade
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job
+        <span class="token punctuation">)</span> <span class="token number">a</span>
 
-    ) b
-    WHERE t_rank <> 'NULL'
+    <span class="token punctuation">)</span> <span class="token number">b</span>
+    <span class="token keyword">WHERE</span> t_rank <span class="token operator">&lt;></span> <span class="token string">'NULL'</span>
 
-)
-ORDER BY id
-</code></pre>
-<h4 id="77"><a href="#77" class="headerlink" title="77"></a>77</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT * FROM order_info
-WHERE date > '2025-10-15'
-AND status = 'completed'
-AND product_name IN ('C++','Java','Python')
-ORDER BY id
-</code></pre>
+<span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id</code></pre>
+<h4 id="77"><a href="#77" class="headerlink" title="77"></a>77</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> order_info
+<span class="token keyword">WHERE</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+<span class="token operator">AND</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+<span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id</code></pre>
 <h4 id="78"><a href="#78" class="headerlink" title="78"></a>78</h4><ul>
 <li>新写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT user_id FROM order_info
-WHERE date > '2025-10-15'
-AND status = 'completed'
-AND product_name IN ('C++','Java','Python')
-GROUP BY user_id
-HAVING COUNT(*) >= 2
-ORDER BY user_id
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> user_id <span class="token keyword">FROM</span> order_info
+<span class="token keyword">WHERE</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+<span class="token operator">AND</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+<span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id</code></pre>
 <ul>
 <li>旧写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT user_id FROM (
-    SELECT user_id,COUNT(*) AS num FROM order_info
-    WHERE status = 'completed'
-    AND product_name IN ('C++','Java','Python')
-    AND date > '2025-10-15'
-    GROUP BY user_id
-) a
-WHERE num >=2
-ORDER BY user_id
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> user_id <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> num <span class="token keyword">FROM</span> order_info
+    <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+    <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+    <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+<span class="token punctuation">)</span> <span class="token number">a</span>
+<span class="token keyword">WHERE</span> num <span class="token operator">>=</span><span class="token number">2</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id
 
--- #写法二：
--- SELECT DISTINCT user_id FROM order_info
--- WHERE user_id IN (
---     SELECT user_id FROM order_info
---     WHERE status = 'completed' 
---     AND product_name IN ('C++','Java','Python')
---     AND date > '2025-10-15'
---     GROUP BY user_id
---     HAVING COUNT(*) >= 2
--- )
--- ORDER BY user_id
-</code></pre>
+<span class="token comment" spellcheck="true">-- #写法二：</span>
+<span class="token comment" spellcheck="true">-- SELECT DISTINCT user_id FROM order_info</span>
+<span class="token comment" spellcheck="true">-- WHERE user_id IN (</span>
+<span class="token comment" spellcheck="true">--     SELECT user_id FROM order_info</span>
+<span class="token comment" spellcheck="true">--     WHERE status = 'completed' </span>
+<span class="token comment" spellcheck="true">--     AND product_name IN ('C++','Java','Python')</span>
+<span class="token comment" spellcheck="true">--     AND date > '2025-10-15'</span>
+<span class="token comment" spellcheck="true">--     GROUP BY user_id</span>
+<span class="token comment" spellcheck="true">--     HAVING COUNT(*) >= 2</span>
+<span class="token comment" spellcheck="true">-- )</span>
+<span class="token comment" spellcheck="true">-- ORDER BY user_id </span></code></pre>
 <h4 id="79"><a href="#79" class="headerlink" title="79"></a>79</h4><ul>
 <li>新的写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT id,user_id,product_name,status,client_id,date
-FROM (
-    SELECT *,COUNT(*) OVER(PARTITION BY user_id) AS cnt
-    FROM order_info
-    WHERE status = 'completed'
-    AND product_name IN ('C++','Java','Python')
-    AND date > '2025-10-15'
-) t
-WHERE cnt >=2
-ORDER BY id
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>user_id<span class="token punctuation">,</span>product_name<span class="token punctuation">,</span><span class="token keyword">status</span><span class="token punctuation">,</span>client_id<span class="token punctuation">,</span><span class="token keyword">date</span>
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt
+    <span class="token keyword">FROM</span> order_info
+    <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+    <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+    <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+<span class="token punctuation">)</span> t
+<span class="token keyword">WHERE</span> cnt <span class="token operator">>=</span><span class="token number">2</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id</code></pre>
 <ul>
 <li>旧的写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT * FROM order_info
-WHERE user_id IN (
-    SELECT user_id FROM order_info
-    WHERE status = 'completed'
-    AND product_name IN ('C++','Java','Python')
-    AND date > '2025-10-15'
-    GROUP BY user_id
-    HAVING COUNT(*) >= 2
-    )
-AND product_name IN ('C++','Java','Python')
-AND date > '2025-10-15'
-AND status = 'completed'
-</code></pre>
-<h4 id="80"><a href="#80" class="headerlink" title="80"></a>80</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT user_id,MIN(date),COUNT(*) FROM order_info
-WHERE date > '2025-10-15'
-AND status = 'completed'
-AND product_name IN ('C++','Java','Python')
-GROUP BY user_id
-HAVING COUNT(*) >= 2
-ORDER BY user_id
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> order_info
+<span class="token keyword">WHERE</span> user_id <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> user_id <span class="token keyword">FROM</span> order_info
+    <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+    <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+    <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+    <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2</span>
+    <span class="token punctuation">)</span>
+<span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+<span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+<span class="token operator">AND</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span></code></pre>
+<h4 id="80"><a href="#80" class="headerlink" title="80"></a>80</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> order_info
+<span class="token keyword">WHERE</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+<span class="token operator">AND</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+<span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id</code></pre>
 <h4 id="81"><a href="#81" class="headerlink" title="81"></a>81</h4><ul>
 <li>新的写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT 
-    user_id,
-    DATE(SUM(CASE rn WHEN 1 THEN date ELSE NULL END)),
-    DATE(SUM(CASE rn WHEN 2 THEN date ELSE NULL END)),
-    COUNT(*)
-FROM (
-    SELECT 
-        user_id,
-        date,
-        ROW_NUMBER() OVER(PARTITION BY user_id ORDER BY date) AS rn
-    FROM order_info
-    WHERE date > '2025-10-15'
-    AND status = 'completed'
-    AND product_name IN ('C++','Java','Python')
-) t
-GROUP BY user_id
-HAVING COUNT(*) >=2
-ORDER BY user_id
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> 
+    user_id<span class="token punctuation">,</span>
+    <span class="token keyword">DATE</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> rn <span class="token keyword">WHEN</span> <span class="token number">1</span> <span class="token keyword">THEN</span> <span class="token keyword">date</span> <span class="token keyword">ELSE</span> <span class="token boolean">NULL</span> <span class="token keyword">END</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">DATE</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> rn <span class="token keyword">WHEN</span> <span class="token number">2</span> <span class="token keyword">THEN</span> <span class="token keyword">date</span> <span class="token keyword">ELSE</span> <span class="token boolean">NULL</span> <span class="token keyword">END</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> 
+        user_id<span class="token punctuation">,</span>
+        <span class="token keyword">date</span><span class="token punctuation">,</span>
+        ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rn
+    <span class="token keyword">FROM</span> order_info
+    <span class="token keyword">WHERE</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+    <span class="token operator">AND</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+    <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> t
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+<span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span><span class="token number">2</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id</code></pre>
 <ul>
 <li>旧的写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT order_info.user_id,DATE(MIN(order_info.date)),b.date,COUNT(*) 
-FROM order_info
-JOIN (
-    SELECT user_id,date FROM (
-    SELECT id,user_id,date,ROW_NUMBER() OVER(PARTITION BY user_id ORDER BY date) AS rs FROM order_info
-    WHERE status = 'completed'
-    AND product_name IN ('C++','Java','Python')
-    AND date > '2025-10-15'
-    ) a
-    WHERE rs = 2
-    ORDER BY user_id
-) b 
-ON order_info.user_id = b.user_id
-WHERE status = 'completed'
-AND order_info.product_name IN ('C++','Java','Python')
-AND order_info.date > '2025-10-15'
-GROUP BY order_info.user_id
-ORDER BY order_info.user_id
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> order_info<span class="token punctuation">.</span>user_id<span class="token punctuation">,</span><span class="token keyword">DATE</span><span class="token punctuation">(</span><span class="token function">MIN</span><span class="token punctuation">(</span>order_info<span class="token punctuation">.</span><span class="token keyword">date</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">b</span><span class="token punctuation">.</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> 
+<span class="token keyword">FROM</span> order_info
+<span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token keyword">date</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>user_id<span class="token punctuation">,</span><span class="token keyword">date</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rs <span class="token keyword">FROM</span> order_info
+    <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+    <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+    <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+    <span class="token punctuation">)</span> <span class="token number">a</span>
+    <span class="token keyword">WHERE</span> rs <span class="token operator">=</span> <span class="token number">2</span>
+    <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id
+<span class="token punctuation">)</span> <span class="token number">b</span> 
+<span class="token keyword">ON</span> order_info<span class="token punctuation">.</span>user_id <span class="token operator">=</span> <span class="token number">b</span><span class="token punctuation">.</span>user_id
+<span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+<span class="token operator">AND</span> order_info<span class="token punctuation">.</span>product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+<span class="token operator">AND</span> order_info<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> order_info<span class="token punctuation">.</span>user_id
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> order_info<span class="token punctuation">.</span>user_id</code></pre>
 <h4 id="82"><a href="#82" class="headerlink" title="82"></a>82</h4><ul>
 <li>新的写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT 
-    t1.id,
-    is_group_buy,
-    IF(is_group_buy = 'NO',t2.name,NULL)
-FROM (
-    SELECT *,COUNT(*) OVER(PARTITION BY user_id) AS cnt
-    FROM order_info
-    WHERE status = 'completed'
-    AND product_name IN ('C++','Java','Python')
-    AND date > '2025-10-15'
-) t1
-LEFT JOIN (
-    SELECT * FROM client
-) t2
-ON t1.client_id = t2.id
-WHERE cnt >=2
-ORDER BY id
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> 
+    t1<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+    is_group_buy<span class="token punctuation">,</span>
+    <span class="token keyword">IF</span><span class="token punctuation">(</span>is_group_buy <span class="token operator">=</span> <span class="token string">'NO'</span><span class="token punctuation">,</span>t2<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token boolean">NULL</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt
+    <span class="token keyword">FROM</span> order_info
+    <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+    <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+    <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+<span class="token punctuation">)</span> t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> client
+<span class="token punctuation">)</span> t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>client_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>id
+<span class="token keyword">WHERE</span> cnt <span class="token operator">>=</span><span class="token number">2</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id</code></pre>
 <ul>
 <li>旧的写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT order_info.id,order_info.is_group_buy,client.name 
-FROM order_info
-LEFT JOIN client 
-ON order_info.client_id = client.id
-WHERE user_id IN (
-    SELECT user_id FROM order_info
-    WHERE status = 'completed'
-    AND product_name IN ('C++','Java','Python')
-    AND date > '2025-10-12'
-    GROUP BY user_id
-    HAVING COUNT(*) >=2
-)
-AND status = 'completed'
-AND product_name IN ('C++','Java','Python')
-AND date > '2025-10-12'
-ORDER BY order_info.id
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> order_info<span class="token punctuation">.</span>id<span class="token punctuation">,</span>order_info<span class="token punctuation">.</span>is_group_buy<span class="token punctuation">,</span>client<span class="token punctuation">.</span>name 
+<span class="token keyword">FROM</span> order_info
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> client 
+<span class="token keyword">ON</span> order_info<span class="token punctuation">.</span>client_id <span class="token operator">=</span> client<span class="token punctuation">.</span>id
+<span class="token keyword">WHERE</span> user_id <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> user_id <span class="token keyword">FROM</span> order_info
+    <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+    <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+    <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-12'</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+    <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span><span class="token number">2</span>
+<span class="token punctuation">)</span>
+<span class="token operator">AND</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+<span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+<span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-12'</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> order_info<span class="token punctuation">.</span>id</code></pre>
 <h4 id="83"><a href="#83" class="headerlink" title="83"></a>83</h4><ul>
 <li>新的写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT 
-    IF(name IS NULL,'GroupBuy',name) AS source,
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> 
+    <span class="token keyword">IF</span><span class="token punctuation">(</span>name <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span><span class="token string">'GroupBuy'</span><span class="token punctuation">,</span>name<span class="token punctuation">)</span> <span class="token keyword">AS</span> source<span class="token punctuation">,</span>
     cnt 
-FROM (
-    SELECT * 
-    FROM (
-        SELECT 
-            *,
-            COUNT(*) OVER(PARTITION BY client_id) AS cnt,
-            COUNT(*) OVER(PARTITION BY user_id) AS user_num
-        FROM order_info
-        WHERE status = 'completed'
-        AND product_name IN ('C++','Java','Python')
-        AND date > '2025-10-15'
-        ) t0 
-    WHERE user_num >= 2
-) t1
-LEFT JOIN (
-    SELECT * FROM client
-) t2
-ON t1.client_id = t2.id
-GROUP BY t1.client_id
-ORDER BY IF(name IS NULL,'GroupBuy',name)
-</code></pre>
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span> 
+    <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> 
+            <span class="token operator">*</span><span class="token punctuation">,</span>
+            <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> client_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt<span class="token punctuation">,</span>
+            <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">)</span> <span class="token keyword">AS</span> user_num
+        <span class="token keyword">FROM</span> order_info
+        <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+        <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+        <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+        <span class="token punctuation">)</span> t0 
+    <span class="token keyword">WHERE</span> user_num <span class="token operator">>=</span> <span class="token number">2</span>
+<span class="token punctuation">)</span> t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> client
+<span class="token punctuation">)</span> t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>client_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>id
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>client_id
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">IF</span><span class="token punctuation">(</span>name <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span><span class="token string">'GroupBuy'</span><span class="token punctuation">,</span>name<span class="token punctuation">)</span></code></pre>
 <ul>
 <li>旧的写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT IFNULL(client.name,'GroupBuy') AS source,COUNT(*) AS cnt
-FROM (
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> IFNULL<span class="token punctuation">(</span>client<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token string">'GroupBuy'</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> source<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
 
-    SELECT * FROM order_info
-    WHERE user_id IN (
-        SELECT user_id FROM order_info
-        WHERE status = 'completed'
-        AND product_name IN ('C++','Java','Python')
-        AND date > '2025-10-15'
-        GROUP BY user_id
-        HAVING COUNT(*) >= 2
-    )
-    AND status = 'completed'
-    AND product_name IN ('C++','Java','Python')
-    AND date > '2025-10-15'
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> order_info
+    <span class="token keyword">WHERE</span> user_id <span class="token operator">IN</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> user_id <span class="token keyword">FROM</span> order_info
+        <span class="token keyword">WHERE</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+        <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+        <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+        <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2</span>
+    <span class="token punctuation">)</span>
+    <span class="token operator">AND</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'completed'</span>
+    <span class="token operator">AND</span> product_name <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Java'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">)</span>
+    <span class="token operator">AND</span> <span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
 
-) a
-LEFT JOIN client ON a.client_id = client.id
-GROUP BY client.name
-ORDER BY source
-</code></pre>
+<span class="token punctuation">)</span> <span class="token number">a</span>
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> client <span class="token keyword">ON</span> <span class="token number">a</span><span class="token punctuation">.</span>client_id <span class="token operator">=</span> client<span class="token punctuation">.</span>id
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> client<span class="token punctuation">.</span>name
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> source</code></pre>
 <h4 id="84"><a href="#84" class="headerlink" title="84"></a>84</h4><ul>
 <li>新写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT job,SUM(num) AS cnt FROM resume_info
-WHERE SUBSTR(date,1,4) = '2025'
-GROUP BY job
-ORDER BY cnt DESC
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt <span class="token keyword">FROM</span> resume_info
+<span class="token keyword">WHERE</span> SUBSTR<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'2025'</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cnt <span class="token keyword">DESC</span></code></pre>
 <ul>
 <li>旧写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT job,SUM(num) AS cnt FROM resume_info
-WHERE YEAR(date) = '2025'
-GROUP BY job
-ORDER BY cnt DESC
-</code></pre>
-<h4 id="85"><a href="#85" class="headerlink" title="85"></a>85</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT job,DATE_FORMAT(date,'%Y-%m') AS mon,SUM(num) AS cnt
-FROM resume_info
-WHERE SUBSTR(date,1,4) = '2025'
-GROUP BY job,mon
-ORDER BY mon DESC,cnt DESC
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> job<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt <span class="token keyword">FROM</span> resume_info
+<span class="token keyword">WHERE</span> YEAR<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'2025'</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cnt <span class="token keyword">DESC</span></code></pre>
+<h4 id="85"><a href="#85" class="headerlink" title="85"></a>85</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> job<span class="token punctuation">,</span>DATE_FORMAT<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token string">'%Y-%m'</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> mon<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt
+<span class="token keyword">FROM</span> resume_info
+<span class="token keyword">WHERE</span> SUBSTR<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'2025'</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job<span class="token punctuation">,</span>mon
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> mon <span class="token keyword">DESC</span><span class="token punctuation">,</span>cnt <span class="token keyword">DESC</span></code></pre>
 <h4 id="86"><a href="#86" class="headerlink" title="86"></a>86</h4><ul>
 <li>旧写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT t1.job,t1.mon,t1.cnt,t2.mon,t2.cnt
-FROM (
-    SELECT job,DATE_FORMAT(date,'%Y-%m') AS mon,SUM(num) AS cnt
-    FROM resume_info
-    WHERE DATE_FORMAT(date,'%Y') = 2025
-    GROUP BY job,mon
-    ORDER BY mon DESC,cnt DESC
-) t1,
-(
-    SELECT job,DATE_FORMAT(date,'%Y-%m') AS mon,SUM(num) AS cnt
-    FROM resume_info
-    WHERE DATE_FORMAT(date,'%Y') = 2026
-    GROUP BY job,mon
-    ORDER BY mon DESC,cnt DESC
-) t2
-WHERE t1.job =t2.job
-AND SUBSTR(t1.mon,-2) = SUBSTR(t2.mon,-2)
-ORDER BY t1.mon DESC,job DESC
-</code></pre>
-<h4 id="87"><a href="#87" class="headerlink" title="87"></a>87</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT grade,SUM(number) OVER(ORDER BY grade) FROM class_grade
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>job<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>mon<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>cnt<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>mon<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>cnt
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> job<span class="token punctuation">,</span>DATE_FORMAT<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token string">'%Y-%m'</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> mon<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt
+    <span class="token keyword">FROM</span> resume_info
+    <span class="token keyword">WHERE</span> DATE_FORMAT<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token string">'%Y'</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">2025</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job<span class="token punctuation">,</span>mon
+    <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> mon <span class="token keyword">DESC</span><span class="token punctuation">,</span>cnt <span class="token keyword">DESC</span>
+<span class="token punctuation">)</span> t1<span class="token punctuation">,</span>
+<span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> job<span class="token punctuation">,</span>DATE_FORMAT<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token string">'%Y-%m'</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> mon<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt
+    <span class="token keyword">FROM</span> resume_info
+    <span class="token keyword">WHERE</span> DATE_FORMAT<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token string">'%Y'</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">2026</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job<span class="token punctuation">,</span>mon
+    <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> mon <span class="token keyword">DESC</span><span class="token punctuation">,</span>cnt <span class="token keyword">DESC</span>
+<span class="token punctuation">)</span> t2
+<span class="token keyword">WHERE</span> t1<span class="token punctuation">.</span>job <span class="token operator">=</span>t2<span class="token punctuation">.</span>job
+<span class="token operator">AND</span> SUBSTR<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>mon<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">=</span> SUBSTR<span class="token punctuation">(</span>t2<span class="token punctuation">.</span>mon<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>mon <span class="token keyword">DESC</span><span class="token punctuation">,</span>job <span class="token keyword">DESC</span></code></pre>
+<h4 id="87"><a href="#87" class="headerlink" title="87"></a>87</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> grade<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade<span class="token punctuation">)</span> <span class="token keyword">FROM</span> class_grade</code></pre>
 <h4 id="86-1"><a href="#86-1" class="headerlink" title="86"></a>86</h4><ul>
 <li>新写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT grade FROM (
-    SELECT  
-        grade,
-        SUM(number) OVER(ORDER BY grade) AS rn1,
-        SUM(number) OVER(ORDER BY grade DESC) AS rn2,
-        (SELECT SUM(number) FROM class_grade) AS cnt
-    FROM class_grade
-) t
-WHERE t.rn1 >= cnt/2
-AND t.rn2 >= cnt/2
-ORDER BY grade
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> grade <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span>  
+        grade<span class="token punctuation">,</span>
+        <span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade<span class="token punctuation">)</span> <span class="token keyword">AS</span> rn1<span class="token punctuation">,</span>
+        <span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rn2<span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">FROM</span> class_grade<span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt
+    <span class="token keyword">FROM</span> class_grade
+<span class="token punctuation">)</span> t
+<span class="token keyword">WHERE</span> t<span class="token punctuation">.</span>rn1 <span class="token operator">>=</span> cnt<span class="token operator">/</span><span class="token number">2</span>
+<span class="token operator">AND</span> t<span class="token punctuation">.</span>rn2 <span class="token operator">>=</span> cnt<span class="token operator">/</span><span class="token number">2</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade</code></pre>
 <ul>
 <li>旧写法</li>
 </ul>
-<pre class=" language-lang-sql"><code class="language-lang-sql">SELECT grade FROM (
-    SELECT  grade,SUM(number) OVER(ORDER BY grade) AS rs1,SUM(number) OVER(ORDER BY grade DESC) AS rs2
-    FROM class_grade
-    ORDER BY  grade
-) t
-WHERE t.rs1 >= (SELECT SUM(number) FROM class_grade)/2
-AND t.rs2 >= (SELECT SUM(number) FROM class_grade)/2
-</code></pre>
-<h4 id="89"><a href="#89" class="headerlink" title="89"></a>89</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT name,grade_sum FROM (
-    SELECT name,SUM(grade_num) AS grade_sum FROM user
-    JOIN grade_info
-    ON user.id = grade_info.user_id
-    GROUP BY name
-) t
-ORDER BY grade_sum DESC
-LIMIT 0,1
-</code></pre>
-<h4 id="90"><a href="#90" class="headerlink" title="90"></a>90</h4><pre class=" language-lang-sql"><code class="language-lang-sql">SELECT user.id,user.name,grade_sum
-FROM (
-    SELECT *,DENSE_RANK() OVER(ORDER BY grade_sum DESC) AS rs 
-    FROM (
-        SELECT user_id,SUM(grade_num) AS grade_sum FROM grade_info
-        GROUP BY user_id
-    ) t1
-) t2
-JOIN user
-ON user.id = b.user_id
-WHERE rs = 1
-ORDER BY user.id
-</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> grade <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span>  grade<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade<span class="token punctuation">)</span> <span class="token keyword">AS</span> rs1<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rs2
+    <span class="token keyword">FROM</span> class_grade
+    <span class="token keyword">ORDER</span> <span class="token keyword">BY</span>  grade
+<span class="token punctuation">)</span> t
+<span class="token keyword">WHERE</span> t<span class="token punctuation">.</span>rs1 <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">FROM</span> class_grade<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span>
+<span class="token operator">AND</span> t<span class="token punctuation">.</span>rs2 <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">FROM</span> class_grade<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span></code></pre>
+<h4 id="89"><a href="#89" class="headerlink" title="89"></a>89</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span>grade_sum <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> name<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>grade_num<span class="token punctuation">)</span> <span class="token keyword">AS</span> grade_sum <span class="token keyword">FROM</span> <span class="token keyword">user</span>
+    <span class="token keyword">JOIN</span> grade_info
+    <span class="token keyword">ON</span> <span class="token keyword">user</span><span class="token punctuation">.</span>id <span class="token operator">=</span> grade_info<span class="token punctuation">.</span>user_id
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> name
+<span class="token punctuation">)</span> t
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade_sum <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span></code></pre>
+<h4 id="90"><a href="#90" class="headerlink" title="90"></a>90</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">user</span><span class="token punctuation">.</span>id<span class="token punctuation">,</span><span class="token keyword">user</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span>grade_sum
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>DENSE_RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade_sum <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rs 
+    <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>grade_num<span class="token punctuation">)</span> <span class="token keyword">AS</span> grade_sum <span class="token keyword">FROM</span> grade_info
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+    <span class="token punctuation">)</span> t1
+<span class="token punctuation">)</span> t2
+<span class="token keyword">JOIN</span> <span class="token keyword">user</span>
+<span class="token keyword">ON</span> <span class="token keyword">user</span><span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token number">b</span><span class="token punctuation">.</span>user_id
+<span class="token keyword">WHERE</span> rs <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">user</span><span class="token punctuation">.</span>id</code></pre>
 
             </div>
             <hr/>
@@ -2047,7 +1952,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.4k</span>&nbsp;字
+                class="white-color">133.4k</span>&nbsp;字
             
             
             
