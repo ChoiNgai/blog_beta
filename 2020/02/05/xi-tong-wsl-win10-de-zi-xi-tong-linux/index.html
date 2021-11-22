@@ -583,7 +583,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    108
+                    160
                 </div>
                 
 
@@ -601,8 +601,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>在Windows下使用linux系统（可shell命令行操作或图形界面操作）</p>
-<p>##　步骤</p>
-<ul>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="　步骤"></a>　步骤</h2><ul>
 <li><a href="https://blog.csdn.net/m0_37990055/article/details/89709963?from=groupmessage" target="_blank" rel="noopener">建立软链接（非必须）</a></li>
 <li><a href="https://blog.csdn.net/zhouzme/article/details/78780479" target="_blank" rel="noopener">安装Ubuntu</a></li>
 <li><a href="https://www.jianshu.com/p/f7ce44ecdd06" target="_blank" rel="noopener">安装并配置cmder（非必须）</a></li>
@@ -613,7 +612,25 @@
 <p><a href="https://www.jianshu.com/p/3e627ff45ccb" target="_blank" rel="noopener">Windows 安装和配置 WSL 希希里之海</a></p>
 <p><a href="https://blog.csdn.net/NovaSliver/article/details/83190269" target="_blank" rel="noopener">Win10Linux子系统（WSL）图形界面的安装  NovaSliver</a></p>
 <p><a href="https://www.jianshu.com/p/f7ce44ecdd06" target="_blank" rel="noopener"><em>LG</em></a></p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1214,7 +1231,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.8k</span>&nbsp;字
+                class="white-color">145.4k</span>&nbsp;字
             
             
             

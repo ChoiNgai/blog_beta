@@ -590,7 +590,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -614,7 +614,8 @@
 <p><code>D:\Git\git-2.22.0\usr\bin\ssh-keygen.exe</code></p>
 <h3 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h3><p>建议新手安装最新的稳定版本，同样也得在环境变量里添加，比如安装在<code>D:\nodejs</code>就添加<code>D:\nodejs</code></p>
 <h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>在某个文件夹位置点击鼠标右键，打开git bash，输入</p>
-<pre><code>hexo init</code></pre><p>git会自动拉取hexo的安装包</p>
+<pre><code>hexo init
+</code></pre><p>git会自动拉取hexo的安装包</p>
 <p>安装完成会出现以下这些文件</p>
 <blockquote>
 <p>scaffolds                       配置文件，先别管</p>
@@ -628,11 +629,13 @@
 <p>在hexo根目录打开_config.yml，把<code>theme: landscape</code>修改成<code>theme: Sakura</code>（注意英文冒号后面有个<strong>空格</strong>，没有的话会报错）</p>
 <h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>安装Hexo运行必备的插件，首先安装淘宝镜像（因为npm实在太慢了）</p>
 <p>安装cnpm，命令：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g cnpm --registry<span class="token operator">=</span>https://registry.npm.taobao.org
-1</code></pre>
+<pre class=" language-lang-bash"><code class="language-lang-bash">npm install -g cnpm --registry=https://registry.npm.taobao.org
+1
+</code></pre>
 <p>安装后，使用以下命令测试是否安装成功</p>
-<pre class=" language-bash"><code class="language-bash">cnpm -v
-1</code></pre>
+<pre class=" language-lang-bash"><code class="language-lang-bash">cnpm -v
+1
+</code></pre>
 <p>成功后，以后都使用 cnpm 代替以前 npm 来执行命令！</p>
 <ul>
 <li>安装必要插件</li>
@@ -653,7 +656,8 @@ cnpm i --save hexo-wordcount
 cnpm i -S hexo-prism-plugin
 cnpm i hexo-permalink-pinyin --save
 cnpm i --save hexo-generator-feed
-cnpm install hexo-generator-search --save</code></pre><p>然后，输入``hexo g<code>，等待md文件渲染成html文件再输入</code>hexo s`</p>
+cnpm install hexo-generator-search --save
+</code></pre><p>然后，输入<code>`hexo g</code>，等待md文件渲染成html文件再输入<code>hexo s</code></p>
 <p>打开浏览器输入<code>http://localhost:4000/</code></p>
 <h2 id="定制美化"><a href="#定制美化" class="headerlink" title="定制美化"></a>定制美化</h2><p>根据自己的需要定制啦，记得多用git add -A和git commit -m “提交缓存区”  保存，万一搞得报错了至少能用git reflog回滚。</p>
 <h2 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h2><p>如果网速可以建议用PicGo+github pages搭建图床（但是上传速度很慢）；也可以用七牛云、又拍云等搭建图床，但是这种我个人觉得要么收费要么不好用。</p>
@@ -662,7 +666,8 @@ cnpm install hexo-generator-search --save</code></pre><p>然后，输入``hexo g
 <p>在电脑上找个合适的文件夹位置(放博客的位置)</p>
 <p>安装淘宝镜像</p>
 <pre><code>npm install cnpm -g --registry=http://registry.npm.taobao.org #全局安装
-npm install cnpm --registry=http://registry.npm.taobao.org        #局部安装</code></pre><p>安装上hexo必备的一些插件</p>
+npm install cnpm --registry=http://registry.npm.taobao.org        #局部安装
+</code></pre><p>安装上hexo必备的一些插件</p>
 <pre><code>cnpm i --save hexo-wordcount
 cnpm i --save hexo-deployer-git 
 cnpm i -S hexo-prism-plugin
@@ -679,7 +684,8 @@ cnpm i --save hexo-renderer-stylus
 cnpm i --save hexo-server
 cnpm i --save hexo-wordcount
 cnpm i --save hexo-generator-category
-cnpm i --save hexo-filter-mermaid-diagrams</code></pre><p>然后需要修改一些必要的配置</p>
+cnpm i --save hexo-filter-mermaid-diagrams
+</code></pre><p>然后需要修改一些必要的配置</p>
 <p>首先在<strong>根目录</strong>的_config.yml修改自己的网站名，作者名等，url处填写自己的网站名</p>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200703185000368.png" alt="网站地址"></p>
 <p>填写打开了 GitHub pages 或coding pages 的地址</p>
@@ -695,7 +701,7 @@ cnpm i --save hexo-filter-mermaid-diagrams</code></pre><p>然后需要修改一�
 <p>如果用typora写出来的latex有问题的话，比如像这样</p>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200708221444940.png" alt="Typora写的公式VScode上看起来也没毛病"></p>
 <p>在各种markdown编辑器看着这个公式都能正常显示，但实际上经过hexo渲染打开的网页的就会像下图这样：</p>
-<center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200708220658307.png" width="50%"></img></center>
+<center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200708220658307.png" width="50%"></center>
 
 
 
@@ -706,7 +712,25 @@ cnpm i --save hexo-filter-mermaid-diagrams</code></pre><p>然后需要修改一�
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/image-20200708223051543.png" alt="$$$$中间不回车"></p>
 <p>正常显示之后，再把这段复制粘贴到vscode打开的md文件，hexo渲染出的网页就显示正常啦。</p>
 <p>(一句话，想办法让公式在CSDN的markdown编辑器显示正常即可)</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1326,7 +1350,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.8k</span>&nbsp;字
+                class="white-color">145.4k</span>&nbsp;字
             
             
             

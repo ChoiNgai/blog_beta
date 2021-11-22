@@ -583,7 +583,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
@@ -613,7 +613,7 @@
 </li>
 </ul>
 <h2 id="3-多维数据建模"><a href="#3-多维数据建模" class="headerlink" title="3. 多维数据建模"></a>3. 多维数据建模</h2><h3 id="3-1-星型模型"><a href="#3-1-星型模型" class="headerlink" title="3.1 星型模型"></a>3.1 星型模型</h3><p>星型模型主要由维表和事实表构成，<strong>以事实表为中心</strong>，所有维度直接关联在事实表上，呈星型分布。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/1OYP1AZw0W1UwPYvStthXYOIVIJMRPHg8cs4Mkghw3E3KRLbgSgMAT1PHibFQ5noseRpicmylmKp3gKPc0LMAyDg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/1OYP1AZw0W1UwPYvStthXYOIVIJMRPHg8cs4Mkghw3E3KRLbgSgMAT1PHibFQ5noseRpicmylmKp3gKPc0LMAyDg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
 <p>图来源于Kimball《The Data Warehouse Toolkits -3rd Edition》</p>
 <h3 id="3-2-雪花模型"><a href="#3-2-雪花模型" class="headerlink" title="3.2 雪花模型"></a>3.2 雪花模型</h3><p>雪花模型，在星型模型的基础上，维度表上又关联了其他维度表。</p>
 <p>雪花模型的维护成本较高，性能方面也较差，尤其是基于hadoop体系构建数仓，减少join就是减少shuffle，性能差距会很大。</p>
@@ -626,50 +626,54 @@
 <ul>
 <li><strong>星型模型和雪花模型的优劣对比</strong></li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">属性</th>
-<th align="left">星型模型</th>
-<th align="left">雪花模型</th>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">星型模型</th>
+<th style="text-align:left">雪花模型</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">数据总量</td>
-<td align="left">多</td>
-<td align="left">少</td>
+<tbody>
+<tr>
+<td style="text-align:left">数据总量</td>
+<td style="text-align:left">多</td>
+<td style="text-align:left">少</td>
 </tr>
 <tr>
-<td align="left">可读性</td>
-<td align="left">容易</td>
-<td align="left">差</td>
+<td style="text-align:left">可读性</td>
+<td style="text-align:left">容易</td>
+<td style="text-align:left">差</td>
 </tr>
 <tr>
-<td align="left">表个数</td>
-<td align="left">少</td>
-<td align="left">多</td>
+<td style="text-align:left">表个数</td>
+<td style="text-align:left">少</td>
+<td style="text-align:left">多</td>
 </tr>
 <tr>
-<td align="left">查询速度</td>
-<td align="left">快</td>
-<td align="left">慢</td>
+<td style="text-align:left">查询速度</td>
+<td style="text-align:left">快</td>
+<td style="text-align:left">慢</td>
 </tr>
 <tr>
-<td align="left">冗余度</td>
-<td align="left">高</td>
-<td align="left">低</td>
+<td style="text-align:left">冗余度</td>
+<td style="text-align:left">高</td>
+<td style="text-align:left">低</td>
 </tr>
 <tr>
-<td align="left">对实时表的情况</td>
-<td align="left">增加宽度</td>
-<td align="left">字段比较少，冗余底</td>
+<td style="text-align:left">对实时表的情况</td>
+<td style="text-align:left">增加宽度</td>
+<td style="text-align:left">字段比较少，冗余底</td>
 </tr>
 <tr>
-<td align="left">扩展性</td>
-<td align="left">差</td>
-<td align="left">好</td>
+<td style="text-align:left">扩展性</td>
+<td style="text-align:left">差</td>
+<td style="text-align:left">好</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li><p>应用场景</p>
 <p><strong>星型模型</strong>的设计方式主要带来的好处是能够提升查询效率，因为生成的事实表已经经过预处理，主要的数据都在事实表里面，所以只要扫描实时表就能够进行大量的查询，而不必进行大量的join，其次维表数据一般比较少，在join可直接放入内存进行join以提升效率，除此之外，星型模型的事实表可读性比较好，不用关联多个表就能获取大部分核心信息，设计维护相对比较简答。</p>
@@ -712,7 +716,25 @@
 <h2 id="6-数仓专业术语"><a href="#6-数仓专业术语" class="headerlink" title="6. 数仓专业术语"></a>6. 数仓专业术语</h2><h3 id="ETL"><a href="#ETL" class="headerlink" title="ETL"></a>ETL</h3><p>ETL（Extract-Transform-Load）是指将业务系统中的数据进行<strong>抽取、转换、加载</strong>到数据仓库的过程，目的是将企业中分散、零乱、标准不统一的数据整合到一起，为企业的决策提供分析的依据。</p>
 <h3 id="OLAP"><a href="#OLAP" class="headerlink" title="OLAP"></a>OLAP</h3><p>联机分析处理（Online analytical processing，OLAP），从数据仓库中抽取详细数据的一个子集并经过必要的聚集，存储到OLAP存储器中供前端分析工具读取。</p>
 <h3 id="OLTP"><a href="#OLTP" class="headerlink" title="OLTP"></a>OLTP</h3><p>联机(在线)事务处理(On-Line Transaction Processing，OLTP)，主要是执行日常的事务处理，比如数据库记录的增删改查。OLTP的特点一般有：实时性要求高，数据量不大，高并发，并且要求满足ACID原则。</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1328,7 +1350,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.8k</span>&nbsp;字
+                class="white-color">145.4k</span>&nbsp;字
             
             
             

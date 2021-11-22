@@ -1,0 +1,1564 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="腾讯广告大数据平台核心架构设计, null">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>腾讯广告大数据平台核心架构设计 | null</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<!-- 每日一句 -->
+<script src="https://v1.hitokoto.cn/?c=d&encode=js&select=%23hitokoto" defer></script>
+
+<!-- 动态诗词 -->
+<!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span"></span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>联系</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/music">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name"></div>
+        <div class="logo-desc">
+            
+            愿你历尽千帆,归来仍是少年.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			联系
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/music " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/ChoiNgai" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/ChoiNgai" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1913.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">腾讯广告大数据平台核心架构设计</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/">
+                                <span class="chip bg-color">数据平台</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/" class="post-category">
+                                大数据技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-11-22
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-11-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>转载自<a href="https://mp.weixin.qq.com/s/1bVUOnKgpC5mjCvCz4TLdg" target="_blank" rel="noopener">广告大数据平台核心架构设计</a>，侵删</p>
+<p>本篇文章讲解了腾讯广告大数据的整体架构，讲解了具体细分的模块以及多年的更新迭代，个人觉得对大数据领域的广告业务很有参考价值，故转载。</p>
+</blockquote>
+<p>腾讯广告平台产品部大数据平台承担着腾讯视频、腾讯新闻客户端、腾讯网、腾讯体育、QQ音乐等腾讯系媒体和部分外部媒体的广告数据的接入、处理和应用。在过去的几年中，伴随着广告业务的快速发展，大数据平台架构也经历了一系列的升级。本文将从广告数据接入、处理、应用三个层面剖析大数据平台的核心架构设计，重点分享百亿级广告日志数据的接入架构设计（云落地系统）、广告数据  session 化实现（ logjoin 系统)、PB 级数据的 OLAP 查询 Lambda 架构设计。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFEyxbd6qYFlgVpp0oR7SbC8EDJD4NFanrdH0DjVy0gckCwonIDkTYhqQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图1. 大数据平台整体架构</p>
+<h2 id="1-数据接入"><a href="#1-数据接入" class="headerlink" title="1 数据接入"></a><strong>1 数据接入</strong></h2><hr>
+<p>大数据平台接入的数据主要包括3个大类：业务维度数据、媒体流量数据、广告流量数据，如图2所示。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFE9p99GanK8DnUezH4Ukda4nayV9y1NiaOs01K31Y4ovZG2RNhsMLHhpQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图2. 数据接入架构</p>
+<h3 id="1-1-业务维度数据"><a href="#1-1-业务维度数据" class="headerlink" title="1.1 业务维度数据"></a><strong>1.1 业务维度数据</strong></h3><hr>
+<p>业务维度数据主要包括广告客户数据、广告下单数据、广告排期数据、广告位数据，这些数据原生位于广告投放体系中的其他业务系统如CRM系统、Order系统、Planning系统。大数据平台使用3种方式获取这种维度数据：</p>
+<p>1）业务提供数据接口，平台主动拉</p>
+<p>2）业务提供表schema/IP/端口，平台编写业务逻辑SQL，主动拉取</p>
+<p>3）平台提供接口，业务主动调用接口上传</p>
+<h3 id="1-2-媒体流量数据"><a href="#1-2-媒体流量数据" class="headerlink" title="1.2 媒体流量数据"></a><strong>1.2 媒体流量数据</strong></h3><hr>
+<p>媒体流量数据来源于媒体，主要包括腾讯视频播放数据、腾讯新闻浏览数据，这些媒体数据通过腾讯公司级数据仓库TDW出库到大数据平台侧的Hadoop集群。媒体流量数据主要有两大类用途：</p>
+<p>1）结合媒体数据分析广告的投放效果和售卖效果</p>
+<p>2）ETL清洗后为算法服务提供原始特征数据</p>
+<h3 id="1-3-广告流量数据"><a href="#1-3-广告流量数据" class="headerlink" title="1.3 广告流量数据"></a><strong>1.3 广告流量数据</strong></h3><hr>
+<p>广告流量数据包括广告的检索、曝光、点击数据，是整个大数据平台自有的核心数据。鉴于腾讯视频、腾讯新闻客户端、腾讯网等媒体的巨大流量（日均百亿级广告PV、峰值QPS40万），如何采集和传输这海量广告日志数据成为大数据平台首先需要面对的挑战，这个挑战主要体现在以下3个方面：</p>
+<p>1）数据总量大、峰值压力高</p>
+<p>2）数据的可靠性、实时性要求极高</p>
+<p>3）业务数据种类繁多且业务变化快</p>
+<p>因此，一个良好的数据采集传输系统需要具备下述特性：</p>
+<p>1）高可靠性和高可扩展性，完善的容错和负载均衡机制，可水平扩展的处理能力；</p>
+<p>2）支持离线分析系统和实时计算系统；</p>
+<p>3）能够灵活快速响应业务需求，实现数据字段新增、修改。</p>
+<p>大数据平台2016年前的广告流量数据接入架构如图3所示。在这套广告流量数据接入架构中，广告流量数据落地功能是和业务server耦合的，共同部署在接入层server上，通过本地的各配置文件生成多个落地器，在单机上实现数据分拣（分拣：不同流量来源的数据落地到不同的目的路径），并按照配置的字段挑选数据。落地数据定时批量从server磁盘上传HDFS集群。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFEX06MvzvqmBmu5rcIreTg9RDCpsPZR4KtRzxRO9MFYEvHpKrgHzXYMQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFE7KIsXk9pp0VEQBFrBl7aKialdGvx7yAXhvic3PsF5pInaiaIsfty3zp4g/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图3. 广告流量数据接入架构</p>
+<p>这个广告流量数据接入架构的主要缺陷在于：</p>
+<p>1）通过白名单式的配置挑选落地字段，没有完整请求数据，没有可恢复的数据现场</p>
+<p>2）和业务server重度耦合，每条数据都要串行遍历所有落地器处理，性能较差</p>
+<p>3）配置修改比较复杂，在业务较多的服务，如点击服务器，修改配置的复杂度不低于修改代码，易出错</p>
+<p>4）业务变化涉及众多服务器升级，运维工作量大，一致性难保证。</p>
+<p>为了解决这个广告流量数据接入架构存在的上述问题，大数据平台对此架构进行了重构升级，搭建了新一代广告流量数据接入系统——云落地。云落地系统的设计目标是建成广告效果数据总线以实现数据集中接入、秒级实时处理、下游业务各取所需、业务变更不停数据流。</p>
+<p>云落地系统主要由Storm、TDBank(腾讯自研的分布式消息队列)、Hadoop等分布式系统组件构建，总体架构采用分层结构，如图4所示。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFEMUmAL8SARN4wT5R9IUdjjDJkdMbC0VUqI9XFsicBFIowseE9BDFPVyA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图4. 云落地系统架构</p>
+<p>业务服务器包含云落地系统所对接的各种业务日志服务器。发送Agent包含收集业务日志数据并进行转发的Sender。传输层使用TDBank，接收Agent发送的日志数据。核心分拣层包含2个分拣引擎：实时分拣引擎以及作为容错机制的离线分拣引擎。实时分拣在Storm Topology中实现。离线分拣使用Hadoop MapReduce实现。当实时分拣数据流出现问题时，可用离线分拣进行数据分拣，依然能保证数据完整性。存储层是HDFS分布式文件系统以及TDBank，其中HDFS存储支持下游离线数据应用，TDBank存储支持下游实时计算系统。云落地系统整体数据流如图5所示。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFEjibXOZY6SPpMUnYk8AellGwYtrwWqVq9G3Pj73Lk5uVXnLldMUo5EXg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图5. 云落地系统整体数据流</p>
+<p>云落地目前接入了腾讯网，腾讯视频，腾讯新闻客户端，微信/手Q新闻插件等业务，已覆盖所有广平数据业务。日均接收原始请求数百亿级，峰值QPS 40W/S。平均处理延迟7.5s。云落地系统将服务和数据解耦，提高了业务响应能力；配置中心化，一个业务，只需要维护一个配置，数据一致性得到保障；Hadoop和Storm结合保证了数据接入和传输的高可靠性和高可扩展性；云落地系统强化数据总线概念，所有的数据都从云分拣“入”，所有的数据需求都从云分拣“出”。</p>
+<h2 id="2-数据处理"><a href="#2-数据处理" class="headerlink" title="2 数据处理"></a><strong>2 数据处理</strong></h2><h3 id="2-1-业务维度表构建"><a href="#2-1-业务维度表构建" class="headerlink" title="2.1 业务维度表构建"></a><strong>2.1 业务维度表构建</strong></h3><hr>
+<p>针对上文中提到的业务维度数据，数据处理流程做的主要工作是生成一系列的维度表，这一系列的维度表将被用于数据建模时维度的扩展。例如对于广告下单数据，数据平台会生成以订单号oid为key的维度表，该维度表中还包括如客户ID，广告排期等其他订单号相关的属性。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFEGR8eaNJVS90y8dhkvqBv9IlWv4MN75G9EV4tiac66Zav17c2Hm2yOpQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图6. 维度表Schema设计</p>
+<p>一个维度表最终的物理存储形式为HDFS上的一个文件，大数据平台目前维护着数百份维度表，这些维度表的更新周期包括按天、按小时等等。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFE20etiajIXyhibf0DwkwO13volYwiaA6PCYQSTmc7FXerhRRc8ANFBJG9A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图7. 维度表物理存储</p>
+<h3 id="2-2-媒体流量数据ETL"><a href="#2-2-媒体流量数据ETL" class="headerlink" title="2.2 媒体流量数据ETL"></a><strong>2.2 媒体流量数据ETL</strong></h3><hr>
+<p>媒体流量数据通过TDW由媒体侧出库到大数据平台侧的Hadoop集群，之后数据平台将进行必要的数据清洗和转换以构建数据模型。</p>
+<h3 id="2-3-广告流量数据ETL"><a href="#2-3-广告流量数据ETL" class="headerlink" title="2.3 广告流量数据ETL"></a><strong>2.3 广告流量数据ETL</strong></h3><hr>
+<p>对于通过云落地系统接入的广告流量数据，ETL流程通过清洗、关联和转换以实现数据的一致性、完整性、标准化。数据平台2017年前的ETL流程和业界通用的ETL流程类似，通过离线的Map/Reduce程序对广告日志进行清洗、关联和转换,清洗程序包括小时级的和天级的，清洗程序的调度通过TDW LZ平台实现，如图8所示。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFEdKiaap8zNcTapGKaZ65EzmeKHVIqBMZTUaDcJj9IEW5Oe1WMumuicqLQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图8. ETL清洗任务</p>
+<p>这种离线数据ETL方式主要存在以下问题：</p>
+<p>1）数据时效性差: </p>
+<p>采用离线清洗,不能给下游实时统计提供实时流量，下游统计分析仅支持到T+1（1表示小时或者天，绝大部分数据为天）</p>
+<p>2）离线清洗计算引擎落后: </p>
+<p>离线清洗基于Hadoop MapReduce, 一方面计算中间结果需要存放到hdfs中，效率较低，另一方面支持的算子仅有Map和Reduce，表达能力欠缺，需要手工写很多代码，较难维护。</p>
+<p>针对以上不足，大数据平台在2017年对数据ETL系统进行了重构升级，升级后的ETL系统架构如图9所示。新的ETL系统由两大部分组成，实时ETL和离线ETL。</p>
+<p>1）实时ETL: 基于实时LogJoin(下文会介绍)的输出，构建实时清洗，为下游实时业务提供基础数据。</p>
+<p>2）离线ETL: 清洗计算引擎升级为spark，提升处理速度。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFES1RkvT6ucrFPCPXYAiaDqfkLud4T9v8S0gjfAYS5yeAC58jejn521NQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图9. 实时ETL架构图</p>
+<p>实时ETL分事实数据生成维度数据Join两个主模块。事实数据生成模块主要负责数据过滤，转换，格式化处理，生成事实表模型；维度数据Join模块负责根据不同的实时业务需求，关联不同的维度数据。实时ETL生成的数据将被用于实时查询引擎实时数据的查询以及算法需要的实时特征数据。</p>
+<h3 id="2-4-广告数据Session化"><a href="#2-4-广告数据Session化" class="headerlink" title="2.4 广告数据Session化"></a><strong>2.4 广告数据Session化</strong></h3><hr>
+<p>广告数据session化，即构建从用户产生一个广告请求到曝光以及最终产生点击的session级数据模型，实时logjoin就是用来实现广告数据session化的系统。广告检索日志、曝光日志、点击日志三路数据将通过实时logjoin模块进行整合，曝光、点击数据只需携带关键信息，其他信息由检索数据填充。目前广告曝光点击等效果日志关联是离线任务方式执行，延迟至少2个小时，通过实时logjoin可以有效服务算法实时CTR。LogJoin整体架构图如图10所示。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFECFeG72wtTVqYEV4f2eKj4LEVdiaOEDJbuOzRkDTyKgyU2fRiaACJEuag/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图10. 实时LogJoin架构</p>
+<p>LogJoin项目主要意义：</p>
+<p>1）提升数据一致性。以发布测数据为准，曝光、点击、动作数据都向发布数据靠，保证数据一条线的一致性；</p>
+<p>2）提升数据完整性。减少大字段导致的http截断等用户侧上报场景下的问题；</p>
+<p>3）提升数据时效性。基于Storm做流式logjoin，秒级完成数据ETL。可供实时CTR预估，在线学习等，提升广告收益，并为海象等下游业务提速打下基础；</p>
+<p>4）精简曝光点击请求上报，节省用户流量；</p>
+<p>5）解耦SDK和数据采集，提升新需求的响应速度；</p>
+<p>6）基础数据底层schema重构优化，对各种业务不同格式数据建立统一底层数据模型，降低系统复杂度；</p>
+<p>7）实时补全日志，纬度信息更加丰富，可支持实时多维分析。</p>
+<h3 id="核心业务逻辑"><a href="#核心业务逻辑" class="headerlink" title="核心业务逻辑"></a><strong>核心业务逻辑</strong></h3><p>LogJoin的核心业务逻辑是将用户产生的一个广告从请求到曝光以及最终产生点击的完整日志数据Join到一起，LogJoin通过将一个广告的请求、曝光、点击写到Hbase的同一行中的Column Family并通过不同的qualifier来标识请求、曝光、点击来实现Join的功能,如图11所示。LogJoin中数据的实时清洗以及读写HBase的操作都是在JStorm中完成。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFE9bGvmSMgDGIvb62mrhVark8pZgGXIEot69PFVWic806oN3cmSydQe8w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图11. 实时LogJoin业务逻辑</p>
+<p>在HBase里一次广告检索对应后续的所有曝光和点击日志都保存在同一个RowKey对应的行，三种日志放在不同的列里，如图12所示。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/0HPHErzp3ibictGzTrARqaBZVGrDATOxFEZXTxMR6a94BMDMicXXV6kPbApap04baQ1lbmZPgXSBAiav9oFibwVgzwQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图12. 实时LogJoin HBase设计</p>
+<p>HBase设计中包含一个Family，其他数据包括</p>
+<p>qualifier[common]  #检索日志中所有订单共享的信息，单列</p>
+<p>qualifier[q_soid]   #检索日志中选中订单相关信息，每个soid占1列</p>
+<p>qualifier[v_soid]   #曝光日志，每个曝光（soid）单独1列</p>
+<p>qualifier[c_soid]   #点击日志，每个点击（soid）单独1列</p>
+<p>LogJoin遇到的一个挑战是同一个用户的一次完整的广告session所产生的请求、曝光、点击数据是乱序上报的。对于用户的一次完整广告，理论上是按照先有请求，接着是曝光，最后是点击的顺序上报，但现实环境中，由于请求、曝光、点击日志数据在不同的服务器上产生，每台服务器的负载不同导致数据上报的速度不一致，这就造成LogJoin的JStorm程序会乱序接收到请求、曝光、点击数据，如图13所示。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFEZDdW6w65M176h705GY7ljbqT5Q2MsgHpBIbcxPSQbWXdYRd8Xg6mZQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">图13. 检索曝光点击乱序上报</p>
+<p>针对这种现象，LogJoin采用HBase行级锁并以CheckAndPut方式写入来保证数据的原子性。</p>
+<h3 id="LogJoin-JStorm核心设计"><a href="#LogJoin-JStorm核心设计" class="headerlink" title="LogJoin JStorm核心设计"></a><strong>LogJoin JStorm核心设计</strong></h3><p>LogJoin的核心处理逻辑在JStorm中实现，核心设计如图14所示，设计要点：</p>
+<p>1）流量隔离：按流量分为检索，曝光，点击等Spout，方便task数调整。</p>
+<p>2）多线程&amp;批处理：提升并发度，减少网络IO，提升吞吐量batch_num设为50，性能提升5倍。</p>
+<p>3）多级重试队列：提升点击join的时效性</p>
+<p>4）在线升级：落地字段增减，分拣规则调整等在线升级</p>
+<p>5）优雅重启：发送停止消费命令，先停止tube消费，再停止应用。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFESuvGv4aehenHDibiciaMcZ2tCVIE3SNe0QmkMic9LCIKtZrJMvZuDTkZoQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图14. LogJoin JStorm核心设计</p>
+<h3 id="LogJoin-HBase核心设计"><a href="#LogJoin-HBase核心设计" class="headerlink" title="LogJoin HBase核心设计"></a><strong>LogJoin HBase核心设计</strong></h3><p>LogJoin中HBase设计要点是保证高吞吐与稳定性。HBase高吞吐与稳定性的保证主要通过RowKey的合理设计来防热点。LogJoin中HBase的RowKey长度设计固定为16字节，包括1字节前缀、2字节时间、13字节request_id，如图15所示</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFEuLWrfXQ9Cj8uYGnmUasKks8XyxM57k0dkibIL3BXibzm5PlLYMib23sZg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图15. Rowkey设计</p>
+<p>唯一键为广告投放体系生成的的request_id，request_id的生成规则如下：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFE88zun7QmUo081ic0icpoMUbS2ab0CY0kVdh5gicUKiaSB8opOKaYLIewsQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图16. request_id设计</p>
+<p>离线数据统计分析发现request_id不够散列，容易造成访问热点，需要增加散列前缀，因此RowKey中增加了1个字节长度的前缀，前缀计算方法为:</p>
+<p>(byte)Math.abs(hashCode(request_id)%256)</p>
+<p>RowKey中增加2字节的时间是为了实现基于时间局部性的IO优化。分析数据发现98%以上的Join动作可以在1分钟内完成，具有很强的时间相关性，BlockCache读缓存命中率低导致频繁访问HFile，造成IO利用率过高。对此的改进思路是尽可能的把相同时间的记录写到HFile中相邻的数据块(HBlock),从而提升 BlockCache缓存命中率。因此在RowKey中增加了时间信息，两个字节(小时,分钟)。效果是单机IO利用率从50%下降到20%以下。</p>
+<p>针对HBase，LogJoin还做了一系列的优化，这些优化包括：预分区，避免region split带来集群访问毛刺;BlockCache优化提升读效率;启用压缩算法:节省存储空间;MajorCompaction优化: 禁用，夜间流量低时，定时手工触发。</p>
+<p>截止目前，LogJoin系统运行指标：</p>
+<p>1）高吞吐：日均接入60亿检索，16亿曝光，峰值QPS 20w/s</p>
+<p>2）低延迟：数据秒级延迟，延迟（处理时间-数据时间）超过30s的比例&lt;0.16%, 超过60s的比例&lt;0.11%</p>
+<p>3）Join成功率高：曝光join检索的成功率&gt;99.4%;点击join曝光和检索的成功率&gt;99%</p>
+<p>4）业务效果: 实时CTR预估提升2%；点击过滤系统中可以将点击关联到的曝光、检索相关的信息作为过滤依据。</p>
+<h2 id="3-数据服务"><a href="#3-数据服务" class="headerlink" title="3 数据服务"></a><strong>3 数据服务</strong></h2><hr>
+<p>数据平台的数据服务可以分成在线数据服务和离线数据服务两大类。在线数据服务包括为实时CTR预估提供数据的LogJoin数据流、实时播控、点击过滤、计费，如图17所示。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFElaIpiadr9v90euNzhthy87hjiaEX6w0bvUmNb6fgAJHgQYpCk4uMuBrw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图17. 在线数据服务</p>
+<p>离线数据服务主要包括广告效果分析平台(Measurement)、广告运营分析平台(灯塔)以及自助查询OLAP系统 (盖亚 &amp; Walrus)、各个业务系统所需的广告执行数据的推送服务(涉及公司20+个部分，100+团队)。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFEicsuEW0VYoeicu8ss8icPbpKLMk4V6PkdsJsrCKKhBOtEX50PJ4AIqdAg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图18. 离线数据服务</p>
+<h3 id="3-1-数据建模"><a href="#3-1-数据建模" class="headerlink" title="3.1 数据建模"></a><strong>3.1 数据建模</strong></h3><hr>
+<p>离线数据服务的核心是数据的建模以及基于建模的异构数据的OLAP查询。</p>
+<p>数据建模的目标是基于业务视角，将原始的广告日志数据转化成业务所需的数据模型以便于业务侧的高效查询，这个过程中做的主要工作是维度的聚合、指标的计算。数据平台的数据模型包括实时模型和离线模型两个部分。</p>
+<p>实时模型通过接入实时ETL的结果数据利用Spark-streaming或Storm进行窗口聚合提供40+维度的广告曝光点击数据的实时查询(数据延迟在分钟级)。</p>
+<p>离线模型主要通过Spark或Hadoop任务基于任务DAG生成数据模型，数据平台现有模型21个，每个模型可查询维度40~250个，时间跨度为最近2年。</p>
+<h3 id="3-2-数据查询"><a href="#3-2-数据查询" class="headerlink" title="3.2 数据查询"></a><strong>3.2 数据查询</strong></h3><hr>
+<p>数据平台的数据查询服务主要包括两大类：</p>
+<p>1）通用型的多维聚合类查询，如库存计算、频次计算</p>
+<p>2）广告明细提取，人群包提取</p>
+<p>数据查询的挑战在于：</p>
+<p>1）数据量大（PB级别）、纬度多（单表200+纬）</p>
+<p>2）查询时间跨度大、聚合纬度多</p>
+<p>3）数据准确性高（不允许非精确值）</p>
+<p>4）查询性能要求高</p>
+<p>随着业务的不停增长，数据平台的查询引擎从也进行了一系列的升级</p>
+<p>1）第1代：以开源Infobright为基础的查询引擎</p>
+<p>2）第2代：以PIG为主要计算引擎的查询引擎(查询耗时小时级)</p>
+<p>3）第3代：Rocket AdHoc查询引擎(查询耗时秒级)</p>
+<p>4）第4代：当前的lambda架构查询引擎。</p>
+<h4 id="第1代查询引擎"><a href="#第1代查询引擎" class="headerlink" title="第1代查询引擎"></a><strong>第1代查询引擎</strong></h4><p>Infobright是开源的MySQL数据仓库解决方案，它将列存储、高强度的数据压缩、优化的统计计算引入到了MySQL中，对于处理亿级规模以下的数据具有较好的性能，但无法支持百亿级、千亿级数据的查询。随着业务的发展，数据平台需要查询的数据规模达到了万亿级，Infobright因为其有限的吞吐量已不能满足业务需求。</p>
+<h4 id="第2代查询引擎"><a href="#第2代查询引擎" class="headerlink" title="第2代查询引擎"></a><strong>第2代查询引擎</strong></h4><p>为了处理万亿级规模的数据，Pig被引入到了查询引擎中。Pig本质上是Map Reduce ON HDFS，由Yahoo在2006年开始开发，在2010成为Apache顶级项目。Pig是MapReduce的一个抽象，它提供了一种称为Pig Latin的高级语言来编写数据处理脚本。所有这些脚本都在Pig内部的Pig Engine组件转换为Map和Reduce任务。</p>
+<p>Pig提供了丰富的运算符集如join，sort，filer等来操作数据;Pig内部也会对Pig脚本进行优化，开发人员只需要关注语言的语义而不需要过度关注底层Map Reduce实现;Pig提供UDF(用户定义函数)的功能,开发人员可以通过其他编程语言（如Java、Python）创建UDF的功能，并且可以调用或嵌入到Pig脚本中。</p>
+<p>和其他基于Map Reduce的批处理工具类似，基于Pig的数据处理也是典型的IO密集型计算，其效率相对低下。对于例行化的批处理任务，Pig由于其支持大吞吐量的特性是一个不错的选择，但对于面向用户的查询引擎，Pig效率的低下(用户查询耗时在小时级)，越来越不能满足业务需求。</p>
+<h4 id="第3代查询引擎"><a href="#第3代查询引擎" class="headerlink" title="第3代查询引擎"></a><strong>第3代查询引擎</strong></h4><p>为了解决基于Pig的查询引擎查询性能低下的缺陷，Rocket查询引擎应运而生，其架构如图19所示。Rocket查询引擎是SparkSQL和Paruqet存储格式的结合。数据平台查询引擎的业务特点是计算多个维度聚合下的指标，计算引擎的查询压力集中在reduce端，极易发生数据倾和大规模shuffle的触发。因此Rocket采用了大宽表结构的数据模型。通过合理的数据预处理和Parquet列式存储的选择，Rocket查询引擎将用户查询的时间开销降低到了秒级。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/0HPHErzp3ibictGzTrARqaBZVGrDATOxFE3HfFhCGvzChuLZbgB2BpT1WFsv193KhM4LOia238KbZkykuOSNia3h1A/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图19. Rocket查询引擎架构图</p>
+<p>Rocket查询引擎的数据预处理包括：</p>
+<p>1）大宽表构建：预先join所有常用维度;</p>
+<p>2）String转Int：更高的数据压缩比、更好的查询性能；</p>
+<p>3）行转列：高效数据压缩。</p>
+<p>Rocket查询引擎的数据组织：</p>
+<p>1）多分区方式：按全量、年、月分区，各分区独立schema、独立中间表。</p>
+<p>2）多版本管理：读写分离</p>
+<p>3）视图模型：多模型联合查询</p>
+<p>4）广播模型： 小表预先broadcast</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFEaUJK5BSz7z2UdP7pMtqwAkderS2ficrbfr8cicrSaibbIfV9ZueJeacDg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图20. Rocket查询引擎数据组织方式</p>
+<h4 id="第4代查询引擎"><a href="#第4代查询引擎" class="headerlink" title="第4代查询引擎"></a><strong>第4代查询引擎</strong></h4><p>数据平台当前的查询引擎采用了lambda架构的经典设计，相比于之前3代查询引擎只支持离线数据的查询，当前lambda架构引入了实时数据的查询。</p>
+<p>Lambda 架构由Storm的作者NathanMarz提出，其设计目的在于提供一个能满足大数据系统关键特性的架构，包括高容错、低延迟、可扩展等。其整合离线计算与实时计算，融合不可变性、读写分离和复杂性隔离等原则，可集成Hadoop, Kafka, Spark，Storm等各类大数据组件。Lambda 架构可分解为三层Layer，即Batch Layer, Real-Time(Speed) Layer和ServingLayer。其中Batch Layer用于离线数据的处理和查询，Speed Layer用于实时数据的处理和查询，Serving Layer用于合并离线数据的查询结果和实时数据的查询结果作为最终的数据结果集。</p>
+<p>当前查询引擎lambda架构如图21所示，该设计架构支持万级别数据的查询能力，支持任意纬度的聚合、明细提取，95%的任务查询时间开销在秒级。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/0HPHErzp3ibictGzTrARqaBZVGrDATOxFE3hia25rPOicYM6RJq0NgAYYTcv6vicHpsr4ChydOpG3S5pNDO34D8wAIw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>图21. 查询引擎Lambda 架构设计</p>
+<p>在接口层，当前架构支持两种类型的接口，包括HTTP接口和类SQL查询，{模型名，时间范围，筛选条件，聚合维度，指标} 五元素定义一个查询。在视图层，当前架构屏蔽了底层异构计算引擎；屏蔽模型中实体表与维度表的关联关系，对外以大宽表形式，降低使用门槛。在计算层，当前架构整体构建在spark on yarn之上。</p>
+<p>当前查询引擎的运营指标数据：</p>
+<p>1)当前对外开放查询数据总量：1.5P</p>
+<p>2)当前对方开放查询数据维度：250+</p>
+<p>3)日均查询读取数据量：500T</p>
+<p>4)近半年数据推送及查询涉及团队：28个部门、112个团队</p>
+<p>5)曝光收入类查询中位数耗时15s</p>
+<p>本文从数据接入、数据处理、数据应用三个层面剖析了大数据平台的架构设计，鉴于篇幅的限制，本文无法对数据平台中的每一个模块进行细致而全面的介绍，之后我们将通过开辟新的文章的方式对上文中提到的核心系统进行全面的分享。除了上文中提到的应用和服务之外，数据平台还负责着统一缓存服务(提供用户的基础属性等的查询)、TencentAdId服务、Poseidon海量标签检索服务等相对独立的数据服务，后面我们也将对此进行分享。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">赤沙咀-菜虚坤</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.memorydrive.online/2021/11/22/teng-xun-guang-gao-da-shu-ju-ping-tai-he-xin-jia-gou-she-ji/">https://www.memorydrive.online/2021/11/22/teng-xun-guang-gao-da-shu-ju-ping-tai-he-xin-jia-gou-she-ji/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">赤沙咀-菜虚坤</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/">
+                                    <span class="chip bg-color">数据平台</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'SBRP8BrjzgaaVUSSLVkFMB7W-gzGzoHsz',
+        appKey: 'qhVxMo6VBwDcXKq9PzE8lnyR',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/11/22/teng-xun-guang-gao-da-shu-ju-ping-tai-he-xin-jia-gou-she-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_1913.jpg" class="responsive-img" alt="腾讯广告大数据平台核心架构设计">
+                        
+                        <span class="card-title">腾讯广告大数据平台核心架构设计</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            腾讯广告大数据架构
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    大数据技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/">
+                        <span class="chip bg-color">数据平台</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/11/21/pai-xu-suan-fa-hui-zong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_723.jpg" class="responsive-img" alt="十种常见的排序算法">
+                        
+                        <span class="card-title">十种常见的排序算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            算法分类
+非线性时间比较类排序：通过比较来决定元素间的相对次序，由于其时间复杂度不能突破O(nlogn)，因此称为非线性时间比较类排序。
+线性时间非比较类排序：不通过比较来决定元素间的相对次序，它可以突破基于比较排序的时间下界，以线性时间运
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <!-- <a href="/about" target="_blank">赤沙咀-菜虚坤</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br> -->
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">145.4k</span>&nbsp;字
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/ChoiNgai" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1354280129@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1354280129" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1354280129" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?868ac38553679cc31b5f7b7a71851500";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<!-- 流程图 -->
+
+  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'dark'});
+    }
+  </script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

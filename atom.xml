@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2021-11-21T12:57:45.975Z</updated>
+  <updated>2021-11-22T05:28:19.088Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>排序算法汇总</title>
+    <title>腾讯广告大数据平台核心架构设计</title>
+    <link href="https://www.memorydrive.online/2021/11/22/teng-xun-guang-gao-da-shu-ju-ping-tai-he-xin-jia-gou-she-ji/"/>
+    <id>https://www.memorydrive.online/2021/11/22/teng-xun-guang-gao-da-shu-ju-ping-tai-he-xin-jia-gou-she-ji/</id>
+    <published>2021-11-22T05:12:32.000Z</published>
+    <updated>2021-11-22T05:28:19.088Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;转载自&lt;a href=&quot;https://mp.weixin.qq.com/s/1bVUOnKgpC5mjCvCz4TLdg&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="数据平台" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>十种常见的排序算法</title>
     <link href="https://www.memorydrive.online/2021/11/21/pai-xu-suan-fa-hui-zong/"/>
     <id>https://www.memorydrive.online/2021/11/21/pai-xu-suan-fa-hui-zong/</id>
     <published>2021-11-21T12:29:01.000Z</published>
-    <updated>2021-11-21T12:57:45.975Z</updated>
+    <updated>2021-11-22T04:58:06.801Z</updated>
     
     <summary type="html">
     
@@ -203,7 +231,7 @@
 &lt;p&gt;&lt;strong&gt;阅读提示：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;为了SQL语句的简洁和便于阅读，每道题中的子查询在下一步骤中可能用表别名表示而不全写出来&lt;/p&gt;
 &lt;p&gt;例如：&lt;/p&gt;
-&lt;pre class=&quot; language-sql&quot;&gt;&lt;code
+&lt;pre class=&quot;
         
       
     
@@ -354,6 +382,33 @@
       <category term="Spark" scheme="https://www.memorydrive.online/tags/Spark/"/>
     
       <category term="Flink" scheme="https://www.memorydrive.online/tags/Flink/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习图像采样总结</title>
+    <link href="https://www.memorydrive.online/2021/05/22/shen-du-xue-xi-tu-xiang-cai-yang-zong-jie/"/>
+    <id>https://www.memorydrive.online/2021/05/22/shen-du-xue-xi-tu-xiang-cai-yang-zong-jie/</id>
+    <published>2021-05-22T06:24:23.000Z</published>
+    <updated>2021-11-22T06:51:56.378Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    
+      <category term="深度学习" scheme="https://www.memorydrive.online/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -531,61 +586,6 @@
     
     
       <category term="数据分析" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL45讲</title>
-    <link href="https://www.memorydrive.online/2021/03/29/mysql45-jiang/"/>
-    <id>https://www.memorydrive.online/2021/03/29/mysql45-jiang/</id>
-    <published>2021-03-28T18:27:14.000Z</published>
-    <updated>2021-03-29T06:22:54.730Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;《MySQL45》讲转载，侵删&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://sao-operation.gitee.io/my-sql45/01.基础架构：一条SQL查询语句是如何执行的？.html&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>模糊聚类算法python版</title>
-    <link href="https://www.memorydrive.online/2021/03/27/mo-hu-ju-lei-suan-fa-python-ban/"/>
-    <id>https://www.memorydrive.online/2021/03/27/mo-hu-ju-lei-suan-fa-python-ban/</id>
-    <published>2021-03-26T17:48:26.000Z</published>
-    <updated>2021-03-30T14:59:17.725Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;introduce&quot;&gt;&lt;a href=&quot;#introduce&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据科学" scheme="https://www.memorydrive.online/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
-    
-    
-      <category term="python" scheme="https://www.memorydrive.online/tags/python/"/>
-    
-      <category term="模糊聚类" scheme="https://www.memorydrive.online/tags/%E6%A8%A1%E7%B3%8A%E8%81%9A%E7%B1%BB/"/>
-    
-      <category term="弱监督学习" scheme="https://www.memorydrive.online/tags/%E5%BC%B1%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
