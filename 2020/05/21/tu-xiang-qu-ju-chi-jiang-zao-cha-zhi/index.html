@@ -526,35 +526,34 @@
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/20230f5dd0c4d285330a78cee1bbe5f.jpg" alt="带锯齿的原图"></p>
 <p>用该方法去除锯齿之后：</p>
 <p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/PIL_Image6.png" alt="经过高斯模糊之后的图像"></p>
-<pre class=" language-lang-python"><code class="language-lang-python">import cv2
-import numpy as np
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> cv2
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 
-img_path = ("1.png")        #获取图片路径
-img = Image.open(img_path)    
-img_sp = cv2.imread(img_path)    
-sp = img_sp.shape            #读取图片长宽
+img_path <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"1.png"</span><span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">#获取图片路径</span>
+img <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span>img_path<span class="token punctuation">)</span>    
+img_sp <span class="token operator">=</span> cv2<span class="token punctuation">.</span>imread<span class="token punctuation">(</span>img_path<span class="token punctuation">)</span>    
+sp <span class="token operator">=</span> img_sp<span class="token punctuation">.</span>shape            <span class="token comment" spellcheck="true">#读取图片长宽</span>
 
-#第一次插值、降噪
-img = img.resize((sp[1]*2, sp[0]*2), Image.BILINEAR)        #三次样条插值，图像长宽放大为2倍
-img = np.array(img)
-img_gaosi=cv2.GaussianBlur(img,(5,5),0)                        #高斯降噪，设置高斯核
-img = Image.fromarray(img_gaosi)                            #转换回数组，以便numpy可读取
-img = img.resize((sp[1]*2, sp[0]*2), Image.ANTIALIAS)        #保持图像品质缩略
+<span class="token comment" spellcheck="true">#第一次插值、降噪</span>
+img <span class="token operator">=</span> img<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span>sp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">,</span> sp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Image<span class="token punctuation">.</span>BILINEAR<span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">#三次样条插值，图像长宽放大为2倍</span>
+img <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+img_gaosi<span class="token operator">=</span>cv2<span class="token punctuation">.</span>GaussianBlur<span class="token punctuation">(</span>img<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>                        <span class="token comment" spellcheck="true">#高斯降噪，设置高斯核</span>
+img <span class="token operator">=</span> Image<span class="token punctuation">.</span>fromarray<span class="token punctuation">(</span>img_gaosi<span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true">#转换回数组，以便numpy可读取</span>
+img <span class="token operator">=</span> img<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span>sp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">,</span> sp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Image<span class="token punctuation">.</span>ANTIALIAS<span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">#保持图像品质缩略</span>
 
-#第二次插值、降噪
-img = img.resize((sp[1]*4, sp[0]*4), Image.BILINEAR)       #三次样条插值，图像长宽放大为4倍
-img = np.array(img)
-img_gaosi=cv2.GaussianBlur(img,(5,5),0)
-img = Image.fromarray(img_gaosi)
-img = img.resize((sp[1]*4, sp[0]*4), Image.ANTIALIAS)
+<span class="token comment" spellcheck="true">#第二次插值、降噪</span>
+img <span class="token operator">=</span> img<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span>sp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">,</span> sp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Image<span class="token punctuation">.</span>BILINEAR<span class="token punctuation">)</span>       <span class="token comment" spellcheck="true">#三次样条插值，图像长宽放大为4倍</span>
+img <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+img_gaosi<span class="token operator">=</span>cv2<span class="token punctuation">.</span>GaussianBlur<span class="token punctuation">(</span>img<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+img <span class="token operator">=</span> Image<span class="token punctuation">.</span>fromarray<span class="token punctuation">(</span>img_gaosi<span class="token punctuation">)</span>
+img <span class="token operator">=</span> img<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span>sp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">,</span> sp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Image<span class="token punctuation">.</span>ANTIALIAS<span class="token punctuation">)</span>
 
-#第三次插值、降噪
-img = img.resize((sp[1]*16, sp[0]*16), Image.BILINEAR)        #三次样条插值，图像长宽放大为16倍
-img = np.array(img)
-img_gaosi=cv2.GaussianBlur(img,(5,5),0)
-img = Image.fromarray(img_gaosi)        
-img = img.resize((sp[1]*16, sp[0]*16), Image.ANTIALIAS)
-</code></pre>
+<span class="token comment" spellcheck="true">#第三次插值、降噪</span>
+img <span class="token operator">=</span> img<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span>sp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">16</span><span class="token punctuation">,</span> sp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Image<span class="token punctuation">.</span>BILINEAR<span class="token punctuation">)</span>        <span class="token comment" spellcheck="true">#三次样条插值，图像长宽放大为16倍</span>
+img <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+img_gaosi<span class="token operator">=</span>cv2<span class="token punctuation">.</span>GaussianBlur<span class="token punctuation">(</span>img<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+img <span class="token operator">=</span> Image<span class="token punctuation">.</span>fromarray<span class="token punctuation">(</span>img_gaosi<span class="token punctuation">)</span>        
+img <span class="token operator">=</span> img<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span>sp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">16</span><span class="token punctuation">,</span> sp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Image<span class="token punctuation">.</span>ANTIALIAS<span class="token punctuation">)</span></code></pre>
 <p>注：示例图片来自<a href="https://www.hanspub.org/journal/PaperInformation.aspx?paperID=36204" target="_blank" rel="noopener">《应用数学进展》</a></p>
 
             </div>
@@ -1170,7 +1169,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.3k</span>&nbsp;字
+                class="white-color">157.5k</span>&nbsp;字
             
             
             

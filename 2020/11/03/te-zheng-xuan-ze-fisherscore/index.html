@@ -537,83 +537,72 @@
 <li><p>Embedded方法（嵌入式）</p>
 <p>在模型既定的情况下学习出对提高模型准确性最好的特征。也就是在确定模型的过程中，挑选出那些对模型的训练有重要意义的特征。</p>
 <p>常见方法：</p>
-<p>简单易学的机器学习算法—岭回归（Ridge Regression），就是线性回归过程加入了L2正则项。</p>
+<p>简单易学的机器学习算法–岭回归（Ridge Regression），就是线性回归过程加入了L2正则项。</p>
 </li>
 </ul>
-<h2 id="FisherScore"><a href="#FisherScore" class="headerlink" title="FisherScore"></a>FisherScore</h2><h3 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h3><p>Fisher Score是目前较为广泛使用的一种有监督的特征选择方法, 原理较为简单，其核心思想是在最大化类间散度的同时最小化类内散度. 设数据集为${ z_i,y_i },i=1,2..,N$ ,其中$z_i \in R^{N \times 1}$为数据特征, $y_i \in {1,2,…,C } $为类别标签, $D$ 为数据维数, $C$ 为类别总数, $N$ 是样本个数,其中 $tr(·)$ 表示矩阵的迹, 则数据矩阵$z_i \in R^{D \times N}$的Fisher Score 其定义为：</p>
-<script type="math/tex; mode=display">
-FS(Z)=tr{(S_t)^{-1}S_b}</script><p>类间散度矩阵：</p>
-<script type="math/tex; mode=display">
-S_b=\sum_{i=1}^Cn_i(r_i-r)(r_i-r)^T</script><p>总散度矩阵 ：</p>
-<script type="math/tex; mode=display">
-S_t=\sum_{j=1}^N(z_j-r)(z_j-r)^T</script><p>其中$n_i$为第$i$类数据的个数，${ i }$为第$i$类数据下标的集合，</p>
-<p>第$i$类数据的中心：</p>
-<script type="math/tex; mode=display">
-r_i= \frac{1}{n_i} \sum_{j \in \{i \}Z_j }</script><p>所有数据的中心:</p>
-<script type="math/tex; mode=display">
-r = \frac{1}{N}\sum^N_{j=1}Z_j</script><p>最终得到的FS即使为各个特征的分数，分数越高则表示该特征对标签的影响程度越高。</p>
+<h2 id="FisherScore"><a href="#FisherScore" class="headerlink" title="FisherScore"></a>FisherScore</h2><h3 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h3><p>Fisher Score是目前较为广泛使用的一种有监督的特征选择方法, 原理较为简单，其核心思想是在最大化类间散度的同时最小化类内散度. 设数据集为${ z_i,y_i },i=1,2..,N$ ,其中$z_i \in R^{N \times 1}$为数据特征, $y_i \in {1,2,…,C } $为类别标签, $D$ 为数据维数, $C$ 为类别总数, $N$ 是样本个数,其中 $tr(·)$ 表示矩阵的迹, 则数据矩阵$z_i \in R^{D \times N}$的Fisher Score 其定义为：<br>$$<br>FS(Z)=tr{(S_t)^{-1}S_b}<br>$$<br>类间散度矩阵：<br>$$<br>S_b=\sum_{i=1}^Cn_i(r_i-r)(r_i-r)^T<br>$$<br>总散度矩阵 ：<br>$$<br>S_t=\sum_{j=1}^N(z_j-r)(z_j-r)^T<br>$$<br>其中$n_i$为第$i$类数据的个数，${ i }$为第$i$类数据下标的集合，</p>
+<p>第$i$类数据的中心：<br>$$<br>r_i= \frac{1}{n_i} \sum_{j \in {i }Z_j }<br>$$<br>所有数据的中心:<br>$$<br>r = \frac{1}{N}\sum^N_{j=1}Z_j<br>$$<br>最终得到的FS即使为各个特征的分数，分数越高则表示该特征对标签的影响程度越高。</p>
 <h3 id="适用情况"><a href="#适用情况" class="headerlink" title="适用情况"></a>适用情况</h3><p>FisherScore适用于对<strong>离散</strong>的数值作为因变量（即标签）筛选出特征评分。所有也有学者用这种方法来完成图像分类。。。</p>
 <p>没了，之后再介绍一下<strong>Laplacian score</strong>吧~</p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><pre class=" language-lang-matlab"><code class="language-lang-matlab">function [redu,W,List] = fsFisher(X,Y,selectrate)
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><pre class=" language-matlab"><code class="language-matlab"><span class="token keyword">function</span> <span class="token punctuation">[</span>redu<span class="token punctuation">,</span>W<span class="token punctuation">,</span>List<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">fsFisher</span><span class="token punctuation">(</span>X<span class="token punctuation">,</span>Y<span class="token punctuation">,</span>selectrate<span class="token punctuation">)</span>
 
-%Fisher Score, use the N var formulation
-%input:   X, the data, each row is an instance
-%            Y, the label in 1 2 3 ... format
-%           selectrate， 0.1 0.2 0.3...0.9选择的属性数目占总属性数目的比例
-%output
-%      redu %if selectrate=0.5, redu为top 50% 的属性
-%     W%各个特征的Fisher score得分
-%     List%各个特征按照Fisher score得分排序
-%调用格式 [W,List]=fsFisher(c,d)
-numC = max(Y);%类别数目
-[~, numF] = size(X);%特征总数numF
-m=ceil(selectrate*numF);%最终选择的属性的数目
-W = zeros(1,numF);
+<span class="token comment" spellcheck="true">%Fisher Score, use the N var formulation</span>
+<span class="token comment" spellcheck="true">%input:   X, the data, each row is an instance</span>
+<span class="token comment" spellcheck="true">%            Y, the label in 1 2 3 ... format</span>
+<span class="token comment" spellcheck="true">%           selectrate， 0.1 0.2 0.3...0.9选择的属性数目占总属性数目的比例</span>
+<span class="token comment" spellcheck="true">%output</span>
+<span class="token comment" spellcheck="true">%      redu %if selectrate=0.5, redu为top 50% 的属性</span>
+<span class="token comment" spellcheck="true">%     W%各个特征的Fisher score得分</span>
+<span class="token comment" spellcheck="true">%     List%各个特征按照Fisher score得分排序</span>
+<span class="token comment" spellcheck="true">%调用格式 [W,List]=fsFisher(c,d)</span>
+numC <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>Y<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%类别数目</span>
+<span class="token punctuation">[</span><span class="token operator">~</span><span class="token punctuation">,</span> numF<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>X<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%特征总数numF</span>
+m<span class="token operator">=</span><span class="token function">ceil</span><span class="token punctuation">(</span>selectrate<span class="token operator">*</span>numF<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%最终选择的属性的数目</span>
+W <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>numF<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-% statistic for classes
-cIDX = cell(numC,1);%cIDX存储属于某一类的样本
-n_i = zeros(numC,1);%n_i存储每一类的样本数
-for j = 1:numC
-    cIDX{j} = find(Y(:)==j);
-    n_i(j) = length(cIDX{j});
-end
+<span class="token comment" spellcheck="true">% statistic for classes</span>
+cIDX <span class="token operator">=</span> <span class="token function">cell</span><span class="token punctuation">(</span>numC<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%cIDX存储属于某一类的样本</span>
+n_i <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span>numC<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%n_i存储每一类的样本数</span>
+<span class="token keyword">for</span> <span class="token number">j</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span>numC
+    cIDX<span class="token punctuation">{</span><span class="token number">j</span><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token function">Y</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">j</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">n_i</span><span class="token punctuation">(</span><span class="token number">j</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">length</span><span class="token punctuation">(</span>cIDX<span class="token punctuation">{</span><span class="token number">j</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">end</span>
 
-% calculate score for each features
-for i = 1:numF%
-    temp1 = 0;
-    temp2 = 0;
-    f_i = X(:,i);
-    u_i = mean(f_i);%每一个特征的均值
+<span class="token comment" spellcheck="true">% calculate score for each features</span>
+<span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span>numF%
+    temp1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    temp2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    f_i <span class="token operator">=</span> <span class="token function">X</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">i</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    u_i <span class="token operator">=</span> <span class="token function">mean</span><span class="token punctuation">(</span>f_i<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%每一个特征的均值</span>
 
-    for j = 1:numC%类别数numC
-        u_cj = mean(f_i(cIDX{j}));
-        var_cj = var(f_i(cIDX{j}),1);
-        temp1 = temp1 + n_i(j) * (u_cj-u_i)^2;
-        temp2 = temp2 + n_i(j) * var_cj;
-    end
+    <span class="token keyword">for</span> <span class="token number">j</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span>numC<span class="token comment" spellcheck="true">%类别数numC</span>
+        u_cj <span class="token operator">=</span> <span class="token function">mean</span><span class="token punctuation">(</span><span class="token function">f_i</span><span class="token punctuation">(</span>cIDX<span class="token punctuation">{</span><span class="token number">j</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        var_cj <span class="token operator">=</span> <span class="token function">var</span><span class="token punctuation">(</span><span class="token function">f_i</span><span class="token punctuation">(</span>cIDX<span class="token punctuation">{</span><span class="token number">j</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        temp1 <span class="token operator">=</span> temp1 <span class="token operator">+</span> <span class="token function">n_i</span><span class="token punctuation">(</span><span class="token number">j</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>u_cj<span class="token operator">-</span>u_i<span class="token punctuation">)</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">;</span>
+        temp2 <span class="token operator">=</span> temp2 <span class="token operator">+</span> <span class="token function">n_i</span><span class="token punctuation">(</span><span class="token number">j</span><span class="token punctuation">)</span> <span class="token operator">*</span> var_cj<span class="token punctuation">;</span>
+    <span class="token keyword">end</span>
 
-%     if temp1 == 0
-%         out.W(i) = 0;
-%     else
-        if temp2 == 0
-            W(i) = 1000000;%分母为0，应为正无穷，用一个很大的数代替
-        else
-            W(i) = temp1/temp2;
-        end
-%     end
-end
-[~, List] = sort(W, 'descend');%各个特征的排序
-redu=List(1:m);
-% redu=[];
-% for i=1:m
-%     redu=[redu find(List==i)];
-% end
-end
+<span class="token comment" spellcheck="true">%     if temp1 == 0</span>
+<span class="token comment" spellcheck="true">%         out.W(i) = 0;</span>
+<span class="token comment" spellcheck="true">%     else</span>
+        <span class="token keyword">if</span> temp2 <span class="token operator">==</span> <span class="token number">0</span>
+            <span class="token function">W</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">1000000</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%分母为0，应为正无穷，用一个很大的数代替</span>
+        <span class="token keyword">else</span>
+            <span class="token function">W</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span> <span class="token operator">=</span> temp1<span class="token operator">/</span>temp2<span class="token punctuation">;</span>
+        <span class="token keyword">end</span>
+<span class="token comment" spellcheck="true">%     end</span>
+<span class="token keyword">end</span>
+<span class="token punctuation">[</span><span class="token operator">~</span><span class="token punctuation">,</span> List<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">sort</span><span class="token punctuation">(</span>W<span class="token punctuation">,</span> <span class="token string">'descend'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%各个特征的排序</span>
+redu<span class="token operator">=</span><span class="token function">List</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">% redu=[];</span>
+<span class="token comment" spellcheck="true">% for i=1:m</span>
+<span class="token comment" spellcheck="true">%     redu=[redu find(List==i)];</span>
+<span class="token comment" spellcheck="true">% end</span>
+<span class="token keyword">end</span>
 </code></pre>
-<pre class=" language-lang-matlab"><code class="language-lang-matlab">%clear;clc;close all
-load iris.dat    %导入数据
-[redu,FS,List] = fsFisher(iris(:,1:4),iris(:,5),0.6)
-</code></pre>
+<pre class=" language-matlab"><code class="language-matlab"><span class="token comment" spellcheck="true">%clear;clc;close all</span>
+load iris<span class="token punctuation">.</span>dat    <span class="token comment" spellcheck="true">%导入数据</span>
+<span class="token punctuation">[</span>redu<span class="token punctuation">,</span>FS<span class="token punctuation">,</span>List<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">fsFisher</span><span class="token punctuation">(</span><span class="token function">iris</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">iris</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0.6</span><span class="token punctuation">)</span></code></pre>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] <a href="https://blog.csdn.net/jliang3/article/details/88912464" target="_blank" rel="noopener">特征选择/筛选方法总结</a></p>
 
             </div>
@@ -1232,7 +1221,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.3k</span>&nbsp;字
+                class="white-color">157.5k</span>&nbsp;字
             
             
             
