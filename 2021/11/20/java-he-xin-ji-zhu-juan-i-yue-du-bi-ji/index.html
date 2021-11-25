@@ -1316,14 +1316,16 @@ Size s <span class="token operator">=</span> Enum<span class="token punctuation"
 <li>利用方法对象（这个对象很像C++中的函数指针）</li>
 </ul>
 <h4 id="5-7-1-Class类"><a href="#5-7-1-Class类" class="headerlink" title="5.7.1 Class类"></a>5.7.1 Class类</h4><p>Java会为所有对象维护一个被称为<strong>运行时</strong>的类型标识，这个信息跟踪着每个对象所属的类，保存这些信息的类被称为<strong>Class</strong>。（最常用的Class方法是getName，例如<code>a.getClass( ).getName( )</code>，<code>b.getName( )</code>）</p>
-<h4 id="5-7-2-捕获异常"><a href="#5-7-2-捕获异常" class="headerlink" title="5.7.2 捕获异常"></a>5.7.2 捕获异常</h4><pre><code>try
-{
-    // 写入可能会报错的代码
-}
-catch(异常类型 变量)
-{
-    // 针对异常进行处理的代码
-}</code></pre><p>（反射还有很多内容，略）</p>
+<h4 id="5-7-2-捕获异常"><a href="#5-7-2-捕获异常" class="headerlink" title="5.7.2 捕获异常"></a>5.7.2 捕获异常</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">try</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 写入可能会报错的代码</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">catch</span><span class="token punctuation">(</span>Exception e<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 针对异常进行处理的代码</span>
+<span class="token punctuation">}</span></code></pre>
+<p><code>Exception</code>是一个类</p>
+<p>（反射还有很多内容，略）</p>
 <h3 id="5-8-继承的设计技巧"><a href="#5-8-继承的设计技巧" class="headerlink" title="5.8 继承的设计技巧"></a>5.8 继承的设计技巧</h3><ol>
 <li>将公共操作和实例域放在父类</li>
 <li>不要使用受保护的域</li>
