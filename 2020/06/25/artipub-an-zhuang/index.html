@@ -498,7 +498,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    852
+                    854
                 </div>
                 
 
@@ -518,44 +518,55 @@
                 <p>博客一文多发工具我也用过<strong>openwrite</strong>，那个免费版的是真心不好用（接口也有点问题）。</p>
 <p>ArtiPub网上一堆安装教程，但都没法用，这是有原因(<strong>接口很很大问题，原因和后果看最后面~参考资料上一点</strong>)</p>
 <p>网上一堆坑比复制粘贴官方文档，至少我是没有找到能够成功安装的，但经过我<del>睿智</del>沙雕的一番操作之后终于成功安装了，先来看看我自己装的～</p>
-<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/2020-06-2618-01-48%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt=""></p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/2020-06-2618-01-48的屏幕截图.png" alt=""></p>
 <p>先声明，我用的系统是ubuntu18.04STL，通过docker的方式安装（之前试过先安装好MongoDB再通过源码安装，但这种方式连接不上MongDB，遂弃；另外通过npm的方式，用cnpm命令也无法安装）</p>
-<h2 id="拉取artipub"><a href="#拉取artipub" class="headerlink" title="拉取artipub"></a>拉取artipub</h2><pre class=" language-shell"><code class="language-shell"># 选择一个合适的项目目录
-git clone git@github.com:crawlab-team/artipub.git</code></pre>
+<h2 id="拉取artipub"><a href="#拉取artipub" class="headerlink" title="拉取artipub"></a>拉取artipub</h2><pre class=" language-lang-shell"><code class="language-lang-shell"># 选择一个合适的项目目录
+git clone git@github.com:crawlab-team/artipub.git
+</code></pre>
 <p>如果太慢了就自己登陆gitee导入一下<code>git@github.com:crawlab-team/artipub.git</code>吧（记得管理那里改成公开，因为gitee新建仓库默认是私有的）</p>
 <h2 id="安装docker和docker-compose"><a href="#安装docker和docker-compose" class="headerlink" title="安装docker和docker-compose"></a>安装docker和docker-compose</h2><p>官方要求Docker: 18.03版本，Docker Compose: 1.24.1版本，我这里就以安装了指定版本，实际操作中高于此版本应该都可以。</p>
 <h4 id="简单安装"><a href="#简单安装" class="headerlink" title="简单安装"></a>简单安装</h4><p><strong>ubuntu</strong></p>
-<pre class=" language-shell"><code class="language-shell">sudo apt-get update && sudo apt-get install -y vim python-pip curl git
+<pre class=" language-lang-shell"><code class="language-lang-shell">sudo apt-get update && sudo apt-get install -y vim python-pip curl git
  pip install docker-compose
- sudo curl -sSL https://get.daocloud.io/docker | sh                #使用daocloud镜像安装</code></pre>
+ sudo curl -sSL https://get.daocloud.io/docker | sh                #使用daocloud镜像安装
+</code></pre>
 <p><strong>centos</strong></p>
-<pre class=" language-shell"><code class="language-shell"> yum update && yum install -y vim python-pip curl git
+<pre class=" language-lang-shell"><code class="language-lang-shell"> yum update && yum install -y vim python-pip curl git
  pip install docker-compose
- sudo curl -sSL https://get.daocloud.io/docker | sh                #使用daocloud镜像安装</code></pre>
+ sudo curl -sSL https://get.daocloud.io/docker | sh                #使用daocloud镜像安装
+</code></pre>
 <p>windows用户就对不起啦～</p>
 <p>如果最新版本可以的话就不用安装指定版本的docker和docker-compose了</p>
 <h4 id="安装指定版本docker"><a href="#安装指定版本docker" class="headerlink" title="安装指定版本docker"></a>安装指定版本docker</h4><p>查看可安装的docker版本</p>
-<pre><code>apt-cache madison docker-ce</code></pre><p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/2020-06-2617-56-12%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2020-06-26 17-56-12 的屏幕截图"></p>
+<pre><code>apt-cache madison docker-ce
+</code></pre><p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/2020-06-2617-56-12的屏幕截图.png" alt="2020-06-26 17-56-12 的屏幕截图"></p>
 <p>两个| |  之间的 <code>5:19.03.12~3-0~ubuntu-bionic</code>代表着安装来自哪个镜像仓库哪个版本的docker</p>
-<p>例如我要安装清华镜像源的18.06.1版本（倒数第二个），看一下编号是18.06.1<del>ce</del>3-0~ubuntu，则在终端输入</p>
-<pre class=" language-shell"><code class="language-shell">apt-get install -y docker-ce=18.06.1~ce~3-0~ubuntu</code></pre>
-<pre class=" language-shell"><code class="language-shell">docker --version #查看版本</code></pre>
-<h4 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h4><pre class=" language-shell"><code class="language-shell">pip install docker-compose==1.24.1</code></pre>
+<p>例如我要安装清华镜像源的18.06.1版本（倒数第二个），看一下编号是18.06.1~ce~3-0~ubuntu，则在终端输入</p>
+<pre class=" language-lang-shell"><code class="language-lang-shell">apt-get install -y docker-ce=18.06.1~ce~3-0~ubuntu
+</code></pre>
+<pre class=" language-lang-shell"><code class="language-lang-shell">docker --version #查看版本
+</code></pre>
+<h4 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h4><pre class=" language-lang-shell"><code class="language-lang-shell">pip install docker-compose==1.24.1
+</code></pre>
 <p>如果提示<code>ERROR: jsonschema 3.0.1 has requirement ***&gt;=1.11.0, but you&#39;ll have *** 1.10.0 which is incompatible.</code>    那么输入</p>
-<pre class=" language-shell"><code class="language-shell">pip3 install --upgrade --force-reinstall --no-cache-dir jupyter</code></pre>
+<pre class=" language-lang-shell"><code class="language-lang-shell">pip3 install --upgrade --force-reinstall --no-cache-dir jupyter
+</code></pre>
 <p>（我这是在终端anaconda环境下运行的）</p>
 <p>如果提示<code>ERROR: Cannot uninstall &#39;PyYAML&#39;. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.</code>那么输入:</p>
-<pre class=" language-shell"><code class="language-shell">sudo pip install kolla-ansible --ignore-installed PyYAML</code></pre>
+<pre class=" language-lang-shell"><code class="language-lang-shell">sudo pip install kolla-ansible --ignore-installed PyYAML
+</code></pre>
 <h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><p>启动</p>
-<pre><code>docker-compose up -d</code></pre><p>如果提示<code>解决 ERROR: Couldn&#39;t connect to Docker daemon at http+docker://localunixsocket - is it running?</code>,那么先考虑把用户加入docker组（网上一堆扯淡着重启docker）</p>
+<pre><code>docker-compose up -d
+</code></pre><p>如果提示<code>解决 ERROR: Couldn&#39;t connect to Docker daemon at http+docker://localunixsocket - is it running?</code>,那么先考虑把用户加入docker组（网上一堆扯淡着重启docker）</p>
 <p>运行以下命令</p>
-<pre class=" language-shell"><code class="language-shell">sudo gpasswd -a ${USER} docker            #将当前用户加入docker组
+<pre class=" language-lang-shell"><code class="language-lang-shell">sudo gpasswd -a ${USER} docker            #将当前用户加入docker组
 # 运行上面的命令终端会弹出当前用户名，比如我的用户名叫csz_caixukun
 
 su csz_caixukun            #登陆用户
-docker-compose up -d</code></pre>
+docker-compose up -d
+</code></pre>
 <p>大功告成，就等着下载安装完mongodb，在浏览器输入<code>http://localhost:8000</code>就能看到开头那个界面了</p>
-<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/2020-06-2617-51-48%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt=""></p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/2020-06-2617-51-48的屏幕截图.png" alt=""></p>
 <p><strong>然鹅，这个因为版本过久，很多平台已经不能使用了。</strong>目前可用的平台只有<strong>思否</strong>、<strong>简书</strong>(发布到简书上，引用图片链接失败)</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://blog.csdn.net/l2181265/article/details/94351559" target="_blank" rel="noopener">ubuntu16.04安装jupyter问题（后续）</a></p>
 <p><a href="https://blog.csdn.net/xiojing825/article/details/79494408" target="_blank" rel="noopener">解决 ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?  <a href="https://me.csdn.net/xiojing825" target="_blank" rel="noopener">敬__</a></a></p>
@@ -1167,7 +1178,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">157.5k</span>&nbsp;字
+                class="white-color">143.3k</span>&nbsp;字
             
             
             
