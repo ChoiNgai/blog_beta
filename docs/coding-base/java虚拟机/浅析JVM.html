@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>浅析JVM | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.dc5b0715.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/53.70bca49a.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/11.37b04a4d.js"><link rel="prefetch" href="./assets/js/12.cee383a4.js"><link rel="prefetch" href="./assets/js/13.d47b2b52.js"><link rel="prefetch" href="./assets/js/14.77b2b060.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.a7201fbc.js"><link rel="prefetch" href="./assets/js/17.79e79675.js"><link rel="prefetch" href="./assets/js/18.7639ae91.js"><link rel="prefetch" href="./assets/js/19.280df9d2.js"><link rel="prefetch" href="./assets/js/20.25a38eac.js"><link rel="prefetch" href="./assets/js/21.0aaf754a.js"><link rel="prefetch" href="./assets/js/22.abdec3c1.js"><link rel="prefetch" href="./assets/js/23.454fb1a0.js"><link rel="prefetch" href="./assets/js/24.5118d094.js"><link rel="prefetch" href="./assets/js/25.b239a8e2.js"><link rel="prefetch" href="./assets/js/26.4af89c7f.js"><link rel="prefetch" href="./assets/js/27.b338361b.js"><link rel="prefetch" href="./assets/js/28.225e99c8.js"><link rel="prefetch" href="./assets/js/29.1749fe14.js"><link rel="prefetch" href="./assets/js/3.376b8cdf.js"><link rel="prefetch" href="./assets/js/30.422f2538.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.7f4a7aa0.js"><link rel="prefetch" href="./assets/js/33.e8f1b887.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.046ac0f0.js"><link rel="prefetch" href="./assets/js/36.f0d4cc9b.js"><link rel="prefetch" href="./assets/js/37.0a7a5f8f.js"><link rel="prefetch" href="./assets/js/38.d06cfcca.js"><link rel="prefetch" href="./assets/js/39.d164c990.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.6bc1f68d.js"><link rel="prefetch" href="./assets/js/41.e1d9e6f4.js"><link rel="prefetch" href="./assets/js/42.b9146544.js"><link rel="prefetch" href="./assets/js/43.3d89ef90.js"><link rel="prefetch" href="./assets/js/44.e75043b3.js"><link rel="prefetch" href="./assets/js/45.fa675a86.js"><link rel="prefetch" href="./assets/js/46.5e1bd863.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.7f50621f.js"><link rel="prefetch" href="./assets/js/49.1273014b.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.0ace36ad.js"><link rel="prefetch" href="./assets/js/51.955bc85d.js"><link rel="prefetch" href="./assets/js/52.e3bb73d6.js"><link rel="prefetch" href="./assets/js/54.4f6fe468.js"><link rel="prefetch" href="./assets/js/55.d0ae6f7c.js"><link rel="prefetch" href="./assets/js/56.5bfe7854.js"><link rel="prefetch" href="./assets/js/57.20ab4e15.js"><link rel="prefetch" href="./assets/js/58.cd6e845e.js"><link rel="prefetch" href="./assets/js/59.e31f564e.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.7e997bce.js"><link rel="prefetch" href="./assets/js/61.ae3effab.js"><link rel="prefetch" href="./assets/js/62.d40d2f3b.js"><link rel="prefetch" href="./assets/js/63.c7ab6850.js"><link rel="prefetch" href="./assets/js/64.c317433a.js"><link rel="prefetch" href="./assets/js/65.bee18659.js"><link rel="prefetch" href="./assets/js/66.9bc2ca3c.js"><link rel="prefetch" href="./assets/js/67.36393d6f.js"><link rel="prefetch" href="./assets/js/68.50d2a85d.js"><link rel="prefetch" href="./assets/js/69.bbac38d8.js"><link rel="prefetch" href="./assets/js/7.9979a04e.js"><link rel="prefetch" href="./assets/js/70.318eb4aa.js"><link rel="prefetch" href="./assets/js/71.54649836.js"><link rel="prefetch" href="./assets/js/72.3ebd3c24.js"><link rel="prefetch" href="./assets/js/73.24b6f12b.js"><link rel="prefetch" href="./assets/js/74.1dd537ea.js"><link rel="prefetch" href="./assets/js/75.59231e92.js"><link rel="prefetch" href="./assets/js/76.b8f3ef78.js"><link rel="prefetch" href="./assets/js/77.11821a18.js"><link rel="prefetch" href="./assets/js/78.f63e0308.js"><link rel="prefetch" href="./assets/js/79.1c7441a7.js"><link rel="prefetch" href="./assets/js/8.db54d2a5.js"><link rel="prefetch" href="./assets/js/80.0d3fa419.js"><link rel="prefetch" href="./assets/js/81.53362836.js"><link rel="prefetch" href="./assets/js/82.6a9be763.js"><link rel="prefetch" href="./assets/js/83.11a41a2c.js"><link rel="prefetch" href="./assets/js/84.2e76a3fb.js"><link rel="prefetch" href="./assets/js/85.c61a2184.js"><link rel="prefetch" href="./assets/js/86.7d905d1b.js"><link rel="prefetch" href="./assets/js/87.4c907051.js"><link rel="prefetch" href="./assets/js/88.82047d34.js"><link rel="prefetch" href="./assets/js/89.3457441e.js"><link rel="prefetch" href="./assets/js/9.c83a911f.js"><link rel="prefetch" href="./assets/js/90.cc103581.js"><link rel="prefetch" href="./assets/js/91.68961351.js"><link rel="prefetch" href="./assets/js/92.fbb8f838.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>java虚拟机</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./coding-base/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./coding-base/java虚拟机/浅析JVM.html" class="active sidebar-link">浅析JVM</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#从为什么要学jvm开始" class="sidebar-link">从为什么要学JVM开始</a></li><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#了解java历史" class="sidebar-link">了解Java历史</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#javase、javaee、javame" class="sidebar-link">JavaSE、JavaEE、JavaME</a></li><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#jdk与jre" class="sidebar-link">JDK与JRE</a></li></ul></li><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#jvm架构" class="sidebar-link">JVM架构</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#流程" class="sidebar-link">流程</a></li></ul></li><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#java内存模型" class="sidebar-link">Java内存模型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#公有" class="sidebar-link">公有</a></li><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#私有" class="sidebar-link">私有</a></li></ul></li><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#java类加载机制" class="sidebar-link">Java类加载机制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#开始加载" class="sidebar-link">开始加载</a></li><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#链接" class="sidebar-link">链接</a></li><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#初始化" class="sidebar-link">初始化</a></li></ul></li><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#垃圾回收" class="sidebar-link">垃圾回收</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#判断垃圾对象" class="sidebar-link">判断垃圾对象</a></li><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#内存分区" class="sidebar-link">内存分区</a></li><li class="sidebar-sub-header"><a href="/./coding-base/java虚拟机/浅析JVM.html#回收策略" class="sidebar-link">回收策略</a></li></ul></li></ul></li><li><a href="/./coding-base/java虚拟机/深入了解JVM.html" class="sidebar-link">深入了解JVM</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="浅析jvm"><a href="#浅析jvm" class="header-anchor">#</a> 浅析JVM</h1> <h2 id="从为什么要学jvm开始"><a href="#从为什么要学jvm开始" class="header-anchor">#</a> 从为什么要学JVM开始</h2> <ul><li>深入了解Java，了解JVM，才能进一步了解Java内部运作</li> <li>解决JVM的问题，如内存溢出、GC频繁等</li></ul> <h2 id="了解java历史"><a href="#了解java历史" class="header-anchor">#</a> 了解Java历史</h2> <h3 id="javase、javaee、javame"><a href="#javase、javaee、javame" class="header-anchor">#</a> JavaSE、JavaEE、JavaME</h3> <ul><li><p>Java SE（J2SE，Java 2 Platform Standard Edition，标准版）
+Java SE 以前称为 J2SE。它允许开发和部署在桌面、服务器、嵌入式环境和实时环境中使用的 Java 应用程序。Java SE 包含了支持 Java Web 服务开发的类，并为Java EE和Java ME提供基础。</p></li> <li><p>Java EE（J2EE，Java 2 Platform Enterprise Edition，企业版）
+Java EE 以前称为 J2EE。企业版本帮助开发和部署可移植、健壮、可伸缩且安全的服务器端Java 应用程序。Java EE 是在 Java SE 的基础上构建的，它提供 Web 服务、组件模型、管理和通信 API，可以用来实现企业级的面向服务体系结构（service-oriented architecture，SOA）和 Web2.0应用程序。</p></li> <li><p>Java ME（J2ME，Java 2 Platform Micro Edition，微型版）
+Java ME 以前称为 J2ME。Java ME 为在移动设备和嵌入式设备（比如手机、PDA、电视机顶盒和打印机）上运行的应用程序提供一个健壮且灵活的环境。Java ME 包括灵活的用户界面、健壮的安全模型、许多内置的网络协议以及对可以动态下载的连网和离线应用程序的丰富支持。</p></li></ul> <h3 id="jdk与jre"><a href="#jdk与jre" class="header-anchor">#</a> JDK与JRE</h3> <p>JRE（Java Runtime Environment）仅包含运行 Java 程序的必需组件，包括 Java 虚拟机以及 Java 核心类库等。而 JDK（Java Development Kit）除了包含 JRE外，还附带了一系列开发、诊断工具。</p> <p>如果只需要运行 Java 程序，那么你安装 JRE 即可。但如果你要进行 Java 程序的开发，那么你就需要安装 JDK。</p> <h2 id="jvm架构"><a href="#jvm架构" class="header-anchor">#</a> JVM架构</h2> <p><img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210330014717.png" alt="img"></p> <ul><li>子系统
+<ul><li>Class loader（类装载器）
+<ul><li>根据全限定名类名来装载class文件到Runtime data area</li></ul></li> <li>Execution engine（执行引擎）
+<ul><li>执行字节码指令</li> <li>会使用即时编译技术将方法编译后译成机器码后再执行</li></ul></li></ul></li> <li>组件
+<ul><li>Runtime data area （运行时数据区）
+<ul><li>运行时数据存储的地方，即JVM的内存</li></ul></li> <li>Native interface （本地接口）
+<ul><li>与native libraries交互的接口</li></ul></li></ul></li></ul> <h3 id="流程"><a href="#流程" class="header-anchor">#</a> 流程</h3> <p><strong>Java 源代码</strong> 被编译器转换为 <strong>字节码</strong>  类加载器 将字节码 加载到运行时数据区 执行引擎 将字节码转为<strong>底层系统指令</strong> 交由CPU执行</p> <h2 id="java内存模型"><a href="#java内存模型" class="header-anchor">#</a> Java内存模型</h2> <h3 id="公有"><a href="#公有" class="header-anchor">#</a> 公有</h3> <p>（非线程安全）</p> <h4 id="java堆"><a href="#java堆" class="header-anchor">#</a> Java堆</h4> <p>Java程序最主要的工作区域，在JVM启动时建立，专门用于实例对象内存分配的区域（但也有直接在栈上进行分配的情况）</p> <p>Java NIO库会像直接内存区申请空间，直接内存访问速度优于Java堆，频繁读写的情况会考虑使用直接内存</p> <h4 id="方法区"><a href="#方法区" class="header-anchor">#</a> 方法区</h4> <p>存储 Java 类字节码数据的一块区域，它存储了每一个类的结构信息，例如运行时常量池、字段和方法数据、构造方法等。<strong>储存类级别数据</strong></p> <h3 id="私有"><a href="#私有" class="header-anchor">#</a> 私有</h3> <h4 id="pc寄存器-程序计数器"><a href="#pc寄存器-程序计数器" class="header-anchor">#</a> PC寄存器（程序计数器）</h4> <p>Program Counter 寄存器，指的是保存线程当前正在执行的方法。线程没有记忆，当发生线程切换时，需要回复线程状态（即执行到哪里），需要依靠计数器完成</p> <h4 id="java虚拟机栈"><a href="#java虚拟机栈" class="header-anchor">#</a> Java虚拟机栈</h4> <p>Java 虚拟机栈，这个栈与线程同时创建，用来存储栈帧，即存储局部变量与一些过程结果的地方。栈帧存储的数据包括：局部变量表、操作数栈。</p> <p>保存：局部变量、方法参数、Java方法的调用、返回</p> <ul><li>栈帧
+<ul><li>局部变量数据</li> <li>操作数栈</li> <li>帧数据</li></ul></li></ul> <h4 id="本地方法栈"><a href="#本地方法栈" class="header-anchor">#</a> 本地方法栈</h4> <p>与虚拟机栈的作用是一样的，只不过虚拟机栈是服务 Java 方法的，而本地方法栈是为虚拟机调用 Native 方法服务的</p> <h2 id="java类加载机制"><a href="#java类加载机制" class="header-anchor">#</a> Java类加载机制</h2> <h3 id="开始加载"><a href="#开始加载" class="header-anchor">#</a> 开始加载</h3> <ul><li><strong>启动类加载器</strong> – 负责从启动类路径中加载类，无非就是<strong>rt.jar</strong>。这个加载器会被赋予最高优先级。</li> <li><strong>扩展类加载器</strong> – 负责加载<strong>ext</strong> 目录**(jre\lib)<strong>内的类</strong>.**</li> <li><strong>应用程序类加载器</strong> – 负责加载<strong>应用程序级别类路径</strong>，涉及到路径的环境变量等etc.</li></ul> <p>将字节码转为二进制字节流加载到内存中</p> <h3 id="链接"><a href="#链接" class="header-anchor">#</a> 链接</h3> <h4 id="校验"><a href="#校验" class="header-anchor">#</a> 校验</h4> <p>--字节码是否正确</p> <ul><li>JVM规范校验
+<ul><li>JVM 会对字节流进行文件格式校验，判断其是否符合 JVM 规范，是否能被当前版本的虚拟机处理。</li></ul></li> <li>代码逻辑校验
+<ul><li>JVM 会对代码组成的数据流和控制流进行校验，确保 JVM 运行该字节码文件后不会出现致命错误。</li></ul></li></ul> <h4 id="准备"><a href="#准备" class="header-anchor">#</a> 准备</h4> <p>--分配内存和初始化默认值给静态变量</p> <ul><li>内存分配的对象</li> <li>初始化的类型</li></ul> <h4 id="解析"><a href="#解析" class="header-anchor">#</a> 解析</h4> <p>--将符号内存引用替换为原始引用</p> <p>JVM 针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符 7 类引用进行解析。这个阶段的主要任务是将其在常量池中的符号引用替换成直接其在内存中的直接引用。</p> <h3 id="初始化"><a href="#初始化" class="header-anchor">#</a> 初始化</h3> <ul><li>最后阶段，赋值静态变量、执行静态块</li></ul> <h2 id="垃圾回收"><a href="#垃圾回收" class="header-anchor">#</a> 垃圾回收</h2> <p>对已经分配的内存空间进行分配</p> <h3 id="判断垃圾对象"><a href="#判断垃圾对象" class="header-anchor">#</a> 判断垃圾对象</h3> <p>不再被引用的的对象</p> <h4 id="引用计数法"><a href="#引用计数法" class="header-anchor">#</a> 引用计数法</h4> <p>设置一个计数变量，当被引用时计数+1，被出去引用时-1；当计数变量为0时，表示对象不能再被引用</p> <p>实现简单 但无法解决循环引用的问题</p> <h4 id="gc-root-tracing"><a href="#gc-root-tracing" class="header-anchor">#</a> GC Root Tracing</h4> <p>可达性分析算法：从 GC Roots 开始向下搜索，搜索所走过的路径称为引用链。当一个对象到 GC Roots 没有任何引用链相连时，则证明此对象是可以被回收的。</p> <h3 id="内存分区"><a href="#内存分区" class="header-anchor">#</a> 内存分区</h3> <p><img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210401161912.png" alt="未命名文件 (1)"></p> <h3 id="回收策略"><a href="#回收策略" class="header-anchor">#</a> 回收策略</h3> <h4 id="分代回收"><a href="#分代回收" class="header-anchor">#</a> 分代回收</h4> <h5 id="young-generation"><a href="#young-generation" class="header-anchor">#</a> Young Generation</h5> <h6 id="eden"><a href="#eden" class="header-anchor">#</a> Eden</h6> <p>新创建的类 C1</p> <h6 id="from"><a href="#from" class="header-anchor">#</a> From</h6> <p>一次minor GC后，C1存活 进入 From</p> <h6 id="to"><a href="#to" class="header-anchor">#</a> To</h6> <p>两次minor GC 后 C1 存活，age+1</p> <p>再一次minor GC</p> <ul><li>如果C1同龄的类没有达到 survivor 空间的一半 互换From 和to</li> <li>一直到达到survivor的一半以上（toSuv的区域已经满了） C1 进入老年代</li></ul> <h5 id="old-generation"><a href="#old-generation" class="header-anchor">#</a> Old Generation</h5> <p>老年代空间比率超过阈值 出发marjor GC</p> <h4 id="算法"><a href="#算法" class="header-anchor">#</a> 算法</h4> <h5 id="复制算法"><a href="#复制算法" class="header-anchor">#</a> 复制算法</h5> <p>复制算法。复制算法的核心思想是将原有的内存空间分为两块，每次只使用一块，在垃圾回收时，将正在使用的内存中的存活对象复制到未使用的内存块中。之后清除正在使用的内存块中的所有对象，之后交换两个内存块的角色，完成垃圾回收。</p> <h5 id="标记清除算法"><a href="#标记清除算法" class="header-anchor">#</a> 标记清除算法</h5> <p>在标记阶段，标记所有由 GC Root 触发的可达对象。此时，所有未被标记的对象就是垃圾对象。之后在清除阶段，清除所有未被标记的对象。</p> <h5 id="标记压缩算法"><a href="#标记压缩算法" class="header-anchor">#</a> 标记压缩算法</h5> <p>分别是：标记结算、压缩阶段。在标记阶段，从 GC Root 引用集合触发去标记所有对象。在压缩阶段，其则是将所有存活的对象压缩在内存的一边，之后清理边界外的所有空间。</p> <table><thead><tr><th>算法</th> <th>优点</th> <th>缺点</th> <th>适用</th></tr></thead> <tbody><tr><td>复制算法</td> <td>内存空间分配连续，效率高</td> <td>内存空间折半，降低使用率，而且需要移动对象</td> <td>存活对象少</td></tr> <tr><td>标记清除算法</td> <td>实现简单，不用移动对象地址</td> <td>空间碎片，内存空间不连续，分配效率降低</td> <td>存货对象多</td></tr> <tr><td>标记压缩算法</td> <td>优化了标记清除算法，减少了空间碎片的产生</td> <td></td> <td></td></tr></tbody></table></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./coding-base/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="prev router-link-active">
+        目录
+      </a></span> <span class="next"><a href="/./coding-base/java虚拟机/深入了解JVM.html">
+        深入了解JVM
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.dc5b0715.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/53.70bca49a.js" defer></script>
+  </body>
+</html>

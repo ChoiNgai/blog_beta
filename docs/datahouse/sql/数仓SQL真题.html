@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数仓SQL真题 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.dc5b0715.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/72.3ebd3c24.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/11.37b04a4d.js"><link rel="prefetch" href="./assets/js/12.cee383a4.js"><link rel="prefetch" href="./assets/js/13.d47b2b52.js"><link rel="prefetch" href="./assets/js/14.77b2b060.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.a7201fbc.js"><link rel="prefetch" href="./assets/js/17.79e79675.js"><link rel="prefetch" href="./assets/js/18.7639ae91.js"><link rel="prefetch" href="./assets/js/19.280df9d2.js"><link rel="prefetch" href="./assets/js/20.25a38eac.js"><link rel="prefetch" href="./assets/js/21.0aaf754a.js"><link rel="prefetch" href="./assets/js/22.abdec3c1.js"><link rel="prefetch" href="./assets/js/23.454fb1a0.js"><link rel="prefetch" href="./assets/js/24.5118d094.js"><link rel="prefetch" href="./assets/js/25.b239a8e2.js"><link rel="prefetch" href="./assets/js/26.4af89c7f.js"><link rel="prefetch" href="./assets/js/27.b338361b.js"><link rel="prefetch" href="./assets/js/28.225e99c8.js"><link rel="prefetch" href="./assets/js/29.1749fe14.js"><link rel="prefetch" href="./assets/js/3.376b8cdf.js"><link rel="prefetch" href="./assets/js/30.422f2538.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.7f4a7aa0.js"><link rel="prefetch" href="./assets/js/33.e8f1b887.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.046ac0f0.js"><link rel="prefetch" href="./assets/js/36.f0d4cc9b.js"><link rel="prefetch" href="./assets/js/37.0a7a5f8f.js"><link rel="prefetch" href="./assets/js/38.d06cfcca.js"><link rel="prefetch" href="./assets/js/39.d164c990.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.6bc1f68d.js"><link rel="prefetch" href="./assets/js/41.e1d9e6f4.js"><link rel="prefetch" href="./assets/js/42.b9146544.js"><link rel="prefetch" href="./assets/js/43.3d89ef90.js"><link rel="prefetch" href="./assets/js/44.e75043b3.js"><link rel="prefetch" href="./assets/js/45.fa675a86.js"><link rel="prefetch" href="./assets/js/46.5e1bd863.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.7f50621f.js"><link rel="prefetch" href="./assets/js/49.1273014b.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.0ace36ad.js"><link rel="prefetch" href="./assets/js/51.955bc85d.js"><link rel="prefetch" href="./assets/js/52.e3bb73d6.js"><link rel="prefetch" href="./assets/js/53.70bca49a.js"><link rel="prefetch" href="./assets/js/54.4f6fe468.js"><link rel="prefetch" href="./assets/js/55.d0ae6f7c.js"><link rel="prefetch" href="./assets/js/56.5bfe7854.js"><link rel="prefetch" href="./assets/js/57.20ab4e15.js"><link rel="prefetch" href="./assets/js/58.cd6e845e.js"><link rel="prefetch" href="./assets/js/59.e31f564e.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.7e997bce.js"><link rel="prefetch" href="./assets/js/61.ae3effab.js"><link rel="prefetch" href="./assets/js/62.d40d2f3b.js"><link rel="prefetch" href="./assets/js/63.c7ab6850.js"><link rel="prefetch" href="./assets/js/64.c317433a.js"><link rel="prefetch" href="./assets/js/65.bee18659.js"><link rel="prefetch" href="./assets/js/66.9bc2ca3c.js"><link rel="prefetch" href="./assets/js/67.36393d6f.js"><link rel="prefetch" href="./assets/js/68.50d2a85d.js"><link rel="prefetch" href="./assets/js/69.bbac38d8.js"><link rel="prefetch" href="./assets/js/7.9979a04e.js"><link rel="prefetch" href="./assets/js/70.318eb4aa.js"><link rel="prefetch" href="./assets/js/71.54649836.js"><link rel="prefetch" href="./assets/js/73.24b6f12b.js"><link rel="prefetch" href="./assets/js/74.1dd537ea.js"><link rel="prefetch" href="./assets/js/75.59231e92.js"><link rel="prefetch" href="./assets/js/76.b8f3ef78.js"><link rel="prefetch" href="./assets/js/77.11821a18.js"><link rel="prefetch" href="./assets/js/78.f63e0308.js"><link rel="prefetch" href="./assets/js/79.1c7441a7.js"><link rel="prefetch" href="./assets/js/8.db54d2a5.js"><link rel="prefetch" href="./assets/js/80.0d3fa419.js"><link rel="prefetch" href="./assets/js/81.53362836.js"><link rel="prefetch" href="./assets/js/82.6a9be763.js"><link rel="prefetch" href="./assets/js/83.11a41a2c.js"><link rel="prefetch" href="./assets/js/84.2e76a3fb.js"><link rel="prefetch" href="./assets/js/85.c61a2184.js"><link rel="prefetch" href="./assets/js/86.7d905d1b.js"><link rel="prefetch" href="./assets/js/87.4c907051.js"><link rel="prefetch" href="./assets/js/88.82047d34.js"><link rel="prefetch" href="./assets/js/89.3457441e.js"><link rel="prefetch" href="./assets/js/9.c83a911f.js"><link rel="prefetch" href="./assets/js/90.cc103581.js"><link rel="prefetch" href="./assets/js/91.68961351.js"><link rel="prefetch" href="./assets/js/92.fbb8f838.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Sql</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/sql/SQL类型题总结.html" class="sidebar-link">SQL类型题总结</a></li><li><a href="/./datahouse/sql/数仓SQL真题.html" class="active sidebar-link">数仓SQL真题</a></li><li><a href="/./datahouse/sql/牛客SQL二刷.html" class="sidebar-link">牛客SQL二刷</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="数仓sql真题"><a href="#数仓sql真题" class="header-anchor">#</a> 数仓SQL真题</h1> <h4 id="最佳股票买入时机"><a href="#最佳股票买入时机" class="header-anchor">#</a> 最佳股票买入时机</h4> <blockquote><p>描述</p> <p>该题改自leetcode算法题：121 买卖股票的最佳时机</p> <p>一张shares表，记录股票id，单只股票价格price，交易时间date</p> <p>你只能对每只股票进行买入和卖出各一次（假设每种股票只有一股），求最大收益是多少</p> <p>shares：</p> <table><thead><tr><th>id</th> <th>price</th> <th>date</th></tr></thead> <tbody><tr><td>int</td> <td>int</td> <td>datetime</td></tr></tbody></table></blockquote> <p>1、首先，筛选出能买的股票，即如果股票最早出现的价格是最高的，那么这只股票就不能买了</p> <p>因为筛选出不能买的股票比较简单（date最小price最大），所以先完成此步骤</p> <blockquote><p>-- 子查询（不能买的股票信息t3）</p> <p>思路：两个子查询分别得到<strong>每只股票最早的价格</strong>和<strong>每只股票最高的价格</strong>，然后进行内连接，连接得到的表即不能买的股票信息</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>id <span class="token keyword">AS</span> id<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>price <span class="token keyword">AS</span> price<span class="token punctuation">,</span>t1<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token keyword">AS</span> <span class="token keyword">date</span>
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+     <span class="token comment">-- 每只股票最早的价格</span>
+     <span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>price<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token keyword">date</span> <span class="token keyword">FROM</span> shares 
+     <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> id<span class="token punctuation">,</span>price
+<span class="token punctuation">)</span> t1
+<span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+     <span class="token comment">-- 每只股票最高的价格</span>
+     <span class="token keyword">SELECT</span> id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">AS</span> price <span class="token keyword">FROM</span> shares 
+     <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> id
+<span class="token punctuation">)</span> t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>id <span class="token operator">=</span> t2<span class="token punctuation">.</span>id <span class="token operator">AND</span> t1<span class="token punctuation">.</span>price <span class="token operator">=</span> t2<span class="token punctuation">.</span>price
+
+</code></pre></div></blockquote> <p>2、去除不能买的股票</p> <p>将步骤1中的查询给个表别名t3（为了方便看，先将步骤1的所有SQL语句用 t3 来代替）</p> <blockquote><p>-- 子查询（t4）</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> shares
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>id<span class="token punctuation">,</span>price<span class="token punctuation">,</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token operator">IN</span> t3
+</code></pre></div></blockquote> <p>3、保留每只股票时间在最高价之前的信息</p> <blockquote><p>-- 子查询（t6）</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> t4<span class="token punctuation">.</span>id <span class="token keyword">AS</span> id<span class="token punctuation">,</span>t4<span class="token punctuation">.</span>price <span class="token keyword">AS</span> price<span class="token punctuation">,</span>t4<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token keyword">AS</span> <span class="token keyword">date</span><span class="token punctuation">,</span>t5<span class="token punctuation">.</span>maxprice <span class="token keyword">AS</span> maxprice 
+<span class="token keyword">FROM</span> t4
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">AS</span> maxprice<span class="token punctuation">,</span><span class="token keyword">date</span> <span class="token keyword">FROM</span> shares <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> id
+<span class="token punctuation">)</span> t5
+<span class="token keyword">ON</span> t4<span class="token punctuation">.</span>id <span class="token operator">=</span> t5<span class="token punctuation">.</span>id
+<span class="token keyword">WHERE</span> t4<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">&lt;</span> t5<span class="token punctuation">.</span><span class="token keyword">date</span>
+</code></pre></div></blockquote> <p>4、相减再求和</p> <blockquote><p>-- 子查询（t6）</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>maxprice <span class="token operator">-</span> price<span class="token punctuation">)</span> <span class="token keyword">AS</span> p <span class="token keyword">FROM</span> t6
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> id
+<span class="token punctuation">)</span> t7
+</code></pre></div></blockquote> <p>完整SQL语句：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>maxprice <span class="token operator">-</span> price<span class="token punctuation">)</span> <span class="token keyword">AS</span> p <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    	<span class="token keyword">SELECT</span> t4<span class="token punctuation">.</span>id <span class="token keyword">AS</span> id<span class="token punctuation">,</span>t4<span class="token punctuation">.</span>price <span class="token keyword">AS</span> price<span class="token punctuation">,</span>t4<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token keyword">AS</span> <span class="token keyword">date</span><span class="token punctuation">,</span>t5<span class="token punctuation">.</span>maxprice <span class="token keyword">AS</span> maxprice 
+        <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+            	<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> shares
+				<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>id<span class="token punctuation">,</span>price<span class="token punctuation">,</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+                	<span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>id <span class="token keyword">AS</span> id<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>price <span class="token keyword">AS</span> price<span class="token punctuation">,</span>t1<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token keyword">AS</span> <span class="token keyword">date</span>
+                    <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+                         <span class="token comment">-- 每只股票最早的价格</span>
+                         <span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>price<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token keyword">date</span> <span class="token keyword">FROM</span> shares 
+                         <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> id
+                    <span class="token punctuation">)</span> t1
+                    <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+                         <span class="token comment">-- 每只股票最高的价格</span>
+                         <span class="token keyword">SELECT</span> id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">AS</span> price <span class="token keyword">FROM</span> shares 
+                         <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> id
+                    <span class="token punctuation">)</span> t2
+                    <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>id <span class="token operator">=</span> t2<span class="token punctuation">.</span>id <span class="token operator">AND</span> t1<span class="token punctuation">.</span>price <span class="token operator">=</span> t2<span class="token punctuation">.</span>price
+                <span class="token punctuation">)</span> t3
+        <span class="token punctuation">)</span> t4
+        <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+            <span class="token keyword">SELECT</span> id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">AS</span> maxprice<span class="token punctuation">,</span><span class="token keyword">date</span> <span class="token keyword">FROM</span> shares <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> id
+        <span class="token punctuation">)</span> t5
+        <span class="token keyword">ON</span> t4<span class="token punctuation">.</span>id <span class="token operator">=</span> t5<span class="token punctuation">.</span>id
+        <span class="token keyword">WHERE</span> t4<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">&lt;</span> t5<span class="token punctuation">.</span><span class="token keyword">date</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> id
+<span class="token punctuation">)</span> t7
+</code></pre></div><h4 id="_8月17日测评"><a href="#_8月17日测评" class="header-anchor">#</a> 8月17日测评</h4> <p>8月17日测评：题目1</p> <blockquote><p>有两张表，一张是商品表（item_table），字段为： item_id, item_type, city_id, is_online
+另一张是SKU表（sku_table），字段为：sku_id, item_id, price；
+请写出SQL，用于列出每个城市、每个商品类型（item_type）的最低价、最高价、以及上架（is_online='Y'）商品数
+输出形如：city_id, item_type, online_item_count, min_price, max_price
+注意： 商品与 sku 是一对多的关系，一个商品一般会对应多个 sku（也可能某个商品没有 sku ）
+如果 item_table 和 sku_table 都有分区字段dt，需要统计 dt='20200701' 的数据，那么 SQL 应该怎么写？</p></blockquote> <p>上面其实有两个问题，第一问是“ 输出形如：city_id, item_type, online_item_count, min_price, max_price”</p> <p>第一问：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> a<span class="token punctuation">.</span>city<span class="token punctuation">,</span>a<span class="token punctuation">.</span>item_type<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span><span class="token punctuation">,</span>c<span class="token punctuation">.</span>num
+<span class="token keyword">FROM</span> item_table a
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> sku_table b
+<span class="token keyword">ON</span> a<span class="token punctuation">.</span>item_id <span class="token operator">=</span> b<span class="token punctuation">.</span>item_id
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> city<span class="token punctuation">,</span>item_type<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> num <span class="token keyword">FROM</span> item_table
+    <span class="token keyword">WHERE</span> is_online<span class="token operator">=</span><span class="token string">'Y'</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> city<span class="token punctuation">,</span>item_type
+<span class="token punctuation">)</span> c
+<span class="token keyword">ON</span> a<span class="token punctuation">.</span>city <span class="token operator">=</span> c<span class="token punctuation">.</span>city <span class="token operator">AND</span> a<span class="token punctuation">.</span>item_type <span class="token operator">=</span> c<span class="token punctuation">.</span>item_type
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> a<span class="token punctuation">.</span>city<span class="token punctuation">,</span>a<span class="token punctuation">.</span>item_type
+</code></pre></div><p>第二问，表结构修改为：</p> <p>商品表（item_table），字段为： item_id, item_type, city_id, is_online, dt；</p> <p>SKU表（sku_table），字段为：sku_id, item_id, price, dt；</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> a<span class="token punctuation">.</span>city<span class="token punctuation">,</span>a<span class="token punctuation">.</span>item_type<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> 
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> item_table <span class="token keyword">WHERE</span> dt<span class="token operator">=</span><span class="token string">'20200701'</span>
+<span class="token punctuation">)</span> a
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> sku_table <span class="token keyword">WHERE</span> dt<span class="token operator">=</span><span class="token string">'20200701'</span>
+<span class="token punctuation">)</span> b
+<span class="token keyword">ON</span> a<span class="token punctuation">.</span>item_id <span class="token operator">=</span> b<span class="token punctuation">.</span>item_id
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> city<span class="token punctuation">,</span>item_type<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> item_table
+    <span class="token keyword">WHERE</span> is_online<span class="token operator">=</span><span class="token string">'Y'</span> <span class="token operator">AND</span> dt<span class="token operator">=</span><span class="token string">'20200701'</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> city<span class="token punctuation">,</span>item_type
+<span class="token punctuation">)</span> c
+<span class="token keyword">ON</span> a<span class="token punctuation">.</span>city <span class="token operator">=</span> c<span class="token punctuation">.</span>city <span class="token operator">AND</span> a<span class="token punctuation">.</span>item_type <span class="token operator">=</span> c<span class="token punctuation">.</span>item_type
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> a<span class="token punctuation">.</span>city<span class="token punctuation">,</span>a<span class="token punctuation">.</span>item_type
+</code></pre></div><ul><li>8月17日测评：题目2</li></ul> <blockquote><p>数据表TableA结构为 shop_id,lon,lat,cnt(cnt代表本店交易数,lon和lat为经纬度))
+要求找到属于活跃商圈的shop_id.
+活跃商圈指本shop周围n公里内,所有shop的cnt大于m.
+距离可以用函数 distance(lon1,lat1,lon2,lat2)来计算</p></blockquote> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> shop_id <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> 
+    	a<span class="token punctuation">.</span>shop_id <span class="token keyword">AS</span> a_id<span class="token punctuation">,</span>
+    	<span class="token comment">-- b.shop_id AS a_id,</span>
+    	distance<span class="token punctuation">(</span>a<span class="token punctuation">.</span>lon<span class="token punctuation">,</span>a<span class="token punctuation">.</span>lat<span class="token punctuation">,</span>b<span class="token punctuation">.</span>lon<span class="token punctuation">,</span>b<span class="token punctuation">.</span>lat<span class="token punctuation">)</span> <span class="token keyword">AS</span> d<span class="token punctuation">,</span>
+    	b<span class="token punctuation">.</span>cnt <span class="token keyword">AS</span> cnt
+	<span class="token keyword">FROM</span> TableA a
+	<span class="token keyword">CROSS</span> <span class="token keyword">JOIN</span> TableA b
+<span class="token punctuation">)</span> t1 
+<span class="token keyword">WHERE</span> d<span class="token operator">&lt;</span>n 
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> shop_id
+<span class="token keyword">HAVING</span> cnt <span class="token operator">&gt;</span> m
+</code></pre></div><ul><li>8月17日测评：题目3</li></ul> <blockquote><p>数据研发题目，不限语言
+现有用户行为表tracking_log，大概字段有（user_id‘用户编号’,opr_id‘操作编号’,log_time‘操作时间’），示例数据如下：
+user_id  opr_id  log_time
+1001   A    2021-03-01 12:00:00
+1001   B    2021-03-01 13:00:00
+1002   A    2021-03-01 12:00:00
+1003   A    2021-03-01 12:00:00
+1003   C    2021-03-01 13:00:00
+1004   A    2021-03-01 12:00:00
+1004   B    2021-03-02 12:00:00
+1004   A    2021-03-02 12:00:00
+需求：
+1）统计每天的访客数和他们的平均操作次数。
+2）统计每天符合以下条件的用户数：A操作之后是B操作，AB操作必须相邻。</p></blockquote> <p>1）</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> log_time<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> user_id<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> user_id<span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> tracking_log
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> log_time
+</code></pre></div><ol start="2"><li></li></ol> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> log_time<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>user_id <span class="token keyword">AS</span> user_id<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>opr_id <span class="token keyword">AS</span> a_opr<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>opr_id <span class="token keyword">AS</span> b_opr<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>log_time <span class="token keyword">AS</span> log_time
+    <span class="token keyword">FROM</span>  <span class="token punctuation">(</span>
+            <span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> log_time<span class="token punctuation">)</span> <span class="token keyword">AS</span> rs
+            <span class="token keyword">FROM</span> tracking_log
+    <span class="token punctuation">)</span> t1
+    <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span><span class="token punctuation">(</span>rs<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rs <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+            <span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> log_time<span class="token punctuation">)</span> <span class="token keyword">AS</span> rs
+            <span class="token keyword">FROM</span> tracking_log
+        <span class="token punctuation">)</span> t11
+    <span class="token punctuation">)</span> t2
+    <span class="token keyword">ON</span> t1<span class="token punctuation">.</span>user_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>user_id <span class="token operator">AND</span> t1<span class="token punctuation">.</span>rs <span class="token operator">=</span> t2<span class="token punctuation">.</span>rs <span class="token operator">AND</span> <span class="token keyword">DAY</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>log_time<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">DAY</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span>log_time<span class="token punctuation">)</span>
+<span class="token punctuation">)</span> t3
+<span class="token keyword">WHERE</span> a_opr <span class="token operator">=</span> <span class="token string">'A'</span> <span class="token operator">AND</span> b_opr <span class="token operator">=</span> <span class="token string">'B'</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> log_time
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> log_time
+</code></pre></div><h4 id="用户搜索top5"><a href="#用户搜索top5" class="header-anchor">#</a> 用户搜索Top5</h4> <p>基于用户的搜索日志表(log)，统计每个用户Top5的搜索词，示例数据如下：</p> <p>tm | uid | words
+2020-12-01 12:01:41 | 1919812323 | AI 算法 模型
+2020-12-01 12:01:42 | 1919812323 | 模型 评估
+2020-12-01 12:01:42 | 1619811312 | Spark 性能优化
+2020-12-01 12:01:44 | 1419811189 | Hive SQL
+...
+...</p> <p>输出表内容格式如下，搜索词以逗号分隔：
+uid | topwords
+1919812323 | 模型,AI,算法,评估,ML
+1419811189 | Spark,Hive,SQL
+...
+...</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> t2<span class="token punctuation">.</span>uid <span class="token keyword">AS</span> uid<span class="token punctuation">,</span>CONCAT_WS<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span>COLLECT_SET<span class="token punctuation">(</span>t2<span class="token punctuation">.</span>word<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> topwords <span class="token keyword">FROM</span> <span class="token punctuation">(</span>    
+    <span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>uid<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>word<span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>uid <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> t1<span class="token punctuation">.</span>cnt <span class="token keyword">DESC</span><span class="token punctuation">)</span> rs <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> t<span class="token punctuation">.</span>uid<span class="token punctuation">,</span>t<span class="token punctuation">.</span>word<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt <span class="token keyword">FROM</span> <span class="token punctuation">(</span>   
+            <span class="token keyword">SELECT</span> tm<span class="token punctuation">,</span>uid<span class="token punctuation">,</span>word <span class="token keyword">FROM</span> log
+            lateral <span class="token keyword">view</span> explode<span class="token punctuation">(</span>split<span class="token punctuation">(</span>words<span class="token punctuation">,</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">)</span> tmp <span class="token keyword">AS</span> word
+         <span class="token punctuation">)</span> t <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t<span class="token punctuation">.</span>uid<span class="token punctuation">,</span>t<span class="token punctuation">.</span>word
+    <span class="token punctuation">)</span> t1
+<span class="token punctuation">)</span> t2 <span class="token keyword">WHERE</span> t2<span class="token punctuation">.</span>rs <span class="token operator">&lt;=</span> <span class="token number">5</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t2<span class="token punctuation">.</span>uid
+</code></pre></div><h4 id="_2021-8-17晚"><a href="#_2021-8-17晚" class="header-anchor">#</a> 2021.8.17晚</h4> <ul><li><p>每门课都大于80分的学术</p> <p>（表 t，字段：name，course，score）</p> <p>写法一：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> t
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> name
+<span class="token keyword">HAVING</span> <span class="token function">MIN</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">80</span>
+</code></pre></div><p>写法二：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span> <span class="token keyword">AS</span> score <span class="token keyword">FROM</span> t
+	<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> name
+<span class="token punctuation">)</span> t1
+<span class="token keyword">WHERE</span> socre <span class="token operator">&gt;</span> <span class="token number">80</span>
+</code></pre></div></li> <li><p>虚假交易</p> <p>订单表order，字段：id（订单ID），category（类目ID），seller_id（卖家ID），buyer_id（买家ID），amount（销售额）</p> <p>虚假交易数据表spam_sales，字段：id（订单ID），type（虚假交易类型），spam_date（过滤日期）</p> <p>1、</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 参与虚假交易的买家人数</span>
+<span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> buyer_id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token keyword">order</span>
+<span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> spam_sales
+<span class="token keyword">ON</span> <span class="token keyword">order</span><span class="token punctuation">.</span>id <span class="token operator">=</span> spam_sales<span class="token punctuation">.</span>id
+
+<span class="token comment">-- 虚假交易总笔数</span>
+<span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token keyword">order</span>
+<span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> spam_sales
+<span class="token keyword">ON</span> <span class="token keyword">order</span><span class="token punctuation">.</span>id <span class="token operator">=</span> spam_sales<span class="token punctuation">.</span>id
+
+<span class="token comment">-- 虚假交易总金额</span>
+<span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">order</span><span class="token punctuation">.</span>amount<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token keyword">order</span>
+<span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> spam_sales
+<span class="token keyword">ON</span> <span class="token keyword">order</span><span class="token punctuation">.</span>id <span class="token operator">=</span> spam_sales<span class="token punctuation">.</span>id
+</code></pre></div><p>2、剔除了虚假交易信息的每个卖家top10</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> seller_id<span class="token punctuation">,</span>amount <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token comment">-- 分组排序</span>
+    <span class="token keyword">SELECT</span> seller_id<span class="token punctuation">,</span>amount<span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> seller_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cnt <span class="token keyword">DESC</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rs 
+    <span class="token keyword">FROM</span> （
+        <span class="token comment">-- 剔除虚假交易信息</span>
+        <span class="token keyword">SELECT</span> seller_id<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">AS</span> amount <span class="token keyword">FROM</span> <span class="token keyword">order</span>
+        <span class="token keyword">WHERE</span> id <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+            <span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> id <span class="token keyword">FROM</span> spam_sales
+        <span class="token punctuation">)</span>
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> seller_id
+    <span class="token punctuation">)</span> t1
+<span class="token punctuation">)</span> t2 <span class="token keyword">WHERE</span> rs <span class="token operator">&lt;=</span> <span class="token number">10</span>
+</code></pre></div></li></ul> <h4 id="所有用户和活跃用户的总数及年龄"><a href="#所有用户和活跃用户的总数及年龄" class="header-anchor">#</a> 所有用户和活跃用户的总数及年龄</h4> <p>有日志如下，请写出代码求得所有用户和活跃用户的总数及平均年龄。（活跃用户指连续两天都有访问记录的用户）
+日期 用户 年龄
+2019-02-11,test_1,23
+2019-02-11,test_2,19
+2019-02-11,test_3,39
+2019-02-11,test_1,23
+2019-02-11,test_3,39
+2019-02-11,test_1,23
+2019-02-12,test_2,19
+2019-02-13,test_1,23
+2019-02-15,test_2,19
+2019-02-16,test_2,19</p> <ul><li>活跃用户总数及平均年龄</li></ul> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">'活跃用户总数'</span><span class="token punctuation">,</span><span class="token function">AVG</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">'平均年龄'</span>
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span>age
+    <span class="token keyword">FROM</span> <span class="token punctuation">(</span>	
+        <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span>age<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token operator">-</span>rs<span class="token punctuation">)</span> <span class="token keyword">AS</span> num <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+            <span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> dt<span class="token punctuation">)</span> <span class="token keyword">AS</span> rs
+            <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+                <span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> log
+            	<span class="token punctuation">)</span> t1 <span class="token comment">--去重</span>
+        	<span class="token punctuation">)</span> t2 <span class="token comment">--分组排序</span>
+    	<span class="token punctuation">)</span> t3  <span class="token comment">--保留连续登录两天的用户及年龄信息</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t3<span class="token punctuation">.</span>user_id<span class="token punctuation">,</span>t3<span class="token punctuation">.</span>num
+    <span class="token keyword">HAVING</span> t3<span class="token punctuation">.</span>num <span class="token operator">&gt;=</span><span class="token number">2</span> 
+    <span class="token punctuation">)</span> t4
+</code></pre></div><ul><li>所有用户总数及平均年龄</li></ul> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">'所有用户总数'</span><span class="token punctuation">,</span><span class="token function">AVG</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">'平均年龄'</span>
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">FROM</span> log
+<span class="token punctuation">)</span> t1
+</code></pre></div><ul><li>如果拼接在一起</li></ul> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> all_usernum <span class="token keyword">AS</span> <span class="token string">'所有用户总数'</span><span class="token punctuation">,</span>all_avgage <span class="token keyword">AS</span> <span class="token string">'所有用户平均年龄'</span><span class="token punctuation">,</span>all_usernum <span class="token keyword">AS</span> <span class="token string">'活跃用户总数'</span><span class="token punctuation">,</span>all_avgage <span class="token keyword">AS</span> <span class="token string">'活跃用户平均年龄'</span> <span class="token keyword">FROM</span> （
+    <span class="token keyword">SELECT</span> <span class="token string">'x'</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> active_usernum<span class="token punctuation">,</span><span class="token function">AVG</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token keyword">AS</span> active_avgage
+    <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span>age
+        <span class="token keyword">FROM</span> <span class="token punctuation">(</span>	
+            <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span>age<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token operator">-</span>rs<span class="token punctuation">)</span> <span class="token keyword">AS</span> num <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+                <span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> dt<span class="token punctuation">)</span> <span class="token keyword">AS</span> rs
+                <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+                    <span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> log
+                    <span class="token punctuation">)</span> t1 <span class="token comment">--去重</span>
+                <span class="token punctuation">)</span> t2 <span class="token comment">--分组排序</span>
+            <span class="token punctuation">)</span> t3  <span class="token comment">--保留连续登录两天的用户及年龄信息</span>
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> t3<span class="token punctuation">.</span>user_id<span class="token punctuation">,</span>t3<span class="token punctuation">.</span>num
+        <span class="token keyword">HAVING</span> t3<span class="token punctuation">.</span>num <span class="token operator">&gt;=</span><span class="token number">2</span> 
+        <span class="token punctuation">)</span> t4
+<span class="token punctuation">)</span> t5
+<span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token string">'x'</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> all_usernum<span class="token punctuation">,</span><span class="token function">AVG</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span> <span class="token keyword">AS</span> all_avgage
+    <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> <span class="token keyword">FROM</span> log
+    	<span class="token punctuation">)</span> t1
+    <span class="token punctuation">)</span> t6
+<span class="token keyword">ON</span> t5<span class="token punctuation">.</span>x <span class="token operator">=</span> t6<span class="token punctuation">.</span>x
+</code></pre></div><h4 id="用户资产表统计"><a href="#用户资产表统计" class="header-anchor">#</a> 用户资产表统计</h4> <p>给定用户资产统计表：</p> <table><thead><tr><th>字段名</th> <th>字段类型</th> <th>字段注释</th></tr></thead> <tbody><tr><td>user_id</td> <td>int</td> <td>用户id</td></tr> <tr><td>stat_date</td> <td>string</td> <td>统计日期</td></tr> <tr><td>user_asset_total</td> <td>double</td> <td>总资产</td></tr></tbody></table> <p>问题：</p> <p>限定统计日期大于20180101，计算用户平均资产周期天数，并根据全体用户平均资产周
+期天数的0.2、0.4、0.6、0.8 分位数值（可用近似计算的分位数值代替），将用户平均资产周期天数转化为对应的字段值输出。（过滤平均资产周期天数为null 用户）
+资产周期天数定义：</p> <p>初始日期：以用户出现总资产小于100 统计日期前，最后一次出现总资产大于等于100 的统计日期</p> <p>结束日期：以用户出现总资产小于100 统计日期后，首次出现总资产大于等于100 的统计日期</p> <p>资产周期天数= 结束日期与初始日期的日期间隔+ 1
+（若初始日期与结束日期相同，则为同一个资产周期，求平均资产周期时，进行去重）
+如：
+user_id stat_date user_asset_total</p> <p>1 20200701 213470
+1 20200702 203470
+1 20200703 193470
+1 20200704 183470
+1 20200707 10
+1 20200708 10
+1 20200709 10
+1 20200715 100000
+1 20200716 110000</p> <table><thead><tr><th>user_id</th> <th>stat_date</th> <th>user_asset_total</th></tr></thead> <tbody><tr><td>1</td> <td>20200701</td> <td>213470</td></tr> <tr><td>1</td> <td>20200702</td> <td>203470</td></tr> <tr><td>1</td> <td>20200703</td> <td>193470</td></tr> <tr><td>1</td> <td>20200704</td> <td>183470</td></tr> <tr><td>1</td> <td>20200707</td> <td>10</td></tr> <tr><td>1</td> <td>20200708</td> <td>10</td></tr> <tr><td>1</td> <td>20200709</td> <td>10</td></tr> <tr><td>1</td> <td>20200715</td> <td>100000</td></tr> <tr><td>1</td> <td>20200716</td> <td>110000</td></tr></tbody></table> <p>（注：用户资产记录的统计日期可能不连续）</p> <p>资产周期天数= 20200715 与20200704 的日期间隔+ 1</p> <p>stat_date：20200707、20200708、20200709 为同一个资产周期，只统计一次。</p> <p>字段值输出规则：</p> <p>用户平均资产周期天数&lt;= 全体用户0.2 分位数值：“超短期”</p> <p>全体用户0.2 分位数值&lt; 用户平均资产周期天数&lt;= 全体用户0.4 分位数值：“短期”</p> <p>全体用户0.4 分位数值&lt; 用户平均资产周期天数&lt;= 全体用户0.6 位数值：“中期”</p> <p>全体用户0.6 分位数值&lt; 用户平均资产周期天数&lt;= 全体用户0.8 分位数值：“长期”</p> <p>用户平均资产周期天数&gt; 全体用户0.8 分位数值：“超长期”</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span>  user_id<span class="token punctuation">,</span><span class="token punctuation">(</span>t6<span class="token punctuation">.</span>stat_date <span class="token operator">-</span> t5<span class="token punctuation">.</span>stat_date <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">'平均资产周期'</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+	<span class="token comment">--初始日期</span>
+	<span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span>stat_date <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+		<span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> stat_date <span class="token punctuation">)</span> <span class="token keyword">AS</span> rs 
+	<span class="token punctuation">)</span> t4
+	<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>user_id<span class="token punctuation">,</span>rs<span class="token punctuation">)</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+		<span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token punctuation">(</span>rs<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rs <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+			<span class="token comment">-- 小于100元的最早那天</span>
+			<span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span>stat_date<span class="token punctuation">)</span> <span class="token keyword">AS</span> stat_date<span class="token punctuation">,</span>rs <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+				<span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> stat_date <span class="token keyword">AS</span> rs<span class="token punctuation">)</span> <span class="token keyword">FROM</span> t
+				<span class="token punctuation">)</span> t1
+			<span class="token keyword">WHERE</span> user_asset_total <span class="token operator">&lt;</span> <span class="token number">100</span> <span class="token operator">AND</span> stat_date <span class="token operator">&gt;</span> <span class="token string">'20180101'</span>
+			<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+		<span class="token punctuation">)</span> t2
+	<span class="token punctuation">)</span> t3
+<span class="token punctuation">)</span> t5 <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+	<span class="token comment">--结束日期</span>
+	<span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span>stat_date <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+		<span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> stat_date <span class="token punctuation">)</span> <span class="token keyword">AS</span> rs 
+	<span class="token punctuation">)</span> t4
+	<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>user_id<span class="token punctuation">,</span>rs<span class="token punctuation">)</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+		<span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token punctuation">(</span>rs<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> rs <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+			<span class="token comment">-- 小于100元的最迟那天</span>
+			<span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span>stat_date<span class="token punctuation">)</span> <span class="token keyword">AS</span> stat_date<span class="token punctuation">,</span>rs <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+				<span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> stat_date <span class="token keyword">AS</span> rs<span class="token punctuation">)</span> <span class="token keyword">FROM</span> t
+				<span class="token punctuation">)</span> t1
+			<span class="token keyword">WHERE</span> user_asset_total <span class="token operator">&lt;</span> <span class="token number">100</span> <span class="token operator">AND</span> stat_date <span class="token operator">&gt;</span> <span class="token string">'20180101'</span>
+			<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+		<span class="token punctuation">)</span> t2
+	<span class="token punctuation">)</span> t3
+<span class="token punctuation">)</span> t6 <span class="token keyword">ON</span> t5<span class="token punctuation">.</span>user_id <span class="token operator">=</span> t6<span class="token punctuation">.</span>user_id 
+<span class="token keyword">WHERE</span> t6<span class="token punctuation">.</span>stat_date <span class="token operator">&lt;&gt;</span> t5<span class="token punctuation">.</span>stat_date
+</code></pre></div><h4 id="_8-20数据倾斜优化"><a href="#_8-20数据倾斜优化" class="header-anchor">#</a> 8.20数据倾斜优化</h4> <p>-- table a，字段 uid，action，time
+-- 取每个用户最近的 300条行为记录</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span>
+ t<span class="token punctuation">.</span>uid<span class="token punctuation">,</span>
+ t<span class="token punctuation">.</span><span class="token keyword">action</span><span class="token punctuation">,</span>
+ t<span class="token punctuation">.</span><span class="token keyword">time</span>
+<span class="token keyword">from</span>
+<span class="token punctuation">(</span>
+    <span class="token keyword">select</span>
+     uid<span class="token punctuation">,</span>
+     <span class="token keyword">action</span><span class="token punctuation">,</span>
+     <span class="token keyword">time</span><span class="token punctuation">,</span>
+     row_number<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> uid <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token keyword">time</span> <span class="token keyword">desc</span><span class="token punctuation">)</span> rk
+    <span class="token keyword">from</span> a
+<span class="token punctuation">)</span> t <span class="token keyword">where</span> t<span class="token punctuation">.</span>rk <span class="token operator">&lt;=</span> <span class="token number">300</span><span class="token punctuation">;</span>
+</code></pre></div><p>-- 出现了数据倾斜如何解决，写出解决 sql</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> a<span class="token punctuation">.</span>uid<span class="token punctuation">,</span>a<span class="token punctuation">.</span><span class="token keyword">action</span><span class="token punctuation">,</span>a<span class="token punctuation">.</span><span class="token keyword">time</span> <span class="token keyword">from</span> a 
+<span class="token keyword">right</span> <span class="token keyword">join</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span> a1<span class="token punctuation">.</span>uid <span class="token keyword">as</span> uid<span class="token punctuation">,</span><span class="token function">max</span><span class="token punctuation">(</span>a1<span class="token punctuation">.</span><span class="token keyword">time</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token keyword">time</span>
+    <span class="token keyword">from</span> a a1
+    <span class="token keyword">left</span> <span class="token keyword">join</span> a a2
+    <span class="token keyword">on</span> a1<span class="token punctuation">.</span>uid<span class="token operator">=</span>a2<span class="token punctuation">.</span>uid <span class="token operator">and</span> a1<span class="token punctuation">.</span><span class="token keyword">action</span> <span class="token operator">=</span> a2<span class="token punctuation">.</span><span class="token keyword">action</span> <span class="token operator">and</span> a1<span class="token punctuation">.</span><span class="token keyword">time</span> <span class="token operator">=</span> a2<span class="token punctuation">.</span><span class="token keyword">time</span> <span class="token operator">and</span> a1<span class="token punctuation">.</span><span class="token keyword">time</span><span class="token operator">&lt;</span>a2<span class="token punctuation">.</span><span class="token keyword">time</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> a1<span class="token punctuation">.</span>uid
+    <span class="token keyword">having</span> <span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> a2<span class="token punctuation">.</span><span class="token keyword">time</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span><span class="token number">300</span>
+    <span class="token punctuation">)</span> a3
+<span class="token keyword">on</span> <span class="token keyword">on</span> a<span class="token punctuation">.</span>uid<span class="token operator">=</span>a3<span class="token punctuation">.</span>uid <span class="token operator">and</span> a<span class="token punctuation">.</span><span class="token keyword">action</span> <span class="token operator">=</span> a3<span class="token punctuation">.</span><span class="token keyword">action</span> <span class="token operator">and</span> a<span class="token punctuation">.</span><span class="token keyword">time</span> <span class="token operator">=</span> a3<span class="token punctuation">.</span><span class="token keyword">time</span>
+</code></pre></div><h4 id="用户流失"><a href="#用户流失" class="header-anchor">#</a> 用户流失</h4> <p>有用户的登陆日期login_dt和uid，提取这周相对于上周流失用户的uid</p> <p>牛客面经：我想到的是用left join和intercept，面试官提示用聚合函数，我才想起来用max(login_dt）</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>uid <span class="token keyword">AS</span> uid <span class="token keyword">FROM</span>
+<span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> uid<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>login_dt<span class="token punctuation">)</span> <span class="token keyword">FROM</span> t
+	<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> uid
+<span class="token punctuation">)</span> t1
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> uid <span class="token keyword">FROM</span> t
+    <span class="token keyword">WHERE</span> <span class="token punctuation">(</span><span class="token keyword">DATE</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token keyword">DATE</span><span class="token punctuation">(</span>login_dt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token number">7</span>
+<span class="token punctuation">)</span> t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>uid <span class="token operator">=</span> t2<span class="token punctuation">.</span>uid
+</code></pre></div><h4 id="当天cpu成本"><a href="#当天cpu成本" class="header-anchor">#</a> 当天CPU成本</h4> <p>字段：id,start_time,end_time</p> <p>8点之前每秒 是10块 / s，8点之后每秒 是5块/s</p> <p>计算当天的成本</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>id<span class="token punctuation">,</span><span class="token punctuation">(</span> NVL<span class="token punctuation">(</span>time_1<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> NVL<span class="token punctuation">(</span>time_2<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>DATEDIFF<span class="token punctuation">(</span>s<span class="token punctuation">,</span>DATE_FORMAT<span class="token punctuation">(</span>start_time<span class="token punctuation">,</span><span class="token string">'%H:%mi:%s'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>‘<span class="token number">08</span>:<span class="token number">00</span>:<span class="token number">00</span>’<span class="token punctuation">)</span> <span class="token keyword">AS</span> time_1 <span class="token keyword">FROM</span> t
+	<span class="token keyword">WHERE</span> DATE_FORMAT<span class="token punctuation">(</span>start_time<span class="token punctuation">,</span><span class="token string">'%H:%mi:%s'</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> ‘<span class="token number">08</span>:<span class="token number">00</span>:<span class="token number">00</span>’
+<span class="token punctuation">)</span> t1
+<span class="token keyword">FULL</span> <span class="token keyword">JOIN</span>
+<span class="token punctuation">(</span>
+<span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>DATEDIFF<span class="token punctuation">(</span>s<span class="token punctuation">,</span>‘<span class="token number">08</span>:<span class="token number">00</span>:<span class="token number">00</span>’<span class="token punctuation">,</span>DATE_FORMAT<span class="token punctuation">(</span>end_time<span class="token punctuation">,</span><span class="token string">'%H:%mi:%s'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> time_2 <span class="token keyword">FROM</span> t
+<span class="token keyword">WHERE</span> DATE_FORMAT<span class="token punctuation">(</span>start_time<span class="token punctuation">,</span><span class="token string">'%H:%mi:%s'</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> ‘<span class="token number">08</span>:<span class="token number">00</span>:<span class="token number">00</span>’
+<span class="token punctuation">)</span> t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>id <span class="token operator">=</span> t2<span class="token punctuation">.</span>id
+</code></pre></div><h4 id="一年中每周的uv"><a href="#一年中每周的uv" class="header-anchor">#</a> 一年中每周的uv</h4> <p>字段：uid,time</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> DATEPART<span class="token punctuation">(</span>wk<span class="token punctuation">,</span><span class="token keyword">time</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> uid<span class="token punctuation">)</span> <span class="token keyword">FROM</span> t
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> DATEPART<span class="token punctuation">(</span>wk<span class="token punctuation">,</span><span class="token keyword">time</span><span class="token punctuation">)</span>
+</code></pre></div><h4 id="按月份累计求和"><a href="#按月份累计求和" class="header-anchor">#</a> 按月份累计求和</h4> <p>我们有如下用户访问数据（表名t）：</p> <table><thead><tr><th>userId</th> <th>visisData</th> <th>visitCount</th></tr></thead> <tbody><tr><td>u01</td> <td>2017/1/21</td> <td>5</td></tr> <tr><td>u02</td> <td>2017/1/23</td> <td>6</td></tr> <tr><td>u03</td> <td>2017/1/22</td> <td>8</td></tr> <tr><td>u04</td> <td>2017/1/20</td> <td>3</td></tr> <tr><td>u01</td> <td>2017/1/23</td> <td>6</td></tr> <tr><td>u01</td> <td>2017/2/21</td> <td>8</td></tr> <tr><td>u02</td> <td>2017/1/23</td> <td>6</td></tr> <tr><td>u01</td> <td>2017/2/22</td> <td>4</td></tr></tbody></table> <p>要求统计出每个用户的累计访问次数，如下表所示：</p> <table><thead><tr><th>用户id</th> <th>月份</th> <th>visitCount</th> <th>累计</th></tr></thead> <tbody><tr><td>u01</td> <td>2017-01</td> <td>11</td> <td>11</td></tr> <tr><td>u01</td> <td>2017-02</td> <td>12</td> <td>23</td></tr> <tr><td>u02</td> <td>2017-01</td> <td>12</td> <td>12</td></tr> <tr><td>u03</td> <td>2017-01</td> <td>8</td> <td>8</td></tr> <tr><td>u04</td> <td>2017-01</td> <td>3</td> <td>3</td></tr></tbody></table> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> 
+	userid <span class="token keyword">AS</span> <span class="token string">'用户id'</span><span class="token punctuation">,</span>
+	<span class="token keyword">date</span> <span class="token keyword">AS</span> <span class="token string">'月份'</span><span class="token punctuation">,</span>
+	vistcount<span class="token punctuation">,</span>
+	<span class="token function">SUM</span><span class="token punctuation">(</span>vistcount<span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> userid <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">'累计'</span>
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span>  
+    		userid<span class="token punctuation">,</span>
+            DATE_FORMAT<span class="token punctuation">(</span>visitdate<span class="token punctuation">,</span><span class="token string">'%Y-%m'</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token keyword">date</span><span class="token punctuation">,</span>
+            <span class="token function">SUM</span><span class="token punctuation">(</span>vistcount<span class="token punctuation">)</span> <span class="token keyword">AS</span> vistcount 
+        <span class="token keyword">FROM</span> t
+        <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> userid<span class="token punctuation">,</span>DATE_FORMAT<span class="token punctuation">(</span>visitdate<span class="token punctuation">,</span><span class="token string">'%Y-%m'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> t1
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> userid<span class="token punctuation">,</span><span class="token keyword">date</span>
+</code></pre></div><h4 id="单字段行转列"><a href="#单字段行转列" class="header-anchor">#</a> 单字段行转列</h4> <table><thead><tr><th>user_id</th> <th>photo_id</th> <th>emoji_id</th> <th>like</th></tr></thead> <tbody><tr><td>1</td> <td>1</td> <td>[1,2,3]</td> <td>1</td></tr> <tr><td>1</td> <td>2</td> <td>[1,2,4]</td> <td>1</td></tr> <tr><td>2</td> <td>1</td> <td>[1,2,3,4]</td> <td>1</td></tr></tbody></table> <p>第一行表示user_id为1的用户给photo_id为1的作品点了赞（photo_id为1的作品使用了emoji_id为1、2、3这三个表情），求点赞最多的表情</p> <p>因为不知道LATERNAL VIEW EXPLODE的执行顺序是怎样的，所以写成这样：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> emoji_id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>cnt<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> emoji_id<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+		<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+			<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> <span class="token operator">like</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> t1
+		<span class="token punctuation">)</span> t2
+		LATERNAL <span class="token keyword">VIEW</span> EXPLODE<span class="token punctuation">(</span>emoji_id<span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">)</span>
+	<span class="token punctuation">)</span> t3
+	<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> emoji_id
+<span class="token punctuation">)</span> t4
+</code></pre></div><p>但感觉这样写应该没毛病：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> emoji_id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span>cnt<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> emoji_id<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+		<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> <span class="token operator">like</span> <span class="token operator">=</span> <span class="token number">1</span>
+		LATERNAL <span class="token keyword">VIEW</span> EXPLODE<span class="token punctuation">(</span>emoji_id<span class="token punctuation">,</span><span class="token string">','</span><span class="token punctuation">)</span>
+	<span class="token punctuation">)</span> t1
+	<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> emoji_id
+<span class="token punctuation">)</span> t2
+</code></pre></div><h4 id="蔚来实习"><a href="#蔚来实习" class="header-anchor">#</a> 蔚来实习</h4> <p><img src="https://i.loli.net/2021/08/30/HVJgsE1NwS9eCol.png" alt=""></p> <p>1、</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> buyer_id<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>order_amount<span class="token punctuation">)</span> 
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> buyer_id<span class="token punctuation">,</span>order_amount <span class="token keyword">FROM</span> <span class="token keyword">user</span>
+    <span class="token keyword">WHERE</span> <span class="token keyword">MONTH</span><span class="token punctuation">(</span>order_time<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">AND</span> order_amount <span class="token operator">&gt;</span> <span class="token number">20</span>
+<span class="token punctuation">)</span> t1
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> buyer_id
+</code></pre></div><p>2、</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> buyer_id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> buyer_id <span class="token keyword">FROM</span> <span class="token keyword">user</span>
+    <span class="token keyword">WHERE</span> order_categort <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'中性笔'</span><span class="token punctuation">,</span><span class="token string">'笔筒'</span><span class="token punctuation">)</span> 
+    <span class="token operator">AND</span> <span class="token keyword">MONTH</span><span class="token punctuation">(</span>order_time<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">)</span> t1 
+<span class="token keyword">WHERE</span> buyer_id <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> buyer_id <span class="token keyword">FROM</span> <span class="token keyword">user</span>
+    <span class="token keyword">WHERE</span> order_categort <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'中性笔'</span><span class="token punctuation">,</span><span class="token string">'笔筒'</span><span class="token punctuation">)</span> 
+    <span class="token operator">AND</span> <span class="token keyword">MONTH</span><span class="token punctuation">(</span>order_time<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p>3、</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> team<span class="token punctuation">,</span>clerk_name<span class="token punctuation">,</span><span class="token keyword">user</span><span class="token punctuation">.</span>shop_id<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>order_amount<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token keyword">user</span> 
+<span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> shop
+<span class="token keyword">ON</span> <span class="token keyword">user</span><span class="token punctuation">.</span>shop_id <span class="token operator">=</span> shop<span class="token punctuation">.</span>shop_id
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> team<span class="token punctuation">,</span>clerk_name<span class="token punctuation">,</span><span class="token keyword">user</span><span class="token punctuation">.</span>shop_id
+</code></pre></div><h4 id="向用户推荐好友喜欢的音乐"><a href="#向用户推荐好友喜欢的音乐" class="header-anchor">#</a> 向用户推荐好友喜欢的音乐</h4> <p><strong>问题描述</strong>：向用户 user_id = 1 推荐其关注的人喜欢的音乐</p> <p>有如下三个表：</p> <ol><li><p>用户关注表 follow
+<img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210904164339.png" alt=""></p></li> <li><p>用户喜欢的音乐 music_likes
+<img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210904164357.png" alt=""></p></li> <li><p>音乐名字表 music</p> <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210904164428.png" alt=""></p></li></ol> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span>user_id<span class="token punctuation">,</span>t1<span class="token punctuation">.</span>follower_id<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>music_id_like <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span>CONCAT_WS<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span>COLLECT_SET<span class="token punctuation">(</span>music_name<span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token keyword">AS</span> music_id_like 
+	<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+		<span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span>music_name <span class="token keyword">FROM</span> music
+		<span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> music_likes
+		<span class="token keyword">ON</span> music<span class="token punctuation">.</span>id <span class="token operator">=</span> music_likes<span class="token punctuation">.</span>music_id
+	<span class="token punctuation">)</span> t0
+	<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+<span class="token punctuation">)</span> t1
+<span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> follow t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>used_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>follower_id
+</code></pre></div><h4 id="不同拉新渠道的留存率和平均活跃天数"><a href="#不同拉新渠道的留存率和平均活跃天数" class="header-anchor">#</a> 不同拉新渠道的留存率和平均活跃天数</h4> <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210905010825.png" alt=""></p> <p>（注：我把活跃当作上线）</p> <ul><li><p>不同拉新渠道中的各年龄段新用户数</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> channel<span class="token punctuation">,</span>year_old<span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span>user_id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> table1
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span><span class="token keyword">date</span> <span class="token operator">BETWEEN</span> <span class="token number">20210601</span> <span class="token operator">AND</span> <span class="token number">20210630</span><span class="token punctuation">)</span> <span class="token operator">AND</span> ds_diff <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> channel<span class="token punctuation">,</span>year_old
+</code></pre></div></li> <li><p>不同拉新渠道中的次日留存率</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span>  channel<span class="token punctuation">,</span>
+		user_id<span class="token punctuation">,</span>
+		<span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>is_active<span class="token punctuation">)</span><span class="token operator">-</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>is_active<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">COUNT</span><span class="token punctuation">(</span>is_active<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">'次日留存率'</span>
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> channel<span class="token punctuation">,</span>user_id<span class="token punctuation">,</span>is_active <span class="token keyword">FROM</span> tabel1
+    <span class="token keyword">WHERE</span> <span class="token punctuation">(</span><span class="token keyword">date</span> <span class="token operator">BETWEEN</span> <span class="token number">20210601</span> <span class="token operator">AND</span> <span class="token number">20210631</span><span class="token punctuation">)</span>
+           <span class="token operator">AND</span> <span class="token punctuation">(</span>ds_diff <span class="token operator">=</span> <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> 
+    	   <span class="token operator">AND</span> user_id <span class="token operator">IN</span> <span class="token punctuation">(</span>
+               	<span class="token keyword">SELECT</span> user_id <span class="token keyword">FROM</span> table1
+        		<span class="token keyword">WHERE</span> ds_diff <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">AND</span> <span class="token punctuation">(</span><span class="token keyword">date</span> <span class="token operator">BETWEEN</span> <span class="token number">20210601</span> <span class="token operator">AND</span> <span class="token number">20210630</span><span class="token punctuation">)</span>
+           <span class="token punctuation">)</span> <span class="token comment">-- 如果30号当天注册还要看31号是否活跃来算留存率的话</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> channel<span class="token punctuation">,</span>user_id
+    <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">2</span>
+<span class="token punctuation">)</span> t1
+</code></pre></div><p>或（简单写法，当然，业务过程跟上面的也不太一样）</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> channel<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>day2<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">SUM</span><span class="token punctuation">(</span>day1<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">'次日留存率'</span>
+<span class="token keyword">SELECT</span>  channel
+		user_id<span class="token punctuation">,</span>
+		<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> is_active <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">THEN</span> <span class="token number">0</span> <span class="token keyword">ELSE</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> day1<span class="token punctuation">,</span>
+		<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> is_active <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">THEN</span> <span class="token number">1</span> <span class="token keyword">ELSE</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> day2<span class="token punctuation">,</span>
+<span class="token keyword">FROM</span> table1
+<span class="token keyword">WHERE</span> ds_diff <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token operator">AND</span> <span class="token punctuation">(</span><span class="token keyword">date</span> <span class="token operator">BETWEEN</span> <span class="token number">20210601</span> <span class="token operator">AND</span> <span class="token number">20210630</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>不同拉新渠道中的<strong>第</strong>7日留存率</p> <p>跟次日留存差不多，时间换成第七天而已</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> channel<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>day2<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">SUM</span><span class="token punctuation">(</span>day1<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">'次日留存率'</span>
+<span class="token keyword">SELECT</span>  channel
+		user_id<span class="token punctuation">,</span>
+		<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> is_active <span class="token operator">=</span> <span class="token number">0</span> <span class="token keyword">THEN</span> <span class="token number">0</span> <span class="token keyword">ELSE</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> day1<span class="token punctuation">,</span>
+		<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> is_active <span class="token operator">=</span> <span class="token number">1</span> <span class="token keyword">THEN</span> <span class="token number">1</span> <span class="token keyword">ELSE</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> day2<span class="token punctuation">,</span>
+<span class="token keyword">FROM</span> table1
+<span class="token keyword">WHERE</span> ds_diff <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span>  <span class="token operator">AND</span> <span class="token punctuation">(</span><span class="token keyword">date</span> <span class="token operator">BETWEEN</span> <span class="token number">20210601</span> <span class="token operator">AND</span> <span class="token number">20210630</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>不同拉新渠道中的7日留存率</p> <p>思路：跟连续7天登录差不多</p> <ol><li>先通过 is_active = 1筛选出有登录的数据</li> <li>分组排序</li> <li>时间与分组排序结果相减</li> <li>这里跟连续7天登录不一样的是：连续七天登录直接<code>group by channel,user_id,rs</code>之后<code>having rs&gt;=7</code>，这里外层SELECT加个<code>IF(COUNT(rs)&gt;=7,1,0)</code></li> <li><code>SUM(is_week_active )/COUNT(is_week_active )</code></li></ol> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> channel<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>is_week_active <span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">COUNT</span><span class="token punctuation">(</span>is_week_active <span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">'7日留存率'</span> <span class="token keyword">FROM</span> （
+	<span class="token keyword">SELECT</span> channel<span class="token punctuation">,</span>user_id<span class="token punctuation">,</span><span class="token keyword">IF</span><span class="token punctuation">(</span><span class="token function">COUNT</span><span class="token punctuation">(</span>rs<span class="token punctuation">)</span><span class="token operator">&gt;=</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> is_week_active 
+	<span class="token keyword">FROM</span> <span class="token punctuation">(</span>   
+       <span class="token keyword">SELECT</span> channel<span class="token punctuation">,</span>user_id<span class="token punctuation">,</span><span class="token punctuation">(</span>ds_diff <span class="token operator">-</span> rn<span class="token punctuation">)</span> <span class="token keyword">AS</span> rs <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
+            <span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+                ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> channel<span class="token punctuation">,</span>user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> ds_diff<span class="token punctuation">)</span> <span class="token keyword">AS</span> rn
+            <span class="token keyword">FROM</span> table1
+            <span class="token keyword">WHERE</span> <span class="token punctuation">(</span><span class="token keyword">date</span> <span class="token operator">BETWEEN</span> <span class="token number">20210601</span> <span class="token operator">AND</span> <span class="token number">20210630</span><span class="token punctuation">)</span> <span class="token operator">AND</span> is_active <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token punctuation">)</span> t1
+    <span class="token punctuation">)</span> t2
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> channel<span class="token punctuation">,</span>user_id
+<span class="token punctuation">)</span> t3
+</code></pre></div></li> <li><p>20210601到20210630期间，不同拉新渠道的新用户28天内的平均活跃天数</p> <div class="language-sql extra-class"><pre class="language-sql"><code>	
+<span class="token keyword">SELECT</span> channel<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>is_active<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> user_id<span class="token punctuation">)</span> <span class="token keyword">FROM</span> tabel1
+<span class="token keyword">WHERE</span> user_id <span class="token operator">IN</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> user_id <span class="token keyword">FROM</span> table1
+	<span class="token keyword">WHERE</span> ds_diff <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">AND</span> <span class="token punctuation">(</span><span class="token keyword">date</span> <span class="token operator">BETWEEN</span> <span class="token number">20210601</span> <span class="token operator">AND</span> <span class="token number">20210630</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    <span class="token operator">AND</span> ds_diff <span class="token operator">&lt;=</span> <span class="token number">28</span>
+</code></pre></div></li></ul> <h4 id="周环比同比计算"><a href="#周环比同比计算" class="header-anchor">#</a> 周环比同比计算</h4> <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210910135519.png" alt=""></p> <p>table：TT</p> <table><thead><tr><th>year</th> <th>week_start</th> <th>week_end</th> <th>gmv</th></tr></thead> <tbody><tr><td>2021</td> <td>2021-08-01</td> <td>2021-08-06</td> <td>100</td></tr> <tr><td>2021</td> <td>2021-08-07</td> <td>2021-08-13</td> <td>100</td></tr></tbody></table> <p>weekofyear('2021-09-07')</p> <ul><li><p>周环比</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span><span class="token keyword">year</span><span class="token punctuation">,</span>CONCAT<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>week_start<span class="token punctuation">,</span><span class="token string">':'</span><span class="token punctuation">,</span>t1<span class="token punctuation">.</span>week_end<span class="token punctuation">)</span> <span class="token keyword">AS</span> week<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>gmv<span class="token operator">/</span>t1<span class="token punctuation">.</span>gmv <span class="token keyword">AS</span> ‘周环比’
+<span class="token keyword">FROM</span> tt t1 <span class="token keyword">JOIN</span> tt t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>week_start <span class="token operator">=</span> <span class="token keyword">DATE</span><span class="token punctuation">(</span>t2<span class="token punctuation">.</span>week_start<span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">)</span>
+</code></pre></div><p>还是</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> t1<span class="token punctuation">.</span><span class="token keyword">year</span><span class="token punctuation">,</span>CONCAT<span class="token punctuation">(</span>t1<span class="token punctuation">.</span>week_start<span class="token punctuation">,</span><span class="token string">':'</span><span class="token punctuation">,</span>t1<span class="token punctuation">.</span>week_end<span class="token punctuation">)</span> <span class="token keyword">AS</span> week<span class="token punctuation">,</span>t2<span class="token punctuation">.</span>gmv<span class="token operator">/</span>t1<span class="token punctuation">.</span>gmv <span class="token keyword">AS</span> ‘周环比’
+<span class="token keyword">FROM</span> tt t1 <span class="token keyword">JOIN</span> 
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token keyword">year</span><span class="token punctuation">,</span><span class="token keyword">DATE</span><span class="token punctuation">(</span>week_start<span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> week_start<span class="token punctuation">,</span>gmv <span class="token keyword">FROM</span> tt<span class="token punctuation">)</span> t2
+<span class="token keyword">ON</span> t1<span class="token punctuation">.</span>week_start <span class="token operator">=</span> t2<span class="token punctuation">.</span>week_start
+</code></pre></div></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/sql/SQL类型题总结.html" class="prev">
+        SQL类型题总结
+      </a></span> <span class="next"><a href="/./datahouse/sql/牛客SQL二刷.html">
+        牛客SQL二刷
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.dc5b0715.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/72.3ebd3c24.js" defer></script>
+  </body>
+</html>

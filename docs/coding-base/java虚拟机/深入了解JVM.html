@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>深入了解JVM | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.dc5b0715.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/54.4f6fe468.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/11.37b04a4d.js"><link rel="prefetch" href="./assets/js/12.cee383a4.js"><link rel="prefetch" href="./assets/js/13.d47b2b52.js"><link rel="prefetch" href="./assets/js/14.77b2b060.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.a7201fbc.js"><link rel="prefetch" href="./assets/js/17.79e79675.js"><link rel="prefetch" href="./assets/js/18.7639ae91.js"><link rel="prefetch" href="./assets/js/19.280df9d2.js"><link rel="prefetch" href="./assets/js/20.25a38eac.js"><link rel="prefetch" href="./assets/js/21.0aaf754a.js"><link rel="prefetch" href="./assets/js/22.abdec3c1.js"><link rel="prefetch" href="./assets/js/23.454fb1a0.js"><link rel="prefetch" href="./assets/js/24.5118d094.js"><link rel="prefetch" href="./assets/js/25.b239a8e2.js"><link rel="prefetch" href="./assets/js/26.4af89c7f.js"><link rel="prefetch" href="./assets/js/27.b338361b.js"><link rel="prefetch" href="./assets/js/28.225e99c8.js"><link rel="prefetch" href="./assets/js/29.1749fe14.js"><link rel="prefetch" href="./assets/js/3.376b8cdf.js"><link rel="prefetch" href="./assets/js/30.422f2538.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.7f4a7aa0.js"><link rel="prefetch" href="./assets/js/33.e8f1b887.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.046ac0f0.js"><link rel="prefetch" href="./assets/js/36.f0d4cc9b.js"><link rel="prefetch" href="./assets/js/37.0a7a5f8f.js"><link rel="prefetch" href="./assets/js/38.d06cfcca.js"><link rel="prefetch" href="./assets/js/39.d164c990.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.6bc1f68d.js"><link rel="prefetch" href="./assets/js/41.e1d9e6f4.js"><link rel="prefetch" href="./assets/js/42.b9146544.js"><link rel="prefetch" href="./assets/js/43.3d89ef90.js"><link rel="prefetch" href="./assets/js/44.e75043b3.js"><link rel="prefetch" href="./assets/js/45.fa675a86.js"><link rel="prefetch" href="./assets/js/46.5e1bd863.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.7f50621f.js"><link rel="prefetch" href="./assets/js/49.1273014b.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.0ace36ad.js"><link rel="prefetch" href="./assets/js/51.955bc85d.js"><link rel="prefetch" href="./assets/js/52.e3bb73d6.js"><link rel="prefetch" href="./assets/js/53.70bca49a.js"><link rel="prefetch" href="./assets/js/55.d0ae6f7c.js"><link rel="prefetch" href="./assets/js/56.5bfe7854.js"><link rel="prefetch" href="./assets/js/57.20ab4e15.js"><link rel="prefetch" href="./assets/js/58.cd6e845e.js"><link rel="prefetch" href="./assets/js/59.e31f564e.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.7e997bce.js"><link rel="prefetch" href="./assets/js/61.ae3effab.js"><link rel="prefetch" href="./assets/js/62.d40d2f3b.js"><link rel="prefetch" href="./assets/js/63.c7ab6850.js"><link rel="prefetch" href="./assets/js/64.c317433a.js"><link rel="prefetch" href="./assets/js/65.bee18659.js"><link rel="prefetch" href="./assets/js/66.9bc2ca3c.js"><link rel="prefetch" href="./assets/js/67.36393d6f.js"><link rel="prefetch" href="./assets/js/68.50d2a85d.js"><link rel="prefetch" href="./assets/js/69.bbac38d8.js"><link rel="prefetch" href="./assets/js/7.9979a04e.js"><link rel="prefetch" href="./assets/js/70.318eb4aa.js"><link rel="prefetch" href="./assets/js/71.54649836.js"><link rel="prefetch" href="./assets/js/72.3ebd3c24.js"><link rel="prefetch" href="./assets/js/73.24b6f12b.js"><link rel="prefetch" href="./assets/js/74.1dd537ea.js"><link rel="prefetch" href="./assets/js/75.59231e92.js"><link rel="prefetch" href="./assets/js/76.b8f3ef78.js"><link rel="prefetch" href="./assets/js/77.11821a18.js"><link rel="prefetch" href="./assets/js/78.f63e0308.js"><link rel="prefetch" href="./assets/js/79.1c7441a7.js"><link rel="prefetch" href="./assets/js/8.db54d2a5.js"><link rel="prefetch" href="./assets/js/80.0d3fa419.js"><link rel="prefetch" href="./assets/js/81.53362836.js"><link rel="prefetch" href="./assets/js/82.6a9be763.js"><link rel="prefetch" href="./assets/js/83.11a41a2c.js"><link rel="prefetch" href="./assets/js/84.2e76a3fb.js"><link rel="prefetch" href="./assets/js/85.c61a2184.js"><link rel="prefetch" href="./assets/js/86.7d905d1b.js"><link rel="prefetch" href="./assets/js/87.4c907051.js"><link rel="prefetch" href="./assets/js/88.82047d34.js"><link rel="prefetch" href="./assets/js/89.3457441e.js"><link rel="prefetch" href="./assets/js/9.c83a911f.js"><link rel="prefetch" href="./assets/js/90.cc103581.js"><link rel="prefetch" href="./assets/js/91.68961351.js"><link rel="prefetch" href="./assets/js/92.fbb8f838.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>java虚拟机</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./coding-base/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./coding-base/java虚拟机/浅析JVM.html" class="sidebar-link">浅析JVM</a></li><li><a href="/./coding-base/java虚拟机/深入了解JVM.html" class="active sidebar-link">深入了解JVM</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="深入了解jvm"><a href="#深入了解jvm" class="header-anchor">#</a> 深入了解JVM</h1> <h3 id="对象的创建"><a href="#对象的创建" class="header-anchor">#</a> 对象的创建</h3> <h4 id="加载"><a href="#加载" class="header-anchor">#</a> 加载</h4> <p>当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到 一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那 必须先执行相应的类加载过程</p> <h4 id="内存分配"><a href="#内存分配" class="header-anchor">#</a> 内存分配</h4> <h4 id="内存和对象的初始化"><a href="#内存和对象的初始化" class="header-anchor">#</a> 内存和对象的初始化</h4> <h3 id="对象内存布局"><a href="#对象内存布局" class="header-anchor">#</a> 对象内存布局</h3> <p>在HotSpot虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：对象头（Header）、实例 数据（Instance Data）和对齐填充（Padding）</p> <h4 id="对象头"><a href="#对象头" class="header-anchor">#</a> 对象头</h4> <p>HotSpot虚拟机对象的对象头部分包括两类信息。第一类是用于存储对象自身的运行时数据，如哈 希码（HashCode）、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等，这部 分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32个比特和64个比特，官方称它 为“Mark Word”</p> <p>对象头的另外一部分是类型指针，即对象指向它的类型元数据的指针，Java虚拟机通过这个指针 来确定该对象是哪个类的实例。</p> <h4 id="实例数据"><a href="#实例数据" class="header-anchor">#</a> 实例数据</h4> <p>实例数据部分是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字 段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录起来。这部分的存储顺序会 受到虚拟机分配策略参数（-XX：FieldsAllocationStyle参数）和字段在Java源码中定义顺序的影响</p> <h4 id="对齐填充"><a href="#对齐填充" class="header-anchor">#</a> 对齐填充</h4> <p>对象的第三部分是对齐填充，这并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。由于HotSpot虚拟机的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说就是 任何对象的大小都必须是8字节的整数倍。对象头部分已经被精心设计成正好是8字节的倍数（1倍或者 2倍），因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全</p> <h3 id="对象访问定位"><a href="#对象访问定位" class="header-anchor">#</a> 对象访问定位</h3> <h4 id="句柄访问"><a href="#句柄访问" class="header-anchor">#</a> 句柄访问</h4> <p>Java堆中将会划分出一块内存来作为句柄池，reference中存储的就 是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息</p> <h4 id="直接指针访问"><a href="#直接指针访问" class="header-anchor">#</a> 直接指针访问</h4> <p>用直接指针访问的话，Java堆中对象的内存布局就必须考虑如何放置访问类型数据的相关 信息，reference中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问 的开销</p> <h4 id="区别"><a href="#区别" class="header-anchor">#</a> 区别</h4> <p>这两种对象访问方式各有优势，使用句柄来访问的最大好处就是reference中存储的是稳定句柄地 址，在对象被移动（垃圾收集时移动对象是非常普遍的行为）时只会改变句柄中的实例数据指针，而 reference本身不需要被修改</p> <p>使用直接指针来访问最大的好处就是速度更快，它节省了一次指针定位的时间开销，由于对象访 问在Java中非常频繁，因此这类开销积少成多也是一项极为可观的执行成本，就本书讨论的主要虚拟 机HotSpot而言，它主要使用第二种方式进行对象访问（例外：如果使用了Shenandoah收集器的 话也会有一次额外的转发）</p> <blockquote><ul><li>内存泄漏指你用malloc或new申请了一块内存，但是没有通过free或delete将内存释放，导致这块内存一直处于占用状态</li> <li>内存溢出指你申请了10个字节的空间，但是你在这个空间写入11或以上字节的数据，就是溢出</li></ul></blockquote> <h3 id="垃圾收集与内存分配"><a href="#垃圾收集与内存分配" class="header-anchor">#</a> 垃圾收集与内存分配</h3> <p>运行Java程序时，JVM都会创建三个线程。1）主线程2）线程调度程序3）垃圾收集器线程。在这三个线程中，主线程是用户线程，其余两个是在后台运行的守护程序线程。</p> <p>无论是通过引用计数算法判断对象的引用数量，还是通过可达性分析算法判断对象是否引用链可 达，判定对象是否存活都和“引用”离不开关系。</p> <blockquote><p>背景补充</p> <p>在JDK 1.2版之前，Java里面的引用是很传统的定义： 如果reference类型的数据中存储的数值代表的是另外一块内存的起始地址，就称该reference数据是代表 某块内存、某个对象的引用。这种定义并没有什么不对，只是现在看来有些过于狭隘了，一个对象在 这种定义下只有“被引用”或者“未被引用”两种状态，对于描述一些“食之无味，弃之可惜”的对象就显 得无能为力。譬如我们希望能描述一类对象：当内存空间还足够时，能保留在内存之中，如果内存空 间在进行垃圾收集后仍然非常紧张，那就可以抛弃这些对象——很多系统的缓存功能都符合这样的应 用场景。</p></blockquote> <h4 id="引用分级"><a href="#引用分级" class="header-anchor">#</a> 引用分级</h4> <p>JDK 1.2版之后，Java对引用的概念进行了扩充，将引用分为强引用（Strongly Re-ference）、软 引用（Soft Reference）、弱引用（Weak Reference）和虚引用（Phantom Reference）4种，这4种引用强 度依次逐渐减弱<img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210421213757.png" alt="image-20210421213756866"></p> <h5 id="强引用"><a href="#强引用" class="header-anchor">#</a> 强引用</h5> <p>强引用是最传统的“引用”的定义，是指在程序代码之中普遍存在的引用赋值，即类似“Object obj=new Object()”这种引用关系。无论任何情况下，只要强引用关系还存在，垃圾收集器就永远不会回 收掉被引用的对象</p> <h5 id="软引用"><a href="#软引用" class="header-anchor">#</a> 软引用</h5> <p>软引用是用来描述一些还有用，但非必须的对象。只被软引用关联着的对象，在系统将要发生内 存溢出异常前，会把这些对象列进回收范围之中进行第二次回收，如果这次回收还没有足够的内存， 才会抛出内存溢出异常。在JDK 1.2版之后提供了<strong>SoftReference类</strong>来实现软引用</p> <h5 id="弱引用"><a href="#弱引用" class="header-anchor">#</a> 弱引用</h5> <p>弱引用也是用来描述那些非必须对象，但是它的强度比软引用更弱一些，被弱引用关联的对象只 能生存到下一次垃圾收集发生为止。当垃圾收集器开始工作，无论当前内存是否足够，都会回收掉只 被弱引用关联的对象。在JDK 1.2版之后提供了WeakReference类来实现弱引用</p> <h5 id="虚引用"><a href="#虚引用" class="header-anchor">#</a> 虚引用</h5> <p>虚引用也称为“幽灵引用”或者“幻影引用”，它是最弱的一种引用关系。一个对象是否有虚引用的 存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚 引用关联的唯一目的只是为了能在这个对象被收集器回收时收到一个系统通知。在JDK 1.2版之后提供 了PhantomReference类来实现虚引用</p> <h4 id="可达性分析"><a href="#可达性分析" class="header-anchor">#</a> 可达性分析</h4> <h5 id="gc-root对象"><a href="#gc-root对象" class="header-anchor">#</a> GC Root对象</h5> <p>在Java技术体系里面，固定可作为GC Roots的对象包括以下几种： ·</p> <ul><li><p>在虚拟机栈（栈帧中的本地变量表）中引用的对象，譬如各个线程被调用的方法堆栈中使用到的 参数、局部变量、临时变量等。 ·</p></li> <li><p>在方法区中类静态属性引用的对象，譬如Java类的引用类型静态变量。 ·</p></li> <li><p>在方法区中常量引用的对象，譬如字符串常量池（String Table）里的引用。·</p></li> <li><p>在本地方法栈中JNI（即通常所说的Native方法）引用的对象。 ·</p></li> <li><p>Java虚拟机内部的引用，如基本数据类型对应的Class对象，一些常驻的异常对象（比如 NullPointExcepiton、OutOfMemoryError）等，还有系统类加载器。 ·</p></li> <li><p>所有被同步锁（synchronized关键字）持有的对象。 ·</p></li> <li><p>反映Java虚拟机内部情况的JMXBean、JVMTI中注册的回调、本地代码缓存等。</p></li></ul> <h5 id="局部回收"><a href="#局部回收" class="header-anchor">#</a> 局部回收</h5> <p><img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210421213645.png" alt="preview"></p> <p>目前最新的几款垃圾收集器无一例外都具备了局部回收的特征，为了避免GC Roots包含过多对 象而过度膨胀，它们在实现上也做出了各种优化处理。</p> <h5 id="并发回收"><a href="#并发回收" class="header-anchor">#</a> 并发回收</h5> <blockquote><p>目前的主流垃圾收集器CMS和G1,乃至 Shenandoah，都使用的是并发的可达性分析</p></blockquote> <p><strong>Step 1: 为什么需要将可达性分析与用户线程并发</strong></p> <p>当前主流编程语言的垃圾收集器基本上都是依靠可达性分析算法来判定对象是否存活的，可达性分析算法理论上要求全过程都基于一个能保障一致性的快照中才能够进行分析， 这意味着必须全程冻结用户线程的运行。</p> <p>在得到GC Roots这个步骤中，由于GC Roots相比 起整个Java堆中全部的对象毕竟还算是极少数，且在各种优化技巧（如OopMap）的加持下，它带来 的停顿已经是非常短暂且相对固定（不随堆容量而增长）的了。</p> <p>可从GC Roots再继续往下遍历对象图，这一步骤的停顿时间就必定会与Java堆容量直接成正比例关系了：堆越大，存储的对象越多，对象图结构越复杂，要标记更多对象而产生的停顿时间自然就更长，这听起来是理所当然的事情。</p> <p>要知道包含“标记”阶段是所有追踪式垃圾收集算法的共同特征，如果这个阶段会随着堆变大而等 比例增加停顿时间，其影响就会波及几乎所有的垃圾收集器，同理可知，如果能够削减这部分停顿时 间的话，那收益也将会是系统性的。</p> <p><strong>Step 2: 如何做到</strong></p> <p>想解决或者降低用户线程的停顿，就要先搞清楚为什么必须在一个能保障一致性的快照上才能进行对象图的遍历？</p> <p>为了能解释清楚这个问题，我们引入三色标记（Tri-color Marking） 作为工具来辅 助推导，<strong>把遍历对象图过程中遇到的对象</strong>，<strong>按照“是否访问过”这个条件标记成以下三种颜色</strong></p> <p>·<strong>白色</strong>：表示对象尚<strong>未被垃圾收集器访问过</strong>。显然在可达性分析刚刚开始的阶段，所有的对象都是 白色的，若在分析结束的阶段，仍然是白色的对象，即代表不可达。</p> <p>·<strong>黑色</strong>：表示对象<strong>已经被垃圾收集器访问过</strong>，且这个对象的所有引用都已经扫描过。黑色的对象代 表已经扫描过，它是安全存活的，如果有其他对象引用指向了黑色对象，无须重新扫描一遍。黑色对 象不可能直接（不经过灰色对象）指向某个白色对象。</p> <p>·<strong>灰色</strong>：表示对象<strong>已经被垃圾收集器访问过</strong>，<strong>但这个对象上至少存在一个引用还没有被扫描过</strong>。</p> <p>关于可达性分析的扫描过程，如果用户线程此时是冻结的，只有收集器线程在工作，那不会有任何问 题。但如果用户线程与收集器是并发工作呢？</p> <p><strong>收集器在对象图上标记颜色，同时用户线程在修改引用 关系——即修改对象图的结构，这样可能出现两种后果</strong>。</p> <p>**1.**一种是把原本消亡的对象错误标记为存活， 这不是好事，但其实是可以容忍的，只不过产生了一点逃过本次收集的浮动垃圾而已，下次收集清理 掉就好。</p> <p>**2.**另一种是把原本存活的对象错误标记为已消亡，这就是非常致命的后果了，程序肯定会因此 发生错误，下面演示了这样的致命错误具体是如何产生的</p> <p><img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210421222119.jpeg" alt="img"></p> <p>Wilson于1994年在理论上证明了，<strong>当且仅当以下两个条件同时满足时，会产生“对象消失”的问题</strong>，即原本应该是黑色的对象被误标为白色：</p> <p>*<strong>1.赋值器插入了一条或多条从黑色对象到白色对象的新引用；*</strong></p> <p>*<strong>2.赋值器删除了全部从灰色对象到该白色对象的直接或间接引用。*</strong></p> <p>因此，<strong>我们要解决并发扫描时的对象消失问题，只需破坏这两个条件的任意一个即可</strong>。</p> <p>由此分别 产生了两种解决方案：</p> <p><strong>1.增量更新（Incremental Update）</strong></p> <p><strong>2.原始快照（Snapshot At The Beginning， SATB）</strong>。</p> <blockquote><p>CMS垃圾收集器是基于增量更新 来做并发标记的，G1、Shenandoah则是用原始快照来实现。</p></blockquote> <p><strong>1.增量更新(Incremental Update)</strong></p> <p>增量更新要破坏的是第一个条件，当黑色对象插入新的指向白色对象的引用关系时，就将这个新 插入的引用记录下来，等并发扫描结束之后，再将这些记录过的引用关系中的黑色对象为根，重新扫 描一次。这可以简化理解为，黑色对象一旦新插入了指向白色对象的引用之后，它就变回灰色对象 了。</p> <p><strong>2.原始快照(SATB)</strong></p> <p>原始快照要破坏的是第二个条件，当灰色对象要删除指向白色对象的引用关系时，就将这个要删 除的引用记录下来，在并发扫描结束之后，再将这些记录过的引用关系中的灰色对象为根，重新扫描 一次。这也可以简化理解为，无论引用关系删除与否，都会按照刚刚开始扫描那一刻的对象图快照来 进行搜索。</p> <h4 id="自救机制"><a href="#自救机制" class="header-anchor">#</a> 自救机制</h4> <p>finalize（）方法是java.lang.Object类的一种受保护的非静态方法。在Java中创建的所有对象中都可以使用此方法。此方法用于在将对象从内存中删除之前对它们执行某些最终操作或清理操作。您可以覆盖finalize（）方法，以保留要在销毁对象之前要执行的那些操作。这是<strong>finalize（）方法的一般形式。</strong></p> <p><img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210421015226.png" alt="image-20210421015226494"></p> <p>要真正宣告一个对象死亡，至少要经历两次标记过程：如果对象在进行可达性分析后发现没 有与GC Roots相连接的引用链，那它将会被第一次标记，随后进行一次筛选，筛选的条件是此对象是 否有必要执行finalize()方法。假如对象没有覆盖finalize()方法，或者finalize()方法已经被虚拟机调用 过，那么虚拟机将这两种情况都视为“没有必要执行”</p> <p>如果这个对象被判定为确有必要执行finalize()方法，那么该对象将会被放置在一个名为F-Queue的 队列之中，并在稍后由一条由虚拟机自动建立的、低调度优先级的Finalizer线程去执行它们的finalize() 方法。这里所说的“执行”是指虚拟机会触发这个方法开始运行，但并不承诺一定会等待它运行结束。</p> <p>finalize()方法是对 象逃脱死亡命运的最后一次机会，稍后收集器将对F-Queue中的对象进行第二次小规模的标记，如果对 象要在finalize()中成功拯救自己——只要重新与引用链上的任何一个对象建立关联即可，譬如把自己 （this关键字）赋值给某个类变量或者对象的成员变量，那在第二次标记时它将被移出“即将回收”的集 合；如果对象这时候还没有逃脱，那基本上它就真的要被回收了</p> <h5 id="特点"><a href="#特点" class="header-anchor">#</a> 特点</h5> <p>永远不要主动调用某个对象的finalize方法，该方法应该交给垃圾回收机制调用。</p> <p>Finalize方法合适被调用，是否被调用具有不确定性，不要把finalize方法当做一定会执行的方法，</p> <p>当JVM执行课恢复对象的finalize方法时，可能是改对象或系统中其他对象重新变成可达状态</p> <p>当JVM调用finalize方法出现异常时，垃圾回收机制不会报告异常，程序继续执行。</p> <blockquote><p>补充</p> <p>并不鼓励大家使用这个方法来拯救对象。相反，笔者建议大家尽量避免使用它，因为它并不能等同 于C和C++语言中的析构函数，而是Java刚诞生时为了使传统C、C++程序员更容易接受Java所做出的一 项妥协。它的运行代价高昂，不确定性大，无法保证各个对象的调用顺序，如今已被官方明确声明为 不推荐使用的语法</p></blockquote> <h4 id="方法区回收"><a href="#方法区回收" class="header-anchor">#</a> 方法区回收</h4> <p>方法区的垃圾收集主要回收两部分内容：废弃的常量和不再使用的类型。</p> <p>判定一个类型是否属于“不再被使用的类”的条件就 比较苛刻了。需要同时满足下面三个条件：</p> <ul><li><p>该类所有的实例都已经被回收，也就是Java堆中不存在该类及其任何派生子类的实例。</p></li> <li><p>加载该类的类加载器已经被回收，这个条件除非是经过精心设计的可替换类加载器的场景，如 OSGi、JSP的重加载等，否则通常是很难达成的。</p></li> <li><p>该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方 法。</p></li></ul> <blockquote><p>Java虚拟机被允许对满足上述三个条件的无用类进行回收，这里说的仅仅是“被允许”，而并不是 和对象一样，没有引用了就必然会回收。关于是否要对类型进行回收，HotSpot虚拟机提供了Xnoclassgc参数进行控制，还可以使用-verbose：class以及-XX：+TraceClass-Loading、-XX： +TraceClassUnLoading查看类加载和卸载信息，其中-verbose：class和-XX：+TraceClassLoading可以在 Product版的虚拟机中使用，-XX：+TraceClassUnLoading参数需要FastDebug版[1]的虚拟机支持。</p></blockquote> <p>在大量使用反射、动态代理、CGLib等字节码框架，动态生成JSP以及OSGi这类频繁自定义类加载 器的场景中，通常都需要Java虚拟机具备类型卸载的能力，以保证不会对方法区造成过大的内存压 力。</p> <h4 id="分代收集理论"><a href="#分代收集理论" class="header-anchor">#</a> 分代收集理论</h4> <p>分代收集名为理论，实质是一套符合大多数程序运行实际情况的经验法则，它建立在两个分 代假说之上：</p> <p>1）弱分代假说（Weak Generational Hypothesis）：绝大多数对象都是朝生夕灭的。</p> <p>2）强分代假说（Strong Generational Hypothesis）：熬过越多次垃圾收集过程的对象就越难以消 亡。</p> <p>这两个分代假说共同奠定了多款常用的垃圾收集器的一致的设计原则：收集器应该将Java堆划分 出不同的区域，然后将回收对象依据其年龄（年龄即对象熬过垃圾收集过程的次数）分配到不同的区 域之中存储。显而易见，如果一个区域中大多数对象都是朝生夕灭，难以熬过垃圾收集过程的话，那 么把它们集中放在一起，每次回收时只关注如何保留少量存活而不是去标记那些大量将要被回收的对 象，就能以较低代价回收到大量的空间；如果剩下的都是难以消亡的对象，那把它们集中放在一块， 虚拟机便可以使用较低的频率来回收这个区域，这就同时兼顾了垃圾收集的时间开销和内存的空间有效利用。</p> <p>3）跨代引用假说（Intergenerational Reference Hypothesis）：跨代引用相对于同代引用来说仅占极 少数。</p> <p>依据这条假说，我们就不应再为了少量的跨代引用去扫描整个老年代，也不必浪费空间专门记录 每一个对象是否存在及存在哪些跨代引用，只需在新生代上建立一个全局的数据结构（该结构被称 为“记忆集”，Remembered Set），这个结构把老年代划分成若干小块，标识出老年代的哪一块内存会 存在跨代引用。此后当发生Minor GC时，只有包含了跨代引用的小块内存里的对象才会被加入到GC Roots进行扫描。</p> <blockquote><p>值得注意的是，分代收集理论也有其缺陷，最新出现（或在实验中）的几款垃圾收集器都展现出了 面向全区域收集设计的思想，或者可以支持全区域不分代的收集的工作模式。</p></blockquote> <h4 id="hotspot实现细节"><a href="#hotspot实现细节" class="header-anchor">#</a> HotSpot实现细节</h4> <h5 id="根节点枚举"><a href="#根节点枚举" class="header-anchor">#</a> 根节点枚举</h5> <p>固定可作为GC Roots的节点主要在全局性的引用（例如常量或类静态属性）与执行上下文（例如 栈帧中的本地变量表）中</p> <p>但方法区的大小就常有数百上千兆，里面的类、常量等更是恒河沙数，若要逐个检 查以这里为起源的引用肯定得消耗不少时间</p> <p>1是根节点枚举的时间会随着方法区和栈区的大小成正比</p> <p>2是根节点枚举期间需要停止jvm(STW,stop the world)</p> <p>现在<strong>可达性分析算法</strong>耗时最长的<strong>查找引用链的过程</strong>已经<strong>可以</strong>做到<strong>与用户线程一起并发</strong>，<strong>但根节点枚举始终还是必须在一个能保障一致性的快照中才得以进行</strong></p> <p>这里“一致性”的意思是整个枚举期间执行子系统 看起来就像被冻结在某个时间点上，不会出现分析过程中，根节点集合的对象引用关系还在不断变化 的情况，若这点不能满足的话，分析结果准确性也就无法保证。</p> <blockquote><p>扩展: 这个&quot;被冻结在某个时间点上&quot;就是后面要提到的*<strong>主动式中断*</strong></p></blockquote> <p>这是导致垃圾收集过程必须停顿所有用户线程的其中一个重要原因，即使是号称停顿时间可控，或者（几乎）不会发生停顿的CMS、G1、 ZGC等收集器，枚举根节点时也是必须要停顿的。</p> <p>由于目前<strong>主流Java虚拟机使用的都是准确式垃圾收集</strong></p> <blockquote><p>保守式 GC: 遍历方法区和栈区查找 ;
+准确式 GC: 通过后文提到的称之为 OopMap 的数据结构来记录 GC Roots 的位置</p></blockquote> <p>实际上当用户线程停顿下来之后，其实并不需要一个不漏地检查完所有执行上下文和全局的引用位置，虚拟机应当是有办法直接得到哪些地方存放着对象引用的。</p> <p>在HotSpot 的解决方案里，是使用一组称为OopMap的数据结构来达到这个目的。</p> <p>一旦类加载动作完成的时候， HotSpot就会把对象内什么偏移量上是什么类型的数据计算出来。这样收集器在扫描时就可以直接得知这些信息了，并不需要真正一个不漏地从方法区等GC Roots开始查找。</p> <p><img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210421230107.png" alt="image-20210421230107564"></p> <h5 id="安全点"><a href="#安全点" class="header-anchor">#</a> 安全点</h5> <h5 id="记忆集和卡表"><a href="#记忆集和卡表" class="header-anchor">#</a> 记忆集和卡表</h5> <p>记忆集是一种用于记录从非收集区域指向收集区域的指针集合的抽象数据结构。如果我们不考虑 效率和成本的话，最简单的实现可以用非收集区域中所有含跨代引用的对象数组来实现这个数据结 构</p> <h3 id="执行子系统"><a href="#执行子系统" class="header-anchor">#</a> 执行子系统</h3> <h4 id="字节码"><a href="#字节码" class="header-anchor">#</a> 字节码</h4> <p>字节码文件结构是一组以 8 位字节为基础的二进制流，各数据项目严格按照顺序紧凑地排列在 Class 文件之中，中间没有添加任何分隔符。在字节码结构中，有两种最基本的数据类型来表示字节码文件格式，分别是：无符号数和表。</p> <p><img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210422162842.png" alt="image.png"></p> <p><img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210422162907.png" alt="image.png"></p> <p><img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210422162914.png" alt="image.png"></p> <p><img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210422161937.png" alt="img"></p> <h4 id="类加载机制"><a href="#类加载机制" class="header-anchor">#</a> 类加载机制</h4> <h5 id="类得生命周期"><a href="#类得生命周期" class="header-anchor">#</a> 类得生命周期</h5> <p><img src="https://gitee.com/gdut_deepcode/ImageServer/raw/master/master/img/20210425121922.png" alt="image-20210425121922365"></p> <p>加载、验证、准备、初始化和卸载这五个阶段的顺序是确定的，类型的加载过程必须按 照这种顺序按部就班地开始，而解析阶段则不一定：它在某些情况下可以在初始化阶段之后再开始， 这是为了支持Java语言的运行时绑定特性（也称为动态绑定或晚期绑定）。</p> <h5 id="类加载过程"><a href="#类加载过程" class="header-anchor">#</a> 类加载过程</h5> <p>加载</p> <p>验证</p> <p>准备</p> <p>解析</p> <p>初始化</p> <h5 id="类加载器"><a href="#类加载器" class="header-anchor">#</a> 类加载器</h5> <h5 id="模块化"><a href="#模块化" class="header-anchor">#</a> 模块化</h5> <h3 id="实践"><a href="#实践" class="header-anchor">#</a> 实践</h3> <h4 id="outofmemoryerror异常"><a href="#outofmemoryerror异常" class="header-anchor">#</a> OutOfMemoryError异常</h4></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./coding-base/java虚拟机/浅析JVM.html" class="prev">
+        浅析JVM
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.dc5b0715.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/54.4f6fe468.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hive - ORC 文件存储格式详细解析 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.dc5b0715.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/10.ef98acb1.js" as="script"><link rel="prefetch" href="./assets/js/11.37b04a4d.js"><link rel="prefetch" href="./assets/js/12.cee383a4.js"><link rel="prefetch" href="./assets/js/13.d47b2b52.js"><link rel="prefetch" href="./assets/js/14.77b2b060.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.a7201fbc.js"><link rel="prefetch" href="./assets/js/17.79e79675.js"><link rel="prefetch" href="./assets/js/18.7639ae91.js"><link rel="prefetch" href="./assets/js/19.280df9d2.js"><link rel="prefetch" href="./assets/js/20.25a38eac.js"><link rel="prefetch" href="./assets/js/21.0aaf754a.js"><link rel="prefetch" href="./assets/js/22.abdec3c1.js"><link rel="prefetch" href="./assets/js/23.454fb1a0.js"><link rel="prefetch" href="./assets/js/24.5118d094.js"><link rel="prefetch" href="./assets/js/25.b239a8e2.js"><link rel="prefetch" href="./assets/js/26.4af89c7f.js"><link rel="prefetch" href="./assets/js/27.b338361b.js"><link rel="prefetch" href="./assets/js/28.225e99c8.js"><link rel="prefetch" href="./assets/js/29.1749fe14.js"><link rel="prefetch" href="./assets/js/3.376b8cdf.js"><link rel="prefetch" href="./assets/js/30.422f2538.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.7f4a7aa0.js"><link rel="prefetch" href="./assets/js/33.e8f1b887.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.046ac0f0.js"><link rel="prefetch" href="./assets/js/36.f0d4cc9b.js"><link rel="prefetch" href="./assets/js/37.0a7a5f8f.js"><link rel="prefetch" href="./assets/js/38.d06cfcca.js"><link rel="prefetch" href="./assets/js/39.d164c990.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.6bc1f68d.js"><link rel="prefetch" href="./assets/js/41.e1d9e6f4.js"><link rel="prefetch" href="./assets/js/42.b9146544.js"><link rel="prefetch" href="./assets/js/43.3d89ef90.js"><link rel="prefetch" href="./assets/js/44.e75043b3.js"><link rel="prefetch" href="./assets/js/45.fa675a86.js"><link rel="prefetch" href="./assets/js/46.5e1bd863.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.7f50621f.js"><link rel="prefetch" href="./assets/js/49.1273014b.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.0ace36ad.js"><link rel="prefetch" href="./assets/js/51.955bc85d.js"><link rel="prefetch" href="./assets/js/52.e3bb73d6.js"><link rel="prefetch" href="./assets/js/53.70bca49a.js"><link rel="prefetch" href="./assets/js/54.4f6fe468.js"><link rel="prefetch" href="./assets/js/55.d0ae6f7c.js"><link rel="prefetch" href="./assets/js/56.5bfe7854.js"><link rel="prefetch" href="./assets/js/57.20ab4e15.js"><link rel="prefetch" href="./assets/js/58.cd6e845e.js"><link rel="prefetch" href="./assets/js/59.e31f564e.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.7e997bce.js"><link rel="prefetch" href="./assets/js/61.ae3effab.js"><link rel="prefetch" href="./assets/js/62.d40d2f3b.js"><link rel="prefetch" href="./assets/js/63.c7ab6850.js"><link rel="prefetch" href="./assets/js/64.c317433a.js"><link rel="prefetch" href="./assets/js/65.bee18659.js"><link rel="prefetch" href="./assets/js/66.9bc2ca3c.js"><link rel="prefetch" href="./assets/js/67.36393d6f.js"><link rel="prefetch" href="./assets/js/68.50d2a85d.js"><link rel="prefetch" href="./assets/js/69.bbac38d8.js"><link rel="prefetch" href="./assets/js/7.9979a04e.js"><link rel="prefetch" href="./assets/js/70.318eb4aa.js"><link rel="prefetch" href="./assets/js/71.54649836.js"><link rel="prefetch" href="./assets/js/72.3ebd3c24.js"><link rel="prefetch" href="./assets/js/73.24b6f12b.js"><link rel="prefetch" href="./assets/js/74.1dd537ea.js"><link rel="prefetch" href="./assets/js/75.59231e92.js"><link rel="prefetch" href="./assets/js/76.b8f3ef78.js"><link rel="prefetch" href="./assets/js/77.11821a18.js"><link rel="prefetch" href="./assets/js/78.f63e0308.js"><link rel="prefetch" href="./assets/js/79.1c7441a7.js"><link rel="prefetch" href="./assets/js/8.db54d2a5.js"><link rel="prefetch" href="./assets/js/80.0d3fa419.js"><link rel="prefetch" href="./assets/js/81.53362836.js"><link rel="prefetch" href="./assets/js/82.6a9be763.js"><link rel="prefetch" href="./assets/js/83.11a41a2c.js"><link rel="prefetch" href="./assets/js/84.2e76a3fb.js"><link rel="prefetch" href="./assets/js/85.c61a2184.js"><link rel="prefetch" href="./assets/js/86.7d905d1b.js"><link rel="prefetch" href="./assets/js/87.4c907051.js"><link rel="prefetch" href="./assets/js/88.82047d34.js"><link rel="prefetch" href="./assets/js/89.3457441e.js"><link rel="prefetch" href="./assets/js/9.c83a911f.js"><link rel="prefetch" href="./assets/js/90.cc103581.js"><link rel="prefetch" href="./assets/js/91.68961351.js"><link rel="prefetch" href="./assets/js/92.fbb8f838.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link router-link-active">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link router-link-active">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Hive</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./bigdata/hive/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./bigdata/hive/Flink1.10和Hive集成一些需要注意的点.html" class="sidebar-link">Flink1.10和Hive集成一些需要注意的点</a></li><li><a href="/./bigdata/hive/Hive  4万字性能调优面试总结.html" class="sidebar-link">Hive | 4万字性能调优面试总结</a></li><li><a href="/./bigdata/hive/Hive - ORC 文件存储格式详细解析.html" class="active sidebar-link">Hive - ORC 文件存储格式详细解析</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive - ORC 文件存储格式详细解析.html#hive-orc-文件存储格式详细解析" class="sidebar-link">Hive - ORC 文件存储格式详细解析</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive - ORC 文件存储格式详细解析.html#列式存储" class="sidebar-link">列式存储</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive - ORC 文件存储格式详细解析.html#数据模型" class="sidebar-link">数据模型</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive - ORC 文件存储格式详细解析.html#文件结构" class="sidebar-link">文件结构</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive - ORC 文件存储格式详细解析.html#数据访问" class="sidebar-link">数据访问</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive - ORC 文件存储格式详细解析.html#文件压缩" class="sidebar-link">文件压缩</a></li></ul></li><li><a href="/./bigdata/hive/Hive SQL三个经典优化案例.html" class="sidebar-link">Hive SQL三个经典优化案例</a></li><li><a href="/./bigdata/hive/Hive SQL内置函数大全.html" class="sidebar-link">Hive SQL内置函数大全</a></li><li><a href="/./bigdata/hive/Hive SQL底层执行过程详细剖析.html" class="sidebar-link">Hive SQL底层执行过程详细剖析</a></li><li><a href="/./bigdata/hive/Hive 中的四种排序详解.html" class="sidebar-link">Hive 中的四种排序详解</a></li><li><a href="/./bigdata/hive/Hive 分析函数进阶指南.html" class="sidebar-link">Hive 分析函数进阶指南</a></li><li><a href="/./bigdata/hive/Hive 复杂数据类型.html" class="sidebar-link">Hive 复杂数据类型</a></li><li><a href="/./bigdata/hive/Hive 调优（童星）.html" class="sidebar-link">Hive 调优</a></li><li><a href="/./bigdata/hive/Hive 高频考点讲解.html" class="sidebar-link">Hive 高频考点讲解</a></li><li><a href="/./bigdata/hive/HiveHadoop高频面试点小集合.html" class="sidebar-link">Hive/Hadoop高频面试点小集合</a></li><li><a href="/./bigdata/hive/Hive中的count(distinct)优化.html" class="sidebar-link">Hive中的count(distinct)优化</a></li><li><a href="/./bigdata/hive/Hive优化-大表join大表优化.html" class="sidebar-link">Hive优化-大表join大表优化</a></li><li><a href="/./bigdata/hive/Hive使用必知必会系列.html" class="sidebar-link">Hive使用必知必会系列</a></li><li><a href="/./bigdata/hive/Hive全面讲解.html" class="sidebar-link">Hive全面讲解</a></li><li><a href="/./bigdata/hive/Hive和Hbase的各自适用场景.html" class="sidebar-link">Hive和Hbase的各自适用场景</a></li><li><a href="/./bigdata/hive/Hive小文件合并与数据压缩.html" class="sidebar-link">Hive小文件合并与数据压缩</a></li><li><a href="/./bigdata/hive/Hive小知识之分桶抽样.html" class="sidebar-link">Hive小知识之分桶抽样</a></li><li><a href="/./bigdata/hive/Hive常用参数调优十二式.html" class="sidebar-link">Hive常用参数调优十二式</a></li><li><a href="/./bigdata/hive/Hive常用的函数总结.html" class="sidebar-link">Hive常用的函数总结</a></li><li><a href="/./bigdata/hive/Hive底层原理：explain执行计划详解.html" class="sidebar-link">Hive底层原理：explain执行计划详解</a></li><li><a href="/./bigdata/hive/Hive性能调优  并行执行严格模式JVM重用推测执行.html" class="sidebar-link">Hive性能调优 | 并行执行/严格模式/JVM重用/推测执行</a></li><li><a href="/./bigdata/hive/Hive性能调优  数据倾斜.html" class="sidebar-link">Hive性能调优 | 数据倾斜</a></li><li><a href="/./bigdata/hive/Hive技术原理.html" class="sidebar-link">Hive技术原理</a></li><li><a href="/./bigdata/hive/Hive窗口函数总结与实践.html" class="sidebar-link">Hive窗口函数总结与实践</a></li><li><a href="/./bigdata/hive/Hive计算绝对值同环比.html" class="sidebar-link">Hive计算绝对值同环比</a></li><li><a href="/./bigdata/hive/Hive调优全方位指南.html" class="sidebar-link">Hive调优全方位指南</a></li><li><a href="/./bigdata/hive/Impala一文详解及与Hive简单对比.html" class="sidebar-link">Impala一文详解及与Hive简单对比</a></li><li><a href="/./bigdata/hive/一文搞定Hive函数.html" class="sidebar-link">一文搞定Hive函数</a></li><li><a href="/./bigdata/hive/一篇文章了解Hive调优.html" class="sidebar-link">一篇文章了解Hive调优</a></li><li><a href="/./bigdata/hive/基于Hadoop的数据仓库Hive基础知识.html" class="sidebar-link">基于Hadoop的数据仓库Hive基础知识</a></li><li><a href="/./bigdata/hive/快手数仓Hive MetaStore挑战与优化.html" class="sidebar-link">快手数仓Hive MetaStore挑战与优化</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="hive-orc-文件存储格式详细解析"><a href="#hive-orc-文件存储格式详细解析" class="header-anchor">#</a> Hive - ORC 文件存储格式详细解析</h2> <p><strong>一、ORC File文件结构</strong></p> <p>ORC的全称是(Optimized Row Columnar)，ORC文件格式是一种Hadoop生态圈中的列式存储格式，它的产生早在2013年初，最初产生自Apache Hive，用于降低Hadoop数据存储空间和加速Hive查询速度。和Parquet类似，它并不是一个单纯的列式存储格式，仍然是首先根据行组分割整个表，在每一个行组内进行按列存储。ORC文件是自描述的，它的元数据使用Protocol Buffers序列化，并且文件中的数据尽可能的压缩以降低存储空间的消耗，目前也被Spark SQL、Presto等查询引擎支持，但是Impala对于ORC目前没有支持，仍然使用Parquet作为主要的列式存储格式。2015年ORC项目被Apache项目基金会提升为Apache顶级项目。ORC具有以下一些优势:</p> <ol><li>ORC是列式存储，有多种文件压缩方式，并且有着很高的压缩比。</li> <li>文件是可切分（Split）的。因此，在Hive中使用ORC作为表的文件存储格式，不仅节省HDFS存储资源，查询任务的输入数据量减少，使用的MapTask也就减少了。</li> <li>提供了多种索引，row group index、bloom filter index。</li> <li>ORC可以支持复杂的数据结构（比如Map等）</li></ol> <h2 id="列式存储"><a href="#列式存储" class="header-anchor">#</a> 列式存储</h2> <p>由于OLAP查询的特点，列式存储可以提升其查询性能，但是它是如何做到的呢？这就要从列式存储的原理说起，从图1中可以看到，相对于关系数据库中通常使用的行式存储，在使用列式存储时每一列的所有元素都是顺序存储的。由此特点可以给查询带来如下的优化：</p> <ul><li>查询的时候不需要扫描全部的数据，而只需要读取每次查询涉及的列，这样可以将I/O消耗降低N倍，另外可以保存每一列的统计信息(min、max、sum等)，实现部分的谓词下推。</li> <li>由于每一列的成员都是同构的，可以针对不同的数据类型使用更高效的数据压缩算法，进一步减小I/O。</li> <li>由于每一列的成员的同构性，可以使用更加适合CPU pipeline的编码方式，减小CPU的缓存失效。</li></ul> <p><img src="https://mmbiz.qpic.cn/mmbiz_png/UdK9ByfMT2NtQNOpYKMFPutwGFvQvPBmDok3DIUFwsibqdoxaTjBXby2ClOKRr7RSANetcW5ntds1AX55dcKeBg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p> <p>关于Orc文件格式的官网介绍，见：https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC</p> <p>需要注意的是，ORC在读写时候需要消耗额外的CPU资源来压缩和解压缩，当然这部分的CPU消耗是非常少的。</p> <h2 id="数据模型"><a href="#数据模型" class="header-anchor">#</a> 数据模型</h2> <p>和Parquet不同，ORC原生是不支持嵌套数据格式的，而是通过对复杂数据类型特殊处理的方式实现嵌套格式的支持，例如对于如下的hive表：</p> <div class="language-sql extra-class"><pre class="language-sql"><code>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>orcStructTable<span class="token punctuation">`</span><span class="token punctuation">(</span>
+  <span class="token punctuation">`</span>name<span class="token punctuation">`</span> string<span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>course<span class="token punctuation">`</span> struct<span class="token operator">&lt;</span>course:string<span class="token punctuation">,</span>score:<span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>score<span class="token punctuation">`</span> map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>work_locations<span class="token punctuation">`</span> array<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p>在ORC的结构中包含了复杂类型列和原始类型，前者包括LIST、STRUCT、MAP和UNION类型，后者包括BOOLEAN、整数、浮点数、字符串类型等，其中STRUCT的孩子节点包括它的成员变量，可能有多个孩子节点，MAP有两个孩子节点，分别为key和value，LIST包含一个孩子节点，类型为该LIST的成员类型，UNION一般不怎么用得到。每一个Schema树的根节点为一个Struct类型，所有的column按照树的中序遍历顺序编号。</p> <p>ORC只需要存储schema树中叶子节点的值，而中间的非叶子节点只是做一层代理，它们只需要负责孩子节点值得读取，只有真正的叶子节点才会读取数据，然后交由父节点封装成对应的数据结构返回。</p> <h2 id="文件结构"><a href="#文件结构" class="header-anchor">#</a> 文件结构</h2> <p>和Parquet类似，ORC文件也是以二进制方式存储的，所以是不可以直接读取，ORC文件也是自解析的，它包含许多的元数据，这些元数据都是同构ProtoBuffer进行序列化的。ORC的文件结构如下图，其中涉及到如下的概念：</p> <ul><li>ORC文件：保存在文件系统上的普通二进制文件，一个ORC文件中可以包含多个stripe，每一个stripe包含多条记录，这些记录按照列进行独立存储，对应到Parquet中的row group的概念。</li> <li>文件级元数据：包括文件的描述信息PostScript、文件meta信息（包括整个文件的统计信息）、所有stripe的信息和文件schema信息。</li> <li>stripe：一组行形成一个stripe，每次读取文件是以行组为单位的，一般为HDFS的块大小，保存了每一列的索引和数据。</li> <li>stripe元数据：保存stripe的位置、每一个列的在该stripe的统计信息以及所有的stream类型和位置。</li> <li>row group：索引的最小单位，一个stripe中包含多个row group，默认为10000个值组成。</li> <li>stream：一个stream表示文件中一段有效的数据，包括索引和数据两类。索引stream保存每一个row group的位置和统计信息，数据stream包括多种类型的数据，具体需要哪几种是由该列类型和编码方式决定。</li></ul> <p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/UdK9ByfMT2NtQNOpYKMFPutwGFvQvPBmsFficCeS12I0JsQ2Dic1AMPJkGqmySoqbyfzpkF8Aq8RAM3dgDt7pycw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p> <p>在ORC文件中保存了三个层级的统计信息，分别为文件级别、stripe级别和row group级别的，他们都可以用来根据Search ARGuments（谓词下推条件）判断是否可以跳过某些数据，在统计信息中都包含成员数和是否有null值，并且对于不同类型的数据设置一些特定的统计信息。</p> <p><strong>（1）file level</strong>
+在ORC文件的末尾会记录文件级别的统计信息，会记录整个文件中columns的统计信息。这些信息主要用于查询的优化，也可以为一些简单的聚合查询比如max, min, sum输出结果。</p> <p><strong>（2）stripe level</strong>
+ORC文件会保存每个字段stripe级别的统计信息，ORC reader使用这些统计信息来确定对于一个查询语句来说，需要读入哪些stripe中的记录。比如说某个stripe的字段max(a)=10，min(a)=3，那么当where条件为a &gt;10或者a &lt;3时，那么这个stripe中的所有记录在查询语句执行时不会被读入。</p> <p><strong>（3）row level</strong>
+为了进一步的避免读入不必要的数据，在逻辑上将一个column的index以一个给定的值(默认为10000，可由参数配置)分割为多个index组。以10000条记录为一个组，对数据进行统计。Hive查询引擎会将where条件中的约束传递给ORC reader，这些reader根据组级别的统计信息，过滤掉不必要的数据。如果该值设置的太小，就会保存更多的统计信息，用户需要根据自己数据的特点权衡一个合理的值。</p> <h2 id="数据访问"><a href="#数据访问" class="header-anchor">#</a> 数据访问</h2> <p>读取ORC文件是从尾部开始的，第一次读取16KB的大小，尽可能的将Postscript和Footer数据都读入内存。文件的最后一个字节保存着PostScript的长度，它的长度不会超过256字节，PostScript中保存着整个文件的元数据信息，它包括文件的压缩格式、文件内部每一个压缩块的最大长度(每次分配内存的大小)、Footer长度，以及一些版本信息。在Postscript和Footer之间存储着整个文件的统计信息(上图中未画出)，这部分的统计信息包括每一个stripe中每一列的信息，主要统计成员数、最大值、最小值、是否有空值等。</p> <p>接下来读取文件的Footer信息，它包含了每一个stripe的长度和偏移量，该文件的schema信息(将schema树按照schema中的编号保存在数组中)、整个文件的统计信息以及每一个row group的行数。</p> <p>处理stripe时首先从Footer中获取每一个stripe的其实位置和长度、每一个stripe的Footer数据(元数据，记录了index和data的的长度)，整个striper被分为index和data两部分，stripe内部是按照row group进行分块的(每一个row group中多少条记录在文件的Footer中存储)，row group内部按列存储。每一个row group由多个stream保存数据和索引信息。每一个stream的数据会根据该列的类型使用特定的压缩算法保存。在ORC中存在如下几种stream类型：</p> <ul><li><strong>PRESENT</strong>：每一个成员值在这个stream中保持一位(bit)用于标示该值是否为NULL，通过它可以只记录部位NULL的值</li> <li><strong>DATA</strong>：该列的中属于当前stripe的成员值。</li> <li><strong>LENGTH</strong>：每一个成员的长度，这个是针对string类型的列才有的。</li> <li><strong>DICTIONARY_DATA</strong>：对string类型数据编码之后字典的内容。</li> <li><strong>SECONDARY</strong>：存储Decimal、timestamp类型的小数或者纳秒数等。</li> <li><strong>ROW_INDEX</strong>：保存stripe中每一个row group的统计信息和每一个row group起始位置信息。</li></ul> <p>在初始化阶段获取全部的元数据之后，可以通过includes数组指定需要读取的列编号，它是一个boolean数组，如果不指定则读取全部的列，还可以通过传递SearchArgument参数指定过滤条件，根据元数据首先读取每一个stripe中的index信息，然后根据index中统计信息以及SearchArgument参数确定需要读取的row group编号，再根据includes数据决定需要从这些row group中读取的列，通过这两层的过滤需要读取的数据只是整个stripe多个小段的区间，然后ORC会尽可能合并多个离散的区间尽可能的减少I/O次数。然后再根据index中保存的下一个row group的位置信息调至该stripe中第一个需要读取的row group中。</p> <p>ORC文件格式只支持读取指定字段，还不支持只读取特殊字段类型中的指定部分。</p> <p>使用ORC文件格式时，用户可以使用HDFS的每一个block存储ORC文件的一个stripe。对于一个ORC文件来说，stripe的大小一般需要设置得比HDFS的block小，如果不这样的话，一个stripe就会分别在HDFS的多个block上，当读取这种数据时就会发生远程读数据的行为。如果设置stripe的只保存在一个block上的话，如果当前block上的剩余空间不足以存储下一个strpie，ORC的writer接下来会将数据打散保存在block剩余的空间上，直到这个block存满为止。这样，下一个stripe又会从下一个block开始存储。</p> <p>由于ORC中使用了更加精确的索引信息，使得在读取数据时可以指定从任意一行开始读取，更细粒度的统计信息使得读取ORC文件跳过整个row group，ORC默认会对任何一块数据和索引信息使用ZLIB压缩，因此ORC文件占用的存储空间也更小，这点在后面的测试对比中也有所印证。</p> <h2 id="文件压缩"><a href="#文件压缩" class="header-anchor">#</a> 文件压缩</h2> <p>ORC文件使用两级压缩机制，首先将一个数据流使用流式编码器进行编码，然后使用一个可选的压缩器对数据流进行进一步压缩。
+一个column可能保存在一个或多个数据流中，可以将数据流划分为以下四种类型：
+<strong>• Byte Stream</strong>
+字节流保存一系列的字节数据，不对数据进行编码。</p> <p><strong>• Run Length Byte Stream</strong>
+字节长度字节流保存一系列的字节数据，对于相同的字节，保存这个重复值以及该值在字节流中出现的位置。</p> <p><strong>• Integer Stream</strong>
+整形数据流保存一系列整形数据。可以对数据量进行字节长度编码以及delta编码。具体使用哪种编码方式需要根据整形流中的子序列模式来确定。</p> <p><strong>• Bit Field Stream</strong>
+比特流主要用来保存boolean值组成的序列，一个字节代表一个boolean值，在比特流的底层是用Run Length Byte Stream来实现的。</p> <p>接下来会以Integer和String类型的字段举例来说明。</p> <p><strong>（1）Integer</strong>
+对于一个整形字段，会同时使用一个比特流和整形流。比特流用于标识某个值是否为null，整形流用于保存该整形字段非空记录的整数值。</p> <p><strong>（2）String</strong>
+对于一个String类型字段，ORC writer在开始时会检查该字段值中不同的内容数占非空记录总数的百分比不超过0.8的话，就使用字典编码，字段值会保存在一个比特流，一个字节流及两个整形流中。比特流也是用于标识null值的，字节流用于存储字典值，一个整形流用于存储字典中每个词条的长度，另一个整形流用于记录字段值。</p> <p>如果不能用字典编码，ORC writer会知道这个字段的重复值太少，用字典编码效率不高，ORC writer会使用一个字节流保存String字段的值，然后用一个整形流来保存每个字段的字节长度。</p> <p>在ORC文件中，在各种数据流的底层，用户可以自选ZLIB, Snappy和LZO压缩方式对数据流进行压缩。编码器一般会将一个数据流压缩成一个个小的压缩单元，在目前的实现中，压缩单元的默认大小是256KB。</p> <h1 id="二、hive-orc建立数据仓库"><a href="#二、hive-orc建立数据仓库" class="header-anchor">#</a> 二、Hive+ORC建立数据仓库</h1> <p>在建Hive表的时候我们就应该指定文件的存储格式。所以你可以在Hive QL语句里面指定用ORCFile这种文件格式，如下：</p> <div class="language- extra-class"><pre class="language-text"><code>CREATE TABLE ... STORED AS ORC
+ 
+ALTER TABLE ... [PARTITION partition_spec] SET FILEFORMAT ORC
+ 
+SET hive.default.fileformat=Orc
+</code></pre></div><p>所有关于ORCFile的参数都是在Hive QL语句的TBLPROPERTIES字段里面出现，他们是：</p> <p><img src="https://mmbiz.qpic.cn/mmbiz_png/UdK9ByfMT2NtQNOpYKMFPutwGFvQvPBmC0zov7gMb8p7SzicQspGb7t0h8icd0nBHMicn7YwvedicNwK8RmopPA41g/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p> <h1 id="三、java操作orc"><a href="#三、java操作orc" class="header-anchor">#</a> 三、Java操作ORC</h1> <p>到https://orc.apache.org官网下载orc源码包，然后编译获取orc-core-1.3.0.jar、orc-mapreduce-1.3.0.jar、orc-tools-1.3.0.jar，将其加入项目中</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>conf<span class="token punctuation">.</span></span><span class="token class-name">Configuration</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>fs<span class="token punctuation">.</span></span><span class="token class-name">Path</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>ql<span class="token punctuation">.</span>exec<span class="token punctuation">.</span>vector<span class="token punctuation">.</span></span><span class="token class-name">LongColumnVector</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>ql<span class="token punctuation">.</span>exec<span class="token punctuation">.</span>vector<span class="token punctuation">.</span></span><span class="token class-name">VectorizedRowBatch</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>orc<span class="token punctuation">.</span></span><span class="token class-name">CompressionKind</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>orc<span class="token punctuation">.</span></span><span class="token class-name">OrcFile</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>orc<span class="token punctuation">.</span></span><span class="token class-name">TypeDescription</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>orc<span class="token punctuation">.</span></span><span class="token class-name">Writer</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestORCWriter</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Path</span> testFilePath <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Path</span><span class="token punctuation">(</span><span class="token string">&quot;/tmp/test.orc&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Configuration</span> conf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Configuration</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">TypeDescription</span> schema <span class="token operator">=</span> <span class="token class-name">TypeDescription</span><span class="token punctuation">.</span><span class="token function">fromString</span><span class="token punctuation">(</span><span class="token string">&quot;struct&lt;field1:int,field2:int,field3:int&gt;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Writer</span> writer <span class="token operator">=</span> <span class="token class-name">OrcFile</span><span class="token punctuation">.</span><span class="token function">createWriter</span><span class="token punctuation">(</span>testFilePath<span class="token punctuation">,</span> <span class="token class-name">OrcFile</span><span class="token punctuation">.</span><span class="token function">writerOptions</span><span class="token punctuation">(</span>conf<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSchema</span><span class="token punctuation">(</span>schema<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compress</span><span class="token punctuation">(</span><span class="token class-name">CompressionKind</span><span class="token punctuation">.</span>SNAPPY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">VectorizedRowBatch</span> batch <span class="token operator">=</span> schema<span class="token punctuation">.</span><span class="token function">createRowBatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">LongColumnVector</span> first <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">LongColumnVector</span><span class="token punctuation">)</span> batch<span class="token punctuation">.</span>cols<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">LongColumnVector</span> second <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">LongColumnVector</span><span class="token punctuation">)</span> batch<span class="token punctuation">.</span>cols<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">LongColumnVector</span> third <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">LongColumnVector</span><span class="token punctuation">)</span> batch<span class="token punctuation">.</span>cols<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">final</span> <span class="token keyword">int</span> BATCH_SIZE <span class="token operator">=</span> batch<span class="token punctuation">.</span><span class="token function">getMaxSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// add 1500 rows to file</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> r <span class="token operator">&lt;</span> <span class="token number">15000000</span><span class="token punctuation">;</span> <span class="token operator">++</span>r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> row <span class="token operator">=</span> batch<span class="token punctuation">.</span>size<span class="token operator">++</span><span class="token punctuation">;</span>
+            first<span class="token punctuation">.</span>vector<span class="token punctuation">[</span>row<span class="token punctuation">]</span> <span class="token operator">=</span> r<span class="token punctuation">;</span>
+            second<span class="token punctuation">.</span>vector<span class="token punctuation">[</span>row<span class="token punctuation">]</span> <span class="token operator">=</span> r <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">;</span>
+            third<span class="token punctuation">.</span>vector<span class="token punctuation">[</span>row<span class="token punctuation">]</span> <span class="token operator">=</span> r <span class="token operator">*</span> <span class="token number">6</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>row <span class="token operator">==</span> BATCH_SIZE <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                writer<span class="token punctuation">.</span><span class="token function">addRowBatch</span><span class="token punctuation">(</span>batch<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                batch<span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>batch<span class="token punctuation">.</span>size <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            writer<span class="token punctuation">.</span><span class="token function">addRowBatch</span><span class="token punctuation">(</span>batch<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            batch<span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        writer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>大多情况下，还是建议在Hive中将文本文件转成ORC格式，这种用JAVA在本地生成ORC文件，属于特殊需求场景。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./bigdata/hive/Hive  4万字性能调优面试总结.html" class="prev">
+        Hive | 4万字性能调优面试总结
+      </a></span> <span class="next"><a href="/./bigdata/hive/Hive SQL三个经典优化案例.html">
+        Hive SQL三个经典优化案例
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.dc5b0715.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/10.ef98acb1.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hive底层原理：explain执行计划详解 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.dc5b0715.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/29.1749fe14.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/11.37b04a4d.js"><link rel="prefetch" href="./assets/js/12.cee383a4.js"><link rel="prefetch" href="./assets/js/13.d47b2b52.js"><link rel="prefetch" href="./assets/js/14.77b2b060.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.a7201fbc.js"><link rel="prefetch" href="./assets/js/17.79e79675.js"><link rel="prefetch" href="./assets/js/18.7639ae91.js"><link rel="prefetch" href="./assets/js/19.280df9d2.js"><link rel="prefetch" href="./assets/js/20.25a38eac.js"><link rel="prefetch" href="./assets/js/21.0aaf754a.js"><link rel="prefetch" href="./assets/js/22.abdec3c1.js"><link rel="prefetch" href="./assets/js/23.454fb1a0.js"><link rel="prefetch" href="./assets/js/24.5118d094.js"><link rel="prefetch" href="./assets/js/25.b239a8e2.js"><link rel="prefetch" href="./assets/js/26.4af89c7f.js"><link rel="prefetch" href="./assets/js/27.b338361b.js"><link rel="prefetch" href="./assets/js/28.225e99c8.js"><link rel="prefetch" href="./assets/js/3.376b8cdf.js"><link rel="prefetch" href="./assets/js/30.422f2538.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.7f4a7aa0.js"><link rel="prefetch" href="./assets/js/33.e8f1b887.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.046ac0f0.js"><link rel="prefetch" href="./assets/js/36.f0d4cc9b.js"><link rel="prefetch" href="./assets/js/37.0a7a5f8f.js"><link rel="prefetch" href="./assets/js/38.d06cfcca.js"><link rel="prefetch" href="./assets/js/39.d164c990.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.6bc1f68d.js"><link rel="prefetch" href="./assets/js/41.e1d9e6f4.js"><link rel="prefetch" href="./assets/js/42.b9146544.js"><link rel="prefetch" href="./assets/js/43.3d89ef90.js"><link rel="prefetch" href="./assets/js/44.e75043b3.js"><link rel="prefetch" href="./assets/js/45.fa675a86.js"><link rel="prefetch" href="./assets/js/46.5e1bd863.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.7f50621f.js"><link rel="prefetch" href="./assets/js/49.1273014b.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.0ace36ad.js"><link rel="prefetch" href="./assets/js/51.955bc85d.js"><link rel="prefetch" href="./assets/js/52.e3bb73d6.js"><link rel="prefetch" href="./assets/js/53.70bca49a.js"><link rel="prefetch" href="./assets/js/54.4f6fe468.js"><link rel="prefetch" href="./assets/js/55.d0ae6f7c.js"><link rel="prefetch" href="./assets/js/56.5bfe7854.js"><link rel="prefetch" href="./assets/js/57.20ab4e15.js"><link rel="prefetch" href="./assets/js/58.cd6e845e.js"><link rel="prefetch" href="./assets/js/59.e31f564e.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.7e997bce.js"><link rel="prefetch" href="./assets/js/61.ae3effab.js"><link rel="prefetch" href="./assets/js/62.d40d2f3b.js"><link rel="prefetch" href="./assets/js/63.c7ab6850.js"><link rel="prefetch" href="./assets/js/64.c317433a.js"><link rel="prefetch" href="./assets/js/65.bee18659.js"><link rel="prefetch" href="./assets/js/66.9bc2ca3c.js"><link rel="prefetch" href="./assets/js/67.36393d6f.js"><link rel="prefetch" href="./assets/js/68.50d2a85d.js"><link rel="prefetch" href="./assets/js/69.bbac38d8.js"><link rel="prefetch" href="./assets/js/7.9979a04e.js"><link rel="prefetch" href="./assets/js/70.318eb4aa.js"><link rel="prefetch" href="./assets/js/71.54649836.js"><link rel="prefetch" href="./assets/js/72.3ebd3c24.js"><link rel="prefetch" href="./assets/js/73.24b6f12b.js"><link rel="prefetch" href="./assets/js/74.1dd537ea.js"><link rel="prefetch" href="./assets/js/75.59231e92.js"><link rel="prefetch" href="./assets/js/76.b8f3ef78.js"><link rel="prefetch" href="./assets/js/77.11821a18.js"><link rel="prefetch" href="./assets/js/78.f63e0308.js"><link rel="prefetch" href="./assets/js/79.1c7441a7.js"><link rel="prefetch" href="./assets/js/8.db54d2a5.js"><link rel="prefetch" href="./assets/js/80.0d3fa419.js"><link rel="prefetch" href="./assets/js/81.53362836.js"><link rel="prefetch" href="./assets/js/82.6a9be763.js"><link rel="prefetch" href="./assets/js/83.11a41a2c.js"><link rel="prefetch" href="./assets/js/84.2e76a3fb.js"><link rel="prefetch" href="./assets/js/85.c61a2184.js"><link rel="prefetch" href="./assets/js/86.7d905d1b.js"><link rel="prefetch" href="./assets/js/87.4c907051.js"><link rel="prefetch" href="./assets/js/88.82047d34.js"><link rel="prefetch" href="./assets/js/89.3457441e.js"><link rel="prefetch" href="./assets/js/9.c83a911f.js"><link rel="prefetch" href="./assets/js/90.cc103581.js"><link rel="prefetch" href="./assets/js/91.68961351.js"><link rel="prefetch" href="./assets/js/92.fbb8f838.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link router-link-active">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link router-link-active">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Hive</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./bigdata/hive/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./bigdata/hive/Flink1.10和Hive集成一些需要注意的点.html" class="sidebar-link">Flink1.10和Hive集成一些需要注意的点</a></li><li><a href="/./bigdata/hive/Hive  4万字性能调优面试总结.html" class="sidebar-link">Hive | 4万字性能调优面试总结</a></li><li><a href="/./bigdata/hive/Hive - ORC 文件存储格式详细解析.html" class="sidebar-link">Hive - ORC 文件存储格式详细解析</a></li><li><a href="/./bigdata/hive/Hive SQL三个经典优化案例.html" class="sidebar-link">Hive SQL三个经典优化案例</a></li><li><a href="/./bigdata/hive/Hive SQL内置函数大全.html" class="sidebar-link">Hive SQL内置函数大全</a></li><li><a href="/./bigdata/hive/Hive SQL底层执行过程详细剖析.html" class="sidebar-link">Hive SQL底层执行过程详细剖析</a></li><li><a href="/./bigdata/hive/Hive 中的四种排序详解.html" class="sidebar-link">Hive 中的四种排序详解</a></li><li><a href="/./bigdata/hive/Hive 分析函数进阶指南.html" class="sidebar-link">Hive 分析函数进阶指南</a></li><li><a href="/./bigdata/hive/Hive 复杂数据类型.html" class="sidebar-link">Hive 复杂数据类型</a></li><li><a href="/./bigdata/hive/Hive 调优（童星）.html" class="sidebar-link">Hive 调优</a></li><li><a href="/./bigdata/hive/Hive 高频考点讲解.html" class="sidebar-link">Hive 高频考点讲解</a></li><li><a href="/./bigdata/hive/HiveHadoop高频面试点小集合.html" class="sidebar-link">Hive/Hadoop高频面试点小集合</a></li><li><a href="/./bigdata/hive/Hive中的count(distinct)优化.html" class="sidebar-link">Hive中的count(distinct)优化</a></li><li><a href="/./bigdata/hive/Hive优化-大表join大表优化.html" class="sidebar-link">Hive优化-大表join大表优化</a></li><li><a href="/./bigdata/hive/Hive使用必知必会系列.html" class="sidebar-link">Hive使用必知必会系列</a></li><li><a href="/./bigdata/hive/Hive全面讲解.html" class="sidebar-link">Hive全面讲解</a></li><li><a href="/./bigdata/hive/Hive和Hbase的各自适用场景.html" class="sidebar-link">Hive和Hbase的各自适用场景</a></li><li><a href="/./bigdata/hive/Hive小文件合并与数据压缩.html" class="sidebar-link">Hive小文件合并与数据压缩</a></li><li><a href="/./bigdata/hive/Hive小知识之分桶抽样.html" class="sidebar-link">Hive小知识之分桶抽样</a></li><li><a href="/./bigdata/hive/Hive常用参数调优十二式.html" class="sidebar-link">Hive常用参数调优十二式</a></li><li><a href="/./bigdata/hive/Hive常用的函数总结.html" class="sidebar-link">Hive常用的函数总结</a></li><li><a href="/./bigdata/hive/Hive底层原理：explain执行计划详解.html" class="active sidebar-link">Hive底层原理：explain执行计划详解</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive底层原理：explain执行计划详解.html#hive底层原理-explain执行计划详解" class="sidebar-link">Hive底层原理：explain执行计划详解</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive底层原理：explain执行计划详解.html#理论" class="sidebar-link">理论</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive底层原理：explain执行计划详解.html#实践" class="sidebar-link">实践</a></li></ul></li></ul></li><li><a href="/./bigdata/hive/Hive性能调优  并行执行严格模式JVM重用推测执行.html" class="sidebar-link">Hive性能调优 | 并行执行/严格模式/JVM重用/推测执行</a></li><li><a href="/./bigdata/hive/Hive性能调优  数据倾斜.html" class="sidebar-link">Hive性能调优 | 数据倾斜</a></li><li><a href="/./bigdata/hive/Hive技术原理.html" class="sidebar-link">Hive技术原理</a></li><li><a href="/./bigdata/hive/Hive窗口函数总结与实践.html" class="sidebar-link">Hive窗口函数总结与实践</a></li><li><a href="/./bigdata/hive/Hive计算绝对值同环比.html" class="sidebar-link">Hive计算绝对值同环比</a></li><li><a href="/./bigdata/hive/Hive调优全方位指南.html" class="sidebar-link">Hive调优全方位指南</a></li><li><a href="/./bigdata/hive/Impala一文详解及与Hive简单对比.html" class="sidebar-link">Impala一文详解及与Hive简单对比</a></li><li><a href="/./bigdata/hive/一文搞定Hive函数.html" class="sidebar-link">一文搞定Hive函数</a></li><li><a href="/./bigdata/hive/一篇文章了解Hive调优.html" class="sidebar-link">一篇文章了解Hive调优</a></li><li><a href="/./bigdata/hive/基于Hadoop的数据仓库Hive基础知识.html" class="sidebar-link">基于Hadoop的数据仓库Hive基础知识</a></li><li><a href="/./bigdata/hive/快手数仓Hive MetaStore挑战与优化.html" class="sidebar-link">快手数仓Hive MetaStore挑战与优化</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="hive底层原理-explain执行计划详解"><a href="#hive底层原理-explain执行计划详解" class="header-anchor">#</a> Hive底层原理：explain执行计划详解</h2> <p><strong>导读：不懂hive中的explain，说明hive还没入门，学会explain，能够给我们工作中使用hive带来极大的便利！</strong></p> <h3 id="理论"><a href="#理论" class="header-anchor">#</a> 理论</h3> <blockquote><p>本节将介绍 explain 的用法及参数介绍</p></blockquote> <p><strong>HIVE提供了EXPLAIN命令来展示一个查询的执行计划</strong>,这个执行计划对于我们了解底层原理，hive 调优，排查数据倾斜等很有帮助</p> <p>使用语法如下：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">EXPLAIN</span> <span class="token punctuation">[</span><span class="token keyword">EXTENDED</span><span class="token operator">|</span>CBO<span class="token operator">|</span>AST<span class="token operator">|</span>DEPENDENCY<span class="token operator">|</span><span class="token keyword">AUTHORIZATION</span><span class="token operator">|</span>LOCKS<span class="token operator">|</span>VECTORIZATION<span class="token operator">|</span><span class="token keyword">ANALYZE</span><span class="token punctuation">]</span> query
+</code></pre></div><p>explain 后面可以跟以下可选参数，注意：这几个可选参数不是 hive 每个版本都支持的</p> <ol><li><strong>EXTENDED</strong>：加上 extended 可以输出有关计划的额外信息。这通常是物理信息，例如文件名。这些额外信息对我们用处不大</li> <li><strong>CBO</strong>：输出由Calcite优化器生成的计划。CBO 从 hive 4.0.0 版本开始支持</li> <li><strong>AST</strong>：输出查询的抽象语法树。AST 在hive 2.1.0 版本删除了，存在bug，转储AST可能会导致OOM错误，将在4.0.0版本修复</li> <li><strong>DEPENDENCY</strong>：dependency在EXPLAIN语句中使用会产生有关计划中输入的额外信息。它显示了输入的各种属性</li> <li><strong>AUTHORIZATION</strong>：显示所有的实体需要被授权执行（如果存在）的查询和授权失败</li> <li><strong>LOCKS</strong>：这对于了解系统将获得哪些锁以运行指定的查询很有用。LOCKS 从 hive 3.2.0 开始支持</li> <li><strong>VECTORIZATION</strong>：将详细信息添加到EXPLAIN输出中，以显示为什么未对Map和Reduce进行矢量化。从 Hive 2.3.0 开始支持</li> <li><strong>ANALYZE</strong>：用实际的行数注释计划。从 Hive 2.2.0 开始支持</li></ol> <p>在 hive cli 中输入以下命令(hive 2.3.7)：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token function">sum</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">from</span> test1<span class="token punctuation">;</span>
+</code></pre></div><p>得到结果（<strong>请逐行看完，即使看不懂也要每行都看</strong>）：</p> <div class="language-sql extra-class"><pre class="language-sql"><code>STAGE DEPENDENCIES:
+  Stage<span class="token operator">-</span><span class="token number">1</span> <span class="token operator">is</span> a root stage
+  Stage<span class="token operator">-</span><span class="token number">0</span> depends <span class="token keyword">on</span> stages: Stage<span class="token operator">-</span><span class="token number">1</span>
+
+STAGE PLANS:
+  Stage: Stage<span class="token operator">-</span><span class="token number">1</span>
+    Map Reduce
+      Map Operator Tree:
+          TableScan
+            alias: test1
+            <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">6</span> <span class="token keyword">Data</span> size: <span class="token number">75</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+            <span class="token keyword">Select</span> Operator
+              expressions: id <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+              outputColumnNames: id
+              <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">6</span> <span class="token keyword">Data</span> size: <span class="token number">75</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+              <span class="token keyword">Group</span> <span class="token keyword">By</span> Operator
+                aggregations: <span class="token function">sum</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+                <span class="token keyword">mode</span>: <span class="token keyword">hash</span>
+                outputColumnNames: _col0
+                <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">1</span> <span class="token keyword">Data</span> size: <span class="token number">8</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                Reduce Output Operator
+                  sort <span class="token keyword">order</span>:
+                  <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">1</span> <span class="token keyword">Data</span> size: <span class="token number">8</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                  <span class="token keyword">value</span> expressions: _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">bigint</span><span class="token punctuation">)</span>
+      Reduce Operator Tree:
+        <span class="token keyword">Group</span> <span class="token keyword">By</span> Operator
+          aggregations: <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">VALUE</span><span class="token punctuation">.</span>_col0<span class="token punctuation">)</span>
+          <span class="token keyword">mode</span>: mergepartial
+          outputColumnNames: _col0
+          <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">1</span> <span class="token keyword">Data</span> size: <span class="token number">8</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+          <span class="token keyword">File</span> Output Operator
+            compressed: <span class="token boolean">false</span>
+            <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">1</span> <span class="token keyword">Data</span> size: <span class="token number">8</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+            <span class="token keyword">table</span>:
+                input format: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapred<span class="token punctuation">.</span>SequenceFileInputFormat
+                output format: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>ql<span class="token punctuation">.</span>io<span class="token punctuation">.</span>HiveSequenceFileOutputFormat
+                serde: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>serde2<span class="token punctuation">.</span>lazy<span class="token punctuation">.</span>LazySimpleSerDe
+
+  Stage: Stage<span class="token operator">-</span><span class="token number">0</span>
+    <span class="token keyword">Fetch</span> Operator
+      <span class="token keyword">limit</span>: <span class="token operator">-</span><span class="token number">1</span>
+      Processor Tree:
+        ListSink
+</code></pre></div><p>看完以上内容有什么感受，是不是感觉都看不懂，不要着急，下面将会详细讲解每个参数，相信你学完下面的内容之后再看 explain 的查询结果将游刃有余。</p> <blockquote><p><strong>一个HIVE查询被转换为一个由一个或多个stage组成的序列（有向无环图DAG）。这些stage可以是MapReduce stage，也可以是负责元数据存储的stage，也可以是负责文件系统的操作（比如移动和重命名）的stage</strong>。</p></blockquote> <p>我们将上述结果拆分看，先从最外层开始，包含两个大的部分：</p> <ol><li>stage dependencies： 各个stage之间的依赖性</li> <li>stage plan： 各个stage的执行计划</li></ol> <p>先看第一部分 stage dependencies ，包含两个 stage，Stage-1 是根stage，说明这是开始的stage，Stage-0 依赖 Stage-1，Stage-1执行完成后执行Stage-0。</p> <p>再看第二部分 stage plan，里面有一个 Map Reduce，一个MR的执行计划分为两个部分：</p> <ol><li>Map Operator Tree： MAP端的执行计划树</li> <li>Reduce Operator Tree： Reduce端的执行计划树</li></ol> <p>这两个执行计划树里面包含这条sql语句的 operator：</p> <ol><li><p>map端第一个操作肯定是加载表，所以就是 <strong>TableScan 表扫描操作</strong>，常见的属性：</p></li> <li><ul><li>alias： 表名称</li> <li>Statistics： 表统计信息，包含表中数据条数，数据大小等</li></ul></li> <li><p><strong>Select Operator： 选取操作</strong>，常见的属性 ：</p></li> <li><ul><li>expressions：需要的字段名称及字段类型</li> <li>outputColumnNames：输出的列名称</li> <li>Statistics：表统计信息，包含表中数据条数，数据大小等</li></ul></li> <li><p><strong>Group By Operator：分组聚合操作</strong>，常见的属性：</p></li> <li><ul><li>aggregations：显示聚合函数信息</li> <li>mode：聚合模式，值有 hash：随机聚合，就是hash partition；partial：局部聚合；final：最终聚合</li> <li>keys：分组的字段，如果没有分组，则没有此字段</li> <li>outputColumnNames：聚合之后输出列名</li> <li>Statistics： 表统计信息，包含分组聚合之后的数据条数，数据大小等</li></ul></li> <li><p><strong>Reduce Output Operator：输出到reduce操作</strong>，常见属性：</p></li> <li><ul><li>sort order：值为空 不排序；值为 + 正序排序，值为 - 倒序排序；值为 +-  排序的列为两列，第一列为正序，第二列为倒序</li></ul></li> <li><p><strong>Filter Operator：过滤操作</strong>，常见的属性：</p></li> <li><ul><li>predicate：过滤条件，如sql语句中的where id&gt;=1，则此处显示(id &gt;= 1)</li></ul></li> <li><p><strong>Map Join Operator：join 操作</strong>，常见的属性：</p></li> <li><ul><li>condition map：join方式 ，如Inner Join 0 to 1 Left Outer Join0 to 2</li> <li>keys: join 的条件字段</li> <li>outputColumnNames： join 完成之后输出的字段</li> <li>Statistics： join 完成之后生成的数据条数，大小等</li></ul></li> <li><p><strong>File Output Operator：文件输出操作</strong>，常见的属性</p></li> <li><ul><li>compressed：是否压缩</li> <li>table：表的信息，包含输入输出文件格式化方式，序列化方式等</li></ul></li> <li><p><strong>Fetch Operator 客户端获取数据操作</strong>，常见的属性：</p></li> <li><ul><li>limit，值为 -1 表示不限制条数，其他值为限制的条数</li></ul></li></ol> <p>好，学到这里再翻到上面 explain 的查询结果，是不是感觉基本都能看懂了。</p> <h3 id="实践"><a href="#实践" class="header-anchor">#</a> 实践</h3> <blockquote><p>本节介绍 explain 能够为我们在生产实践中带来哪些便利及解决我们哪些迷惑</p></blockquote> <h4 id="_1-join-语句会过滤-null-的值吗"><a href="#_1-join-语句会过滤-null-的值吗" class="header-anchor">#</a> 1. join 语句会过滤 null 的值吗？</h4> <p>现在，我们在hive cli 输入以下查询计划语句</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> a<span class="token punctuation">.</span>id<span class="token punctuation">,</span>b<span class="token punctuation">.</span>user_name <span class="token keyword">from</span> test1 a <span class="token keyword">join</span> test2 b <span class="token keyword">on</span> a<span class="token punctuation">.</span>id<span class="token operator">=</span>b<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+</code></pre></div><p>问：<strong>上面这条 join 语句会过滤 id 为 null 的值吗</strong></p> <p>执行下面语句：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">explain</span> <span class="token keyword">select</span> a<span class="token punctuation">.</span>id<span class="token punctuation">,</span>b<span class="token punctuation">.</span>user_name <span class="token keyword">from</span> test1 a <span class="token keyword">join</span> test2 b <span class="token keyword">on</span> a<span class="token punctuation">.</span>id<span class="token operator">=</span>b<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+</code></pre></div><p>我们来看结果 (为了适应页面展示，仅截取了部分输出信息)：</p> <div class="language-sql extra-class"><pre class="language-sql"><code>TableScan
+ alias: a
+ <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">6</span> <span class="token keyword">Data</span> size: <span class="token number">75</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+ Filter Operator
+    predicate: id <span class="token operator">is</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">boolean</span><span class="token punctuation">)</span>
+    <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">6</span> <span class="token keyword">Data</span> size: <span class="token number">75</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+    <span class="token keyword">Select</span> Operator
+        expressions: id <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+        outputColumnNames: _col0
+        <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">6</span> <span class="token keyword">Data</span> size: <span class="token number">75</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+        HashTable Sink Operator
+           <span class="token keyword">keys</span>:
+             <span class="token number">0</span> _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+             <span class="token number">1</span> _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+ <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre></div><p>从上述结果可以看到 <strong>predicate: id is not null</strong> 这样一行，<strong>说明 join 时会自动过滤掉关联字段为 null 值的情况，但 left join 或 full join 是不会自动过滤的</strong>，大家可以自行尝试下。</p> <h4 id="_2-group-by-分组语句会进行排序吗"><a href="#_2-group-by-分组语句会进行排序吗" class="header-anchor">#</a> 2. group by 分组语句会进行排序吗？</h4> <p>看下面这条sql</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> id<span class="token punctuation">,</span><span class="token function">max</span><span class="token punctuation">(</span>user_name<span class="token punctuation">)</span> <span class="token keyword">from</span> test1 <span class="token keyword">group</span> <span class="token keyword">by</span> id<span class="token punctuation">;</span>
+</code></pre></div><p>问：<strong>group by 分组语句会进行排序吗</strong></p> <p>直接来看 explain 之后结果 (为了适应页面展示，仅截取了部分输出信息)</p> <div class="language-sql extra-class"><pre class="language-sql"><code> TableScan
+    alias: test1
+    <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">9</span> <span class="token keyword">Data</span> size: <span class="token number">108</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+    <span class="token keyword">Select</span> Operator
+        expressions: id <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">,</span> user_name <span class="token punctuation">(</span><span class="token keyword">type</span>: string<span class="token punctuation">)</span>
+        outputColumnNames: id<span class="token punctuation">,</span> user_name
+        <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">9</span> <span class="token keyword">Data</span> size: <span class="token number">108</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+        <span class="token keyword">Group</span> <span class="token keyword">By</span> Operator
+           aggregations: <span class="token function">max</span><span class="token punctuation">(</span>user_name<span class="token punctuation">)</span>
+           <span class="token keyword">keys</span>: id <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+           <span class="token keyword">mode</span>: <span class="token keyword">hash</span>
+           outputColumnNames: _col0<span class="token punctuation">,</span> _col1
+           <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">9</span> <span class="token keyword">Data</span> size: <span class="token number">108</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+           Reduce Output Operator
+             <span class="token keyword">key</span> expressions: _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+             sort <span class="token keyword">order</span>: <span class="token operator">+</span>
+             Map<span class="token operator">-</span>reduce <span class="token keyword">partition</span> <span class="token keyword">columns</span>: _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+             <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">9</span> <span class="token keyword">Data</span> size: <span class="token number">108</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+             <span class="token keyword">value</span> expressions: _col1 <span class="token punctuation">(</span><span class="token keyword">type</span>: string<span class="token punctuation">)</span>
+ <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre></div><p>我们看 Group By Operator，里面有 keys: id (type: int) 说明按照 id 进行分组的，再往下看还有 sort order: + ，<strong>说明是按照 id 字段进行正序排序的</strong>。</p> <h4 id="_3-哪条sql执行效率高呢"><a href="#_3-哪条sql执行效率高呢" class="header-anchor">#</a> 3. 哪条sql执行效率高呢？</h4> <p>观察两条sql语句</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span>
+    a<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+    b<span class="token punctuation">.</span>user_name
+<span class="token keyword">FROM</span>
+    test1 a
+<span class="token keyword">JOIN</span> test2 b <span class="token keyword">ON</span> a<span class="token punctuation">.</span>id <span class="token operator">=</span> b<span class="token punctuation">.</span>id
+<span class="token keyword">WHERE</span>
+    a<span class="token punctuation">.</span>id <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span>
+    a<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+    b<span class="token punctuation">.</span>user_name
+<span class="token keyword">FROM</span>
+    <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> test1 <span class="token keyword">WHERE</span> id <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> a
+<span class="token keyword">JOIN</span> test2 b <span class="token keyword">ON</span> a<span class="token punctuation">.</span>id <span class="token operator">=</span> b<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+</code></pre></div><p><strong>这两条sql语句输出的结果是一样的，但是哪条sql执行效率高呢</strong>
+有人说第一条sql执行效率高，因为第二条sql有子查询，子查询会影响性能<br>
+有人说第二条sql执行效率高，因为先过滤之后，在进行join时的条数减少了，所以执行效率就高了</p> <p>到底哪条sql效率高呢，我们直接在sql语句前面加上 explain，看下执行计划不就知道了嘛</p> <p>在第一条sql语句前加上 explain，得到如下结果</p> <div class="language-sql extra-class"><pre class="language-sql"><code>hive <span class="token punctuation">(</span><span class="token keyword">default</span><span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token keyword">explain</span> <span class="token keyword">select</span> a<span class="token punctuation">.</span>id<span class="token punctuation">,</span>b<span class="token punctuation">.</span>user_name <span class="token keyword">from</span> test1 a <span class="token keyword">join</span> test2 b <span class="token keyword">on</span> a<span class="token punctuation">.</span>id<span class="token operator">=</span>b<span class="token punctuation">.</span>id <span class="token keyword">where</span> a<span class="token punctuation">.</span>id <span class="token operator">&gt;</span><span class="token number">2</span><span class="token punctuation">;</span>
+OK
+<span class="token keyword">Explain</span>
+STAGE DEPENDENCIES:
+  Stage<span class="token operator">-</span><span class="token number">4</span> <span class="token operator">is</span> a root stage
+  Stage<span class="token operator">-</span><span class="token number">3</span> depends <span class="token keyword">on</span> stages: Stage<span class="token operator">-</span><span class="token number">4</span>
+  Stage<span class="token operator">-</span><span class="token number">0</span> depends <span class="token keyword">on</span> stages: Stage<span class="token operator">-</span><span class="token number">3</span>
+
+STAGE PLANS:
+  Stage: Stage<span class="token operator">-</span><span class="token number">4</span>
+    Map Reduce <span class="token keyword">Local</span> <span class="token keyword">Work</span>
+      Alias <span class="token operator">-</span><span class="token operator">&gt;</span> Map <span class="token keyword">Local</span> <span class="token keyword">Tables</span>:
+        $hdt$_0:a
+          <span class="token keyword">Fetch</span> Operator
+            <span class="token keyword">limit</span>: <span class="token operator">-</span><span class="token number">1</span>
+      Alias <span class="token operator">-</span><span class="token operator">&gt;</span> Map <span class="token keyword">Local</span> Operator Tree:
+        $hdt$_0:a
+          TableScan
+            alias: a
+            <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">6</span> <span class="token keyword">Data</span> size: <span class="token number">75</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+            Filter Operator
+              predicate: <span class="token punctuation">(</span>id <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">boolean</span><span class="token punctuation">)</span>
+              <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">25</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+              <span class="token keyword">Select</span> Operator
+                expressions: id <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+                outputColumnNames: _col0
+                <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">25</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                HashTable Sink Operator
+                  <span class="token keyword">keys</span>:
+                    <span class="token number">0</span> _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+                    <span class="token number">1</span> _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+
+  Stage: Stage<span class="token operator">-</span><span class="token number">3</span>
+    Map Reduce
+      Map Operator Tree:
+          TableScan
+            alias: b
+            <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">6</span> <span class="token keyword">Data</span> size: <span class="token number">75</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+            Filter Operator
+              predicate: <span class="token punctuation">(</span>id <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">boolean</span><span class="token punctuation">)</span>
+              <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">25</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+              <span class="token keyword">Select</span> Operator
+                expressions: id <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">,</span> user_name <span class="token punctuation">(</span><span class="token keyword">type</span>: string<span class="token punctuation">)</span>
+                outputColumnNames: _col0<span class="token punctuation">,</span> _col1
+                <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">25</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                Map <span class="token keyword">Join</span> Operator
+                  condition map:
+                       <span class="token keyword">Inner</span> <span class="token keyword">Join</span> <span class="token number">0</span> <span class="token keyword">to</span> <span class="token number">1</span>
+                  <span class="token keyword">keys</span>:
+                    <span class="token number">0</span> _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+                    <span class="token number">1</span> _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+                  outputColumnNames: _col0<span class="token punctuation">,</span> _col2
+                  <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">27</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                  <span class="token keyword">Select</span> Operator
+                    expressions: _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">,</span> _col2 <span class="token punctuation">(</span><span class="token keyword">type</span>: string<span class="token punctuation">)</span>
+                    outputColumnNames: _col0<span class="token punctuation">,</span> _col1
+                    <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">27</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                    <span class="token keyword">File</span> Output Operator
+                      compressed: <span class="token boolean">false</span>
+                      <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">27</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                      <span class="token keyword">table</span>:
+                          input format: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapred<span class="token punctuation">.</span>SequenceFileInputFormat
+                          output format: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>ql<span class="token punctuation">.</span>io<span class="token punctuation">.</span>HiveSequenceFileOutputFormat
+                          serde: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>serde2<span class="token punctuation">.</span>lazy<span class="token punctuation">.</span>LazySimpleSerDe
+      <span class="token keyword">Local</span> <span class="token keyword">Work</span>:
+        Map Reduce <span class="token keyword">Local</span> <span class="token keyword">Work</span>
+
+  Stage: Stage<span class="token operator">-</span><span class="token number">0</span>
+    <span class="token keyword">Fetch</span> Operator
+      <span class="token keyword">limit</span>: <span class="token operator">-</span><span class="token number">1</span>
+      Processor Tree:
+        ListSink
+</code></pre></div><p>在第二条sql语句前加上 explain，得到如下结果</p> <div class="language-sql extra-class"><pre class="language-sql"><code>hive <span class="token punctuation">(</span><span class="token keyword">default</span><span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token keyword">explain</span> <span class="token keyword">select</span> a<span class="token punctuation">.</span>id<span class="token punctuation">,</span>b<span class="token punctuation">.</span>user_name <span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span>  test1 <span class="token keyword">where</span> id<span class="token operator">&gt;</span><span class="token number">2</span> <span class="token punctuation">)</span> a <span class="token keyword">join</span> test2 b <span class="token keyword">on</span> a<span class="token punctuation">.</span>id<span class="token operator">=</span>b<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+OK
+<span class="token keyword">Explain</span>
+STAGE DEPENDENCIES:
+  Stage<span class="token operator">-</span><span class="token number">4</span> <span class="token operator">is</span> a root stage
+  Stage<span class="token operator">-</span><span class="token number">3</span> depends <span class="token keyword">on</span> stages: Stage<span class="token operator">-</span><span class="token number">4</span>
+  Stage<span class="token operator">-</span><span class="token number">0</span> depends <span class="token keyword">on</span> stages: Stage<span class="token operator">-</span><span class="token number">3</span>
+
+STAGE PLANS:
+  Stage: Stage<span class="token operator">-</span><span class="token number">4</span>
+    Map Reduce <span class="token keyword">Local</span> <span class="token keyword">Work</span>
+      Alias <span class="token operator">-</span><span class="token operator">&gt;</span> Map <span class="token keyword">Local</span> <span class="token keyword">Tables</span>:
+        $hdt$_0:test1
+          <span class="token keyword">Fetch</span> Operator
+            <span class="token keyword">limit</span>: <span class="token operator">-</span><span class="token number">1</span>
+      Alias <span class="token operator">-</span><span class="token operator">&gt;</span> Map <span class="token keyword">Local</span> Operator Tree:
+        $hdt$_0:test1
+          TableScan
+            alias: test1
+            <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">6</span> <span class="token keyword">Data</span> size: <span class="token number">75</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+            Filter Operator
+              predicate: <span class="token punctuation">(</span>id <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">boolean</span><span class="token punctuation">)</span>
+              <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">25</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+              <span class="token keyword">Select</span> Operator
+                expressions: id <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+                outputColumnNames: _col0
+                <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">25</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                HashTable Sink Operator
+                  <span class="token keyword">keys</span>:
+                    <span class="token number">0</span> _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+                    <span class="token number">1</span> _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+
+  Stage: Stage<span class="token operator">-</span><span class="token number">3</span>
+    Map Reduce
+      Map Operator Tree:
+          TableScan
+            alias: b
+            <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">6</span> <span class="token keyword">Data</span> size: <span class="token number">75</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+            Filter Operator
+              predicate: <span class="token punctuation">(</span>id <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">boolean</span><span class="token punctuation">)</span>
+              <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">25</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+              <span class="token keyword">Select</span> Operator
+                expressions: id <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">,</span> user_name <span class="token punctuation">(</span><span class="token keyword">type</span>: string<span class="token punctuation">)</span>
+                outputColumnNames: _col0<span class="token punctuation">,</span> _col1
+                <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">25</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                Map <span class="token keyword">Join</span> Operator
+                  condition map:
+                       <span class="token keyword">Inner</span> <span class="token keyword">Join</span> <span class="token number">0</span> <span class="token keyword">to</span> <span class="token number">1</span>
+                  <span class="token keyword">keys</span>:
+                    <span class="token number">0</span> _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+                    <span class="token number">1</span> _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span>
+                  outputColumnNames: _col0<span class="token punctuation">,</span> _col2
+                  <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">27</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                  <span class="token keyword">Select</span> Operator
+                    expressions: _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">,</span> _col2 <span class="token punctuation">(</span><span class="token keyword">type</span>: string<span class="token punctuation">)</span>
+                    outputColumnNames: _col0<span class="token punctuation">,</span> _col1
+                    <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">27</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                    <span class="token keyword">File</span> Output Operator
+                      compressed: <span class="token boolean">false</span>
+                      <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">2</span> <span class="token keyword">Data</span> size: <span class="token number">27</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                      <span class="token keyword">table</span>:
+                          input format: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapred<span class="token punctuation">.</span>SequenceFileInputFormat
+                          output format: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>ql<span class="token punctuation">.</span>io<span class="token punctuation">.</span>HiveSequenceFileOutputFormat
+                          serde: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>serde2<span class="token punctuation">.</span>lazy<span class="token punctuation">.</span>LazySimpleSerDe
+      <span class="token keyword">Local</span> <span class="token keyword">Work</span>:
+        Map Reduce <span class="token keyword">Local</span> <span class="token keyword">Work</span>
+
+  Stage: Stage<span class="token operator">-</span><span class="token number">0</span>
+    <span class="token keyword">Fetch</span> Operator
+      <span class="token keyword">limit</span>: <span class="token operator">-</span><span class="token number">1</span>
+      Processor Tree:
+        ListSink
+</code></pre></div><p>大家有什么发现，除了表别名不一样，其他的执行计划完全一样，都是先进行 where 条件过滤，在进行 join 条件关联。<strong>说明 hive 底层会自动帮我们进行优化，所以这两条sql语句执行效率是一样的</strong>。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./bigdata/hive/Hive常用的函数总结.html" class="prev">
+        Hive常用的函数总结
+      </a></span> <span class="next"><a href="/./bigdata/hive/Hive性能调优  并行执行严格模式JVM重用推测执行.html">
+        Hive性能调优 | 并行执行/严格模式/JVM重用/推测执行
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.dc5b0715.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/29.1749fe14.js" defer></script>
+  </body>
+</html>

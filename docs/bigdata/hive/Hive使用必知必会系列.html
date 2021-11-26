@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hive使用必知必会系列 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.dc5b0715.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/22.abdec3c1.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/11.37b04a4d.js"><link rel="prefetch" href="./assets/js/12.cee383a4.js"><link rel="prefetch" href="./assets/js/13.d47b2b52.js"><link rel="prefetch" href="./assets/js/14.77b2b060.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.a7201fbc.js"><link rel="prefetch" href="./assets/js/17.79e79675.js"><link rel="prefetch" href="./assets/js/18.7639ae91.js"><link rel="prefetch" href="./assets/js/19.280df9d2.js"><link rel="prefetch" href="./assets/js/20.25a38eac.js"><link rel="prefetch" href="./assets/js/21.0aaf754a.js"><link rel="prefetch" href="./assets/js/23.454fb1a0.js"><link rel="prefetch" href="./assets/js/24.5118d094.js"><link rel="prefetch" href="./assets/js/25.b239a8e2.js"><link rel="prefetch" href="./assets/js/26.4af89c7f.js"><link rel="prefetch" href="./assets/js/27.b338361b.js"><link rel="prefetch" href="./assets/js/28.225e99c8.js"><link rel="prefetch" href="./assets/js/29.1749fe14.js"><link rel="prefetch" href="./assets/js/3.376b8cdf.js"><link rel="prefetch" href="./assets/js/30.422f2538.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.7f4a7aa0.js"><link rel="prefetch" href="./assets/js/33.e8f1b887.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.046ac0f0.js"><link rel="prefetch" href="./assets/js/36.f0d4cc9b.js"><link rel="prefetch" href="./assets/js/37.0a7a5f8f.js"><link rel="prefetch" href="./assets/js/38.d06cfcca.js"><link rel="prefetch" href="./assets/js/39.d164c990.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.6bc1f68d.js"><link rel="prefetch" href="./assets/js/41.e1d9e6f4.js"><link rel="prefetch" href="./assets/js/42.b9146544.js"><link rel="prefetch" href="./assets/js/43.3d89ef90.js"><link rel="prefetch" href="./assets/js/44.e75043b3.js"><link rel="prefetch" href="./assets/js/45.fa675a86.js"><link rel="prefetch" href="./assets/js/46.5e1bd863.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.7f50621f.js"><link rel="prefetch" href="./assets/js/49.1273014b.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.0ace36ad.js"><link rel="prefetch" href="./assets/js/51.955bc85d.js"><link rel="prefetch" href="./assets/js/52.e3bb73d6.js"><link rel="prefetch" href="./assets/js/53.70bca49a.js"><link rel="prefetch" href="./assets/js/54.4f6fe468.js"><link rel="prefetch" href="./assets/js/55.d0ae6f7c.js"><link rel="prefetch" href="./assets/js/56.5bfe7854.js"><link rel="prefetch" href="./assets/js/57.20ab4e15.js"><link rel="prefetch" href="./assets/js/58.cd6e845e.js"><link rel="prefetch" href="./assets/js/59.e31f564e.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.7e997bce.js"><link rel="prefetch" href="./assets/js/61.ae3effab.js"><link rel="prefetch" href="./assets/js/62.d40d2f3b.js"><link rel="prefetch" href="./assets/js/63.c7ab6850.js"><link rel="prefetch" href="./assets/js/64.c317433a.js"><link rel="prefetch" href="./assets/js/65.bee18659.js"><link rel="prefetch" href="./assets/js/66.9bc2ca3c.js"><link rel="prefetch" href="./assets/js/67.36393d6f.js"><link rel="prefetch" href="./assets/js/68.50d2a85d.js"><link rel="prefetch" href="./assets/js/69.bbac38d8.js"><link rel="prefetch" href="./assets/js/7.9979a04e.js"><link rel="prefetch" href="./assets/js/70.318eb4aa.js"><link rel="prefetch" href="./assets/js/71.54649836.js"><link rel="prefetch" href="./assets/js/72.3ebd3c24.js"><link rel="prefetch" href="./assets/js/73.24b6f12b.js"><link rel="prefetch" href="./assets/js/74.1dd537ea.js"><link rel="prefetch" href="./assets/js/75.59231e92.js"><link rel="prefetch" href="./assets/js/76.b8f3ef78.js"><link rel="prefetch" href="./assets/js/77.11821a18.js"><link rel="prefetch" href="./assets/js/78.f63e0308.js"><link rel="prefetch" href="./assets/js/79.1c7441a7.js"><link rel="prefetch" href="./assets/js/8.db54d2a5.js"><link rel="prefetch" href="./assets/js/80.0d3fa419.js"><link rel="prefetch" href="./assets/js/81.53362836.js"><link rel="prefetch" href="./assets/js/82.6a9be763.js"><link rel="prefetch" href="./assets/js/83.11a41a2c.js"><link rel="prefetch" href="./assets/js/84.2e76a3fb.js"><link rel="prefetch" href="./assets/js/85.c61a2184.js"><link rel="prefetch" href="./assets/js/86.7d905d1b.js"><link rel="prefetch" href="./assets/js/87.4c907051.js"><link rel="prefetch" href="./assets/js/88.82047d34.js"><link rel="prefetch" href="./assets/js/89.3457441e.js"><link rel="prefetch" href="./assets/js/9.c83a911f.js"><link rel="prefetch" href="./assets/js/90.cc103581.js"><link rel="prefetch" href="./assets/js/91.68961351.js"><link rel="prefetch" href="./assets/js/92.fbb8f838.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link router-link-active">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link router-link-active">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Hive</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./bigdata/hive/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./bigdata/hive/Flink1.10和Hive集成一些需要注意的点.html" class="sidebar-link">Flink1.10和Hive集成一些需要注意的点</a></li><li><a href="/./bigdata/hive/Hive  4万字性能调优面试总结.html" class="sidebar-link">Hive | 4万字性能调优面试总结</a></li><li><a href="/./bigdata/hive/Hive - ORC 文件存储格式详细解析.html" class="sidebar-link">Hive - ORC 文件存储格式详细解析</a></li><li><a href="/./bigdata/hive/Hive SQL三个经典优化案例.html" class="sidebar-link">Hive SQL三个经典优化案例</a></li><li><a href="/./bigdata/hive/Hive SQL内置函数大全.html" class="sidebar-link">Hive SQL内置函数大全</a></li><li><a href="/./bigdata/hive/Hive SQL底层执行过程详细剖析.html" class="sidebar-link">Hive SQL底层执行过程详细剖析</a></li><li><a href="/./bigdata/hive/Hive 中的四种排序详解.html" class="sidebar-link">Hive 中的四种排序详解</a></li><li><a href="/./bigdata/hive/Hive 分析函数进阶指南.html" class="sidebar-link">Hive 分析函数进阶指南</a></li><li><a href="/./bigdata/hive/Hive 复杂数据类型.html" class="sidebar-link">Hive 复杂数据类型</a></li><li><a href="/./bigdata/hive/Hive 调优（童星）.html" class="sidebar-link">Hive 调优</a></li><li><a href="/./bigdata/hive/Hive 高频考点讲解.html" class="sidebar-link">Hive 高频考点讲解</a></li><li><a href="/./bigdata/hive/HiveHadoop高频面试点小集合.html" class="sidebar-link">Hive/Hadoop高频面试点小集合</a></li><li><a href="/./bigdata/hive/Hive中的count(distinct)优化.html" class="sidebar-link">Hive中的count(distinct)优化</a></li><li><a href="/./bigdata/hive/Hive优化-大表join大表优化.html" class="sidebar-link">Hive优化-大表join大表优化</a></li><li><a href="/./bigdata/hive/Hive使用必知必会系列.html" class="active sidebar-link">Hive使用必知必会系列</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#hive使用必知必会系列" class="sidebar-link">Hive使用必知必会系列</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#一、hive的几种数据模型" class="sidebar-link">一、Hive的几种数据模型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#" class="sidebar-link"></a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#_1-内部表-管理表" class="sidebar-link">1. 内部表/管理表</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#_3-分区表" class="sidebar-link">3. 分区表</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#二、hive的复杂数据类型的使用" class="sidebar-link">二、Hive的复杂数据类型的使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#_1-array类型的使用" class="sidebar-link">1. array类型的使用</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#_2-struct-类型的使用" class="sidebar-link">2. struct类型的使用</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#_3-map-类型的使用" class="sidebar-link">3. map类型的使用</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#三、hive的常用函数" class="sidebar-link">三、Hive的常用函数</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#_1-hive常用函数列表" class="sidebar-link">1. hive常用函数列表</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#_2-常用的条件判断以及数据清洗函数" class="sidebar-link">2.常用的条件判断以及数据清洗函数</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#_3-hive高级函数" class="sidebar-link">3. hive高级函数</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive使用必知必会系列.html#三、hive常用的环境变量" class="sidebar-link">三、hive常用的环境变量</a></li></ul></li><li><a href="/./bigdata/hive/Hive全面讲解.html" class="sidebar-link">Hive全面讲解</a></li><li><a href="/./bigdata/hive/Hive和Hbase的各自适用场景.html" class="sidebar-link">Hive和Hbase的各自适用场景</a></li><li><a href="/./bigdata/hive/Hive小文件合并与数据压缩.html" class="sidebar-link">Hive小文件合并与数据压缩</a></li><li><a href="/./bigdata/hive/Hive小知识之分桶抽样.html" class="sidebar-link">Hive小知识之分桶抽样</a></li><li><a href="/./bigdata/hive/Hive常用参数调优十二式.html" class="sidebar-link">Hive常用参数调优十二式</a></li><li><a href="/./bigdata/hive/Hive常用的函数总结.html" class="sidebar-link">Hive常用的函数总结</a></li><li><a href="/./bigdata/hive/Hive底层原理：explain执行计划详解.html" class="sidebar-link">Hive底层原理：explain执行计划详解</a></li><li><a href="/./bigdata/hive/Hive性能调优  并行执行严格模式JVM重用推测执行.html" class="sidebar-link">Hive性能调优 | 并行执行/严格模式/JVM重用/推测执行</a></li><li><a href="/./bigdata/hive/Hive性能调优  数据倾斜.html" class="sidebar-link">Hive性能调优 | 数据倾斜</a></li><li><a href="/./bigdata/hive/Hive技术原理.html" class="sidebar-link">Hive技术原理</a></li><li><a href="/./bigdata/hive/Hive窗口函数总结与实践.html" class="sidebar-link">Hive窗口函数总结与实践</a></li><li><a href="/./bigdata/hive/Hive计算绝对值同环比.html" class="sidebar-link">Hive计算绝对值同环比</a></li><li><a href="/./bigdata/hive/Hive调优全方位指南.html" class="sidebar-link">Hive调优全方位指南</a></li><li><a href="/./bigdata/hive/Impala一文详解及与Hive简单对比.html" class="sidebar-link">Impala一文详解及与Hive简单对比</a></li><li><a href="/./bigdata/hive/一文搞定Hive函数.html" class="sidebar-link">一文搞定Hive函数</a></li><li><a href="/./bigdata/hive/一篇文章了解Hive调优.html" class="sidebar-link">一篇文章了解Hive调优</a></li><li><a href="/./bigdata/hive/基于Hadoop的数据仓库Hive基础知识.html" class="sidebar-link">基于Hadoop的数据仓库Hive基础知识</a></li><li><a href="/./bigdata/hive/快手数仓Hive MetaStore挑战与优化.html" class="sidebar-link">快手数仓Hive MetaStore挑战与优化</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="hive使用必知必会系列"><a href="#hive使用必知必会系列" class="header-anchor">#</a> Hive使用必知必会系列</h2> <h2 id="一、hive的几种数据模型"><a href="#一、hive的几种数据模型" class="header-anchor">#</a> <strong>一、Hive的几种数据模型</strong></h2> <ul><li><strong>内部表</strong> (Table 将数据保存到Hive 自己的数据仓库目录中：/usr/hive/warehouse)</li> <li><strong>外部表</strong> (External Table 相对于内部表，数据不在自己的数据仓库中，只保存数据的元信息)</li> <li><strong>分区表</strong> (Partition Table将数据按照设定的条件分开存储，提高查询效率，分区-----&gt;  目录)</li> <li><strong>桶表</strong> (Bucket Table本质上也是一种分区表，类似 hash 分区  桶 ----&gt; 文件)</li> <li><strong>视图表</strong> (视图表是一个虚表，不存储数据，用来简化复杂的查询)</li></ul> <div class="language- extra-class"><pre class="language-text"><code>注意:内部表删除表后数据也会删除，外部表数据删除后不会从hdfs中删除
+</code></pre></div><h3 id=""><a href="#" class="header-anchor">#</a> ** **</h3> <h3 id="_1-内部表-管理表"><a href="#_1-内部表-管理表" class="header-anchor">#</a> <strong>1. 内部表/管理表</strong></h3> <p>**
+**</p> <ul><li>每一个Table在Hive中都有一个相应的目录存储数据</li> <li>所有的Table数据都存储在该目录</li></ul> <div class="language- extra-class"><pre class="language-text"><code># 创建表
+create table if not exists aiops.appinfo (
+    appname string,
+    level string,
+    leader string,
+    appline string,
+    dep string,
+    ips  array&lt;string&gt;)
+    ROW FORMAT DELIMITED
+    FIELDS TERMINATED BY ' '
+    COLLECTION ITEMS TERMINATED BY ',';
+
+# 自定义文件和记录格式
+## 使用create table创建表，最后使用stored as sequencefile保存成sequence格式[默认是text格式]
+
+# 数据库授权
+hive&gt; grant create on database dbname to user hadoop;
+
+# 导入数据(本地导入和hdfs导入)
+hive&gt; load data inpath  'hdfs://hdfs-name/sure.csv' overwrite into table aiops.appinfo;
+load data local inpath '/home/hdfs/online_state1' overwrite into table online_state PARTITION (end_dt='99991231');
+
+# 查看表结构
+hive&gt; describe extended bgops;
+hive&gt; describe bgops;
+
+# 修改列名
+## 这个命令可以修改表的列名，数据类型，列注释和列所在的位置顺序，FIRST将列放在第一列，AFTER col_name将列放在col_name后面一列
+hive&gt; ALTER TABLE aiops.appinfo CHANGE hostnum ipnum int comment 'some 注释' AFTER col3;
+
+# 修改表结构
+ALTER TABLE aiops.appinfo replace columns (appname string,level string,leader string,appline string,dep string,ips array&lt;string&gt;);
+ALTER TABLE appinfo replace columns (appname string,appline string,level string,leader string,dep string,idcnum int,idcs array&lt;string&gt;,hostnum int,ips array&lt;string&gt;);
+## 增加表的列字段(默认增加到最后一列，可以使用change column 来调整位置)
+hive&gt; alter table appinfo add columns (appclass string comment 'app_perf_class');
+
+# 导出表查询结果(会将结果导出到testoutput目录下)
+hive&gt; insert overwrite local directory './testoutput'
+    &gt; row format delimited fields terminated by &quot;\t&quot;
+    &gt; select ip,appname,leader from appinfo  LATERAL VIEW explode(ips) tmpappinfo  AS ip;
+</code></pre></div><p><strong>外部表的使用场景</strong></p> <ul><li>原始日志文件或同时被多个部门同时操作的数据集，需要使用外部表</li> <li>如果不小心将meta data删除了，HDFS上的数据还在，可以恢复，增加了数据的安全性</li></ul> <div class="language- extra-class"><pre class="language-text"><code>注意:使用insert插入数据时会产生临时表，重新连接后会表会小时，因此大批量插入数据时不建议用insert`
+`tips1:在hdfs的hive路径下以.db结尾的其实都是实际的数据库`
+`tips2:默认的default数据库就在hive的家目录
+</code></pre></div><p>``</p> <h3 id="_3-分区表"><a href="#_3-分区表" class="header-anchor">#</a> 3. 分区表</h3> <div class="language- extra-class"><pre class="language-text"><code>注意:分区表通常分为静态分区表和动态分区表，前者需要导入数据时静态指定分区，后者可以直接根据导入数据进行分区。分区的好处是可以让数据按照区域进行分类，避免了查询时的全表扫描。
+# 创建外部分区表，指定静态分区为dt
+CREATE EXTERNAL TABLE if not exists aiops.tmpOnline(ip string,
+status string,
+....
+)
+PARTITIONED BY (
+  dt string);
+
+# 导入数据到静态分区表中(需要注意的是数据中没有dt字段)
+load data local inpath '/home/hdfs/tmpOnline' overwrite into table aiops.tmpOnline PARTITION (dt='99991231');
+
+# 动态分区表的使用(动态分区和静态分区表的创建时没有区别的)
+# 注意:hive默认没有开启动态分区，需要进行参数修改
+# 使用动态分区的记录中，必须在指定位置包含动态分区的字段才能被动态分区表识别
+hive&gt;set hive.exec.dynamic.partition.mode=nonstrict;
+hive&gt;
+insert
+  overwrite
+table aiops.tmpOnline
+partition(dt)
+select
+ip,appname,....,from_unixtime(unix_timestamp(),'yyyyMMdd') as dt from table;
+  
+# 手动添加分区
+alter table tablename add partition (dt='20181009');
+# 删除分区，数据也会删除(所以一般会使用外部分区表？)
+## 注意:如果数据有变动，是无法将数据load到同一个时间分区的记录的
+alter table tablename drop partition (dt='20181009');
+# 查询分区表没有加分区过滤，会禁止提交这个任务(strict方式每次查询必须制定分区)
+set hive.mapred.mode = strict|nostrict;
+注意:在外部分区表中，如果将表删除了，重建表后只需要将分区加载进来即可恢复历史相关分区的数据。
+</code></pre></div><p><strong>多重分区的使用</strong></p> <div class="language- extra-class"><pre class="language-text"><code># 创建多重分区表
+create table log_m (
+    id  int,
+    name string,
+    age int
+)
+partitioned by (year string,month string,day string)
+row format delimited
+fields terminated by '|'
+collection items terminated by ','
+map keys terminated by ':'
+lines terminated by '\n';
+
+# 插入数据
+insert into table log_m partition  (year='2018',month='10',day='10') values(1,'biaoge',24);
+insert into table log_m partition  (year='2018',month='10',day='09') values(2,'bgbiao',25);
+hive&gt; show partitions log_m;
+OK
+year=2018/month=10/day=09
+year=2018/month=10/day=10
+Time taken: 0.055 seconds, Fetched: 2 row(s)
+hive&gt;
+
+# 多重动态分区
+# 好像动态分区表不能直接load data
+hive&gt; insert into table log_m partition(year,month,day) values(3,'xuxuebiao',28,'2016','09','10');
+hive&gt; show partitions log_m;
+OK
+year=2016/month=09/day=10
+year=2018/month=10/day=09
+year=2018/month=10/day=10
+
+# 查询分区数据
+hive&gt; select * from log_m where year = '2018';
+OK
+2 bgbiao  25  2018  10  09
+1 biaoge  24  2018  10  10
+2 bgbiao  25  2018  10  10
+</code></pre></div><h2 id="二、hive的复杂数据类型的使用"><a href="#二、hive的复杂数据类型的使用" class="header-anchor">#</a> <strong>二、Hive的复杂数据类型的使用</strong></h2> <p>**
+**</p> <div class="language- extra-class"><pre class="language-text"><code>注意:Hive之所以能在大数据领域比较受欢迎，很大一部分原因在于相比其他SQL类存储系统支持更加复杂的数据类型
+</code></pre></div><ul><li><strong>map</strong>: (key1, value1, key2, value2, ...) 一些列的k/v对 map&lt;int,string...&gt;</li> <li><strong>struct</strong>: (var1,var2,var3...) 不同类型的值的组合 struct<a href="abc:string,def:int...">abc:string,def:int...</a></li> <li><strong>array</strong>: (var1,var2,var3...) 一种类型的值的组合 array&lt;string...&gt;</li> <li><strong>uniontype</strong>: (string,map&lt;&gt;,struct&lt;&gt;,array&lt;&gt;)</li></ul> <p><code>注意:在创建hive表时可根据需要导入的数据进行类型识别并创建适合的数据类型</code>
+hive数据类型数据识别标识:</p> <table><thead><tr><th style="text-align:left;">字段分割标识</th> <th style="text-align:left;">含义</th></tr></thead> <tbody><tr><td style="text-align:left;">FIELDS TERMINATED BY</td> <td style="text-align:left;">表示字段与字段之间的分隔符</td></tr> <tr><td style="text-align:left;">COLLECTION ITEMS TERMINATED BY</td> <td style="text-align:left;">表示一个字段中各个item之间的分隔符[可用于array和struct类型]</td></tr> <tr><td style="text-align:left;">MAP KEYS TERMINATED BY</td> <td style="text-align:left;">表示map类型中的key/value的分隔符[可用于map类型]</td></tr></tbody></table> <div class="language- extra-class"><pre class="language-text"><code># 创建表
+create table union_testnew(
+  foo uniontype&lt;int, double, string, array&lt;string&gt;, map&lt;string, string&gt;&gt;
+)
+row format delimited
+collection items terminated by ','
+map keys terminated by ':'
+lines terminated by '\n'
+stored as textfile;
+
+# 数据准备
+[root@master wadeyu]# vim union_test.log
+  1 0,1
+  2 1,3.0
+  3 2,world
+  4 3,wade:tom:polly
+  5 4,k1^Dv1:k2^Dv2
+
+# 导入数据
+hive (badou)&gt; load data local inpath './union_test.log' overwrite into table union_testnew;
+
+# 查询数据
+hive (badou)&gt; select * from union_testnew;
+OK
+union_testnew.foo
+{0:1}
+{1:3.0}
+{2:&quot;world&quot;}
+{3:[&quot;wade&quot;,&quot;tom&quot;,&quot;polly&quot;]}
+{4:{&quot;k1&quot;:&quot;v1&quot;,&quot;k2&quot;:&quot;v2&quot;}}
+Time taken: 0.225 seconds, Fetched: 5 row(s)
+</code></pre></div><h3 id="_1-array类型的使用"><a href="#_1-array类型的使用" class="header-anchor">#</a> 1. array类型的使用</h3> <h4 id="_1-1-array类型的基本使用"><a href="#_1-1-array类型的基本使用" class="header-anchor">#</a> 1.1 array类型的基本使用</h4> <p><code>类型结构:</code> array<struct> 例如:array<string>,array<int><code>数据表示:</code> 例如:[string1,string2],[int1,int2]</int></string></struct></p> <div class="language- extra-class"><pre class="language-text"><code># 原始文件
+bmpjob P2 bgops 服务研发组 10.0.0.212,10.0.0.225,10.0.0.243,10.0.55.31
+
+# 创建数据库
+hive&gt; create table appinfo
+    &gt; (
+    &gt; appname string,
+    &gt; level string,
+    &gt; leader string,
+    &gt; dep string,
+    &gt; ips  array&lt;string&gt;)
+    &gt; ROW FORMAT DELIMITED
+    &gt; FIELDS TERMINATED BY ' '
+    &gt; COLLECTION ITEMS TERMINATED BY ',';
+
+# 加载数据到hive
+hive&gt; load data inpath 'hdfs://hdfs-name/aiops/wander/appinfo.txt' overwrite into table appinfo;
+Loading data to table test.appinfo
+Table test.appinfo stats: [numFiles=1, numRows=0, totalSize=32568, rawDataSize=0]
+OK
+
+# 查询相关数据
+hive&gt; select * from appinfo limit 1;
+OK
+bmpjob P2 bgops 服务研发组 [&quot;10.0.0.212&quot;,&quot;10.0.0.225&quot;,&quot;10.0.0.243&quot;,&quot;10.0.55.31&quot;]
+
+hive&gt; select appname,leader,ips[0] from appinfo limit 1;
+OK
+bmpjob bgops 10.0.0.212
+</code></pre></div><h4 id="_1-2-array类型数据转换处理"><a href="#_1-2-array类型数据转换处理" class="header-anchor">#</a> <strong>1.2 array<struct>类型数据转换处理</struct></strong></h4> <blockquote><p>背景:
+使用array结构时，一个字段中通常会有多个值，这个时候通常情况下是需要对某个值进行过滤的，一般情况下会使用<code>lateral view结合UDTF(User-Defined Table-Generating Functions)进行过滤</code>。而UDTF为了解决一行输出多行的需求，典型的就是explode()函数。</p></blockquote> <p><strong>lateral view语法结构</strong></p> <div class="language- extra-class"><pre class="language-text"><code>lateralView: LATERAL VIEW udtf(expression) tableAlias AS columnAlias (',' columnAlias)
+</code></pre></div><p><strong>array<struct>转字符串</struct></strong></p> <div class="language- extra-class"><pre class="language-text"><code># 借用split函数将array&lt;string&gt;结构内容转换为以&quot;,&quot;分割的字符串
+select split(array&lt;string&gt;,',') from tablename
+</code></pre></div><p><strong>hive使用explode()函数进行</strong>**<code>行转列</code>**
+<code>语法:lateral view explode(col3) col3 as name</code></p> <ul><li>explode(ARRAY): 列表中的每个元素生成一行</li> <li>explode(MAP): map中每个key-value对，生成一行，key为一列，value为一列</li></ul> <div class="language- extra-class"><pre class="language-text"><code>hive&gt; select ip,appname from appinfo LATERAL VIEW explode(ips) tmpappinfo  AS ip limit 2;
+10.0.0.212 bmpjob
+10.0.0.225 bmpjob
+</code></pre></div><p><strong>hive使用concat_ws()函数进行<code>列转行</code></strong></p> <div class="language- extra-class"><pre class="language-text"><code># 借用concat_ws()和collect_set()函数进行相同列的重复数据转换
+# collect_set()函数可以将相关列合并成array&lt;&gt;类型；concat_ws()函数会将array&lt;&gt;类型根据指定的分隔符进行合并
+## 示例数据
+hive&gt; select * from tmp_jiangzl_test;
+tmp_jiangzl_test.col1   tmp_jiangzl_test.col2   tmp_jiangzl_test.col3
+a       b       1
+a       b       2
+a       b       3
+c       d       4
+c       d       5
+c       d       6
+## 对于以上数据，我们可以将col3列根据列col1和col2进行合并
+hive&gt; select col1,col2,concat_ws(',',collect_set(col3)) from tmp_jiangzl_test group by col1,col2;
+col1    col2    _c2
+a       b       1,2,3
+c       d       4,5,6
+</code></pre></div><h3 id="_2-struct-类型的使用"><a href="#_2-struct-类型的使用" class="header-anchor">#</a> 2. struct&lt;&gt;类型的使用</h3> <p><code>数据定义:</code> struct&lt;name:STRING, age:INT&gt;
+<code>数据表示:</code> biaoge:18</p> <p>示例:</p> <div class="language- extra-class"><pre class="language-text"><code># 元数据格式
+1,zhou:30
+2,yan:30
+3,chen:20
+# 相关数据库结构
+hive&gt; create table test-struct(id INT, info struct&lt;name:STRING, age:INT&gt;)
+    &gt; ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    &gt; COLLECTION ITEMS TERMINATED BY ':';
+# 加载数据
+hive&gt; LOAD DATA LOCAL INPATH '/home/work/data/test5.txt' INTO TABLE test-struct;
+# 查询相关数据
+hive&gt; select info.age from test-struct;
+Total MapReduce jobs = 1
+......
+Total MapReduce CPU Time Spent: 490 msec
+OK
+30
+30
+</code></pre></div><h3 id="_3-map-类型的使用"><a href="#_3-map-类型的使用" class="header-anchor">#</a> 3. map&lt;&gt;类型的使用</h3> <p><code>数据定义:</code> map&lt;string,int&gt;
+<code>数据表示:</code> key:value,key:value...
+示例：</p> <div class="language- extra-class"><pre class="language-text"><code># 原始数据格式
+1       job:80,team:60,person:70
+2       job:60,team:80
+3       job:90,team:70,person:100
+
+# map结构的表结构创建
+hive&gt; create table employee(id string, perf map&lt;string, int&gt;)
+    &gt; ROW FORMAT DELIMITED
+    &gt; FIELDS TERMINATED BY '\t'
+    &gt; COLLECTION ITEMS TERMINATED BY ','
+    &gt; MAP KEYS TERMINATED BY ':';
+
+# 数据导入
+hive&gt;  LOAD DATA LOCAL INPATH '/home/work/data/test7.txt' INTO TABLE employee;
+
+# 数据查询
+hive&gt; select perf['person'] from employee;
+Total MapReduce jobs = 1
+......
+Total MapReduce CPU Time Spent: 460 msec
+OK
+70
+NULL
+
+# 使用explode()函数查询
+hive&gt; select explode(perf) as (p_name,p_score) from employee limit 4;
+OK
+job 80
+team 60
+person 70
+
+# 使用explode()和lateral view结合查询
+hive&gt; select id,p_name,p_score from employee lateral view explode(perf) perf as p_name,p_score limit 3;
+OK
+1 job 80
+1 team 60
+1 person 70
+
+# 使用size()函数查看map结构中的键值对个数[也可查看array中的元素个数]
+hive&gt; select size(perf) from employee
+3
+2
+3
+</code></pre></div><h2 id="三、hive的常用函数"><a href="#三、hive的常用函数" class="header-anchor">#</a> 三、Hive的常用函数</h2> <div class="language- extra-class"><pre class="language-text"><code>注意:使用show functions可以查看hive支持的相关函数
+</code></pre></div><h3 id="_1-hive常用函数列表"><a href="#_1-hive常用函数列表" class="header-anchor">#</a> 1. hive常用函数列表</h3> <p><strong>标准函数使用:</strong></p> <table><thead><tr><th style="text-align:left;">函数名</th> <th style="text-align:left;">作用描述</th></tr></thead> <tbody><tr><td style="text-align:left;">round()/floor()</td> <td style="text-align:left;">可以将double类型转换为bigint类型</td></tr> <tr><td style="text-align:left;">abs()</td> <td style="text-align:left;">返回数值的绝对值</td></tr> <tr><td style="text-align:left;">ucase()</td> <td style="text-align:left;">将字符串转换成全是大写字母</td></tr> <tr><td style="text-align:left;">reverse()</td> <td style="text-align:left;">将字符串进行翻转</td></tr> <tr><td style="text-align:left;">concat()</td> <td style="text-align:left;">将输入的多个字符串当做一个字符串输出concat('<img src="https://mmbiz.qpic.cn/mmbiz_svg/I1YzhXxW8YC0zJIYJ3ibAGXSTIjKchicib82NNulxl8nmlUsqQzTxSwTct0Gn93PBZsD0ibcrasuUv1tdOF8iaE92vOy8l9SGyfzX/640?wx_fmt=other&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">171</td></tr></tbody></table> <p><strong>聚合函数使用:</strong></p> <table><thead><tr><th style="text-align:left;">函数名</th> <th style="text-align:left;">作用描述</th></tr></thead> <tbody><tr><td style="text-align:left;">sum()</td> <td style="text-align:left;">返回所有输入求和后的值</td></tr> <tr><td style="text-align:left;">avg()</td> <td style="text-align:left;">计算所有输入值的平均值</td></tr> <tr><td style="text-align:left;">min()/max()</td> <td style="text-align:left;">计算输入值的最大和最小值</td></tr></tbody></table> <div class="language- extra-class"><pre class="language-text"><code>注意:聚合方法通常需要和group by语句组合使用
+</code></pre></div><p><strong>表生成函数:</strong>
+表生成函数接收零个或者多个输入，然后产生多列或多行输出.</p> <table><thead><tr><th style="text-align:left;">函数名</th> <th style="text-align:left;">作用描述</th></tr></thead> <tbody><tr><td style="text-align:left;">array()</td> <td style="text-align:left;">将函数内容转换成一个array&lt;&gt;类型</td></tr> <tr><td style="text-align:left;">split(array,split)</td> <td style="text-align:left;">将array&lt;&gt;类型按照split分割符进行分割成字符串(转义时使用\进行转义)</td></tr> <tr><td style="text-align:left;">explode()</td> <td style="text-align:left;">array数据类型作为输入，对数组中数据进行迭代，返回多行结果</td></tr> <tr><td style="text-align:left;">collect_set()</td> <td style="text-align:left;">将某字段的值进行去重汇总，产生Array类型字段</td></tr> <tr><td style="text-align:left;">collect_list()</td> <td style="text-align:left;">同collect_set()，但是不会对字段进行去重</td></tr> <tr><td style="text-align:left;">concat_ws(split,struct)</td> <td style="text-align:left;">将struct类型的字段按照split进行分割成字符串(struct仅支持string和array&lt;&gt;类型)</td></tr> <tr><td style="text-align:left;">cast(column as type)</td> <td style="text-align:left;">转换数据类型(column列转换为type类型)</td></tr></tbody></table> <div class="language- extra-class"><pre class="language-text"><code>注意:当split被包含在&quot;&quot;之中的时候需要使用四个\进行转义[比如在hive -e &quot;&quot;中执行split函数]
+## array()函数可以将一列输入转换成一个数组输出
+hive&gt; select array(1,2,3) from xuxuebiao;
+OK
+[1,2,3]
+[1,2,3]
+
+## explode()函数以array数据类型作为输入，对数组中数据进行迭代，返回多行结果
+hive&gt; select explode(array(1,2,3)) from xuxuebiao;
+OK
+1
+2
+3
+## 使用explode()函数查看array中的某个元素
+hive&gt; select * from appinfo LATERAL VIEW explode(ips) tmpappinfo  AS realid         where realid ='10.0.0.125' ;
+
+## collect_set函数
+### 该函数的作用是将某字段的值进行去重汇总，产生Array类型字段
+hive&gt; select * from test;
+OK
+1       A
+1       C
+1       B
+hive&gt;  select id,collect_set(name) from test group by id;
+OK
+1       [&quot;A&quot;,&quot;C&quot;,&quot;B&quot;]
+</code></pre></div><h3 id="_2-常用的条件判断以及数据清洗函数"><a href="#_2-常用的条件判断以及数据清洗函数" class="header-anchor">#</a> 2.常用的条件判断以及数据清洗函数</h3> <p>在使用hive处理数据过程中，通常我们需要对相关数据进行清洗转换，此时我们可能会使用一些条件判断以及默认值处理函数。</p> <table><thead><tr><th style="text-align:left;">函数名</th> <th style="text-align:left;">作用描述</th></tr></thead> <tbody><tr><td style="text-align:left;">IF( Test Condition, True Value, False Value )</td> <td style="text-align:left;">判断条件，满足即为True值，不满足即为False值</td></tr> <tr><td style="text-align:left;">CASE Statement</td> <td style="text-align:left;">多条件判断</td></tr> <tr><td style="text-align:left;">parse_url()</td> <td style="text-align:left;">通常用于清洗url相关函数，提供了常用的url解析功能</td></tr> <tr><td style="text-align:left;">parse_url_tuple()</td> <td style="text-align:left;">同上</td></tr> <tr><td style="text-align:left;">regexp_replace()</td> <td style="text-align:left;">正则表达式替换</td></tr> <tr><td style="text-align:left;">regexp_extract()</td> <td style="text-align:left;">正则表达式解析</td></tr> <tr><td style="text-align:left;">COALESCE(column,'')</td> <td style="text-align:left;">hive中的空值转换(hive中的空值为NULL，而存储到hdfs中会以\N来存储)</td></tr></tbody></table> <p>示例:</p> <div class="language- extra-class"><pre class="language-text"><code># if条件判断常用于不同规格数据的清洗操作
+hive&gt; select ip,if(assign != '分配状态未知',0,assign) as fenpei  from asset ;
+OK
+10.0.0.1 分配状态未知
+
+# case多条件判断
+hive&gt; select ip,
+    case
+        when assign = '已分配' then 1
+        when assign = '未分配' then 2
+        else 0
+    end
+    as fenpei
+from asset
+
+hive (ods)&gt; select name,salary,
+          &gt; case when salary &lt; 800 then 'low'
+          &gt; when salary &gt;= 800 and salary &lt;=5000 then 'middle'
+          &gt; when salary &gt;5000 and salary &lt;10000 then 'high'
+          &gt; else 'very high'
+          &gt; end as bracket
+          &gt; from emp1;
+
+
+# parser_url()函数
+hive&gt; select parse_url('https://www.baidu.com/s?cl=3&amp;tn=baidutop10&amp;fr=top1000&amp;wd=%E8%BF%AA%E5%A3%AB%E5%B0%BC%E6%94%B6%E8%B4%AD%E7%A6%8F%E5%85%8B%E6%96%AF&amp;rsv_idx=2','HOST') ;
+www.baidu.com
+
+# 正则表达式
+hive&gt; select regexp_replace('foobar', 'oo|ar', '');
+select regexp_replace('foobar', 'oo|ar', '-');
+## 输出第一个回溯引用(.*?)匹配到的内容即the
+select regexp_extract('foothebar', 'foo(.*?)(bar)', 1);
+## 输出第而个回溯引用(bar)匹配到的内容即bar
+select regexp_extract('foothebar', 'foo(.*?)(bar)', 2);
+## 输出全部内容
+select regexp_extract('foothebar', 'foo(.*?)(bar)', 0);
+
+
+# 清洗组合
+select if(4&gt;5,5000,1000),coalesce(null,1,3,5),coalesce(null,null,null,null), case 3 when 1 then 'lala' when 2 then 'chye' else 'abc' end;
+</code></pre></div><h3 id="_3-hive高级函数"><a href="#_3-hive高级函数" class="header-anchor">#</a> 3. hive高级函数</h3> <div class="language- extra-class"><pre class="language-text"><code>row_number() over()
+</code></pre></div><h2 id="三、hive常用的环境变量"><a href="#三、hive常用的环境变量" class="header-anchor">#</a> 三、hive常用的环境变量</h2> <table><thead><tr><th style="text-align:left;">环境变量</th> <th style="text-align:left;">含义</th></tr></thead> <tbody><tr><td style="text-align:left;">set hive.cli.print.header=true</td> <td style="text-align:left;">设置查询时显示表头</td></tr> <tr><td style="text-align:left;">set hive.exec.dynamic.partition=true</td> <td style="text-align:left;">开启动态分区</td></tr> <tr><td style="text-align:left;">set hive.exec.dynamic.partition.mode=nonstrict</td> <td style="text-align:left;">设置动态分区模式为非严格</td></tr> <tr><td style="text-align:left;">set hive.exec.max.dynamic.partitions.pernode = 1000</td> <td style="text-align:left;">设置每个执行MR的节点上最大分区数</td></tr> <tr><td style="text-align:left;">set hive.exec.max.dynamic.partitions=1000</td> <td style="text-align:left;">设置所有MR节点上最大总分区数</td></tr> <tr><td style="text-align:left;">SET SERDEPROPERTIES('serialization.null.format' = '\N')</td> <td style="text-align:left;">设置hive空值存储方式为'\N'(此时存储在HDFS中时'\N',查询显示为NULL)</td></tr></tbody></table> <p>​</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./bigdata/hive/Hive优化-大表join大表优化.html" class="prev">
+        Hive优化-大表join大表优化
+      </a></span> <span class="next"><a href="/./bigdata/hive/Hive全面讲解.html">
+        Hive全面讲解
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.dc5b0715.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/22.abdec3c1.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hive优化-大表join大表优化 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.dc5b0715.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/21.0aaf754a.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/11.37b04a4d.js"><link rel="prefetch" href="./assets/js/12.cee383a4.js"><link rel="prefetch" href="./assets/js/13.d47b2b52.js"><link rel="prefetch" href="./assets/js/14.77b2b060.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.a7201fbc.js"><link rel="prefetch" href="./assets/js/17.79e79675.js"><link rel="prefetch" href="./assets/js/18.7639ae91.js"><link rel="prefetch" href="./assets/js/19.280df9d2.js"><link rel="prefetch" href="./assets/js/20.25a38eac.js"><link rel="prefetch" href="./assets/js/22.abdec3c1.js"><link rel="prefetch" href="./assets/js/23.454fb1a0.js"><link rel="prefetch" href="./assets/js/24.5118d094.js"><link rel="prefetch" href="./assets/js/25.b239a8e2.js"><link rel="prefetch" href="./assets/js/26.4af89c7f.js"><link rel="prefetch" href="./assets/js/27.b338361b.js"><link rel="prefetch" href="./assets/js/28.225e99c8.js"><link rel="prefetch" href="./assets/js/29.1749fe14.js"><link rel="prefetch" href="./assets/js/3.376b8cdf.js"><link rel="prefetch" href="./assets/js/30.422f2538.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.7f4a7aa0.js"><link rel="prefetch" href="./assets/js/33.e8f1b887.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.046ac0f0.js"><link rel="prefetch" href="./assets/js/36.f0d4cc9b.js"><link rel="prefetch" href="./assets/js/37.0a7a5f8f.js"><link rel="prefetch" href="./assets/js/38.d06cfcca.js"><link rel="prefetch" href="./assets/js/39.d164c990.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.6bc1f68d.js"><link rel="prefetch" href="./assets/js/41.e1d9e6f4.js"><link rel="prefetch" href="./assets/js/42.b9146544.js"><link rel="prefetch" href="./assets/js/43.3d89ef90.js"><link rel="prefetch" href="./assets/js/44.e75043b3.js"><link rel="prefetch" href="./assets/js/45.fa675a86.js"><link rel="prefetch" href="./assets/js/46.5e1bd863.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.7f50621f.js"><link rel="prefetch" href="./assets/js/49.1273014b.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.0ace36ad.js"><link rel="prefetch" href="./assets/js/51.955bc85d.js"><link rel="prefetch" href="./assets/js/52.e3bb73d6.js"><link rel="prefetch" href="./assets/js/53.70bca49a.js"><link rel="prefetch" href="./assets/js/54.4f6fe468.js"><link rel="prefetch" href="./assets/js/55.d0ae6f7c.js"><link rel="prefetch" href="./assets/js/56.5bfe7854.js"><link rel="prefetch" href="./assets/js/57.20ab4e15.js"><link rel="prefetch" href="./assets/js/58.cd6e845e.js"><link rel="prefetch" href="./assets/js/59.e31f564e.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.7e997bce.js"><link rel="prefetch" href="./assets/js/61.ae3effab.js"><link rel="prefetch" href="./assets/js/62.d40d2f3b.js"><link rel="prefetch" href="./assets/js/63.c7ab6850.js"><link rel="prefetch" href="./assets/js/64.c317433a.js"><link rel="prefetch" href="./assets/js/65.bee18659.js"><link rel="prefetch" href="./assets/js/66.9bc2ca3c.js"><link rel="prefetch" href="./assets/js/67.36393d6f.js"><link rel="prefetch" href="./assets/js/68.50d2a85d.js"><link rel="prefetch" href="./assets/js/69.bbac38d8.js"><link rel="prefetch" href="./assets/js/7.9979a04e.js"><link rel="prefetch" href="./assets/js/70.318eb4aa.js"><link rel="prefetch" href="./assets/js/71.54649836.js"><link rel="prefetch" href="./assets/js/72.3ebd3c24.js"><link rel="prefetch" href="./assets/js/73.24b6f12b.js"><link rel="prefetch" href="./assets/js/74.1dd537ea.js"><link rel="prefetch" href="./assets/js/75.59231e92.js"><link rel="prefetch" href="./assets/js/76.b8f3ef78.js"><link rel="prefetch" href="./assets/js/77.11821a18.js"><link rel="prefetch" href="./assets/js/78.f63e0308.js"><link rel="prefetch" href="./assets/js/79.1c7441a7.js"><link rel="prefetch" href="./assets/js/8.db54d2a5.js"><link rel="prefetch" href="./assets/js/80.0d3fa419.js"><link rel="prefetch" href="./assets/js/81.53362836.js"><link rel="prefetch" href="./assets/js/82.6a9be763.js"><link rel="prefetch" href="./assets/js/83.11a41a2c.js"><link rel="prefetch" href="./assets/js/84.2e76a3fb.js"><link rel="prefetch" href="./assets/js/85.c61a2184.js"><link rel="prefetch" href="./assets/js/86.7d905d1b.js"><link rel="prefetch" href="./assets/js/87.4c907051.js"><link rel="prefetch" href="./assets/js/88.82047d34.js"><link rel="prefetch" href="./assets/js/89.3457441e.js"><link rel="prefetch" href="./assets/js/9.c83a911f.js"><link rel="prefetch" href="./assets/js/90.cc103581.js"><link rel="prefetch" href="./assets/js/91.68961351.js"><link rel="prefetch" href="./assets/js/92.fbb8f838.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link router-link-active">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link router-link-active">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div><div class="nav-item"><a href="https://www.memorydrive.online" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Hive</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./bigdata/hive/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./bigdata/hive/Flink1.10和Hive集成一些需要注意的点.html" class="sidebar-link">Flink1.10和Hive集成一些需要注意的点</a></li><li><a href="/./bigdata/hive/Hive  4万字性能调优面试总结.html" class="sidebar-link">Hive | 4万字性能调优面试总结</a></li><li><a href="/./bigdata/hive/Hive - ORC 文件存储格式详细解析.html" class="sidebar-link">Hive - ORC 文件存储格式详细解析</a></li><li><a href="/./bigdata/hive/Hive SQL三个经典优化案例.html" class="sidebar-link">Hive SQL三个经典优化案例</a></li><li><a href="/./bigdata/hive/Hive SQL内置函数大全.html" class="sidebar-link">Hive SQL内置函数大全</a></li><li><a href="/./bigdata/hive/Hive SQL底层执行过程详细剖析.html" class="sidebar-link">Hive SQL底层执行过程详细剖析</a></li><li><a href="/./bigdata/hive/Hive 中的四种排序详解.html" class="sidebar-link">Hive 中的四种排序详解</a></li><li><a href="/./bigdata/hive/Hive 分析函数进阶指南.html" class="sidebar-link">Hive 分析函数进阶指南</a></li><li><a href="/./bigdata/hive/Hive 复杂数据类型.html" class="sidebar-link">Hive 复杂数据类型</a></li><li><a href="/./bigdata/hive/Hive 调优（童星）.html" class="sidebar-link">Hive 调优</a></li><li><a href="/./bigdata/hive/Hive 高频考点讲解.html" class="sidebar-link">Hive 高频考点讲解</a></li><li><a href="/./bigdata/hive/HiveHadoop高频面试点小集合.html" class="sidebar-link">Hive/Hadoop高频面试点小集合</a></li><li><a href="/./bigdata/hive/Hive中的count(distinct)优化.html" class="sidebar-link">Hive中的count(distinct)优化</a></li><li><a href="/./bigdata/hive/Hive优化-大表join大表优化.html" class="active sidebar-link">Hive优化-大表join大表优化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive优化-大表join大表优化.html#_0、大表join大表优化" class="sidebar-link">0、大表join大表优化</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive优化-大表join大表优化.html#_1、问题场景" class="sidebar-link">1、问题场景</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive优化-大表join大表优化.html#_2、优化方案1-转为mapjoin" class="sidebar-link">2、优化方案1：转为mapjoin</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive优化-大表join大表优化.html#_3、优化方案2-join时用case-when语句" class="sidebar-link">3、优化方案2：join时用case when语句</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive优化-大表join大表优化.html#_4-、优化方案3-倍数b表-再取模join" class="sidebar-link">4 、优化方案3：倍数B表，再取模join</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive优化-大表join大表优化.html#_1-、通用方案" class="sidebar-link">1）、通用方案</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive优化-大表join大表优化.html#_2-、专用方案" class="sidebar-link">2）、专用方案</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/hive/Hive优化-大表join大表优化.html#_5-、方案4-动态一分为二" class="sidebar-link">5 、方案4：动态一分为二</a></li></ul></li><li><a href="/./bigdata/hive/Hive使用必知必会系列.html" class="sidebar-link">Hive使用必知必会系列</a></li><li><a href="/./bigdata/hive/Hive全面讲解.html" class="sidebar-link">Hive全面讲解</a></li><li><a href="/./bigdata/hive/Hive和Hbase的各自适用场景.html" class="sidebar-link">Hive和Hbase的各自适用场景</a></li><li><a href="/./bigdata/hive/Hive小文件合并与数据压缩.html" class="sidebar-link">Hive小文件合并与数据压缩</a></li><li><a href="/./bigdata/hive/Hive小知识之分桶抽样.html" class="sidebar-link">Hive小知识之分桶抽样</a></li><li><a href="/./bigdata/hive/Hive常用参数调优十二式.html" class="sidebar-link">Hive常用参数调优十二式</a></li><li><a href="/./bigdata/hive/Hive常用的函数总结.html" class="sidebar-link">Hive常用的函数总结</a></li><li><a href="/./bigdata/hive/Hive底层原理：explain执行计划详解.html" class="sidebar-link">Hive底层原理：explain执行计划详解</a></li><li><a href="/./bigdata/hive/Hive性能调优  并行执行严格模式JVM重用推测执行.html" class="sidebar-link">Hive性能调优 | 并行执行/严格模式/JVM重用/推测执行</a></li><li><a href="/./bigdata/hive/Hive性能调优  数据倾斜.html" class="sidebar-link">Hive性能调优 | 数据倾斜</a></li><li><a href="/./bigdata/hive/Hive技术原理.html" class="sidebar-link">Hive技术原理</a></li><li><a href="/./bigdata/hive/Hive窗口函数总结与实践.html" class="sidebar-link">Hive窗口函数总结与实践</a></li><li><a href="/./bigdata/hive/Hive计算绝对值同环比.html" class="sidebar-link">Hive计算绝对值同环比</a></li><li><a href="/./bigdata/hive/Hive调优全方位指南.html" class="sidebar-link">Hive调优全方位指南</a></li><li><a href="/./bigdata/hive/Impala一文详解及与Hive简单对比.html" class="sidebar-link">Impala一文详解及与Hive简单对比</a></li><li><a href="/./bigdata/hive/一文搞定Hive函数.html" class="sidebar-link">一文搞定Hive函数</a></li><li><a href="/./bigdata/hive/一篇文章了解Hive调优.html" class="sidebar-link">一篇文章了解Hive调优</a></li><li><a href="/./bigdata/hive/基于Hadoop的数据仓库Hive基础知识.html" class="sidebar-link">基于Hadoop的数据仓库Hive基础知识</a></li><li><a href="/./bigdata/hive/快手数仓Hive MetaStore挑战与优化.html" class="sidebar-link">快手数仓Hive MetaStore挑战与优化</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="hive优化-大表join大表优化"><a href="#hive优化-大表join大表优化" class="header-anchor">#</a> Hive优化-大表join大表优化</h1> <h2 id="_0、大表join大表优化"><a href="#_0、大表join大表优化" class="header-anchor">#</a> 0、大表join大表优化</h2> <p>今天介绍大表join大表的问题。首先引入一个具体的问题场景，然后基于此介绍多种优化方案。</p> <h2 id="_1、问题场景"><a href="#_1、问题场景" class="header-anchor">#</a> 1、问题场景</h2> <p>问题场景如下：</p> <p>A表为一个汇总表，汇总的是卖家买家最近N天交易汇总信息，即对于每个卖家最近N天，其每个买家共成交了多少单，总金额是多少，假设N取90天，汇总值仅取成交单数。</p> <p>A表的字段有：buyer_id、seller_id、pay_cnt_90day。</p> <p>B表为卖家基本信息表，其字段有seller_id、sale_level，其中sale_levels是卖家的一个分层评级信息，比如吧卖家分为6个级别：S0、S1、S2、S3、S4和S5。</p> <p>要获得的结果是每个买家在各个级别的卖家的成交比例信息，比如：</p> <p>某买家：S0:10%；S1:20%；S2:20%；S3:10%；S4:20%；S5:10%。</p> <p>正如mapjoin中的例子一样，第一反应是直接join两表并统计：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span>
+　　　　　　　　 m<span class="token punctuation">.</span>buyer_id<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span>pay_cnt_90day<span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">0</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s0<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">1</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s1<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">2</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s2<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">3</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s3<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">4</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s4<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">5</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s5
+　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span>
+　　　　　　　　<span class="token keyword">select</span>  a<span class="token punctuation">.</span>buer_id<span class="token punctuation">,</span>  a<span class="token punctuation">.</span>seller_id<span class="token punctuation">,</span>  b<span class="token punctuation">.</span>sale_level<span class="token punctuation">,</span> a<span class="token punctuation">.</span>pay_cnt_90day
+　　　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span>  <span class="token keyword">select</span> buyer_id<span class="token punctuation">,</span>  seller_id<span class="token punctuation">,</span>  pay_cnt_90day   <span class="token keyword">from</span> table_A<span class="token punctuation">)</span>  a
+　　　　　　　　<span class="token keyword">join</span>
+　　　　　　　　       <span class="token punctuation">(</span><span class="token keyword">select</span> seller_id<span class="token punctuation">,</span>  sale_level  <span class="token keyword">from</span> table_B<span class="token punctuation">)</span>  b
+　　　　　　　　<span class="token keyword">on</span>  a<span class="token punctuation">.</span>seller_id  <span class="token operator">=</span> b<span class="token punctuation">.</span>seller_id
+　　　　　　　　<span class="token punctuation">)</span>  m
+　　　　　　<span class="token keyword">group</span> <span class="token keyword">by</span> m<span class="token punctuation">.</span>buyer_id
+</code></pre></div><p>但是此SQL会引起数据倾斜，原因在于卖家的二八准则，某些卖家90天内会有几百万甚至上千万的买家，但是大部分的卖家90天内买家的数目并不多，join table_A和table_B的时候，</p> <p>Hive会按照seller_id进行分发，table_A的大卖家引起了数据倾斜。</p> <p>但是数据本身无法用mapjoin table_B解决，因为卖家超过千万条，文件大小有几个GB，超过了1GB的限制。</p> <h2 id="_2、优化方案1-转为mapjoin"><a href="#_2、优化方案1-转为mapjoin" class="header-anchor">#</a> 2、优化方案1：转为mapjoin</h2> <p>一个很正常的想法是，尽管B表无法直接mapjoin, 但是是否可以间接mapjoin它呢？</p> <p>实际上此思路有两种途径：限制行和限制列。</p> <p>限制行的思路是不需要join B全表，而只需要join其在A表中存在的，对于本问题场景，就是过滤掉90天内没有成交的卖家。</p> <p>限制列的思路是只取需要的字段。</p> <p>加上如上的限制后，检查过滤后的B表是否满足了Hive  mapjoin的条件，如果能满足，那么添加过滤条件生成一个临时B表，然后mapjoin该表即可。采用此思路的语句如下：</p> <div class="language-sql extra-class"><pre class="language-sql"><code>　<span class="token keyword">select</span>
+　　　　　　　　 m<span class="token punctuation">.</span>buyer_id<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span>pay_cnt_90day<span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">0</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s0<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">1</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s1<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">2</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s2<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">3</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s3<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">4</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s4<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">5</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s5
+　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span> 
+　　　　　　　　<span class="token keyword">select</span>  <span class="token comment">/*+mapjoin(b)*/</span>
+　　　　　　　　　　a<span class="token punctuation">.</span>buer_id<span class="token punctuation">,</span>  a<span class="token punctuation">.</span>seller_id<span class="token punctuation">,</span>  b<span class="token punctuation">.</span>sale_level<span class="token punctuation">,</span> a<span class="token punctuation">.</span>pay_cnt_90day
+　　　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span>  <span class="token keyword">select</span> buyer_id<span class="token punctuation">,</span>  seller_id<span class="token punctuation">,</span>  pay_cnt_90day   <span class="token keyword">from</span> table_A<span class="token punctuation">)</span>  a
+　　　　　　　　<span class="token keyword">join</span>
+　　　　　　　　       <span class="token punctuation">(</span>
+　　　　　　　　　　　<span class="token keyword">select</span> seller_id<span class="token punctuation">,</span>  sale_level  <span class="token keyword">from</span> table_B b0
+　　　　　　　　　　　<span class="token keyword">join</span> 
+　　　　　　　　　　　<span class="token punctuation">(</span><span class="token keyword">select</span> seller_id <span class="token keyword">from</span> table_A <span class="token keyword">group</span> <span class="token keyword">by</span> seller_id<span class="token punctuation">)</span> a0
+　　　　　　　　　　   <span class="token keyword">on</span> b0<span class="token punctuation">.</span>seller_id <span class="token operator">=</span> a0<span class="token punctuation">.</span>selller_id
+　　　　　　　　　　<span class="token punctuation">)</span>  b
+　　　　　　　　<span class="token keyword">on</span>  a<span class="token punctuation">.</span>seller_id  <span class="token operator">=</span> b<span class="token punctuation">.</span>seller_id
+　　　　　　　　<span class="token punctuation">)</span>  m
+　　　　　　<span class="token keyword">group</span> <span class="token keyword">by</span> m<span class="token punctuation">.</span>buyer_id
+</code></pre></div><p>此方案在一些情况可以起作用，但是很多时候还是无法解决上述问题，因为大部分卖家尽管90天内买家不多，但还是有一些的，过滤后的B表仍然很多。</p> <h2 id="_3、优化方案2-join时用case-when语句"><a href="#_3、优化方案2-join时用case-when语句" class="header-anchor">#</a> 3、优化方案2：join时用case when语句</h2> <p>此种解决方案应用场景是：倾斜的值是明确的而且数量很少，比如null值引起的倾斜。其核心是将这些引起倾斜的值随机分发到Reduce,其主要核心逻辑在于join时对这些特殊值concat随机数，</p> <p>从而达到随机分发的目的。此方案的核心逻辑如下：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> a<span class="token punctuation">.</span>user_id<span class="token punctuation">,</span> a<span class="token punctuation">.</span>order_id<span class="token punctuation">,</span> b<span class="token punctuation">.</span>user_id
+　　　　　　<span class="token keyword">from</span> table_a a <span class="token keyword">join</span> table_b b
+　　　　　　<span class="token keyword">on</span> <span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> a<span class="token punctuation">.</span>user_is <span class="token operator">is</span> <span class="token boolean">null</span> <span class="token keyword">then</span> concat<span class="token punctuation">(</span><span class="token string">'hive'</span><span class="token punctuation">,</span> rand<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">else</span> a<span class="token punctuation">.</span>user_id <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token operator">=</span> b<span class="token punctuation">.</span>user_id
+</code></pre></div><p>Hive 已对此进行了优化，只需要设置参数skewinfo和skewjoin参数，不修改SQL代码，例如，由于table_B的值“0” 和“1”引起了倾斜，值需要做如下设置：</p> <div class="language-sql extra-class"><pre class="language-sql"><code>
+<span class="token keyword">set</span> hive<span class="token punctuation">.</span><span class="token keyword">optimize</span><span class="token punctuation">.</span>skewinfo<span class="token operator">=</span>table_B:<span class="token punctuation">(</span>selleer_id<span class="token punctuation">)</span> <span class="token punctuation">[</span> <span class="token punctuation">(</span> <span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">]</span> 
+<span class="token keyword">set</span> hive<span class="token punctuation">.</span><span class="token keyword">optimize</span><span class="token punctuation">.</span>skewjoin <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+</code></pre></div><p>但是方案2因为无法解决本问题场景的倾斜问题，因为倾斜的卖家大量存在而且动态变化。</p> <h2 id="_4-、优化方案3-倍数b表-再取模join"><a href="#_4-、优化方案3-倍数b表-再取模join" class="header-anchor">#</a> 4 、优化方案3：倍数B表，再取模join</h2> <h3 id="_1-、通用方案"><a href="#_1-、通用方案" class="header-anchor">#</a> 1）、通用方案</h3> <p>此方案的思路是建立一个numbers表，其值只有一列int 行，比如从1到10（具体值可根据倾斜程度确定），然后放大B表10倍，再取模join。代码如下：</p> <div class="language-sql extra-class"><pre class="language-sql"><code>
+<span class="token keyword">select</span>
+　　　　　　　　 m<span class="token punctuation">.</span>buyer_id<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span>pay_cnt_90day<span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">0</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s0<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">1</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s1<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">2</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s2<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">3</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s3<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">4</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s4<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">5</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s5
+　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span>
+　　　　　　　　<span class="token keyword">select</span>  a<span class="token punctuation">.</span>buer_id<span class="token punctuation">,</span>  a<span class="token punctuation">.</span>seller_id<span class="token punctuation">,</span>  b<span class="token punctuation">.</span>sale_level<span class="token punctuation">,</span> a<span class="token punctuation">.</span>pay_cnt_90day
+　　　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span>  <span class="token keyword">select</span> buyer_id<span class="token punctuation">,</span>  seller_id<span class="token punctuation">,</span>  pay_cnt_90day   <span class="token keyword">from</span> table_A<span class="token punctuation">)</span>  a
+　　　　　　　　<span class="token keyword">join</span>
+　　　　　　　　       <span class="token punctuation">(</span>
+　　　　　　　　　　<span class="token keyword">select</span>  <span class="token comment">/*+mapjoin(members)*/</span>
+　　　　　　　　　　　　seller_id<span class="token punctuation">,</span>  sale_level <span class="token punctuation">,</span>member
+　　　　　　　　　　<span class="token keyword">from</span> table_B
+   　　　　　　　　　<span class="token keyword">join</span> members
+　　　　　　　　　　<span class="token punctuation">)</span>  b
+　　　　　　　　<span class="token keyword">on</span>  a<span class="token punctuation">.</span>seller_id  <span class="token operator">=</span> b<span class="token punctuation">.</span>seller_id
+　　　　　　　　　　<span class="token operator">and</span> <span class="token function">mod</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>pay_cnt_90day<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span> <span class="token operator">=</span> b<span class="token punctuation">.</span>number 
+　　　　　　　　<span class="token punctuation">)</span>  m
+　　　　　　<span class="token keyword">group</span> <span class="token keyword">by</span> m<span class="token punctuation">.</span>buyer_id
+</code></pre></div><p>此思路的核心在于，既然按照seller_id分发会倾斜，那么再人工增加一列进行分发，这样之前倾斜的值的倾斜程度会减少到原来的1/10，可以通过配置numbers表改放大倍数来降低倾斜程度，</p> <p>但这样做的一个弊端是B表也会膨胀N倍。</p> <h3 id="_2-、专用方案"><a href="#_2-、专用方案" class="header-anchor">#</a> 2）、专用方案</h3> <p>通用方案的思路把B表的每条数据都放大了相同的倍数，实际上这是不需要的，只需要把大卖家放大倍数即可：需要首先知道大卖家的名单，即先建立一个临时表动态存放每天最新的大卖家（比如dim_big_seller）,同时此表的大卖家要膨胀预先设定的倍数（1000倍）。</p> <p>在A表和B表分别新建一个join列，其逻辑为：如果是大卖家，那么concat一个随机分配正整数（0到预定义的倍数之间，本例为0~1000）；如果不是，保持不变。具体代码如下：</p> <div class="language-sql extra-class"><pre class="language-sql"><code>
+<span class="token keyword">select</span>
+　　　　　　　　 m<span class="token punctuation">.</span>buyer_id<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span>pay_cnt_90day<span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">0</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s0<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">1</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s1<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">2</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s2<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">3</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s3<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">4</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s4<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">5</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s5
+　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span>
+　　　　　　　　<span class="token keyword">select</span>  a<span class="token punctuation">.</span>buer_id<span class="token punctuation">,</span>  a<span class="token punctuation">.</span>seller_id<span class="token punctuation">,</span>  b<span class="token punctuation">.</span>sale_level<span class="token punctuation">,</span> a<span class="token punctuation">.</span>pay_cnt_90day
+　　　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span>  
+　　　　　　　　　　<span class="token keyword">select</span>  <span class="token comment">/*+mapjoin(big)*/</span>
+　　　　　　　　　　　　　buyer_id<span class="token punctuation">,</span>  seller_id<span class="token punctuation">,</span>  pay_cnt_90day<span class="token punctuation">,</span>
+　　　　　　　　　　　　　<span class="token keyword">if</span><span class="token punctuation">(</span>big<span class="token punctuation">.</span>seller_id <span class="token operator">is</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span> concat<span class="token punctuation">(</span>  table_A<span class="token punctuation">.</span>seller_id<span class="token punctuation">,</span>  <span class="token string">'rnd'</span><span class="token punctuation">,</span>  cast<span class="token punctuation">(</span>  rand<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1000</span> <span class="token keyword">as</span> <span class="token keyword">bigint</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> table_A<span class="token punctuation">.</span>seller_id<span class="token punctuation">)</span>  <span class="token keyword">as</span> seller_id_joinkey
+　　　　　　　　　　　　  <span class="token keyword">from</span> table_A
+　　　　　　　　　　　　   <span class="token keyword">left</span> <span class="token keyword">outer</span> <span class="token keyword">join</span>
+　　　　　　　　　　　　　<span class="token comment">--big表seller_id有重复，请注意一定要group by 后再join,保证table_A的行数保持不变</span>
+　　　　　　　　　　　　　（<span class="token keyword">select</span> seller_id  <span class="token keyword">from</span> dim_big_seller  <span class="token keyword">group</span> <span class="token keyword">by</span> seller_id）big
+　　　　　　　　　　　　　<span class="token keyword">on</span> table_A<span class="token punctuation">.</span>seller_id <span class="token operator">=</span> big<span class="token punctuation">.</span>seller_id
+　　　　　　　　<span class="token punctuation">)</span>  a
+　　　　　　　　<span class="token keyword">join</span>
+　　　　　　　　       <span class="token punctuation">(</span>
+　　　　　　　　　　<span class="token keyword">select</span>  <span class="token comment">/*+mapjoin(big)*/</span>
+　　　　　　　　　　　　seller_id<span class="token punctuation">,</span>  sale_level <span class="token punctuation">,</span>
+　　　　　　　　　　　　<span class="token comment">--big表的seller_id_joinkey生成逻辑和上面的生成逻辑一样</span>
+　　　　　　　　　　　　<span class="token keyword">coalesce</span><span class="token punctuation">(</span>seller_id_joinkey<span class="token punctuation">,</span>table_B<span class="token punctuation">.</span>seller_id<span class="token punctuation">)</span> <span class="token keyword">as</span> seller_id_joinkey
+　　　　　　　　　　<span class="token keyword">from</span> table_B
+   　　　　　　　　　<span class="token keyword">left</span> <span class="token keyword">out</span> <span class="token keyword">join</span>
+　　　　　　　　　　<span class="token comment">--table_B表join大卖家表后大卖家行数扩大1000倍，其它卖家行数保持不变</span>
+　　　　　　　　　　<span class="token punctuation">(</span><span class="token keyword">select</span> seller_id<span class="token punctuation">,</span> seller_id_joinkey <span class="token keyword">from</span> dim_big_seller<span class="token punctuation">)</span> big
+　　　　　　　　　　<span class="token keyword">on</span> table_B<span class="token punctuation">.</span>seller_id<span class="token operator">=</span> big<span class="token punctuation">.</span>seller_id
+　　　　　　　　　　<span class="token punctuation">)</span>  b
+　　　　　　　　<span class="token keyword">on</span>  a<span class="token punctuation">.</span>seller_id_joinkey<span class="token operator">=</span> b<span class="token punctuation">.</span>seller_id_joinkey
+　　　　　　　　　　<span class="token operator">and</span> <span class="token function">mod</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>pay_cnt_90day<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span> <span class="token operator">=</span> b<span class="token punctuation">.</span>number 
+　　　　　　　　<span class="token punctuation">)</span>  m
+　　　　　　<span class="token keyword">group</span> <span class="token keyword">by</span> m<span class="token punctuation">.</span>buyer_id
+</code></pre></div><p>相比通用方案，专用方案的运行效率明细好了许多，因为只是将B表中大卖家的行数放大了1000倍，其它卖家的行数保持不变，但同时代码复杂了很多，而且必须首先建立大数据表。</p> <h2 id="_5-、方案4-动态一分为二"><a href="#_5-、方案4-动态一分为二" class="header-anchor">#</a> 5 、方案4：动态一分为二</h2> <p>实际上方案2和3都用了一分为二的思想，但是都不彻底，对于mapjoin不能解决的问题，终极解决方案是<strong>动态一分为二，即对倾斜的键值和不倾斜的键值分开处理，不倾斜的正常join即可，倾斜的把他们找出来做mapjoin，最后union all其结果即可。</strong></p> <p>但是此种解决方案比较麻烦，代码复杂而且需要一个临时表存放倾斜的键值。代码如下：</p> <p>由于数据倾斜，先找出90天买家超过10000的卖家</p> <div class="language-sql extra-class"><pre class="language-sql"><code>
+<span class="token keyword">insert</span> overwrite <span class="token keyword">table</span>  temp_table_B
+　　　　　　<span class="token keyword">select</span> 
+　　　　　　　　m<span class="token punctuation">.</span>seller_id<span class="token punctuation">,</span>  n<span class="token punctuation">.</span>sale_level
+　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span>
+　　　　　　　　<span class="token keyword">select</span>   seller_id
+　　　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span>
+　　　　　　　　　　<span class="token keyword">select</span> seller_id<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span>buyer_id<span class="token punctuation">)</span> <span class="token keyword">as</span> byr_cnt
+　　　　　　　　　　<span class="token keyword">from</span> table_A
+　　　　　　　　　　<span class="token keyword">group</span> <span class="token keyword">by</span> seller_id
+　　　　　　　　　　<span class="token punctuation">)</span> a
+　　　　　　　　<span class="token keyword">where</span> a<span class="token punctuation">.</span>byr_cnt <span class="token operator">&gt;</span><span class="token number">10000</span>
+　　　　　　　　<span class="token punctuation">)</span> m
+　　　　　　<span class="token keyword">left</span> <span class="token keyword">join</span> 
+　　　　　　<span class="token punctuation">(</span>
+　　　　　　　<span class="token keyword">select</span> seller_id<span class="token punctuation">,</span> sale_level  <span class="token keyword">from</span> table_B
+　　　　　　<span class="token punctuation">)</span> n
+　　　　　   <span class="token keyword">on</span> m<span class="token punctuation">.</span>seller_id <span class="token operator">=</span> n<span class="token punctuation">.</span>seller_id<span class="token punctuation">;</span>
+　　　　　　
+　　　　　　<span class="token comment">--对于90天买家超过10000的卖家直接mapjoin,对其它卖家直接正常join即可。</span>
+　　　　　　
+　　　　　　<span class="token keyword">select</span>
+　　　　　　　　 m<span class="token punctuation">.</span>buyer_id<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span>pay_cnt_90day<span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">0</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s0<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">1</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s1<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">2</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s2<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">3</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s3<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">4</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s4<span class="token punctuation">,</span>
+　　　　　　　　<span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> m<span class="token punctuation">.</span>sale_level <span class="token operator">=</span> <span class="token number">5</span>  <span class="token keyword">then</span> pay_cnt_90day  <span class="token keyword">end</span><span class="token punctuation">)</span>  <span class="token keyword">as</span> pay_cnt_90day_s5
+　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span>
+　　　　　　　　<span class="token keyword">select</span>  a<span class="token punctuation">.</span>buer_id<span class="token punctuation">,</span>  a<span class="token punctuation">.</span>seller_id<span class="token punctuation">,</span>  b<span class="token punctuation">.</span>sale_level<span class="token punctuation">,</span> a<span class="token punctuation">.</span>pay_cnt_90day
+　　　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span>  <span class="token keyword">select</span> buyer_id<span class="token punctuation">,</span>  seller_id<span class="token punctuation">,</span>  pay_cnt_90day   <span class="token keyword">from</span> table_A<span class="token punctuation">)</span>  a
+　　　　　　　　<span class="token keyword">join</span>
+　　　　　　　　       <span class="token punctuation">(</span>
+　　　　　　　　　　<span class="token keyword">select</span> seller_id<span class="token punctuation">,</span>  a<span class="token punctuation">.</span>sale_level 
+　　　　　　　　　　 <span class="token keyword">from</span> table_A  a
+　　　　　　　　　　 <span class="token keyword">left</span> <span class="token keyword">join</span> temp_table_B b
+　　　　　　　　　　<span class="token keyword">on</span> a<span class="token punctuation">.</span>seller_id <span class="token operator">=</span> b<span class="token punctuation">.</span>seller_id
+　　　　　　　　　　<span class="token keyword">where</span> b<span class="token punctuation">.</span>seller_id <span class="token operator">is</span> <span class="token operator">not</span> <span class="token boolean">null</span>
+　　　　　　　　　　<span class="token punctuation">)</span>  b
+　　　　　　　　<span class="token keyword">on</span>  a<span class="token punctuation">.</span>seller_id  <span class="token operator">=</span> b<span class="token punctuation">.</span>seller_id
+　　　　　　　<span class="token keyword">union</span> <span class="token keyword">all</span>
+　　　　　　　
+　　　　　　　<span class="token keyword">select</span>  <span class="token comment">/*+mapjoin(b)*/</span>
+　　　　　　　　　　a<span class="token punctuation">.</span>buer_id<span class="token punctuation">,</span>  a<span class="token punctuation">.</span>seller_id<span class="token punctuation">,</span>  b<span class="token punctuation">.</span>sale_level<span class="token punctuation">,</span> a<span class="token punctuation">.</span>pay_cnt_90day
+　　　　　　　　<span class="token keyword">from</span> <span class="token punctuation">(</span> 
+　　　　　　　　　　 <span class="token keyword">select</span> buyer_id<span class="token punctuation">,</span>  seller_id<span class="token punctuation">,</span>  pay_cnt_90day   
+　　　　　　　　　　<span class="token keyword">from</span> table_A
+　　　　　　　　　　<span class="token punctuation">)</span>  a
+　　　　　　　　<span class="token keyword">join</span>
+　　　　　　　　       <span class="token punctuation">(</span>
+　　　　　　　　　　　<span class="token keyword">select</span> seller_id<span class="token punctuation">,</span>  sale_level  <span class="token keyword">from</span> table_B 
+　　　　　　　　　　<span class="token punctuation">)</span>  b
+　　　　　　　　<span class="token keyword">on</span>  a<span class="token punctuation">.</span>seller_id  <span class="token operator">=</span> b<span class="token punctuation">.</span>seller_id
+　　　　　<span class="token punctuation">)</span>  m  <span class="token keyword">group</span> <span class="token keyword">by</span> m<span class="token punctuation">.</span>buyer_id
+　　　　　<span class="token punctuation">)</span> m
+　　　　　<span class="token keyword">group</span> <span class="token keyword">by</span> m<span class="token punctuation">.</span>buyer_id
+</code></pre></div><p><strong>总结：</strong></p> <p>方案1、2以及方案3中的同用方案不能保证解决大表join大表问题，因为它们都存在种种不同的限制和特定使用场景。</p> <p>而方案3的专用方案和方案4是推荐的优化方案，但是它们都需要新建一个临时表来存储每日动态变化的大卖家。相对方案4来说，方案3的专用方案不需要对代码框架进行修改，但是B表会被放大，所以一定要是是维度表，不然统计结果会是错误的。方案4最通用，自由度最高，但是对代码的更改也最大，甚至修改更难代码框架，可以作为终极方案使用。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./bigdata/hive/Hive中的count(distinct)优化.html" class="prev">
+        Hive中的count(distinct)优化
+      </a></span> <span class="next"><a href="/./bigdata/hive/Hive使用必知必会系列.html">
+        Hive使用必知必会系列
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.dc5b0715.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/21.0aaf754a.js" defer></script>
+  </body>
+</html>
