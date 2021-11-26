@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SQL 规范 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.8f846374.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/94.4bc2cf6c.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/100.441528ba.js"><link rel="prefetch" href="./assets/js/101.e4e38e24.js"><link rel="prefetch" href="./assets/js/102.c7d8d043.js"><link rel="prefetch" href="./assets/js/103.fab94ea6.js"><link rel="prefetch" href="./assets/js/104.68e04f80.js"><link rel="prefetch" href="./assets/js/105.198c6758.js"><link rel="prefetch" href="./assets/js/106.6258b526.js"><link rel="prefetch" href="./assets/js/107.1585c4c3.js"><link rel="prefetch" href="./assets/js/108.6b62e303.js"><link rel="prefetch" href="./assets/js/109.b2d58d90.js"><link rel="prefetch" href="./assets/js/11.24e5d745.js"><link rel="prefetch" href="./assets/js/110.ded9aecf.js"><link rel="prefetch" href="./assets/js/111.6c292e59.js"><link rel="prefetch" href="./assets/js/112.6c99b5d2.js"><link rel="prefetch" href="./assets/js/113.5bd0fb72.js"><link rel="prefetch" href="./assets/js/114.e9fa34e1.js"><link rel="prefetch" href="./assets/js/115.d1c79025.js"><link rel="prefetch" href="./assets/js/116.350c9554.js"><link rel="prefetch" href="./assets/js/117.92917110.js"><link rel="prefetch" href="./assets/js/118.61f93307.js"><link rel="prefetch" href="./assets/js/119.34185e70.js"><link rel="prefetch" href="./assets/js/12.8b71ea83.js"><link rel="prefetch" href="./assets/js/120.7e1b1c7d.js"><link rel="prefetch" href="./assets/js/121.d8c00252.js"><link rel="prefetch" href="./assets/js/122.174db881.js"><link rel="prefetch" href="./assets/js/13.71347b8e.js"><link rel="prefetch" href="./assets/js/14.f053f94e.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.81e7c28f.js"><link rel="prefetch" href="./assets/js/17.f11221ce.js"><link rel="prefetch" href="./assets/js/18.fe832c69.js"><link rel="prefetch" href="./assets/js/19.14c224c1.js"><link rel="prefetch" href="./assets/js/20.fcbc42d2.js"><link rel="prefetch" href="./assets/js/21.07886cc2.js"><link rel="prefetch" href="./assets/js/22.ac5835a0.js"><link rel="prefetch" href="./assets/js/23.5fcce455.js"><link rel="prefetch" href="./assets/js/24.6884809e.js"><link rel="prefetch" href="./assets/js/25.81d9ed9d.js"><link rel="prefetch" href="./assets/js/26.4729386e.js"><link rel="prefetch" href="./assets/js/27.8b2ea903.js"><link rel="prefetch" href="./assets/js/28.ffb9e9e1.js"><link rel="prefetch" href="./assets/js/29.4d4e061f.js"><link rel="prefetch" href="./assets/js/3.6d4ee76d.js"><link rel="prefetch" href="./assets/js/30.649421e8.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.e19607e8.js"><link rel="prefetch" href="./assets/js/33.f7352c75.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.60e46ee5.js"><link rel="prefetch" href="./assets/js/36.7ccb9a0c.js"><link rel="prefetch" href="./assets/js/37.47bf640d.js"><link rel="prefetch" href="./assets/js/38.11987f44.js"><link rel="prefetch" href="./assets/js/39.694eb4c0.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.5db21ed8.js"><link rel="prefetch" href="./assets/js/41.78eb9a93.js"><link rel="prefetch" href="./assets/js/42.8369c775.js"><link rel="prefetch" href="./assets/js/43.19966b90.js"><link rel="prefetch" href="./assets/js/44.40e6834e.js"><link rel="prefetch" href="./assets/js/45.fbcb566b.js"><link rel="prefetch" href="./assets/js/46.1c3578fb.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.317886b4.js"><link rel="prefetch" href="./assets/js/49.1be89a8c.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.74e50bd1.js"><link rel="prefetch" href="./assets/js/51.6d431141.js"><link rel="prefetch" href="./assets/js/52.f8793ffe.js"><link rel="prefetch" href="./assets/js/53.ef8ac10b.js"><link rel="prefetch" href="./assets/js/54.72c2b12d.js"><link rel="prefetch" href="./assets/js/55.c35687b6.js"><link rel="prefetch" href="./assets/js/56.394b272d.js"><link rel="prefetch" href="./assets/js/57.08adde98.js"><link rel="prefetch" href="./assets/js/58.ae73d05f.js"><link rel="prefetch" href="./assets/js/59.3c851064.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.8c9de55a.js"><link rel="prefetch" href="./assets/js/61.140bed1c.js"><link rel="prefetch" href="./assets/js/62.62ad7beb.js"><link rel="prefetch" href="./assets/js/63.a36440f0.js"><link rel="prefetch" href="./assets/js/64.35625546.js"><link rel="prefetch" href="./assets/js/65.42445eda.js"><link rel="prefetch" href="./assets/js/66.47de6720.js"><link rel="prefetch" href="./assets/js/67.55b1a47f.js"><link rel="prefetch" href="./assets/js/68.f669ae1e.js"><link rel="prefetch" href="./assets/js/69.6d2b7f97.js"><link rel="prefetch" href="./assets/js/7.4a7a55b6.js"><link rel="prefetch" href="./assets/js/70.8c200ec3.js"><link rel="prefetch" href="./assets/js/71.ae918c22.js"><link rel="prefetch" href="./assets/js/72.77638b47.js"><link rel="prefetch" href="./assets/js/73.5820126f.js"><link rel="prefetch" href="./assets/js/74.5b03441d.js"><link rel="prefetch" href="./assets/js/75.1db27768.js"><link rel="prefetch" href="./assets/js/76.b5fec7d3.js"><link rel="prefetch" href="./assets/js/77.ddf1963b.js"><link rel="prefetch" href="./assets/js/78.0573ead9.js"><link rel="prefetch" href="./assets/js/79.89cb870d.js"><link rel="prefetch" href="./assets/js/8.fde5124b.js"><link rel="prefetch" href="./assets/js/80.04f05126.js"><link rel="prefetch" href="./assets/js/81.033f3b11.js"><link rel="prefetch" href="./assets/js/82.4c05f3e6.js"><link rel="prefetch" href="./assets/js/83.55a565c7.js"><link rel="prefetch" href="./assets/js/84.ec4bbf04.js"><link rel="prefetch" href="./assets/js/85.fbfb2605.js"><link rel="prefetch" href="./assets/js/86.d726556c.js"><link rel="prefetch" href="./assets/js/87.cc22e8af.js"><link rel="prefetch" href="./assets/js/88.1cff7c6b.js"><link rel="prefetch" href="./assets/js/89.6def5b33.js"><link rel="prefetch" href="./assets/js/9.e0237b05.js"><link rel="prefetch" href="./assets/js/90.7146fddb.js"><link rel="prefetch" href="./assets/js/91.737708a2.js"><link rel="prefetch" href="./assets/js/92.c85d8205.js"><link rel="prefetch" href="./assets/js/93.828ef430.js"><link rel="prefetch" href="./assets/js/95.31860134.js"><link rel="prefetch" href="./assets/js/96.25f4a4ac.js"><link rel="prefetch" href="./assets/js/97.9aa011ad.js"><link rel="prefetch" href="./assets/js/98.53797f3a.js"><link rel="prefetch" href="./assets/js/99.20145e16.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>离线数仓</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E7%A6%BB%E7%BA%BF%E6%95%B0%E4%BB%93/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/离线数仓/数仓定义.html" class="sidebar-link">数据仓库定义</a></li><li><a href="/./datahouse/离线数仓/数仓基础.html" class="sidebar-link">数仓基础</a></li><li><a href="/./datahouse/离线数仓/HiveSQL查询优化案例.html" class="sidebar-link">HiveSQL查询优化案例</a></li><li><a href="/./datahouse/离线数仓/bi.html" class="sidebar-link">商务智能 （BI）</a></li><li><a href="/./datahouse/离线数仓/explain.html" class="sidebar-link">explain + 慢SQL分析</a></li><li><a href="/./datahouse/离线数仓/kudu.html" class="sidebar-link">Kudu</a></li><li><a href="/./datahouse/离线数仓/olap.html" class="sidebar-link">OLAP</a></li><li><a href="/./datahouse/离线数仓/presto与impala与hive.html" class="sidebar-link">presto  impala  hive</a></li><li><a href="/./datahouse/离线数仓/shuffle.html" class="sidebar-link">shuffle调优</a></li><li><a href="/./datahouse/离线数仓/sql规范.html" class="active sidebar-link">SQL 规范</a></li><li><a href="/./datahouse/离线数仓/sql调优.html" class="sidebar-link">数据倾斜调优</a></li><li><a href="/./datahouse/离线数仓/从零开始搭建数据仓库.html" class="sidebar-link">如何从零开始搭建数据仓库</a></li><li><a href="/./datahouse/离线数仓/数仓建设的十大陷阱.html" class="sidebar-link">数仓建设的十大陷井</a></li><li><a href="/./datahouse/离线数仓/数据中台.html" class="sidebar-link">数据中台</a></li><li><a href="/./datahouse/离线数仓/数据库和数据仓库的区别.html" class="sidebar-link">数据库和数据仓库的区别</a></li><li><a href="/./datahouse/离线数仓/数据模型.html" class="sidebar-link">数仓模型建设</a></li><li><a href="/./datahouse/离线数仓/数据模型如何评论好坏.html" class="sidebar-link">数据模型评价</a></li><li><a href="/./datahouse/离线数仓/数据湖.html" class="sidebar-link">数据湖</a></li><li><a href="/./datahouse/离线数仓/用户画像总结.html" class="sidebar-link">用户画像总结</a></li><li><a href="/./datahouse/离线数仓/行业前辈的一些话.html" class="sidebar-link">行业前辈的一些话</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="sql-规范"><a href="#sql-规范" class="header-anchor">#</a> SQL 规范</h1> <p>我们要做到不但会写SQL,还要做到写出性能优良的SQL。基于MySQL，下面是一些经验。</p> <h4 id="_1-where子句中的连接顺序"><a href="#_1-where子句中的连接顺序" class="header-anchor">#</a> 1. WHERE子句中的连接顺序</h4> <p>MySQL采用自下而上的顺序解析WHERE子句，根据这个原理，表之间的连接必须写在其他WHERE条件之前，那些可以过滤掉最大数量记录的条件必须写在WHERE子句的末尾。</p> <h4 id="_2-select子句中避免使用"><a href="#_2-select子句中避免使用" class="header-anchor">#</a> 2. SELECT子句中避免使用 <code>*</code></h4> <p>SQL在解析过程中，会将 <code>*</code> 依次转换成所有的列名，这个工作是通过查询数据字典完成的，这意味着将耗费更多的时间。</p> <h4 id="_3-减少访问数据库的次数"><a href="#_3-减少访问数据库的次数" class="header-anchor">#</a> 3.减少访问数据库的次数</h4> <p>MySQl在内部执行了许多工作：解析SQL语句，估算索引的利用率，绑定变量，读数据块等。</p> <h4 id="_4-使用decode函数来减少处理时间"><a href="#_4-使用decode函数来减少处理时间" class="header-anchor">#</a> 4.使用DECODE函数来减少处理时间</h4> <p>使用DECODE函数可以避免重复扫描相同记录或重复连接相同的表。</p> <h4 id="_5-整合简单-无关联的数据库访问"><a href="#_5-整合简单-无关联的数据库访问" class="header-anchor">#</a> 5.整合简单,无关联的数据库访问</h4> <p>如果你有几个简单的数据库查询语句，你可以把它们整合到一个查询中(即使它们之间没有关系)。</p> <h4 id="_6-删除重复记录"><a href="#_6-删除重复记录" class="header-anchor">#</a> 6.删除重复记录</h4> <p>最高效的删除重复记录方法 ( 因为使用了ROWID)例子：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> EMP E <span class="token keyword">WHERE</span> E<span class="token punctuation">.</span>ROWID <span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">MIN</span><span class="token punctuation">(</span>X<span class="token punctuation">.</span>ROWID<span class="token punctuation">)</span> <span class="token keyword">FROM</span> EMP X <span class="token keyword">WHERE</span> X<span class="token punctuation">.</span>EMP_NO <span class="token operator">=</span> E<span class="token punctuation">.</span>EMP_NO<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="_7-用-truncate-替代-delete"><a href="#_7-用-truncate-替代-delete" class="header-anchor">#</a> 7.用 <code>TRUNCATE</code> 替代 <code>DELETE</code></h4> <p>当删除表中的记录时，在通常情况下，回滚段（rollback segments）用来存放可以被恢复的信息。如果你没有COMMIT事务，MySQL会将数据恢复到删除之前的状态(准确地说是恢复到执行删除命令之前的状况) 而当运用TRUNCATE时，回滚段不再存放任何可被恢复的信息。当命令运行后，数据不能被恢复。因此很少的资源被调用，执行时间也会很短。(TRUNCATE只在删除全表适用,TRUNCATE是DDL不是DML)</p> <h4 id="_8-尽量多使用commit"><a href="#_8-尽量多使用commit" class="header-anchor">#</a> 8.尽量多使用COMMIT：</h4> <p>只要有可能,在程序中尽量多使用COMMIT, 这样程序的性能得到提高,需求也会因为COMMIT所释放的资源而减少:
+COMMIT所释放的资源：</p> <ul><li>回滚段上用于恢复数据的信息</li> <li>被程序语句获得的锁</li> <li>redo log buffer 中的空间</li> <li>MySQL为管理上述3种资源中的内部花费</li></ul> <h4 id="_9-用where子句替换having子句"><a href="#_9-用where子句替换having子句" class="header-anchor">#</a> 9.用Where子句替换HAVING子句：</h4> <p>避免使用HAVING子句，HAVING 只会在检索出所有记录之后才对结果集进行过滤。这个处理需要排序、总计等操作。 如果能通过WHERE子句限制记录的数目，那就能减少这方面的开销。</p> <p>(非oracle中)on、where、having这三个都可以加条件的子句中，on是最先执行，where次之，having最后，因为on是先把不符合条件的记录过滤后才进行统计，它就可以减少中间运算要处理的数据，按理说应该速度是最快的，where也应该比having快点的，因为它过滤数据后才进行sum，在两个表联接时才用on的，所以在一个表的时候，就剩下where跟having比较了。</p> <ul><li><p>在单表查询统计的情况下，如果要过滤的条件没有涉及到要计算字段，那它们的结果是一样的，只是where可以使用rushmore技术，而having就不能，在速度上后者会慢如果要涉及到计算的字段，就表示在没计算之前，这个字段的值是不确定的。where的作用时间是在计算之前就完成的，而having就是在计算后才起作用的，所以在这种情况下，两者的结果会不同。</p></li> <li><p>在多表联接查询时，on比where更早起作用。系统首先根据各个表之间的联接条件，把多个表合成一个临时表后，再由where进行过滤，然后再计算，计算完后再由having进行过滤。</p></li></ul> <p>由此可见，要想过滤条件起到正确的作用，首先要明白这个条件应该在什么时候起作用，然后再决定放在那里。</p> <h4 id="_10-通过内部函数提高sql效率"><a href="#_10-通过内部函数提高sql效率" class="header-anchor">#</a> 10.通过内部函数提高SQL效率.：</h4> <p>复杂的SQL往往牺牲了执行效率， 能够掌握运用函数解决问题的方法在实际工作中是非常有意义的。</p> <h4 id="_11-使用表的别名"><a href="#_11-使用表的别名" class="header-anchor">#</a> 11.使用表的别名：</h4> <p>当在SQL语句中连接多个表时，请使用表的别名并把别名前缀于每个Column上。这样一来，就可以减少解析的时间并减少那些由Column歧义引起的语法错误。</p> <h4 id="_12-用exists替代in、用not-exists替代not-in"><a href="#_12-用exists替代in、用not-exists替代not-in" class="header-anchor">#</a> 12.用EXISTS替代IN、用NOT EXISTS替代NOT IN：</h4> <p>在许多基于基础表的查询中，为了满足一个条件，往往需要对另一个表进行联接。在这种情况下，使用EXISTS(或NOT EXISTS)通常将提高查询的效率。在子查询中，NOT IN子句将执行一个内部的排序和合并。 无论在哪种情况下，NOT IN都是最低效的(因为它对子查询中的表执行了一个全表遍历)。为了避免使用NOT IN，我们可以把它改写成外连接(Outer Joins)或NOT EXISTS。 例子：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token punctuation">(</span>高效）<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> EMP <span class="token punctuation">(</span>基础表<span class="token punctuation">)</span> <span class="token keyword">WHERE</span> EMPNO <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">AND</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token string">'X'</span> <span class="token keyword">FROM</span> DEPT <span class="token keyword">WHERE</span> DEPT<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> EMP<span class="token punctuation">.</span>DEPTNO <span class="token operator">AND</span> LOC <span class="token operator">=</span> <span class="token string">'MELB'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span>低效<span class="token punctuation">)</span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> EMP <span class="token punctuation">(</span>基础表<span class="token punctuation">)</span> <span class="token keyword">WHERE</span> EMPNO <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">AND</span> DEPTNO <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> DEPTNO <span class="token keyword">FROM</span> DEPT <span class="token keyword">WHERE</span> LOC <span class="token operator">=</span> <span class="token string">'MELB'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="_13-识别-低效执行-的sql语句-这一条和大神学习得来-很牛"><a href="#_13-识别-低效执行-的sql语句-这一条和大神学习得来-很牛" class="header-anchor">#</a> 13.识别'低效执行'的SQL语句(这一条和大神学习得来，很牛)</h4> <p>虽然目前各种关于SQL优化的图形化工具层出不穷,但是写出自己的SQL工具来解决问题始终是一个最好的方法：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> EXECUTIONS<span class="token punctuation">,</span> DISK_READS<span class="token punctuation">,</span> BUFFER_GETS<span class="token punctuation">,</span> 
+<span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token punctuation">(</span>BUFFER_GETS<span class="token operator">-</span>DISK_READS<span class="token punctuation">)</span><span class="token operator">/</span>BUFFER_GETS<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> Hit_radio<span class="token punctuation">,</span> 
+<span class="token function">ROUND</span><span class="token punctuation">(</span>DISK_READS<span class="token operator">/</span>EXECUTIONS<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> Reads_per_run<span class="token punctuation">,</span> 
+SQL_TEXT 
+<span class="token keyword">FROM</span> V$SQLAREA 
+<span class="token keyword">WHERE</span> EXECUTIONS<span class="token operator">&gt;</span><span class="token number">0</span> 
+<span class="token operator">AND</span> BUFFER_GETS <span class="token operator">&gt;</span> <span class="token number">0</span> 
+<span class="token operator">AND</span> <span class="token punctuation">(</span>BUFFER_GETS<span class="token operator">-</span>DISK_READS<span class="token punctuation">)</span><span class="token operator">/</span>BUFFER_GETS <span class="token operator">&lt;</span> <span class="token number">0.8</span> 
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token number">4</span> <span class="token keyword">DESC</span><span class="token punctuation">;</span> 
+</code></pre></div><h4 id="_14-用索引提高效率"><a href="#_14-用索引提高效率" class="header-anchor">#</a> 14.用索引提高效率</h4> <p>索引是表的一个概念部分，用来提高检索数据的效率，MySQL使用了一个复杂的自平衡B-tree结构。通常，通过索引查询数据比全表扫描要快。当MySQL找出执行查询和Update语句的最佳路径时，MySQL优化器将使用索引。同样在联结多个表时使用索引也可以提高效率。
+另一个使用索引的好处是，它提供了主键(primary key)的唯一性验证。那些LONG或LONG RAW数据类型,你可以索引几乎所有的列。通常，大型表中使用索引特别有效。当然,你也会发现, 在扫描小表时，使用索引同样能提高效率。虽然使用索引能得到查询效率的提高，但是我们也必须注意到它的代价。索引需要空间来存储，也需要定期维护，每当有记录在表中增减或索引列被修改时，索引本身也会被修改。这意味着每条记录的INSERT ,DELETE, UPDATE将为此多付出4 , 5 次的磁盘I/O。因为索引需要额外的存储空间和处理，那些不必要的索引反而会使查询反应时间变慢。定期的重构索引是有必要的。</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">ALTER</span> <span class="token keyword">INDEX</span> <span class="token operator">&lt;</span>INDEXNAME<span class="token operator">&gt;</span> REBUILD <span class="token operator">&lt;</span>TABLESPACENAME<span class="token operator">&gt;</span>
+</code></pre></div><h4 id="_15-用exists替换distinct"><a href="#_15-用exists替换distinct" class="header-anchor">#</a> 15.用EXISTS替换DISTINCT：</h4> <p>当提交一个包含一对多表信息(比如部门表和雇员表)的查询时,避免在SELECT子句中使用DISTINCT。 一般可以考虑用EXIST替换，EXISTS 使查询更为迅速，因为RDBMS核心模块将在子查询的条件一旦满足后，立刻返回结果。 例子：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token punctuation">(</span>低效<span class="token punctuation">)</span>: <span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> DEPT_NO<span class="token punctuation">,</span>DEPT_NAME <span class="token keyword">FROM</span> DEPT D <span class="token punctuation">,</span> EMP E <span class="token keyword">WHERE</span> D<span class="token punctuation">.</span>DEPT_NO <span class="token operator">=</span> E<span class="token punctuation">.</span>DEPT_NO 
+<span class="token punctuation">(</span>高效<span class="token punctuation">)</span>: <span class="token keyword">SELECT</span> DEPT_NO<span class="token punctuation">,</span>DEPT_NAME <span class="token keyword">FROM</span> DEPT D <span class="token keyword">WHERE</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">(</span> <span class="token keyword">SELECT</span> <span class="token string">'X'</span> <span class="token keyword">FROM</span> EMP E <span class="token keyword">WHERE</span> E<span class="token punctuation">.</span>DEPT_NO <span class="token operator">=</span> D<span class="token punctuation">.</span>DEPT_NO<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="_16-sql语句用大写的"><a href="#_16-sql语句用大写的" class="header-anchor">#</a> 16.sql语句用大写的</h4> <p>因为MySQL总是先解析sql语句，把小写的字母转换成大写的再执行</p> <h4 id="_17-在代码中尽量少用连接符-连接字符串"><a href="#_17-在代码中尽量少用连接符-连接字符串" class="header-anchor">#</a> 17.在代码中尽量少用连接符 <code>＋</code> 连接字符串！</h4> <h4 id="_18-避免在索引列上使用not"><a href="#_18-避免在索引列上使用not" class="header-anchor">#</a> 18.避免在索引列上使用NOT</h4> <p>通常，我们要避免在索引列上使用NOT，NOT会产生在和在索引列上使用函数相同的影响。 当MySQL遇到NOT，他就会停止使用索引转而执行全表扫描。</p> <h4 id="_19-避免在索引列上使用计算"><a href="#_19-避免在索引列上使用计算" class="header-anchor">#</a> 19.避免在索引列上使用计算</h4> <p>WHERE子句中，如果索引列是函数的一部分，优化器将不使用索引而使用全表扫描。举例:</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token punctuation">(</span>低效<span class="token punctuation">)</span>： <span class="token keyword">SELECT</span> … <span class="token keyword">FROM</span> DEPT <span class="token keyword">WHERE</span> SAL <span class="token operator">*</span> <span class="token number">12</span> <span class="token operator">&gt;</span> <span class="token number">25000</span><span class="token punctuation">;</span> 
+<span class="token punctuation">(</span>高效<span class="token punctuation">)</span>: <span class="token keyword">SELECT</span> … <span class="token keyword">FROM</span> DEPT <span class="token keyword">WHERE</span> SAL <span class="token operator">&gt;</span> <span class="token number">25000</span><span class="token operator">/</span><span class="token number">12</span><span class="token punctuation">;</span> 
+</code></pre></div><h4 id="_20-用-替代"><a href="#_20-用-替代" class="header-anchor">#</a> 20.用 &gt;= 替代 &gt;</h4> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token punctuation">(</span>低效<span class="token punctuation">)</span>: <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> EMP <span class="token keyword">WHERE</span> DEPTNO <span class="token operator">&gt;=</span><span class="token number">4</span> 
+<span class="token punctuation">(</span>高效<span class="token punctuation">)</span>: <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> EMP <span class="token keyword">WHERE</span> DEPTNO <span class="token operator">&gt;</span><span class="token number">3</span>
+</code></pre></div><p>两者的区别在于，前者DBMS将直接跳到第一个DEPT等于4的记录而后者将首先定位到DEPTNO=3的记录并且向前扫描到第一个DEPT大于3的记录。</p> <h4 id="_21-用union替换or-适用于索引列"><a href="#_21-用union替换or-适用于索引列" class="header-anchor">#</a> 21.用UNION替换OR (适用于索引列)</h4> <p>通常情况下，用UNION替换WHERE子句中的OR将会起到较好的效果。对索引列使用OR将造成全表扫描。注意，以上规则只针对多个索引列有效。如果有column没有被索引，查询效率可能会因为你没有选择OR而降低。 在下面的例子中，LOC_ID 和REGION上都建有索引。</p> <div class="language-sql extra-class"><pre class="language-sql"><code>高效: 
+<span class="token keyword">SELECT</span> LOC_ID <span class="token punctuation">,</span> LOC_DESC <span class="token punctuation">,</span> REGION 
+<span class="token keyword">FROM</span> LOCATION 
+<span class="token keyword">WHERE</span> LOC_ID <span class="token operator">=</span> <span class="token number">10</span> 
+<span class="token keyword">UNION</span> 
+<span class="token keyword">SELECT</span> LOC_ID <span class="token punctuation">,</span> LOC_DESC <span class="token punctuation">,</span> REGION 
+<span class="token keyword">FROM</span> LOCATION 
+<span class="token keyword">WHERE</span> REGION <span class="token operator">=</span> <span class="token string">'MELBOURNE'</span> 
+低效: 
+<span class="token keyword">SELECT</span> LOC_ID <span class="token punctuation">,</span> LOC_DESC <span class="token punctuation">,</span> REGION 
+<span class="token keyword">FROM</span> LOCATION 
+<span class="token keyword">WHERE</span> LOC_ID <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">OR</span> REGION <span class="token operator">=</span> <span class="token string">'MELBOURNE'</span> 
+</code></pre></div><p>如果你坚持要用OR，那就需要返回记录最少的索引列写在最前面。</p> <h4 id="_22-用in来替换or"><a href="#_22-用in来替换or" class="header-anchor">#</a> 22.用IN来替换OR</h4> <p>这是一条简单易记的规则，但是实际的执行效果还须检验。．</p> <div class="language-sql extra-class"><pre class="language-sql"><code>低效: <span class="token keyword">SELECT</span> … <span class="token keyword">FROM</span> LOCATION <span class="token keyword">WHERE</span> LOC_ID <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">OR</span> LOC_ID <span class="token operator">=</span> <span class="token number">20</span> <span class="token operator">OR</span> LOC_ID <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span> 
+高效: <span class="token keyword">SELECT</span> … <span class="token keyword">FROM</span> LOCATION <span class="token keyword">WHERE</span> LOC_IN <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="_23-避免在索引列上使用is-null和is-not-null"><a href="#_23-避免在索引列上使用is-null和is-not-null" class="header-anchor">#</a> 23.避免在索引列上使用IS NULL和IS NOT NULL</h4> <p>避免在索引中使用任何可以为空的列，MySQL将无法使用该索引。对于单列索引，如果列包含空值，索引中将不存在此记录。对于复合索引，如果每个列都为空，索引中同样不存在此记录。如果至少有一个列不为空，则记录存在于索引中。举例:
+如果唯一性索引建立在表的A列和B列上，并且表中存在一条记录的A,B值为(123,null)， MySQL将不接受下一条具有相同A,B值（123,null）的记录(插入)。 然而如果所有的索引列都为空，MySQL将认为整个键值为空而空不等于空。 因此你可以插入1000 条具有相同键值的记录，当然它们都是空! 因为空值不存在于索引列中，所以WHERE子句中对索引列进行空值比较将使MySQL停用该索引。</p> <div class="language-sql extra-class"><pre class="language-sql"><code>低效: <span class="token punctuation">(</span>索引失效<span class="token punctuation">)</span> 
+<span class="token keyword">SELECT</span> … <span class="token keyword">FROM</span> DEPARTMENT <span class="token keyword">WHERE</span> DEPT_CODE <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span> 
+高效: <span class="token punctuation">(</span>索引有效<span class="token punctuation">)</span> 
+<span class="token keyword">SELECT</span> … <span class="token keyword">FROM</span> DEPARTMENT <span class="token keyword">WHERE</span> DEPT_CODE <span class="token operator">&gt;=</span><span class="token number">0</span><span class="token punctuation">;</span> 
+</code></pre></div><h4 id="_24-总是使用索引的第一个列"><a href="#_24-总是使用索引的第一个列" class="header-anchor">#</a> 24.总是使用索引的第一个列</h4> <p>如果索引是建立在多个列上，只有在它的第一个列(leading column)被where子句引用时,优化器才会选择使用该索引。这也是一条简单而重要的规则，当仅引用索引的第二个列时,优化器使用了全表扫描而忽略了索引。</p> <h4 id="_25-用-union-all-替换-union-如果有可能的话"><a href="#_25-用-union-all-替换-union-如果有可能的话" class="header-anchor">#</a> 25.用 UNION-ALL 替换 UNION (如果有可能的话)</h4> <p>当SQL 语句需要UNION两个查询结果集合时，这两个结果集合会以UNION-ALL的方式被合并，然后在输出最终结果前进行排序。 如果用UNION ALL替代UNION，这样排序就不是必要了。效率就会因此得到提高。 需要注意的是，UNION ALL 将重复输出两个结果集合中相同记录。 因此各位还是要从业务需求分析使用UNION ALL的可行性。 UNION 将对结果集合排序，这个操作会使用到<code>SORT_AREA_SIZE</code>这块内存。 对于这块内存的优化也是相当重要的。下面的SQL可以用来查询排序的消耗量</p> <div class="language-sql extra-class"><pre class="language-sql"><code>低效： 
+<span class="token keyword">SELECT</span> ACCT_NUM<span class="token punctuation">,</span> BALANCE_AMT 
+<span class="token keyword">FROM</span> DEBIT_TRANSACTIONS 
+<span class="token keyword">WHERE</span> TRAN_DATE <span class="token operator">=</span> <span class="token string">'31-DEC-95'</span> 
+<span class="token keyword">UNION</span> 
+<span class="token keyword">SELECT</span> ACCT_NUM<span class="token punctuation">,</span> BALANCE_AMT 
+<span class="token keyword">FROM</span> DEBIT_TRANSACTIONS 
+<span class="token keyword">WHERE</span> TRAN_DATE <span class="token operator">=</span> <span class="token string">'31-DEC-95'</span> 
+高效: 
+<span class="token keyword">SELECT</span> ACCT_NUM<span class="token punctuation">,</span> BALANCE_AMT 
+<span class="token keyword">FROM</span> DEBIT_TRANSACTIONS 
+<span class="token keyword">WHERE</span> TRAN_DATE <span class="token operator">=</span> <span class="token string">'31-DEC-95'</span> 
+<span class="token keyword">UNION</span> <span class="token keyword">ALL</span> 
+<span class="token keyword">SELECT</span> ACCT_NUM<span class="token punctuation">,</span> BALANCE_AMT 
+<span class="token keyword">FROM</span> DEBIT_TRANSACTIONS 
+<span class="token keyword">WHERE</span> TRAN_DATE <span class="token operator">=</span> <span class="token string">'31-DEC-95'</span>
+</code></pre></div><h4 id="_26-用where替代order-by"><a href="#_26-用where替代order-by" class="header-anchor">#</a> 26.用WHERE替代ORDER BY</h4> <p>ORDER BY 子句只在两种严格的条件下使用索引。
+ORDER BY中所有的列必须包含在相同的索引中并保持在索引中的排列顺序。
+ORDER BY中所有的列必须定义为非空。
+WHERE子句使用的索引和ORDER BY子句中所使用的索引不能并列。
+例如:</p> <div class="language-sql extra-class"><pre class="language-sql"><code>表DEPT包含以下列: 
+DEPT_CODE PK <span class="token operator">NOT</span> <span class="token boolean">NULL</span> 
+DEPT_DESC <span class="token operator">NOT</span> <span class="token boolean">NULL</span> 
+DEPT_TYPE <span class="token boolean">NULL</span> 
+低效: <span class="token punctuation">(</span>索引不被使用<span class="token punctuation">)</span> 
+<span class="token keyword">SELECT</span> DEPT_CODE <span class="token keyword">FROM</span> DEPT <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> DEPT_TYPE 
+高效: <span class="token punctuation">(</span>使用索引<span class="token punctuation">)</span> 
+<span class="token keyword">SELECT</span> DEPT_CODE <span class="token keyword">FROM</span> DEPT <span class="token keyword">WHERE</span> DEPT_TYPE <span class="token operator">&gt;</span> <span class="token number">0</span>
+</code></pre></div><h4 id="_27-避免改变索引列的类型"><a href="#_27-避免改变索引列的类型" class="header-anchor">#</a> 27.避免改变索引列的类型</h4> <p>当比较不同数据类型的数据时，MySQL自动对列进行简单的类型转换。假设 EMPNO是一个数值类型的索引列。</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span> … <span class="token keyword">FROM</span> EMP <span class="token keyword">WHERE</span> EMPNO <span class="token operator">=</span> <span class="token string">'123'</span> 
+实际上，经过类型转换，语句转化为: 
+<span class="token keyword">SELECT</span> … <span class="token keyword">FROM</span> EMP <span class="token keyword">WHERE</span> EMPNO <span class="token operator">=</span> TO_NUMBER<span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span> 
+幸运的是<span class="token punctuation">,</span>类型转换没有发生在索引列上<span class="token punctuation">,</span>索引的用途没有被改变。 
+现在<span class="token punctuation">,</span>假设EMP_TYPE是一个字符类型的索引列。
+<span class="token keyword">SELECT</span> … <span class="token keyword">FROM</span> EMP <span class="token keyword">WHERE</span> EMP_TYPE <span class="token operator">=</span> <span class="token number">123</span> 
+这个语句被转换为: 
+<span class="token keyword">SELECT</span> … <span class="token keyword">FROM</span> EMP WHERETO_NUMBER<span class="token punctuation">(</span>EMP_TYPE<span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">123</span> 
+因为内部发生的类型转换，这个索引将不会被用到<span class="token operator">!</span> 为了避免MySQL对你的<span class="token keyword">SQL</span>进行隐式的类型转换，最好把类型转换用显式表现出来。注意当字符和数值比较时，MySQL会优先转换数值类型到字符类型。
+</code></pre></div><h4 id="_28-需要当心的where子句"><a href="#_28-需要当心的where子句" class="header-anchor">#</a> 28.需要当心的WHERE子句</h4> <p>某些SELECT 语句中的WHERE子句不使用索引。 这里有一些例子。</p> <ul><li>'!=' 将不使用索引。记住，索引只能告诉你什么存在于表中，而不能告诉你什么不存在于表中</li> <li>'||' 是字符连接函数，就象其他函数那样，停用了索引</li> <li>'+' 是数学函数，就象其他数学函数那样，停用了索引</li> <li>相同的索引列不能互相比较,这将会启用全表扫描</li></ul> <p>a. 如果检索数据量超过30%的表中记录数，使用索引将没有显著的效率提高。
+b. 在特定情况下，使用索引也许会比全表扫描慢， 但这是同一个数量级上的区别。 而通常情况下，使用索引比全表扫描要块几倍乃至几千倍!</p> <h4 id="_29-避免使用耗费资源的操作"><a href="#_29-避免使用耗费资源的操作" class="header-anchor">#</a> 29.避免使用耗费资源的操作</h4> <p>带有<code>DISTINCT</code>,<code>UNION</code>,<code>MINUS</code>,<code>INTERSECT</code>,<code>ORDER BY</code>的SQL语句会启动SQL引擎
+执行耗费资源的排序<code>SORT</code>功能，<code>DISTINCT</code>需要一次排序操作，而其他的至少需要执行两次排序。通常, 带有<code>UNION</code>, <code>MINUS</code> , <code>INTERSECT</code>的SQL语句都可以用其他方式重写。如果你的数据库的<code>SORT_AREA_SIZE</code>调配得好, 使用<code>UNION</code>, <code>MINUS</code>, <code>INTERSECT</code>也是可以考虑的, 毕竟它们的可读性很强。</p> <h4 id="_30-优化group-by"><a href="#_30-优化group-by" class="header-anchor">#</a> 30.优化<code>GROUP BY</code></h4> <p>提高GROUP BY 语句的效率，可以通过将不需要的记录在GROUP BY 之前过滤掉。下面两个查询返回相同结果但第二个明显就快了许多。</p> <div class="language-sql extra-class"><pre class="language-sql"><code>低效: 
+<span class="token keyword">SELECT</span> JOB <span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>SAL<span class="token punctuation">)</span> 
+<span class="token keyword">FROM</span> EMP 
+<span class="token keyword">GROUP</span> <span class="token keyword">by</span> JOB 
+<span class="token keyword">HAVING</span> JOB <span class="token operator">=</span> <span class="token string">'PRESIDENT'</span> 
+<span class="token operator">OR</span> JOB <span class="token operator">=</span> <span class="token string">'MANAGER'</span> 
+高效: 
+<span class="token keyword">SELECT</span> JOB <span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>SAL<span class="token punctuation">)</span> 
+<span class="token keyword">FROM</span> EMP 
+<span class="token keyword">WHERE</span> JOB <span class="token operator">=</span> <span class="token string">'PRESIDENT'</span> 
+<span class="token operator">OR</span> JOB <span class="token operator">=</span> <span class="token string">'MANAGER'</span> 
+<span class="token keyword">GROUP</span> <span class="token keyword">by</span> JOB
+</code></pre></div><h5 id="当我提出总结下mysql的日常规范时-很多好友分享了自己的心得-表示感谢-很受用。另外平时工作主要就是查询-所以只总结了查询优化。"><a href="#当我提出总结下mysql的日常规范时-很多好友分享了自己的心得-表示感谢-很受用。另外平时工作主要就是查询-所以只总结了查询优化。" class="header-anchor">#</a> 当我提出总结下MySQL的日常规范时，很多好友分享了自己的心得，表示感谢，很受用。另外平时工作主要就是查询，所以只总结了查询优化。</h5></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/离线数仓/shuffle.html" class="prev">
+        shuffle调优
+      </a></span> <span class="next"><a href="/./datahouse/离线数仓/sql调优.html">
+        数据倾斜调优
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.8f846374.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/94.4bc2cf6c.js" defer></script>
+  </body>
+</html>

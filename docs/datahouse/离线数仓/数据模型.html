@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数仓模型建设 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.8f846374.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/102.c7d8d043.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/100.441528ba.js"><link rel="prefetch" href="./assets/js/101.e4e38e24.js"><link rel="prefetch" href="./assets/js/103.fab94ea6.js"><link rel="prefetch" href="./assets/js/104.68e04f80.js"><link rel="prefetch" href="./assets/js/105.198c6758.js"><link rel="prefetch" href="./assets/js/106.6258b526.js"><link rel="prefetch" href="./assets/js/107.1585c4c3.js"><link rel="prefetch" href="./assets/js/108.6b62e303.js"><link rel="prefetch" href="./assets/js/109.b2d58d90.js"><link rel="prefetch" href="./assets/js/11.24e5d745.js"><link rel="prefetch" href="./assets/js/110.ded9aecf.js"><link rel="prefetch" href="./assets/js/111.6c292e59.js"><link rel="prefetch" href="./assets/js/112.6c99b5d2.js"><link rel="prefetch" href="./assets/js/113.5bd0fb72.js"><link rel="prefetch" href="./assets/js/114.e9fa34e1.js"><link rel="prefetch" href="./assets/js/115.d1c79025.js"><link rel="prefetch" href="./assets/js/116.350c9554.js"><link rel="prefetch" href="./assets/js/117.92917110.js"><link rel="prefetch" href="./assets/js/118.61f93307.js"><link rel="prefetch" href="./assets/js/119.34185e70.js"><link rel="prefetch" href="./assets/js/12.8b71ea83.js"><link rel="prefetch" href="./assets/js/120.7e1b1c7d.js"><link rel="prefetch" href="./assets/js/121.d8c00252.js"><link rel="prefetch" href="./assets/js/122.174db881.js"><link rel="prefetch" href="./assets/js/13.71347b8e.js"><link rel="prefetch" href="./assets/js/14.f053f94e.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.81e7c28f.js"><link rel="prefetch" href="./assets/js/17.f11221ce.js"><link rel="prefetch" href="./assets/js/18.fe832c69.js"><link rel="prefetch" href="./assets/js/19.14c224c1.js"><link rel="prefetch" href="./assets/js/20.fcbc42d2.js"><link rel="prefetch" href="./assets/js/21.07886cc2.js"><link rel="prefetch" href="./assets/js/22.ac5835a0.js"><link rel="prefetch" href="./assets/js/23.5fcce455.js"><link rel="prefetch" href="./assets/js/24.6884809e.js"><link rel="prefetch" href="./assets/js/25.81d9ed9d.js"><link rel="prefetch" href="./assets/js/26.4729386e.js"><link rel="prefetch" href="./assets/js/27.8b2ea903.js"><link rel="prefetch" href="./assets/js/28.ffb9e9e1.js"><link rel="prefetch" href="./assets/js/29.4d4e061f.js"><link rel="prefetch" href="./assets/js/3.6d4ee76d.js"><link rel="prefetch" href="./assets/js/30.649421e8.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.e19607e8.js"><link rel="prefetch" href="./assets/js/33.f7352c75.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.60e46ee5.js"><link rel="prefetch" href="./assets/js/36.7ccb9a0c.js"><link rel="prefetch" href="./assets/js/37.47bf640d.js"><link rel="prefetch" href="./assets/js/38.11987f44.js"><link rel="prefetch" href="./assets/js/39.694eb4c0.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.5db21ed8.js"><link rel="prefetch" href="./assets/js/41.78eb9a93.js"><link rel="prefetch" href="./assets/js/42.8369c775.js"><link rel="prefetch" href="./assets/js/43.19966b90.js"><link rel="prefetch" href="./assets/js/44.40e6834e.js"><link rel="prefetch" href="./assets/js/45.fbcb566b.js"><link rel="prefetch" href="./assets/js/46.1c3578fb.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.317886b4.js"><link rel="prefetch" href="./assets/js/49.1be89a8c.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.74e50bd1.js"><link rel="prefetch" href="./assets/js/51.6d431141.js"><link rel="prefetch" href="./assets/js/52.f8793ffe.js"><link rel="prefetch" href="./assets/js/53.ef8ac10b.js"><link rel="prefetch" href="./assets/js/54.72c2b12d.js"><link rel="prefetch" href="./assets/js/55.c35687b6.js"><link rel="prefetch" href="./assets/js/56.394b272d.js"><link rel="prefetch" href="./assets/js/57.08adde98.js"><link rel="prefetch" href="./assets/js/58.ae73d05f.js"><link rel="prefetch" href="./assets/js/59.3c851064.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.8c9de55a.js"><link rel="prefetch" href="./assets/js/61.140bed1c.js"><link rel="prefetch" href="./assets/js/62.62ad7beb.js"><link rel="prefetch" href="./assets/js/63.a36440f0.js"><link rel="prefetch" href="./assets/js/64.35625546.js"><link rel="prefetch" href="./assets/js/65.42445eda.js"><link rel="prefetch" href="./assets/js/66.47de6720.js"><link rel="prefetch" href="./assets/js/67.55b1a47f.js"><link rel="prefetch" href="./assets/js/68.f669ae1e.js"><link rel="prefetch" href="./assets/js/69.6d2b7f97.js"><link rel="prefetch" href="./assets/js/7.4a7a55b6.js"><link rel="prefetch" href="./assets/js/70.8c200ec3.js"><link rel="prefetch" href="./assets/js/71.ae918c22.js"><link rel="prefetch" href="./assets/js/72.77638b47.js"><link rel="prefetch" href="./assets/js/73.5820126f.js"><link rel="prefetch" href="./assets/js/74.5b03441d.js"><link rel="prefetch" href="./assets/js/75.1db27768.js"><link rel="prefetch" href="./assets/js/76.b5fec7d3.js"><link rel="prefetch" href="./assets/js/77.ddf1963b.js"><link rel="prefetch" href="./assets/js/78.0573ead9.js"><link rel="prefetch" href="./assets/js/79.89cb870d.js"><link rel="prefetch" href="./assets/js/8.fde5124b.js"><link rel="prefetch" href="./assets/js/80.04f05126.js"><link rel="prefetch" href="./assets/js/81.033f3b11.js"><link rel="prefetch" href="./assets/js/82.4c05f3e6.js"><link rel="prefetch" href="./assets/js/83.55a565c7.js"><link rel="prefetch" href="./assets/js/84.ec4bbf04.js"><link rel="prefetch" href="./assets/js/85.fbfb2605.js"><link rel="prefetch" href="./assets/js/86.d726556c.js"><link rel="prefetch" href="./assets/js/87.cc22e8af.js"><link rel="prefetch" href="./assets/js/88.1cff7c6b.js"><link rel="prefetch" href="./assets/js/89.6def5b33.js"><link rel="prefetch" href="./assets/js/9.e0237b05.js"><link rel="prefetch" href="./assets/js/90.7146fddb.js"><link rel="prefetch" href="./assets/js/91.737708a2.js"><link rel="prefetch" href="./assets/js/92.c85d8205.js"><link rel="prefetch" href="./assets/js/93.828ef430.js"><link rel="prefetch" href="./assets/js/94.4bc2cf6c.js"><link rel="prefetch" href="./assets/js/95.31860134.js"><link rel="prefetch" href="./assets/js/96.25f4a4ac.js"><link rel="prefetch" href="./assets/js/97.9aa011ad.js"><link rel="prefetch" href="./assets/js/98.53797f3a.js"><link rel="prefetch" href="./assets/js/99.20145e16.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>离线数仓</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E7%A6%BB%E7%BA%BF%E6%95%B0%E4%BB%93/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/离线数仓/数仓定义.html" class="sidebar-link">数据仓库定义</a></li><li><a href="/./datahouse/离线数仓/数仓基础.html" class="sidebar-link">数仓基础</a></li><li><a href="/./datahouse/离线数仓/HiveSQL查询优化案例.html" class="sidebar-link">HiveSQL查询优化案例</a></li><li><a href="/./datahouse/离线数仓/bi.html" class="sidebar-link">商务智能 （BI）</a></li><li><a href="/./datahouse/离线数仓/explain.html" class="sidebar-link">explain + 慢SQL分析</a></li><li><a href="/./datahouse/离线数仓/kudu.html" class="sidebar-link">Kudu</a></li><li><a href="/./datahouse/离线数仓/olap.html" class="sidebar-link">OLAP</a></li><li><a href="/./datahouse/离线数仓/presto与impala与hive.html" class="sidebar-link">presto  impala  hive</a></li><li><a href="/./datahouse/离线数仓/shuffle.html" class="sidebar-link">shuffle调优</a></li><li><a href="/./datahouse/离线数仓/sql规范.html" class="sidebar-link">SQL 规范</a></li><li><a href="/./datahouse/离线数仓/sql调优.html" class="sidebar-link">数据倾斜调优</a></li><li><a href="/./datahouse/离线数仓/从零开始搭建数据仓库.html" class="sidebar-link">如何从零开始搭建数据仓库</a></li><li><a href="/./datahouse/离线数仓/数仓建设的十大陷阱.html" class="sidebar-link">数仓建设的十大陷井</a></li><li><a href="/./datahouse/离线数仓/数据中台.html" class="sidebar-link">数据中台</a></li><li><a href="/./datahouse/离线数仓/数据库和数据仓库的区别.html" class="sidebar-link">数据库和数据仓库的区别</a></li><li><a href="/./datahouse/离线数仓/数据模型.html" class="active sidebar-link">数仓模型建设</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/数据模型.html#事实表" class="sidebar-link">事实表</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/数据模型.html#维度表" class="sidebar-link">维度表</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/数据模型.html#维度建模流程" class="sidebar-link">维度建模流程</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/数据模型.html#星型模型、雪花模型、星座模型" class="sidebar-link">星型模型、雪花模型、星座模型</a></li></ul></li><li><a href="/./datahouse/离线数仓/数据模型如何评论好坏.html" class="sidebar-link">数据模型评价</a></li><li><a href="/./datahouse/离线数仓/数据湖.html" class="sidebar-link">数据湖</a></li><li><a href="/./datahouse/离线数仓/用户画像总结.html" class="sidebar-link">用户画像总结</a></li><li><a href="/./datahouse/离线数仓/行业前辈的一些话.html" class="sidebar-link">行业前辈的一些话</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="数仓模型建设"><a href="#数仓模型建设" class="header-anchor">#</a> 数仓模型建设</h1> <p>我曾经设计过ER模型和维度模型，对两者的差别有过了解。 这里只涉及到维度模型，因为ER模型的设计比较复杂，时间周期太长。</p> <p>维度建模只包含两种表：<code>事实表</code>和<code>维度表</code></p> <h2 id="事实表"><a href="#事实表" class="header-anchor">#</a> 事实表</h2> <p>事实表产生于业务过程，存储了业务活动或事件提炼出来的性能度量。从最低的粒度级别来看，事实表的一个行对应一个度量事件。</p> <p>事实表根据粒度的角色划分，可分为 事务事实表、周期快照事实表、累计快照事实表。</p> <blockquote><p>需要注意的是，同一张表里的粒度必须相同，以上三种表不能混用。</p></blockquote> <ol><li><strong>事务事实表</strong></li></ol> <p>用于承载事务数据，通常粒度比较低。它是面向事务的，其粒度是每一行对应一个事务，它是最细粒度的事实表。例如商品交易事实表、用户充值事实表。</p> <ol start="2"><li><strong>周期快照事实表</strong></li></ol> <p>按照一定的时间周期间隔来捕捉业务活动的执行情况。两个关键字：<code>周期</code>、<code>快照</code>，简单说就是粒度比较粗事务事实表的定期快照。一旦装入事实表就不会再更新，它是事务事实表的补充。用来记录有规律、固定时间间隔的业务累计数据，通常粒度比较高。例如账户的月平均余额事实表、年商品销售额。</p> <ol start="3"><li><strong>累计快照事实表</strong></li></ol> <p>累积快照事实表和周期快照事实表有些相似之处，它们存储的都是事务数据的快照信息。但是它们之间也有着很大的不同，周期快照事实表记录的确定的周期的数据，而累积快照事实表记录的不确定的周期的数据。</p> <p>累积快照事实表记录的是完全覆盖一个事务或产品的生命周期的时间跨度，它通常具有多个日期字段，用来记录整个生命周期中的关键时间点，一个生命周期对应一行。另外，它还会有一个用于指示最后更新日期的附加日期字段。由于事实表中许多日期在首次加载时是不知道的，所以必须使用代理关键字来处理未定义的日期，而且这类事实表在数据加载完后，是可以对它进行更新的，来补充随后知道的日期信息。</p> <h2 id="维度表"><a href="#维度表" class="header-anchor">#</a> 维度表</h2> <p>维度表可以看成是用户用来分析一个事实的窗口，它里面的数据应该是对事实的各个方面描述，比如时间维度表，它里面的数据就是一些日，周，月，季，年，日期等数据，维度表只能是事实表的一个分析角度。</p> <h4 id="维度表的设计步骤"><a href="#维度表的设计步骤" class="header-anchor">#</a> 维度表的设计步骤</h4> <ol><li>完成维度的初步定义，并保证维度的一致性。</li> <li>确定主维表（中心事实表）。此处的主维表通常是数据引入层（ODS）表，直接与业务系统同步。例如，s_auction是与前台商品中心系统同步的商品表，此表即是主维表。</li> <li>确定相关维表。数据仓库是业务源系统的数据整合，不同业务系统或者同一业务系统中的表之间存在关联性。根据对业务的梳理，确定哪些表和主维表存在关联关系，并选择其中的某些表用于生成维度属性。以商品维度为例，根据对业务逻辑的梳理，可以得到商品与类目、卖家、店铺等维度存在关联关系。</li> <li>确定维度属性，主要包括两个阶段。第一个阶段是从主维表中选择维度属性或生成新的维度属性；第二个阶段是从相关维表中选择维度属性或生成新的维度属性。以商品维度为例，从主维表(s_auction)和类目 、卖家、店铺等相关维表中选择维度属性或生成新的维度属性。</li></ol> <p>维度表常涉及到两种概念：<code>退化维度</code>和<code>缓慢变化维度</code></p> <ol><li><strong>退化维度</strong></li></ol> <p>退化维度不是维度，它表示一种针对维度展现的方法。在实际开发中，经常遇到在一些事实表频繁使用的维度，比如订单表中的用户信息、商品信息。为了使用方便，这些维度信息便可以直接放到事实表中，毕竟对于目前大数据来讲，存储成本还是很低的，这种设计就称为退化维度。</p> <ol start="2"><li><strong>缓慢变化维</strong></li></ol> <p>维度并不是保持不变，它会随着业务的发展而发生改动。这种随着时间发生变化的维度称为缓慢变化维。</p> <p>具体解决方式，请看博客</p> <blockquote><p><a href="https://blog.csdn.net/fenglei0415/article/details/107586011" target="_blank" rel="noopener noreferrer">数仓中的缓慢变化维<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <h2 id="维度建模流程"><a href="#维度建模流程" class="header-anchor">#</a> 维度建模流程</h2> <p>具体细节查看博客</p> <blockquote><p><a href="https://blog.csdn.net/fenglei0415/article/details/99094482" target="_blank" rel="noopener noreferrer">数仓模型构建流程<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <h2 id="星型模型、雪花模型、星座模型"><a href="#星型模型、雪花模型、星座模型" class="header-anchor">#</a> 星型模型、雪花模型、星座模型</h2> <p>事实表和维度按照数据组织类型可以分为 <strong>星型模型</strong>、<strong>雪花模型</strong>、<strong>星座模型</strong>。</p> <ol><li><strong>星型模型</strong></li></ol> <p>星型模型是以事实表为中心，所有维度直接关联在事实表上，呈星型分布，类似放射状。</p> <ol start="2"><li><strong>雪花模型</strong></li></ol> <p>基于星型模型，维度表上又关联了其他维度表。这种模型维护成本高、性能较差，不建议使用。尤其对基于Hadoop体系搭建数据仓库，减少join就是减少shuffle，性能差很多。</p> <ol start="3"><li><strong>星座模型</strong></li></ol> <p>基于星型模型的扩展，多张事实表共享维度表。数仓建设的后期，大部分维度建模都是星座模型。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/离线数仓/数据库和数据仓库的区别.html" class="prev">
+        数据库和数据仓库的区别
+      </a></span> <span class="next"><a href="/./datahouse/离线数仓/数据模型如何评论好坏.html">
+        数据模型评价
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.8f846374.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/102.c7d8d043.js" defer></script>
+  </body>
+</html>

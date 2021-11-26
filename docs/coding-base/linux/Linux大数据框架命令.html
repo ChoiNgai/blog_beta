@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linux大数据框架命令 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.8f846374.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/57.08adde98.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/100.441528ba.js"><link rel="prefetch" href="./assets/js/101.e4e38e24.js"><link rel="prefetch" href="./assets/js/102.c7d8d043.js"><link rel="prefetch" href="./assets/js/103.fab94ea6.js"><link rel="prefetch" href="./assets/js/104.68e04f80.js"><link rel="prefetch" href="./assets/js/105.198c6758.js"><link rel="prefetch" href="./assets/js/106.6258b526.js"><link rel="prefetch" href="./assets/js/107.1585c4c3.js"><link rel="prefetch" href="./assets/js/108.6b62e303.js"><link rel="prefetch" href="./assets/js/109.b2d58d90.js"><link rel="prefetch" href="./assets/js/11.24e5d745.js"><link rel="prefetch" href="./assets/js/110.ded9aecf.js"><link rel="prefetch" href="./assets/js/111.6c292e59.js"><link rel="prefetch" href="./assets/js/112.6c99b5d2.js"><link rel="prefetch" href="./assets/js/113.5bd0fb72.js"><link rel="prefetch" href="./assets/js/114.e9fa34e1.js"><link rel="prefetch" href="./assets/js/115.d1c79025.js"><link rel="prefetch" href="./assets/js/116.350c9554.js"><link rel="prefetch" href="./assets/js/117.92917110.js"><link rel="prefetch" href="./assets/js/118.61f93307.js"><link rel="prefetch" href="./assets/js/119.34185e70.js"><link rel="prefetch" href="./assets/js/12.8b71ea83.js"><link rel="prefetch" href="./assets/js/120.7e1b1c7d.js"><link rel="prefetch" href="./assets/js/121.d8c00252.js"><link rel="prefetch" href="./assets/js/122.174db881.js"><link rel="prefetch" href="./assets/js/13.71347b8e.js"><link rel="prefetch" href="./assets/js/14.f053f94e.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.81e7c28f.js"><link rel="prefetch" href="./assets/js/17.f11221ce.js"><link rel="prefetch" href="./assets/js/18.fe832c69.js"><link rel="prefetch" href="./assets/js/19.14c224c1.js"><link rel="prefetch" href="./assets/js/20.fcbc42d2.js"><link rel="prefetch" href="./assets/js/21.07886cc2.js"><link rel="prefetch" href="./assets/js/22.ac5835a0.js"><link rel="prefetch" href="./assets/js/23.5fcce455.js"><link rel="prefetch" href="./assets/js/24.6884809e.js"><link rel="prefetch" href="./assets/js/25.81d9ed9d.js"><link rel="prefetch" href="./assets/js/26.4729386e.js"><link rel="prefetch" href="./assets/js/27.8b2ea903.js"><link rel="prefetch" href="./assets/js/28.ffb9e9e1.js"><link rel="prefetch" href="./assets/js/29.4d4e061f.js"><link rel="prefetch" href="./assets/js/3.6d4ee76d.js"><link rel="prefetch" href="./assets/js/30.649421e8.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.e19607e8.js"><link rel="prefetch" href="./assets/js/33.f7352c75.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.60e46ee5.js"><link rel="prefetch" href="./assets/js/36.7ccb9a0c.js"><link rel="prefetch" href="./assets/js/37.47bf640d.js"><link rel="prefetch" href="./assets/js/38.11987f44.js"><link rel="prefetch" href="./assets/js/39.694eb4c0.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.5db21ed8.js"><link rel="prefetch" href="./assets/js/41.78eb9a93.js"><link rel="prefetch" href="./assets/js/42.8369c775.js"><link rel="prefetch" href="./assets/js/43.19966b90.js"><link rel="prefetch" href="./assets/js/44.40e6834e.js"><link rel="prefetch" href="./assets/js/45.fbcb566b.js"><link rel="prefetch" href="./assets/js/46.1c3578fb.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.317886b4.js"><link rel="prefetch" href="./assets/js/49.1be89a8c.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.74e50bd1.js"><link rel="prefetch" href="./assets/js/51.6d431141.js"><link rel="prefetch" href="./assets/js/52.f8793ffe.js"><link rel="prefetch" href="./assets/js/53.ef8ac10b.js"><link rel="prefetch" href="./assets/js/54.72c2b12d.js"><link rel="prefetch" href="./assets/js/55.c35687b6.js"><link rel="prefetch" href="./assets/js/56.394b272d.js"><link rel="prefetch" href="./assets/js/58.ae73d05f.js"><link rel="prefetch" href="./assets/js/59.3c851064.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.8c9de55a.js"><link rel="prefetch" href="./assets/js/61.140bed1c.js"><link rel="prefetch" href="./assets/js/62.62ad7beb.js"><link rel="prefetch" href="./assets/js/63.a36440f0.js"><link rel="prefetch" href="./assets/js/64.35625546.js"><link rel="prefetch" href="./assets/js/65.42445eda.js"><link rel="prefetch" href="./assets/js/66.47de6720.js"><link rel="prefetch" href="./assets/js/67.55b1a47f.js"><link rel="prefetch" href="./assets/js/68.f669ae1e.js"><link rel="prefetch" href="./assets/js/69.6d2b7f97.js"><link rel="prefetch" href="./assets/js/7.4a7a55b6.js"><link rel="prefetch" href="./assets/js/70.8c200ec3.js"><link rel="prefetch" href="./assets/js/71.ae918c22.js"><link rel="prefetch" href="./assets/js/72.77638b47.js"><link rel="prefetch" href="./assets/js/73.5820126f.js"><link rel="prefetch" href="./assets/js/74.5b03441d.js"><link rel="prefetch" href="./assets/js/75.1db27768.js"><link rel="prefetch" href="./assets/js/76.b5fec7d3.js"><link rel="prefetch" href="./assets/js/77.ddf1963b.js"><link rel="prefetch" href="./assets/js/78.0573ead9.js"><link rel="prefetch" href="./assets/js/79.89cb870d.js"><link rel="prefetch" href="./assets/js/8.fde5124b.js"><link rel="prefetch" href="./assets/js/80.04f05126.js"><link rel="prefetch" href="./assets/js/81.033f3b11.js"><link rel="prefetch" href="./assets/js/82.4c05f3e6.js"><link rel="prefetch" href="./assets/js/83.55a565c7.js"><link rel="prefetch" href="./assets/js/84.ec4bbf04.js"><link rel="prefetch" href="./assets/js/85.fbfb2605.js"><link rel="prefetch" href="./assets/js/86.d726556c.js"><link rel="prefetch" href="./assets/js/87.cc22e8af.js"><link rel="prefetch" href="./assets/js/88.1cff7c6b.js"><link rel="prefetch" href="./assets/js/89.6def5b33.js"><link rel="prefetch" href="./assets/js/9.e0237b05.js"><link rel="prefetch" href="./assets/js/90.7146fddb.js"><link rel="prefetch" href="./assets/js/91.737708a2.js"><link rel="prefetch" href="./assets/js/92.c85d8205.js"><link rel="prefetch" href="./assets/js/93.828ef430.js"><link rel="prefetch" href="./assets/js/94.4bc2cf6c.js"><link rel="prefetch" href="./assets/js/95.31860134.js"><link rel="prefetch" href="./assets/js/96.25f4a4ac.js"><link rel="prefetch" href="./assets/js/97.9aa011ad.js"><link rel="prefetch" href="./assets/js/98.53797f3a.js"><link rel="prefetch" href="./assets/js/99.20145e16.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link router-link-active">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link router-link-active">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link router-link-active">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Linux</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./coding-base/linux/Linux基础命令.html" class="sidebar-link">Linux基础命令</a></li><li><a href="/./coding-base/linux/Linux大数据框架命令.html" class="active sidebar-link">Linux大数据框架命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#vi-vim" class="sidebar-link">vi/vim</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#一般模式" class="sidebar-link">一般模式</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#编辑模式" class="sidebar-link">编辑模式</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#指令模式" class="sidebar-link">指令模式</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#压缩和解压" class="sidebar-link">压缩和解压</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#rpm" class="sidebar-link">RPM</a></li></ul></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#shell" class="sidebar-link">Shell</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#输入-输出重定向" class="sidebar-link">输入/输出重定向</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#脚本编辑" class="sidebar-link">脚本编辑</a></li></ul></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#hadoop" class="sidebar-link">Hadoop</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#启动类命令" class="sidebar-link">启动类命令</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#hadoop-fs-hdfs-dfs-命令" class="sidebar-link">hadoop fs/hdfs dfs 命令</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#yarn命令" class="sidebar-link">yarn命令</a></li></ul></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#zookeeper" class="sidebar-link">Zookeeper</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#启动命令" class="sidebar-link">启动命令</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#基本操作" class="sidebar-link">基本操作</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#四字母命令" class="sidebar-link">四字母命令</a></li></ul></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#kafka" class="sidebar-link">Kafka</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#查看当前服务器中的所有topic" class="sidebar-link">查看当前服务器中的所有topic</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#创建topic" class="sidebar-link">创建topic</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#删除topic" class="sidebar-link">删除topic</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#生产者" class="sidebar-link">生产者</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#消费者" class="sidebar-link">消费者</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#查看某个topic的详情" class="sidebar-link">查看某个Topic的详情</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#修改分区数" class="sidebar-link">修改分区数</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#查看某个消费者组信息" class="sidebar-link">查看某个消费者组信息</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#删除消费者组" class="sidebar-link">删除消费者组</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#重置offset" class="sidebar-link">重置offset</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#leader重新选举" class="sidebar-link">leader重新选举</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#查询kafka版本信息" class="sidebar-link">查询kafka版本信息</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#增删改配置" class="sidebar-link">增删改配置</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#持续批量拉取消息" class="sidebar-link">持续批量拉取消息</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#删除指定分区的消息" class="sidebar-link">删除指定分区的消息</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#查看broker磁盘信息" class="sidebar-link">查看Broker磁盘信息</a></li></ul></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#hive" class="sidebar-link">Hive</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#启动类" class="sidebar-link">启动类</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#常用交互命令" class="sidebar-link">常用交互命令</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#sql类-特殊的" class="sidebar-link">SQL类(特殊的)</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#内置函数" class="sidebar-link">内置函数</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#窗口函数" class="sidebar-link">窗口函数</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#_4个by" class="sidebar-link">4个By</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#排序函数" class="sidebar-link">排序函数</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#日期函数" class="sidebar-link">日期函数</a></li></ul></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#redis" class="sidebar-link">Redis</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#启动类-2" class="sidebar-link">启动类</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#key" class="sidebar-link">key</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#string" class="sidebar-link">String</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#list" class="sidebar-link">List</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#set" class="sidebar-link">Set</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#hash" class="sidebar-link">Hash</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#zset-sorted-set" class="sidebar-link">zset(Sorted set)</a></li></ul></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#flink" class="sidebar-link">Flink</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#启动" class="sidebar-link">启动</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#run" class="sidebar-link">run</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#info" class="sidebar-link">info</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#list-2" class="sidebar-link">list</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#stop" class="sidebar-link">stop</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#cancel-弱化" class="sidebar-link">cancel(弱化)</a></li><li class="sidebar-sub-header"><a href="/./coding-base/linux/Linux大数据框架命令.html#savepoint" class="sidebar-link">savepoint</a></li></ul></li></ul></li><li><a href="/./coding-base/linux/" aria-current="page" class="sidebar-link">目录</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="linux大数据框架命令"><a href="#linux大数据框架命令" class="header-anchor">#</a> Linux大数据框架命令</h1> <h2 id="vi-vim"><a href="#vi-vim" class="header-anchor">#</a> vi/vim</h2> <h3 id="一般模式"><a href="#一般模式" class="header-anchor">#</a> 一般模式</h3> <table><thead><tr><th>语法</th> <th>功能描述</th></tr></thead> <tbody><tr><td>yy</td> <td>复制光标当前一行</td></tr> <tr><td>y数字y</td> <td>复制一段（从第几行到第几行）</td></tr> <tr><td>p</td> <td>箭头移动到目的行粘贴</td></tr> <tr><td>u</td> <td>撤销上一步</td></tr> <tr><td>dd</td> <td>删除光标当前行</td></tr> <tr><td>d数字d</td> <td>删除光标（含）后多少行</td></tr> <tr><td>x</td> <td>删除一个字母，相当于del</td></tr> <tr><td>X</td> <td>删除一个字母，相当于Backspace</td></tr> <tr><td>yw</td> <td>复制一个词</td></tr> <tr><td>dw</td> <td>删除一个词</td></tr> <tr><td>shift+^</td> <td>移动到行头</td></tr> <tr><td>shift+$</td> <td>移动到行尾</td></tr> <tr><td>1+shift+g</td> <td>移动到页头，数字</td></tr> <tr><td>shift+g</td> <td>移动到页尾</td></tr> <tr><td>数字N+shift+g</td> <td>移动到目标行</td></tr></tbody></table> <h3 id="编辑模式"><a href="#编辑模式" class="header-anchor">#</a> 编辑模式</h3> <table><thead><tr><th>按键</th> <th>功能</th></tr></thead> <tbody><tr><td>i</td> <td>当前光标前</td></tr> <tr><td>a</td> <td>当前光标后</td></tr> <tr><td>o</td> <td>当前光标行的下一行</td></tr> <tr><td>I</td> <td>光标所在行最前</td></tr> <tr><td>A</td> <td>光标所在行最后</td></tr> <tr><td>O</td> <td>当前光标行的上一行</td></tr></tbody></table> <h3 id="指令模式"><a href="#指令模式" class="header-anchor">#</a> 指令模式</h3> <table><thead><tr><th>命令</th> <th>功能</th></tr></thead> <tbody><tr><td>:w</td> <td>保存</td></tr> <tr><td>:q</td> <td>退出</td></tr> <tr><td>:!</td> <td>强制执行</td></tr> <tr><td>/要查找的词</td> <td>n 查找下一个，N 往上查找</td></tr> <tr><td>? 要查找的词</td> <td>n是查找上一个，shift+n是往下查找</td></tr> <tr><td>:set nu</td> <td>显示行号</td></tr> <tr><td>:set nonu</td> <td>关闭行号</td></tr></tbody></table> <h3 id="压缩和解压"><a href="#压缩和解压" class="header-anchor">#</a> 压缩和解压</h3> <h4 id="gzip-gunzip-压缩"><a href="#gzip-gunzip-压缩" class="header-anchor">#</a> gzip/gunzip 压缩</h4> <p>（1）只能压缩文件不能压缩目录</p> <p>（2）不保留原来的文件</p> <p>gzip压缩：gzip hello.txt</p> <p>gunzip解压缩文件：gunzip hello.txt.gz</p> <h4 id="zip-unzip-压缩"><a href="#zip-unzip-压缩" class="header-anchor">#</a> zip/unzip 压缩</h4> <p>可以压缩目录且保留源文件</p> <p>zip压缩（压缩 1.txt 和2.txt，压缩后的名称为mypackage.zip）：zip hello.zip hello.txt world.txt</p> <p>unzip解压：unzip hello.zip</p> <p>unzip解压到指定目录：unzip hello.zip -d /opt</p> <h4 id="tar-打包"><a href="#tar-打包" class="header-anchor">#</a> tar 打包</h4> <p>tar压缩多个文件：tar -zcvf hello.txt world.txt</p> <p>tar压缩目录：tar -zcvf hello.tar.gz opt/</p> <p>tar解压到当前目录：tar -zxvf hello.tar.gz</p> <p>tar解压到指定目录：tar -zxvf hello.tar.gz -C /opt</p> <h3 id="rpm"><a href="#rpm" class="header-anchor">#</a> RPM</h3> <p>RPM查询命令：rpm -qa |grep firefox</p> <p>RPM卸载命令：</p> <p>rpm -e xxxxxx</p> <p>rpm -e --nodeps xxxxxx（不检查依赖）</p> <p>RPM安装命令：</p> <p>rpm -ivh xxxxxx.rpm</p> <p>rpm -ivh --nodeps fxxxxxx.rpm（--nodeps，不检测依赖进度）</p> <table><thead><tr><th>选项</th> <th>功能</th></tr></thead> <tbody><tr><td>-i</td> <td>-i=install，安装</td></tr> <tr><td>-v</td> <td>-v=verbose，显示详细信息</td></tr> <tr><td>-h</td> <td>-h=hash，进度条</td></tr> <tr><td>--nodeps</td> <td>--nodeps，不检测依赖进度</td></tr></tbody></table> <hr> <h2 id="shell"><a href="#shell" class="header-anchor">#</a> Shell</h2> <h3 id="输入-输出重定向"><a href="#输入-输出重定向" class="header-anchor">#</a> 输入/输出重定向</h3> <table><thead><tr><th>命令</th> <th>功能说明</th></tr></thead> <tbody><tr><td>command &gt; file</td> <td>将输出重定向到 file</td></tr> <tr><td>command &lt; file</td> <td>将输入重定向到 file</td></tr> <tr><td>command &gt;&gt; file</td> <td>将输出以追加的方式重定向到 file</td></tr> <tr><td>n &gt; file</td> <td>将文件描述符为 n 的文件重定向到 file</td></tr> <tr><td>n &gt;&gt; file</td> <td>将文件描述符为 n 的文件以追加的方式重定向到 file</td></tr> <tr><td>n &gt;&amp; m</td> <td>将输出文件 m 和 n 合并</td></tr> <tr><td>n &lt;&amp; m</td> <td>将输入文件 m 和 n 合并</td></tr> <tr><td>&lt;&lt; tag</td> <td>将开始标记 tag 和结束标记 tag 之间的内容作为输入</td></tr></tbody></table> <h3 id="脚本编辑"><a href="#脚本编辑" class="header-anchor">#</a> 脚本编辑</h3> <table><thead><tr><th>快捷方式</th> <th>功能说明</th></tr></thead> <tbody><tr><td>shift</td> <td>参数左移</td></tr> <tr><td>$@</td> <td>所有的参数</td></tr> <tr><td>$#</td> <td>参数的个数</td></tr></tbody></table> <hr> <h2 id="hadoop"><a href="#hadoop" class="header-anchor">#</a> Hadoop</h2> <h3 id="启动类命令"><a href="#启动类命令" class="header-anchor">#</a> 启动类命令</h3> <table><thead><tr><th>功能说明</th> <th>命令脚本</th></tr></thead> <tbody><tr><td>启动hdfs集群</td> <td>sbin/start-dfs.sh</td></tr> <tr><td>启动yarn</td> <td>sbin/start-yarn.sh</td></tr></tbody></table> <h3 id="hadoop-fs-hdfs-dfs-命令"><a href="#hadoop-fs-hdfs-dfs-命令" class="header-anchor">#</a> hadoop fs/hdfs dfs 命令</h3> <table><thead><tr><th>功能说明</th> <th>命令</th></tr></thead> <tbody><tr><td>创建目录</td> <td>hdfs dfs -mkdir -p /data/flink</td></tr> <tr><td>显示目录</td> <td>hdfs dfs -ls /</td></tr> <tr><td>从HDFS拷贝到本地</td> <td>hdfs dfs -copyToLocal /data/data.txt ./</td></tr> <tr><td>文件上传到集群(从本地)</td> <td>hhdfs dfs -copyFromLocal data.txt /</td></tr> <tr><td>文件下载</td> <td>hdfs dfs -get /data/flink</td></tr> <tr><td>删除集群的文件</td> <td>hdfs dfs -rm /data/flink</td></tr> <tr><td>删除文件夹</td> <td>hdfs dfs -rm -r -skipTrash /data</td></tr> <tr><td>从本地剪切粘贴到HDFS</td> <td>hdfs dfs  -moveFromLocal data.txt /data/</td></tr> <tr><td>追加一个文件到已经存在的文件末尾hdfs dfs -appendToFile data1.txt /data/data.txt</td> <td></td></tr> <tr><td>显示文件内容</td> <td>hdfs dfs -cat data.txt</td></tr> <tr><td>修改文件所属权限</td> <td>hdfs dfs  -chmod  777 xxx.sh</td></tr> <tr><td>修改文件所属用户组</td> <td>hdfs dfs  -chown  root:root data.txt</td></tr> <tr><td>从HDFS的一个路径拷贝到HDFS的另一个路径</td> <td>hdfs dfs -cp data.txt /data1.txt</td></tr> <tr><td>在HDFS目录中移动文件</td> <td>hdfs dfs -mv data.txt /opt/</td></tr> <tr><td>合并下载多个文件</td> <td>hdfs dfs  -getmerge /data/* ./data_merge.txt</td></tr> <tr><td>hadoop fs -put</td> <td>等同于copyFromLocal</td></tr> <tr><td>显示一个文件的末尾</td> <td>hdfs dfs -tail data.txt</td></tr> <tr><td>删除文件或文件夹</td> <td>hdfs dfs -rm /data/data.txt</td></tr> <tr><td>删除空目录</td> <td>hdfs dfs -rmdir /data</td></tr> <tr><td>统计文件夹的大小信息</td> <td>hdfs dfs -s -h /data</td></tr> <tr><td>统计文件夹下的文件大小信息</td> <td>hdfs dfs  -h /data</td></tr> <tr><td>设置HDFS中文件的副本数量</td> <td>hdfs dfs -setrep 3 /data/data.txt</td></tr></tbody></table> <h3 id="yarn命令"><a href="#yarn命令" class="header-anchor">#</a> yarn命令</h3> <table><thead><tr><th>功能说明</th> <th>命令</th></tr></thead> <tbody><tr><td>查看正在运行的yarn任务列表</td> <td>yarn application -list appID</td></tr> <tr><td>kill掉指定id的yarn任务</td> <td>yarn application -kill appID</td></tr> <tr><td>查看任务日志信息</td> <td>yarn logs -applicationId appID</td></tr></tbody></table> <hr> <h2 id="zookeeper"><a href="#zookeeper" class="header-anchor">#</a> Zookeeper</h2> <h3 id="启动命令"><a href="#启动命令" class="header-anchor">#</a> 启动命令</h3> <table><thead><tr><th>功能说明</th> <th>命令脚本</th></tr></thead> <tbody><tr><td>启动zookeeper服务</td> <td>zkServer.sh start</td></tr> <tr><td>查看zookeeper状态</td> <td>zkServer.sh status</td></tr> <tr><td>停止zookeeper服务</td> <td>zkServer.sh stop</td></tr> <tr><td>启动zookeeper客户端</td> <td>zkCli.sh -server 127.0.0.1:2181</td></tr> <tr><td>退出zookeeper客户端</td> <td>quit</td></tr></tbody></table> <h3 id="基本操作"><a href="#基本操作" class="header-anchor">#</a> 基本操作</h3> <table><thead><tr><th>功能说明</th> <th>命令脚本</th></tr></thead> <tbody><tr><td>当前znode中所包含的内容</td> <td>ls /</td></tr> <tr><td>创建普通节点(前面是节点的路径，后面是值）</td> <td>create /bigdata/flink &quot;flink&quot;</td></tr> <tr><td>获取节点的值</td> <td>get /bigdata</td></tr> <tr><td>修改节点的值</td> <td>set /bigdata/flink &quot;flinksql&quot;</td></tr> <tr><td>删除节点</td> <td>delete /bigdata/flink</td></tr> <tr><td>递归删除节点</td> <td>rmr /bigdata</td></tr></tbody></table> <h3 id="四字母命令"><a href="#四字母命令" class="header-anchor">#</a> 四字母命令</h3> <table><thead><tr><th>命令</th> <th>功能说明</th> <th>例子</th></tr></thead> <tbody><tr><td>conf</td> <td>zk服务配置的详细信息</td> <td>echo conf | nc 127.0.0.1 2181</td></tr> <tr><td>stat</td> <td>客户端与zk连接的简要信息</td> <td>参考上面</td></tr> <tr><td>srvr</td> <td>zk服务的详细信息</td> <td>参考上面</td></tr> <tr><td>cons</td> <td>客户端与zk连接的详细信息</td> <td>参考上面</td></tr> <tr><td>mntr</td> <td>zk服务目前的性能状况</td> <td>参考上面</td></tr> <tr><td>crst</td> <td>重置当前的所有连接、会话</td> <td>参考上面</td></tr> <tr><td>dump</td> <td>列出未经处理的会话和连接信息</td> <td>参考上面</td></tr> <tr><td>envi</td> <td>列出zk的版本信息、主机名称、Java版本、服务器名称等等</td> <td>参考上面</td></tr> <tr><td>ruok</td> <td>测试服务器是否正在运行，如果在运行返回imok，否则返回空</td> <td>参考上面</td></tr> <tr><td>srst</td> <td>重置Zookeeper的所有统计信息</td> <td>参考上面</td></tr> <tr><td>wchs</td> <td>列出watch的总数，连接数</td> <td>参考上面</td></tr> <tr><td>wchp</td> <td>列出所有watch的路径及sessionID</td> <td>参考上面</td></tr> <tr><td>mntr</td> <td>列出集群的关键性能数据，包括zk的版本、node数量、临时节点数等等</td> <td>参考上面</td></tr></tbody></table> <hr> <h2 id="kafka"><a href="#kafka" class="header-anchor">#</a> Kafka</h2> <p><strong>注:</strong> 这里机器我只写一个。命令你们也可使用 ./bin/xx.sh (如：./bin/kafka-topics.sh)</p> <h3 id="查看当前服务器中的所有topic"><a href="#查看当前服务器中的所有topic" class="header-anchor">#</a> 查看当前服务器中的所有topic</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-topics --zookeeper xxxxxx:2181 --list --exclude-internal 
+
+说明：
+
+exclude-internal：排除kafka内部topic
+
+比如： --exclude-internal  --topic <span class="token string">&quot;test_.*&quot;</span>
+</code></pre></div><h3 id="创建topic"><a href="#创建topic" class="header-anchor">#</a> 创建topic</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-topics --zookeeper xxxxxx:2181  --create 
+--replication-factor 
+--partitions <span class="token number">1</span> 
+--topic topic_name
+
+说明：
+
+--topic 定义topic名
+
+--replication-factor  定义副本数
+
+--partitions  定义分区数
+</code></pre></div><h3 id="删除topic"><a href="#删除topic" class="header-anchor">#</a> 删除topic</h3> <p><strong>注意:</strong> 需要server.properties中设置delete.topic.enable=true否则只是标记删除</p> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-topics --zookeeper xxxxxx:2181 --delete --topic topic_name
+</code></pre></div><h3 id="生产者"><a href="#生产者" class="header-anchor">#</a> 生产者</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-console-producer --broker-list xxxxxx:9092 --topic topic_name
+
+可加：--property parse.key<span class="token operator">=</span>true（有key消息）
+</code></pre></div><h3 id="消费者"><a href="#消费者" class="header-anchor">#</a> 消费者</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-console-consumer --bootstrap-server xxxxxx:9092 --topic topic_name
+
+注：可选
+
+--from-beginning：会把主题中以往所有的数据都读取出来
+
+--whitelist <span class="token string">'.*'</span> ：消费所有的topic
+
+--property print.key<span class="token operator">=</span>true：显示key进行消费
+
+--partition <span class="token number">0</span>：指定分区消费
+
+--offset：指定起始偏移量消费
+</code></pre></div><h3 id="查看某个topic的详情"><a href="#查看某个topic的详情" class="header-anchor">#</a> 查看某个Topic的详情</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-topics --zookeeper xxxxxx:2181 --describe --topic topic_name
+</code></pre></div><h3 id="修改分区数"><a href="#修改分区数" class="header-anchor">#</a> 修改分区数</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-topics --zookeeper xxxxxx:2181 --alter --topic topic_name --partitions <span class="token number">6</span>
+</code></pre></div><h3 id="查看某个消费者组信息"><a href="#查看某个消费者组信息" class="header-anchor">#</a> 查看某个消费者组信息</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-consumer-groups --bootstrap-server  xxxxxx:9092  --describe --group group_name 
+</code></pre></div><h3 id="删除消费者组"><a href="#删除消费者组" class="header-anchor">#</a> 删除消费者组</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-consumer-groups --bootstrap-server  xxxxxx:9092  ---delete --group group_name 
+</code></pre></div><h3 id="重置offset"><a href="#重置offset" class="header-anchor">#</a> 重置offset</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-consumer-groups --bootstrap-server  xxxxxx:9092  --group group_name
+
+--reset-offsets --all-topics --to-latest --execute 
+</code></pre></div><h3 id="leader重新选举"><a href="#leader重新选举" class="header-anchor">#</a> leader重新选举</h3> <p>指定Topic指定分区用重新PREFERRED：优先副本策略 进行Leader重选举</p> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-leader-election --bootstrap-server xxxxxx:9092 
+--topic topic_name --election-type PREFERRED --partition <span class="token number">0</span>
+</code></pre></div><p>所有Topic所有分区用重新PREFERRED：优先副本策略 进行Leader重选举</p> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-leader-election --bootstrap-server xxxxxx:9092 
+--election-type preferred  --all-topic-partitions
+</code></pre></div><h3 id="查询kafka版本信息"><a href="#查询kafka版本信息" class="header-anchor">#</a> 查询kafka版本信息</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-configs --bootstrap-server xxxxxx:9092
+--describe --version
+</code></pre></div><h3 id="增删改配置"><a href="#增删改配置" class="header-anchor">#</a> 增删改配置</h3> <table><thead><tr><th>功能说明</th> <th>参数</th></tr></thead> <tbody><tr><td>选择类型</td> <td>--entity-type (topics/clients/users/brokers/broker- loggers)</td></tr> <tr><td>类型名称</td> <td>--entity-name</td></tr> <tr><td>删除配置</td> <td>--delete-config k1=v1,k2=v2</td></tr> <tr><td>添加/修改配置</td> <td>--add-config k1,k2</td></tr></tbody></table> <p>topic添加/修改动态配置</p> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-configs --bootstrap-server xxxxxx:9092
+--alter --entity-type topics --entity-name topic_name 
+--add-config file.delete.delay.ms<span class="token operator">=</span><span class="token number">222222</span>,retention.ms<span class="token operator">=</span><span class="token number">999999</span>
+</code></pre></div><p>topic删除动态配置</p> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-configs --bootstrap-server xxxxxx:9092 
+--alter --entity-type topics --entity-name topic_name 
+--delete-config file.delete.delay.ms,retention.ms
+</code></pre></div><h3 id="持续批量拉取消息"><a href="#持续批量拉取消息" class="header-anchor">#</a> 持续批量拉取消息</h3> <p>单次最大消费10条消息(不加参数意为持续消费)</p> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-verifiable-consumer --bootstrap-server xxxxxx:9092 
+--group group_name
+--topic topic_name --max-messages <span class="token number">10</span>
+</code></pre></div><h3 id="删除指定分区的消息"><a href="#删除指定分区的消息" class="header-anchor">#</a> 删除指定分区的消息</h3> <p>删除指定topic的某个分区的消息删除至offset为1024</p> <p>json文件offset-json-file.json</p> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;partitions&quot;: [
+        {
+            &quot;topic&quot;: &quot;topic_name&quot;,
+            &quot;partition&quot;: 0,
+            &quot;offset&quot;: 1024
+        }
+    ],
+    &quot;version&quot;: 1
+}
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code>kafka-delete-records --bootstrap-server xxxxxx:9092 
+--offset-json-file offset-json-file.json
+</code></pre></div><h3 id="查看broker磁盘信息"><a href="#查看broker磁盘信息" class="header-anchor">#</a> 查看Broker磁盘信息</h3> <p>查询指定topic磁盘信息</p> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-log-dirs --bootstrap-server xxxxxx:9090 
+--describe --topic-list topic1,topic2
+</code></pre></div><p>查询指定Broker磁盘信息</p> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-log-dirs --bootstrap-server xxxxxx:9090 
+--describe --topic-list topic1 --broker-list <span class="token number">0</span>
+</code></pre></div><h2 id="hive"><a href="#hive" class="header-anchor">#</a> Hive</h2> <h3 id="启动类"><a href="#启动类" class="header-anchor">#</a> 启动类</h3> <table><thead><tr><th>功能说明</th> <th>命令</th></tr></thead> <tbody><tr><td>启动hiveserver2服务</td> <td>bin/hiveserver2</td></tr> <tr><td>启动beeline</td> <td>bin/beeline</td></tr> <tr><td>连接hiveserver2</td> <td>beeline&gt; !connect jdbc:hive2://hadoop102:10000</td></tr> <tr><td>metastroe服务</td> <td>bin/hive --service metastore</td></tr></tbody></table> <p>hive 启动元数据服务（metastore和hiveserver2）和优雅关闭脚本</p> <div class="language- extra-class"><pre class="language-text"><code>启动： hive.sh start
+关闭： hive.sh stop
+重启： hive.sh restart
+状态： hive.sh status
+</code></pre></div><p>脚本如下</p> <div class="language- extra-class"><pre class="language-text"><code>#!/bin/bash
+HIVE_LOG_DIR=$HIVE_HOME/logs
+
+mkdir -p $HIVE_LOG_DIR
+
+#检查进程是否运行正常，参数1为进程名，参数2为进程端口
+function check_process()
+{
+    pid=$(ps -ef 2&gt;/dev/null | grep -v grep | grep -i $1 | awk '{print $2}')
+    ppid=$(netstat -nltp 2&gt;/dev/null | grep $2 | awk '{print $7}' | cut -d '/' -f 1)
+    echo $pid
+    [[ &quot;$pid&quot; =~ &quot;$ppid&quot; ]] &amp;&amp; [ &quot;$ppid&quot; ] &amp;&amp; return 0 || return 1
+}
+
+function hive_start()
+{
+    metapid=$(check_process HiveMetastore 9083)
+    cmd=&quot;nohup hive --service metastore &gt;$HIVE_LOG_DIR/metastore.log 2&gt;&amp;1 &amp;&quot;
+    cmd=$cmd&quot; sleep4; hdfs dfsadmin -safemode wait &gt;/dev/null 2&gt;&amp;1&quot;
+    [ -z &quot;$metapid&quot; ] &amp;&amp; eval $cmd || echo &quot;Metastroe服务已启动&quot;
+    server2pid=$(check_process HiveServer2 10000)
+    cmd=&quot;nohup hive --service hiveserver2 &gt;$HIVE_LOG_DIR/hiveServer2.log 2&gt;&amp;1 &amp;&quot;
+    [ -z &quot;$server2pid&quot; ] &amp;&amp; eval $cmd || echo &quot;HiveServer2服务已启动&quot;
+}
+
+function hive_stop()
+{
+    metapid=$(check_process HiveMetastore 9083)
+    [ &quot;$metapid&quot; ] &amp;&amp; kill $metapid || echo &quot;Metastore服务未启动&quot;
+    server2pid=$(check_process HiveServer2 10000)
+    [ &quot;$server2pid&quot; ] &amp;&amp; kill $server2pid || echo &quot;HiveServer2服务未启动&quot;
+}
+
+case $1 in
+&quot;start&quot;)
+    hive_start
+    ;;
+&quot;stop&quot;)
+    hive_stop
+    ;;
+&quot;restart&quot;)
+    hive_stop
+    sleep 2
+    hive_start
+    ;;
+&quot;status&quot;)
+    check_process HiveMetastore 9083 &gt;/dev/null &amp;&amp; echo &quot;Metastore服务运行正常&quot; || echo &quot;Metastore服务运行异常&quot;
+    check_process HiveServer2 10000 &gt;/dev/null &amp;&amp; echo &quot;HiveServer2服务运行正常&quot; || echo &quot;HiveServer2服务运行异常&quot;
+    ;;
+*)
+    echo Invalid Args!
+    echo 'Usage: '$(basename $0)' start|stop|restart|status'
+    ;;
+esac
+</code></pre></div><h3 id="常用交互命令"><a href="#常用交互命令" class="header-anchor">#</a> 常用交互命令</h3> <table><thead><tr><th>功能说明</th> <th>命令</th></tr></thead> <tbody><tr><td>不进入hive的交互窗口执行sql</td> <td>bin/hive -e &quot;sql语句&quot;</td></tr> <tr><td>执行脚本中sql语句</td> <td>bin/hive -f hive.sql</td></tr> <tr><td>退出hive窗口</td> <td>exit 或 quit</td></tr> <tr><td>命令窗口中查看hdfs文件系统</td> <td>dfs -ls /</td></tr> <tr><td>命令窗口中查看hdfs文件系统</td> <td>! ls /data/h</td></tr></tbody></table> <h3 id="sql类-特殊的"><a href="#sql类-特殊的" class="header-anchor">#</a> SQL类(特殊的)</h3> <table><thead><tr><th>说明</th> <th>语句</th></tr></thead> <tbody><tr><td>查看hive中的所有数据库</td> <td>show databases</td></tr> <tr><td>用default数据库</td> <td>use default</td></tr> <tr><td>查询表结构</td> <td>desc table_name</td></tr> <tr><td>查看数据库</td> <td>show databases</td></tr> <tr><td>重命名表名</td> <td>alter table table1 rename to table2</td></tr> <tr><td>修改表中字段</td> <td>alter table table_name change name user_name String</td></tr> <tr><td>修改字段类型</td> <td>alter table table_name change salary salary Double</td></tr> <tr><td>创建外部表</td> <td>create external table ....</td></tr> <tr><td>查询外部表信息</td> <td>desc formatted outsidetable</td></tr> <tr><td>创建视图</td> <td>create view view_name as select * from table_name .....</td></tr> <tr><td>添加数据</td> <td>load data local inpath 'xxx'  overwrite into table table_name partition(day='2021-12-01')</td></tr></tbody></table> <h3 id="内置函数"><a href="#内置函数" class="header-anchor">#</a> 内置函数</h3> <p>（1） NVL</p> <p>给值为NULL的数据赋值，它的格式是NVL( value，default_value)。它的功能是如果value为NULL，则NVL函数返回default_value的值，否则返回value的值，如果两个参数都为NULL ，则返回NULL</p> <div class="language- extra-class"><pre class="language-text"><code>select nvl(column, 0) from xxx；
+</code></pre></div><p>（2）行转列</p> <table><thead><tr><th>函数</th> <th>描述</th></tr></thead> <tbody><tr><td>CONCAT(string A/col, string B/col…)</td> <td>返回输入字符串连接后的结果，支持任意个输入字符串</td></tr> <tr><td>CONCAT_WS(separator, str1, str2,...)</td> <td>第一个参数参数间的分隔符，如果分隔符是 NULL，返回值也将为 NULL。这个函数会跳过分隔符参数后的任何 NULL 和空字符串。分隔符将被加到被连接的字符串之间。</td></tr> <tr><td>COLLECT_SET(col)</td> <td>将某字段的值进行去重汇总，产生array类型字段</td></tr> <tr><td>COLLECT_LIST(col)</td> <td>函数只接受基本数据类型，它的主要作用是将某字段的值进行不去重汇总，产生array类型字段。</td></tr></tbody></table> <p>（3）列转行(一列转多行)</p> <p><strong>Split(str, separator)：</strong> 将字符串按照后面的分隔符切割，转换成字符array。</p> <p><strong>EXPLODE(col)：</strong>
+将hive一列中复杂的array或者map结构拆分成多行。</p> <p><strong>LATERAL VIEW</strong></p> <div class="language- extra-class"><pre class="language-text"><code>用法：
+
+LATERAL VIEW udtf(expression) tableAlias AS columnAlias
+</code></pre></div><p>解释：lateral view用于和split, explode等UDTF一起使用，它能够将一行数据拆成多行数据，在此基础上可以对拆分后的数据进行聚合。</p> <p>lateral view首先为原始表的每行调用UDTF，UDTF会把一行拆分成一或者多行，lateral view再把结果组合，产生一个支持别名表的虚拟表。</p> <p><strong>准备数据源测试</strong></p> <table><thead><tr><th>movie</th> <th>category</th></tr></thead> <tbody><tr><td>《功勋》</td> <td>记录,剧情</td></tr> <tr><td>《战狼2》</td> <td>战争,动作,灾难</td></tr></tbody></table> <p><strong>SQL</strong></p> <div class="language- extra-class"><pre class="language-text"><code>SELECT movie,category_name 
+FROM movie_info 
+lateral VIEW
+explode(split(category,&quot;,&quot;)) movie_info_tmp  AS category_name ;
+
+</code></pre></div><p><strong>测试结果</strong></p> <div class="language- extra-class"><pre class="language-text"><code>《功勋》      记录
+《功勋》      剧情
+《战狼2》     战争
+《战狼2》     动作
+《战狼2》     灾难
+
+</code></pre></div><h3 id="窗口函数"><a href="#窗口函数" class="header-anchor">#</a> 窗口函数</h3> <p>（1）OVER()</p> <p>定分析函数工作的数据窗口大小，这个数据窗口大小可能会随着行的变而变化。</p> <p>（2）CURRENT ROW（当前行）</p> <div class="language- extra-class"><pre class="language-text"><code>n PRECEDING：往前n行数据
+
+n FOLLOWING：往后n行数据
+</code></pre></div><p>（3）UNBOUNDED（无边界）</p> <div class="language- extra-class"><pre class="language-text"><code>UNBOUNDED PRECEDING 前无边界，表示从前面的起点
+
+UNBOUNDED FOLLOWING后无边界，表示到后面的终点
+</code></pre></div><p><strong>SQL案例：由起点到当前行的聚合</strong></p> <div class="language- extra-class"><pre class="language-text"><code>select 
+    sum(money) over(partition by user_id order by pay_time rows between UNBOUNDED PRECEDING and current row) 
+from or_order;
+</code></pre></div><p><strong>SQL案例：当前行和前面一行做聚合</strong></p> <div class="language- extra-class"><pre class="language-text"><code>select 
+    sum(money) over(partition by user_id order by pay_time rows between 1 PRECEDING and current row) 
+from or_order;
+</code></pre></div><p><strong>SQL案例：当前行和前面一行和后一行做聚合</strong></p> <div class="language- extra-class"><pre class="language-text"><code>select 
+    sum(money) over(partition by user_id order by pay_time rows between 1 PRECEDING AND 1 FOLLOWING )
+from or_order;
+</code></pre></div><p><strong>SQL案例：当前行及后面所有行</strong></p> <div class="language- extra-class"><pre class="language-text"><code>select 
+    sum(money) over(partition by user_id order by pay_time rows between current row and UNBOUNDED FOLLOWING  )
+from or_order;
+</code></pre></div><p>（4）LAG(col,n,default_val)</p> <p>往前第n行数据，没有的话default_val</p> <p>（5）LEAD(col,n, default_val)</p> <p>往后第n行数据，没有的话default_val</p> <p><strong>SQL案例：查询用户购买明细以及上次的购买时间和下次购买时间</strong></p> <div class="language- extra-class"><pre class="language-text"><code>select 
+	user_id,,pay_time,money,
+	
+	lag(pay_time,1,'1970-01-01') over(PARTITION by name order by pay_time) prev_time,
+	
+	lead(pay_time,1,'1970-01-01') over(PARTITION by name order by pay_time) next_time
+from or_order;
+
+</code></pre></div><p>（6）FIRST_VALUE(col,true/false)</p> <p>当前窗口下的第一个值，第二个参数为true，跳过空值。</p> <p>（7）LAST_VALUE (col,true/false)</p> <p>当前窗口下的最后一个值，第二个参数为true，跳过空值。</p> <p><strong>SQL案例：查询用户每个月第一次的购买时间 和 每个月的最后一次购买时间</strong></p> <div class="language- extra-class"><pre class="language-text"><code>select
+	FIRST_VALUE(pay_time) 
+	    over(
+	        partition by user_id,month(pay_time) order by pay_time 
+	        rows between UNBOUNDED PRECEDING and UNBOUNDED FOLLOWING
+	        ) first_time,
+	
+	LAST_VALUE(pay_time) 
+	    over(partition by user_id,month(pay_time) order by pay_time rows between UNBOUNDED PRECEDING and UNBOUNDED FOLLOWING
+	    ) last_time
+from or_order;
+
+</code></pre></div><p>（8）NTILE(n)</p> <p>把有序窗口的行分发到指定数据的组中，各个组有编号，编号从1开始，对于每一行，NTILE返回此行所属的组的编号。（用于将分组数据按照顺序切分成n片，返回当前切片值）</p> <p><strong>SQL案例：查询前25%时间的订单信息</strong></p> <div class="language- extra-class"><pre class="language-text"><code>select * from (
+    select User_id,pay_time,money,
+    
+    ntile(4) over(order by pay_time) sorted
+    
+    from or_order
+) t
+where sorted = 1;
+
+</code></pre></div><h3 id="_4个by"><a href="#_4个by" class="header-anchor">#</a> 4个By</h3> <p>（1）Order By</p> <p>全局排序，只有一个Reducer。</p> <p>（2）Sort By</p> <p>分区内有序。</p> <p>（3）Distrbute By</p> <p>类似MR中Partition，进行分区，结合sort by使用。</p> <p>（4） Cluster By</p> <p>当Distribute by和Sorts by字段相同时，可以使用Cluster by方式。Cluster by除了具有Distribute by的功能外还兼具Sort by的功能。但是排序只能是升序排序，不能指定排序规则为ASC或者DESC。</p> <p>在生产环境中Order By用的比较少，容易导致OOM。</p> <p>在生产环境中Sort By+ Distrbute By用的多。</p> <h3 id="排序函数"><a href="#排序函数" class="header-anchor">#</a> 排序函数</h3> <p>（1）RANK()</p> <p>排序相同时会重复，总数不会变</p> <div class="language- extra-class"><pre class="language-text"><code>1
+1
+3
+3
+5
+</code></pre></div><p>（2）DENSE_RANK()</p> <p>排序相同时会重复，总数会减少</p> <div class="language- extra-class"><pre class="language-text"><code>1
+1
+2
+2
+3
+</code></pre></div><p>（3）ROW_NUMBER()</p> <p>会根据顺序计算</p> <div class="language- extra-class"><pre class="language-text"><code>1
+2
+3
+4
+5
+</code></pre></div><h3 id="日期函数"><a href="#日期函数" class="header-anchor">#</a> 日期函数</h3> <p>datediff：返回结束日期减去开始日期的天数</p> <div class="language- extra-class"><pre class="language-text"><code>datediff(string enddate, string startdate) 
+
+select datediff('2021-11-20','2021-11-22') 
+</code></pre></div><p>date_add：返回开始日期startdate增加days天后的日期</p> <div class="language- extra-class"><pre class="language-text"><code>date_add(string startdate, int days) 
+
+select date_add('2021-11-20',3) 
+</code></pre></div><p>date_sub：返回开始日期startdate减少days天后的日期</p> <div class="language- extra-class"><pre class="language-text"><code>date_sub (string startdate, int days) 
+
+select date_sub('2021-11-22',3)
+</code></pre></div><hr> <h2 id="redis"><a href="#redis" class="header-anchor">#</a> Redis</h2> <h3 id="启动类-2"><a href="#启动类-2" class="header-anchor">#</a> 启动类</h3> <h3 id="key"><a href="#key" class="header-anchor">#</a> key</h3> <table><thead><tr><th>命令</th> <th>功能说明</th></tr></thead> <tbody><tr><td>keys  *</td> <td>查看当前库的所有键</td></tr> <tr><td>exists <key></key></td> <td>判断某个键是否存在</td></tr> <tr><td>type <key></key></td> <td>查看键的类型</td></tr> <tr><td>del <key></key></td> <td>删除某个键</td></tr> <tr><td>expire <key><seconds></seconds></key></td> <td>为键值设置过期时间，单位秒</td></tr> <tr><td>ttl <key></key></td> <td>查看还有多久过期,-1表示永不过期,-2表示已过期</td></tr> <tr><td>dbsize</td> <td>查看当前数据库中key的数量</td></tr> <tr><td>flushdb</td> <td>清空当前库</td></tr> <tr><td>Flushall</td> <td>通杀全部库</td></tr></tbody></table> <h3 id="string"><a href="#string" class="header-anchor">#</a> String</h3> <table><thead><tr><th>命令</th> <th>功能说明</th></tr></thead> <tbody><tr><td>get <key></key></td> <td>查询对应键值</td></tr> <tr><td>set <key><value></value></key></td> <td>添加键值对</td></tr> <tr><td>append <key><value></value></key></td> <td>将给定的<value>追加到原值的末尾</value></td></tr> <tr><td>strlen <key></key></td> <td>获取值的长度</td></tr> <tr><td>setnx <key><value></value></key></td> <td>只有在key 不存在时设置key的值</td></tr> <tr><td>incr <key></key></td> <td>将key中存储的数字值增1只能对数字值操作，如果为空，新增值为1</td></tr> <tr><td>decr <key></key></td> <td>将key中存储的数字值减1只能对数字之操作，如果为空,新增值为-1</td></tr> <tr><td>incrby /decrby <key> 步长</key></td> <td>将key中存储的数字值增减，自定义步长</td></tr> <tr><td>mset <key1><value1><key2><value2></value2></key2></value1></key1></td> <td>同时设置一个或多个key-value对</td></tr> <tr><td>mget <key1><key2><key3></key3></key2></key1></td> <td>同时获取一个或多个value</td></tr> <tr><td>msetnx <key1><value1><key2><value2></value2></key2></value1></key1></td> <td>同时设置一个或多个key-value对，当且仅当所有给定的key都不存在</td></tr> <tr><td>getrange <key> &lt;起始位置&gt; &lt;结束位置&gt;</key></td> <td>获得值的范围,类似java中的substring</td></tr> <tr><td>setrange <key> &lt;起始位置&gt; <value></value></key></td> <td>用<value>覆盖<key>所存储的字符串值，从&lt;起始位置&gt;开始</key></value></td></tr> <tr><td>setex <key> &lt;过期时间&gt; <value></value></key></td> <td>设置键值的同时，设置过去时间，单位秒</td></tr> <tr><td>getset <key><value></value></key></td> <td>以新换旧,设置了新值的同时获取旧值</td></tr></tbody></table> <h3 id="list"><a href="#list" class="header-anchor">#</a> List</h3> <table><thead><tr><th>命令</th> <th>功能说明</th></tr></thead> <tbody><tr><td>lpush/rpush  <key><value1><value2></value2></value1></key></td> <td>从左边/右边插入一个或多个值。</td></tr> <tr><td>lpop/rpop  <key></key></td> <td>从左边/右边吐出一个值。值在键在，值光键亡。</td></tr> <tr><td>rpoplpush  <key1><key2></key2></key1></td> <td>从<key1>列表右边吐出一个值，插到<key2>列表左边</key2></key1></td></tr> <tr><td>lrange <key><start><stop></stop></start></key></td> <td>按照索引下标获得元素(从左到右)</td></tr> <tr><td>lindex <key><index></index></key></td> <td>按照索引下标获得元素(从左到右)</td></tr> <tr><td>llen <key></key></td> <td>获得列表长度</td></tr> <tr><td>linsert <key>  before <value><newvalue></newvalue></value></key></td> <td>在<value>的后面插入<newvalue> 插入值</newvalue></value></td></tr> <tr><td>lrem <key><n><value></value></n></key></td> <td>从左边删除n个value(从左到右)</td></tr></tbody></table> <h3 id="set"><a href="#set" class="header-anchor">#</a> Set</h3> <table><thead><tr><th>命令</th> <th>功能说明</th></tr></thead> <tbody><tr><td>sadd <key><value1><value2> ....</value2></value1></key></td> <td>将一个或多个 member 元素加入到集合 key 当中，已经存在于集合的 member 元素将被忽略。</td></tr> <tr><td>smembers <key></key></td> <td>取出该集合的所有值。</td></tr> <tr><td>sismember <key><value></value></key></td> <td>判断集合<key>是否为含有该<value>值，有返回1，没有返回0</value></key></td></tr> <tr><td>scard  <key></key></td> <td>返回该集合的元素个数。</td></tr> <tr><td>srem <key><value1><value2> ....</value2></value1></key></td> <td>删除集合中的某个元素。</td></tr> <tr><td>spop <key></key></td> <td>随机从该集合中吐出一个值。</td></tr> <tr><td>srandmember <key><n></n></key></td> <td>随机从该集合中取出n个值。不会从集合中删除</td></tr> <tr><td>sinter <key1><key2></key2></key1></td> <td>返回两个集合的交集元素。</td></tr> <tr><td>sunion <key1><key2></key2></key1></td> <td>返回两个集合的并集元素。</td></tr> <tr><td>sdiff <key1><key2></key2></key1></td> <td>返回两个集合的差集元素。</td></tr></tbody></table> <h3 id="hash"><a href="#hash" class="header-anchor">#</a> Hash</h3> <table><thead><tr><th>命令</th> <th>功能说明</th></tr></thead> <tbody><tr><td>hset <key><field><value></value></field></key></td> <td>给<key>集合中的  <field>键赋值<value></value></field></key></td></tr> <tr><td>hget <key1><field></field></key1></td> <td>从<key1>集合<field> 取出 value</field></key1></td></tr> <tr><td>hmset <key1><field1><value1><field2><value2>...</value2></field2></value1></field1></key1></td> <td>批量设置hash的值</td></tr> <tr><td>hexists key  <field></field></td> <td>查看哈希表 key 中，给定域 field 是否存在。</td></tr> <tr><td>hkeys <key></key></td> <td>列出该hash集合的所有field</td></tr> <tr><td>hvals <key></key></td> <td>列出该hash集合的所有value</td></tr> <tr><td>hincrby <key><field><increment></increment></field></key></td> <td>为哈希表 key 中的域 field 的值加上增量 increment</td></tr> <tr><td>hsetnx <key><field><value></value></field></key></td> <td>将哈希表 key 中的域 field 的值设置为 value ，当且仅当域 field 不存在</td></tr></tbody></table> <h3 id="zset-sorted-set"><a href="#zset-sorted-set" class="header-anchor">#</a> zset(Sorted set)</h3> <table><thead><tr><th>命令</th> <th>功能说明</th></tr></thead> <tbody><tr><td>zadd  <key><score1><value1><score2><value2>...</value2></score2></value1></score1></key></td> <td>将一个或多个 member 元素及其 score 值加入到有序集 key 当中</td></tr> <tr><td>zrange <key><start><stop>  [WITHSCORES]</stop></start></key></td> <td>返回有序集 key 中，下标在<start><stop>之间的元素带WITHSCORES，可以让分数一起和值返回到结果集。</stop></start></td></tr> <tr><td>zrangebyscore key min max [withscores] [limit offset count]</td> <td>返回有序集 key 中，所有 score 值介于 min 和 max 之间(包括等于 min 或 max )的成员。有序集成员按 score 值递增(从小到大)次序排列。</td></tr> <tr><td>zrevrangebyscore key max min [withscores] [limit offset count]</td> <td>同上，改为从大到小排列。</td></tr> <tr><td>zincrby <key><increment><value></value></increment></key></td> <td>为元素的score加上增量</td></tr> <tr><td>zrem  <key><value></value></key></td> <td>删除该集合下，指定值的元素</td></tr> <tr><td>zcount <key><min><max></max></min></key></td> <td>统计该集合，分数区间内的元素个数</td></tr> <tr><td>zrank <key><value></value></key></td> <td>返回该值在集合中的排名，从0开始。</td></tr></tbody></table> <hr> <h2 id="flink"><a href="#flink" class="header-anchor">#</a> Flink</h2> <h3 id="启动"><a href="#启动" class="header-anchor">#</a> 启动</h3> <div class="language- extra-class"><pre class="language-text"><code>./start-cluster.sh 
+</code></pre></div><h3 id="run"><a href="#run" class="header-anchor">#</a> run</h3> <div class="language- extra-class"><pre class="language-text"><code>./bin/flink run [OPTIONS]
+
+./bin/flink run -m yarn-cluster -c com.wang.flink.WordCount /opt/app/WordCount.jar
+</code></pre></div><table><thead><tr><th>OPTIONS</th> <th>功能说明</th></tr></thead> <tbody><tr><td>-d</td> <td>detached 是否使用分离模式</td></tr> <tr><td>-m</td> <td>jobmanager 指定提交的jobmanager</td></tr> <tr><td>-yat</td> <td>–yarnapplicationType 设置yarn应用的类型</td></tr> <tr><td>-yD</td> <td>使用给定属性的值</td></tr> <tr><td>-yd</td> <td>–yarndetached 使用yarn分离模式</td></tr> <tr><td>-yh</td> <td>–yarnhelp yarn session的帮助</td></tr> <tr><td>-yid</td> <td>–yarnapplicationId 挂到正在运行的yarnsession上</td></tr> <tr><td>-yj</td> <td>–yarnjar Flink jar文件的路径</td></tr> <tr><td>-yjm</td> <td>–yarnjobManagerMemory jobmanager的内存(单位M)</td></tr> <tr><td>-ynl</td> <td>–yarnnodeLabel 指定 YARN 应用程序 YARN 节点标签</td></tr> <tr><td>-ynm</td> <td>–yarnname 自定义yarn应用名称</td></tr> <tr><td>-yq</td> <td>–yarnquery 显示yarn的可用资源</td></tr> <tr><td>-yqu</td> <td>–yarnqueue 指定yarn队列</td></tr> <tr><td>-ys</td> <td>–yarnslots 指定每个taskmanager的slots数</td></tr> <tr><td>-yt</td> <td>yarnship 在指定目录中传输文件</td></tr> <tr><td>-ytm</td> <td>–yarntaskManagerMemory 每个taskmanager的内存</td></tr> <tr><td>-yz</td> <td>–yarnzookeeperNamespace 用来创建ha的zk子路径的命名空间</td></tr> <tr><td>-z</td> <td>–zookeeperNamespace 用来创建ha的zk子路径的命名空间</td></tr> <tr><td>-p</td> <td>并行度</td></tr> <tr><td>-yn</td> <td>需要分配的YARN容器个数(=任务管理器的数量)</td></tr></tbody></table> <h3 id="info"><a href="#info" class="header-anchor">#</a> info</h3> <div class="language- extra-class"><pre class="language-text"><code>./bin/flink info [OPTIONS]
+</code></pre></div><table><thead><tr><th>OPTIONS</th> <th>功能说明</th></tr></thead> <tbody><tr><td>-c</td> <td>程序进入点，主类</td></tr> <tr><td>-p</td> <td>并行度</td></tr></tbody></table> <h3 id="list-2"><a href="#list-2" class="header-anchor">#</a> list</h3> <div class="language- extra-class"><pre class="language-text"><code>./bin/flink list [OPTIONS]
+</code></pre></div><table><thead><tr><th>OPTIONS</th> <th>功能说明</th></tr></thead> <tbody><tr><td>-a</td> <td>–all 显示所有应用和对应的job id</td></tr> <tr><td>-r</td> <td>–running 显示正在运行的应用和job id</td></tr> <tr><td>-s</td> <td>–scheduled 显示调度的应用和job id</td></tr> <tr><td>-m</td> <td>–jobmanager 指定连接的jobmanager</td></tr> <tr><td>-yid</td> <td>–yarnapplicationId 挂到指定的yarn id对应的yarn session上</td></tr> <tr><td>-z</td> <td>–zookeeperNamespace 用来创建ha的zk子路径的命名空间</td></tr></tbody></table> <h3 id="stop"><a href="#stop" class="header-anchor">#</a> stop</h3> <div class="language- extra-class"><pre class="language-text"><code>./bin/flink stop  [OPTIONS] &lt;Job ID&gt;
+</code></pre></div><table><thead><tr><th>OPTIONS</th> <th>功能说明</th></tr></thead> <tbody><tr><td>-d</td> <td>在采取保存点和停止管道之前，发送MAX_WATERMARK</td></tr> <tr><td>-p</td> <td>savepointPath 保存点的路径 'xxxxx'</td></tr> <tr><td>-m</td> <td>–jobmanager 指定连接的jobmanager</td></tr> <tr><td>-yid</td> <td>–yarnapplicationId 挂到指定的yarn id对应的yarn session上</td></tr> <tr><td>-z</td> <td>–zookeeperNamespace 用来创建ha的zk子路径的命名空间</td></tr></tbody></table> <h3 id="cancel-弱化"><a href="#cancel-弱化" class="header-anchor">#</a> cancel(弱化)</h3> <div class="language- extra-class"><pre class="language-text"><code>./bin/flink cancel  [OPTIONS] &lt;Job ID&gt;
+</code></pre></div><table><thead><tr><th>OPTIONS</th> <th>功能说明</th></tr></thead> <tbody><tr><td>-s</td> <td>使用 &quot;stop &quot;代替</td></tr> <tr><td>-D</td> <td>允许指定多个通用配置选项</td></tr> <tr><td>-m</td> <td>要连接的JobManager的地址</td></tr> <tr><td>-yid</td> <td>–yarnapplicationId 挂到指定的yarn id对应的yarn session上</td></tr> <tr><td>-z</td> <td>–zookeeperNamespace 用来创建ha的zk子路径的命名空间</td></tr></tbody></table> <h3 id="savepoint"><a href="#savepoint" class="header-anchor">#</a> savepoint</h3> <div class="language- extra-class"><pre class="language-text"><code>./bin/flink savepoint  [OPTIONS] &lt;Job ID&gt;
+</code></pre></div><table><thead><tr><th>OPTIONS</th> <th>功能说明</th></tr></thead> <tbody><tr><td>-d</td> <td>要处理的保存点的路径</td></tr> <tr><td>-j</td> <td>Flink程序的JAR文件</td></tr> <tr><td>-m</td> <td>要连接的JobManager的地址</td></tr> <tr><td>-yid</td> <td>–yarnapplicationId 挂到指定的yarn id对应的yarn session上</td></tr> <tr><td>-z</td> <td>–zookeeperNamespace 用来创建ha的zk子路径的命名空间</td></tr></tbody></table></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./coding-base/linux/Linux基础命令.html" class="prev">
+        Linux基础命令
+      </a></span> <span class="next"><a href="/./coding-base/linux/" class="router-link-active">
+        目录
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.8f846374.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/57.08adde98.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数仓建设的十大陷井 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.8f846374.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/99.20145e16.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/100.441528ba.js"><link rel="prefetch" href="./assets/js/101.e4e38e24.js"><link rel="prefetch" href="./assets/js/102.c7d8d043.js"><link rel="prefetch" href="./assets/js/103.fab94ea6.js"><link rel="prefetch" href="./assets/js/104.68e04f80.js"><link rel="prefetch" href="./assets/js/105.198c6758.js"><link rel="prefetch" href="./assets/js/106.6258b526.js"><link rel="prefetch" href="./assets/js/107.1585c4c3.js"><link rel="prefetch" href="./assets/js/108.6b62e303.js"><link rel="prefetch" href="./assets/js/109.b2d58d90.js"><link rel="prefetch" href="./assets/js/11.24e5d745.js"><link rel="prefetch" href="./assets/js/110.ded9aecf.js"><link rel="prefetch" href="./assets/js/111.6c292e59.js"><link rel="prefetch" href="./assets/js/112.6c99b5d2.js"><link rel="prefetch" href="./assets/js/113.5bd0fb72.js"><link rel="prefetch" href="./assets/js/114.e9fa34e1.js"><link rel="prefetch" href="./assets/js/115.d1c79025.js"><link rel="prefetch" href="./assets/js/116.350c9554.js"><link rel="prefetch" href="./assets/js/117.92917110.js"><link rel="prefetch" href="./assets/js/118.61f93307.js"><link rel="prefetch" href="./assets/js/119.34185e70.js"><link rel="prefetch" href="./assets/js/12.8b71ea83.js"><link rel="prefetch" href="./assets/js/120.7e1b1c7d.js"><link rel="prefetch" href="./assets/js/121.d8c00252.js"><link rel="prefetch" href="./assets/js/122.174db881.js"><link rel="prefetch" href="./assets/js/13.71347b8e.js"><link rel="prefetch" href="./assets/js/14.f053f94e.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.81e7c28f.js"><link rel="prefetch" href="./assets/js/17.f11221ce.js"><link rel="prefetch" href="./assets/js/18.fe832c69.js"><link rel="prefetch" href="./assets/js/19.14c224c1.js"><link rel="prefetch" href="./assets/js/20.fcbc42d2.js"><link rel="prefetch" href="./assets/js/21.07886cc2.js"><link rel="prefetch" href="./assets/js/22.ac5835a0.js"><link rel="prefetch" href="./assets/js/23.5fcce455.js"><link rel="prefetch" href="./assets/js/24.6884809e.js"><link rel="prefetch" href="./assets/js/25.81d9ed9d.js"><link rel="prefetch" href="./assets/js/26.4729386e.js"><link rel="prefetch" href="./assets/js/27.8b2ea903.js"><link rel="prefetch" href="./assets/js/28.ffb9e9e1.js"><link rel="prefetch" href="./assets/js/29.4d4e061f.js"><link rel="prefetch" href="./assets/js/3.6d4ee76d.js"><link rel="prefetch" href="./assets/js/30.649421e8.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.e19607e8.js"><link rel="prefetch" href="./assets/js/33.f7352c75.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.60e46ee5.js"><link rel="prefetch" href="./assets/js/36.7ccb9a0c.js"><link rel="prefetch" href="./assets/js/37.47bf640d.js"><link rel="prefetch" href="./assets/js/38.11987f44.js"><link rel="prefetch" href="./assets/js/39.694eb4c0.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.5db21ed8.js"><link rel="prefetch" href="./assets/js/41.78eb9a93.js"><link rel="prefetch" href="./assets/js/42.8369c775.js"><link rel="prefetch" href="./assets/js/43.19966b90.js"><link rel="prefetch" href="./assets/js/44.40e6834e.js"><link rel="prefetch" href="./assets/js/45.fbcb566b.js"><link rel="prefetch" href="./assets/js/46.1c3578fb.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.317886b4.js"><link rel="prefetch" href="./assets/js/49.1be89a8c.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.74e50bd1.js"><link rel="prefetch" href="./assets/js/51.6d431141.js"><link rel="prefetch" href="./assets/js/52.f8793ffe.js"><link rel="prefetch" href="./assets/js/53.ef8ac10b.js"><link rel="prefetch" href="./assets/js/54.72c2b12d.js"><link rel="prefetch" href="./assets/js/55.c35687b6.js"><link rel="prefetch" href="./assets/js/56.394b272d.js"><link rel="prefetch" href="./assets/js/57.08adde98.js"><link rel="prefetch" href="./assets/js/58.ae73d05f.js"><link rel="prefetch" href="./assets/js/59.3c851064.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.8c9de55a.js"><link rel="prefetch" href="./assets/js/61.140bed1c.js"><link rel="prefetch" href="./assets/js/62.62ad7beb.js"><link rel="prefetch" href="./assets/js/63.a36440f0.js"><link rel="prefetch" href="./assets/js/64.35625546.js"><link rel="prefetch" href="./assets/js/65.42445eda.js"><link rel="prefetch" href="./assets/js/66.47de6720.js"><link rel="prefetch" href="./assets/js/67.55b1a47f.js"><link rel="prefetch" href="./assets/js/68.f669ae1e.js"><link rel="prefetch" href="./assets/js/69.6d2b7f97.js"><link rel="prefetch" href="./assets/js/7.4a7a55b6.js"><link rel="prefetch" href="./assets/js/70.8c200ec3.js"><link rel="prefetch" href="./assets/js/71.ae918c22.js"><link rel="prefetch" href="./assets/js/72.77638b47.js"><link rel="prefetch" href="./assets/js/73.5820126f.js"><link rel="prefetch" href="./assets/js/74.5b03441d.js"><link rel="prefetch" href="./assets/js/75.1db27768.js"><link rel="prefetch" href="./assets/js/76.b5fec7d3.js"><link rel="prefetch" href="./assets/js/77.ddf1963b.js"><link rel="prefetch" href="./assets/js/78.0573ead9.js"><link rel="prefetch" href="./assets/js/79.89cb870d.js"><link rel="prefetch" href="./assets/js/8.fde5124b.js"><link rel="prefetch" href="./assets/js/80.04f05126.js"><link rel="prefetch" href="./assets/js/81.033f3b11.js"><link rel="prefetch" href="./assets/js/82.4c05f3e6.js"><link rel="prefetch" href="./assets/js/83.55a565c7.js"><link rel="prefetch" href="./assets/js/84.ec4bbf04.js"><link rel="prefetch" href="./assets/js/85.fbfb2605.js"><link rel="prefetch" href="./assets/js/86.d726556c.js"><link rel="prefetch" href="./assets/js/87.cc22e8af.js"><link rel="prefetch" href="./assets/js/88.1cff7c6b.js"><link rel="prefetch" href="./assets/js/89.6def5b33.js"><link rel="prefetch" href="./assets/js/9.e0237b05.js"><link rel="prefetch" href="./assets/js/90.7146fddb.js"><link rel="prefetch" href="./assets/js/91.737708a2.js"><link rel="prefetch" href="./assets/js/92.c85d8205.js"><link rel="prefetch" href="./assets/js/93.828ef430.js"><link rel="prefetch" href="./assets/js/94.4bc2cf6c.js"><link rel="prefetch" href="./assets/js/95.31860134.js"><link rel="prefetch" href="./assets/js/96.25f4a4ac.js"><link rel="prefetch" href="./assets/js/97.9aa011ad.js"><link rel="prefetch" href="./assets/js/98.53797f3a.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>离线数仓</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E7%A6%BB%E7%BA%BF%E6%95%B0%E4%BB%93/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/离线数仓/数仓定义.html" class="sidebar-link">数据仓库定义</a></li><li><a href="/./datahouse/离线数仓/数仓基础.html" class="sidebar-link">数仓基础</a></li><li><a href="/./datahouse/离线数仓/HiveSQL查询优化案例.html" class="sidebar-link">HiveSQL查询优化案例</a></li><li><a href="/./datahouse/离线数仓/bi.html" class="sidebar-link">商务智能 （BI）</a></li><li><a href="/./datahouse/离线数仓/explain.html" class="sidebar-link">explain + 慢SQL分析</a></li><li><a href="/./datahouse/离线数仓/kudu.html" class="sidebar-link">Kudu</a></li><li><a href="/./datahouse/离线数仓/olap.html" class="sidebar-link">OLAP</a></li><li><a href="/./datahouse/离线数仓/presto与impala与hive.html" class="sidebar-link">presto  impala  hive</a></li><li><a href="/./datahouse/离线数仓/shuffle.html" class="sidebar-link">shuffle调优</a></li><li><a href="/./datahouse/离线数仓/sql规范.html" class="sidebar-link">SQL 规范</a></li><li><a href="/./datahouse/离线数仓/sql调优.html" class="sidebar-link">数据倾斜调优</a></li><li><a href="/./datahouse/离线数仓/从零开始搭建数据仓库.html" class="sidebar-link">如何从零开始搭建数据仓库</a></li><li><a href="/./datahouse/离线数仓/数仓建设的十大陷阱.html" class="active sidebar-link">数仓建设的十大陷井</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/./datahouse/离线数仓/数据中台.html" class="sidebar-link">数据中台</a></li><li><a href="/./datahouse/离线数仓/数据库和数据仓库的区别.html" class="sidebar-link">数据库和数据仓库的区别</a></li><li><a href="/./datahouse/离线数仓/数据模型.html" class="sidebar-link">数仓模型建设</a></li><li><a href="/./datahouse/离线数仓/数据模型如何评论好坏.html" class="sidebar-link">数据模型评价</a></li><li><a href="/./datahouse/离线数仓/数据湖.html" class="sidebar-link">数据湖</a></li><li><a href="/./datahouse/离线数仓/用户画像总结.html" class="sidebar-link">用户画像总结</a></li><li><a href="/./datahouse/离线数仓/行业前辈的一些话.html" class="sidebar-link">行业前辈的一些话</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="数仓建设的十大陷井"><a href="#数仓建设的十大陷井" class="header-anchor">#</a> 数仓建设的十大陷井</h1> <p>在《数据仓库工具箱》一书中，提到了数据仓库设计中的十大陷阱。在着手进行数据仓库项目之前，可以先了解这10个常见陷阱，避免在工作中的弯路。</p> <h3 id="陷阱10"><a href="#陷阱10" class="header-anchor">#</a> 陷阱10</h3> <p><strong>过于迷恋技术和数据，而忘了重点是业务需求和目标</strong></p> <p>数仓归根结底是要解决业务问题的，对于技术人员，各种高大上的数据架构和层出不穷的新技术通常会比去了解用户需求更具有吸引力。 但是，世界上不存在完美的技术架构，只要是能够满足当下及未来可见的业务需求即可，合适才是最好的。应当把时间投入到理解和梳理业务上，这样才能构建出相对合理的数据模型，从而提高模型的复用性，及时响应业务需求。</p> <h3 id="陷阱9"><a href="#陷阱9" class="header-anchor">#</a> 陷阱9</h3> <p><strong>没有或找不到一个有影响力的、精通业务、明白事理的高级管理人员作为数仓建设的发起人</strong></p> <p>说到这点，内心深有体会。之前入职的一家公司，规模也不小，在C轮拿到了阿里几亿的战略投资。我入职后负责从0到1的搭建，心痛的是，全公司竟然找不到一个精通业务还动数据的管理人员，在我多次邮件中申请，才又招了一位高级管理人员。可是毕竟人刚上岗，对业务又不是很熟悉，各个部门都不是很配合，可想而知数仓建设的推进多么痛苦......</p> <p>数仓建设是多部门合作的结果，只有这样才能够真正的实现数据赋能业务。所以没有高层的支持和重视，数仓的建设将会很难推进。缺乏远见，热情，支持以及公司的资金投资，注定会走向失败。</p> <h3 id="陷阱8"><a href="#陷阱8" class="header-anchor">#</a> 陷阱8</h3> <p><strong>将项目处理为一个巨大的持续多年的项目，而不是追求更容易管理的、虽然仍然具有挑战性的迭代开发工作</strong></p> <p>这是一个经常出现的陷阱，试图建设一个庞大的，无所不包的系统，通常是不可取的。似乎只要建设一个“巨型无比“的系统就可以完成任何工作，解决任何问题一样，其实结果往往会适得其反。更糟的是，管理这些项目的人往往没有与业务进行足够详细的协商，从而开发有用的产品。一言以蔽之，挂历上的模特，中看不中用。</p> <h3 id="陷阱7"><a href="#陷阱7" class="header-anchor">#</a> 陷阱7</h3> <p><strong>分配大量的精力去构建规范化数据结构，在最终呈现数据之前，用尽所有预算</strong></p> <p>这个陷阱不像其他陷阱一样重要，当然公司有资金，可以随便玩。在Kimball方法论中，对维度模型进行更改所带来的业务风险要比更改源事务数据库小得多，所以应该留出足够的资源来构建它们，但是很少有中小型企业在资源上进行投资以创建完全一致的事实和维度表，更不用说OLAP数据立方体了，所以再多的理论也解决不了实际的问题，先跑起来最重要，不管姿势是否优雅。</p> <h3 id="陷阱6"><a href="#陷阱6" class="header-anchor">#</a> 陷阱6</h3> <p><strong>将主要精力投入到后端操作型性能和易开发性，而没有重点考虑前端查询的性能和易用性</strong></p> <p>为用户提供易于阅读的数据展示形式并具有良好的查询性能是优先考虑。</p> <p>目前我们正在着手做用户路径查询的功能模块，由于前端设计sql过于复杂，性能一直在优化，直到最近上了kudu，体验感好了许多。</p> <h3 id="陷阱5"><a href="#陷阱5" class="header-anchor">#</a> 陷阱5</h3> <p><strong>存在于应用层的可查询数据设计得过于复杂，应该用过简化解决方案开发出更适合需要的产品</strong></p> <p>通常，大多数业务用户都希望简化数据表示方式。此外，对这些数据的访问应限于尽可能少入口。提高获取数据的易用性，会大大提升数仓的价值。</p> <p>其实，这点就引入了数据湖的概念，将数据异构同质化，数据湖的概念会专篇细讲。同时也能发现，无论多么高大上的概念都是基于实际开发中需要解决的问题，脱离了实际，一切都是空谈。</p> <h3 id="陷阱4"><a href="#陷阱4" class="header-anchor">#</a> 陷阱4</h3> <p><strong>烟囱式开发，不考虑使用可共享的、一致性维度将数据模型联系在一起</strong></p> <p>开发中常提到维度的一致性，当维度在整个数据仓库中不一致时，就是典型的烟囱式开发。其实，我们使用的维度在本质上是相同的，但是由于数据来自于不同的业务源，并会被随意更新。</p> <p>典型的例子是“时间”维度，在维模型不一致的情况下，最终用户通常完全不知道为什么一个报表中的数据可能与其他地方生成的报表有显着差异。一种好的做法是将数据模型与主数据管理解决方案联系在一起，该解决方案包含可以在整个数据仓库中普遍使用的参考数据。</p> <h3 id="陷阱3"><a href="#陷阱3" class="header-anchor">#</a> 陷阱3</h3> <p><strong>只将汇总数据加载到数据仓库中</strong></p> <p>在事务数据库和数据仓库之间创建的每个ETL过程中，必须保证要有至少一份原子数据存储到数仓中，方便溯源，即将数据同步一份放在准备区(ODS层)</p> <h3 id="陷阱2"><a href="#陷阱2" class="header-anchor">#</a> 陷阱2</h3> <p><strong>臆想业务、业务需求及分析，其涉及的数据及支持技术都是静态的</strong></p> <p>我们常提到面向企业级的数据模型，什么意思呢？就是尽量不要开发仅限于某个特定业务需求和分析的数据模型，因为业务在不断地发生变化。一个差劲的模型设计通常是开发了重复的数据模型以及命名约定不一致的。</p> <p>在设计一个“完美”的事实表、维表与规范化程度之间取得平衡并不是一件容易的事情，但是开发出可伸缩的以适应业务发展的数据模型是非常重要的。这就对业务的理解能力要求很高了。</p> <h3 id="陷阱1"><a href="#陷阱1" class="header-anchor">#</a> 陷阱1</h3> <p><strong>数据仓库是否成功直接取决于业务人员。如果用户不买账，那么所有的工作都是徒劳</strong></p> <p>这个是很致命的陷阱，如果从一开始都没有得到业务和高层的重视和认可，那么数仓项目多半是会夭折。从用户的角度出发，如果用户对数仓的数据存在怀疑，对易用性存在吐槽，或者根本点讲未将数据仓库系统当成他们制定决策的基础，那么根本就不会去使用它，结局只会game over。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/离线数仓/从零开始搭建数据仓库.html" class="prev">
+        如何从零开始搭建数据仓库
+      </a></span> <span class="next"><a href="/./datahouse/离线数仓/数据中台.html">
+        数据中台
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.8f846374.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/99.20145e16.js" defer></script>
+  </body>
+</html>

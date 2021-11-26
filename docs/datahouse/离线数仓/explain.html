@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>explain + 慢SQL分析 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.8f846374.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/89.6def5b33.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/100.441528ba.js"><link rel="prefetch" href="./assets/js/101.e4e38e24.js"><link rel="prefetch" href="./assets/js/102.c7d8d043.js"><link rel="prefetch" href="./assets/js/103.fab94ea6.js"><link rel="prefetch" href="./assets/js/104.68e04f80.js"><link rel="prefetch" href="./assets/js/105.198c6758.js"><link rel="prefetch" href="./assets/js/106.6258b526.js"><link rel="prefetch" href="./assets/js/107.1585c4c3.js"><link rel="prefetch" href="./assets/js/108.6b62e303.js"><link rel="prefetch" href="./assets/js/109.b2d58d90.js"><link rel="prefetch" href="./assets/js/11.24e5d745.js"><link rel="prefetch" href="./assets/js/110.ded9aecf.js"><link rel="prefetch" href="./assets/js/111.6c292e59.js"><link rel="prefetch" href="./assets/js/112.6c99b5d2.js"><link rel="prefetch" href="./assets/js/113.5bd0fb72.js"><link rel="prefetch" href="./assets/js/114.e9fa34e1.js"><link rel="prefetch" href="./assets/js/115.d1c79025.js"><link rel="prefetch" href="./assets/js/116.350c9554.js"><link rel="prefetch" href="./assets/js/117.92917110.js"><link rel="prefetch" href="./assets/js/118.61f93307.js"><link rel="prefetch" href="./assets/js/119.34185e70.js"><link rel="prefetch" href="./assets/js/12.8b71ea83.js"><link rel="prefetch" href="./assets/js/120.7e1b1c7d.js"><link rel="prefetch" href="./assets/js/121.d8c00252.js"><link rel="prefetch" href="./assets/js/122.174db881.js"><link rel="prefetch" href="./assets/js/13.71347b8e.js"><link rel="prefetch" href="./assets/js/14.f053f94e.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.81e7c28f.js"><link rel="prefetch" href="./assets/js/17.f11221ce.js"><link rel="prefetch" href="./assets/js/18.fe832c69.js"><link rel="prefetch" href="./assets/js/19.14c224c1.js"><link rel="prefetch" href="./assets/js/20.fcbc42d2.js"><link rel="prefetch" href="./assets/js/21.07886cc2.js"><link rel="prefetch" href="./assets/js/22.ac5835a0.js"><link rel="prefetch" href="./assets/js/23.5fcce455.js"><link rel="prefetch" href="./assets/js/24.6884809e.js"><link rel="prefetch" href="./assets/js/25.81d9ed9d.js"><link rel="prefetch" href="./assets/js/26.4729386e.js"><link rel="prefetch" href="./assets/js/27.8b2ea903.js"><link rel="prefetch" href="./assets/js/28.ffb9e9e1.js"><link rel="prefetch" href="./assets/js/29.4d4e061f.js"><link rel="prefetch" href="./assets/js/3.6d4ee76d.js"><link rel="prefetch" href="./assets/js/30.649421e8.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.e19607e8.js"><link rel="prefetch" href="./assets/js/33.f7352c75.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.60e46ee5.js"><link rel="prefetch" href="./assets/js/36.7ccb9a0c.js"><link rel="prefetch" href="./assets/js/37.47bf640d.js"><link rel="prefetch" href="./assets/js/38.11987f44.js"><link rel="prefetch" href="./assets/js/39.694eb4c0.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.5db21ed8.js"><link rel="prefetch" href="./assets/js/41.78eb9a93.js"><link rel="prefetch" href="./assets/js/42.8369c775.js"><link rel="prefetch" href="./assets/js/43.19966b90.js"><link rel="prefetch" href="./assets/js/44.40e6834e.js"><link rel="prefetch" href="./assets/js/45.fbcb566b.js"><link rel="prefetch" href="./assets/js/46.1c3578fb.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.317886b4.js"><link rel="prefetch" href="./assets/js/49.1be89a8c.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.74e50bd1.js"><link rel="prefetch" href="./assets/js/51.6d431141.js"><link rel="prefetch" href="./assets/js/52.f8793ffe.js"><link rel="prefetch" href="./assets/js/53.ef8ac10b.js"><link rel="prefetch" href="./assets/js/54.72c2b12d.js"><link rel="prefetch" href="./assets/js/55.c35687b6.js"><link rel="prefetch" href="./assets/js/56.394b272d.js"><link rel="prefetch" href="./assets/js/57.08adde98.js"><link rel="prefetch" href="./assets/js/58.ae73d05f.js"><link rel="prefetch" href="./assets/js/59.3c851064.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.8c9de55a.js"><link rel="prefetch" href="./assets/js/61.140bed1c.js"><link rel="prefetch" href="./assets/js/62.62ad7beb.js"><link rel="prefetch" href="./assets/js/63.a36440f0.js"><link rel="prefetch" href="./assets/js/64.35625546.js"><link rel="prefetch" href="./assets/js/65.42445eda.js"><link rel="prefetch" href="./assets/js/66.47de6720.js"><link rel="prefetch" href="./assets/js/67.55b1a47f.js"><link rel="prefetch" href="./assets/js/68.f669ae1e.js"><link rel="prefetch" href="./assets/js/69.6d2b7f97.js"><link rel="prefetch" href="./assets/js/7.4a7a55b6.js"><link rel="prefetch" href="./assets/js/70.8c200ec3.js"><link rel="prefetch" href="./assets/js/71.ae918c22.js"><link rel="prefetch" href="./assets/js/72.77638b47.js"><link rel="prefetch" href="./assets/js/73.5820126f.js"><link rel="prefetch" href="./assets/js/74.5b03441d.js"><link rel="prefetch" href="./assets/js/75.1db27768.js"><link rel="prefetch" href="./assets/js/76.b5fec7d3.js"><link rel="prefetch" href="./assets/js/77.ddf1963b.js"><link rel="prefetch" href="./assets/js/78.0573ead9.js"><link rel="prefetch" href="./assets/js/79.89cb870d.js"><link rel="prefetch" href="./assets/js/8.fde5124b.js"><link rel="prefetch" href="./assets/js/80.04f05126.js"><link rel="prefetch" href="./assets/js/81.033f3b11.js"><link rel="prefetch" href="./assets/js/82.4c05f3e6.js"><link rel="prefetch" href="./assets/js/83.55a565c7.js"><link rel="prefetch" href="./assets/js/84.ec4bbf04.js"><link rel="prefetch" href="./assets/js/85.fbfb2605.js"><link rel="prefetch" href="./assets/js/86.d726556c.js"><link rel="prefetch" href="./assets/js/87.cc22e8af.js"><link rel="prefetch" href="./assets/js/88.1cff7c6b.js"><link rel="prefetch" href="./assets/js/9.e0237b05.js"><link rel="prefetch" href="./assets/js/90.7146fddb.js"><link rel="prefetch" href="./assets/js/91.737708a2.js"><link rel="prefetch" href="./assets/js/92.c85d8205.js"><link rel="prefetch" href="./assets/js/93.828ef430.js"><link rel="prefetch" href="./assets/js/94.4bc2cf6c.js"><link rel="prefetch" href="./assets/js/95.31860134.js"><link rel="prefetch" href="./assets/js/96.25f4a4ac.js"><link rel="prefetch" href="./assets/js/97.9aa011ad.js"><link rel="prefetch" href="./assets/js/98.53797f3a.js"><link rel="prefetch" href="./assets/js/99.20145e16.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>离线数仓</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E7%A6%BB%E7%BA%BF%E6%95%B0%E4%BB%93/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/离线数仓/数仓定义.html" class="sidebar-link">数据仓库定义</a></li><li><a href="/./datahouse/离线数仓/数仓基础.html" class="sidebar-link">数仓基础</a></li><li><a href="/./datahouse/离线数仓/HiveSQL查询优化案例.html" class="sidebar-link">HiveSQL查询优化案例</a></li><li><a href="/./datahouse/离线数仓/bi.html" class="sidebar-link">商务智能 （BI）</a></li><li><a href="/./datahouse/离线数仓/explain.html" class="active sidebar-link">explain + 慢SQL分析</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#hivesql" class="sidebar-link">HiveSQL</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#mysql" class="sidebar-link">MySQL</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#id" class="sidebar-link">id</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#select-type" class="sidebar-link">select_type</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#table" class="sidebar-link">table</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#type" class="sidebar-link">type</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#possible-keys" class="sidebar-link">possible_keys</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#key" class="sidebar-link">key</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#key-len" class="sidebar-link">key_len</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#ref" class="sidebar-link">ref</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#rows" class="sidebar-link">rows</a></li><li class="sidebar-sub-header"><a href="/./datahouse/离线数仓/explain.html#extra" class="sidebar-link">Extra</a></li></ul></li></ul></li><li><a href="/./datahouse/离线数仓/kudu.html" class="sidebar-link">Kudu</a></li><li><a href="/./datahouse/离线数仓/olap.html" class="sidebar-link">OLAP</a></li><li><a href="/./datahouse/离线数仓/presto与impala与hive.html" class="sidebar-link">presto  impala  hive</a></li><li><a href="/./datahouse/离线数仓/shuffle.html" class="sidebar-link">shuffle调优</a></li><li><a href="/./datahouse/离线数仓/sql规范.html" class="sidebar-link">SQL 规范</a></li><li><a href="/./datahouse/离线数仓/sql调优.html" class="sidebar-link">数据倾斜调优</a></li><li><a href="/./datahouse/离线数仓/从零开始搭建数据仓库.html" class="sidebar-link">如何从零开始搭建数据仓库</a></li><li><a href="/./datahouse/离线数仓/数仓建设的十大陷阱.html" class="sidebar-link">数仓建设的十大陷井</a></li><li><a href="/./datahouse/离线数仓/数据中台.html" class="sidebar-link">数据中台</a></li><li><a href="/./datahouse/离线数仓/数据库和数据仓库的区别.html" class="sidebar-link">数据库和数据仓库的区别</a></li><li><a href="/./datahouse/离线数仓/数据模型.html" class="sidebar-link">数仓模型建设</a></li><li><a href="/./datahouse/离线数仓/数据模型如何评论好坏.html" class="sidebar-link">数据模型评价</a></li><li><a href="/./datahouse/离线数仓/数据湖.html" class="sidebar-link">数据湖</a></li><li><a href="/./datahouse/离线数仓/用户画像总结.html" class="sidebar-link">用户画像总结</a></li><li><a href="/./datahouse/离线数仓/行业前辈的一些话.html" class="sidebar-link">行业前辈的一些话</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="explain-慢sql分析"><a href="#explain-慢sql分析" class="header-anchor">#</a> explain + 慢SQL分析</h1> <blockquote><p>通过explain查看SQL中的执行计划</p></blockquote> <ul><li><a href="#HiveSQL">HiveSQL</a></li> <li><a href="#MySQL">MySQL</a></li></ul> <h2 id="hivesql"><a href="#hivesql" class="header-anchor">#</a> HiveSQL</h2> <p>用explain打开的执行计划包含以下几个部分：</p> <ul><li>作业的依赖关系图，即STAG DEPENDENCIES</li> <li>每个作业的详细信息，即STAG PLAINS</li></ul> <p>eg: 查看简单SQL的执行计划</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 默认使用的Spark计算引擎</span>
+
+<span class="token keyword">EXPLAIN</span>
+<span class="token keyword">SELECT</span> game_code<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> num <span class="token keyword">from</span> dwd<span class="token punctuation">.</span>dim_app_game_dict <span class="token keyword">where</span> app_id<span class="token operator">&gt;</span><span class="token number">10000</span> <span class="token operator">and</span> app_name <span class="token operator">like</span> <span class="token string">&quot;%同城%&quot;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> game_code
+</code></pre></div><p>Hue的截图如下：
+<img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211126232440.png" alt="explain"></p> <p>全部内部如下:</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">Explain</span>
+STAGE DEPENDENCIES:
+  Stage<span class="token operator">-</span><span class="token number">1</span> <span class="token operator">is</span> a root stage
+  Stage<span class="token operator">-</span><span class="token number">0</span> depends <span class="token keyword">on</span> stages: Stage<span class="token operator">-</span><span class="token number">1</span>
+<span class="token string">&quot;&quot;</span>
+STAGE PLANS:
+  Stage: Stage<span class="token operator">-</span><span class="token number">1</span>
+    Spark
+      Edges:
+<span class="token string">&quot;        Reducer 2 &lt;- Map 1 (GROUP, 4)&quot;</span>
+      DagName: hive_20200906160000_e0f156d8<span class="token operator">-</span>f53a<span class="token operator">-</span><span class="token number">4</span>dde<span class="token operator">-</span><span class="token number">8</span>ef6<span class="token operator">-</span><span class="token number">910947</span>b0db41:<span class="token number">638</span>
+      Vertices:
+        Map <span class="token number">1</span> 
+            Map Operator Tree:
+                TableScan
+                  alias: dim_app_game_dict
+                  filterExpr: <span class="token punctuation">(</span><span class="token punctuation">(</span>app_id <span class="token operator">&gt;</span> <span class="token number">10000</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token punctuation">(</span>app_name <span class="token operator">like</span> <span class="token string">'%同城%'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">boolean</span><span class="token punctuation">)</span>
+                  <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">450</span> <span class="token keyword">Data</span> size: <span class="token number">91869</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                  Filter Operator
+                    predicate: <span class="token punctuation">(</span><span class="token punctuation">(</span>app_id <span class="token operator">&gt;</span> <span class="token number">10000</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token punctuation">(</span>app_name <span class="token operator">like</span> <span class="token string">'%同城%'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">boolean</span><span class="token punctuation">)</span>
+                    <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">75</span> <span class="token keyword">Data</span> size: <span class="token number">15311</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                    <span class="token keyword">Select</span> Operator
+                      expressions: game_code <span class="token punctuation">(</span><span class="token keyword">type</span>: string<span class="token punctuation">)</span>
+                      outputColumnNames: game_code
+                      <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">75</span> <span class="token keyword">Data</span> size: <span class="token number">15311</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                      <span class="token keyword">Group</span> <span class="token keyword">By</span> Operator
+                        aggregations: <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+                        <span class="token keyword">keys</span>: game_code <span class="token punctuation">(</span><span class="token keyword">type</span>: string<span class="token punctuation">)</span>
+                        <span class="token keyword">mode</span>: <span class="token keyword">hash</span>
+<span class="token string">&quot;                        outputColumnNames: _col0, _col1&quot;</span>
+                        <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">75</span> <span class="token keyword">Data</span> size: <span class="token number">15311</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                        Reduce Output Operator
+                          <span class="token keyword">key</span> expressions: _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: string<span class="token punctuation">)</span>
+                          sort <span class="token keyword">order</span>: <span class="token operator">+</span>
+                          Map<span class="token operator">-</span>reduce <span class="token keyword">partition</span> <span class="token keyword">columns</span>: _col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: string<span class="token punctuation">)</span>
+                          <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">75</span> <span class="token keyword">Data</span> size: <span class="token number">15311</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                          <span class="token keyword">value</span> expressions: _col1 <span class="token punctuation">(</span><span class="token keyword">type</span>: <span class="token keyword">bigint</span><span class="token punctuation">)</span>
+            Execution <span class="token keyword">mode</span>: vectorized
+        Reducer <span class="token number">2</span> 
+            Reduce Operator Tree:
+              <span class="token keyword">Group</span> <span class="token keyword">By</span> Operator
+                aggregations: <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">VALUE</span><span class="token punctuation">.</span>_col0<span class="token punctuation">)</span>
+                <span class="token keyword">keys</span>: <span class="token keyword">KEY</span><span class="token punctuation">.</span>_col0 <span class="token punctuation">(</span><span class="token keyword">type</span>: string<span class="token punctuation">)</span>
+                <span class="token keyword">mode</span>: mergepartial
+<span class="token string">&quot;                outputColumnNames: _col0, _col1&quot;</span>
+                <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">37</span> <span class="token keyword">Data</span> size: <span class="token number">7553</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                <span class="token keyword">File</span> Output Operator
+                  compressed: <span class="token boolean">false</span>
+                  <span class="token keyword">Statistics</span>: Num <span class="token keyword">rows</span>: <span class="token number">37</span> <span class="token keyword">Data</span> size: <span class="token number">7553</span> Basic stats: COMPLETE <span class="token keyword">Column</span> stats: NONE
+                  <span class="token keyword">table</span>:
+                      input format: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapred<span class="token punctuation">.</span>TextInputFormat
+                      output format: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>ql<span class="token punctuation">.</span>io<span class="token punctuation">.</span>HiveIgnoreKeyTextOutputFormat
+                      serde: org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hive<span class="token punctuation">.</span>serde2<span class="token punctuation">.</span>lazy<span class="token punctuation">.</span>LazySimpleSerDe
+<span class="token string">&quot;&quot;</span>
+  Stage: Stage<span class="token operator">-</span><span class="token number">0</span>
+    <span class="token keyword">Fetch</span> Operator
+      <span class="token keyword">limit</span>: <span class="token operator">-</span><span class="token number">1</span>
+      Processor Tree:
+        ListSink
+<span class="token string">&quot;&quot;</span>
+</code></pre></div><p>可以看出stage dependecies 描绘了作业之间的依赖关系，即stag0依赖stage-1的执行结果。stage-0表示客户端读取stage-1的执行结果，stage-1表示整个sql的执行过程。
+Spark把所有任务组织成DAG(有向无环图)，所有的任务以顶点表示，任务之间的关系以边表示。Map1顶点和Reducer2顶点分别表示Map任务和Reduce任务。</p> <blockquote><p>引擎切换成MapReduce描述信息也是大同小异。 set hive.execution.engine=mr</p></blockquote> <p>对应的执行计划关键词解读如下：</p> <ul><li>Spark：表示当前任务执行所用的计算引擎是MapReduce</li> <li>Map Operator Tree：表示当前Map阶段的操作信息。</li> <li>Reduce Operator Tree: 表示当前Reduce阶段的操作信息。</li> <li>TableScan：表示对关键字alias声明的结果集，这里指代dim_app_game_dict，进行表扫描操作。</li> <li>filterExpr：过滤表达式。</li> <li>Statistics：表示对当前阶段的统计信息。例如，当前处理的数据行和数据量，这两个都是预估值。</li> <li>Filter Operator：表示在之前操作(TableScan)的结果集上进行数据的过滤。</li> <li>predicate：表示filter operator进行过滤时，所用的谓词，即 <code>(app_id &gt; 10000) and (app_name like '%同城%')</code></li> <li>Select Operator：表示在之前的结果集上对列进行投影，即筛选列。</li> <li>expressions：表示需要投影的列，即筛选的列。</li> <li>outputColNames:表示输出的列。</li> <li>Group By Operator：表示在之前的结果集上分组聚合。</li> <li>aggregations：表示分组聚合使用的算法，这里是count(1)。</li> <li>keys:表示分组的列，在该例子表示的是<code>game_code</code>。</li> <li>Reduce Output Operator：表示当前描述的是对之前结果聚合后的输出信息，这里表示Map端聚合后的输出信息。</li> <li>key expressions/value expressions：分别描述的是Map阶段输出的键(key)和值(value)所用的数据列。这里的例子key expressions 指代就是 <code>game_code</code>列，value expressions指代的是<code>count(1)</code>列。</li> <li>sort order：表示输出的是否进行排序， <code>+</code>表示正排, <code>-</code>表示倒序。</li> <li>Map-reduce partition columns: 表示Map阶段输出到Reduce阶段的分区列，在Hive SQl中可以用distribute by指代分区的列。</li> <li>compressed：表示文件输出的结果是否要文件压缩。</li> <li>table：描述当前操作表的信息。</li> <li>input format/output format:分别表示文件输入和输出的文件类型。</li> <li>serde：表示当前读取表数据的序列化和反序列化的方式。</li></ul> <p><strong>理解了执行计划，才可以写出合适的sql，进而去调优。对于调优，其实是一个综合的概念，不仅仅是sql层面，还要从需求和架构(代码、模块、系统)两大方面入手。从经验来看，60%的需求是可以简化的，30%的SQL是可以优化达到目的的，剩下的10%就是难点了吧</strong></p> <h2 id="mysql"><a href="#mysql" class="header-anchor">#</a> MySQL</h2> <p>使用EXPLAIN关键字可以模拟优化器执行SQL查询语句，从而知道SQL语句在MySQl中是如何被处理的。可以分析查询语句的性能瓶颈。</p> <p>执行计划包含的信息：</p> <ul><li><a href="#id">id</a></li> <li><a href="#select_type">select_type</a></li> <li><a href="#table">table</a></li> <li><a href="#type">type</a></li> <li><a href="#possible_keys">possible_keys</a></li> <li><a href="#key">key</a></li> <li><a href="#key_len">key_len</a></li> <li><a href="#ref">ref</a></li> <li><a href="#rows">rows</a></li> <li><a href="#Extra">Extra</a></li></ul> <h3 id="id"><a href="#id" class="header-anchor">#</a> id</h3> <p>SELECT查询的序列号，包含一组数字，表示查询中执行SELECT语句或操作表的顺序。</p> <p>包含三种情况：</p> <ul><li>id相同，执行顺序由上至下。</li> <li>id不同，如果是子查询，id序号会递增，id值越大优先级越高，越先被执行。</li> <li>id既有相同的，又有不同的。id如果相同认为是一组，执行顺序由上至下；在所有组中，id值越大优先级越高，越先执    行。</li></ul> <h3 id="select-type"><a href="#select-type" class="header-anchor">#</a> select_type</h3> <ul><li>SIMPLE: 简单SELECT查询，查询中不包含子查询或者UNION</li> <li>PRIMARY: 查询中包含任何复杂的子部分，最外层的查询</li> <li>SUBQUERY： SELECT或WHERE中包含的子查询部分</li> <li>DERIVED： 在FROM中包含的子查询被标记为DERIVER(衍生)， MySQL会递归执行这些子查询，把结果放到临时表中</li> <li>UNION： 若第二个SELECT出现UNION，则被标记为UNION，若UNION包含在FROM子句的子查询中，外层子查询将被标记为DERIVED</li> <li><code>UNION RESULT</code>： 从UNION表获取结果的SELECT</li></ul> <h3 id="table"><a href="#table" class="header-anchor">#</a> table</h3> <p>显示这一行数据是关于哪张表的</p> <h3 id="type"><a href="#type" class="header-anchor">#</a> type</h3> <p>type显示的是访问类型，是较为重要的一个指标，结果值从最好到最坏依次是：</p> <p><code>system</code> &gt; <code>const</code> &gt; <code>eq_ref</code> &gt; <code>ref</code> &gt; <code>fulltext</code> &gt; <code>ref_or_null</code> &gt; <code>index_merge</code> &gt; <code>unique_subquery</code> &gt; <code>index_subquery</code> &gt; <code>range</code> &gt; <code>index</code> &gt; <code>all</code></p> <ul><li>system：表只有一行记录（等于系统表），这是const类型的特例，平时不会出现。</li> <li>const：如果通过索引依次就找到了，const用于比较主键索引或者unique索引。因为只能匹配一行数据，所以很快。如果将主键置于where列表中，MySQL就能将该查询转换为一个常量。</li> <li>eq_ref：唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描。</li> <li>ref：非唯一性索引扫描，返回匹配某个单独值的所有行。本质上也是一种索引访问，它返回所有匹配某个单独值的行，然而它可能会找到多个符合条件的行，所以它应该属于查找和扫描的混合体。</li> <li>range：只检索给定范围的行，使用一个索引来选择行。key列显示使用了哪个索引，一般就是在你的where语句中出现between、&lt;、&gt;、in等的查询，这种范围扫描索引比全表扫描要好，因为只需要开始于缩印的某一点，而结束于另一点，不用扫描全部索引。</li> <li>index：Full Index Scan ，index与ALL的区别为index类型只遍历索引树，这通常比ALL快，因为索引文件通常比数据文件小。（也就是说虽然ALL和index都是读全表， 但index是从索引中读取的，而ALL是从硬盘读取的）。</li> <li>all：Full Table Scan，遍历全表获得匹配的行。</li></ul> <p>一般来说，得保证查询至少达到range级别，最好能达到ref。</p> <h3 id="possible-keys"><a href="#possible-keys" class="header-anchor">#</a> possible_keys</h3> <p>显示可能应用在这张表中的索引，一个或多个。 查询涉及到的字段上若存在索引，则该索引将被列出，但不一定被查询实际使用。</p> <h3 id="key"><a href="#key" class="header-anchor">#</a> key</h3> <p>实际使用的索引。如果为NULL，则没有使用索引。</p> <p>查询中若出现了覆盖索引，则该索引仅出现在key列表中。</p> <h3 id="key-len"><a href="#key-len" class="header-anchor">#</a> key_len</h3> <p>表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度。在不损失精度的情况下，长度越短越好。</p> <p>key_len显示的值为索引字段的最大可能长度，并非实际使用长度，即key_len是根据表定义计算而得，不是通过表内检索出的。</p> <h3 id="ref"><a href="#ref" class="header-anchor">#</a> ref</h3> <p>显示索引的哪一列被使用了，哪些列或常量被用于查找索引列上的值。</p> <h3 id="rows"><a href="#rows" class="header-anchor">#</a> rows</h3> <p>根据表统计信息及索引选用情况，大致估算出找到所需记录多需要读取的行数。</p> <h3 id="extra"><a href="#extra" class="header-anchor">#</a> Extra</h3> <p>包含不适合在其他列中显示但十分重要的额外信息：</p> <ul><li>Using filesort： 说明MySQL会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。MySQL中无法利用索引完成的排序操作称为“文件排序”</li> <li>Using temporary：  使用了临时表保存中间结果，MySQL在对查询结果排序时使用临时表。常见于排序order by和分组查询group by</li> <li>Using index： 表示相应的SELECT操作中使用了覆盖索引，避免访问了表的数据行，效率不错。如果同时出现using where，表明索引被用来执行索引键值的查找； 如果没有同时出现using where，表明索引用来读取数据而非执行查找动作覆盖索引。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>理解方式1：SELECT的数据列只需要从索引中就能读取到，不需要读取数据行，MySQL可以利用索引返回SELECT列表中的字段，而不必根据索引再次读取数据文件，换句话说查询列要被所建的索引覆盖 。
+
+理解方式2：索引是高效找到行的一个方法，但是一般数据库也能使用索引找到一个列的数据，因此他不必读取整个行。毕竟索引叶子节点存储了他们索引的数据；当能通过读取索引就可以得到想要的数据，那就不需要读取行了，一个索引包含了（覆盖）满足查询结果的数据就叫做覆盖索引 
+</code></pre></div><blockquote><p>注意： 如果要使用覆盖索引，一定要注意SELECT列表中只取出需要的列，不可<code>SELECT *</code>，因为如果所有字段一起做索引会导致索引文件过大查询性能下降</p></blockquote> <ul><li><p>impossible where： WHERE子句的值总是false，不能用来获取任何元组。</p></li> <li><p>select tables optimized away： 在没有GROUP BY子句的情况下基于索引优化<code>MIN/MAX</code>操作或者对于MyISAM存储引擎优化<code>COUNT(*)</code>操作， 不必等到执行阶段再进行计算，查询执行计划生成的阶段即完成优化。</p></li> <li><p>distinct： 优化distinct操作，在找到第一匹配的元祖后即停止找同样值的操作。</p></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/离线数仓/bi.html" class="prev">
+        商务智能 （BI）
+      </a></span> <span class="next"><a href="/./datahouse/离线数仓/kudu.html">
+        Kudu
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.8f846374.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/89.6def5b33.js" defer></script>
+  </body>
+</html>

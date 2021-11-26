@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ck机器配置 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.e88c5000.css" as="style"><link rel="preload" href="./assets/js/app.8f846374.js" as="script"><link rel="preload" href="./assets/js/2.47c06342.js" as="script"><link rel="preload" href="./assets/js/78.0573ead9.js" as="script"><link rel="prefetch" href="./assets/js/10.ef98acb1.js"><link rel="prefetch" href="./assets/js/100.441528ba.js"><link rel="prefetch" href="./assets/js/101.e4e38e24.js"><link rel="prefetch" href="./assets/js/102.c7d8d043.js"><link rel="prefetch" href="./assets/js/103.fab94ea6.js"><link rel="prefetch" href="./assets/js/104.68e04f80.js"><link rel="prefetch" href="./assets/js/105.198c6758.js"><link rel="prefetch" href="./assets/js/106.6258b526.js"><link rel="prefetch" href="./assets/js/107.1585c4c3.js"><link rel="prefetch" href="./assets/js/108.6b62e303.js"><link rel="prefetch" href="./assets/js/109.b2d58d90.js"><link rel="prefetch" href="./assets/js/11.24e5d745.js"><link rel="prefetch" href="./assets/js/110.ded9aecf.js"><link rel="prefetch" href="./assets/js/111.6c292e59.js"><link rel="prefetch" href="./assets/js/112.6c99b5d2.js"><link rel="prefetch" href="./assets/js/113.5bd0fb72.js"><link rel="prefetch" href="./assets/js/114.e9fa34e1.js"><link rel="prefetch" href="./assets/js/115.d1c79025.js"><link rel="prefetch" href="./assets/js/116.350c9554.js"><link rel="prefetch" href="./assets/js/117.92917110.js"><link rel="prefetch" href="./assets/js/118.61f93307.js"><link rel="prefetch" href="./assets/js/119.34185e70.js"><link rel="prefetch" href="./assets/js/12.8b71ea83.js"><link rel="prefetch" href="./assets/js/120.7e1b1c7d.js"><link rel="prefetch" href="./assets/js/121.d8c00252.js"><link rel="prefetch" href="./assets/js/122.174db881.js"><link rel="prefetch" href="./assets/js/13.71347b8e.js"><link rel="prefetch" href="./assets/js/14.f053f94e.js"><link rel="prefetch" href="./assets/js/15.a024878c.js"><link rel="prefetch" href="./assets/js/16.81e7c28f.js"><link rel="prefetch" href="./assets/js/17.f11221ce.js"><link rel="prefetch" href="./assets/js/18.fe832c69.js"><link rel="prefetch" href="./assets/js/19.14c224c1.js"><link rel="prefetch" href="./assets/js/20.fcbc42d2.js"><link rel="prefetch" href="./assets/js/21.07886cc2.js"><link rel="prefetch" href="./assets/js/22.ac5835a0.js"><link rel="prefetch" href="./assets/js/23.5fcce455.js"><link rel="prefetch" href="./assets/js/24.6884809e.js"><link rel="prefetch" href="./assets/js/25.81d9ed9d.js"><link rel="prefetch" href="./assets/js/26.4729386e.js"><link rel="prefetch" href="./assets/js/27.8b2ea903.js"><link rel="prefetch" href="./assets/js/28.ffb9e9e1.js"><link rel="prefetch" href="./assets/js/29.4d4e061f.js"><link rel="prefetch" href="./assets/js/3.6d4ee76d.js"><link rel="prefetch" href="./assets/js/30.649421e8.js"><link rel="prefetch" href="./assets/js/31.b1265e4d.js"><link rel="prefetch" href="./assets/js/32.e19607e8.js"><link rel="prefetch" href="./assets/js/33.f7352c75.js"><link rel="prefetch" href="./assets/js/34.ea398359.js"><link rel="prefetch" href="./assets/js/35.60e46ee5.js"><link rel="prefetch" href="./assets/js/36.7ccb9a0c.js"><link rel="prefetch" href="./assets/js/37.47bf640d.js"><link rel="prefetch" href="./assets/js/38.11987f44.js"><link rel="prefetch" href="./assets/js/39.694eb4c0.js"><link rel="prefetch" href="./assets/js/4.6d1a6719.js"><link rel="prefetch" href="./assets/js/40.5db21ed8.js"><link rel="prefetch" href="./assets/js/41.78eb9a93.js"><link rel="prefetch" href="./assets/js/42.8369c775.js"><link rel="prefetch" href="./assets/js/43.19966b90.js"><link rel="prefetch" href="./assets/js/44.40e6834e.js"><link rel="prefetch" href="./assets/js/45.fbcb566b.js"><link rel="prefetch" href="./assets/js/46.1c3578fb.js"><link rel="prefetch" href="./assets/js/47.8287576d.js"><link rel="prefetch" href="./assets/js/48.317886b4.js"><link rel="prefetch" href="./assets/js/49.1be89a8c.js"><link rel="prefetch" href="./assets/js/5.c4786839.js"><link rel="prefetch" href="./assets/js/50.74e50bd1.js"><link rel="prefetch" href="./assets/js/51.6d431141.js"><link rel="prefetch" href="./assets/js/52.f8793ffe.js"><link rel="prefetch" href="./assets/js/53.ef8ac10b.js"><link rel="prefetch" href="./assets/js/54.72c2b12d.js"><link rel="prefetch" href="./assets/js/55.c35687b6.js"><link rel="prefetch" href="./assets/js/56.394b272d.js"><link rel="prefetch" href="./assets/js/57.08adde98.js"><link rel="prefetch" href="./assets/js/58.ae73d05f.js"><link rel="prefetch" href="./assets/js/59.3c851064.js"><link rel="prefetch" href="./assets/js/6.81b9d3e2.js"><link rel="prefetch" href="./assets/js/60.8c9de55a.js"><link rel="prefetch" href="./assets/js/61.140bed1c.js"><link rel="prefetch" href="./assets/js/62.62ad7beb.js"><link rel="prefetch" href="./assets/js/63.a36440f0.js"><link rel="prefetch" href="./assets/js/64.35625546.js"><link rel="prefetch" href="./assets/js/65.42445eda.js"><link rel="prefetch" href="./assets/js/66.47de6720.js"><link rel="prefetch" href="./assets/js/67.55b1a47f.js"><link rel="prefetch" href="./assets/js/68.f669ae1e.js"><link rel="prefetch" href="./assets/js/69.6d2b7f97.js"><link rel="prefetch" href="./assets/js/7.4a7a55b6.js"><link rel="prefetch" href="./assets/js/70.8c200ec3.js"><link rel="prefetch" href="./assets/js/71.ae918c22.js"><link rel="prefetch" href="./assets/js/72.77638b47.js"><link rel="prefetch" href="./assets/js/73.5820126f.js"><link rel="prefetch" href="./assets/js/74.5b03441d.js"><link rel="prefetch" href="./assets/js/75.1db27768.js"><link rel="prefetch" href="./assets/js/76.b5fec7d3.js"><link rel="prefetch" href="./assets/js/77.ddf1963b.js"><link rel="prefetch" href="./assets/js/79.89cb870d.js"><link rel="prefetch" href="./assets/js/8.fde5124b.js"><link rel="prefetch" href="./assets/js/80.04f05126.js"><link rel="prefetch" href="./assets/js/81.033f3b11.js"><link rel="prefetch" href="./assets/js/82.4c05f3e6.js"><link rel="prefetch" href="./assets/js/83.55a565c7.js"><link rel="prefetch" href="./assets/js/84.ec4bbf04.js"><link rel="prefetch" href="./assets/js/85.fbfb2605.js"><link rel="prefetch" href="./assets/js/86.d726556c.js"><link rel="prefetch" href="./assets/js/87.cc22e8af.js"><link rel="prefetch" href="./assets/js/88.1cff7c6b.js"><link rel="prefetch" href="./assets/js/89.6def5b33.js"><link rel="prefetch" href="./assets/js/9.e0237b05.js"><link rel="prefetch" href="./assets/js/90.7146fddb.js"><link rel="prefetch" href="./assets/js/91.737708a2.js"><link rel="prefetch" href="./assets/js/92.c85d8205.js"><link rel="prefetch" href="./assets/js/93.828ef430.js"><link rel="prefetch" href="./assets/js/94.4bc2cf6c.js"><link rel="prefetch" href="./assets/js/95.31860134.js"><link rel="prefetch" href="./assets/js/96.25f4a4ac.js"><link rel="prefetch" href="./assets/js/97.9aa011ad.js"><link rel="prefetch" href="./assets/js/98.53797f3a.js"><link rel="prefetch" href="./assets/js/99.20145e16.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.e88c5000.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/springboot/springboot.html" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/广告技术/" class="nav-link">
+  广告技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>实时数仓</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/实时数仓/实时数仓.html" class="sidebar-link">实时数仓</a></li><li><a href="/./datahouse/%E5%AE%9E%E6%97%B6%E6%95%B0%E4%BB%93/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(1).html" class="sidebar-link">实时读方案</a></li><li><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html" class="active sidebar-link">ck机器配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_1-随机分片-月分区-店铺-时间排序" class="sidebar-link">1.随机分片+月分区+店铺&amp;时间排序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_1-1ck1000w查询-uv排序" class="sidebar-link">1.1ck1000w查询+uv排序</a></li></ul></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_2-随机分片-月分区-店铺-时间排序" class="sidebar-link">2.随机分片+月分区+店铺&amp;时间排序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_2-1ck1000w查询-uv排序" class="sidebar-link">2.1ck1000w查询+uv排序</a></li></ul></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_3-store-id分片-store-id-月分区-uv排序-物化视图" class="sidebar-link">3.storeid分片+storeid&amp;月分区+uv排序+物化视图</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_3-1ck1000w查询-uv排序" class="sidebar-link">3.1ck1000w查询+uv排序</a></li></ul></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_4-store-id分片-store-id-月分区-uv排序" class="sidebar-link">4.storeid分片+storeid&amp;月分区+uv排序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_4-1-ck1000w查询-uv排序" class="sidebar-link">4.1 ck1000w查询+uv排序</a></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_4-2-ck1000w-tidb60w-uv排序" class="sidebar-link">4.2 ck1000w+tidb60w+uv排序</a></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_4-3-ck1000w-tidb2w-uv排序" class="sidebar-link">4.3 ck1000w+tidb2w+uv排序</a></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_4-4-ck1000w查询-group350w-uv排序" class="sidebar-link">4.4  ck1000w查询+group350w+uv排序</a></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_4-5-ck630w查询-group210w-uv排序" class="sidebar-link">4.5  ck630w查询+group210w+uv排序</a></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_4-6-ck1000w查询-group30w-uv排序" class="sidebar-link">4.6  ck1000w查询+group30w+uv排序</a></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(2).html#_4-7-ck1000w查询-tidb2w-group30w-uv排序" class="sidebar-link">4.7  ck1000w查询+tidb2w+group30w+uv排序</a></li></ul></li></ul></li><li><a href="/./datahouse/实时数仓/Clickhouse 读并发压测.html" class="sidebar-link">结果</a></li><li><a href="/./datahouse/实时数仓/Clickhouse查询响应测试.html" class="sidebar-link">分区&amp;索引键</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="content__default"><h1 id="ck机器配置"><a href="#ck机器配置" class="header-anchor">#</a> ck机器配置</h1> <table><thead><tr><th>类型</th> <th>机器数量</th> <th>每台机器核数</th> <th>每台机器内存</th> <th>每台机器磁盘</th> <th>备注</th></tr></thead> <tbody><tr><td>clickhouse</td> <td>4</td> <td>16</td> <td>64G</td> <td>4*1T SSD</td> <td>仅使用单磁盘</td></tr></tbody></table> <h1 id="压测查询场景"><a href="#压测查询场景" class="header-anchor">#</a> 压测查询场景</h1> <h2 id="_1-随机分片-月分区-店铺-时间排序"><a href="#_1-随机分片-月分区-店铺-时间排序" class="header-anchor">#</a> 1.随机分片+月分区+店铺&amp;时间排序</h2> <div class="language-sql extra-class"><pre class="language-sql"><code>│ <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_local
+<span class="token punctuation">(</span>
+    <span class="token punctuation">`</span>dt<span class="token punctuation">`</span> <span class="token keyword">DateTime</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>app_id<span class="token punctuation">`</span> String<span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>row_key<span class="token punctuation">`</span> String<span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>store_id<span class="token punctuation">`</span> Int64<span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_type<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_browser<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_os_version<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_os<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>city<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>province<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>region<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>pv<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int64<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>uv<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>visit_checkout_cnt<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>completed_checkout_cnt<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> ReplicatedReplacingMergeTree<span class="token punctuation">(</span><span class="token string">'/clickhouse/tables/cluster01-{shard}/sl_dm_store_behavior_session_local'</span><span class="token punctuation">,</span> <span class="token string">'{replica}'</span><span class="token punctuation">)</span>
+<span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> toYYYYMM<span class="token punctuation">(</span>dt<span class="token punctuation">)</span>
+<span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>store_id<span class="token punctuation">,</span> dt<span class="token punctuation">,</span> row_key<span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token punctuation">(</span>store_id<span class="token punctuation">,</span> dt<span class="token punctuation">,</span> row_key<span class="token punctuation">)</span>
+SETTINGS index_granularity <span class="token operator">=</span> <span class="token number">8192</span> │
+</code></pre></div><h3 id="_1-1ck1000w查询-uv排序"><a href="#_1-1ck1000w查询-uv排序" class="header-anchor">#</a> 1.1ck1000w查询+uv排序</h3> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> toStartOfHour<span class="token punctuation">(</span>dt<span class="token punctuation">)</span> <span class="token keyword">as</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region<span class="token punctuation">,</span>
+       <span class="token function">sum</span><span class="token punctuation">(</span>pv<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>visit_checkout_cnt<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>completed_checkout_cnt<span class="token punctuation">)</span>
+<span class="token keyword">from</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_local <span class="token keyword">where</span> store_id<span class="token operator">=</span>${ramdom_ten} <span class="token operator">and</span> dt<span class="token operator">&lt;</span>toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-01'</span><span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region
+<span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span> <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="_2-随机分片-月分区-店铺-时间排序"><a href="#_2-随机分片-月分区-店铺-时间排序" class="header-anchor">#</a> 2.随机分片+月分区+店铺&amp;时间排序</h2> <div class="language-sql extra-class"><pre class="language-sql"><code>│ <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_local3
+<span class="token punctuation">(</span>
+    <span class="token punctuation">`</span>dt<span class="token punctuation">`</span> <span class="token keyword">DateTime</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>app_id<span class="token punctuation">`</span> String<span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>row_key<span class="token punctuation">`</span> String<span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>store_id<span class="token punctuation">`</span> Int64<span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_type<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_browser<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_os_version<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_os<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>city<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>province<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>region<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>pv<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int64<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>uv<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>visit_checkout_cnt<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>completed_checkout_cnt<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> ReplicatedReplacingMergeTree<span class="token punctuation">(</span><span class="token string">'/clickhouse/tables/{layer}-{shard}/sl_dm_store_behavior_session_local3'</span><span class="token punctuation">,</span> <span class="token string">'{replica}'</span><span class="token punctuation">)</span>
+<span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> toYYYYMM<span class="token punctuation">(</span>dt<span class="token punctuation">)</span>
+<span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>store_id<span class="token punctuation">,</span> dt<span class="token punctuation">,</span> row_key<span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token punctuation">(</span>store_id<span class="token punctuation">,</span> dt<span class="token punctuation">,</span> row_key<span class="token punctuation">)</span>
+SETTINGS index_granularity <span class="token operator">=</span> <span class="token number">8192</span> 
+
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed3
+<span class="token punctuation">(</span>
+    <span class="token punctuation">`</span>dt<span class="token punctuation">`</span> <span class="token keyword">DateTime</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>app_id<span class="token punctuation">`</span> String<span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>row_key<span class="token punctuation">`</span> String<span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>store_id<span class="token punctuation">`</span> Int64<span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_type<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_browser<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_os_version<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>ua_os<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>city<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>province<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>region<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>pv<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int64<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>uv<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>visit_checkout_cnt<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">`</span>completed_checkout_cnt<span class="token punctuation">`</span> Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">Distributed</span><span class="token punctuation">(</span><span class="token string">'cluster_01'</span><span class="token punctuation">,</span> <span class="token string">'default'</span><span class="token punctuation">,</span> <span class="token string">'sl_dm_store_behavior_session_local3'</span><span class="token punctuation">,</span> rand<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="_2-1ck1000w查询-uv排序"><a href="#_2-1ck1000w查询-uv排序" class="header-anchor">#</a> 2.1ck1000w查询+uv排序</h3> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> toStartOfHour<span class="token punctuation">(</span>dt<span class="token punctuation">)</span> <span class="token keyword">as</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region<span class="token punctuation">,</span>
+       <span class="token function">sum</span><span class="token punctuation">(</span>pv<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>visit_checkout_cnt<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>completed_checkout_cnt<span class="token punctuation">)</span>
+<span class="token keyword">from</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed3 <span class="token keyword">where</span> store_id<span class="token operator">=</span>${ramdom_ten} <span class="token operator">and</span> dt<span class="token operator">&lt;</span>toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-01'</span><span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region
+<span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span> <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="_3-store-id分片-store-id-月分区-uv排序-物化视图"><a href="#_3-store-id分片-store-id-月分区-uv排序-物化视图" class="header-anchor">#</a> 3.store_id分片+store_id&amp;月分区+uv排序+物化视图</h2> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-------------store_id分区--------</span>
+<span class="token keyword">create</span> <span class="token keyword">table</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_ps_local6 <span class="token keyword">on</span> cluster cluster_01
+<span class="token punctuation">(</span>
+    dt                     <span class="token keyword">DateTime</span><span class="token punctuation">,</span>
+    app_id                 String<span class="token punctuation">,</span>
+    row_key                String<span class="token punctuation">,</span>
+    store_id               Int64<span class="token punctuation">,</span>
+    ua_type                Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    ua_browser             Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    ua_os_version          Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    ua_os                  Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    city                   Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    province               Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    region                 Nullable<span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    pv                     Nullable<span class="token punctuation">(</span>Int64<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    uv                     Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    visit_checkout_cnt     Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    completed_checkout_cnt Nullable<span class="token punctuation">(</span>Int32<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+    <span class="token keyword">ENGINE</span> <span class="token operator">=</span> ReplicatedReplacingMergeTree<span class="token punctuation">(</span><span class="token string">'/clickhouse/tables/{layer}-{shard}/sl_dm_store_behavior_session_ps_local6'</span><span class="token punctuation">,</span> <span class="token string">'{replica}'</span><span class="token punctuation">)</span>
+    <span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> <span class="token punctuation">(</span>store_id<span class="token punctuation">)</span>
+    <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token punctuation">(</span>store_id<span class="token punctuation">,</span>dt<span class="token punctuation">,</span>row_key<span class="token punctuation">)</span>
+    <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token punctuation">(</span>store_id<span class="token punctuation">,</span>dt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_ps_distributed6 <span class="token keyword">ON</span> CLUSTER cluster_01 <span class="token keyword">AS</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_ps_local6
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">Distributed</span><span class="token punctuation">(</span><span class="token string">'cluster_01'</span><span class="token punctuation">,</span> <span class="token string">'default'</span><span class="token punctuation">,</span> <span class="token string">'sl_dm_store_behavior_session_ps_local6'</span><span class="token punctuation">,</span> store_id<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_ps_distributed6
+<span class="token keyword">select</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>row_key<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region<span class="token punctuation">,</span>pv<span class="token punctuation">,</span>uv<span class="token punctuation">,</span>visit_checkout_cnt<span class="token punctuation">,</span>completed_checkout_cnt 
+<span class="token keyword">from</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_local <span class="token keyword">where</span> store_id<span class="token operator">&lt;=</span><span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token comment">-------------物化视图-------------</span>
+<span class="token keyword">CREATE</span> MATERIALIZED <span class="token keyword">VIEW</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_local6_summing <span class="token keyword">on</span> cluster cluster_01
+<span class="token keyword">to</span> <span class="token punctuation">(</span>
+    dt                     <span class="token keyword">DateTime</span><span class="token punctuation">,</span>
+    app_id                 String<span class="token punctuation">,</span>
+    store_id               Int64<span class="token punctuation">,</span>
+    ua_type                String<span class="token punctuation">,</span>
+    ua_browser             String<span class="token punctuation">,</span>
+    ua_os_version          String<span class="token punctuation">,</span>
+    ua_os                  String<span class="token punctuation">,</span>
+    city                   String<span class="token punctuation">,</span>
+    province               String<span class="token punctuation">,</span>
+    region                 String<span class="token punctuation">,</span>
+    pv                     Int64<span class="token punctuation">,</span>
+    uv                     Int32<span class="token punctuation">,</span>
+    visit_checkout_cnt     Int32<span class="token punctuation">,</span>
+    completed_checkout_cnt Int32
+<span class="token punctuation">)</span>
+
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> ReplicatedSummingMergeTree<span class="token punctuation">(</span><span class="token string">'/clickhouse/tables/{layer}-{shard}/sl_dm_store_behavior_session_local6_summing'</span><span class="token punctuation">,</span> <span class="token string">'{replica}'</span><span class="token punctuation">)</span>
+<span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> <span class="token punctuation">(</span>store_id<span class="token punctuation">,</span>toYear<span class="token punctuation">(</span>dt<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token punctuation">(</span>dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region<span class="token punctuation">)</span>
+POPULATE <span class="token keyword">AS</span> <span class="token keyword">SELECT</span>
+  toStartOfHour<span class="token punctuation">(</span>dt<span class="token punctuation">)</span> <span class="token keyword">as</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>
+          ifNull<span class="token punctuation">(</span>ua_type<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ua_type<span class="token punctuation">,</span>
+          ifNull<span class="token punctuation">(</span>ua_browser<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ua_browser<span class="token punctuation">,</span>
+          ifNull<span class="token punctuation">(</span>ua_os_version<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ua_os_version<span class="token punctuation">,</span>
+          ifNull<span class="token punctuation">(</span>ua_os<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ua_os<span class="token punctuation">,</span>
+          ifNull<span class="token punctuation">(</span>city<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> city<span class="token punctuation">,</span>
+          ifNull<span class="token punctuation">(</span>province<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> province<span class="token punctuation">,</span>
+          ifNull<span class="token punctuation">(</span>region<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> region<span class="token punctuation">,</span>
+  <span class="token function">sum</span><span class="token punctuation">(</span>pv<span class="token punctuation">)</span> <span class="token keyword">as</span> pv<span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span> <span class="token keyword">as</span> uv<span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>visit_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">as</span> visit_checkout_cnt<span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>completed_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">as</span> completed_checkout_cnt
+<span class="token keyword">FROM</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_ps_local6
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> store_id<span class="token punctuation">,</span>dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region<span class="token punctuation">;</span>
+
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed6_summing <span class="token keyword">ON</span> CLUSTER cluster_01 <span class="token keyword">AS</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_local6_summing
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">Distributed</span><span class="token punctuation">(</span><span class="token string">'cluster_01'</span><span class="token punctuation">,</span> <span class="token string">'default'</span><span class="token punctuation">,</span> <span class="token string">'sl_dm_store_behavior_session_local6_summing'</span><span class="token punctuation">,</span> store_id<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+<span class="token keyword">optimize</span> <span class="token keyword">table</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_ps_local6<span class="token punctuation">;</span>
+</code></pre></div><h3 id="_3-1ck1000w查询-uv排序"><a href="#_3-1ck1000w查询-uv排序" class="header-anchor">#</a> 3.1ck1000w查询+uv排序</h3> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span>
+    dt<span class="token punctuation">,</span>
+    app_id<span class="token punctuation">,</span>
+    store_id<span class="token punctuation">,</span>
+    ua_type<span class="token punctuation">,</span>
+    ua_browser<span class="token punctuation">,</span>
+    ua_os_version<span class="token punctuation">,</span>
+    ua_os<span class="token punctuation">,</span>
+    city<span class="token punctuation">,</span>
+    province<span class="token punctuation">,</span>
+    region<span class="token punctuation">,</span>
+    pv<span class="token punctuation">,</span>
+    uv<span class="token punctuation">,</span>
+    visit_checkout_cnt<span class="token punctuation">,</span>
+    completed_checkout_cnt
+<span class="token keyword">FROM</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed10
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>store_id <span class="token operator">=</span> ${ramdom_ten}<span class="token punctuation">)</span> <span class="token operator">AND</span> <span class="token punctuation">(</span>dt <span class="token operator">&lt;</span> toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-01'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> uv <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">10</span>
+</code></pre></div><h2 id="_4-store-id分片-store-id-月分区-uv排序"><a href="#_4-store-id分片-store-id-月分区-uv排序" class="header-anchor">#</a> 4.store_id分片+store_id&amp;月分区+uv排序</h2> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">------建立本地表------------</span>
+<span class="token keyword">create</span> <span class="token keyword">table</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_local10 <span class="token keyword">on</span> cluster cluster_01
+<span class="token punctuation">(</span>
+    dt                     <span class="token keyword">DateTime</span><span class="token punctuation">,</span>
+    app_id                 String<span class="token punctuation">,</span>
+    store_id               Int64<span class="token punctuation">,</span>
+    ua_type                String<span class="token punctuation">,</span>
+    ua_browser             String<span class="token punctuation">,</span>
+    ua_os_version          String<span class="token punctuation">,</span>
+    ua_os                  String<span class="token punctuation">,</span>
+    city                   String<span class="token punctuation">,</span>
+    province               String<span class="token punctuation">,</span>
+    region                 String<span class="token punctuation">,</span>
+    pv                     Int64<span class="token punctuation">,</span>
+    uv                     Int32<span class="token punctuation">,</span>
+    visit_checkout_cnt     Int32<span class="token punctuation">,</span>
+    completed_checkout_cnt Int32<span class="token punctuation">,</span>
+    <span class="token keyword">INDEX</span> tag_idx_store_id_dt<span class="token punctuation">(</span>store_id<span class="token punctuation">,</span>dt<span class="token punctuation">)</span> <span class="token keyword">TYPE</span> minmax GRANULARITY <span class="token number">1</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> ReplicatedReplacingMergeTree<span class="token punctuation">(</span><span class="token string">'/clickhouse/tables/{layer}-{shard}/sl_dm_store_behavior_session_local10'</span><span class="token punctuation">,</span> <span class="token string">'{replica}'</span><span class="token punctuation">)</span>
+<span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> <span class="token punctuation">(</span>store_id<span class="token punctuation">,</span>toYYYYMM<span class="token punctuation">(</span>dt<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token punctuation">(</span>uv<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">----建立分布式表---------------</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed10 <span class="token keyword">ON</span> CLUSTER cluster_01 <span class="token keyword">AS</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_local10
+<span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">Distributed</span><span class="token punctuation">(</span><span class="token string">'cluster_01'</span><span class="token punctuation">,</span> <span class="token string">'default'</span><span class="token punctuation">,</span> <span class="token string">'sl_dm_store_behavior_session_local10'</span><span class="token punctuation">,</span> store_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-----------写入聚合后的数据------------------</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed10
+<span class="token keyword">select</span> toStartOfHour<span class="token punctuation">(</span>dt<span class="token punctuation">)</span> <span class="token keyword">as</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>
+       ifNull<span class="token punctuation">(</span>ua_type<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ua_type<span class="token punctuation">,</span>
+       ifNull<span class="token punctuation">(</span>ua_browser<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ua_browser<span class="token punctuation">,</span>
+       ifNull<span class="token punctuation">(</span>ua_os_version<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ua_os_version<span class="token punctuation">,</span>
+       ifNull<span class="token punctuation">(</span>ua_os<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ua_os<span class="token punctuation">,</span>
+       ifNull<span class="token punctuation">(</span>city<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> city<span class="token punctuation">,</span>
+       ifNull<span class="token punctuation">(</span>province<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> province<span class="token punctuation">,</span>
+       ifNull<span class="token punctuation">(</span>region<span class="token punctuation">,</span><span class="token string">'N/A'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> region<span class="token punctuation">,</span>
+  <span class="token function">sum</span><span class="token punctuation">(</span>pv<span class="token punctuation">)</span> <span class="token keyword">as</span> pv<span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span> <span class="token keyword">as</span> uv<span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>visit_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">as</span> visit_checkout_cnt<span class="token punctuation">,</span><span class="token function">sum</span><span class="token punctuation">(</span>completed_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">as</span> completed_checkout_cnt
+<span class="token keyword">from</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_local <span class="token keyword">where</span> store_id<span class="token operator">&lt;=</span><span class="token number">10</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> store_id<span class="token punctuation">,</span>dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region<span class="token punctuation">;</span> 
+</code></pre></div><h3 id="_4-1-ck1000w查询-uv排序"><a href="#_4-1-ck1000w查询-uv排序" class="header-anchor">#</a> 4.1 ck1000w查询+uv排序</h3> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span>
+    dt<span class="token punctuation">,</span>
+    app_id<span class="token punctuation">,</span>
+    store_id<span class="token punctuation">,</span>
+    ua_type<span class="token punctuation">,</span>
+    ua_browser<span class="token punctuation">,</span>
+    ua_os_version<span class="token punctuation">,</span>
+    ua_os<span class="token punctuation">,</span>
+    city<span class="token punctuation">,</span>
+    province<span class="token punctuation">,</span>
+    region<span class="token punctuation">,</span>
+    pv<span class="token punctuation">,</span>
+    uv<span class="token punctuation">,</span>
+    visit_checkout_cnt<span class="token punctuation">,</span>
+    completed_checkout_cnt
+<span class="token keyword">FROM</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed10
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>store_id <span class="token operator">=</span> ${ramdom_ten}<span class="token punctuation">)</span> <span class="token operator">AND</span> <span class="token punctuation">(</span>dt <span class="token operator">&lt;</span> toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-01'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> uv <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">10</span>
+</code></pre></div><h3 id="_4-2-ck1000w-tidb60w-uv排序"><a href="#_4-2-ck1000w-tidb60w-uv排序" class="header-anchor">#</a> 4.2 ck1000w+tidb60w+uv排序</h3> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span>
+    dt<span class="token punctuation">,</span>
+    app_id<span class="token punctuation">,</span>
+    store_id<span class="token punctuation">,</span>
+    ua_type<span class="token punctuation">,</span>
+    ua_browser<span class="token punctuation">,</span>
+    ua_os_version<span class="token punctuation">,</span>
+    ua_os<span class="token punctuation">,</span>
+    city<span class="token punctuation">,</span>
+    province<span class="token punctuation">,</span>
+    region<span class="token punctuation">,</span>
+    pv<span class="token punctuation">,</span>
+    uv<span class="token punctuation">,</span>
+    visit_checkout_cnt<span class="token punctuation">,</span>
+    completed_checkout_cnt
+<span class="token keyword">FROM</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed10
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>store_id <span class="token operator">=</span> ${ramdom_ten}<span class="token punctuation">)</span> <span class="token operator">AND</span> <span class="token punctuation">(</span>dt <span class="token operator">&lt;</span> toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-01'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> uv <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token keyword">union</span> <span class="token keyword">all</span>
+<span class="token punctuation">(</span><span class="token keyword">select</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>pv<span class="token punctuation">)</span> pv<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span> uv<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>visit_checkout_cnt<span class="token punctuation">)</span> visit_checkout_cnt<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>completed_checkout_cnt<span class="token punctuation">)</span> completed_checkout_cnt
+<span class="token keyword">from</span>
+    <span class="token punctuation">(</span><span class="token keyword">select</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region<span class="token punctuation">,</span>pv<span class="token punctuation">,</span>uv<span class="token punctuation">,</span>visit_checkout_cnt<span class="token punctuation">,</span>completed_checkout_cnt
+    <span class="token keyword">from</span> mysql_db<span class="token punctuation">.</span>sl_dm_store_behavior_session_hourly_rt <span class="token keyword">where</span> store_id<span class="token operator">=</span>${ramdom_ten} <span class="token operator">and</span> dt<span class="token operator">&gt;=</span>toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-20'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region
+<span class="token keyword">order</span> <span class="token keyword">by</span> uv <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">1000</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">order</span> <span class="token keyword">by</span> uv <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="_4-3-ck1000w-tidb2w-uv排序"><a href="#_4-3-ck1000w-tidb2w-uv排序" class="header-anchor">#</a> 4.3 ck1000w+tidb2w+uv排序</h3> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span>
+    dt<span class="token punctuation">,</span>
+    app_id<span class="token punctuation">,</span>
+    store_id<span class="token punctuation">,</span>
+    ua_type<span class="token punctuation">,</span>
+    ua_browser<span class="token punctuation">,</span>
+    ua_os_version<span class="token punctuation">,</span>
+    ua_os<span class="token punctuation">,</span>
+    city<span class="token punctuation">,</span>
+    province<span class="token punctuation">,</span>
+    region<span class="token punctuation">,</span>
+    pv<span class="token punctuation">,</span>
+    uv<span class="token punctuation">,</span>
+    visit_checkout_cnt<span class="token punctuation">,</span>
+    completed_checkout_cnt
+<span class="token keyword">FROM</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed10
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>store_id <span class="token operator">=</span> ${ramdom_ten}<span class="token punctuation">)</span> <span class="token operator">AND</span> <span class="token punctuation">(</span>dt <span class="token operator">&lt;</span> toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-01'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> uv <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token keyword">union</span> <span class="token keyword">all</span>
+<span class="token punctuation">(</span><span class="token keyword">select</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>pv<span class="token punctuation">)</span> pv<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span> uv<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>visit_checkout_cnt<span class="token punctuation">)</span> visit_checkout_cnt<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>completed_checkout_cnt<span class="token punctuation">)</span> completed_checkout_cnt
+<span class="token keyword">from</span>
+    <span class="token punctuation">(</span><span class="token keyword">select</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region<span class="token punctuation">,</span>pv<span class="token punctuation">,</span>uv<span class="token punctuation">,</span>visit_checkout_cnt<span class="token punctuation">,</span>completed_checkout_cnt
+    <span class="token keyword">from</span> mysql_db<span class="token punctuation">.</span>sl_dm_store_behavior_session_hourly_rt <span class="token keyword">where</span> store_id<span class="token operator">=</span>${ramdom_ten} <span class="token operator">and</span> dt<span class="token operator">&gt;=</span>toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-20'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>ua_os_version<span class="token punctuation">,</span>ua_os<span class="token punctuation">,</span>city<span class="token punctuation">,</span>province<span class="token punctuation">,</span>region
+<span class="token keyword">order</span> <span class="token keyword">by</span> uv <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">1000</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">order</span> <span class="token keyword">by</span> uv <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="_4-4-ck1000w查询-group350w-uv排序"><a href="#_4-4-ck1000w查询-group350w-uv排序" class="header-anchor">#</a> 4.4  ck1000w查询+group350w+uv排序</h3> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span>
+    dt<span class="token punctuation">,</span>
+    app_id<span class="token punctuation">,</span>
+    store_id<span class="token punctuation">,</span>
+    ua_type<span class="token punctuation">,</span>
+    ua_browser<span class="token punctuation">,</span>
+    ua_os_version<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>pv<span class="token punctuation">)</span> <span class="token keyword">AS</span> pv<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span> <span class="token keyword">AS</span> uv<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>visit_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">AS</span> visit_checkout_cnt<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>completed_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">AS</span> completed_checkout_cnt
+<span class="token keyword">FROM</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed10
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>store_id <span class="token operator">=</span> ${ramdom_ten}<span class="token punctuation">)</span> <span class="token operator">AND</span> <span class="token punctuation">(</span>dt <span class="token operator">&lt;</span> toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-01'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    store_id<span class="token punctuation">,</span>
+    dt<span class="token punctuation">,</span>
+    app_id<span class="token punctuation">,</span>
+    ua_type<span class="token punctuation">,</span>
+    ua_browser<span class="token punctuation">,</span>
+    ua_os_version
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> uv <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">1000</span>
+</code></pre></div><h3 id="_4-5-ck630w查询-group210w-uv排序"><a href="#_4-5-ck630w查询-group210w-uv排序" class="header-anchor">#</a> 4.5  ck630w查询+group210w+uv排序</h3> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span>
+    dt<span class="token punctuation">,</span>
+    app_id<span class="token punctuation">,</span>
+    store_id<span class="token punctuation">,</span>
+    ua_type<span class="token punctuation">,</span>
+    ua_os_version<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>pv<span class="token punctuation">)</span> <span class="token keyword">AS</span> pv<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span> <span class="token keyword">AS</span> uv<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>visit_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">AS</span> visit_checkout_cnt<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>completed_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">AS</span> completed_checkout_cnt
+<span class="token keyword">FROM</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed10
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>store_id <span class="token operator">=</span> ${ramdom_ten}<span class="token punctuation">)</span> <span class="token operator">AND</span> <span class="token punctuation">(</span>dt <span class="token operator">&lt;</span> toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-01'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">AND</span> <span class="token punctuation">(</span>dt <span class="token operator">&gt;=</span>toDateTime<span class="token punctuation">(</span><span class="token string">'2021-01-01'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    ua_os_version<span class="token punctuation">,</span>
+    store_id<span class="token punctuation">,</span>
+    dt<span class="token punctuation">,</span>
+    app_id<span class="token punctuation">,</span>
+    ua_type
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> uv <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">1000</span>
+</code></pre></div><h3 id="_4-6-ck1000w查询-group30w-uv排序"><a href="#_4-6-ck1000w查询-group30w-uv排序" class="header-anchor">#</a> 4.6  ck1000w查询+group30w+uv排序</h3> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">SELECT</span>
+    dt<span class="token punctuation">,</span>
+    app_id<span class="token punctuation">,</span>
+    store_id<span class="token punctuation">,</span>
+    ua_type<span class="token punctuation">,</span>
+    ua_browser<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>pv<span class="token punctuation">)</span> <span class="token keyword">AS</span> pv<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span> <span class="token keyword">AS</span> uv<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>visit_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">AS</span> visit_checkout_cnt<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>completed_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">AS</span> completed_checkout_cnt
+<span class="token keyword">FROM</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed10
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>store_id <span class="token operator">=</span> ${ramdom_ten}<span class="token punctuation">)</span> <span class="token operator">AND</span> <span class="token punctuation">(</span>dt <span class="token operator">&lt;</span> toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-01'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+    store_id<span class="token punctuation">,</span>
+    dt<span class="token punctuation">,</span>
+    app_id<span class="token punctuation">,</span>
+    ua_type<span class="token punctuation">,</span>
+    ua_browser
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> uv <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">1000</span>
+</code></pre></div><h3 id="_4-7-ck1000w查询-tidb2w-group30w-uv排序"><a href="#_4-7-ck1000w查询-tidb2w-group30w-uv排序" class="header-anchor">#</a> 4.7  ck1000w查询+tidb2w+group30w+uv排序</h3> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> dt<span class="token punctuation">,</span>
+    app_id<span class="token punctuation">,</span>
+    store_id<span class="token punctuation">,</span>
+    ua_type<span class="token punctuation">,</span>
+    ua_browser<span class="token punctuation">,</span>
+    pv<span class="token punctuation">,</span>
+    uv<span class="token punctuation">,</span>
+    visit_checkout_cnt<span class="token punctuation">,</span>
+    completed_checkout_cnt
+<span class="token keyword">from</span>
+<span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token keyword">SELECT</span>
+          dt<span class="token punctuation">,</span>
+          app_id<span class="token punctuation">,</span>
+          store_id<span class="token punctuation">,</span>
+          ua_type<span class="token punctuation">,</span>
+          ua_browser<span class="token punctuation">,</span>
+          <span class="token function">sum</span><span class="token punctuation">(</span>pv<span class="token punctuation">)</span> <span class="token keyword">AS</span> pv<span class="token punctuation">,</span>
+          <span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span> <span class="token keyword">AS</span> uv<span class="token punctuation">,</span>
+          <span class="token function">sum</span><span class="token punctuation">(</span>visit_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">AS</span> visit_checkout_cnt<span class="token punctuation">,</span>
+          <span class="token function">sum</span><span class="token punctuation">(</span>completed_checkout_cnt<span class="token punctuation">)</span> <span class="token keyword">AS</span> completed_checkout_cnt
+      <span class="token keyword">FROM</span> <span class="token keyword">default</span><span class="token punctuation">.</span>sl_dm_store_behavior_session_distributed10
+      <span class="token keyword">WHERE</span> <span class="token punctuation">(</span>store_id <span class="token operator">=</span> ${ramdom_ten}<span class="token punctuation">)</span> <span class="token operator">AND</span> <span class="token punctuation">(</span>dt <span class="token operator">&lt;</span> toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-01'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
+        store_id<span class="token punctuation">,</span>
+        dt<span class="token punctuation">,</span>
+        app_id<span class="token punctuation">,</span>
+        ua_type<span class="token punctuation">,</span>
+        ua_browser
+      <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> uv <span class="token keyword">DESC</span>
+      <span class="token keyword">LIMIT</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token keyword">union</span> <span class="token keyword">all</span>
+      <span class="token punctuation">(</span><span class="token keyword">select</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>
+          <span class="token function">sum</span><span class="token punctuation">(</span>pv<span class="token punctuation">)</span> pv<span class="token punctuation">,</span>
+          <span class="token function">sum</span><span class="token punctuation">(</span>uv<span class="token punctuation">)</span> uv<span class="token punctuation">,</span>
+          <span class="token function">sum</span><span class="token punctuation">(</span>visit_checkout_cnt<span class="token punctuation">)</span> visit_checkout_cnt<span class="token punctuation">,</span>
+          <span class="token function">sum</span><span class="token punctuation">(</span>completed_checkout_cnt<span class="token punctuation">)</span> completed_checkout_cnt
+      <span class="token keyword">from</span>
+          <span class="token punctuation">(</span><span class="token keyword">select</span> dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>store_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser<span class="token punctuation">,</span>pv<span class="token punctuation">,</span>uv<span class="token punctuation">,</span>visit_checkout_cnt<span class="token punctuation">,</span>completed_checkout_cnt
+          <span class="token keyword">from</span> mysql_db<span class="token punctuation">.</span>sl_dm_store_behavior_session_hourly_rt <span class="token keyword">where</span> store_id<span class="token operator">=</span>${ramdom_ten} <span class="token operator">and</span> dt<span class="token operator">&gt;=</span>toDateTime<span class="token punctuation">(</span><span class="token string">'2021-08-20'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">)</span>
+      <span class="token keyword">group</span> <span class="token keyword">by</span>  store_id<span class="token punctuation">,</span>dt<span class="token punctuation">,</span>app_id<span class="token punctuation">,</span>ua_type<span class="token punctuation">,</span>ua_browser
+      <span class="token keyword">order</span> <span class="token keyword">by</span> uv <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">1000</span>
+      <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> uv <span class="token keyword">DESC</span>
+<span class="token keyword">LIMIT</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+</code></pre></div><h1 id=""><a href="#" class="header-anchor">#</a></h1> <h1 id="性能比较"><a href="#性能比较" class="header-anchor">#</a> 性能比较</h1> <table><thead><tr><th>查询类型</th> <th>全量数据</th> <th>并发查询</th> <th>qps</th> <th>95%rt</th> <th>备注</th></tr></thead> <tbody><tr><td>1.1</td> <td>10亿</td> <td>5</td> <td>1.1</td> <td>8248</td> <td></td></tr> <tr><td>2.1</td> <td>10亿</td> <td>5</td> <td>0.5</td> <td>9582</td> <td></td></tr> <tr><td>3.1</td> <td>1亿</td> <td>30</td> <td>7.9</td> <td>8842</td> <td></td></tr> <tr><td>4.1</td> <td>1亿</td> <td>30</td> <td>101</td> <td>707ms</td> <td></td></tr> <tr><td>4.2</td> <td>1亿</td> <td>30</td> <td>3.9</td> <td>2845ms</td> <td>tikv cpu过热</td></tr> <tr><td>4.3</td> <td>1亿</td> <td>30</td> <td>50</td> <td>895ms</td> <td></td></tr> <tr><td>4.4</td> <td>1亿</td> <td>30</td> <td>3.2</td> <td>21818ms</td> <td>建议新建一个物化视图</td></tr> <tr><td>4.5</td> <td>1亿</td> <td>30</td> <td>5.7</td> <td>10703ms</td> <td></td></tr> <tr><td>4.6</td> <td>1亿</td> <td>30</td> <td>14</td> <td>3907ms</td> <td></td></tr> <tr><td>4.7</td> <td>1亿</td> <td>30</td> <td>13</td> <td>4298ms</td> <td></td></tr></tbody></table> <h1 id="结论"><a href="#结论" class="header-anchor">#</a> 结论</h1> <p><strong>(1) 4.1和4.3是利用物化视图后减少了聚合，然后使用不变的uv作为排序健从而提升性能，缺点是如果UV值改变需要重写分区，而且如果使用非UV排序，性能类似3.1.</strong> <strong>​</strong></p> <p><strong>(2)建立了最细粒度的物化视图后，再做聚合，如果聚合后的总数还是很多（类似4.4），那么性能还是会很低，这时候建议再建一个物化视图。但是如果再建物化视图又衍生一个问题，上层的应用需要人为指定读哪个视图。</strong> <strong>​</strong></p> <p><strong>(3)4.2读取大量的tidb数据时，会导致tidb读过热，tidb+tikv CPU同时出现过热的情况，查询时即使group sum limit等方式也不会下推给tidb执行。</strong> <strong>tidb cpu过热请看下图</strong> <img src="https://cdn.nlark.com/yuque/0/2021/png/345375/1632827690975-2de28bae-6a97-466f-af81-7b9bd84b182f.png#clientId=uabf33c4b-4ec2-4&amp;from=paste&amp;height=811&amp;id=u0081d0df&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=811&amp;originWidth=1834&amp;originalType=binary&amp;ratio=1&amp;size=177343&amp;status=done&amp;style=none&amp;taskId=ud7d6f0b7-5bd9-4399-a490-dcf71abd9b8&amp;width=1834" alt="image.png"> <img src="https://cdn.nlark.com/yuque/0/2021/png/345375/1632827712686-9e6ca3c9-03e5-42a5-920a-a206d0e35796.png#clientId=uabf33c4b-4ec2-4&amp;from=paste&amp;height=819&amp;id=u2ab5aae8&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=819&amp;originWidth=1824&amp;originalType=binary&amp;ratio=1&amp;size=175052&amp;status=done&amp;style=none&amp;taskId=u6383f86e-3295-4609-95d5-a8cc4923c92&amp;width=1824" alt="image.png">
+jmeter通过调用clickhouse聚合tidb数据
+<img src="https://cdn.nlark.com/yuque/0/2021/png/345375/1632827776984-e66762a2-e876-4687-a299-8e72b691e510.png#clientId=uabf33c4b-4ec2-4&amp;from=paste&amp;height=765&amp;id=u956d1415&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=765&amp;originWidth=1549&amp;originalType=binary&amp;ratio=1&amp;size=125191&amp;status=done&amp;style=none&amp;taskId=u04da7ddf-d4e0-4ba7-bc65-b9ef53e2761&amp;width=1549" alt="image.png">
+tidb慢日志
+<img src="https://cdn.nlark.com/yuque/0/2021/png/345375/1632827810262-329960b2-523a-49d5-a731-ca3aa8a8c797.png#clientId=uabf33c4b-4ec2-4&amp;from=paste&amp;height=816&amp;id=u847911c0&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=816&amp;originWidth=1918&amp;originalType=binary&amp;ratio=1&amp;size=203570&amp;status=done&amp;style=none&amp;taskId=ucafecce6-4ec8-4a23-a071-0aa0954f6be&amp;width=1918" alt="image.png"></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/实时数仓/CK+TIDB实时多维度OLAP场景应用(1).html" class="prev">
+        实时读方案
+      </a></span> <span class="next"><a href="/./datahouse/实时数仓/Clickhouse 读并发压测.html">
+        结果
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.8f846374.js" defer></script><script src="./assets/js/2.47c06342.js" defer></script><script src="./assets/js/78.0573ead9.js" defer></script>
+  </body>
+</html>
