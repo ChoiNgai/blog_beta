@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>基于 flink 的电商用户行为数据分析：【5】 基于埋点日志数据的网络流量统计 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/129.ea47f41d.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>电商业务</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E7%94%B5%E5%95%86%E4%B8%9A%E5%8A%A1/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【1】 项目整体介绍.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【1】 项目整体介绍</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【2】实时热门商品统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【3】实时流量统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【3】实时流量统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【4】恶意登录监控</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【5】 基于埋点日志数据的网络流量统计.html" class="active sidebar-link">基于 flink 的电商用户行为数据分析：【5】 基于埋点日志数据的网络流量统计</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【5】 基于埋点日志数据的网络流量统计.html#前言" class="sidebar-link">前言</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【5】 基于埋点日志数据的网络流量统计.html#网站总浏览量-pv-的统计" class="sidebar-link">网站总浏览量（PV）的统计</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【5】 基于埋点日志数据的网络流量统计.html#网站独立访客数-uv-的统计" class="sidebar-link">网站独立访客数（UV）的统计</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【5】 基于埋点日志数据的网络流量统计.html#使用布隆过滤器的-uv-统计" class="sidebar-link">使用布隆过滤器的 UV 统计</a></li></ul></li></ul></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【6】 APP市场推广统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【6】 APP市场推广统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【7】页面广告分析.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【7】页面广告分析</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【8】订单支付实时监控.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【8】订单支付实时监控</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【9】电商常见指标汇总 + 项目总结.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【9】电商常见指标汇总 + 项目总结</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="基于-flink-的电商用户行为数据分析-【5】-基于埋点日志数据的网络流量统计"><a href="#基于-flink-的电商用户行为数据分析-【5】-基于埋点日志数据的网络流量统计" class="header-anchor">#</a> 基于 flink 的电商用户行为数据分析：【5】 基于埋点日志数据的网络流量统计</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>        在<a href="https://alice.blog.csdn.net/article/details/110212749" target="_blank" rel="noopener noreferrer">《基于flink的电商用户行为数据分析【3】| 实时流量统计》<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>这篇文章中，博主为大家介绍了基于服务器 log 的热门页面浏览量统计。 最后通过运行结果的验证，我们发现，从 web 服务器 log 中得到的 url，往往更多的是请求某个资源地址（<code>/*.js</code>、<code>/*.css</code>），如果要针对页面进行统计往往还需要进行过滤。而在实际电商应用中，<strong>相比每个单独页面的访问量，我们可能更加关心整个电商网站的网络流量</strong>。这个指标，除了合并之前每个页面的统计结果之外，还可以通过统计埋点日志数据中的“pv”行为来得到....</p> <hr> <h3 id="网站总浏览量-pv-的统计"><a href="#网站总浏览量-pv-的统计" class="header-anchor">#</a> 网站总浏览量（PV）的统计</h3> <p>        衡量网站流量一个最简单的指标，就是网站的<strong>页面浏览量</strong>（Page View，PV）。用户每次打开一个页面便记录1次PV，多次打开同一页面则浏览量累计。一般来说，PV与来访者的数量成正比，但是PV并不直接决定页面的真实来访者数量，如同一个来访者通过不断的刷新页面，也可以制造出非常高的PV。</p> <p>        我们知道，用户浏览页面时，会从浏览器向网络服务器发出一个请求（Request），网络服务器接到这个请求后，会将该请求对应的一个网页（Page）发送给浏览器，从而产生了一个PV。所以我们的统计方法，可以是<strong>从web服务器的日志中去提取对应的页面访问</strong>然后统计，就向上一节中的做法一样；也可以<strong>直接从埋点日志中提取用户发来的页面请求</strong>，从而统计出总浏览量。</p> <p>        所以，接下来我们用UserBehavior.csv作为数据源，实现一个网站总浏览量的统计。我们可以设置滚动时间窗口，实时统计每小时内的网站PV。</p> <p><img src="https://img-blog.csdnimg.cn/20201205103437596.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="UserBehavior.csv"></p> <p>        在src/main/scala下创建 <code>PageView.scala</code> 文件，具体代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token keyword">object</span> PageView <span class="token punctuation">{</span>
+
+  <span class="token keyword">case</span> <span class="token keyword">class</span> UserBehavior<span class="token punctuation">(</span>userId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> itemId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> categoryId<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> behavior<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span> timestamp<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 创建 流处理的 环境</span>
+    <span class="token keyword">val</span> env<span class="token operator">:</span> StreamExecutionEnvironment <span class="token operator">=</span> StreamExecutionEnvironment<span class="token punctuation">.</span>getExecutionEnvironment
+    <span class="token comment">// 设置时间语义为 eventTime -- 事件创建的时间</span>
+    env<span class="token punctuation">.</span>setStreamTimeCharacteristic<span class="token punctuation">(</span>TimeCharacteristic<span class="token punctuation">.</span>EventTime<span class="token punctuation">)</span>
+    <span class="token comment">// 设置程序的并行度</span>
+    env<span class="token punctuation">.</span>setParallelism<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 读取文本数据</span>
+    env<span class="token punctuation">.</span>readTextFile<span class="token punctuation">(</span><span class="token string">&quot;YOUR_PATH\\UserBehavior.csv&quot;</span><span class="token punctuation">)</span>
+      <span class="token comment">// 对文本数据进行封装处理</span>
+      <span class="token punctuation">.</span>map<span class="token punctuation">(</span>data <span class="token keyword">=&gt;</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword">val</span> dataArray<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+        <span class="token comment">// 将数据封装进 UserBehavior</span>
+        UserBehavior<span class="token punctuation">(</span>dataArray<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toInt<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token comment">// 设置水印</span>
+      <span class="token punctuation">.</span>assignAscendingTimestamps<span class="token punctuation">(</span>_<span class="token punctuation">.</span>timestamp <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token comment">// 过滤出 &quot;pv&quot; 数据</span>
+      <span class="token punctuation">.</span>filter<span class="token punctuation">(</span>_<span class="token punctuation">.</span>behavior <span class="token operator">==</span> <span class="token string">&quot;pv&quot;</span><span class="token punctuation">)</span>
+      <span class="token comment">// 求和</span>
+      <span class="token punctuation">.</span>map<span class="token punctuation">(</span>x <span class="token keyword">=&gt;</span> <span class="token punctuation">(</span><span class="token string">&quot;pv&quot;</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>keyBy<span class="token punctuation">(</span>_<span class="token punctuation">.</span>_1<span class="token punctuation">)</span>
+      <span class="token comment">// 设置TimeWindow，每一小时做一次聚合</span>
+      <span class="token punctuation">.</span>timeWindow<span class="token punctuation">(</span>Time<span class="token punctuation">.</span>seconds<span class="token punctuation">(</span><span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>print<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 执行程序</span>
+    env<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;Page View Job&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>程序运行的结果：</p> <p><img src="https://img-blog.csdnimg.cn/20201205152317331.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <h3 id="网站独立访客数-uv-的统计"><a href="#网站独立访客数-uv-的统计" class="header-anchor">#</a> 网站独立访客数（UV）的统计</h3> <p>        在上节的例子中，我们统计的是<strong>所有用户对页面的所有浏览行为</strong>，也就是说，<strong>同一用户的浏览行为会被重复统计</strong>。而在实际应用中，我们往往还会关注，在一段时间内到底<strong>有多少不同的用户访问了网站</strong>。</p> <p>        另外一个统计流量的重要指标是网站的<strong>独立访客数</strong>（Unique Visitor，UV）。<strong>UV指的是一段时间（比如一小时）内访问网站的总人数</strong>，1天内同一访客的多次访问只记录为一个访客。通过<code>IP</code>和<code>cookie</code>一般是判断UV值的两种方式。<font color="gray">当客户端第一次访问某个网站服务器的时候，网站服务器会给这个客户端的电脑发出一个Cookie，通常放在这个客户端电脑的C盘当中。在这个Cookie中会分配一个独一无二的编号，这其中会记录一些访问服务器的信息，如访问时间，访问了哪些页面等等。当你下次再访问这个服务器的时候，服务器就可以直接从你的电脑中找到上一次放进去的Cookie文件，并且对其进行一些更新，但那个独一无二的编号是不会变的。</font></p> <p>        当然，对于UserBehavior 数据源来说，我们直接可以根据userId来区分不同的用户。</p> <p>        在src/main/scala下创建<code>UniqueVisitor.scala</code>文件，具体代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token keyword">object</span> UniqueVisitor <span class="token punctuation">{</span>
+
+  <span class="token keyword">case</span> <span class="token keyword">class</span> UserBehavior<span class="token punctuation">(</span>userId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> itemId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> categoryId<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> behavior<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span> timestamp<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> UvCount<span class="token punctuation">(</span>windowEnd<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> count<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 创建 流处理的 环境</span>
+    <span class="token keyword">val</span> env<span class="token operator">:</span> StreamExecutionEnvironment <span class="token operator">=</span> StreamExecutionEnvironment<span class="token punctuation">.</span>getExecutionEnvironment
+    <span class="token comment">// 设置时间语义为 eventTime -- 事件创建的时间</span>
+    env<span class="token punctuation">.</span>setStreamTimeCharacteristic<span class="token punctuation">(</span>TimeCharacteristic<span class="token punctuation">.</span>EventTime<span class="token punctuation">)</span>
+    <span class="token comment">// 设置程序的并行度</span>
+    env<span class="token punctuation">.</span>setParallelism<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 读取文本数据</span>
+    env<span class="token punctuation">.</span>readTextFile<span class="token punctuation">(</span><span class="token string">&quot;YOUR_PATH\\UserBehavior.csv&quot;</span><span class="token punctuation">)</span>
+      <span class="token comment">// 对文本数据进行封装处理</span>
+      <span class="token punctuation">.</span>map<span class="token punctuation">(</span>data <span class="token keyword">=&gt;</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword">val</span> dataArray<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+        <span class="token comment">// 将数据封装进 UserBehavior</span>
+        UserBehavior<span class="token punctuation">(</span>dataArray<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toInt<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token comment">// 设置水印</span>
+      <span class="token punctuation">.</span>assignAscendingTimestamps<span class="token punctuation">(</span>_<span class="token punctuation">.</span>timestamp <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token comment">// 过滤出 &quot;pv&quot; 数据</span>
+      <span class="token punctuation">.</span>filter<span class="token punctuation">(</span>_<span class="token punctuation">.</span>behavior <span class="token operator">==</span> <span class="token string">&quot;pv&quot;</span><span class="token punctuation">)</span>
+      <span class="token comment">// 设置窗口大小为一个小时</span>
+      <span class="token punctuation">.</span>timeWindowAll<span class="token punctuation">(</span>Time<span class="token punctuation">.</span>seconds<span class="token punctuation">(</span><span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>apply<span class="token punctuation">(</span><span class="token keyword">new</span> UvCountByWindow<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>print<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 执行程序</span>
+    env<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;Page View Job&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">class</span> UvCountByWindow <span class="token keyword">extends</span> AllWindowFunction<span class="token punctuation">[</span>UserBehavior<span class="token punctuation">,</span>UvCount<span class="token punctuation">,</span>TimeWindow<span class="token punctuation">]</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">def</span> apply<span class="token punctuation">(</span>window<span class="token operator">:</span> TimeWindow<span class="token punctuation">,</span> input<span class="token operator">:</span> Iterable<span class="token punctuation">[</span>UserBehavior<span class="token punctuation">]</span><span class="token punctuation">,</span> out<span class="token operator">:</span> Collector<span class="token punctuation">[</span>UvCount<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+      <span class="token comment">// 初始化一个Set集合，用于将存储的用户id数据进行去重</span>
+      <span class="token keyword">var</span> idSet<span class="token operator">:</span> Set<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">]</span> <span class="token operator">=</span> Set<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+      <span class="token keyword">for</span> <span class="token punctuation">(</span> userBehavior <span class="token keyword">&lt;-</span> input<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        idSet <span class="token operator">+=</span> userBehavior<span class="token punctuation">.</span>userId
+      <span class="token punctuation">}</span>
+
+      <span class="token comment">// 输出结果</span>
+      out<span class="token punctuation">.</span>collect<span class="token punctuation">(</span>UvCount<span class="token punctuation">(</span>window<span class="token punctuation">.</span>getEnd<span class="token punctuation">,</span>idSet<span class="token punctuation">.</span>size<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        程序运行的结果：</p> <p><img src="https://img-blog.csdnimg.cn/20201205152621503.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <p>        到了这一步，让我们想想，还有没有更好的方案？</p> <p><img src="https://img-blog.csdnimg.cn/20201205153458862.jpg?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <h3 id="使用布隆过滤器的-uv-统计"><a href="#使用布隆过滤器的-uv-统计" class="header-anchor">#</a> 使用布隆过滤器的 UV 统计</h3> <p>        在上节的例子中，我们把所有数据的userId都存在了窗口计算的状态里，在窗口收集数据的过程中，状态会不断增大。一般情况下，只要不超出内存的承受范围，这种做法也没什么问题；但如果我们遇到的数据量很大呢？</p> <p>        把所有数据暂存放到内存里，显然不是一个好注意。我们会想到，可以利用<strong>redis这种内存级k-v数据库</strong>，为我们做一个缓存。但如果我们遇到的情况非常极端，数据大到惊人呢？比如上亿级的用户，要去重计算UV。</p> <p>        如果放到redis中，亿级的用户id（每个20字节左右的话）可能需要几G甚至几十G的空间来存储。当然放到redis中，用集群进行扩展也不是不可以，但明显代价太大了。</p> <p>        一个更好的想法是，其实我们不需要完整地存储用户ID的信息，只要知道他在不在就行了。所以其实我们可以进行压缩处理，用一位（bit）就可以表示一个用户的状态。这个思想的具体实现就是<strong>布隆过滤器</strong><code>（Bloom Filter）</code>。</p> <p>        本质上<strong>布隆过滤器</strong>是一种数据结构，比较巧妙的概率型数据结构（probabilistic data structure），特点是<strong>高效地插入和查询</strong>，可以用来告诉你 “某样东西一定不存在或者可能存在”。</p> <p>        它本身是一个很长的二进制向量，既然是二进制的向量，那么显而易见的，存放的不是0，就是1。<font color="Tomato">相比于传统的 List、Set、Map 等数据结构，它更高效、占用空间更少，但是缺点是其返回的结果是概率性的，而不是确切的</font></p> <p>        我们的目标就是，利用某种方法（一般是Hash函数）把每个数据，对应到一个位图的某一位上去；如果数据存在，那一位就是1，不存在则为0。</p> <p>        接下来我们就来具体实现一下。</p> <p>        注意这里我们用到了redis连接存取数据，所以需要加入redis客户端的依赖：</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>redis.clients<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>jedis<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.8.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>        在src/main/scala下创建UniqueVisitor.scala文件，具体代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token keyword">object</span> UvWithBloomFilter <span class="token punctuation">{</span>
+
+  <span class="token comment">// 定义样例类，用于封装数据</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> UserBehavior<span class="token punctuation">(</span>userId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> itemId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> categoryId<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> behavior<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span> timestamp<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">case</span> <span class="token keyword">class</span> UvCount<span class="token punctuation">(</span>windowEnd<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> count<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 创建 流处理的 环境</span>
+    <span class="token keyword">val</span> env<span class="token operator">:</span> StreamExecutionEnvironment <span class="token operator">=</span> StreamExecutionEnvironment<span class="token punctuation">.</span>getExecutionEnvironment
+    <span class="token comment">// 设置时间语义为 eventTime -- 事件创建的时间</span>
+    env<span class="token punctuation">.</span>setStreamTimeCharacteristic<span class="token punctuation">(</span>TimeCharacteristic<span class="token punctuation">.</span>EventTime<span class="token punctuation">)</span>
+    <span class="token comment">// 设置程序的并行度</span>
+    env<span class="token punctuation">.</span>setParallelism<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 读取文本数据</span>
+    env<span class="token punctuation">.</span>readTextFile<span class="token punctuation">(</span><span class="token string">&quot;YOUR_PATH\\UserBehavior.csv&quot;</span><span class="token punctuation">)</span>
+      <span class="token comment">// 对文本数据进行封装处理</span>
+      <span class="token punctuation">.</span>map<span class="token punctuation">(</span>data <span class="token keyword">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> dataArray<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+        <span class="token comment">// 将数据封装进 UserBehavior</span>
+        UserBehavior<span class="token punctuation">(</span>dataArray<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toInt<span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token comment">// 设置水印 [ 升序时间戳 ]</span>
+      <span class="token punctuation">.</span>assignAscendingTimestamps<span class="token punctuation">(</span>_<span class="token punctuation">.</span>timestamp <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token comment">// 只统计 &quot;pv&quot; 数据</span>
+      <span class="token punctuation">.</span>filter<span class="token punctuation">(</span>_<span class="token punctuation">.</span>behavior <span class="token operator">==</span> <span class="token string">&quot;pv&quot;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>map<span class="token punctuation">(</span>data <span class="token keyword">=&gt;</span> <span class="token punctuation">(</span><span class="token string">&quot;dummyKey&quot;</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>userId<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>keyBy<span class="token punctuation">(</span>_<span class="token punctuation">.</span>_1<span class="token punctuation">)</span>
+      <span class="token comment">// 设置窗口大小为一个小时</span>
+      <span class="token punctuation">.</span>timeWindow<span class="token punctuation">(</span>Time<span class="token punctuation">.</span>hours<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token comment">// 我们不应该等待窗口关闭才去做 Redis 的连接 -》 数据量可能很大，窗口的内存放不下</span>
+      <span class="token comment">// 所以这里使用了 触发窗口操作的API -- 触发器 trigger</span>
+      <span class="token punctuation">.</span>trigger<span class="token punctuation">(</span><span class="token keyword">new</span> MyTrigger<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>process<span class="token punctuation">(</span><span class="token keyword">new</span> UvCountWithBloom<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>print<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 执行程序</span>
+    env<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;uv with bloom Job&quot;</span><span class="token punctuation">)</span>
+
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 自定义窗口触发器</span>
+  <span class="token keyword">class</span> MyTrigger<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> Trigger<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token builtin">String</span><span class="token punctuation">,</span> <span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token punctuation">,</span> TimeWindow<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 如果事件是基于 processTime 触发</span>
+    <span class="token keyword">override</span> <span class="token keyword">def</span> onProcessingTime<span class="token punctuation">(</span>time<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> window<span class="token operator">:</span> TimeWindow<span class="token punctuation">,</span> ctx<span class="token operator">:</span> Trigger<span class="token punctuation">.</span>TriggerContext<span class="token punctuation">)</span><span class="token operator">:</span> TriggerResult <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+      TriggerResult<span class="token punctuation">.</span>CONTINUE
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 如果事件是基于 eventTime 触发</span>
+    <span class="token keyword">override</span> <span class="token keyword">def</span> onEventTime<span class="token punctuation">(</span>time<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> window<span class="token operator">:</span> TimeWindow<span class="token punctuation">,</span> ctx<span class="token operator">:</span> Trigger<span class="token punctuation">.</span>TriggerContext<span class="token punctuation">)</span><span class="token operator">:</span> TriggerResult <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+     
+      TriggerResult<span class="token punctuation">.</span>CONTINUE
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 收尾工作</span>
+    <span class="token keyword">override</span> <span class="token keyword">def</span> clear<span class="token punctuation">(</span>window<span class="token operator">:</span> TimeWindow<span class="token punctuation">,</span> ctx<span class="token operator">:</span> Trigger<span class="token punctuation">.</span>TriggerContext<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token comment">// 每来一个元素就触发</span>
+    <span class="token keyword">override</span> <span class="token keyword">def</span> onElement<span class="token punctuation">(</span>element<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token builtin">String</span><span class="token punctuation">,</span> <span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token punctuation">,</span> timestamp<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> window<span class="token operator">:</span> TimeWindow<span class="token punctuation">,</span> ctx<span class="token operator">:</span> Trigger<span class="token punctuation">.</span>TriggerContext<span class="token punctuation">)</span><span class="token operator">:</span> TriggerResult <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+   <span class="token comment">// 每来一条数据，就直接触发窗口操作，并清空所有窗口状态</span>
+      TriggerResult<span class="token punctuation">.</span>FIRE_AND_PURGE
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+
+  <span class="token comment">// 定义一个布隆过滤器</span>
+  <span class="token keyword">class</span> Bloom<span class="token punctuation">(</span>size<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> Serializable <span class="token punctuation">{</span>
+    <span class="token comment">// 位图的总大小</span>
+    <span class="token keyword">private</span> <span class="token keyword">val</span> cap <span class="token operator">=</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>size <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> size <span class="token keyword">else</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">27</span>
+
+    <span class="token comment">// 定义 hash 函数</span>
+    <span class="token keyword">def</span> hash<span class="token punctuation">(</span>value<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span> seed<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+      <span class="token keyword">var</span> result<span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> <span class="token number">0L</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">&lt;-</span> <span class="token number">0</span> until value<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        result <span class="token operator">=</span> result <span class="token operator">*</span> seed <span class="token operator">+</span> value<span class="token punctuation">.</span>charAt<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      result <span class="token operator">&amp;</span> <span class="token punctuation">(</span>cap <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 自定义窗口处理函数</span>
+  <span class="token keyword">class</span> UvCountWithBloom<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> ProcessWindowFunction<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token builtin">String</span><span class="token punctuation">,</span> <span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token punctuation">,</span> UvCount<span class="token punctuation">,</span> <span class="token builtin">String</span><span class="token punctuation">,</span> TimeWindow<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 创建 redis 连接</span>
+    <span class="token keyword">lazy</span> <span class="token keyword">val</span> jedis <span class="token operator">=</span> <span class="token keyword">new</span> Jedis<span class="token punctuation">(</span><span class="token string">&quot;node02&quot;</span><span class="token punctuation">,</span> <span class="token number">6379</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">lazy</span> <span class="token keyword">val</span> bloom <span class="token operator">=</span> <span class="token keyword">new</span> Bloom<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">29</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">def</span> process<span class="token punctuation">(</span>key<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span> context<span class="token operator">:</span> Context<span class="token punctuation">,</span> elements<span class="token operator">:</span> Iterable<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token builtin">String</span><span class="token punctuation">,</span> <span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> out<span class="token operator">:</span> Collector<span class="token punctuation">[</span>UvCount<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 位图的存储方式， key 是 windowEnd，value 是 bitmap</span>
+      <span class="token keyword">val</span> storeKey<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> context<span class="token punctuation">.</span>window<span class="token punctuation">.</span>getEnd<span class="token punctuation">.</span>toString
+      <span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0L</span>
+      <span class="token comment">// 把每个窗口的 uv count 值也存入 redis 表，存放内容为(windowEnd &gt; uvCount)，所以要先从 redis 中读取</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>jedis<span class="token punctuation">.</span>hget<span class="token punctuation">(</span><span class="token string">&quot;count&quot;</span><span class="token punctuation">,</span> storeKey<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        count <span class="token operator">=</span> jedis<span class="token punctuation">.</span>hget<span class="token punctuation">(</span><span class="token string">&quot;count&quot;</span><span class="token punctuation">,</span> storeKey<span class="token punctuation">)</span><span class="token punctuation">.</span>toLong
+      <span class="token punctuation">}</span>
+
+      <span class="token comment">// 用 布隆过滤器 判断当前用户是否已经存在</span>
+      <span class="token comment">// 因为是每来一条数据就判断一次，所以我们就可以直接用last获取到这条数据</span>
+      <span class="token keyword">val</span> userId<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> elements<span class="token punctuation">.</span>last<span class="token punctuation">.</span>_2<span class="token punctuation">.</span>toString
+      <span class="token comment">// 计算哈希</span>
+      <span class="token keyword">val</span> offset<span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> bloom<span class="token punctuation">.</span>hash<span class="token punctuation">(</span>userId<span class="token punctuation">,</span> <span class="token number">61</span><span class="token punctuation">)</span>
+      <span class="token comment">// 定义一个标志位，判断 redis 位图中有没有这一位</span>
+      <span class="token keyword">val</span> isExist<span class="token operator">:</span> lang<span class="token punctuation">.</span><span class="token builtin">Boolean</span> <span class="token operator">=</span> jedis<span class="token punctuation">.</span>getbit<span class="token punctuation">(</span>storeKey<span class="token punctuation">,</span> offset<span class="token punctuation">)</span>
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isExist<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 如果不存在，位图对应位置1，count + 1</span>
+        jedis<span class="token punctuation">.</span>setbit<span class="token punctuation">(</span>storeKey<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+        jedis<span class="token punctuation">.</span>hset<span class="token punctuation">(</span><span class="token string">&quot;count&quot;</span><span class="token punctuation">,</span> storeKey<span class="token punctuation">,</span> <span class="token punctuation">(</span>count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toString<span class="token punctuation">)</span>
+        out<span class="token punctuation">.</span>collect<span class="token punctuation">(</span>UvCount<span class="token punctuation">(</span>storeKey<span class="token punctuation">.</span>toLong<span class="token punctuation">,</span> count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 输出到 flink</span>
+        out<span class="token punctuation">.</span>collect<span class="token punctuation">(</span>UvCount<span class="token punctuation">(</span>storeKey<span class="token punctuation">.</span>toLong<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>        程序运行的效果如下所示：</p> <p><img src="https://img-blog.csdnimg.cn/20201206000751662.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p></p> <p>       可以发现，我们改进之后的程序，不再是把所有需要统计的数据都放到本地内存里进行计算，而是来一条数据，我们就输出，然后利用布隆过滤器进行判断，并将最新的结果存入Redis。</p> <p>        等到程序运行完毕，我们打开 <code>redis</code>，输入<code>hgetall count</code>查看统计的最终结果，可以发现跟我们之前统计的结果是一致的。</p> <p><img src="https://img-blog.csdnimg.cn/20201206001700316.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p></p> <p>​        要是嫌利用 redis 的 <code>bitmap</code> 自己手动实现一个简单的布隆过滤器过程繁琐的话，我们也可以利用<font color="Tomato">Flink官方实现的布隆过滤器</font>来实现。具体代码见下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token comment">/*
+ * @Author: Alice菌
+ * @Date: 2020/12/5 18:29
+ * @Description: 
+// uv: unique visitor
+//  有多少用户访问过网站；pv按照userid去重
+//  滑动窗口：窗口长度1小时，滑动距离5秒钟，每小时用户数量1亿
+//  大数据去重的唯一解决方案：布隆过滤器
+//  布隆过滤器的组成：bit数组，哈希函数
+ */</span>
+<span class="token keyword">object</span> UvByBloomFilterWithoutRedis <span class="token punctuation">{</span>
+
+  <span class="token keyword">case</span> <span class="token keyword">class</span> UserBehavior<span class="token punctuation">(</span>userId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span>
+                          itemId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span>
+                          categoryId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span>
+                          behavior<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span>
+                          timestamp<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">val</span> env<span class="token operator">:</span> StreamExecutionEnvironment <span class="token operator">=</span> StreamExecutionEnvironment<span class="token punctuation">.</span>getExecutionEnvironment
+    env<span class="token punctuation">.</span>setStreamTimeCharacteristic<span class="token punctuation">(</span>TimeCharacteristic<span class="token punctuation">.</span>EventTime<span class="token punctuation">)</span>
+    env<span class="token punctuation">.</span>setParallelism<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">val</span> stream<span class="token operator">:</span> DataStream<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> env<span class="token punctuation">.</span>readTextFile<span class="token punctuation">(</span><span class="token string">&quot;G:\\idea arc\\BIGDATA\\project\\src\\main\\resources\\UserBehavior.csv&quot;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>map<span class="token punctuation">(</span>line <span class="token keyword">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> arr<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> line<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+        UserBehavior<span class="token punctuation">(</span>arr<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span> arr<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span> arr<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span> arr<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> arr<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>filter<span class="token punctuation">(</span>_<span class="token punctuation">.</span>behavior<span class="token punctuation">.</span>equals<span class="token punctuation">(</span><span class="token string">&quot;pv&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">// 只处理 pv 数据</span>
+      <span class="token punctuation">.</span>assignAscendingTimestamps<span class="token punctuation">(</span>_<span class="token punctuation">.</span>timestamp<span class="token punctuation">)</span>  <span class="token comment">// 分配升序时间戳</span>
+      <span class="token punctuation">.</span>map<span class="token punctuation">(</span>r <span class="token keyword">=&gt;</span> <span class="token punctuation">(</span><span class="token string">&quot;key&quot;</span><span class="token punctuation">,</span> r<span class="token punctuation">.</span>userId<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">// 对每个元素做处理</span>
+      <span class="token punctuation">.</span>keyBy<span class="token punctuation">(</span>_<span class="token punctuation">.</span>_1<span class="token punctuation">)</span>   <span class="token comment">// 分到同一组操作</span>
+      <span class="token punctuation">.</span>timeWindow<span class="token punctuation">(</span>Time<span class="token punctuation">.</span>hours<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment">// 设置滑动窗口时间</span>
+      <span class="token punctuation">.</span>aggregate<span class="token punctuation">(</span><span class="token keyword">new</span> UvAggFunc<span class="token punctuation">,</span> <span class="token keyword">new</span> UvProcessFunc<span class="token punctuation">)</span>   <span class="token comment">// 自定义预聚合</span>
+
+    <span class="token comment">// 打印结果</span>
+    stream<span class="token punctuation">.</span>print<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">// 执行任务</span>
+    env<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 直接用聚合算子【count，布隆过滤器】</span>
+  <span class="token keyword">class</span> UvAggFunc <span class="token keyword">extends</span> AggregateFunction<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token builtin">String</span><span class="token punctuation">,</span><span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token builtin">Long</span><span class="token punctuation">,</span>BloomFilter<span class="token punctuation">[</span>lang<span class="token punctuation">.</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">def</span> createAccumulator<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token builtin">Long</span><span class="token punctuation">,</span> BloomFilter<span class="token punctuation">[</span>lang<span class="token punctuation">.</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>BloomFilter<span class="token punctuation">.</span>create<span class="token punctuation">(</span>Funnels<span class="token punctuation">.</span>longFunnel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100000000</span><span class="token punctuation">,</span> <span class="token number">0.01</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">def</span> add<span class="token punctuation">(</span>value<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token builtin">String</span><span class="token punctuation">,</span> <span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token punctuation">,</span> accumulator<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token builtin">Long</span><span class="token punctuation">,</span> BloomFilter<span class="token punctuation">[</span>lang<span class="token punctuation">.</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token builtin">Long</span><span class="token punctuation">,</span> BloomFilter<span class="token punctuation">[</span>lang<span class="token punctuation">.</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+      <span class="token keyword">var</span> bloom<span class="token operator">:</span> BloomFilter<span class="token punctuation">[</span>lang<span class="token punctuation">.</span><span class="token builtin">Long</span><span class="token punctuation">]</span> <span class="token operator">=</span> accumulator<span class="token punctuation">.</span>_2
+      <span class="token keyword">var</span> uvCount<span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> accumulator<span class="token punctuation">.</span>_1
+
+      <span class="token comment">// 通过布隆过滤器判断是否存在，不存在则 +1</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>bloom<span class="token punctuation">.</span>mightContain<span class="token punctuation">(</span>value<span class="token punctuation">.</span>_2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        bloom<span class="token punctuation">.</span>put<span class="token punctuation">(</span>value<span class="token punctuation">.</span>_2<span class="token punctuation">)</span>
+        uvCount <span class="token operator">+=</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span>
+      <span class="token punctuation">(</span>uvCount<span class="token punctuation">,</span>bloom<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">def</span> getResult<span class="token punctuation">(</span>accumulator<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token builtin">Long</span><span class="token punctuation">,</span> BloomFilter<span class="token punctuation">[</span>lang<span class="token punctuation">.</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> accumulator<span class="token punctuation">.</span>_1  <span class="token comment">// 返回 count</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">def</span> merge<span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token builtin">Long</span><span class="token punctuation">,</span> BloomFilter<span class="token punctuation">[</span>lang<span class="token punctuation">.</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token builtin">Long</span><span class="token punctuation">,</span> BloomFilter<span class="token punctuation">[</span>lang<span class="token punctuation">.</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token builtin">Long</span><span class="token punctuation">,</span> BloomFilter<span class="token punctuation">[</span>lang<span class="token punctuation">.</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">?</span><span class="token operator">?</span><span class="token operator">?</span>
+
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">class</span> UvProcessFunc <span class="token keyword">extends</span> ProcessWindowFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span><span class="token builtin">String</span><span class="token punctuation">,</span><span class="token builtin">String</span><span class="token punctuation">,</span>TimeWindow<span class="token punctuation">]</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">def</span> process<span class="token punctuation">(</span>key<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span> context<span class="token operator">:</span> Context<span class="token punctuation">,</span> elements<span class="token operator">:</span> Iterable<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">,</span> out<span class="token operator">:</span> Collector<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+      <span class="token comment">// 拿到 Windows 的开始和结束时间</span>
+      <span class="token keyword">val</span> start<span class="token operator">:</span> Timestamp <span class="token operator">=</span> <span class="token keyword">new</span> Timestamp<span class="token punctuation">(</span>context<span class="token punctuation">.</span>window<span class="token punctuation">.</span>getStart<span class="token punctuation">)</span>
+      <span class="token keyword">val</span> end<span class="token operator">:</span> Timestamp <span class="token operator">=</span> <span class="token keyword">new</span> Timestamp<span class="token punctuation">(</span>context<span class="token punctuation">.</span>window<span class="token punctuation">.</span>getEnd<span class="token punctuation">)</span>
+      out<span class="token punctuation">.</span>collect<span class="token punctuation">(</span>s<span class="token string">&quot;窗口开始时间为:$start 到 $end 的 uv 为 ${elements.head}&quot;</span><span class="token punctuation">)</span>
+
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>程序的运行结果：</p> <p><img src="https://img-blog.csdnimg.cn/20201206003149111.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html" class="prev">
+        基于 flink 的电商用户行为数据分析：【4】恶意登录监控
+      </a></span> <span class="next"><a href="/./datahouse/电商业务/flink电商数据分析：【6】 APP市场推广统计.html">
+        基于 flink 的电商用户行为数据分析：【6】 APP市场推广统计
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/129.ea47f41d.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SparkSQL基础测试题 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/101.8a31dcdc.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link router-link-active">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link router-link-active">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Sql</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/sql/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/sql/SQL类型题总结.html" class="sidebar-link">SQL类型题总结</a></li><li><a href="/./datahouse/sql/SparkSQL基础测试题.html" class="active sidebar-link">SparkSQL基础测试题</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/sql/SparkSQL基础测试题.html#准备数据" class="sidebar-link">准备数据</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/sql/SparkSQL基础测试题.html#student-txt" class="sidebar-link">student.txt</a></li><li class="sidebar-sub-header"><a href="/./datahouse/sql/SparkSQL基础测试题.html#course-txt" class="sidebar-link">course.txt</a></li><li class="sidebar-sub-header"><a href="/./datahouse/sql/SparkSQL基础测试题.html#score-txt" class="sidebar-link">score.txt</a></li><li class="sidebar-sub-header"><a href="/./datahouse/sql/SparkSQL基础测试题.html#teacher-txt" class="sidebar-link">teacher.txt</a></li><li class="sidebar-sub-header"><a href="/./datahouse/sql/SparkSQL基础测试题.html#上题" class="sidebar-link">上题</a></li></ul></li><li class="sidebar-sub-header"><a href="/./datahouse/sql/SparkSQL基础测试题.html#答案" class="sidebar-link">答案</a></li></ul></li><li><a href="/./datahouse/sql/Spark基础能力测试题.html" class="sidebar-link">Spark基础能力测试题</a></li><li><a href="/./datahouse/sql/数仓SQL真题.html" class="sidebar-link">数仓SQL真题</a></li><li><a href="/./datahouse/sql/牛客SQL二刷.html" class="sidebar-link">牛客SQL二刷</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="sparksql基础测试题"><a href="#sparksql基础测试题" class="header-anchor">#</a> SparkSQL基础测试题</h1> <h2 id="准备数据"><a href="#准备数据" class="header-anchor">#</a> 准备数据</h2> <p>![](https://img-blog.csdnimg.cn/20200419110823219.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70 =300x300)</p> <h3 id="student-txt"><a href="#student-txt" class="header-anchor">#</a> student.txt</h3> <p>字段从左到右依次代表：</p> <div class="language- extra-class"><pre><code>	学号   学生姓名	  学生性别	学生出生年月  学生所在班级
+</code></pre></div><div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token number">108</span>	丘东	男	<span class="token number">1977</span><span class="token operator">-</span><span class="token number">09</span><span class="token operator">-</span><span class="token number">01</span>	<span class="token number">95033</span>
+<span class="token number">105</span>	匡明	男	<span class="token number">1975</span><span class="token operator">-</span><span class="token number">10</span><span class="token operator">-</span><span class="token number">02</span>	<span class="token number">95031</span>
+<span class="token number">107</span>	王丽	女	<span class="token number">1976</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">23</span>	<span class="token number">95033</span>
+<span class="token number">101</span>	李军	男	<span class="token number">1976</span><span class="token operator">-</span><span class="token number">02</span><span class="token operator">-</span><span class="token number">20</span>	<span class="token number">95033</span>
+<span class="token number">109</span>	王芳	女	<span class="token number">1975</span><span class="token operator">-</span><span class="token number">02</span><span class="token operator">-</span><span class="token number">10</span>	<span class="token number">95031</span>
+<span class="token number">103</span>	陆君	男	<span class="token number">1974</span><span class="token operator">-</span><span class="token number">06</span><span class="token operator">-</span><span class="token number">03</span>	<span class="token number">95031</span>
+</code></pre></div><h3 id="course-txt"><a href="#course-txt" class="header-anchor">#</a> course.txt</h3> <div class="language- extra-class"><pre><code>	课程号   课程名称	 教工编号
+</code></pre></div><div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token number">3</span><span class="token operator">-</span><span class="token number">105</span>	计算机导论	<span class="token number">825</span>
+<span class="token number">3</span><span class="token operator">-</span><span class="token number">245</span>	操作系统	<span class="token number">804</span>
+<span class="token number">6</span><span class="token operator">-</span><span class="token number">166</span>	数字电路	<span class="token number">856</span>
+<span class="token number">9</span><span class="token operator">-</span><span class="token number">888</span>	高等数学	<span class="token number">831</span>
+</code></pre></div><h3 id="score-txt"><a href="#score-txt" class="header-anchor">#</a> score.txt</h3> <div class="language- extra-class"><pre><code>	学号   课程号	 成绩
+</code></pre></div><div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token number">103</span>	<span class="token number">3</span><span class="token operator">-</span><span class="token number">245</span>	<span class="token number">86</span>
+<span class="token number">105</span>	<span class="token number">3</span><span class="token operator">-</span><span class="token number">245</span>	<span class="token number">75</span>
+<span class="token number">109</span>	<span class="token number">3</span><span class="token operator">-</span><span class="token number">245</span>	<span class="token number">68</span>
+<span class="token number">103</span>	<span class="token number">3</span><span class="token operator">-</span><span class="token number">105</span>	<span class="token number">92</span>
+<span class="token number">105</span>	<span class="token number">3</span><span class="token operator">-</span><span class="token number">105</span>	<span class="token number">88</span>
+<span class="token number">109</span>	<span class="token number">3</span><span class="token operator">-</span><span class="token number">105</span>	<span class="token number">76</span>
+<span class="token number">101</span>	<span class="token number">3</span><span class="token operator">-</span><span class="token number">105</span>	<span class="token number">64</span>
+<span class="token number">107</span>	<span class="token number">3</span><span class="token operator">-</span><span class="token number">105</span>	<span class="token number">91</span>
+<span class="token number">108</span>	<span class="token number">3</span><span class="token operator">-</span><span class="token number">105</span>	<span class="token number">78</span>
+<span class="token number">101</span>	<span class="token number">6</span><span class="token operator">-</span><span class="token number">166</span>	<span class="token number">85</span>
+<span class="token number">107</span>	<span class="token number">6</span><span class="token operator">-</span><span class="token number">166</span>	<span class="token number">79</span>
+<span class="token number">108</span>	<span class="token number">6</span><span class="token operator">-</span><span class="token number">166</span>	<span class="token number">81</span>
+</code></pre></div><h3 id="teacher-txt"><a href="#teacher-txt" class="header-anchor">#</a> teacher.txt</h3> <div class="language- extra-class"><pre><code>	教工编号   教工姓名	 教工性别		教工出生年月	职称		教工所在部门 
+</code></pre></div><div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token number">804</span>	李诚	男	<span class="token number">1958</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">02</span>	副教授	计算机系
+<span class="token number">856</span>	张旭	男	<span class="token number">1969</span><span class="token operator">-</span><span class="token number">03</span><span class="token operator">-</span><span class="token number">12</span>	讲师	电子工程系
+<span class="token number">825</span>	王萍	女	<span class="token number">1972</span><span class="token operator">-</span><span class="token number">05</span><span class="token operator">-</span><span class="token number">05</span>	助教	计算机系
+<span class="token number">831</span>	刘冰	女	<span class="token number">1977</span><span class="token operator">-</span><span class="token number">08</span><span class="token operator">-</span><span class="token number">14</span>	助教	电子工程系
+</code></pre></div><h3 id="上题"><a href="#上题" class="header-anchor">#</a> 上题</h3> <p>![在这里插入图片描述](https://img-blog.csdnimg.cn/20200419105349318.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70 =300x300)</p> <h4 id="_1-查询student表中-95031-班或性别为-女-的同学记录。"><a href="#_1-查询student表中-95031-班或性别为-女-的同学记录。" class="header-anchor">#</a> 1.查询Student表中“95031”班或性别为“女”的同学记录。</h4> <h4 id="_2-以class降序-升序查询student表的所有记录。"><a href="#_2-以class降序-升序查询student表的所有记录。" class="header-anchor">#</a> 2.以Class降序,升序查询Student表的所有记录。</h4> <h4 id="_3-以cno升序、degree降序查询score表的所有记录。"><a href="#_3-以cno升序、degree降序查询score表的所有记录。" class="header-anchor">#</a> 3.以Cno升序、Degree降序查询Score表的所有记录。</h4> <h4 id="_4-查询-95031-班的学生。"><a href="#_4-查询-95031-班的学生。" class="header-anchor">#</a> 4.查询“95031”班的学生。</h4> <h4 id="_5-查询score表中的最高分的学生学号和课程号。-子查询或者排序"><a href="#_5-查询score表中的最高分的学生学号和课程号。-子查询或者排序" class="header-anchor">#</a> 5.查询Score表中的最高分的学生学号和课程号。（子查询或者排序）</h4> <h4 id="_6-查询每门课的平均成绩。"><a href="#_6-查询每门课的平均成绩。" class="header-anchor">#</a> 6.查询每门课的平均成绩。</h4> <h4 id="_7-查询score表中至少有5名学生选修的并以3开头的课程的平均分数。"><a href="#_7-查询score表中至少有5名学生选修的并以3开头的课程的平均分数。" class="header-anchor">#</a> 7.查询Score表中至少有5名学生选修的并以3开头的课程的平均分数。</h4> <h4 id="_8-查询分数大于70-小于90的sno列。"><a href="#_8-查询分数大于70-小于90的sno列。" class="header-anchor">#</a> 8.查询分数大于70，小于90的Sno列。</h4> <h4 id="_9-查询所有学生的sname、cno和degree列。"><a href="#_9-查询所有学生的sname、cno和degree列。" class="header-anchor">#</a> 9.查询所有学生的Sname、Cno和Degree列。</h4> <h4 id="_10-查询所有学生的sno、cname和degree列。"><a href="#_10-查询所有学生的sno、cname和degree列。" class="header-anchor">#</a> 10.查询所有学生的Sno、Cname和Degree列。</h4> <h4 id="_11-查询所有学生的sname、cname和degree列。"><a href="#_11-查询所有学生的sname、cname和degree列。" class="header-anchor">#</a> 11.查询所有学生的Sname、Cname和Degree列。</h4> <h4 id="_12-查询-95033-班学生的平均分。"><a href="#_12-查询-95033-班学生的平均分。" class="header-anchor">#</a> 12.查询“95033”班学生的平均分。</h4> <h4 id="_13-查询所有选修-计算机导论-课程的-女-同学的成绩表。"><a href="#_13-查询所有选修-计算机导论-课程的-女-同学的成绩表。" class="header-anchor">#</a> 13.查询所有选修“计算机导论”课程的“女”同学的成绩表。</h4> <h4 id="_14-查询选修-3-105-课程的成绩高于-109-号同学成绩的所有同学的记录。"><a href="#_14-查询选修-3-105-课程的成绩高于-109-号同学成绩的所有同学的记录。" class="header-anchor">#</a> 14.查询选修“3-105”课程的成绩高于“109”号同学成绩的所有同学的记录。</h4> <h4 id="_15-查询score中选学多门课程的同学中分数为非最高分成绩的记录。"><a href="#_15-查询score中选学多门课程的同学中分数为非最高分成绩的记录。" class="header-anchor">#</a> 15.查询score中选学多门课程的同学中分数为非最高分成绩的记录。</h4> <h4 id="_16-查询成绩高于学号为-109-、课程号为-3-105-的成绩的所有记录。"><a href="#_16-查询成绩高于学号为-109-、课程号为-3-105-的成绩的所有记录。" class="header-anchor">#</a> 16.查询成绩高于学号为“109”、课程号为“3-105”的成绩的所有记录。</h4> <h4 id="_17-查询和学号为105的同学同年出生的所有学生的sno、sname和sbirthday列。"><a href="#_17-查询和学号为105的同学同年出生的所有学生的sno、sname和sbirthday列。" class="header-anchor">#</a> 17.查询和学号为105的同学同年出生的所有学生的Sno、Sname和Sbirthday列。</h4> <h4 id="_18-查询-张旭-教师任课的学生成绩"><a href="#_18-查询-张旭-教师任课的学生成绩" class="header-anchor">#</a> 18.查询“张旭“教师任课的学生成绩</h4> <h4 id="_19-查询选修某课程的同学人数多于4人的教师姓名"><a href="#_19-查询选修某课程的同学人数多于4人的教师姓名" class="header-anchor">#</a> 19.查询选修某课程的同学人数多于4人的教师姓名</h4> <h4 id="_20-查询95033班和95031班全体学生的记录"><a href="#_20-查询95033班和95031班全体学生的记录" class="header-anchor">#</a> 20.查询95033班和95031班全体学生的记录</h4> <h4 id="_21-查询存在有85分以上成绩的课程cno"><a href="#_21-查询存在有85分以上成绩的课程cno" class="header-anchor">#</a> 21.查询存在有85分以上成绩的课程Cno</h4> <h4 id="_22-查询出-计算机系-教师所教课程的成绩表"><a href="#_22-查询出-计算机系-教师所教课程的成绩表" class="header-anchor">#</a> 22.查询出“计算机系“教师所教课程的成绩表</h4> <h4 id="_23-查询-计算机系-与-电子工程系-不同职称的教师的tname和prof"><a href="#_23-查询-计算机系-与-电子工程系-不同职称的教师的tname和prof" class="header-anchor">#</a> 23.查询“计算机系”与“电子工程系“不同职称的教师的Tname和Prof</h4> <h4 id="_24-查询选修编号为-3-105-课程且成绩至少高于选修编号为-3-245-的同学的cno、sno和degree-并按degree从高到低次序排序"><a href="#_24-查询选修编号为-3-105-课程且成绩至少高于选修编号为-3-245-的同学的cno、sno和degree-并按degree从高到低次序排序" class="header-anchor">#</a> 24.查询选修编号为“3-105“课程且成绩至少高于选修编号为“3-245”的同学的Cno、Sno和Degree,并按Degree从高到低次序排序</h4> <h4 id="_25-查询选修编号为-3-105-且成绩高于选修编号为-3-245-课程的同学的cno、sno和degree"><a href="#_25-查询选修编号为-3-105-且成绩高于选修编号为-3-245-课程的同学的cno、sno和degree" class="header-anchor">#</a> 25.查询选修编号为“3-105”且成绩高于选修编号为“3-245”课程的同学的Cno、Sno和Degree</h4> <h4 id="_26-查询所有教师和同学的name、sex和birthday"><a href="#_26-查询所有教师和同学的name、sex和birthday" class="header-anchor">#</a> 26.查询所有教师和同学的name、sex和birthday</h4> <h4 id="_27-查询所有-女-教师和-女-同学的name、sex和birthday"><a href="#_27-查询所有-女-教师和-女-同学的name、sex和birthday" class="header-anchor">#</a> 27.查询所有“女”教师和“女”同学的name、sex和birthday.</h4> <h4 id="_28-查询成绩比该课程平均成绩低的同学的成绩表"><a href="#_28-查询成绩比该课程平均成绩低的同学的成绩表" class="header-anchor">#</a> 28.查询成绩比该课程平均成绩低的同学的成绩表</h4> <h4 id="_29-查询所有任课教师的tname和depart"><a href="#_29-查询所有任课教师的tname和depart" class="header-anchor">#</a> 29.查询所有任课教师的Tname和Depart</h4> <h4 id="_30-查询所有未讲课的教师的tname和depart"><a href="#_30-查询所有未讲课的教师的tname和depart" class="header-anchor">#</a> 30.查询所有未讲课的教师的Tname和Depart</h4> <h4 id="_31-查询至少有2名男生的班号"><a href="#_31-查询至少有2名男生的班号" class="header-anchor">#</a> 31.查询至少有2名男生的班号</h4> <h4 id="_32-查询student表中不姓-王-的同学记录"><a href="#_32-查询student表中不姓-王-的同学记录" class="header-anchor">#</a> 32.查询Student表中不姓“王”的同学记录</h4> <h4 id="_33-查询student表中每个学生的姓名和年龄。"><a href="#_33-查询student表中每个学生的姓名和年龄。" class="header-anchor">#</a> 33.查询Student表中每个学生的姓名和年龄。</h4> <h4 id="_34-查询student表中最大和最小的sbirthday日期值。-时间格式最大值-最小值"><a href="#_34-查询student表中最大和最小的sbirthday日期值。-时间格式最大值-最小值" class="header-anchor">#</a> 34.查询Student表中最大和最小的Sbirthday日期值。（时间格式最大值,最小值）</h4> <h4 id="_35-以班号和年龄从大到小的顺序查询student表中的全部记录。-查询结果排序"><a href="#_35-以班号和年龄从大到小的顺序查询student表中的全部记录。-查询结果排序" class="header-anchor">#</a> 35.以班号和年龄从大到小的顺序查询Student表中的全部记录。 查询结果排序</h4> <h4 id="_36-查询-男-教师及其所上的课程"><a href="#_36-查询-男-教师及其所上的课程" class="header-anchor">#</a> 36.查询“男”教师及其所上的课程</h4> <h4 id="_37-查询最高分同学的sno、cno和degree列"><a href="#_37-查询最高分同学的sno、cno和degree列" class="header-anchor">#</a> 37.查询最高分同学的Sno、Cno和Degree列</h4> <h4 id="_38-查询和-李军-同性别的所有同学的sname"><a href="#_38-查询和-李军-同性别的所有同学的sname" class="header-anchor">#</a> 38.查询和“李军”同性别的所有同学的Sname</h4> <h4 id="_39-查询和-李军-同性别并同班的同学sname"><a href="#_39-查询和-李军-同性别并同班的同学sname" class="header-anchor">#</a> 39.查询和“李军”同性别并同班的同学Sname</h4> <h4 id="_40-查询所有选修-计算机导论-课程的-男-同学的成绩表"><a href="#_40-查询所有选修-计算机导论-课程的-男-同学的成绩表" class="header-anchor">#</a> 40.查询所有选修“计算机导论”课程的“男”同学的成绩表</h4> <h4 id="_41-查询student表中的所有记录的sname、ssex和class列"><a href="#_41-查询student表中的所有记录的sname、ssex和class列" class="header-anchor">#</a> 41.查询Student表中的所有记录的Sname、Ssex和Class列</h4> <h4 id="_42-查询教师所有的单位即不重复的depart列"><a href="#_42-查询教师所有的单位即不重复的depart列" class="header-anchor">#</a> 42.查询教师所有的单位即不重复的Depart列</h4> <h4 id="_43-查询student表的所有记录"><a href="#_43-查询student表的所有记录" class="header-anchor">#</a> 43.查询Student表的所有记录</h4> <h4 id="_44-查询score表中成绩在60到80之间的所有记录"><a href="#_44-查询score表中成绩在60到80之间的所有记录" class="header-anchor">#</a> 44.查询Score表中成绩在60到80之间的所有记录</h4> <h4 id="_45-查询score表中成绩为85-86或88的记录"><a href="#_45-查询score表中成绩为85-86或88的记录" class="header-anchor">#</a> 45.查询Score表中成绩为85，86或88的记录</h4> <hr> <h2 id="答案"><a href="#答案" class="header-anchor">#</a> 答案</h2> <p><font color="red">声明：</font><font color="#BE77FF">下面的答案均为博主自己的解法，结果均经得起测试，如有纰漏，烦请大佬指点。</font> <img src="https://img-blog.csdnimg.cn/20200419105657680.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <hr> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>spark<span class="token punctuation">.</span></span><span class="token class-name">SparkContext</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>spark<span class="token punctuation">.</span>rdd<span class="token punctuation">.</span></span>RDD
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>spark<span class="token punctuation">.</span>sql<span class="token punctuation">.</span></span><span class="token punctuation">{</span><span class="token class-name">Dataset</span><span class="token punctuation">,</span> <span class="token class-name">SparkSession</span><span class="token punctuation">}</span>
+
+<span class="token comment">/*
+ * @Auther: Alice菌
+ * @Date: 2020/4/18 08:14
+ * @Description: 
+    流年笑掷 未来可期。以梦为马,不负韶华!
+ */</span>
+object demo06 <span class="token punctuation">{</span>
+
+  <span class="token comment">// 定义样例类封装数据</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token class-name">Sno</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Sname</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Ssex</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Sbirthday</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Class</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">)</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> <span class="token class-name">Course</span><span class="token punctuation">(</span><span class="token class-name">Cno</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Cname</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Tno</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">)</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> <span class="token class-name">Score</span><span class="token punctuation">(</span><span class="token class-name">Sno</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Cno</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Degree</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">)</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> <span class="token class-name">Teacher</span><span class="token punctuation">(</span><span class="token class-name">Tno</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Tname</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Tsex</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Tbirthday</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Prof</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Depart</span><span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">)</span>
+
+
+  def <span class="token function">main</span><span class="token punctuation">(</span>args<span class="token operator">:</span> <span class="token class-name">Array</span><span class="token punctuation">[</span><span class="token class-name">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token class-name">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+
+    <span class="token comment">// 1. 创建SparkSession</span>
+    val spark<span class="token operator">:</span> <span class="token class-name">SparkSession</span> <span class="token operator">=</span> <span class="token class-name">SparkSession</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">master</span><span class="token punctuation">(</span><span class="token string">&quot;local[*]&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appName</span><span class="token punctuation">(</span><span class="token string">&quot;demo06&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getOrCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    val sc<span class="token operator">:</span> <span class="token class-name">SparkContext</span> <span class="token operator">=</span> spark<span class="token punctuation">.</span>sparkContext
+
+    <span class="token comment">// 设置日志级别</span>
+    sc<span class="token punctuation">.</span><span class="token function">setLogLevel</span><span class="token punctuation">(</span><span class="token string">&quot;WARN&quot;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 读取test文件</span>
+   val rdd1<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token class-name">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> sc<span class="token punctuation">.</span><span class="token function">textFile</span><span class="token punctuation">(</span><span class="token string">&quot;E:\\BigData\\05-Spark\\0417\\4.16号练习题50道2.0\\data\\student.txt&quot;</span><span class="token punctuation">)</span>
+   val rdd2<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token class-name">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> sc<span class="token punctuation">.</span><span class="token function">textFile</span><span class="token punctuation">(</span><span class="token string">&quot;E:\\BigData\\05-Spark\\0417\\4.16号练习题50道2.0\\data\\course.txt&quot;</span><span class="token punctuation">)</span>
+   val rdd3<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token class-name">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> sc<span class="token punctuation">.</span><span class="token function">textFile</span><span class="token punctuation">(</span><span class="token string">&quot;E:\\BigData\\05-Spark\\0417\\4.16号练习题50道2.0\\data\\score.txt&quot;</span><span class="token punctuation">)</span>
+   val rdd4<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token class-name">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> sc<span class="token punctuation">.</span><span class="token function">textFile</span><span class="token punctuation">(</span><span class="token string">&quot;E:\\BigData\\05-Spark\\0417\\4.16号练习题50道2.0\\data\\teacher.txt&quot;</span><span class="token punctuation">)</span>
+
+    val student<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token class-name">Student</span><span class="token punctuation">]</span> <span class="token operator">=</span> rdd1<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>val str <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">&quot;\t&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    val course<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token class-name">Course</span><span class="token punctuation">]</span> <span class="token operator">=</span> rdd2<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>val str <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">&quot;\t&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">Course</span><span class="token punctuation">(</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    val score<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token class-name">Score</span><span class="token punctuation">]</span> <span class="token operator">=</span> rdd3<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>val str <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">&quot;\t&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">Score</span><span class="token punctuation">(</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    val teacher<span class="token operator">:</span> RDD<span class="token punctuation">[</span><span class="token class-name">Teacher</span><span class="token punctuation">]</span> <span class="token operator">=</span> rdd4<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>val str <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">&quot;\t&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">Teacher</span><span class="token punctuation">(</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 导入隐式转换</span>
+    <span class="token keyword">import</span> <span class="token namespace">spark<span class="token punctuation">.</span>implicits<span class="token punctuation">.</span></span>_
+
+    <span class="token comment">// 将RDD转换成DF</span>
+    val stuframe <span class="token operator">=</span> student<span class="token punctuation">.</span><span class="token function">toDF</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    val couframe <span class="token operator">=</span> course<span class="token punctuation">.</span><span class="token function">toDF</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    val scoframe <span class="token operator">=</span> score<span class="token punctuation">.</span><span class="token function">toDF</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    val teaframe <span class="token operator">=</span> teacher<span class="token punctuation">.</span><span class="token function">toDF</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 创建临时表</span>
+    stuframe<span class="token punctuation">.</span><span class="token function">createOrReplaceTempView</span><span class="token punctuation">(</span><span class="token string">&quot;student&quot;</span><span class="token punctuation">)</span>
+    couframe<span class="token punctuation">.</span><span class="token function">createOrReplaceTempView</span><span class="token punctuation">(</span><span class="token string">&quot;course&quot;</span><span class="token punctuation">)</span>
+    scoframe<span class="token punctuation">.</span><span class="token function">createOrReplaceTempView</span><span class="token punctuation">(</span><span class="token string">&quot;score&quot;</span><span class="token punctuation">)</span>
+    teaframe<span class="token punctuation">.</span><span class="token function">createOrReplaceTempView</span><span class="token punctuation">(</span><span class="token string">&quot;teacher&quot;</span><span class="token punctuation">)</span>
+
+
+    <span class="token comment">/* 6. 查询Student表中“95031”班或性别为“女”的同学记录*/</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;Select * from student where sno = '95031' or ssex = '女'&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|Sno|Sname|Ssex| Sbirthday|Class|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|107|   王丽|   女|1976-01-23|95033|</span>
+    <span class="token comment">//|109|   王芳|   女|1975-02-10|95031|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+
+    <span class="token comment">/* 7. 以Class降序,升序查询Student表的所有记录 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;Select * from student order by class desc&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|Sno|Sname|Ssex| Sbirthday|Class|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|107|   王丽|   女|1976-01-23|95033|</span>
+    <span class="token comment">//|101|   李军|   男|1976-02-20|95033|</span>
+    <span class="token comment">//|108|   丘东|   男|1977-09-01|95033|</span>
+    <span class="token comment">//|105|   匡明|   男|1975-10-02|95031|</span>
+    <span class="token comment">//|109|   王芳|   女|1975-02-10|95031|</span>
+    <span class="token comment">//|103|   陆君|   男|1974-06-03|95031|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+
+    <span class="token comment">/* 8. 以Cno升序、Degree降序查询Score表的所有记录。 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;Select * from score order by cno,degree desc&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|Sno|  Cno|Degree|</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|103|3-105|    92|</span>
+    <span class="token comment">//|107|3-105|    91|</span>
+    <span class="token comment">//|105|3-105|    88|</span>
+    <span class="token comment">//|108|3-105|    78|</span>
+    <span class="token comment">//|109|3-105|    76|</span>
+    <span class="token comment">//|101|3-105|    64|</span>
+    <span class="token comment">//|103|3-245|    86|</span>
+    <span class="token comment">//|105|3-245|    75|</span>
+    <span class="token comment">//|109|3-245|    68|</span>
+    <span class="token comment">//|101|6-166|    85|</span>
+    <span class="token comment">//|108|6-166|    81|</span>
+    <span class="token comment">//|107|6-166|    79|</span>
+    <span class="token comment">//+---+-----+------+</span>
+
+    <span class="token comment">/* 9. 查询“95031”班的学生。 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;Select sname from student where class = '95031'&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//|sname|</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//|   匡明|</span>
+    <span class="token comment">//|   王芳|</span>
+    <span class="token comment">//|   陆君|</span>
+    <span class="token comment">//+-----+</span>
+
+    <span class="token comment">/* 10. 查询Score表中的最高分的学生学号和课程号。（子查询或者排序） */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;Select sno,cno from score order by degree desc limit 1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+</span>
+    <span class="token comment">//|sno|  cno|</span>
+    <span class="token comment">//+---+-----+</span>
+    <span class="token comment">//|103|3-105|</span>
+    <span class="token comment">//+---+-----+</span>
+
+    <span class="token comment">/* 11. 查询每门课的平均成绩。  */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;Select first(course.Cname),avg(degree) from score,course where score.Cno = course.Cno  group by score.Cno&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-------------------+---------------------------+</span>
+    <span class="token comment">//|first(Cname, false)|avg(CAST(degree AS DOUBLE))|</span>
+    <span class="token comment">//+-------------------+---------------------------+</span>
+    <span class="token comment">//|               数字电路|          81.66666666666667|</span>
+    <span class="token comment">//|               操作系统|          76.33333333333333|</span>
+    <span class="token comment">//|              计算机导论|                       81.5|</span>
+    <span class="token comment">//+-------------------+---------------------------+</span>
+
+    <span class="token comment">/* 12. 查询Score表中至少有5名学生选修的并以3开头的课程的平均分数。  */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;Select first(cno),avg(Degree) from score where cno like '3%' group by cno having count(cno) &gt;= 5&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----------------+---------------------------+</span>
+    <span class="token comment">//|first(cno, false)|avg(CAST(Degree AS DOUBLE))|</span>
+    <span class="token comment">//+-----------------+---------------------------+</span>
+    <span class="token comment">//|            3-105|                       81.5|</span>
+    <span class="token comment">//+-----------------+---------------------------+</span>
+
+    <span class="token comment">/* 13.查询分数大于70，小于90的Sno列  */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;Select sno from score where Degree &gt; 70 and Degree &lt; 90 &quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+</span>
+    <span class="token comment">//|sno|</span>
+    <span class="token comment">//+---+</span>
+    <span class="token comment">//|103|</span>
+    <span class="token comment">//|105|</span>
+    <span class="token comment">//|105|</span>
+    <span class="token comment">//|109|</span>
+    <span class="token comment">//|108|</span>
+    <span class="token comment">//|101|</span>
+    <span class="token comment">//|107|</span>
+    <span class="token comment">//|108|</span>
+    <span class="token comment">//+---+</span>
+
+    <span class="token comment">/* 14.查询所有学生的Sname、Cno和Degree列。 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;select sname,cno,degree from score,student where score.sno = student.sno&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+-----+------+</span>
+    <span class="token comment">//|sname|  cno|degree|</span>
+    <span class="token comment">//+-----+-----+------+</span>
+    <span class="token comment">//|   李军|3-105|    64|</span>
+    <span class="token comment">//|   李军|6-166|    85|</span>
+    <span class="token comment">//|   王丽|3-105|    91|</span>
+    <span class="token comment">//|   王丽|6-166|    79|</span>
+    <span class="token comment">//|   陆君|3-245|    86|</span>
+    <span class="token comment">//|   陆君|3-105|    92|</span>
+    <span class="token comment">//|   丘东|3-105|    78|</span>
+    <span class="token comment">//|   丘东|6-166|    81|</span>
+    <span class="token comment">//|   匡明|3-245|    75|</span>
+    <span class="token comment">//|   匡明|3-105|    88|</span>
+    <span class="token comment">//|   王芳|3-245|    68|</span>
+    <span class="token comment">//|   王芳|3-105|    76|</span>
+    <span class="token comment">//+-----+-----+------+</span>
+
+    <span class="token comment">/* 15.查询所有学生的Sno、Cname和Degree列。 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;select sno,cname,degree from score,course where score.cno=course.cno&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|sno|cname|degree|</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|101| 数字电路|    85|</span>
+    <span class="token comment">//|107| 数字电路|    79|</span>
+    <span class="token comment">//|108| 数字电路|    81|</span>
+    <span class="token comment">//|103| 操作系统|    86|</span>
+    <span class="token comment">//|105| 操作系统|    75|</span>
+    <span class="token comment">//|109| 操作系统|    68|</span>
+    <span class="token comment">//|103|计算机导论|    92|</span>
+    <span class="token comment">//|105|计算机导论|    88|</span>
+    <span class="token comment">//|109|计算机导论|    76|</span>
+    <span class="token comment">//|101|计算机导论|    64|</span>
+    <span class="token comment">//|107|计算机导论|    91|</span>
+    <span class="token comment">//|108|计算机导论|    78|</span>
+    <span class="token comment">//+---+-----+------+</span>
+
+    <span class="token comment">/* 16.查询所有学生的Sname、Cname和Degree列。 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select sname,cname,degree from score,course,student
+        |where score.cno = course.cno and student.sno = score.sno
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+     <span class="token comment">//+-----+-----+------+</span>
+    <span class="token comment">//|sname|cname|degree|</span>
+    <span class="token comment">//+-----+-----+------+</span>
+    <span class="token comment">//|   李军| 数字电路|    85|</span>
+    <span class="token comment">//|   李军|计算机导论|    64|</span>
+    <span class="token comment">//|   王丽| 数字电路|    79|</span>
+    <span class="token comment">//|   王丽|计算机导论|    91|</span>
+    <span class="token comment">//|   陆君| 操作系统|    86|</span>
+    <span class="token comment">//|   陆君|计算机导论|    92|</span>
+    <span class="token comment">//|   丘东| 数字电路|    81|</span>
+    <span class="token comment">//|   丘东|计算机导论|    78|</span>
+    <span class="token comment">//|   匡明| 操作系统|    75|</span>
+    <span class="token comment">//|   匡明|计算机导论|    88|</span>
+    <span class="token comment">//|   王芳| 操作系统|    68|</span>
+    <span class="token comment">//|   王芳|计算机导论|    76|</span>
+    <span class="token comment">//+-----+-----+------+</span>
+
+    <span class="token comment">/* 17.查询“95033”班学生的平均分。*/</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;select first(class),avg(Degree) from student,score where student.sno = score.sno and class = '95033'&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-------------------+---------------------------+</span>
+    <span class="token comment">//|first(class, false)|avg(CAST(Degree AS DOUBLE))|</span>
+    <span class="token comment">//+-------------------+---------------------------+</span>
+    <span class="token comment">//|              95033|          79.66666666666667|</span>
+    <span class="token comment">//+-------------------+---------------------------+</span>
+
+    <span class="token comment">/* 18.查询所有选修“计算机导论”课程的“女”同学的成绩表。 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select sname,cname,ssex,Degree from student,course,score
+        |where student.sno = score.sno and course.cno=score.cno
+        |and ssex = &quot;女&quot; and cname = &quot;计算机导论&quot;
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//|sname|cname|ssex|Degree|</span>
+    <span class="token comment">//+-----+-----+----+------+</span>
+    <span class="token comment">//|   王丽|计算机导论|   女|    91|</span>
+    <span class="token comment">//|   王芳|计算机导论|   女|    76|</span>
+    <span class="token comment">//+-----+-----+----+------+</span>
+
+    <span class="token comment">/* 19.查询选修“3-105”课程的成绩高于“109”号同学成绩的所有同学的记录。*/</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select * from score where cno = &quot;3-105&quot; and degree &gt; (select degree from score where sno = &quot;109&quot; and cno = &quot;3-105&quot; )
+        |
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|Sno|  Cno|Degree|</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|103|3-105|    92|</span>
+    <span class="token comment">//|105|3-105|    88|</span>
+    <span class="token comment">//|107|3-105|    91|</span>
+    <span class="token comment">//|108|3-105|    78|</span>
+    <span class="token comment">//+---+-----+------+</span>
+
+    <span class="token comment">/* 20.查询score中选学多门课程的同学中分数为非最高分成绩的记录。  */</span>
+<span class="token comment">//    spark.sql(</span>
+<span class="token comment">//      &quot;&quot;&quot;</span>
+<span class="token comment">//        |select first(sno),first(cno),first(degree) from score a where sno in</span>
+<span class="token comment">//        |(select sno from score group by sno having count(*)&gt;1)　　　　</span>
+<span class="token comment">//        |and degree&lt;(select max(degree) from score b where a.cno=b.cno)　　　　　　</span>
+<span class="token comment">//      &quot;&quot;&quot;.stripMargin).show()</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;select * from score a where sno in (select sno from score group by sno having count(*)&gt;1) and degree&lt;(select max(degree) from score b where a.cno=b.cno )&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|Sno|  Cno|Degree|</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|107|6-166|    79|</span>
+    <span class="token comment">//|108|6-166|    81|</span>
+    <span class="token comment">//|105|3-245|    75|</span>
+    <span class="token comment">//|109|3-245|    68|</span>
+    <span class="token comment">//|101|3-105|    64|</span>
+    <span class="token comment">//|107|3-105|    91|</span>
+    <span class="token comment">//|108|3-105|    78|</span>
+    <span class="token comment">//|105|3-105|    88|</span>
+    <span class="token comment">//|109|3-105|    76|</span>
+    <span class="token comment">//+---+-----+------+</span>
+
+    <span class="token comment">/* 21.查询成绩高于学号为“109”、课程号为“3-105”的成绩的所有记录。 */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;select * from score where degree &gt; (select degree from score where sno = '109' and cno = '3-105')&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|Sno|  Cno|Degree|</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|103|3-245|    86|</span>
+    <span class="token comment">//|103|3-105|    92|</span>
+    <span class="token comment">//|105|3-105|    88|</span>
+    <span class="token comment">//|107|3-105|    91|</span>
+    <span class="token comment">//|108|3-105|    78|</span>
+    <span class="token comment">//|101|6-166|    85|</span>
+    <span class="token comment">//|107|6-166|    79|</span>
+    <span class="token comment">//|108|6-166|    81|</span>
+    <span class="token comment">//+---+-----+------+</span>
+
+    <span class="token comment">/* 22. 查询和学号为105的同学同年出生的所有学生的Sno、Sname和Sbirthday列。*/</span>
+
+    spark<span class="token punctuation">.</span>udf<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">&quot;sub&quot;</span><span class="token punctuation">,</span><span class="token punctuation">(</span>str<span class="token operator">:</span><span class="token class-name">String</span><span class="token punctuation">,</span>num1<span class="token operator">:</span><span class="token class-name">Int</span><span class="token punctuation">,</span>num2<span class="token operator">:</span><span class="token class-name">Int</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span>str<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>num1<span class="token punctuation">,</span>num2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;select sno,sname,sbirthday from student where sub(Sbirthday,0,5) = (select sub(Sbirthday,0,5) from student where sno = '105') &quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+----------+</span>
+    <span class="token comment">//|sno|sname| sbirthday|</span>
+    <span class="token comment">//+---+-----+----------+</span>
+    <span class="token comment">//|105|   匡明|1975-10-02|</span>
+    <span class="token comment">//|109|   王芳|1975-02-10|</span>
+    <span class="token comment">//+---+-----+----------+</span>
+
+    <span class="token comment">/* 23. 查询“张旭“教师任课的学生成绩 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select  sno,degree from score,course,teacher
+        |where tname = &quot;张旭&quot; and teacher.tno = course.tno
+        |and course.Cno = score.Cno
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+------+</span>
+    <span class="token comment">//|sno|degree|</span>
+    <span class="token comment">//+---+------+</span>
+    <span class="token comment">//|101|    85|</span>
+    <span class="token comment">//|107|    79|</span>
+    <span class="token comment">//|108|    81|</span>
+    <span class="token comment">//+---+------+</span>
+
+    <span class="token comment">/* 24. 查询选修某课程的同学人数多于4人的教师姓名。 */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+       <span class="token triple-quoted-string string">&quot;&quot;&quot;
+         |select first(tname) from teacher,score,course
+         |where teacher.tno = course.tno
+         |and course.Cno = score.Cno
+         |group by score.Cno having count(score.Cno) &gt; 4
+       &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">//+-------------------+</span>
+    <span class="token comment">//|first(tname, false)|</span>
+    <span class="token comment">//+-------------------+</span>
+    <span class="token comment">//|                 王萍|</span>
+    <span class="token comment">//+-------------------+</span>
+
+    <span class="token comment">/* 25. 查询95033班和95031班全体学生的记录。 */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;select * from student where class= '95033' or class = '95031'&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|Sno|Sname|Ssex| Sbirthday|Class|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|108|   丘东|   男|1977-09-01|95033|</span>
+    <span class="token comment">//|105|   匡明|   男|1975-10-02|95031|</span>
+    <span class="token comment">//|107|   王丽|   女|1976-01-23|95033|</span>
+    <span class="token comment">//|101|   李军|   男|1976-02-20|95033|</span>
+    <span class="token comment">//|109|   王芳|   女|1975-02-10|95031|</span>
+    <span class="token comment">//|103|   陆君|   男|1974-06-03|95031|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+
+    <span class="token comment">/* 26. 查询存在有85分以上成绩的课程Cno.  */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">&quot;select distinct cno from score where degree &gt;= 85&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//|  cno|</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//|6-166|</span>
+    <span class="token comment">//|3-245|</span>
+    <span class="token comment">//|3-105|</span>
+    <span class="token comment">//+-----+</span>
+
+    <span class="token comment">/* 27. 查询出“计算机系“教师所教课程的成绩表。 */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+       <span class="token triple-quoted-string string">&quot;&quot;&quot;
+         |select  score.*  from score,Course,teacher
+         |where  teacher.tno = course.tno
+         |and course.Cno = score.Cno
+         |and teacher.Depart = &quot;计算机系&quot;
+       &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|Sno|  Cno|Degree|</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|103|3-105|    92|</span>
+    <span class="token comment">//|105|3-105|    88|</span>
+    <span class="token comment">//|109|3-105|    76|</span>
+    <span class="token comment">//|101|3-105|    64|</span>
+    <span class="token comment">//|107|3-105|    91|</span>
+    <span class="token comment">//|108|3-105|    78|</span>
+    <span class="token comment">//|103|3-245|    86|</span>
+    <span class="token comment">//|105|3-245|    75|</span>
+    <span class="token comment">//|109|3-245|    68|</span>
+    <span class="token comment">//+---+-----+------+</span>
+
+    <span class="token comment">/* 28. 查询“计算机系”与“电子工程系“不同职称的教师的Tname和Prof */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select tname,prof from teacher where depart = '计算机系' and prof not in
+        |(select prof from teacher where depart = '电子工程系')
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+----+</span>
+    <span class="token comment">//|tname|prof|</span>
+    <span class="token comment">//+-----+----+</span>
+    <span class="token comment">//|   李诚| 副教授|</span>
+    <span class="token comment">//+-----+----+</span>
+
+    <span class="token comment">/* 29. 查询选修编号为“3-105“课程且成绩至少高于选修编号为“3-245”的同学的Cno、Sno和Degree,并按Degree从高到低次序排序。 */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+       <span class="token triple-quoted-string string">&quot;&quot;&quot;
+         |select s1.cno,s1.sno,s1.degree from score s1,score s2
+         |where s1.cno = &quot;3-105&quot; and s2.cno = &quot;3-245&quot;
+         |and s1.Sno = s2.Sno
+         |and s1.degree &gt; s2. degree
+         |order by s1.degree desc
+       &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">//+-----+---+------+</span>
+    <span class="token comment">//|  cno|sno|degree|</span>
+    <span class="token comment">//+-----+---+------+</span>
+    <span class="token comment">//|3-105|103|    92|</span>
+    <span class="token comment">//|3-105|105|    88|</span>
+    <span class="token comment">//|3-105|109|    76|</span>
+    <span class="token comment">//+-----+---+------+</span>
+
+    <span class="token comment">/* 30. 查询选修编号为“3-105”且成绩高于选修编号为“3-245”课程的同学的Cno、Sno和Degree. */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select cno,sno,degree from score
+        |where cno = &quot;3-105&quot; and degree &gt; (select max(degree) from score where cno = &quot;3-245&quot;)
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+---+------+</span>
+    <span class="token comment">//|  cno|sno|degree|</span>
+    <span class="token comment">//+-----+---+------+</span>
+    <span class="token comment">//|3-105|103|    92|</span>
+    <span class="token comment">//|3-105|105|    88|</span>
+    <span class="token comment">//|3-105|107|    91|</span>
+    <span class="token comment">//+-----+---+------+</span>
+
+    <span class="token comment">/* 31. 查询所有教师和同学的name、sex和birthday. */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+       <span class="token triple-quoted-string string">&quot;&quot;&quot;
+         |select distinct Sname as name,Ssex as sex,Sbirthday as birthday from student
+         |union
+         |select distinct Tname as name,Tsex as sex,Tbirthday as birthday from Teacher
+         |
+       &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+----+---+----------+</span>
+    <span class="token comment">//|name|sex|  birthday|</span>
+    <span class="token comment">//+----+---+----------+</span>
+    <span class="token comment">//|  李诚|  男|1958-12-02|</span>
+    <span class="token comment">//|  张旭|  男|1969-03-12|</span>
+    <span class="token comment">//|  王萍|  女|1972-05-05|</span>
+    <span class="token comment">//|  李军|  男|1976-02-20|</span>
+    <span class="token comment">//|  匡明|  男|1975-10-02|</span>
+    <span class="token comment">//|  刘冰|  女|1977-08-14|</span>
+    <span class="token comment">//|  陆君|  男|1974-06-03|</span>
+    <span class="token comment">//|  王芳|  女|1975-02-10|</span>
+    <span class="token comment">//|  王丽|  女|1976-01-23|</span>
+    <span class="token comment">//|  丘东|  男|1977-09-01|</span>
+    <span class="token comment">//+----+---+----------+</span>
+
+    <span class="token comment">/* 32. 查询所有“女”教师和“女”同学的name、sex和birthday. */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select distinct Sname as name,Ssex as sex,Sbirthday as birthday from student where Ssex = &quot;女&quot;
+        |union
+        |select distinct Tname as name,Tsex as sex,Tbirthday as birthday from Teacher where Tsex = &quot;女&quot;
+        |
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+----+---+----------+</span>
+    <span class="token comment">//|name|sex|  birthday|</span>
+    <span class="token comment">//+----+---+----------+</span>
+    <span class="token comment">//|  王萍|  女|1972-05-05|</span>
+    <span class="token comment">//|  刘冰|  女|1977-08-14|</span>
+    <span class="token comment">//|  王芳|  女|1975-02-10|</span>
+    <span class="token comment">//|  王丽|  女|1976-01-23|</span>
+    <span class="token comment">//+----+---+----------+</span>
+
+    <span class="token comment">/* 33. 查询成绩比该课程平均成绩低的同学的成绩表。 */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+       <span class="token triple-quoted-string string">&quot;&quot;&quot;
+         |select * from score s1
+         |where degree &lt; (select avg(degree) from score s2 where s1.Cno = s2.Cno)
+       &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|Sno|  Cno|Degree|</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|107|6-166|    79|</span>
+    <span class="token comment">//|108|6-166|    81|</span>
+    <span class="token comment">//|105|3-245|    75|</span>
+    <span class="token comment">//|109|3-245|    68|</span>
+    <span class="token comment">//|109|3-105|    76|</span>
+    <span class="token comment">//|101|3-105|    64|</span>
+    <span class="token comment">//|108|3-105|    78|</span>
+    <span class="token comment">//+---+-----+------+</span>
+
+    <span class="token comment">/* 34. 查询所有任课教师的Tname和Depart. */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+       <span class="token triple-quoted-string string">&quot;&quot;&quot;
+         |select tname,depart from teacher
+         |where tno in (select tno from course where cno in (select distinct cno from score) )
+       &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+------+</span>
+    <span class="token comment">//|tname|depart|</span>
+    <span class="token comment">//+-----+------+</span>
+    <span class="token comment">//|   张旭| 电子工程系|</span>
+    <span class="token comment">//|   王萍|  计算机系|</span>
+    <span class="token comment">//|   李诚|  计算机系|</span>
+    <span class="token comment">//+-----+------+</span>
+
+    <span class="token comment">/* 35. 查询所有未讲课的教师的Tname和Depart.  */</span>
+   spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+     <span class="token triple-quoted-string string">&quot;&quot;&quot;
+       |select tname,depart from teacher
+       |where tno not in (select tno from course where cno in (select distinct cno from score) )
+     &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+------+</span>
+    <span class="token comment">//|tname|depart|</span>
+    <span class="token comment">//+-----+------+</span>
+    <span class="token comment">//|   刘冰| 电子工程系|</span>
+    <span class="token comment">//+-----+------+</span>
+
+    <span class="token comment">/* 36. 查询至少有2名男生的班号。 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select class from student
+        |where ssex = &quot;男&quot;
+        |group by class having count(class) &gt;= 2
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//|class|</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//|95033|</span>
+    <span class="token comment">//|95031|</span>
+    <span class="token comment">//+-----+</span>
+
+    <span class="token comment">/* 37. 查询Student表中不姓“王”的同学记录。 */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+       <span class="token triple-quoted-string string">&quot;&quot;&quot;
+         |select * from student
+         |where sname not like &quot;王%&quot;
+       &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|Sno|Sname|Ssex| Sbirthday|Class|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|108|   丘东|   男|1977-09-01|95033|</span>
+    <span class="token comment">//|105|   匡明|   男|1975-10-02|95031|</span>
+    <span class="token comment">//|101|   李军|   男|1976-02-20|95033|</span>
+    <span class="token comment">//|103|   陆君|   男|1974-06-03|95031|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+
+    <span class="token comment">/* 38. 查询Student表中每个学生的姓名和年龄。将函数运用到spark sql中去计算，可以直接拿String的类型计算不需要再转换成数值型 默认是会转换成Double类型计算浮点型转整型 */</span>
+
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select Sname,year(current_date)-year(Sbirthday) from student
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+------------------------------------------------------+</span>
+    <span class="token comment">//|Sname|(year(current_date()) - year(CAST(Sbirthday AS DATE)))|</span>
+    <span class="token comment">//+-----+------------------------------------------------------+</span>
+    <span class="token comment">//|   丘东|                                                    43|</span>
+    <span class="token comment">//|   匡明|                                                    45|</span>
+    <span class="token comment">//|   王丽|                                                    44|</span>
+    <span class="token comment">//|   李军|                                                    44|</span>
+    <span class="token comment">//|   王芳|                                                    45|</span>
+    <span class="token comment">//|   陆君|                                                    46|</span>
+    <span class="token comment">//+-----+------------------------------------------------------+</span>
+
+    <span class="token comment">/* 39. 查询Student表中最大和最小的Sbirthday日期值。 时间格式最大值,最小值*/</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select max(Sbirthday),min(Sbirthday) from student
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+--------------+--------------+</span>
+    <span class="token comment">//|max(Sbirthday)|min(Sbirthday)|</span>
+    <span class="token comment">//+--------------+--------------+</span>
+    <span class="token comment">//|    1977-09-01|    1974-06-03|</span>
+    <span class="token comment">//+--------------+--------------+</span>
+
+    <span class="token comment">/* 40. 以班号和年龄从大到小的顺序查询Student表中的全部记录。 查询结果排序*/</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select * from student order by class desc,year(current_date)-year(Sbirthday) desc
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|Sno|Sname|Ssex| Sbirthday|Class|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|107|   王丽|   女|1976-01-23|95033|</span>
+    <span class="token comment">//|101|   李军|   男|1976-02-20|95033|</span>
+    <span class="token comment">//|108|   丘东|   男|1977-09-01|95033|</span>
+    <span class="token comment">//|103|   陆君|   男|1974-06-03|95031|</span>
+    <span class="token comment">//|105|   匡明|   男|1975-10-02|95031|</span>
+    <span class="token comment">//|109|   王芳|   女|1975-02-10|95031|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+
+    <span class="token comment">/* 41. 查询“男”教师及其所上的课程。 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select cname from course,teacher
+        |where teacher.Tno = course.Tno and Tsex = &quot;男&quot;
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//|cname|</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//| 数字电路|</span>
+    <span class="token comment">//| 操作系统|</span>
+    <span class="token comment">//+-----+</span>
+
+    <span class="token comment">/* 42. 查询最高分同学的Sno、Cno和Degree列。  */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select * from score
+        |where degree = (select max(degree) from score)
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|Sno|  Cno|Degree|</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|103|3-105|    92|</span>
+    <span class="token comment">//+---+-----+------+</span>
+
+    <span class="token comment">/* 43. 查询和“李军”同性别的所有同学的Sname.*/</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select sname from student
+        |where ssex = (select ssex from student where sname = &quot;李军&quot;) and sname != &quot;李军&quot;
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//|sname|</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//|   丘东|</span>
+    <span class="token comment">//|   匡明|</span>
+    <span class="token comment">//|   李军|</span>
+    <span class="token comment">//|   陆君|</span>
+    <span class="token comment">//+-----+</span>
+
+    <span class="token comment">/* 44. 查询和“李军”同性别并同班的同学Sname. */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select distinct s1.sname from student s1,student s2
+        |where s1.ssex = s2.ssex and s1.class = s2.class
+        |and s1.sname != &quot;李军&quot;
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//|sname|</span>
+    <span class="token comment">//+-----+</span>
+    <span class="token comment">//|   陆君|</span>
+    <span class="token comment">//|   匡明|</span>
+    <span class="token comment">//|   王芳|</span>
+    <span class="token comment">//|   王丽|</span>
+    <span class="token comment">//|   丘东|</span>
+    <span class="token comment">//+-----+</span>
+
+    <span class="token comment">/* 45. 查询所有选修“计算机导论”课程的“男”同学的成绩表。 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select degree from score,student,course
+        |where score.cno = course.cno
+        |and score.sno = student.sno
+        |and student.ssex = &quot;男&quot;
+        |and course.cname = &quot;计算机导论&quot;
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+------+</span>
+    <span class="token comment">//|degree|</span>
+    <span class="token comment">//+------+</span>
+    <span class="token comment">//|    64|</span>
+    <span class="token comment">//|    92|</span>
+    <span class="token comment">//|    78|</span>
+    <span class="token comment">//|    88|</span>
+    <span class="token comment">//+------+</span>
+
+    <span class="token comment">/* 46. 查询Student表中的所有记录的Sname、Ssex和Class列。 */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+       <span class="token triple-quoted-string string">&quot;&quot;&quot;
+         |select sname,ssex,class from student
+       &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+-----+----+-----+</span>
+    <span class="token comment">//|   丘东|   男|95033|</span>
+    <span class="token comment">//|   匡明|   男|95031|</span>
+    <span class="token comment">//|   王丽|   女|95033|</span>
+    <span class="token comment">//|   李军|   男|95033|</span>
+    <span class="token comment">//|   王芳|   女|95031|</span>
+    <span class="token comment">//|   陆君|   男|95031|</span>
+    <span class="token comment">//+-----+----+-----+</span>
+
+    <span class="token comment">/* 47. 查询教师所有的单位即不重复的Depart列。*/</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+       <span class="token triple-quoted-string string">&quot;&quot;&quot;
+         |select distinct depart from teacher
+       &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+------+</span>
+    <span class="token comment">//|depart|</span>
+    <span class="token comment">//+------+</span>
+    <span class="token comment">//| 电子工程系|</span>
+    <span class="token comment">//|  计算机系|</span>
+    <span class="token comment">//+------+</span>
+
+    <span class="token comment">/* 48. 查询Student表的所有记录 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select * from student
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|Sno|Sname|Ssex| Sbirthday|Class|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+    <span class="token comment">//|108|   丘东|   男|1977-09-01|95033|</span>
+    <span class="token comment">//|105|   匡明|   男|1975-10-02|95031|</span>
+    <span class="token comment">//|107|   王丽|   女|1976-01-23|95033|</span>
+    <span class="token comment">//|101|   李军|   男|1976-02-20|95033|</span>
+    <span class="token comment">//|109|   王芳|   女|1975-02-10|95031|</span>
+    <span class="token comment">//|103|   陆君|   男|1974-06-03|95031|</span>
+    <span class="token comment">//+---+-----+----+----------+-----+</span>
+
+    <span class="token comment">/* 49. 查询Score表中成绩在60到80之间的所有记录。 */</span>
+    spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+      <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        |select * from score where degree &gt; 60 and degree &lt; 80
+      &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|Sno|  Cno|Degree|</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|105|3-245|    75|</span>
+    <span class="token comment">//|109|3-245|    68|</span>
+    <span class="token comment">//|109|3-105|    76|</span>
+    <span class="token comment">//|101|3-105|    64|</span>
+    <span class="token comment">//|108|3-105|    78|</span>
+    <span class="token comment">//|107|6-166|    79|</span>
+    <span class="token comment">//+---+-----+------+</span>
+
+    <span class="token comment">/* 50. 查询Score表中成绩为85，86或88的记录。 */</span>
+     spark<span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span>
+       <span class="token triple-quoted-string string">&quot;&quot;&quot;
+         |select * from score where Degree in (85,86,88)
+       &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|Sno|  Cno|Degree|</span>
+    <span class="token comment">//+---+-----+------+</span>
+    <span class="token comment">//|103|3-245|    86|</span>
+    <span class="token comment">//|105|3-105|    88|</span>
+    <span class="token comment">//|101|6-166|    85|</span>
+    <span class="token comment">//+---+-----+------+</span>
+
+
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/sql/SQL类型题总结.html" class="prev">
+        SQL类型题总结
+      </a></span> <span class="next"><a href="/./datahouse/sql/Spark基础能力测试题.html">
+        Spark基础能力测试题
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/101.8a31dcdc.js" defer></script>
+  </body>
+</html>

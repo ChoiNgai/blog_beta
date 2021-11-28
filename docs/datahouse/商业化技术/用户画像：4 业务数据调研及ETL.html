@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>用户画像：业务数据调研及ETL | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/111.12c174e7.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>商业化技术</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E5%95%86%E4%B8%9A%E5%8C%96%E6%8A%80%E6%9C%AF/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/商业化技术/广告技术：腾讯广告大数据平台核心架构设计.html" class="sidebar-link">广告技术：腾讯广告大数据平台核心架构设计</a></li><li><a href="/./datahouse/商业化技术/广告风控：计算广告反作弊概述.html" class="sidebar-link">广告风控：计算广告反作弊概述</a></li><li><a href="/./datahouse/商业化技术/用户画像：1 概述.html" class="sidebar-link">用户画像：概述</a></li><li><a href="/./datahouse/商业化技术/用户画像：2 数据标签体系.html" class="sidebar-link">用户画像：数据标签体系</a></li><li><a href="/./datahouse/商业化技术/用户画像：3 标签数据存储.html" class="sidebar-link">用户画像：标签数据存储</a></li><li><a href="/./datahouse/商业化技术/用户画像：4 业务数据调研及ETL.html" class="active sidebar-link">用户画像：业务数据调研及ETL</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：4 业务数据调研及ETL.html#数据架构" class="sidebar-link">数据架构</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：4 业务数据调研及ETL.html#业务数据etl" class="sidebar-link">业务数据ETL</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：4 业务数据调研及ETL.html#mysql数据库" class="sidebar-link">Mysql数据库</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：4 业务数据调研及ETL.html#用户订单表结构" class="sidebar-link">用户订单表结构</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：4 业务数据调研及ETL.html#maxcompute数据仓库" class="sidebar-link">Maxcompute数据仓库</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：4 业务数据调研及ETL.html#datax同步" class="sidebar-link">Datax同步</a></li></ul></li></ul></li><li><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html" class="sidebar-link">用户画像：统计类标签数据开发</a></li><li><a href="/./datahouse/商业化技术/用户画像：6 开发性能调优.html" class="sidebar-link">用户画像：开发性能调优</a></li><li><a href="/./datahouse/商业化技术/用户画像：7 机器学习基础.html" class="sidebar-link">用户画像：机器学习基础</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="用户画像-业务数据调研及etl"><a href="#用户画像-业务数据调研及etl" class="header-anchor">#</a> 用户画像：业务数据调研及ETL</h1> <h2 id="数据架构"><a href="#数据架构" class="header-anchor">#</a> 数据架构</h2> <p>在用户画像简介的文章中，介绍了一个企业通用的用户画像的数据架构，也就是一个典型的Lambda架构，将数据存储、计算分别分为离线层与在线层(实时层)。这里参考用户画像工程化一书：</p> <p>在整个工程化方案中，系统依赖的基础设施包括<strong>Spark、Hive、HBase、Airflow、MySQL、Redis、Elasticsearch</strong>。除去基础设施外，系统主体还包括Flink、ETL、产品端** 3个重要组成部分。图 2-1 所示是用户画像数仓架构图，下面对其进行详细介绍。</p> <p><img src="https://gitee.com/joeyooa/data-images/raw/master/note/2021/yonghuhuaxiangjiagou.png" alt=""></p> <p>上面虚线框中为常见的<strong>数据仓库ETL加工流程</strong>，也就是将<strong>每日的业务数据、日志数据、埋点数据等经过ETL过程，加工到数据仓库对应的ODS层、DW层、DM层中</strong>。</p> <p>中间的虚线框即为用户画像建模的主要环节，<strong>用户画像不是产生数据的源头，而是对基于数据仓库ODS层、DW层、DM层中与用户相关数据的二次建模加工</strong>。在ETL过程中将用户标签计算结果写入<strong>Hive</strong>，由于不同数据库有不同的应用场景，后续需要进一步将数据同步到<code>MySQL</code>、<code>HBase</code>、<code>Elasticsearch</code> 等数据库中。</p> <ul><li>Hive：<strong>存储用户标签计算结果</strong>、<strong>用户人群计算结果</strong>、<strong>用户特征库计算结果</strong></li> <li>MySQL：<strong>存储标签元数据</strong>，<strong>监控相关数据</strong>，<strong>导出到业务系统的数据</strong></li> <li>HBase：<strong>存储线上接口实时调用类数据</strong></li> <li>Elasticserch：<strong>支持海量数据的实时查询分析</strong>，<strong>用于存储用户人群计算、用户群透视分析所需的用户标签数据</strong>（由于用户人群计算、用户群透视分析的条件转化成的SQL语句多条件嵌套较为复杂，使用 Impala 执行也需花费大量时间）</li></ul> <p><strong>用户标签数据在Hive中加工完成后，部分标签通过Sqoop同步到MySQL数据库，提供用于BI报表展示的数据、多维透视分析数据、圈人服务数据；另一部分标签同步到HBase数据库用于产品的线上个性化推荐</strong></p> <h2 id="业务数据etl"><a href="#业务数据etl" class="header-anchor">#</a> 业务数据ETL</h2> <h3 id="mysql数据库"><a href="#mysql数据库" class="header-anchor">#</a> Mysql数据库</h3> <p>在数仓系统中，庞大业务数据的数据都是存在mysql数据库中，然后使用Sqoop/Datax等工具同步到Hive中。在这里不关注与数仓的建模实现等，只关心标签数据的开发。在实时数仓项目中，使用数据模拟脚本模拟了订单系统的一些业务表。</p> <p>在<code>gmall2021</code>数据库中存在47张业务表，只同步<code>order_info</code>表中的部分字段。</p> <h3 id="用户订单表结构"><a href="#用户订单表结构" class="header-anchor">#</a> 用户订单表结构</h3> <div class="language-sql extra-class"><pre class="language-sql"><code>mysql<span class="token operator">&gt;</span> <span class="token keyword">desc</span> order_info<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">------------------------+---------------+------+-----+---------+----------------+</span>
+<span class="token operator">|</span> Field                  <span class="token operator">|</span> <span class="token keyword">Type</span>          <span class="token operator">|</span> <span class="token boolean">Null</span> <span class="token operator">|</span> <span class="token keyword">Key</span> <span class="token operator">|</span> <span class="token keyword">Default</span> <span class="token operator">|</span> Extra          <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">------------------------+---------------+------+-----+---------+----------------+</span>
+<span class="token operator">|</span> id                     <span class="token operator">|</span> <span class="token keyword">bigint</span>        <span class="token operator">|</span> <span class="token keyword">NO</span>   <span class="token operator">|</span> PRI <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span> <span class="token keyword">auto_increment</span> <span class="token operator">|</span>
+<span class="token operator">|</span> consignee              <span class="token operator">|</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>  <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> consignee_tel          <span class="token operator">|</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>   <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> total_amount           <span class="token operator">|</span> <span class="token keyword">decimal</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> order_status           <span class="token operator">|</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>   <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> user_id                <span class="token operator">|</span> <span class="token keyword">bigint</span>        <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> payment_way            <span class="token operator">|</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>   <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> delivery_address       <span class="token operator">|</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span> <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> order_comment          <span class="token operator">|</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span>  <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> out_trade_no           <span class="token operator">|</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span>   <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> trade_body             <span class="token operator">|</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span>  <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> create_time            <span class="token operator">|</span> <span class="token keyword">datetime</span>      <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> operate_time           <span class="token operator">|</span> <span class="token keyword">datetime</span>      <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> expire_time            <span class="token operator">|</span> <span class="token keyword">datetime</span>      <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> process_status         <span class="token operator">|</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>   <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> tracking_no            <span class="token operator">|</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>  <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> parent_order_id        <span class="token operator">|</span> <span class="token keyword">bigint</span>        <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> img_url                <span class="token operator">|</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span>  <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> province_id            <span class="token operator">|</span> <span class="token keyword">int</span>           <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> activity_reduce_amount <span class="token operator">|</span> <span class="token keyword">decimal</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> coupon_reduce_amount   <span class="token operator">|</span> <span class="token keyword">decimal</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> original_total_amount  <span class="token operator">|</span> <span class="token keyword">decimal</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> feight_fee             <span class="token operator">|</span> <span class="token keyword">decimal</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> feight_fee_reduce      <span class="token operator">|</span> <span class="token keyword">decimal</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">|</span> refundable_time        <span class="token operator">|</span> <span class="token keyword">datetime</span>      <span class="token operator">|</span> YES  <span class="token operator">|</span>     <span class="token operator">|</span> <span class="token boolean">NULL</span>    <span class="token operator">|</span>                <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">------------------------+---------------+------+-----+---------+----------------+</span>
+<span class="token number">25</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.02</span> sec<span class="token punctuation">)</span>
+</code></pre></div><p>可以看到<code>order_info</code>表的字段信息，为实现demo，我们只同步部分字段到数仓中。</p> <h3 id="maxcompute数据仓库"><a href="#maxcompute数据仓库" class="header-anchor">#</a> Maxcompute数据仓库</h3> <p>在离线数仓的选型上，绝大部分公司都是选择Hadoop体系中的Hive，我比较懒，懒得搭建Hdoop、Hive等服务，所以直接白嫖阿里云提供的大数据服务吧，关于Maxcompute的介绍可以参考阿里云官网，Maxcompute可以看做是Hive的阿里云商业版实现。</p> <ul><li><p>开通阿里云Maxcompute服务，并创建project(相当于数据库)</p></li> <li><p>创建ODPS对应的order_info表</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> ods_order_info
+<span class="token punctuation">(</span>
+    id                     <span class="token keyword">BIGINT</span>  <span class="token punctuation">,</span>
+    total_amount           <span class="token keyword">DOUBLE</span>  <span class="token punctuation">,</span>
+    order_status           STRING  <span class="token punctuation">,</span>
+    user_id                <span class="token keyword">BIGINT</span>  <span class="token punctuation">,</span>
+    payment_way            STRING  <span class="token punctuation">,</span>
+    delivery_address       STRING  <span class="token punctuation">,</span>
+    create_time            <span class="token keyword">DATETIME</span><span class="token punctuation">,</span>
+    operate_time           <span class="token keyword">DATETIME</span><span class="token punctuation">,</span>
+    province_id            <span class="token keyword">BIGINT</span>  <span class="token punctuation">,</span>
+    activity_reduce_amount <span class="token keyword">DOUBLE</span>  <span class="token punctuation">,</span>
+    coupon_reduce_amount   <span class="token keyword">DOUBLE</span>  <span class="token punctuation">,</span>
+    original_total_amount  <span class="token keyword">DOUBLE</span>  
+<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+</code></pre></div></li></ul> <h3 id="datax同步"><a href="#datax同步" class="header-anchor">#</a> Datax同步</h3> <p><a href="https://github.com/alibaba/DataX" target="_blank" rel="noopener noreferrer">datax文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <ul><li><p>Datax同步mysql表order_info数据到ODPS</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;job&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">&quot;setting&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+            <span class="token property">&quot;speed&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                <span class="token property">&quot;channel&quot;</span><span class="token operator">:</span><span class="token number">3</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;errorLimit&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                <span class="token property">&quot;record&quot;</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;percentage&quot;</span><span class="token operator">:</span><span class="token number">0.02</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;content&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">&quot;reader&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                    <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;mysqlreader&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;parameter&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                        <span class="token property">&quot;username&quot;</span><span class="token operator">:</span><span class="token string">&quot;root&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;password&quot;</span><span class="token operator">:</span><span class="token string">&quot;******&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;column&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>
+                            <span class="token string">&quot;id&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;total_amount&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;order_status&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;user_id&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;payment_way&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;delivery_address&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;create_time&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;operate_time&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;province_id&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;activity_reduce_amount&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;coupon_reduce_amount&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;original_total_amount&quot;</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;splitPk&quot;</span><span class="token operator">:</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;connection&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span>
+                                <span class="token property">&quot;table&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>
+                                    <span class="token string">&quot;order_info&quot;</span>
+                                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                                <span class="token property">&quot;jdbcUrl&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>
+                                    <span class="token string">&quot;jdbc:mysql://localhost:3306/gmall2021&quot;</span>
+                                <span class="token punctuation">]</span>
+                            <span class="token punctuation">}</span>
+                        <span class="token punctuation">]</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;writer&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                    <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;odpswriter&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;parameter&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                        <span class="token property">&quot;project&quot;</span><span class="token operator">:</span><span class="token string">&quot;hadoop101&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;table&quot;</span><span class="token operator">:</span><span class="token string">&quot;ods_order_info&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;column&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>
+                            <span class="token string">&quot;id&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;total_amount&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;order_status&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;user_id&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;payment_way&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;delivery_address&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;create_time&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;operate_time&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;province_id&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;activity_reduce_amount&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;coupon_reduce_amount&quot;</span><span class="token punctuation">,</span>
+                            <span class="token string">&quot;original_total_amount&quot;</span>
+                        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;accessId&quot;</span><span class="token operator">:</span><span class="token string">&quot;******&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;accessKey&quot;</span><span class="token operator">:</span><span class="token string">&quot;******&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;truncate&quot;</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;odpsServer&quot;</span><span class="token operator">:</span><span class="token string">&quot;http://service.odps.aliyun.com/api&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;tunnelServer&quot;</span><span class="token operator">:</span><span class="token string">&quot;http://dt.odps.aliyun.com&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;accountType&quot;</span><span class="token operator">:</span><span class="token string">&quot;aliyun&quot;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/商业化技术/用户画像：3 标签数据存储.html" class="prev">
+        用户画像：标签数据存储
+      </a></span> <span class="next"><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html">
+        用户画像：统计类标签数据开发
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/111.12c174e7.js" defer></script>
+  </body>
+</html>

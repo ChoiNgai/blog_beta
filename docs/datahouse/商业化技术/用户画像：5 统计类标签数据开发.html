@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>用户画像：统计类标签数据开发 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/112.8f45d1d2.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>商业化技术</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E5%95%86%E4%B8%9A%E5%8C%96%E6%8A%80%E6%9C%AF/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/商业化技术/广告技术：腾讯广告大数据平台核心架构设计.html" class="sidebar-link">广告技术：腾讯广告大数据平台核心架构设计</a></li><li><a href="/./datahouse/商业化技术/广告风控：计算广告反作弊概述.html" class="sidebar-link">广告风控：计算广告反作弊概述</a></li><li><a href="/./datahouse/商业化技术/用户画像：1 概述.html" class="sidebar-link">用户画像：概述</a></li><li><a href="/./datahouse/商业化技术/用户画像：2 数据标签体系.html" class="sidebar-link">用户画像：数据标签体系</a></li><li><a href="/./datahouse/商业化技术/用户画像：3 标签数据存储.html" class="sidebar-link">用户画像：标签数据存储</a></li><li><a href="/./datahouse/商业化技术/用户画像：4 业务数据调研及ETL.html" class="sidebar-link">用户画像：业务数据调研及ETL</a></li><li><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html" class="active sidebar-link">用户画像：统计类标签数据开发</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html#统计类标签开发" class="sidebar-link">统计类标签开发</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html#近30日购买行为标签" class="sidebar-link">近30日购买行为标签</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html#最近来访标签" class="sidebar-link">最近来访标签</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html#开发流程" class="sidebar-link">开发流程</a></li></ul></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html#规则类标签开发" class="sidebar-link">规则类标签开发</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html#用户价值类标签" class="sidebar-link">用户价值类标签</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html#用户活跃度标签案例" class="sidebar-link">用户活跃度标签案例</a></li></ul></li></ul></li><li><a href="/./datahouse/商业化技术/用户画像：6 开发性能调优.html" class="sidebar-link">用户画像：开发性能调优</a></li><li><a href="/./datahouse/商业化技术/用户画像：7 机器学习基础.html" class="sidebar-link">用户画像：机器学习基础</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="用户画像-统计类标签数据开发"><a href="#用户画像-统计类标签数据开发" class="header-anchor">#</a> 用户画像：统计类标签数据开发</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>标签数据开发是用户画像体系搭建中最主要的环节，主要包括离线标签开发、实时类标签开发、用户特征库开发、打通数据服务层等开发内容。</p> <ul><li>离线类标签开发主要围绕前面数据标签体系中提到的统计类、规则类、挖掘类标签展开，这类标签占全部标签的绝大部分；</li> <li>实时类标签主要针对给用户展现实时性较强的场景开发相关数据，如首页新人弹窗、新人红包推送等一些特殊的业务场景；</li> <li>用户特征库围绕用户的关键行为计算相应标签数据，如浏览、搜索、收藏、下单、评论、分析等行为；</li> <li>人群计算在数据服务层之前，业务方通过用户的标签来筛选对应人群，通过人群计算功能组合标签划分出对应的人群，也就是<code>标签分组</code>；</li> <li>打通数据服务层将业务方根据业务规则圈定出来的用户推送到不同的业务系统中去</li></ul> <p><img src="https://gitee.com/joeyooa/data-images/raw/master/note/2021/image-20210614230411048.png" alt=""></p> <h2 id="统计类标签开发"><a href="#统计类标签开发" class="header-anchor">#</a> 统计类标签开发</h2> <p>统计类标签是以标签类型来划分的，是指统计用户相关数值、客观描述用户状态的标签。如果从标签的组织维度来看，统计类标签包含了所有维度的标签，如：用户属性、用户行为、用户消费等。如用户性别、年龄、vip等级、注册渠道、累计购买金额、最近30天访问次数等。</p> <p>userId维度用户标签表：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> user_profile_action_all
+<span class="token punctuation">(</span>
+    user_id STRING <span class="token keyword">COMMENT</span> <span class="token string">'用户id'</span><span class="token punctuation">,</span>
+    <span class="token keyword">value</span>   STRING <span class="token keyword">COMMENT</span> <span class="token string">'标签权重'</span>
+<span class="token punctuation">)</span> 
+<span class="token keyword">COMMENT</span> <span class="token string">'人口属性维度用户标签表'</span>
+PARTITIONED <span class="token keyword">BY</span>
+<span class="token punctuation">(</span>
+    dt      STRING <span class="token keyword">COMMENT</span> <span class="token string">'日期分区'</span><span class="token punctuation">,</span>
+    tag_id  STRING <span class="token keyword">COMMENT</span> <span class="token string">'标签id'</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="近30日购买行为标签"><a href="#近30日购买行为标签" class="header-anchor">#</a> 近30日购买行为标签</h3> <p>对近30日购买行为这个二级标签进行拆解，可以拆解为：付款订单量(对应标签&quot;ACTION_U_01_001&quot;)、总付款金额(对应标签&quot;ACTION_U_01_002&quot;)、加购次数(&quot;ACTION_U_01_003&quot;)这3个标签。</p> <h3 id="最近来访标签"><a href="#最近来访标签" class="header-anchor">#</a> 最近来访标签</h3> <ul><li>从用户浏览行为日志中统计用户<code>最近一次来访距今天数</code></li></ul> <h3 id="开发流程"><a href="#开发流程" class="header-anchor">#</a> 开发流程</h3> <ul><li>基于hive sql/spark sql对定义好的标签进行统计计算出权重值</li> <li>将计算好的标签插入到userId维度用户标签竖表中</li></ul> <p>整体来说，统计类标签的开发都非常简单，数仓中写sql计算即可，对程序猿来说那都不是事儿。其实比较重要的是，在设计、开发标签的时候，多从产品的角度去理解标签。比如开发一个近30日购买行为标签的标签，是为了了解用户的消费水平，可以结合其他标签属性对用户做精准投放等。</p> <h2 id="规则类标签开发"><a href="#规则类标签开发" class="header-anchor">#</a> 规则类标签开发</h2> <p>规则类标签一般是根据业务运营的需要，在业务层面制定规则的标签。这类标签会带有认为主观判断的因素，所以在开发前需要先进行数据调研，然后根据业务规则开发相应标签。</p> <h3 id="用户价值类标签"><a href="#用户价值类标签" class="header-anchor">#</a> 用户价值类标签</h3> <h4 id="rfm模型"><a href="#rfm模型" class="header-anchor">#</a> RFM模型</h4> <p>RFM模型是衡量当前用户价值和客户潜在价值的重要工具和手段。RFM模型由3个基础指标组成：</p> <ul><li>最近一次消费距离现在的时间 (Recency)：这个值越小对我们来说价值越大；</li> <li>某段时间内消费频率次数 (Frequency)：这个值越大越好</li> <li>某段时间内消费金额 (Monetary)：这个值越大越好</li></ul> <p>基于这3个基础指标进行组合可以划分出8类人群：</p> <table><thead><tr><th>R</th> <th>F</th> <th>M</th> <th>用户类型</th> <th>备注</th></tr></thead> <tbody><tr><td>高</td> <td>高</td> <td>高</td> <td>重要价值用户</td> <td>交易频繁、交易量大，但长时间没有交易，有流失风险</td></tr> <tr><td>低</td> <td>高</td> <td>高</td> <td>重要保持用户</td> <td>交易频繁、交易量大且最近一次交易间隔短，优质客户群</td></tr> <tr><td>高</td> <td>低</td> <td>高</td> <td>重要发展用户</td> <td>购买量大，但交易不频繁，可以采用营销手段来吸引</td></tr> <tr><td>低</td> <td>低</td> <td>高</td> <td>重要挽留用户</td> <td>最近一次交易时间短、购买金额大，但频率不高，具有很高潜在价值</td></tr> <tr><td>高</td> <td>高</td> <td>低</td> <td>一般价值用户</td> <td>购买频率较高，但长时间没有交易且金额较低，已经很难获取更多利润</td></tr> <tr><td>低</td> <td>高</td> <td>低</td> <td>一般保持用户</td> <td>活跃用户，但购买能力有限</td></tr> <tr><td>高</td> <td>低</td> <td>低</td> <td>一般发展用户</td> <td>低价值用户</td></tr> <tr><td>低</td> <td>低</td> <td>低</td> <td>一般挽留用户</td> <td></td></tr></tbody></table> <h4 id="确定rfm的值"><a href="#确定rfm的值" class="header-anchor">#</a> 确定RFM的值</h4> <p>在开发对应的标签前需要进行数据调研。根据对数据仓库中拉取的用户消费相关数据进行分析后得出用户这3个维度的指标在数值上划分的界限。</p> <p>本案例中根据对这3个维度的数据调研，得到用户最近一次交易时间的分布情况，如图4-3所示。</p> <p><img src="https://gitee.com/joeyooa/data-images/raw/master/note/2021/d2e2afaeb6e197b7.jpg" alt="img"></p> <ul><li><p>根据累计用户量的占比，可按照二八比例进行划分，将最近一次交易时间距今0，到90日的用户划分为“近”，将最近一次交易时间距今90日以上的用户划分为“远”。</p> <p>本案例中用户近一年交易订单量的分布情况如图4-4所示。</p> <p><img src="https://gitee.com/joeyooa/data-images/raw/master/note/2021/ecf43fc03102feca.jpg" alt="img"></p></li> <li><p>根据累计用户量的占比，按二八比例进行划分，将历史交易订单量在3单以下的用户划分为低频，将交易订单量在3单及以上的用户划分为高频。</p> <p>案例中用户历史交易金额分布情况如图4-5所示。</p> <p><img src="https://gitee.com/joeyooa/data-images/raw/master/note/2021/1962688e84c89796.jpg" alt="img"></p></li> <li><p>根据用户近一年交易金额情况，将交易金额在300元以下的用户划分为“低额”，将交易金额大于300元的用户划分为“高额”。</p></li> <li><p>经过上面从3个维度对用户的数据调研，对这3个维度进行交叉分析（R≤90为“近”，R&gt;90为“远”，F≤3为“低频次”，F&gt;3为“高频次”，M≤300为“低额”，M&gt;300为“高额”），划分出以下8类人群，如图4-6所示。</p></li></ul> <h4 id="数据开发"><a href="#数据开发" class="header-anchor">#</a> 数据开发</h4> <ul><li><p>在对业务数据进行调研后开发相关标签。首先从用户消费订单表（dw.user_consume_order_info）里面获取用户最近一次消费距今天数、累计消费次数、累计消费金额这3个维度的数据，并注册视图“user_rfm_info”。执行如下代码：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment"># 用户RFM维度数据 </span>
+user_rfm_info <span class="token operator">=</span>  <span class="token string">&quot; select user_id,                                           
+         last_1y_orders,                          
+         last_1y_order_amount,                    
+         last_payid_date
+    from dw.order_info_fact                          
+   where data_date = &quot;</span>start_date_str <span class="token string">&quot;        
+     and last_order_paid_time is not null                                     
+group by  user_id,                                                             
+          last_1y_orders,                          
+          last_1y_order_amount,                    
+          last_payid_date&quot;</span>
+</code></pre></div></li> <li><p>根据前面的数据调度得出的结论，按照最近一次购买距今天数90天、购买次数3次、消费金额500元来对用户3个维度的价值进行高低层次的划分。将划分的结果注册到视图“user_rfm”中。</p> <div class="language-sql extra-class"><pre class="language-sql"><code>user_rfm <span class="token operator">=</span> <span class="token string">&quot; select user_id,                                                     
+             case when datediff(&quot;</span><span class="token operator">+</span><span class="token string">&quot;'&quot;</span><span class="token operator">+</span>date_str<span class="token operator">+</span><span class="token string">&quot;'&quot;</span><span class="token operator">+</span>&quot;<span class="token punctuation">,</span>latest_payid_date<span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">90</span> <span class="token keyword">then</span> <span class="token string">'近'</span>
+             <span class="token keyword">else</span> <span class="token string">'远'</span> <span class="token keyword">end</span> <span class="token keyword">as</span> latestday<span class="token punctuation">,</span>                                            
+             <span class="token keyword">case</span> <span class="token keyword">when</span> latest_1y_paid_orders <span class="token operator">&lt;</span> <span class="token number">3</span> <span class="token keyword">then</span> <span class="token string">'低频'</span>                           
+             <span class="token keyword">else</span> <span class="token string">'高频'</span> <span class="token keyword">end</span> <span class="token keyword">as</span> latest_ly_orders<span class="token punctuation">,</span>                                         
+             <span class="token keyword">case</span> <span class="token keyword">when</span> latest_1y_paid_order_amount <span class="token operator">&lt;</span> <span class="token number">500</span> <span class="token keyword">then</span> <span class="token string">'低额'</span>                    
+             <span class="token keyword">else</span> <span class="token string">'高额'</span> <span class="token keyword">end</span> <span class="token keyword">as</span> latest_ly_order_amount
+     <span class="token keyword">from</span> user_rfm_info
+</code></pre></div></li> <li><p>最后将每个用户按3个维度的打分情况划分到8类人群中去，将结果插入到用户标签表中，执行如下脚本。</p> <div class="language-sql extra-class"><pre class="language-sql"><code>insert_table <span class="token operator">=</span> <span class="token string">&quot;insert overwrite table dw. userprofile_attritube_all  partition(data_date=&quot;</span>start_date_str<span class="token string">&quot;,labelid='${lableid}')   
+select case 
+           when latestday = '近' and latest_1y_orders = '高频' and latest_1y_order_amount = '高额' then 'ATTRITUBE_U_06_001'  
+           when latestday = '远' and latest_1y_orders = '高频' and latest_1y_order_amount = '高额' then 'ATTRITUBE_U_06_002'  
+           when latestday = '近' and latest_1y_orders = '低频' and latest_1y_order_amount = '高额' then 'ATTRITUBE_U_06_003'  
+           when latestday = '远' and latest_1y_orders = '低频' and latest_1y_order_amount = '高额' then 'ATTRITUBE_U_06_004'  
+           when latestday = '近' and latest_1y_orders = '高频' and latest_1y_order_amount = '低额' then 'ATTRITUBE_U_06_005'  
+           when latestday = '远' and latest_1y_orders = '高频' and latest_1y_order_amount = '低额' then 'ATTRITUBE_U_06_006'  
+           when latestday = '近' and latest_1y_orders = '低频' and latest_1y_order_amount = '低额' then 'ATTRITUBE_U_06_007'  
+        else 'ATTRITUBE_U_06_008' end as labelid,                                                           
+        user_id as userid,       
+        '' as labelweight                       
+   from user_rfm &quot;</span>    <span class="token comment"># user_rfm 是上一步注册的视图</span>
+</code></pre></div></li> <li><p>执行后结果</p> <p><img src="https://gitee.com/joeyooa/data-images/raw/master/note/2021/b2274d6b5582b7c1.jpg" alt="img"></p></li></ul> <h3 id="用户活跃度标签案例"><a href="#用户活跃度标签案例" class="header-anchor">#</a> 用户活跃度标签案例</h3> <h4 id="用户活跃度"><a href="#用户活跃度" class="header-anchor">#</a> 用户活跃度</h4> <p>在业务场景中，经常需要根据用户的活跃情况给用户打上高活跃、中活跃、低活跃、流失等标签，如何划定时间范围，如将××天未访问的用户定义为流失用户，将××天内活跃×次的用户定义为高活跃用户，需要结合业务数据调研情况来确定数值。</p> <p>下面通过一个打用户活跃度标签的案例来进行介绍。</p> <p>首先需要划分用户的流失周期，在流失周期内，根据用户的活跃情况进一步将其划分为高活跃、中活跃、低活跃。在业务上划分用户的流失周期时有多种方式。例如：</p> <ul><li><p>根据用户回访率来划分：初始日期圈定的一批首次访问用户，观察后续时间内该批用户仍有访问行为的占初始用户的比例。随着时间的推移，该比例逐渐降低。当曲线出现明显下降时可划分为流失周期（如图4-8所示）。</p></li> <li><p>统计用户最后一次访问与倒数第二次访问之间的时间间隔，可认为大于这个时间间隔后用户基本不会再访问，即用户已经流失。然后统计各时间段内用户人数的占比，累计占比达到一定比例时可认为大部分用户在这段时间后已经流失。根据图4-8所示的用户回访率曲线图，可认为30日为用户的流失周期。</p> <p><img src="https://gitee.com/joeyooa/data-images/raw/master/note/2021/90522cb2b8cc9409.jpg" alt="img"></p></li> <li><p>从图4-8可以看出，用户在第5周以后回访率下降速度减慢，回访率已经低于10%且后续趋势保持平稳。第5周作为拐点即为用户流失周期，流失的关键指标是用户没有访问App的行为。</p></li> <li><p>从图4-9还可以看出，用户最后一次访问与倒数第二次访问间隔30日以上的用户占比不足10%，可认为大于这个访问时间间隔的用户已流失，即最后一次访问距今30日以上的用户可认为已流失。</p></li> <li><p>根据上面介绍的划定用户流失周期的方法，这里假定在该公司的业务场景中30日为用户流失周期，近30日没有访问行为的用户划定为已流失用户。在30日流失周期内，进一步根据用户访问天数来对用户活跃度进行划分。</p> <p><img src="https://gitee.com/joeyooa/data-images/raw/master/note/2021/9d1da604c7abc95a.jpg" alt="img"></p></li> <li><p>经过对数据的调研分析，从图4-10可以看出，活跃10日以上的用户占近30日访问用户量的20%，按照二八划分的方法把这批用户划为高活跃用户，进一步把活跃5~10日的用户划分为中活跃用户，把活跃1~5日的用户划分为低活跃用户。另外，从GMV占比和客单价来看，占20%的高活跃用户贡献了近60%的GMV，客单价明细高于中活跃、低活跃用户群体。</p> <p><img src="https://gitee.com/joeyooa/data-images/raw/master/note/2021/53aba9d6b1ed1fe6.jpg" alt="img"></p></li></ul> <h4 id="数据开发-2"><a href="#数据开发-2" class="header-anchor">#</a> 数据开发</h4> <p>根据数据调研分析的结果，以30日为界划分流失周期，将最后一次访问距今大于30日的用户划定为已流失用户，30日内活跃10~30天的用户划定为高活跃用户，30日内活跃5~10天的用户划定为中活跃用户，30日内活跃少于5天的用户划定为低活跃用户。根据划分的口径开发相应的标签，执行如下脚本：</p> <ul><li><p>计算近30日有过访问行为的用户及其访问天数，并注册临时视图“user_active”。</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment"># 近30日全量用户</span>
+user_active <span class="token operator">=</span> <span class="token string">&quot; select t.user_id,                   
+                     count(*) as visit_num                    
+               from (select user_id, data_date                        
+                        from ods.user_visit_info               
+                       where data_date &gt;= &quot;</span>month_day_ago<span class="token string">&quot;  
+                         and data_date &lt;= &quot;</span>start_date <span class="token string">&quot;   
+                         and user_id is not null              
+                   group by user_id, data_date
+                        ) t                     
+         group by t.user_id &quot;</span>
+</code></pre></div></li> <li><p>将视图中的数据插入到用户标签表dw.userprofile_attribute_all中，执行如下代码：</p> <div class="language-sql extra-class"><pre class="language-sql"><code>user_active_status <span class="token operator">=</span> <span class="token string">&quot; insert overwrite table userprofile_attritube_all partition(data_date=&quot;</span>data_date<span class="token string">&quot;,labelid='${labelid}') 
+       select t.labelid,                
+             t.user_id as userid,      
+             t.tagweight as labelweight
+       from (                          
+            select user_id, 
+                   case when visit_num &lt;=5 then 'ACTION_U_05_001' 
+                        when visit_num &gt;5 and visit_num&lt;=10 then 'ACTION_U_05_002'
+                        else 'ACTION_U_05_003' end as tagid,
+                    visit_num as labelweight
+              from user_active 
+             ) t &quot;</span>
+</code></pre></div></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/商业化技术/用户画像：4 业务数据调研及ETL.html" class="prev">
+        用户画像：业务数据调研及ETL
+      </a></span> <span class="next"><a href="/./datahouse/商业化技术/用户画像：6 开发性能调优.html">
+        用户画像：开发性能调优
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/112.8f45d1d2.js" defer></script>
+  </body>
+</html>

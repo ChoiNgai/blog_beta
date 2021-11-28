@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ElasticSearch入门 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/9.7d490254.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Elasticsearch</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="active sidebar-link">ElasticSearch入门</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#elasticsearch概述" class="sidebar-link">ElasticSearch概述</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#es-和-solr-的差别" class="sidebar-link">ES 和 solr 的差别</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#elasticsearch-简介" class="sidebar-link">Elasticsearch 简介</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#solr-简介" class="sidebar-link">Solr 简介</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#lucene简介" class="sidebar-link">Lucene简介</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#elasticsearch和solr比较" class="sidebar-link">Elasticsearch和Solr比较</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#elasticsearch-vs-solr-总结" class="sidebar-link">ElasticSearch vs Solr 总结</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#安装elasticsearch" class="sidebar-link">安装elasticsearch</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#上传安装包到linux并解压" class="sidebar-link">上传安装包到linux并解压</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#目录结构" class="sidebar-link">目录结构</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#修改配置文件" class="sidebar-link">修改配置文件</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#添加用户" class="sidebar-link">添加用户</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#启动es" class="sidebar-link">启动es</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#启动与暂停" class="sidebar-link">启动与暂停</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#安装elasticsearch-head-方法1" class="sidebar-link">安装elasticsearch-head(方法1)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#安装npm" class="sidebar-link">安装npm</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#安装cnpm" class="sidebar-link">安装cnpm</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#下载依赖" class="sidebar-link">下载依赖</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#安装elasticsearch-head-方法2" class="sidebar-link">安装elasticsearch-head(方法2)</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#安装kibana" class="sidebar-link">安装Kibana</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#了解elk" class="sidebar-link">了解ELK</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#kibana的安装" class="sidebar-link">Kibana的安装</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#踩坑" class="sidebar-link">踩坑</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#es的核心概念" class="sidebar-link">ES的核心概念</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#概述" class="sidebar-link">概述</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#对比" class="sidebar-link">对比</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#文档" class="sidebar-link">文档</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#类型" class="sidebar-link">类型</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#索引" class="sidebar-link">索引</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#倒排索引" class="sidebar-link">倒排索引</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#es基础操作" class="sidebar-link">ES基础操作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#ik-分词器" class="sidebar-link">IK 分词器</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#rest风格说明" class="sidebar-link">Rest风格说明</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#关于索引的基本操作" class="sidebar-link">关于索引的基本操作</a></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#关于文档的基本操作" class="sidebar-link">关于文档的基本操作</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/elasticsearch/ElasticSearch入门.html#ref" class="sidebar-link">Ref</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="elasticsearch入门"><a href="#elasticsearch入门" class="header-anchor">#</a> ElasticSearch入门</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>        之前一直想花点时间写一篇 <code>elasticsearch</code> 的保姆级教程，于是，趁着年假的几天时间加上周末的一些时间，我产出了自认为算是非常详细的，基于目前最新版本的<code>elasticsearch7.11</code>教程。不管是新手上路，还是秋名山老司机，都建议收藏一下，希望看完对您有所帮助！如果可以，记得<strong>一键三连</strong>！
+<img src="https://img-blog.csdnimg.cn/20210213183253576.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h2 id="elasticsearch概述"><a href="#elasticsearch概述" class="header-anchor">#</a> ElasticSearch概述</h2> <p>        Elaticsearch，简称为es， <font color="tomato">es是一个开源的高扩展的分布式全文检索引擎，它可以近乎实时的存储、检索数据；本身扩展性很好，可以扩展到上百台服务器，处理PB级别的数据</font>。es也使用Java开发并使用 <code>Lucene</code> 作为其核心来实现所有索引和搜索的功能，但是它的目的是通过简单的 <strong>RESTful API</strong> 来隐藏 Lucene 的复杂性，从而让全文搜索变得简单。</p> <p>        据国际权威的数据库产品评测机构 DB Engines 的统计，在2016年1月，ElasticSearch已超过Solr等，成为排名第一的搜索引擎类应用。</p> <p>        为了增加学习的趣味性，我们来聊一聊 elasticsearch 的历史</p> <blockquote><p><strong>历史</strong></p></blockquote> <p>        多年前，一个叫做Shay Banon的刚结婚不久的失业开发者，由于妻子要去伦敦学习厨师，他便跟着也去了。在他找工作的过程中，为了给妻子构建一个食谱的搜索引擎，他开始构建一个早期版本的Lucene。</p> <p>        直接基于Lucene工作会比较困难，所以Shay开始抽象Lucene代码以便Java程序员可以在应用中添加搜索功能。他发布了他的第一个开源项目，叫做“Compass”。</p> <p>        后来Shay找到一份工作，这份工作处在高性能和内存数据网格的分布式环境中，因此高性能的、实时的、分布式的搜索引擎也是理所当然需要的。然后他决定重写Compass库使其成为一个独立的服务叫做Elasticsearch。</p> <p>        第一个公开版本出现在2010年2月，在那之后Elasticsearch已经成为Github上最受欢迎的项目之一，代码贡献者超过300人。一家主营Elasticsearch的公司就此成立，他们一边提供商业支持一边开发新功能，不过 Elasticsearch 将永远开源且对所有人可用。</p> <p>        Shay的妻子依旧等待着她的食谱搜索……</p> <h2 id="es-和-solr-的差别"><a href="#es-和-solr-的差别" class="header-anchor">#</a> ES 和 solr 的差别</h2> <p>        学习 ES，我们免不了需要跟 solr 进行对比学习！下面我们分别来看看，它们之间具体的差别在哪里：</p> <h3 id="elasticsearch-简介"><a href="#elasticsearch-简介" class="header-anchor">#</a> Elasticsearch 简介</h3> <p><strong><font color="tomato">Elasticsearch 是一个实时分布式搜索和分析引擎</font></strong>。它让你以前所未有的速度处理大数据成为可能。</p> <p>        它用于<strong>全文搜索、结构化搜索、分析以及将这三者混合使用</strong>：</p> <p>        维基百科使用Elasticsearch提供全文搜索并高亮关键字，以及输入 实时搜索(search-asyou-type)和 搜索纠错(did-you-mean)等搜索建议功能。</p> <p>        英国卫报使用Elasticsearch结合用户日志和社交网络数据提供给他们的编辑以实时的反馈，以便及时了解公众对新发表的文章的回应。</p> <p>        StackOverflow结合全文搜索与地理位置查询，以及more-like-this功能来找到相关的问题和答案。</p> <p>        Github使用Elasticsearch检索1300亿行的代码。</p> <p>        但是 Elasticsearch 不仅用于大型企业，它还让像DataDog 以及 Klout 这样的创业公司将最初的想法变成可扩展的解决方案。</p> <p><strong>Elasticsearch可以在你的笔记本上运行，也可以在数以百计的服务器上处理PB级别的数据</strong> 。</p> <p><font color="red">Elasticsearch 是一个基于 Apache Lucene(TM) 的开源搜索引擎。无论在开源还是专有领域，Lucene可以被认为是迄今为止最先进、性能最好的、功能最全的搜索引擎库</font></p> <p>        但是，<strong>Lucene只是一个库。想要使用它，你必须使用Java来作为开发语言并将其直接集成到你的应用中</strong>，更糟糕的是，Lucene非常复杂，<strong>你需要深入了解检索的相关知识来理解它是如何工作的</strong></p> <p><font color="RoyalBlue">Elasticsearch也使用Java开发并使用 Lucene 作为其核心来实现所有索引和搜索的功能，但是它的目的是通过简单的 RESTful API 来隐藏 Lucene 的复杂性，从而让全文搜索变得简单</font></p> <h3 id="solr-简介"><a href="#solr-简介" class="header-anchor">#</a> Solr 简介</h3> <p>        Solr 是 Apache 下的一个顶级开源项目，采用Java开发，它是基于 Lucene 的全文搜索服务器。Solr提供了比 Lucene 更为丰富的查询语言，同时实现了可配置、可扩展，并对索引、搜索性能进行了优化。</p> <p>        Solr可以独立运行，运行在Jetty、Tomcat 等这些Servlet容器中，Solr 索引的实现方法很简单，用 POST 方法向 Solr 服务器发送一个描述 Field 及其内容的 XML 文档，Solr根据 xml 文档添加、删除、更新索引。Solr 搜索只需要发送 HTTP GET 请求，然后对 Solr 返回Xml、json等格式的查询结果进行解析，组织页面布局。Solr不提供构建UI的功能，Solr提供了一个管理界面，通过管理界面可以查询Solr的配置和运
+行情况。</p> <p>        Solr是基于 lucene 开发企业级搜索服务器，实际上就是封装了lucene。</p> <p>        Solr是一个独立的企业级搜索应用服务器，它对外提供类似于Web-service的API接口。用户可以通过http请求，向搜索引擎服务器提交一定格式的文件，生成索引；也可以通过提出查找请求，并得到返回结果。</p> <h3 id="lucene简介"><a href="#lucene简介" class="header-anchor">#</a> Lucene简介</h3> <p><strong>Lucene是apache软件基金会4 jakarta项目组的一个子项目，是一个开放源代码的全文检索引擎工具包，但它不是一个完整的全文检索引擎，而是一个全文检索引擎的架构</strong>，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）。</p> <p>        Lucene的目的是为软件开发人员提供一个简单易用的工具包，以方便的在目标系统中实现全文检索的功能，或者是以此为基础建立起完整的全文检索引擎。</p> <p><strong>Lucene是一套用于全文检索和搜寻的开源程式库，由Apache软件基金会支持和提供</strong>。Lucene提供了一个简单却强大的应用程式接口，能够做全文索引和搜寻。在Java开发环境里Lucene是一个成熟的免费开源工具。就其本身而言，Lucene是当前以及最近几年最受欢迎的免费Java信息检索程序库。人们经常提到信息检索程序库，虽然与搜索引擎有关，但不应该将信息检索程序库与搜索引擎相混淆。</p> <p>        Lucene是一个全文检索引擎的架构。那什么是全文搜索引擎？</p> <p>        全文搜索引擎是名副其实的搜索引擎，国外具代表性的有Google、Fast/AllTheWeb、AltaVista、Inktomi、Teoma、WiseNut等，国内著名的有百度（Baidu）。它们都是通过从互联网上提取的各个网站的信息（以网页文字为主）而建立的数据库中，检索与用户查询条件匹配的相关记录，然后按一定的排列顺序将结果返回给用户，因此他们是真正的搜索引擎。</p> <p>        从搜索结果来源的角度，全文搜索引擎又可细分为两种，一种是拥有自己的检索程序（Indexer），俗称“蜘蛛”（Spider）程序或“机器人”（Robot）程序，并自建网页数据库，搜索结果直接从自身的数据库中调用，如上面提到的7家引擎；另一种则是租用其他引擎的数据库，并按自定的格式排列搜索结果，如 Lycos 引擎。</p> <h3 id="elasticsearch和solr比较"><a href="#elasticsearch和solr比较" class="header-anchor">#</a> Elasticsearch和Solr比较</h3> <p><img src="https://img-blog.csdnimg.cn/20201019221356322.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""> <img src="https://img-blog.csdnimg.cn/20201019221405300.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""> <img src="https://img-blog.csdnimg.cn/20201019221417703.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""> <img src="https://img-blog.csdnimg.cn/2021021616225312.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <h3 id="elasticsearch-vs-solr-总结"><a href="#elasticsearch-vs-solr-总结" class="header-anchor">#</a> ElasticSearch vs Solr 总结</h3> <p>        1、<strong>es基本是开箱即用，非常简单</strong>。Solr安装略微复杂一丢丢！</p> <p>        2、Solr 利用 Zookeeper 进行分布式管理，而 <strong>Elasticsearch 自身带有分布式协调管理功能</strong>。</p> <p>        3、Solr 支持更多格式的数据，比如JSON、XML、CSV，而 <strong>Elasticsearch 仅支持json文件格式</strong></p> <p>        4、Solr 官方提供的功能更多，而 <strong>Elasticsearch 本身更注重于核心功能，高级功能多有第三方插件提供</strong>，例如图形化界面需要kibana友好支撑</p> <p>        5、Solr 查询快，但更新索引时慢（即插入删除慢），用于电商等查询多的应用；</p> <ul><li><strong>ES建立索引快（即查询慢），即实时性查询快，用于facebook新浪等搜索</strong>。</li> <li>Solr 是传统搜索应用的有力解决方案，但 <strong>Elasticsearch 更适用于新兴的实时搜索应用</strong>。</li></ul> <p>        6、Solr 比较成熟，有一个更大，更成熟的用户、开发和贡献者社区，而 <strong>Elasticsearch 相对开发维护者较少，更新太快，学习使用成本较高</strong>。</p> <p>        所以如果我们在做技术选型的时候，具体选择哪一项技术，还需要根据不同的场景来进行结合选择。</p> <p>        哈哈哈，好像跑题了，下面我们就正式进入到 elasticsearch 的学习中！</p> <h2 id="安装elasticsearch"><a href="#安装elasticsearch" class="header-anchor">#</a> 安装elasticsearch</h2> <p>        我们首先来到 es 的官网，根据自己不同的操作系统，点击即可下载最新版本的产品，目前最新版本是<code>Elasticsearch 7.11</code></p> <blockquote><p>官网地址：https://www.elastic.co/cn/start</p></blockquote> <p><img src="https://img-blog.csdnimg.cn/20210213150514125.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        Kibana 是一个免费且开放的用户平台，能够让我们对 Elasticsearch 数据进行可视化，这里我们也一并将其下载到本地
+<img src="https://img-blog.csdnimg.cn/20210213151014587.png" alt=""></p> <h3 id="上传安装包到linux并解压"><a href="#上传安装包到linux并解压" class="header-anchor">#</a> 上传安装包到linux并解压</h3> <p>        我的习惯是将所有的软件包放到<code>/export/software</code>目录下，解压后的目录是<code>/export/servers</code></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 software<span class="token punctuation">]</span><span class="token comment"># tar -zxvf elasticsearch-7.11.0-linux-x86_64.tar.gz -C ../servers/</span>
+</code></pre></div><h3 id="目录结构"><a href="#目录结构" class="header-anchor">#</a> 目录结构</h3> <p>        解压完毕之后，我们先来熟悉es的目录结构</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 elasticsearch-7.11.0<span class="token punctuation">]</span><span class="token comment"># ll /export/servers/elasticsearch-7.11.0</span>
+总用量 <span class="token number">556</span>
+drwxr-xr-x.  <span class="token number">2</span> esuser esuser   <span class="token number">4096</span> <span class="token number">2</span>月   <span class="token number">9</span> 06:48 bin
+drwxr-xr-x.  <span class="token number">3</span> esuser esuser    <span class="token number">199</span> <span class="token number">2</span>月  <span class="token number">13</span> <span class="token number">14</span>:44 config
+drwxr-xr-x.  <span class="token number">3</span> esuser esuser     <span class="token number">19</span> <span class="token number">2</span>月  <span class="token number">13</span> <span class="token number">14</span>:15 data
+drwxr-xr-x.  <span class="token number">9</span> esuser esuser    <span class="token number">107</span> <span class="token number">2</span>月   <span class="token number">9</span> 06:48 jdk
+drwxr-xr-x.  <span class="token number">3</span> esuser esuser   <span class="token number">4096</span> <span class="token number">2</span>月   <span class="token number">9</span> 06:48 lib
+-rw-r--r--.  <span class="token number">1</span> esuser esuser   <span class="token number">3860</span> <span class="token number">2</span>月   <span class="token number">9</span> 06:41 LICENSE.txt
+drwxr-xr-x.  <span class="token number">2</span> esuser esuser      <span class="token number">6</span> <span class="token number">2</span>月  <span class="token number">13</span> <span class="token number">14</span>:47 logs
+drwxr-xr-x. <span class="token number">57</span> esuser esuser   <span class="token number">4096</span> <span class="token number">2</span>月   <span class="token number">9</span> 06:49 modules
+-rw-r--r--.  <span class="token number">1</span> esuser esuser <span class="token number">544318</span> <span class="token number">2</span>月   <span class="token number">9</span> 06:46 NOTICE.txt
+drwxr-xr-x.  <span class="token number">2</span> esuser esuser      <span class="token number">6</span> <span class="token number">2</span>月   <span class="token number">9</span> 06:45 plugins
+-rw-r--r--.  <span class="token number">1</span> esuser esuser   <span class="token number">7263</span> <span class="token number">2</span>月   <span class="token number">9</span> 06:41 README.asciidoc
+</code></pre></div><p>        其中我们常用的目录有：</p> <ul><li>bin：可执行文件在里面，运行es的命令就在这个里面，包含了一些脚本文件等</li> <li>config：配置文件目录</li> <li>JDK：java环境</li> <li>lib：依赖的jar，类库</li> <li>logs：日志文件</li> <li>modules：es相关的模块</li> <li>plugins：可以自己开发的插件</li> <li>data：这个目录没有，自己新建一下，后面要用 -&gt; mkdir data，这个作为<strong>索引目录</strong></li></ul> <h3 id="修改配置文件"><a href="#修改配置文件" class="header-anchor">#</a> 修改配置文件</h3> <p>        熟悉完es的目录，在启动es前，我们还需要修改一些配置文件</p> <h4 id="核心配置文件-elasticearch-yml"><a href="#核心配置文件-elasticearch-yml" class="header-anchor">#</a> 核心配置文件 elasticearch.yml</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 elasticsearch-7.11.0<span class="token punctuation">]</span><span class="token comment"># vim config/elasticsearch.yml</span>
+</code></pre></div><ol><li>修改集群名称</li> <li>修改当前的 es 节点名称</li> <li>修改data数据保存地址和日志数据保存地址</li> <li>绑定 es 网络 ip</li> <li>集群节点修改为之前的节点名称</li></ol> <p>        具体位置如下图所示：
+<img src="https://img-blog.csdnimg.cn/20210213152952418.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h4 id="修改-jvm-参数"><a href="#修改-jvm-参数" class="header-anchor">#</a> 修改 jvm 参数</h4> <p>        因为 Elasticsearch 是用 <strong>Java</strong> 语言开发的，所以我们在配置环节一定少不了修改 jvm 的参数</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 elasticsearch-7.11.0<span class="token punctuation">]</span><span class="token comment"># vim config/jvm.options</span>
+</code></pre></div><p>        根据自己当前操作系统的不同配置，设置不同的大小即可
+<img src="https://img-blog.csdnimg.cn/20210213153409473.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h3 id="添加用户"><a href="#添加用户" class="header-anchor">#</a> 添加用户</h3> <p>        比较有意思的一点是，<font color="red">es不允许使用 root 来操作 es</font>，需要我们添加用户，具体的命令如下：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 1. 创建elsearch用户组及elsearch用户：</span>
+
+<span class="token function">groupadd</span> elsearch
+<span class="token function">useradd</span> elsearch -g elsearch
+<span class="token function">passwd</span> elsearch<span class="token comment"># 接下来会输入两次密码</span>
+<span class="token comment"># new password</span>
+<span class="token comment"># retype passwd</span>
+
+<span class="token comment"># 2. 切换到elsearch用户再启动</span>
+<span class="token function">su</span> elsearch
+</code></pre></div><h3 id="启动es"><a href="#启动es" class="header-anchor">#</a> 启动es</h3> <p>        修改完上面2个配置文件，我们切换到<code>bin</code>目录下，通过<code>./elasticsearch</code>启动es</p> <p>        不出意外，应该会报如下错误：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>ERROR: <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> bootstrap checks failed
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: max <span class="token function">file</span> descriptors <span class="token punctuation">[</span><span class="token number">4096</span><span class="token punctuation">]</span> <span class="token keyword">for</span> elasticsearch process is too low, increase to at least <span class="token punctuation">[</span><span class="token number">65535</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: max number of threads <span class="token punctuation">[</span><span class="token number">3795</span><span class="token punctuation">]</span> <span class="token keyword">for</span> user <span class="token punctuation">[</span>esuser<span class="token punctuation">]</span> is too low, increase to at least <span class="token punctuation">[</span><span class="token number">4096</span><span class="token punctuation">]</span>
+</code></pre></div><p>        我们只需要将最大的线程数设置大一些即可</p> <p>        我们切换回到<code>root</code>目录</p> <ul><li>修改<code>/etc/security/limits.conf</code>文件</li></ul> <p>        添加以下内容</p> <div class="language-bash extra-class"><pre class="language-bash"><code>* soft nofile <span class="token number">65536</span>
+* hard nofile <span class="token number">131072</span>
+* soft nproc <span class="token number">2048</span>
+* hard nproc <span class="token number">4096</span>
+</code></pre></div><p>        如下图所示：
+<img src="https://img-blog.csdnimg.cn/20210213154649785.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <ul><li>修改 /etc/sysctl.conf 增加 <code>vm.max_map_count=262145</code></li></ul> <p><img src="https://img-blog.csdnimg.cn/20210213154835371.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        修改完成之后，使用<code>sysctl -p</code>命令刷新一下，再次切换到 <code>esuser</code>进行启动即可。</p> <blockquote><p>记得将防火墙关闭或者将9200端口打开，否则就会出现启动成功，页面无法访问的情况</p></blockquote> <h3 id="启动与暂停"><a href="#启动与暂停" class="header-anchor">#</a> 启动与暂停</h3> <p>        启动与暂停这里也分成2种形式</p> <h4 id="启动方式1"><a href="#启动方式1" class="header-anchor">#</a> 启动方式1</h4> <p>        我们在<code>bin</code>目录下直接<code>./elasticsearch</code>，可以看到运行结果</p> <p><img src="https://img-blog.csdnimg.cn/2021021315541653.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        然后根据自己的 <code>ip:9200</code>进行访问，可以在界面上看到如下返回的结果
+<img src="https://img-blog.csdnimg.cn/20210213155543898.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        当前启动方式是<strong>前端</strong>启动。停止服务的话直接<strong>ctrl+c</strong> 就好了</p> <h4 id="启动方式2"><a href="#启动方式2" class="header-anchor">#</a> 启动方式2</h4> <p>        同时，我们也可以后端启动</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>esuser@node01 bin<span class="token punctuation">]</span>$ ./elasticsearch -d
+</code></pre></div><p>        稍等片刻，再次访问地址，还是相同结果</p> <p>        此时，如果想关闭服务</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>esuser@node01 bin<span class="token punctuation">]</span>$ <span class="token function">ps</span> -ef<span class="token operator">|</span><span class="token function">grep</span> elasticsearch
+esuser     <span class="token number">2931</span>   <span class="token number">2178</span>  <span class="token number">0</span> <span class="token number">15</span>:58 pts/0    00:00:00 <span class="token function">grep</span> --color<span class="token operator">=</span>auto elasticsearch
+</code></pre></div><p>        然后将对应的进程id kill掉即可！
+        </p> <p>        接下来我们需要安装ES的图形化界面插件，也就是<code>elasticsearch-head</code>，这里介绍2种方法，<font color="blue">方法1比较麻烦，想省事的同学可以直接划到下方的方法2，利用谷歌插件进行安装，简单高效</font>！</p> <h2 id="安装elasticsearch-head-方法1"><a href="#安装elasticsearch-head-方法1" class="header-anchor">#</a> 安装elasticsearch-head(方法1)</h2> <p>        elasticsearch-head是一款开源软件，被托管在<strong>github</strong>上面，所以如果我们要使用它，必须先安装git，通过git获取<code>elasticsearch-head</code></p> <p>        给大家看下这个项目，已经斩获 7.3K 的start，说明还是非常受大众欢迎
+<img src="https://img-blog.csdnimg.cn/20210213182440480.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        我们很容易的通过 git 将其clone到本地，然后上传到 linux 服务器上，然后解压。</p> <p>        需要注意的是， 运行<code>elasticsearch-head</code>会用到 grunt，而 grunt 需要 npm 包管理器，所以<font color="red"> nodejs 是必须要安装的</font></p> <h3 id="安装npm"><a href="#安装npm" class="header-anchor">#</a> 安装npm</h3> <p>        当然如果你的环境里已经安装好了npm，那则可以跳过这一步。</p> <h4 id="_1-安装gcc"><a href="#_1-安装gcc" class="header-anchor">#</a> (1) 安装gcc</h4> <div class="language-bash extra-class"><pre class="language-bash"><code>yum <span class="token function">install</span> gcc gcc-c++
+</code></pre></div><h4 id="_2-下载node国内镜像-推荐"><a href="#_2-下载node国内镜像-推荐" class="header-anchor">#</a> (2) 下载node国内镜像（推荐）</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">wget</span> https://npm.taobao.org/mirrors/node/v10.14.1/node-v10.14.1-linux-x64.tar.gz
+</code></pre></div><h4 id="_3-解压并重命名文件夹"><a href="#_3-解压并重命名文件夹" class="header-anchor">#</a> (3) 解压并重命名文件夹</h4> <p>        解压</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">tar</span> -xvf  node-v10.14.1-linux-x64.tar.gz
+</code></pre></div><p>        然后重命名文件夹</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">mv</span> node-v10.14.1-linux-x64 node
+</code></pre></div><h4 id="_4-添加环境变量"><a href="#_4-添加环境变量" class="header-anchor">#</a> (4)  添加环境变量</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">vi</span> /etc/profile
+</code></pre></div><p>        在文件最后添加以下配置：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">export</span> <span class="token assign-left variable">NODE_HOME</span><span class="token operator">=</span>/export/servers/node  
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$NODE_HOME</span>/bin:<span class="token environment constant">$PATH</span>
+</code></pre></div><h4 id="_5-刷新配置"><a href="#_5-刷新配置" class="header-anchor">#</a> (5) 刷新配置</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">source</span> /etc/profile
+</code></pre></div><h4 id="_6-验证结果"><a href="#_6-验证结果" class="header-anchor">#</a> (6) 验证结果</h4> <div class="language-bash extra-class"><pre class="language-bash"><code>node -v
+<span class="token function">npm</span> -v
+</code></pre></div><p>        能够正确显示版本号即说明 nodejs 环境安装成功
+<img src="https://img-blog.csdnimg.cn/20210213184336423.png" alt=""></p> <h3 id="安装cnpm"><a href="#安装cnpm" class="header-anchor">#</a> 安装cnpm</h3> <p>        我们上面谈到的 npm 命令是 <code>node.js</code> 的 npm 插件管理器，也就是下载插件安装插件的管理器。但我们在使用的时候，下载的都是国外服务器很慢会掉线，所以这一步，我们需要安装淘宝的 <strong>npm</strong> 镜像<strong>cnpm</strong>。</p> <p>        也非常简单，执行如下命令即可</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> -g cnpm --registry<span class="token operator">=</span>https://registry.npm.taobao.org
+</code></pre></div><blockquote><p><strong>排雷</strong>：如果遇到<code>this is a problem related to network connectivity, behind a proxy</code>的异常，执行<code>npm config set proxy null</code>将代理设置为空即可再重试上面的命令即可。</p></blockquote> <p>        cnpm 正常安装完成之后呢，效果图如下：
+<img src="https://img-blog.csdnimg.cn/20210213224603252.png" alt=""></p> <h3 id="下载依赖"><a href="#下载依赖" class="header-anchor">#</a> 下载依赖</h3> <p>        现在环境都准备好了，那我们该做些什么呢？其实 GitHub 上都已经写明白了
+<img src="https://img-blog.csdnimg.cn/20210213224818456.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        有多种方式运行 elasticsearch-head ，我们这里需要用的就是如上所示的内置服务器的方式。</p> <p>        我们进入到<code>elasticsearch-head</code>的目录下，执行命令，下载相关的依赖</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 elasticsearch-head<span class="token punctuation">]</span><span class="token comment"># cnpm install</span>
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/2021021322531659.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        命令执行完毕之后，我们可以在目录下看到多出了<code>node_modules</code>目录，这就是我们下载好的依赖。</p> <p><img src="https://img-blog.csdnimg.cn/20210213225406430.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        然后在该目录下执行<code>npm run start</code>命令，启动 elasticsearch-head</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 elasticsearch-head<span class="token punctuation">]</span><span class="token comment"># npm run start</span>
+
+<span class="token operator">&gt;</span> elasticsearch-head@0.0.0 start /export/servers/elasticsearch-head
+<span class="token operator">&gt;</span> grunt server
+
+Running <span class="token string">&quot;connect:server&quot;</span> <span class="token punctuation">(</span>connect<span class="token punctuation">)</span> task
+Waiting forever<span class="token punctuation">..</span>.
+Started connect web server on http://localhost:9100
+</code></pre></div><p>        然后我们就可以在浏览器上通过 <code>ip:9100</code> 访问到如下页面，但是当我们点击连接，在控制台又会出现 <code>Error</code> 信息，这是为什么呢？
+<img src="https://img-blog.csdnimg.cn/20210213230254924.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""> <strong>真相</strong>：由于ES进程和客户端进程端口号不同，存在跨域问题，所以我们要在ES的配置文件中添加如下配置下：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 elasticsearch-7.11.0<span class="token punctuation">]</span><span class="token comment"># vim config/elasticsearch.yml</span>
+<span class="token comment"># 跨域配置</span>
+http.cors.enabled: <span class="token boolean">true</span>
+http.cors.allow-origin: <span class="token string">&quot;*&quot;</span>
+</code></pre></div><p>        配置完毕，我们重启ES，重新连接，就能正常看到正常的页面了</p> <p><img src="https://img-blog.csdnimg.cn/20210214002407924.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h2 id="安装elasticsearch-head-方法2"><a href="#安装elasticsearch-head-方法2" class="header-anchor">#</a> 安装elasticsearch-head(方法2)</h2> <p>        不知道大家有没有对于操作到这一步，在想着有没有更简单的方式安装 <strong>elasticsearch-head</strong> 呢？</p> <p>        当然有，我们在 readme 文件中，发现也可以通过在谷歌浏览器上使用插件的形式来进行安装 <strong>elasticsearch-head</strong> <img src="https://img-blog.csdnimg.cn/20210214002733426.png" alt="">
+        我们在谷歌应用商店搜索“elasticsearch-head”插件，然后将其安装，自动添加至谷歌浏览器</p> <p><img src="https://img-blog.csdnimg.cn/20210214003014957.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        然后使用的时候，直接单击这个插件，就可以看见与我们按照上面那么繁杂的步骤所展示一致的界面。
+<img src="https://img-blog.csdnimg.cn/2021021400320353.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        嗯，果然还是这种方法香！</p> <p>        如果是初学的小伙伴，就算成功看到这个页面可能还有点懵，因为现在这个网站上还没有什么东西</p> <blockquote><p>我们初学，就把 es 当做一个数据库，可以建立索引（库），文档（库中的数据！）</p></blockquote> <p>        现在还没有索引，我这里就先创建了一个<code>alice</code>索引
+<img src="https://img-blog.csdnimg.cn/20210214105636493.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        然后就可以在<code>概览</code>栏看见分片信息，<code>索引</code>栏看见自己创建的索引，<code>数据浏览栏</code>看到索引里的所有数据！</p> <p><img src="https://img-blog.csdnimg.cn/20210214110231217.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        另外，<code>elasticsearch-head</code>上也提供了<code>基本查询</code>和<code>复合查询</code>的方式，其中复合查询是以 <code>restful</code>风格发起的请求，并且提交的参数都是格式化后的JSON类型。
+<img src="https://img-blog.csdnimg.cn/20210214110720812.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        当然，大家也可能都看到了，这样的工具我们使用起来也不是很方便，这个<font color="Tomato"> elasticsearch-head 我们一般就把它当做<strong>数据展示</strong>的工具，不建议利用它来进行数据的查询，我们所有的查询，基本都放在  <strong>Kibana</strong> 中完成</font></p> <h2 id="安装kibana"><a href="#安装kibana" class="header-anchor">#</a> 安装Kibana</h2> <h3 id="了解elk"><a href="#了解elk" class="header-anchor">#</a> 了解ELK</h3> <blockquote><p>ELK是<code>Elasticsearch</code>、<code>Logstash</code>、<code>Kibana</code>三大开源框架首字母大写简称。市面上也被成为 ElasticStack 。其中 Elasticsearch 是一个基于 Lucene、分布式、通过 Restful 方式进行交互的<strong>近实时搜索平台框架</strong>。像类似百度、谷歌这种大数据全文搜索引擎的场景都可以使用 Elasticsearch 作为底层支持框架，可见 Elasticsearch 提供的搜索能力确实强大，市面上很多时候我们简称Elasticsearch为es。Logstash是 ELK 的<strong>中央数据流引擎</strong>，用于从不同目标（文件/数据存储/MQ）收集的不同格式数据，经过过滤后支持输出到不同目的地（文件/MQ/redis/elasticsearch/kafka等）。Kibana可以将 elasticsearch 的数据<strong>通过友好的页面展示出来，提供实时分析的功能</strong>。</p></blockquote> <p>        看了上面的描述，我们大概心里就已经清楚，ELK 的流程大致就是 <strong>收集清理数据 -&gt; 搜索，存储 -&gt; Kibana</strong>，如下所示：
+<img src="https://img-blog.csdnimg.cn/2021021413493944.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p>        市面上很多开发只要提到 ELK 能够一致说出它是一个<strong>日志分析架构技术栈</strong> 总称，但<font color="	RoyalBlue"><strong>实际上 ELK 不仅仅适用于日志分析，它还可以支持其它任何数据分析和收集的场景，日志分析和收集只是更具有代表性，并非唯一性</strong></font>。</p> <h3 id="kibana的安装"><a href="#kibana的安装" class="header-anchor">#</a> Kibana的安装</h3> <blockquote><p><code>Kibana</code>是一个针对 <code>Elasticsearch</code> 的开源分析及可视化平台，用来搜索、查看交互存储在 Elasticsearch 索引中的数据。使用 Kibana ，可以通过各种图表进行高级数据分析及展示。Kibana 让海量数据更容易理解。它<strong>操作简单，基于浏览器的用户界面可以快速创建仪表板（dashboard）实时显示Elasticsearch 查询动态</strong>。设置Kibana非常简单。无需编码或者额外的基础架构，几分钟内就可以完成  Kibana 安装并启动 Elasticsearch 索引监测。</p></blockquote> <p>        官网地址：https://www.elastic.co/cn/kibana</p> <p><img src="https://img-blog.csdnimg.cn/20210214135820861.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        然后选择对应操作系统的版本，默认安装的就是最新版本的 kibana。注意：kibana 版本 要和 es 的版本一致！
+<img src="https://img-blog.csdnimg.cn/20210214135842373.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        下载完毕后，同样上传到Linux服务器，解压</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 software<span class="token punctuation">]</span><span class="token comment"># tar -zxvf kibana-7.11.0-linux-x86_64.tar.gz -C ../servers/</span>
+</code></pre></div><p>        修改conf目录下的<code>kibana.yml</code>文件，添加上如下的几行配置
+<img src="https://img-blog.csdnimg.cn/2021021423444595.png" alt="">
+        然后切回到 bin 目录下，直接 <code>./kibana</code> 启动即可，此时通过<code>ip：5601</code> 即可正常访问到页面</p> <p><img src="https://img-blog.csdnimg.cn/20210214234705300.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        英文不好的同学是不是感觉看着有些吃力。其实，kibana 有自带的中文包，就在kibana 的 <code>x-pack/plugins/translations/translations</code> 目录下的 <code>zh-CN.json</code> <img src="https://img-blog.csdnimg.cn/20210215000411140.png" alt="">
+        我们想要使用，直接打开conf目录下的<code>kibana.yml</code>文件
+<img src="https://img-blog.csdnimg.cn/20210215000719134.png" alt="">
+        我们可以看到 kibana 默认的语言是 英文，我们只需要添加使用中文插件即可</p> <div class="language-bash extra-class"><pre class="language-bash"><code>i18n.locale: <span class="token string">&quot;zh-CN&quot;</span>
+</code></pre></div><p>        然后重新启动 kibana ，即可看到效果
+<img src="https://img-blog.csdnimg.cn/20210215001050383.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h3 id="踩坑"><a href="#踩坑" class="header-anchor">#</a> 踩坑</h3> <p>         kibana 启动，可能会遇到这个 bug：</p> <div class="language-bash extra-class"><pre class="language-bash"><code> Error: Unable to <span class="token function">write</span> Kibana UUID file, please check the uuid.server configuration value <span class="token keyword">in</span> kibana.yml and ensure Kibana has sufficient permissions to <span class="token builtin class-name">read</span> / <span class="token function">write</span> to this file. Error was: EACCES
+</code></pre></div><p><strong>解决方案</strong> 就是：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 在root下为 为kibana赋权</span>
+<span class="token function">chown</span> -R elsearch:elsearch /export/servers/kibana-7.6.1-linux-x86_64/
+<span class="token comment"># 修改kibana所在文件夹的权限</span>
+<span class="token function">chmod</span> <span class="token number">770</span> /export/servers/kibana-7.6.1-linux-x86_64
+<span class="token comment"># 切换回用户组 elsearch</span>
+<span class="token function">su</span> elsearch
+<span class="token comment"># 启动</span>
+./kibana
+</code></pre></div><h2 id="es的核心概念"><a href="#es的核心概念" class="header-anchor">#</a> ES的核心概念</h2> <h3 id="概述"><a href="#概述" class="header-anchor">#</a> 概述</h3> <p>        在前面的学习中，我们已经掌握了 es 是什么，同时也把 es 的服务已经安装启动，那么 es 是如何去存储数据，数据结构是什么，又是如何实现搜索的呢？我们先来聊聊<font color="red"> ElasticSearch的相关概念 </font>吧</p> <p><font color="red">集群，节点，索引，类型，文档，分片，映射是什么？</font></p> <h3 id="对比"><a href="#对比" class="header-anchor">#</a> 对比</h3> <blockquote><p>ElasticSearch 是面向文档的<strong>非关系型数据库</strong>，下面让我们来看看它与<strong>关系型数据库</strong>的客观对比！</p></blockquote> <table><thead><tr><th>Relational DB</th> <th>Elasticsearch</th></tr></thead> <tbody><tr><td>数据库(database)</td> <td>索引(indices)</td></tr> <tr><td>表(tables)</td> <td>types</td></tr> <tr><td>行(rows)</td> <td>documents</td></tr> <tr><td>字段(columns)</td> <td>fields</td></tr></tbody></table> <p><font color="Tomato">elasticsearch(集群)中可以包含多个索引(数据库)，每个索引中可以包含多个类型(表)，每个类型下又包含多个文档(行)，每个文档中又包含多个字段(列)</font></p> <p><strong>物理设计：</strong></p> <p>        elasticsearch 在后台把每个索引划分成多个分片，每份分片可以在集群中的不同服务器间迁移</p> <p><strong>逻辑设计：</strong></p> <p><font color="blue">一个索引类型中，包含多个文档</font>，比如说文档1，文档2。 当我们索引一篇文档时，可以通过这样的一个顺序找到 它: 索引 ▷ 类型 ▷ 文档ID ，通过这个组合我们就能索引到某个具体的文档。 注意 : <font color="blue">ID不必是整数，实际上它是个字符串</font>。</p> <h3 id="文档"><a href="#文档" class="header-anchor">#</a> 文档</h3> <p>        之前说 elasticsearch 是面向文档的，那么就意味着<font color="red">索引和搜索数据的最小单位是文档</font>，elasticsearch 中，文档有几个 <strong>重要属性</strong> :</p> <ul><li>自我包含，一篇文档同时包含字段和对应的值，也就是同时包含 key:value！</li> <li>可以是层次型的，一个文档中包含自文档，复杂的逻辑实体就是这么来的！<font color="blue">其实就是个JSON对象</font></li> <li>灵活的结构，文档不依赖预先定义的模式，我们知道关系型数据库中，要提前定义字段才能使用，在 elasticsearch 中，对于字段是非常灵活的，有时候，我们可以忽略该字段，或者动态的添加一个新的字段。</li></ul> <p>        尽管我们可以随意的新增或者忽略某个字段，但是，每个字段的类型非常重要，比如一个年龄字段类型，可以是字符串也可以是整形。因为 elasticsearch 会保存字段和类型之间的映射及其他的设置。这种映射具体到每个映射的每种类型，这也是为什么在 elasticsearch 中，类型有时候也称为<strong>映射类型</strong>。</p> <h3 id="类型"><a href="#类型" class="header-anchor">#</a> 类型</h3> <p>        类型是文档的逻辑容器，就像关系型数据库一样，表格是行的容器。 <font color="red">类型中对于字段的定义称为映射</font>，比如 name 映 射为字符串类型。 我们说文档是无模式的，它们不需要拥有映射中所定义的所有字段，比如新增一个字段，那么 elasticsearch 是怎么做的呢?elasticsearch会自动的将新字段加入映射，但是这个字段的不确定它是什么类型，elasticsearch就开始猜，如果这个值是18，那么elasticsearch会认为它是整形。 但是elasticsearch也可能猜不对， 所以最安全的方式就是提前定义好所需要的映射，这点跟关系型数据库殊途同归了，先定义好字段，然后再使用。
+<img src="https://img-blog.csdnimg.cn/20210215113958205.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h3 id="索引"><a href="#索引" class="header-anchor">#</a> 索引</h3> <p><font color="red">索引是映射类型的容器，elasticsearch 中的索引是一个非常大的文档集合</font>。索引存储了映射类型的字段和其他设置。 然后它们被存储到了各个分片上了。 我们来研究下分片是如何工作的。</p> <p><strong>物理设计 ：节点和分片如何工作</strong></p> <p>        一个集群至少有一个节点，而一个节点就是一个 elasricsearch 进程，节点可以有多个索引默认的，如果你创建索引，那么索引将会有个5个分片 ( primary shard ,又称主分片 ) 构成的，每一个主分片会有一个副本 ( replica shard ,又称复制分片 )</p> <p><img src="https://img-blog.csdnimg.cn/20210215115331868.png" alt="">
+        下图是一个有3个节点的集群，可以看到<font color="blue">主分片和对应的复制分片都不会在同一个节点内，这样有利于某个节点挂掉 了，数据也不至于丢失</font>。
+<img src="https://img-blog.csdnimg.cn/20210215115531671.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        实际上，一个分片是一个 <code>Lucene</code> 索引，一个包含倒排索引的文件目录，倒排索引的结构使得<code>elasticsearch</code>在不扫描全部文档的情况下，就能告诉你哪些文档包含特定的关键字。 不过，等等，<font color="purple">倒排索引是什么鬼?</font></p> <h3 id="倒排索引"><a href="#倒排索引" class="header-anchor">#</a> 倒排索引</h3> <p>        elasticsearch 使用的是一种称为<code>倒排索引</code>的结构，采用<code>Lucene</code>倒排索引作为底层。这种结构适用于<font color="tomato">快速的全文搜索</font>， <font color="tomato">一个索引由文档中所有不重复的列表构成，对于每一个词，都有一个包含它的文档列表</font>。 例如，现在有两个文档， 每个文档包含如下内容：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>Study every day, good good up to forever <span class="token comment"># 文档1包含的内容</span>
+To forever, study every day, good good up <span class="token comment"># 文档2包含的内容</span>
+</code></pre></div><p>        为了创建倒排索引，我们首先要将每个文档拆分成独立的词(或称为词条或者tokens)，然后创建一个包含所有不重复的词条的排序列表，然后列出每个词条出现在哪个文档 :
+<img src="https://img-blog.csdnimg.cn/20210215122533396.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        现在，我们试图搜索 <code>to forever</code>，只需要查看包含每个词条的文档
+<img src="https://img-blog.csdnimg.cn/20210215122555432.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        两个文档都匹配，但是<strong>第一个文档比第二个匹配程度更高</strong>。如果没有别的条件，现在，这两个包含关键字的文档都将返回。</p> <p>        再来看一个示例，比如我们通过博客标签来搜索博客文章。那么倒排索引列表就是这样的一个结构 :
+<img src="https://img-blog.csdnimg.cn/20210215122715367.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        如果要搜索含有 python 标签的文章，那相对于查找所有原始数据而言，查找倒排索引后的数据将会快的多。只需要 查看标签这一栏，然后获取相关的文章ID即可。<font color="red">完全过滤掉无关的所有数据，提高效率！</font></p> <p>        在 elasticsearch 中， 索引这个词被频繁使用，这就是术语的使用。在 elasticsearch 中，索引被分为多个分片，每份分片是一个 Lucene 的索引。所以 <font color="blue">一个 elasticsearch 索引是由多个Lucene索引组成的</font>。别问为什么，谁让elasticsearch使用Lucene作为底层呢! <strong>如无特指，说起索引都是指elasticsearch的索引</strong>。</p> <h2 id="es基础操作"><a href="#es基础操作" class="header-anchor">#</a> ES基础操作</h2> <h3 id="ik-分词器"><a href="#ik-分词器" class="header-anchor">#</a> IK 分词器</h3> <blockquote><p>什么是IK分词器？</p></blockquote> <p><strong>分词</strong>：<strong>即把一段中文或者别的内容划分成一个个的关键字，我们在搜索时候会把自己的信息进行分词，是因为数据库中或者索引库中的数据也会进行分词，然后进行一个匹配操作</strong>，<font color="RoyalBlue">默认的中文分词是将每个字看成一个词，比如 “我爱大数据” 会被分为&quot;我&quot;，&quot;爱&quot;，&quot;大&quot;, &quot;数&quot;，&quot;据&quot;，这显然是不符合要求的，所以我们需要安装中文分词器 ik 来解决这个问题</font>。</p> <p>        提前说一嘴，IK提供了两个分词算法：ik_smart 和  ik_max_word ，其中 <code>ik_smart</code> 为最少切分，<code>ik_max_word</code> 为 最细粒度划分！这个我们后面会来进行测试。</p> <blockquote><p><strong>安装步骤</strong></p></blockquote> <p>        1、下载ik分词器的包，Github地址：<code>https://github.com/medcl/elasticsearch-analysis-ik/</code> （版本要对
+应）。但目前我们es的版本是7.11，而现在发布的最新 ik 分词器的版本也才 7.10.2，那我们就先下载最新的版本
+<img src="https://img-blog.csdnimg.cn/2021021516253859.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        2. 然后直接在软件包的存储目录下，直接执行命令：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 software<span class="token punctuation">]</span><span class="token comment"># wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.10.2/elasticsearch-analysis-ik-7.10.2.zip</span>
+</code></pre></div><p>        3. 解压下载好的压缩包，注意，解压路径必须放在 es 的 plugins 目录下</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 software<span class="token punctuation">]</span><span class="token comment"># unzip elasticsearch-analysis-ik-7.10.2.zip -d ../servers/elasticsearch-7.11.0/plugins/ik</span>
+</code></pre></div><p>        4. 给文件夹权限</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 plugins<span class="token punctuation">]</span><span class="token comment"># chmod 777 ik</span>
+</code></pre></div><p>        5. 正常情况下我们重启 Elasticsearch 即可看到插件加载的日志，但是很遗憾，终究因为版本不同的问题，导致 es 无法重启成功
+<img src="https://img-blog.csdnimg.cn/20210215173818541.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        所以关于分词器的部分就先停更，等到 ik 分词器出到 7.11 版本，再做更新？？？这是不可能的，所以我先用其他服务器上的一个 6.5.4 版本的 es 来做测试。</p> <p>        然后我们打开  6.5.4 版本的 kibana 界面，可以发现跟我们最新下载的7.11 版本的 kibana 界面还是区别还是挺大的！</p> <p><img src="https://img-blog.csdnimg.cn/20210227141356911.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        但这并不影响我们接下来的操作，进入<code>Dev Tools</code>工具栏界面，先尝试用过 <code>ik_smart</code> 最少切分，发起一个 GET 请求</p> <div class="language-bash extra-class"><pre class="language-bash"><code>GET _analyze
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;analyzer&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;ik_smart&quot;</span>,
+  <span class="token string">&quot;text&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;梦想家&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        返回的结果如下：
+<img src="https://img-blog.csdnimg.cn/20210227142522736.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        那我们再用相同的文字测试一次<code>ik_max_word</code> 最细粒度划分：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>GET _analyze
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;analyzer&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;ik_max_word&quot;</span>,
+  <span class="token string">&quot;text&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;梦想家&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        此时返回的结果：
+<img src="https://img-blog.csdnimg.cn/2021022714275082.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        此时，相信已经有聪明的小伙伴能得出下面的结论：</p> <blockquote><p><code>ik_max_word</code> 是<strong>细粒度分词</strong>，会穷尽一个语句中所有分词可能
+<code>ik_smart</code> 是<strong>粗粒度分词</strong>，优先匹配最长词，不会有重复的数据</p></blockquote> <p>        那大家有没有想过细粒度分词穷尽词库的可能，那词库是哪里的？一定是存在有类似&quot;字典&quot;这样的东西，不相信的话， 我们再用细粒度分词<code>ik_max_word</code>来做个测试</p> <div class="language-bash extra-class"><pre class="language-bash"><code>GET _analyze
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;analyzer&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;ik_smart&quot;</span>,
+  <span class="token string">&quot;text&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;超级喜欢狂神说&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        此时返回的结果：
+<img src="https://img-blog.csdnimg.cn/20210227144331264.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p>        可以发现此时<code>狂神说</code>几个字被拆开了，那如果我们想让系统识别“狂神说”是一个词，就需要我们编辑自定义词库。</p> <p>        步骤同样非常简单：
+        （1） 进入<code>elasticsearch/plugins/ik/config</code>目录</p> <p>        （2） 新建一个<code>my.dic</code>文件，编辑内容：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>狂神说
+</code></pre></div><p>        （3） 修改IKAnalyzer.cfg.xml（在 ik/config 目录下）</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>comment</span><span class="token punctuation">&gt;</span></span>IK Analyzer 扩展配置<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>comment</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 用户可以在这里配置自己的扩展字典 --&gt;</span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>entry</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>ext_dict<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>my.dic<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>entry</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 用户可以在这里配置自己的扩展停止词字典 --&gt;</span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>entry</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>ext_stopwords<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>entry</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>        修改完配置重新启动 elasticsearch，再次测试！
+<img src="https://img-blog.csdnimg.cn/20210227145418782.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        此时可以发现，狂神说已经变成了一个词了~</p> <p>        到了这里，我们就明白了分词器的基本规则和使用了！实际上搜索引擎做的最重要的一件事，就是分词！它需要将我们搜索的内容进行关键字的拆分，然后展示对应的信息。那这些被拆分出来的词是如何划分权重的呢？不用担心，马上我们就来开始学习 es 基本的增删改查！</p> <h3 id="rest风格说明"><a href="#rest风格说明" class="header-anchor">#</a> Rest风格说明</h3> <p>        什么是 Rest 风格呢?</p> <blockquote><p><strong>一种软件架构风格，而不是标准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制</strong>。</p></blockquote> <p>        其中 基本 的 Rest 命令说明：</p> <table><thead><tr><th>method</th> <th>url地址</th> <th>描述</th></tr></thead> <tbody><tr><td>PUT</td> <td>localhost:9200/索引名称/类型名称/文档id</td> <td>创建文档（指定文档 id ）</td></tr> <tr><td>POST</td> <td>localhost:9200/索引名称/类型名称</td> <td>创建文档（随机文档 id ）</td></tr> <tr><td>POST</td> <td>localhost:9200/索引名称/类型名称/文档id/_update</td> <td>修改文档</td></tr> <tr><td>DELETE</td> <td>localhost:9200/索引名称/类型名称/文档id</td> <td>删除文档</td></tr> <tr><td>GET</td> <td>localhost:9200/索引名称/类型名称/文档id</td> <td>通过文档id查询文档</td></tr> <tr><td>POST</td> <td>localhost:9200/索引名称/类型名称/_search</td> <td>查询所有数据</td></tr></tbody></table> <p>        那接下来我们就用之前已经安装好的 <code>kibana</code> 进行一个基础测试</p> <h3 id="关于索引的基本操作"><a href="#关于索引的基本操作" class="header-anchor">#</a> 关于索引的基本操作</h3> <blockquote><p><strong>基础测试</strong></p></blockquote> <ol><li>创建一个索引</li></ol> <blockquote><p>PUT /索引名/类型名/文档id
+{请求id}</p></blockquote> <p>        根据网址:<code>ip:5601</code>打开我们的 kibana 的页面，进入到开发工具栏，在 Console 中输入 :</p> <div class="language-bash extra-class"><pre class="language-bash"><code>// 命令解释 
+// PUT 创建命令 test1 索引 type1 类型 <span class="token number">1</span> <span class="token function">id</span>
+PUT /test1/type1/1
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;name&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;大数据梦想家&quot;</span>,
+  <span class="token string">&quot;age&quot;</span>:21
+<span class="token punctuation">}</span>
+</code></pre></div><p>        如下图所示：
+<img src="https://img-blog.csdnimg.cn/20210215231041249.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        返回结果 （是以REST ful 风格返回的 ）：
+<img src="https://img-blog.csdnimg.cn/2021021523145996.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        然后我们在<code>elasticsearch-head</code>中的数据浏览模块，就可以看见我们完成了自动创建索引，数据也成功添加进来了，所以建议初学时，可以将 es 当做是一个数据库来学习。
+<img src="https://img-blog.csdnimg.cn/20210216003047548.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        那么 name 这个字段用不用指定类型呢。毕竟我们关系型数据库 是需要指定类型的啊</p> <h4 id="字段类型"><a href="#字段类型" class="header-anchor">#</a> 字段类型</h4> <p>        elasticsearch 常见的字段类型如下：</p> <ul><li>字符串类型</li></ul> <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/text.html#text" target="_blank" rel="noopener noreferrer">text<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 、 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/keyword.html" target="_blank" rel="noopener noreferrer">keyword<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <ul><li>数值类型</li></ul> <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/number.html" target="_blank" rel="noopener noreferrer">long, integer, short, byte, double, float, half_float, scaled_float<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <ul><li>日期类型</li></ul> <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/date.html" target="_blank" rel="noopener noreferrer">date<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <ul><li>布尔值类型</li></ul> <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/boolean.html" target="_blank" rel="noopener noreferrer">boolean<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <ul><li>二进制类型</li></ul> <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/binary.html" target="_blank" rel="noopener noreferrer">binary<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <ul><li>等等</li></ul> <blockquote><p><strong>PUT新增</strong></p></blockquote> <p>        现在我们在<code>kibana</code>面板上新建一个索引并指定字段类型</p> <div class="language-bash extra-class"><pre class="language-bash"><code>PUT /test2
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;mappings&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;properties&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;name&quot;</span>:<span class="token punctuation">{</span>
+        <span class="token string">&quot;type&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;text&quot;</span>
+      <span class="token punctuation">}</span>,
+      <span class="token string">&quot;age&quot;</span>:<span class="token punctuation">{</span>
+        <span class="token string">&quot;type&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;long&quot;</span>
+      <span class="token punctuation">}</span>,
+      <span class="token string">&quot;birthday&quot;</span>:<span class="token punctuation">{</span>
+        <span class="token string">&quot;type&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;date&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        输出如下，说明创建成功了</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;acknowledged&quot;</span> <span class="token builtin class-name">:</span> true,
+  <span class="token string">&quot;shards_acknowledged&quot;</span> <span class="token builtin class-name">:</span> true,
+  <span class="token string">&quot;index&quot;</span> <span class="token builtin class-name">:</span> <span class="token string">&quot;test2&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        在<code>elasticsearch-head</code>上可以查看到我们目前还未添加任何数据
+<img src="https://img-blog.csdnimg.cn/20210216112031889.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <blockquote><p><strong>GET 查看</strong></p></blockquote> <p>        现在我们来尝试使用一下 <code>GET</code> 命令，请求具体的信息！</p> <p><img src="https://img-blog.csdnimg.cn/20210216112707533.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        可以发现通过<code>GET</code>请求，我们能够详细获取到该索引下具体的信息，其中包含字段类型。那上面示例中字段类型是我自己定义的，那么我们不定义类型会是什么情况呢？</p> <p>        我们首先发起一个<code>PUT</code>请求，创建一个新的索引 test3，并添加一条数据</p> <div class="language-bash extra-class"><pre class="language-bash"><code>PUT /test3/_doc/1
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;name&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;大数据梦想家&quot;</span>,
+  <span class="token string">&quot;age&quot;</span>:21,
+  <span class="token string">&quot;birthday&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;2000-02-06&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        然后通过<code>GET</code>请求，可以发现非常的智能。但是如果我们的文档字段类型没有指定，那么es就会给我们默认配置的字段类型！
+<img src="https://img-blog.csdnimg.cn/20210216113929829.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <blockquote><p><strong>UPDATE修改</strong></p></blockquote> <p>        那如果我们想要修改文档里的字段信息呢？我们可以选择 <code>UPDATE</code> 也可以 选择 <code>PUT</code>进行覆盖</p> <p>        例如我可以像下图中的例子，将之前<code>test3</code>索引中的1号文档中的 name 字段修改后，重复提交，发现更新成功，但是注意 <code>version</code> 版本号已经变成了2
+<img src="https://img-blog.csdnimg.cn/20210216120908599.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        但是注意这种方法有弊端，如果我们在<code>PUT</code>的过程中，遗漏了字段，那么数据就会被新数据覆盖！所以，<font color="red">修改数据不建议使用PUT覆盖的方式！</font></p> <p>        我们使用 POST 命令，在 id 后面跟 <code>_update</code> ，要修改的内容放到 <code>doc</code> 文档(属性)中即可。
+<img src="https://img-blog.csdnimg.cn/20210216121916905.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        可以发现此时更新之后的<code>version</code>变成了3。所以，一旦索引被创建了之后，所有的修改都可以通过版本号看到变化。</p> <blockquote><p><strong>DELETE删除</strong></p></blockquote> <p>        那么怎么删除一条索引呢(库)呢?我们需要使用到<code>DELETE</code>命令
+<img src="https://img-blog.csdnimg.cn/20210216124136158.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        执行完成之后，到<code>elasticsearch-head</code>中查看索引，可以发现已经被删除了
+<img src="https://img-blog.csdnimg.cn/20210216124352598.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        结论： 通过 DELETE 命令实现删除，根据请求判断是删除索引还是删除文档记录！因此，<font color="blue">使用 RESTFUL 风格是我们学习ES值得推荐使用的</font></p> <h4 id="其他命令"><a href="#其他命令" class="header-anchor">#</a> 其他命令</h4> <p>        我们可以通过<code>GET _cat/health</code>来获取集群的一个健康状态
+<img src="https://img-blog.csdnimg.cn/20210216115343406.png" alt="">
+        同时观察<code>elasticsearch-head</code>，可以得出该界面实际上是在不断的像 elasticsearch 发起 GET 请求，然后将结果可视化展示在页面上！
+<img src="https://img-blog.csdnimg.cn/20210216115510399.png" alt="">
+        除了看集群的健康信息，我们还可以看什么呢？</p> <p>        通过命令<code>GET _cat/indices?v</code>，我们可以获取到当前索引的很多信息，返回值包括所有索引的状态健康情况，分片，数据储存大小等等
+<img src="https://img-blog.csdnimg.cn/20210216115957162.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h3 id="关于文档的基本操作"><a href="#关于文档的基本操作" class="header-anchor">#</a> 关于文档的基本操作</h3> <p>        接下来我们学习关于文档的基本操作，首先先重新创建一个新的索引，并添加一些数据</p> <div class="language-bash extra-class"><pre class="language-bash"><code>PUT /alice/user/1
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;name&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;爱丽丝&quot;</span>,
+  <span class="token string">&quot;age&quot;</span>:21,
+  <span class="token string">&quot;desc&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;在最美的年华，做最好的自己！&quot;</span>,
+  <span class="token string">&quot;tags&quot;</span>:<span class="token punctuation">[</span><span class="token string">&quot;技术宅&quot;</span>,<span class="token string">&quot;温暖&quot;</span>,<span class="token string">&quot;思维活跃&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+PUT /alice/user/2
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;name&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;张三&quot;</span>,
+  <span class="token string">&quot;age&quot;</span>:23,
+  <span class="token string">&quot;desc&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;法外狂徒&quot;</span>,
+  <span class="token string">&quot;tags&quot;</span>:<span class="token punctuation">[</span><span class="token string">&quot;渣男&quot;</span>,<span class="token string">&quot;交友&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+PUT /alice/user/3
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;name&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;路人甲&quot;</span>,
+  <span class="token string">&quot;age&quot;</span>:24,
+  <span class="token string">&quot;desc&quot;</span><span class="token builtin class-name">:</span><span class="token string">&quot;不可描述&quot;</span>,
+  <span class="token string">&quot;tags&quot;</span>:<span class="token punctuation">[</span><span class="token string">&quot;靓仔&quot;</span>,<span class="token string">&quot;网游&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        打开<code>elasticsearch-head</code>界面，确保我们的数据成功添加到了 es
+<img src="https://img-blog.csdnimg.cn/20210216211002925.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        接下来就可以进行文档的基本操作了！</p> <h4 id="简单查询"><a href="#简单查询" class="header-anchor">#</a> 简单查询</h4> <p>        通过 <code>GET</code> 命令，我们可以搜索到指定 id 的文档信息</p> <div class="language-bash extra-class"><pre class="language-bash"><code>GET alice/user/1
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20210216211530259.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        当然这是简单的搜索，下面我们来看一下 es 如何做条件查询</p> <div class="language-bash extra-class"><pre class="language-bash"><code>条件查询_search?q<span class="token operator">=</span>
+</code></pre></div><p>        我们可以通过如下命令，来进行条件查询</p> <div class="language-bash extra-class"><pre class="language-bash"><code>GET alice/user/_search?q<span class="token operator">=</span>name:张三
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20210227153321761.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p>        我们看一下结果 返回并不是 数据本身，是给我们了一个 <code>hits</code> ，还有 <code>_score</code>得分，就是根据算法算出和查询条件匹配度高的分就越高。</p> <p>        我们在以某度为例的搜索引擎上进行搜索也是一样的道理，权重越高网站的位置就越靠前！</p> <p>        但我们一般使用<strong>不会直接加条件去查询</strong>，更多的会用到下面要介绍到的<strong>复杂操作搜索</strong>。</p> <blockquote><p><strong>复杂操作搜索 select（ 排序，分页，高亮，模糊查询，精准查询！）</strong></p></blockquote> <p>        为了方便测试，我又执行下面的命令，往Alice索引下添加了2个文档</p> <div class="language-json extra-class"><pre class="language-json"><code>PUT /alice/user/<span class="token number">4</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;爱丽丝学Java&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;age&quot;</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;desc&quot;</span><span class="token operator">:</span><span class="token string">&quot;技术成就自我！&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;tags&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">&quot;思维敏捷&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;喜欢学习&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+PUT /alice/user/<span class="token number">5</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;爱丽丝学Python&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;age&quot;</span><span class="token operator">:</span><span class="token number">26</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;desc&quot;</span><span class="token operator">:</span><span class="token string">&quot;人生苦短，我用Python！&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;tags&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">&quot;好学&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;勤奋刻苦&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        刷新，查看到现在已经有了5条数据：
+<img src="https://img-blog.csdnimg.cn/20210227154210965.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        现在我们来构建一个查询：</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;爱丽丝&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20210227155911688.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        默认的话，es会查询出文档的所有字段，如果我们<strong>只想要部分的字段</strong>，就可以像下面所展示的demo进行查询：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;query&quot;</span>:<span class="token punctuation">{</span>
+    <span class="token string">&quot;match&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;name&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;爱丽丝&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>,
+  <span class="token string">&quot;_source&quot;</span>:<span class="token punctuation">[</span><span class="token string">&quot;name&quot;</span>,<span class="token string">&quot;desc&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        如上例所示，在查询中，通过 <code>_source</code> 来控制仅返回 name 和 desc 属性。页面返回的查询结果如下：
+<img src="https://img-blog.csdnimg.cn/20210227160306357.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""> <font color="red">一般的，我们推荐使用构建查询，以后在与程序交互时的查询等也是使用构建查询方式处理查询条件，因为该方式可以构建更加复杂的查询条件，也更加一目了然。</font></p> <h4 id="排序查询"><a href="#排序查询" class="header-anchor">#</a> 排序查询</h4> <p>        我们说到排序，有人就会想到：正序或倒序。那么我们先来根据<code>age</code>字段倒序查询：</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;爱丽丝&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;sort&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> 
+      <span class="token property">&quot;age&quot;</span><span class="token operator">:</span> 
+      <span class="token punctuation">{</span> 
+        <span class="token property">&quot;order&quot;</span><span class="token operator">:</span> <span class="token string">&quot;desc&quot;</span>
+        <span class="token punctuation">}</span>
+    
+     <span class="token punctuation">}</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询返回的结果如下：
+<img src="https://img-blog.csdnimg.cn/20210227171530711.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        同理，如果我们想要正序查询，只需要将<code>desc</code>换成了<code>asc</code>即可。</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;爱丽丝&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;sort&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> 
+      <span class="token property">&quot;age&quot;</span><span class="token operator">:</span> 
+      <span class="token punctuation">{</span> 
+        <span class="token property">&quot;order&quot;</span><span class="token operator">:</span> <span class="token string">&quot;asc&quot;</span>
+        <span class="token punctuation">}</span>
+    
+     <span class="token punctuation">}</span>
+   <span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token property">&quot;from&quot;</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+   <span class="token property">&quot;size&quot;</span><span class="token operator">:</span><span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果如下：
+<img src="https://img-blog.csdnimg.cn/20210227172335795.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p><strong>注意:在排序的过程中，只能使用可排序的属性进行排序。那么可以排序的属性有哪些呢?</strong></p> <ul><li>数字</li> <li>日期</li> <li>ID</li></ul> <p><font color="red">其他都不行！</font></p> <h4 id="分页查询"><a href="#分页查询" class="header-anchor">#</a> 分页查询</h4> <p>        学到这里，我们也可以看到，我们的查询条件越来越多，开始仅是<strong>简单查询</strong>，慢慢增加<strong>条件查询</strong>，增加排序，对返回结果进行限制。所以，我们可以说，对 于 elasticsearch 来说，所有的查询条件都是<strong>可插拔</strong>的。比如说，我们在查询中，仅对返回结果进行限制:</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span> 
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span>
+  <span class="token punctuation">{</span><span class="token property">&quot;match_all&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;from&quot;</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span>  # 从第n条开始
+  <span class="token property">&quot;size&quot;</span><span class="token operator">:</span><span class="token number">4</span>   # 返回n条数据
+  <span class="token punctuation">}</span>
+</code></pre></div><p>        分页查询类似于我们SQL中的 limit 语句。在 es 中我们想要实现这样的效果只需要用 <code>from</code> 指定 从第几条数据开始，<code>size</code>指定返回多少条数据即可。
+<img src="https://img-blog.csdnimg.cn/20210227172604832.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h4 id="布尔查询"><a href="#布尔查询" class="header-anchor">#</a> 布尔查询</h4> <p><strong>must (and)</strong></p> <p>        我们上面已经讲过了通过<strong>构建查询</strong>的方法去做<strong>模糊查询</strong>，那我们如果想多条件查询，例如查询name为<code>alice</code>，并且<code>age</code>是25岁，那该如何查询呢？</p> <p>        我们通过在 <code>bool</code>属性内使用 <code>must</code> 来作为查询条件！看结果，是不是 有点像<code>and</code>的感觉，里面的条件需要都满足！</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;bool&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;must&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>
+         <span class="token punctuation">{</span>
+          <span class="token property">&quot;match&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+          <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;爱丽丝&quot;</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;match&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+          <span class="token property">&quot;age&quot;</span><span class="token operator">:</span><span class="token number">25</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果如下
+<img src="https://img-blog.csdnimg.cn/20210227233546235.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""> <strong>should (or)</strong></p> <p>        那么我要查询<code>name</code>为爱丽丝或 <code>age</code> 为 25 的呢？</p> <p>        我们只需要将<code>boolean</code>属性内的<code>must</code>值换成<code>should</code> 即可，这就有点相当于 <code>or</code> 的感觉</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;bool&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;should&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>
+         <span class="token punctuation">{</span>
+          <span class="token property">&quot;match&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+          <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;爱丽丝&quot;</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;match&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+          <span class="token property">&quot;age&quot;</span><span class="token operator">:</span><span class="token number">25</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果如下</p> <p><img src="https://img-blog.csdnimg.cn/20210227233930974.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""> <strong>must_not (not)</strong></p> <p>        那现在我想要查询年龄不是 25  的 数据，只需要将<code>boolean</code>的属性值换成<code>must_not</code>即可</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;bool&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;must_not&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;match&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+          <span class="token property">&quot;age&quot;</span><span class="token operator">:</span><span class="token number">25</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果如下：
+<img src="https://img-blog.csdnimg.cn/20210227234637757.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""> <strong>Fitter</strong></p> <p>        那如果查询 <code>name</code> 为爱丽丝，<code>age</code> 大于 24 的数据，需要使用到<code>filter</code>进行过滤。</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;bool&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      <span class="token property">&quot;must&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;爱丽丝&quot;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;filter&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;range&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;age&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">&quot;gt&quot;</span><span class="token operator">:</span> <span class="token number">24</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果如下，可以发现只有<code>age</code>为25 和 26的两条数据
+<img src="https://img-blog.csdnimg.cn/20210227235013589.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        这里就用到了 filter 条件过滤查询，过滤条件的范围用 range 表示，其余操作如下 :</p> <ul><li>gt 表示大于</li> <li>gte 表示大于等于</li> <li>lt 表示小于</li> <li>lte 表示小于等于</li></ul> <p>        那现在要查询，例如 age 在24到26之间的数据该如何查询？</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;bool&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      <span class="token property">&quot;filter&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;range&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;age&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">&quot;gte&quot;</span><span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span>
+              <span class="token property">&quot;lte&quot;</span><span class="token operator">:</span> <span class="token number">26</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果：
+<img src="https://img-blog.csdnimg.cn/20210227235833857.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h4 id="短语检索"><a href="#短语检索" class="header-anchor">#</a> 短语检索</h4> <p>        为了方便测试，我们再加入几条文档数据：</p> <div class="language-json extra-class"><pre class="language-json"><code>PUT /alice/user/<span class="token number">6</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;大数据老K&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;age&quot;</span><span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;desc&quot;</span><span class="token operator">:</span><span class="token string">&quot;技术成就自我！&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;tags&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">&quot;男&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;学习&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;技术&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+PUT /alice/user/<span class="token number">7</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;Python女侠&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;age&quot;</span><span class="token operator">:</span><span class="token number">26</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;desc&quot;</span><span class="token operator">:</span><span class="token string">&quot;人生苦短，我用Python！&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;tags&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">&quot;靓女&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;勤奋学习&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;善于交际&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        例如现在需要查询<code>tags</code>中包含“男”的数据</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;match&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      <span class="token property">&quot;tags&quot;</span><span class="token operator">:</span><span class="token string">&quot;男&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果如下：</p> <p><img src="https://img-blog.csdnimg.cn/20210228002257853.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""> <strong>匹配多个标签</strong></p> <p>        既然按照标签检索，那么，能不能写多个标签呢?</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;match&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      <span class="token property">&quot;tags&quot;</span><span class="token operator">:</span><span class="token string">&quot;男 学习&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        此时我们可以观察返回的结果，可以发现<strong>只要满足一个标签</strong>就能返回这个数据了</p> <p><img src="https://img-blog.csdnimg.cn/20210228002712643.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h4 id="精确查询"><a href="#精确查询" class="header-anchor">#</a> 精确查询</h4> <p><code>term</code>查询是直接通过倒排索引指定的词条进程精确查找的！</p> <p><strong>关于分词：</strong></p> <ul><li>term ，不经过分词，直接查询精确的值</li> <li>match，会使用分词器解析！（先分析文档，然后再通过分析的文档进行查询！）</li></ul> <p>        说到分词器解析，就不得不提到两种数据类型：<code>text</code>和<code>keyword</code>。下面我们就来做个测试：</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// 创建一个索引，并指定类型</span>
+PUT testdb
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;mappings&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;properties&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;desc&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span><span class="token string">&quot;keyword&quot;</span>
+     <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 插入数据</span>
+PUT testdb/_doc/<span class="token number">1</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;爱丽丝学大数据name&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;desc&quot;</span><span class="token operator">:</span><span class="token string">&quot;爱丽丝学大数据desc&quot;</span>
+<span class="token punctuation">}</span>
+
+PUT testdb/_doc/<span class="token number">2</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;爱丽丝学大数据name2&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;desc&quot;</span><span class="token operator">:</span><span class="token string">&quot;爱丽丝学大数据desc2&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        上述中<code>testdb</code>索引中,字段<code>name</code>在被查询时会被分析器进行分析后匹配查询。而属于<code>keyword</code>类型不会被分析器处理。</p> <p>        我们来验证一下：</p> <div class="language-json extra-class"><pre class="language-json"><code>GET _analyze
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;analyzer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;keyword&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;text&quot;</span><span class="token operator">:</span> <span class="token string">&quot;爱丽丝学大数据 name&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果：
+<img src="https://img-blog.csdnimg.cn/2021022823502372.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        是不是没有被分析~就是简单的一个字符串啊。再测试一下：</p> <div class="language-json extra-class"><pre class="language-json"><code>GET _analyze
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;analyzer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;standard&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;text&quot;</span><span class="token operator">:</span> <span class="token string">&quot;爱丽丝学大数据 name&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果：
+<img src="https://img-blog.csdnimg.cn/20210228235121821.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        然后我们可以得出结论：<strong>keyword 字段类型不会被分析器分析</strong>！</p> <p>        下面我们用前面添加的2条数据做过测试：</p> <p>        先精准查询<code>text</code>类型的字段</p> <div class="language-json extra-class"><pre class="language-json"><code>GET testdb/_search         <span class="token comment">// text 会被分析器分析 查询</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;term&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;爱&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果，2条数据都能匹配到
+<img src="https://img-blog.csdnimg.cn/20210301002149700.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        然后用<code>standard</code>类型做精准测试</p> <div class="language-json extra-class"><pre class="language-json"><code>GET testdb/_search          <span class="token comment">// keyword 不会被分析所以直接查询 </span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;term&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;desc&quot;</span><span class="token operator">:</span> <span class="token string">&quot;爱丽丝学大数据desc&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>        查询结果，只有1条数据能匹配到
+<img src="https://img-blog.csdnimg.cn/20210301002226780.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h4 id="查找多个精确值"><a href="#查找多个精确值" class="header-anchor">#</a> 查找多个精确值</h4> <p>        为了方便测试，我们再添加如下数据：</p> <div class="language-json extra-class"><pre class="language-json"><code>PUT testdb/_doc/<span class="token number">3</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;t1&quot;</span><span class="token operator">:</span><span class="token string">&quot;22&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;t2&quot;</span><span class="token operator">:</span><span class="token string">&quot;2021-03-01&quot;</span>
+<span class="token punctuation">}</span>
+
+PUT testdb/_doc/<span class="token number">4</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;t1&quot;</span><span class="token operator">:</span><span class="token string">&quot;33&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;t2&quot;</span><span class="token operator">:</span><span class="token string">&quot;2021-03-01&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        然后进行查询</p> <div class="language-json extra-class"><pre class="language-json"><code>GET testdb/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;bool&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      <span class="token property">&quot;should&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;term&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;t1&quot;</span><span class="token operator">:</span><span class="token string">&quot;22&quot;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;term&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;t1&quot;</span><span class="token operator">:</span><span class="token string">&quot;33&quot;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果：
+<img src="https://img-blog.csdnimg.cn/20210301004017561.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        可以发现2条数据也都能查到，证明就算是<code>term</code>精确查询，也能够查询多个值。</p> <p>        当然，除了 bool 查询之外，下面这种方式也同样是可以的。</p> <div class="language-json extra-class"><pre class="language-json"><code>GET testdb/_doc/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;terms&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+      <span class="token property">&quot;t1&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">&quot;22&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;33&quot;</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        下面要介绍的功能，就是经常被搜索引擎用到的“<strong>高亮显示</strong>”！</p> <h4 id="高亮显示"><a href="#高亮显示" class="header-anchor">#</a> 高亮显示</h4> <p>        我们可以通过<code>highlight</code>属性，来对我们查询的结果的指定字段做高亮显示！</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+     <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+       <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;爱丽丝&quot;</span>
+     <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;highlight&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;fields&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        观察返回的结果，我们可以发现搜索相关的结果，被加上了高亮标签<code>&lt;em&gt;</code> <img src="https://img-blog.csdnimg.cn/20210301005856809.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        现在效果看到了，那我们有没有办法<strong>自定义样式</strong>呢？</p> <p>        答案当然是可以的，我们需要在<code>pre_tags</code>中定义标签的前缀，<code>post_tags</code>中定义后缀！</p> <div class="language-json extra-class"><pre class="language-json"><code>GET alice/user/_search
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;query&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+     <span class="token property">&quot;match&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+       <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;爱丽丝&quot;</span>
+     <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;highlight&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+    <span class="token property">&quot;pre_tags&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;b class='key' style='color:red'&gt;&quot;</span><span class="token punctuation">,</span> 
+    <span class="token property">&quot;post_tags&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&lt;/b&gt;&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;fields&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        查询结果：
+<img src="https://img-blog.csdnimg.cn/20210301010425831.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        好了，学到这里，关于elasticsearch 文档的基本操作基本就演示完了。我们来回顾下:</p> <ul><li>简单匹配</li> <li>条件匹配</li> <li>精确匹配</li> <li>区间范围匹配</li> <li>匹配字段过滤</li> <li>多条件查询</li> <li>高亮查询</li></ul> <p>        值得一提的是，<strong>这些MySQL也都能做，只是效率较低</strong>！</p> <h2 id="ref"><a href="#ref" class="header-anchor">#</a> Ref</h2> <blockquote><ol><li>https://www.cnblogs.com/jizhong/p/12102100.html</li> <li>https://www.cnblogs.com/subendong/p/7667558.html</li> <li>https://blog.csdn.net/Bobdragery/article/details/106842984</li> <li>https://blog.csdn.net/u014475245/article/details/107184892/</li> <li>https://www.bilibili.com/video/BV17a4y1x7zq?p=7&amp;spm_id_from=pageDriver</li></ol></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/9.7d490254.js" defer></script>
+  </body>
+</html>

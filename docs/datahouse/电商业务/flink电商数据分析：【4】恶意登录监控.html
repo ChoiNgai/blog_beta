@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>基于 flink 的电商用户行为数据分析：【4】恶意登录监控 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/128.ee1158fc.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>电商业务</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E7%94%B5%E5%95%86%E4%B8%9A%E5%8A%A1/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【1】 项目整体介绍.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【1】 项目整体介绍</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【2】实时热门商品统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【3】实时流量统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【3】实时流量统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html" class="active sidebar-link">基于 flink 的电商用户行为数据分析：【4】恶意登录监控</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#模块创建和数据准备" class="sidebar-link">模块创建和数据准备</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#代码实现" class="sidebar-link">代码实现</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#状态编程" class="sidebar-link">状态编程</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#状态编程的改进" class="sidebar-link">状态编程的改进</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#cep编程" class="sidebar-link">CEP编程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#什么是复杂事件处理cep" class="sidebar-link">什么是复杂事件处理CEP</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#cep特点" class="sidebar-link">CEP特点</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#pattern-api" class="sidebar-link">Pattern API</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#个体模式-individual-patterns" class="sidebar-link">个体模式（Individual Patterns）</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#个体模式的条件" class="sidebar-link">个体模式的条件</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#模式序列" class="sidebar-link">模式序列</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#模式的检测" class="sidebar-link">模式的检测</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#匹配事件的提取" class="sidebar-link">匹配事件的提取</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html#超时事件的提取" class="sidebar-link">超时事件的提取</a></li></ul></li></ul></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【5】 基于埋点日志数据的网络流量统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【5】 基于埋点日志数据的网络流量统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【6】 APP市场推广统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【6】 APP市场推广统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【7】页面广告分析.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【7】页面广告分析</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【8】订单支付实时监控.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【8】订单支付实时监控</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【9】电商常见指标汇总 + 项目总结.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【9】电商常见指标汇总 + 项目总结</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="基于-flink-的电商用户行为数据分析-【4】恶意登录监控"><a href="#基于-flink-的电商用户行为数据分析-【4】恶意登录监控" class="header-anchor">#</a> 基于 flink 的电商用户行为数据分析：【4】恶意登录监控</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>        在上一期内容中，菌哥已经为大家介绍了实时热门商品统计模块的功能开发的过程(👉<a href="https://alice.blog.csdn.net/article/details/110212749" target="_blank" rel="noopener noreferrer">基于flink的电商用户行为数据分析【3】| 实时流量统计<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>）。本期文章，我们需要学习的是<strong>恶意登录监控</strong>模块功能的开发过程。</p> <h2 id="模块创建和数据准备"><a href="#模块创建和数据准备" class="header-anchor">#</a> 模块创建和数据准备</h2> <p>        继续在<code>UserBehaviorAnalysis</code>下新建一个 maven module作为子项目，命名为<code>LoginFailDetect</code>。在这个子模块中，我们将会用到flink的<code>CEP</code>库来实现<strong>事件流的模式匹配</strong>，所以需要在pom文件中引入CEP的相关依赖：</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.apache.flink<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>flink-cep-scala_${scala.binary.version}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>${flink.version}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>        同样，在src/main/目录下，将默认源文件目录java改名为scala。</p> <p></p> <h2 id="代码实现"><a href="#代码实现" class="header-anchor">#</a> 代码实现</h2> <p>        对于网站而言，<strong>用户登录并不是频繁的业务操作</strong>。如果一个用户短时间内频繁登录失败，就有可能是出现了程序的恶意攻击，比如密码暴力破解。因此我们考虑，应该对用户的登录失败动作进行统计，具体来说，<strong>如果同一用户（可以是不同IP）在2秒之内连续两次登录失败，就认为存在恶意登录的风险，输出相关的信息进行报警提示</strong>。这是电商网站、也是几乎所有网站<strong>风控</strong>的基本一环。</p> <p>        所以我们可以思考一下解决方案：</p> <blockquote><ul><li><p>基本需求
+-- 用户在短时间内频繁登录失败，有程序恶意攻击的可能
+-- 同一用户（可以是不同IP）在2秒内连续两次登录失败，需要报警</p></li> <li><p>解决思路
+-- 将用户的登录失败行为存入 ListState，设定定时器2秒后触发，查看 ListState 中有几次失败登录
+-- 更加准确的检测，可以使用 <strong>CEP</strong> 库实现事件流的<strong>模式匹配</strong></p></li></ul></blockquote> <p>        既然现在思路清楚了，那我们就尝试将方案落地。</p> <h2 id="状态编程"><a href="#状态编程" class="header-anchor">#</a> 状态编程</h2> <p>        由于同样引入了时间，我们可以想到，最简单的方法其实与之前的热门统计类似，只需要<strong>按照用户ID分流</strong>，然后遇到登录失败的事件时将其保存在<strong>ListState</strong>中，然后<strong>设置一个定时器</strong>，2秒后触发。定时器触发时<strong>检查状态中的登录失败事件个数</strong>，如果大于等于2，那么就<strong>输出报警信息</strong>。</p> <p>        在src/main/scala下创建<code>LoginFail.scala</code>文件，新建一个单例对象。定义样例类<code>LoginEvent</code>，这是输入的登录事件流。登录数据本应该从UserBehavior日志里提取，由于UserBehavior.csv中没有做相关埋点，我们从另一个文件<code>LoginLog.csv</code>中读取登录数据。</p> <p><img src="https://img-blog.csdnimg.cn/20201128154915810.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="LoginLog.csv"></p> <p>        代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token keyword">object</span> LoginFailOne <span class="token punctuation">{</span>
+
+  <span class="token comment">// 输入的登录事件样例类</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> LoginEvent<span class="token punctuation">(</span> userId<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>ip<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">,</span>eventType<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">,</span>eventTime<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// 输出的报警信息样例类</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> Warning<span class="token punctuation">(</span> userId<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>firstFailTime<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>lastFailTime<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>warningMsg<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 创建流环境</span>
+    <span class="token keyword">val</span> env<span class="token operator">:</span> StreamExecutionEnvironment <span class="token operator">=</span> StreamExecutionEnvironment<span class="token punctuation">.</span>getExecutionEnvironment
+    <span class="token comment">// 设置并行度</span>
+    env<span class="token punctuation">.</span>setParallelism<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token comment">// 设置时间特征为事件时间</span>
+    env<span class="token punctuation">.</span>setStreamTimeCharacteristic<span class="token punctuation">(</span>TimeCharacteristic<span class="token punctuation">.</span>EventTime<span class="token punctuation">)</span>
+
+    <span class="token comment">// 读取csv文件</span>
+    env<span class="token punctuation">.</span>readTextFile<span class="token punctuation">(</span><span class="token string">&quot;G:\\LoginLog.csv&quot;</span><span class="token punctuation">)</span>
+       <span class="token punctuation">.</span>map<span class="token punctuation">(</span>data <span class="token keyword">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token comment">// 将文件中的数据封装成样例类</span>
+          <span class="token keyword">val</span> dataArray<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+          LoginEvent<span class="token punctuation">(</span>dataArray<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token comment">// 设置 WaterMark 水印</span>
+      <span class="token punctuation">.</span>assignTimestampsAndWatermarks<span class="token punctuation">(</span><span class="token keyword">new</span> BoundedOutOfOrdernessTimestampExtractor<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span><span class="token punctuation">(</span>Time<span class="token punctuation">.</span>seconds<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">override</span> <span class="token keyword">def</span> extractTimestamp<span class="token punctuation">(</span>element<span class="token operator">:</span> LoginEvent<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> element<span class="token punctuation">.</span>eventTime <span class="token operator">*</span> <span class="token number">1000</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token comment">// 以用户id为key，进行分组</span>
+      <span class="token punctuation">.</span>keyBy<span class="token punctuation">(</span>_<span class="token punctuation">.</span>userId<span class="token punctuation">)</span>
+      <span class="token comment">// 计算出同一个用户2秒内连续登录失败超过2次的报警信息</span>
+      <span class="token punctuation">.</span>process<span class="token punctuation">(</span><span class="token keyword">new</span> LoginWarning<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>print<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">//  执行程序</span>
+    env<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;login fail job&quot;</span><span class="token punctuation">)</span>
+
+
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 自定义处理函数，保留上一次登录失败的事件，并可以注册定时器    [键的类型，输入元素的类型，输出元素的类型]</span>
+  <span class="token keyword">class</span> LoginWarning<span class="token punctuation">(</span>maxFailTimes<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> KeyedProcessFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span>LoginEvent<span class="token punctuation">,</span>Warning<span class="token punctuation">]</span><span class="token punctuation">{</span>
+
+    <span class="token comment">// 定义  保存登录失败事件的状态</span>
+    <span class="token keyword">lazy</span> <span class="token keyword">val</span> loginFailState<span class="token operator">:</span> ListState<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span> <span class="token operator">=</span> getRuntimeContext<span class="token punctuation">.</span>getListState<span class="token punctuation">(</span> <span class="token keyword">new</span> ListStateDescriptor<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token string">&quot;loginfail-state&quot;</span><span class="token punctuation">,</span> classOf<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">def</span> processElement<span class="token punctuation">(</span>value<span class="token operator">:</span> LoginEvent<span class="token punctuation">,</span> ctx<span class="token operator">:</span> KeyedProcessFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span> LoginEvent<span class="token punctuation">,</span> Warning<span class="token punctuation">]</span>#Context<span class="token punctuation">,</span> out<span class="token operator">:</span> Collector<span class="token punctuation">[</span>Warning<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+      <span class="token comment">// 判断当前登录状态是否为 fail</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">.</span>eventType <span class="token operator">==</span> <span class="token string">&quot;fail&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// 判断存放失败事件的state是否有值，没有值则创建一个2秒后的定时器</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>loginFailState<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>iterator<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hasNext<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token comment">// 注册一个定时器，设置在 2秒 之后</span>
+          ctx<span class="token punctuation">.</span>timerService<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>registerEventTimeTimer<span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">.</span>eventTime <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1000L</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 把新的失败事件添加到  state</span>
+        loginFailState<span class="token punctuation">.</span>add<span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token comment">// 如果登录成功，清空状态重新开始</span>
+        loginFailState<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">def</span> onTimer<span class="token punctuation">(</span>timestamp<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> ctx<span class="token operator">:</span> KeyedProcessFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span> LoginEvent<span class="token punctuation">,</span> Warning<span class="token punctuation">]</span>#OnTimerContext<span class="token punctuation">,</span> out<span class="token operator">:</span> Collector<span class="token punctuation">[</span>Warning<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 触发定时器的时候，根据状态的失败个数决定是否输出报警</span>
+      <span class="token keyword">val</span> allLoginFailEvents<span class="token operator">:</span> ListBuffer<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> ListBuffer<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+      <span class="token keyword">val</span> iter<span class="token operator">:</span> util<span class="token punctuation">.</span>Iterator<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span> <span class="token operator">=</span> loginFailState<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>iterator<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+      <span class="token comment">// 遍历状态中的数据，将数据存放至 ListBuffer</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span> iter<span class="token punctuation">.</span>hasNext <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        allLoginFailEvents <span class="token operator">+=</span> iter<span class="token punctuation">.</span>next<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+      <span class="token comment">//判断登录失败事件个数，如果大于等于 maxFailTimes ，输出报警信息</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>allLoginFailEvents<span class="token punctuation">.</span>length <span class="token operator">&gt;=</span> maxFailTimes<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        out<span class="token punctuation">.</span>collect<span class="token punctuation">(</span>Warning<span class="token punctuation">(</span>allLoginFailEvents<span class="token punctuation">.</span>head<span class="token punctuation">.</span>userId<span class="token punctuation">,</span>
+          allLoginFailEvents<span class="token punctuation">.</span>head<span class="token punctuation">.</span>eventTime<span class="token punctuation">,</span>
+          allLoginFailEvents<span class="token punctuation">.</span>last<span class="token punctuation">.</span>eventTime<span class="token punctuation">,</span>
+          <span class="token string">&quot;在2秒之内连续登录失败&quot;</span> <span class="token operator">+</span> allLoginFailEvents<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token string">&quot;次&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token comment">// 清空状态</span>
+      loginFailState<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>程序运行结果：
+<img src="https://img-blog.csdnimg.cn/20201128155457574.png" alt="在这里插入图片描述">
+我们可以到<code>LoginLog.csv</code>来验证结果</p> <p><img src="https://img-blog.csdnimg.cn/20201128155618696.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p>貌似看到这里感觉我们的程序写的没有错，事实真的是这样的吗？</p> <p><img src="https://img-blog.csdnimg.cn/20201128155940179.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <p>那好，现在我改一个数据，把<code>1558430844</code>秒的登录状态改成<code>success</code></p> <p><img src="https://img-blog.csdnimg.cn/20201128160109499.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p>然后重新运行一下程序，看看会发生什么？</p> <p><img src="https://img-blog.csdnimg.cn/2020112816023894.png" alt=""></p> <p><img src="https://img-blog.csdnimg.cn/20201128160309863.png#pic_center" alt=""></p> <p>我了个乖乖，什么情况，现在连结果都没了？</p> <p>仔细看代码，才发现我们的思路是没错的，但是还是有 逻辑Bug !
+<img src="https://img-blog.csdnimg.cn/20201128160437197.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <p>不管一个用户之前连续登录失败多少次，只要中间成功一次，之前的记录就被清空了！</p> <p><img src="https://img-blog.csdnimg.cn/2020112816064128.png#pic_center" alt="在这里插入图片描述"></p> <h2 id="状态编程的改进"><a href="#状态编程的改进" class="header-anchor">#</a> 状态编程的改进</h2> <p>        上一节的代码实现中我们可以看到，<strong>直接把每次登录失败的数据存起来、设置定时器一段时间后再读取，这种做法尽管简单，但和我们开始的需求还是略有差异的</strong>。这种做法<font color="Tomato"><strong>只能隔2秒之后去判断一下这期间是否有多次失败登录，而不是在一次登录失败之后、再一次登录失败时就立刻报警</strong></font>。这个需求如果严格实现起来，相当于要判断任意紧邻的事件，是否符合某种模式。</p> <p>        于是我们可以想到，这个需求其实可以不用定时器触发，直接在状态中存取上一次登录失败的事件，每次都做判断和比对，就可以实现最初的需求。</p> <p>        上节的代码MatchFunction中删掉onTimer，processElement改为：</p> <div class="language-scala extra-class"><pre class="language-scala"><code> <span class="token comment">// 自定义处理函数，保留上一次登录失败的事件    [键的类型，输入元素的类型，输出元素的类型]</span>
+  <span class="token keyword">class</span> LoginWarning<span class="token punctuation">(</span>maxFailTimes<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> KeyedProcessFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span> LoginEvent<span class="token punctuation">,</span> Warning<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 定义  保存登录失败事件的状态</span>
+    <span class="token keyword">lazy</span> <span class="token keyword">val</span> loginFailState<span class="token operator">:</span> ListState<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span> <span class="token operator">=</span> getRuntimeContext<span class="token punctuation">.</span>getListState<span class="token punctuation">(</span><span class="token keyword">new</span> ListStateDescriptor<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token string">&quot;loginfail-state&quot;</span><span class="token punctuation">,</span> classOf<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">def</span> processElement<span class="token punctuation">(</span>value<span class="token operator">:</span> LoginEvent<span class="token punctuation">,</span> ctx<span class="token operator">:</span> KeyedProcessFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span> LoginEvent<span class="token punctuation">,</span> Warning<span class="token punctuation">]</span>#Context<span class="token punctuation">,</span> out<span class="token operator">:</span> Collector<span class="token punctuation">[</span>Warning<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 首先按照type做筛选，如果success直接清空，如果fail再做处理</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>value<span class="token punctuation">.</span>eventType <span class="token operator">==</span> <span class="token string">&quot;fail&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// 先获取之前失败的事件</span>
+        <span class="token keyword">val</span> iter<span class="token operator">:</span> util<span class="token punctuation">.</span>Iterator<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span> <span class="token operator">=</span> loginFailState<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>iterator<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>iter<span class="token punctuation">.</span>hasNext<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token comment">// 如果之前已经有失败的事件，就做判断，如果没有就把当前失败事件保存进state</span>
+          <span class="token keyword">val</span> firstFailEvent<span class="token operator">:</span> LoginEvent <span class="token operator">=</span> iter<span class="token punctuation">.</span>next<span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token comment">// 判断两次失败事件间隔小于2秒，输出报警信息</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">.</span>eventTime <span class="token operator">&lt;</span> firstFailEvent<span class="token punctuation">.</span>eventTime <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            out<span class="token punctuation">.</span>collect<span class="token punctuation">(</span>Warning<span class="token punctuation">(</span> value<span class="token punctuation">.</span>userId<span class="token punctuation">,</span>firstFailEvent<span class="token punctuation">.</span>eventTime<span class="token punctuation">,</span>value<span class="token punctuation">.</span>eventTime<span class="token punctuation">,</span><span class="token string">&quot;在2秒内连续两次登录失败。&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span>
+
+          <span class="token comment">// 更新最近一次的登录失败事件，保存在状态里</span>
+          loginFailState<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+          loginFailState<span class="token punctuation">.</span>add<span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+          <span class="token comment">// 如果是第一次登录失败，之前把当前记录 保存至 state</span>
+          loginFailState<span class="token punctuation">.</span>add<span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token comment">// 当前登录状态 不为 fail，则直接清除状态</span>
+        loginFailState<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><p>这次我们基于上述已经修改过的<code>LoginLog.csv</code>文件，重新运行程序，发现此时是有结果的。
+<img src="https://img-blog.csdnimg.cn/20201128162727206.png" alt="在这里插入图片描述">
+那现在的程序还会有Bug吗？</p> <p><img src="https://img-blog.csdnimg.cn/20201128163330923.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <p>        当然还有会，例如我们去掉了定时器，如果运行过程中<strong>数据处理乱序</strong>，同一个用户每次登录失败的时间相差距离过大，可能很长一段时间都不会有该用户的报警信息。当然，还有其他的问题，我们放在下面一小节来说！</p> <h2 id="cep编程"><a href="#cep编程" class="header-anchor">#</a> CEP编程</h2> <p>        上一节我们通过对状态编程的改进，去掉了定时器，在process function中做了更多的逻辑处理，实现了最初的需求。不过这种方法里有很多的条件判断，而我们目前仅仅实现的是检测“<strong>连续2次登录失败</strong>”，这是最简单的情形。如果需要检测更多次，<strong>内部逻辑显然会变得非常复杂</strong>。那有什么方式可以方便地实现呢？</p> <p>        很幸运，flink为我们提供了<strong>CEP</strong><code>（Complex Event Processing，复杂事件处理）</code>库，用于<strong>在流中筛选符合某种复杂模式的事件</strong>。</p> <p>        为了担心小伙伴们对于 <strong>CEP</strong>  这个 “新事物”感到陌生，我们先来补一补<code>CEP</code>的内容！</p> <p><img src="https://img-blog.csdnimg.cn/20201128165340132.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p> <h3 id="什么是复杂事件处理cep"><a href="#什么是复杂事件处理cep" class="header-anchor">#</a> 什么是复杂事件处理CEP</h3> <blockquote><ul><li>复杂事件处理（Complex Event Processing，CEP）</li> <li>Flink CEP是在 Flink 中实现的复杂事件处理（CEP）库</li> <li>CEP 允许<strong>在无休止的事件流中检测事件模式，让我们有机会掌握数据中重要的部分</strong></li> <li>一个或多个由简单事件构成的事件流通过一定的规则匹配，然后输出用户想得到的数据 —— 满足规则的复杂事件</li></ul></blockquote> <h3 id="cep特点"><a href="#cep特点" class="header-anchor">#</a> CEP特点</h3> <p>        如果我们想从一堆图形中找到符合预期的结果，就可以根据某个规则去进行匹配，如下图所示：</p> <p><img src="https://img-blog.csdnimg.cn/20201128170043245.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <blockquote><ul><li>目标：从有序的简单事件流中发现一些高阶特征</li> <li>输入：一个或多个由简单事件构成的事件流</li> <li>处理：识别简单事件之间的内在联系，多个符合一定规则的简单事件构成复杂事件</li> <li>输出：满足规则的复杂事件</li></ul></blockquote> <h3 id="pattern-api"><a href="#pattern-api" class="header-anchor">#</a> Pattern API</h3> <blockquote><ul><li><strong>处理事件的规则，被叫做“模式”（Pattern）</strong></li> <li><strong>Flink CEP 提供了 Pattern API，用于对输入流数据进行复杂事件规则定义，用来提取符合规则的事件序列</strong> <img src="https://img-blog.csdnimg.cn/20201128171319466.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li> <li><strong>个体模式（Individual Patterns）</strong>
+-- 组成复杂规则的每一个单独的模式定义，就是“个体模式”
+<img src="https://img-blog.csdnimg.cn/20201128171015161.png" alt="在这里插入图片描述"></li> <li><strong>组合模式（Combining Patterns，也叫模式序列）</strong>
+-- 很多个体模式组合起来，就形成了整个的模式序列
+-- 模式序列必须以一个“初始模式”开始：
+<img src="https://img-blog.csdnimg.cn/20201128171230259.png" alt="在这里插入图片描述"></li> <li><strong>模式组（Groups of patterns）</strong>
+-- 将一个模式序列作为条件嵌套在个体模式里，成为一组模式</li></ul></blockquote> <h3 id="个体模式-individual-patterns"><a href="#个体模式-individual-patterns" class="header-anchor">#</a> 个体模式（Individual Patterns）</h3> <ul><li>个体模式可以包括“单例（singleton）模式”和“循环（looping）模式”</li> <li>单例模式只接收一个事件，而循环模式可以接收多个</li></ul> <blockquote><p>★ 量词（Quantifier）</p> <ul><li>可以在一个个体模式后追加量词，也就是指定循环次数
+<img src="https://img-blog.csdnimg.cn/20201128171908448.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li></ul></blockquote> <h3 id="个体模式的条件"><a href="#个体模式的条件" class="header-anchor">#</a> 个体模式的条件</h3> <blockquote><p>★ 条件（Condition）
+-- 每个模式都需要指定触发条件，作为模式是否接受事件进入的判断依据
+-- CEP 中的个体模式主要通过调用 <code>.where()</code> .<code>or()</code> 和 <code>.until()</code>来指定条件
+-- 按不同的调用方式，可以分成以下几类
+<br>
+★简单条件（Simple Condition）
+-- 通过 <code>.where()</code>方法对事件中的字段进行判断筛选，决定是否接受该事件
+<img src="https://img-blog.csdnimg.cn/20201128172239106.png" alt="在这里插入图片描述">
+★组合条件（Combining Condition）
+-- 将简单条件进行合并；<code>.or()</code> 方法表示或逻辑相连，<code>where</code>的直接组合就是 AND
+<img src="https://img-blog.csdnimg.cn/20201128172458733.png" alt="在这里插入图片描述">
+★ 终止条件（Stop Condition）
+-- 如果使用了 <code>oneOrMore</code> 或者 <code>oneOrMore.optional</code>，建议使用 <code>.until()</code>作为终止条件，以便清理状态
+<br>
+★ 迭代条件（Iterative Condition）
+-- 能够对模式之前所有接收的事件进行处理
+-- 调用<code>.where( (value, ctx) =&gt; {...} )</code>，可以调用 <code>ctx.getEventsForPattern(“name”)</code>
+提示： name可以是当前个体模式的名称，这个方法可以将之前匹配好的事件从状态中都拿出来，再做具体的判断，使用。一般在比较复杂的场景才会用到。</p></blockquote> <h3 id="模式序列"><a href="#模式序列" class="header-anchor">#</a> 模式序列</h3> <blockquote><ul><li><strong>不同的“近邻”模式</strong> <img src="https://img-blog.csdnimg.cn/20201128173500269.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li> <li><strong>严格近邻</strong>（Strict Contiguity）
+-- 所有事件按照严格的顺序出现，中间没有任何不匹配的事件，由 <strong>.next()</strong> 指定
+-- 例如对于模式<code>a next b</code>，事件序列 <code>[a, c, b1, b2]</code>没有匹配</li> <li><strong>宽松近邻</strong>（ Relaxed Contiguity ）
+-- 允许中间出现不匹配的事件，由 <strong>.followedBy()</strong> 指定
+-- 例如对于模式<code>a followedBy b</code>，事件序列<code>[a, c, b1, b2] 匹配为 {a, b1}</code></li> <li><strong>非确定性宽松近邻</strong>（ Non-Deterministic Relaxed Contiguity ）
+-- 进一步放宽条件，之前已经匹配过的事件也可以再次使用，由  <strong>.followedByAny()</strong>  指定
+-- 例如对于模式<code>a followedByAny b</code>，事件序列 <code>[a, c, b1, b2]</code> 匹配为<code>{a, b1}，{a, b2}</code> <br></li> <li>除以上模式序列外，还可以定义“<strong>不希望出现某种近邻关系</strong>”：
+-- <strong>.notNext()</strong>  —— 不想让某个事件严格紧邻前一个事件发生
+-- <strong>.notFollowedBy()</strong> —— 不想让某个事件在两个事件之间发生</li> <li>需要注意：
+-- 所有模式序列必须以 <strong>.begin()</strong> 开始
+-- 模式序列不能以 <strong>.notFollowedBy()</strong> 结束
+-- <strong>“not” 类型的模式不能被 optional 所修饰</strong>
+-- 此外，还可以为模式指定<strong>时间约束</strong>，用来要求在多长时间内匹配有效
+<img src="https://img-blog.csdnimg.cn/2020112817540698.png" alt="在这里插入图片描述"></li></ul></blockquote> <h3 id="模式的检测"><a href="#模式的检测" class="header-anchor">#</a> 模式的检测</h3> <blockquote><ul><li>指定要查找的模式序列后，就可以将其应用于输入流以检测潜在匹配</li> <li>调用 CEP.pattern()，给定输入流和模式，就能得到一个 PatternStream
+<img src="https://img-blog.csdnimg.cn/20201128175533723.png" alt="在这里插入图片描述"></li></ul></blockquote> <h3 id="匹配事件的提取"><a href="#匹配事件的提取" class="header-anchor">#</a> 匹配事件的提取</h3> <blockquote><ul><li>创建 <code>PatternStream</code> 之后，就可以应用<code>select</code>或者 <code>flatselect</code>方法，从检测到的事件序列中提取事件了</li> <li>select() 方法需要输入一个 select function 作为参数，每个成功匹配的事件序列都会调用它</li> <li>select() 以一个 <code>Map[String，Iterable [IN]]</code>来接收匹配到的事件序列，其中 key 就是每个模式的名称，而 value 就是所有接收到的事件的 <strong>Iterable</strong> 类型</li></ul> <p><img src="https://img-blog.csdnimg.cn/20201128180142848.png?,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p></blockquote> <h3 id="超时事件的提取"><a href="#超时事件的提取" class="header-anchor">#</a> 超时事件的提取</h3> <blockquote><ul><li>当一个模式通过 <code>within</code> 关键字定义了检测窗口时间时，部分事件序列可能因为超过窗口长度而被丢弃；为了能够处理这些超时的部分匹配，<code>select</code>和<code>flatSelect API</code> 调用允许指定超时处理程序。</li> <li>超时处理程序会接收到目前为止由模式匹配到的所有事件，由一个 <code>OutputTag</code>定义接收到的超时事件序列。
+<img src="https://img-blog.csdnimg.cn/20201128180447522.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li></ul></blockquote> <p>        接下来我们就需要基于<strong>CEP</strong>来完成这个模块的实现。</p> <p><img src="https://img-blog.csdnimg.cn/20201128181336976.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p> <p>        相关的pom文件我们已经在最开始的时候到导入了，现在在src/main/scala下继续创建<code>LoginFailWithCep.scala</code>文件，新建一个单例对象。样例类<code>LoginEvent</code>由于在LoginFail.scala已经定义，我们在同一个模块中就不需要再定义。</p> <p>        具体代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token keyword">object</span> LoginFailWithCep <span class="token punctuation">{</span>
+  <span class="token comment">// 输入的登录事件样例类</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> LoginEvent<span class="token punctuation">(</span>userId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> ip<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span> eventType<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span> eventTime<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// 输出的报警信息样例类</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> Warning<span class="token punctuation">(</span>userId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> firstFailTime<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> lastFailTime<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> warningMsg<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    
+    <span class="token comment">// 1、创建流环境</span>
+    <span class="token keyword">val</span> env<span class="token operator">:</span> StreamExecutionEnvironment <span class="token operator">=</span> StreamExecutionEnvironment<span class="token punctuation">.</span>getExecutionEnvironment
+    <span class="token comment">// 设置并行度</span>
+    env<span class="token punctuation">.</span>setParallelism<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token comment">// 设置时间特征为事件时间</span>
+    env<span class="token punctuation">.</span>setStreamTimeCharacteristic<span class="token punctuation">(</span>TimeCharacteristic<span class="token punctuation">.</span>EventTime<span class="token punctuation">)</span>
+
+    <span class="token comment">// 构建数据</span>
+    <span class="token keyword">val</span> loginEventStream<span class="token operator">:</span> KeyedStream<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">,</span> <span class="token builtin">Long</span><span class="token punctuation">]</span> <span class="token operator">=</span> env<span class="token punctuation">.</span>readTextFile<span class="token punctuation">(</span><span class="token string">&quot;G:\\idea arc\\BIGDATA\\project\\src\\main\\resources\\LoginLog.csv&quot;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>map<span class="token punctuation">(</span>data <span class="token keyword">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 将文件中的数据封装成样例类</span>
+        <span class="token keyword">val</span> dataArray<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+        LoginEvent<span class="token punctuation">(</span>dataArray<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token comment">// 设置水印，防止数据乱序</span>
+      <span class="token punctuation">.</span>assignTimestampsAndWatermarks<span class="token punctuation">(</span><span class="token keyword">new</span> BoundedOutOfOrdernessTimestampExtractor<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span><span class="token punctuation">(</span>Time<span class="token punctuation">.</span>seconds<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">override</span> <span class="token keyword">def</span> extractTimestamp<span class="token punctuation">(</span>element<span class="token operator">:</span> LoginEvent<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> element<span class="token punctuation">.</span>eventTime <span class="token operator">*</span> <span class="token number">1000</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token comment">// 以用户id为key，进行分组</span>
+      <span class="token punctuation">.</span>keyBy<span class="token punctuation">(</span>_<span class="token punctuation">.</span>userId<span class="token punctuation">)</span>
+
+    <span class="token comment">// 定义匹配的模式</span>
+    <span class="token keyword">val</span> loginFailPattern<span class="token operator">:</span> Pattern<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">,</span> LoginEvent<span class="token punctuation">]</span> <span class="token operator">=</span> Pattern<span class="token punctuation">.</span>begin<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token string">&quot;begin&quot;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>where<span class="token punctuation">(</span>_<span class="token punctuation">.</span>eventType <span class="token operator">==</span> <span class="token string">&quot;fail&quot;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>next<span class="token punctuation">(</span><span class="token string">&quot;next&quot;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>where<span class="token punctuation">(</span>_<span class="token punctuation">.</span>eventType <span class="token operator">==</span> <span class="token string">&quot;fail&quot;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>within<span class="token punctuation">(</span>Time<span class="token punctuation">.</span>seconds<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment">// 通过 within 关键字定义了检测窗口时间时间</span>
+
+    <span class="token comment">// 将 pattern 应用到 输入流 上，得到一个 pattern stream</span>
+    <span class="token keyword">val</span> patternStream<span class="token operator">:</span> PatternStream<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span> <span class="token operator">=</span> CEP<span class="token punctuation">.</span>pattern<span class="token punctuation">(</span>loginEventStream<span class="token punctuation">,</span>loginFailPattern<span class="token punctuation">)</span>
+
+    <span class="token comment">// 用 select 方法检出 符合模式的事件序列</span>
+    <span class="token keyword">val</span> loginFailDataStream<span class="token operator">:</span> DataStream<span class="token punctuation">[</span>Warning<span class="token punctuation">]</span> <span class="token operator">=</span> patternStream<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token keyword">new</span> LoginFailMatch<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 将匹配到的符合条件的事件打印出来</span>
+    loginFailDataStream<span class="token punctuation">.</span>print<span class="token punctuation">(</span><span class="token string">&quot;warning&quot;</span><span class="token punctuation">)</span>
+    
+    <span class="token comment">// 执行程序</span>
+    env<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;login fail with cep job&quot;</span><span class="token punctuation">)</span>
+
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 自定义 pattern select function</span>
+  <span class="token comment">// 当检测到定义好的模式序列时就会调用，输出报警信息</span>
+  <span class="token keyword">class</span> LoginFailMatch<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> PatternSelectFunction<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">,</span>Warning<span class="token punctuation">]</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">def</span> select<span class="token punctuation">(</span>map<span class="token operator">:</span> util<span class="token punctuation">.</span>Map<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">,</span> util<span class="token punctuation">.</span>List<span class="token punctuation">[</span>LoginEvent<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> Warning <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 从 map 中可以按照模式的名称提取对应的登录失败事件</span>
+      <span class="token keyword">val</span> firstFail<span class="token operator">:</span> LoginEvent <span class="token operator">=</span> map<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">&quot;begin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>iterator<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>next<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">val</span> secondFail<span class="token operator">:</span> LoginEvent <span class="token operator">=</span> map<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">&quot;next&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>iterator<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>next<span class="token punctuation">(</span><span class="token punctuation">)</span>
+         
+      Warning<span class="token punctuation">(</span> firstFail<span class="token punctuation">.</span>userId<span class="token punctuation">,</span>firstFail<span class="token punctuation">.</span>eventTime<span class="token punctuation">,</span>secondFail<span class="token punctuation">.</span>eventTime<span class="token punctuation">,</span><span class="token string">&quot;在2秒内连续2次登录失败。&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>运行结果：</p> <p><img src="https://img-blog.csdnimg.cn/20201128190916185.png" alt=""></p> <p>可以发现也是符合我们预期的效果~</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/电商业务/flink电商数据分析：【3】实时流量统计.html" class="prev">
+        基于 flink 的电商用户行为数据分析：【3】实时流量统计
+      </a></span> <span class="next"><a href="/./datahouse/电商业务/flink电商数据分析：【5】 基于埋点日志数据的网络流量统计.html">
+        基于 flink 的电商用户行为数据分析：【5】 基于埋点日志数据的网络流量统计
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/128.ee1158fc.js" defer></script>
+  </body>
+</html>

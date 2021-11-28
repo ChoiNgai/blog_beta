@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>基于 flink 的电商用户行为数据分析：【9】电商常见指标汇总 + 项目总结 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/133.4a4b3148.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>电商业务</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E7%94%B5%E5%95%86%E4%B8%9A%E5%8A%A1/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【1】 项目整体介绍.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【1】 项目整体介绍</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【2】实时热门商品统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【3】实时流量统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【3】实时流量统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【4】恶意登录监控</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【5】 基于埋点日志数据的网络流量统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【5】 基于埋点日志数据的网络流量统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【6】 APP市场推广统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【6】 APP市场推广统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【7】页面广告分析.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【7】页面广告分析</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【8】订单支付实时监控.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【8】订单支付实时监控</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【9】电商常见指标汇总 + 项目总结.html" class="active sidebar-link">基于 flink 的电商用户行为数据分析：【9】电商常见指标汇总 + 项目总结</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【9】电商常见指标汇总 + 项目总结.html#电商指标整理" class="sidebar-link">电商指标整理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【9】电商常见指标汇总 + 项目总结.html#有关-人-的指标" class="sidebar-link">有关&quot;人&quot;的指标</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【9】电商常见指标汇总 + 项目总结.html#有关-货-的指标" class="sidebar-link">有关&quot;货&quot;的指标</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【9】电商常见指标汇总 + 项目总结.html#有关-场-的指标" class="sidebar-link">有关&quot;场&quot;的指标</a></li></ul></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【9】电商常见指标汇总 + 项目总结.html#电商8类基本指标" class="sidebar-link">电商8类基本指标</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【9】电商常见指标汇总 + 项目总结.html#项目回顾和总结" class="sidebar-link">项目回顾和总结</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【9】电商常见指标汇总 + 项目总结.html#项目收获" class="sidebar-link">项目收获</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="基于-flink-的电商用户行为数据分析-【9】电商常见指标汇总-项目总结"><a href="#基于-flink-的电商用户行为数据分析-【9】电商常见指标汇总-项目总结" class="header-anchor">#</a> 基于 flink 的电商用户行为数据分析：【9】电商常见指标汇总 + 项目总结</h1> <p>        本篇是flink 的「电商用户行为数据分析」的第 9 篇文章，也是该系列的最后一篇，为大家带来<strong>电商常见的指标汇总</strong>和<strong>对前8篇文章做一个的阶段性的总结</strong>，并融入一些<strong>我自己的思考</strong>，希望大家能够从中受益，感谢阅读！</p> <hr> <h2 id="电商指标整理"><a href="#电商指标整理" class="header-anchor">#</a> 电商指标整理</h2> <h3 id="有关-人-的指标"><a href="#有关-人-的指标" class="header-anchor">#</a> 有关&quot;人&quot;的指标</h3> <p><img src="https://img-blog.csdnimg.cn/20201214234419452.png?,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <ul><li>客服</li></ul> <table><thead><tr><th>指标名词</th> <th>名词解释</th></tr></thead> <tbody><tr><td>询单量</td> <td>下单前来询问客服的客户总数</td></tr> <tr><td>询单转换率</td> <td>（转化率= 成单数/来访量转化率）影响的因素有：宝贝描述（宝贝图片优化和描述很大程度上决定了转化率的高低。其次是店铺的整体布局和设计。）、销售目标（买家都有从众心理，商铺的定价和定位有待调查和确认，主流的消费群体应该是首选销售目标。）、宝贝的评价（评价对于店铺的存在是致命的，没有信誉便放在之后考虑是很多淘宝买家的心理。）、客服（客服是店铺窗口，好的客服相当于销售成功了一半，对于客服的严格要求是必不可少的。）</td></tr> <tr><td>平均接待时长</td> <td>平均客服接待客户总的时长</td></tr> <tr><td>DSR评分</td> <td>DSR就是卖家服务评级系统。就比如我们在淘宝、京东等电商平台卖商品，收到货会要求我们评价评分，DSR评分就是选取连续六个月内的买家给予该项评分的总和除以连续六个月内买家给与该评分的次数。淘宝店铺中DSR评分是淘宝店铺动态评分。淘宝店铺动态评分是指在淘宝网交易成功后，买家可以对本次交易的卖家进行如下三项评分：宝贝与描述相符、卖家的服务态度、物流服务的质量。</td></tr></tbody></table> <ul><li>用户</li></ul> <p>--    流量（用户）</p> <table><thead><tr><th>指标名词</th> <th>名词解释</th> <th></th></tr></thead> <tbody><tr><td>免费流量</td> <td>（1）搜索流量；搜索流量涉及的提升维度很多，如全店关键词布局，标题，产品架构等，都是细致功夫。手淘首页手淘首页流量的入口有很多，就是付费流量中提及的生活研究所/爱逛街/必买清单/淘立拍/有好货/有好店/猜你喜欢等，都是（2）手淘首页；流量来源，其中流量最大的可操作性最强的，是猜你喜欢。（3）主动访问；如直接访问、购物车、宝贝收藏、已买到商品等。（4）新品流量；有一个可以利用的规则，在这里说一下，就是大家都知道的淘宝对店铺新品的扶持流量。一件商品在刚上架的时候，淘宝平台会有一定的流量扶持，但是由于一件商品的扶持流量比较小，不会很明显。这时候就可以利用大量的上货，利用淘宝的扶持流量发展自身，想要利用这个规则的话，一次性上架几件宝贝肯定是不行的，最好是一次性上架数百的商品，这样的话，店铺自身就会有比较大的流量。但是一次性上架上百的商品，还是每天都上架数百的商品，完全靠人工的话，几乎不可能完成这个任务。这种情况下只能靠一些软件来采集上传商品，以达到一直不断的获取淘宝的扶持流量的目的。这种大量铺货的模式在店铺前期可以做，等到店铺有比较稳定的流量转化的时候，就可以用精细化运营技术来经营店铺了。</td> <td></td></tr> <tr><td>付费流量</td> <td>（1）平台广告；联盟按销售额付佣金，如淘宝客。（2）搜索定向基于平台访客搜索行为，如直通车，同时，直通车也可以人群定向的，下面不再重复提及。（3）人群定向；基于平台访客浏览与购买行为，如钻展，品销宝，淘积木，内容渠道。钻展/品销/淘积木大家应该都比较清楚，这里特别说明一下内容渠道，淘系的内容渠道，如有好货/生活研究所/必买清单/爱逛街…等等，都是基于访客标签个性化展现，这些渠道其实是可以获得大量免费流量的，只要产品足够优质，平台或者达人会主动且免费推，但不能全部指望免费，偶尔联系精准达人付费一下，收获流量与转化率双高，也是不错的。（4）硬广；包断某时段的固定位置，如2012年前淘宝首页首屏焦点图是可以每天16万买到，还送登录页面左侧广告等平台免费资源，这就是传说中的电商红利，当没有了红利，只有土豪才能买硬广了，上次看到的土豪就是科颜氏，买断天猫/淘宝首页第一屏。</td> <td></td></tr> <tr><td>UV</td> <td>unique Visitor，指访问某个站点或点击某条新闻的不同IP地址的人数。</td> <td></td></tr> <tr><td>PV</td> <td>page View，即页面浏览量</td> <td></td></tr> <tr><td>VV</td> <td>访问次数，访客从进入网站到离开网站的一系列活动记为一次访问，也称会话(session),1次访问(会话)可能包含多个PV。</td> <td></td></tr> <tr><td>流量深度（PV/UV）</td> <td>平均每个独立访客产生的PV。人均浏览页数=浏览次数/独立访客。体现网站对访客的吸引程度。</td> <td></td></tr> <tr><td>PV/UV</td> <td>停留时长</td> <td>用户在一个商品页面停留的时间</td></tr> <tr><td>ROI</td> <td>投资回报率；投资回报率（ROI）是指通过投资而应返回的价值，即企业从一项投资活动中得到的经济回报。（投资回报率（ROI）=年利润或年均利润/投资总额×100%）</td> <td></td></tr> <tr><td>来源转换率</td> <td>指用户通过什么渠道进入该页面，比如：APP，广告，直通车…</td> <td></td></tr> <tr><td>跳失率</td> <td>指统计时间内，访客中没有发生点击行为的人数/访客数，即 1-点击人数/访客数。该值越低表示流量的质量越好。多天的跳失率为各天跳失率的日均值。简单地说，就是访客只访问一个页面就离开了。一个较高的跳失率是不利于店铺转化率提升以及店铺的发展的。</td> <td></td></tr></tbody></table> <p>--  成交用户</p> <table><thead><tr><th>指标名词</th> <th>名词解释</th></tr></thead> <tbody><tr><td>新用户数</td> <td>第一次购买商品的用户</td></tr> <tr><td>老用户数</td> <td>不是大于一次购买商品的用户</td></tr> <tr><td>活跃用户数</td> <td>指那些会时不时地光顾下网站，并为网站带来一些价值的用户数量</td></tr> <tr><td>沉睡用户数</td> <td>沉睡用户定义，是指有一段时间没有使用、访问的用户数。例如：移动互联网产品常把90天活跃度作为一个评判节点，如果一个用户90天之内没有任何活跃行为，就会被判定为沉睡用户。</td></tr> <tr><td>复购率</td> <td>再次消费的用户数量/总用户数量x100%比如母婴店有1000个会员，当月有100个会员来店再次消费，则回头率为10%。</td></tr> <tr><td>客单价</td> <td>一段时间内的销售额/客户数。客单价的本质是：在一定时期内，每位顾客消费的平均价格</td></tr> <tr><td>连带率</td> <td>销售件数/交易次数反映的是顾客平均单次消费的产品件数</td></tr> <tr><td>RFM</td> <td>RFM模型，包含三个指标：（1）最近一次消费 (Recency)：最近一次消费意指上一次购买的时候——顾客上一次是几时来店里、上一次根据哪本邮购目录购买东西、什么时候买的车，或在你的超市买早餐最近的一次是什么时候。（2）消费频率 (Frequency)：消费频率是顾客在限定的期间内所购买的次数。我们可以说最常购买的顾客，也是满意度最高的顾客。如果相信品牌及商店忠诚度的话，最常购买的消费者，忠诚度也就最高。增加顾客购买的次数意味着从竞争对手处偷取市场占有率，由别人的手中赚取营业额。（3）消费金额 (Monetary)：指的是一段时间（通常是1年）内的消费金额</td></tr></tbody></table> <h3 id="有关-货-的指标"><a href="#有关-货-的指标" class="header-anchor">#</a> 有关&quot;货&quot;的指标</h3> <p><img src="https://img-blog.csdnimg.cn/20201214235502259.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <ul><li>进货</li></ul> <table><thead><tr><th>指标名词</th> <th>名词解释</th></tr></thead> <tbody><tr><td>备货SKU数</td> <td>指仓库中实际储存的货物规格、颜色、款式的数量。 SKU，英文全称为 stock keeping unit，定义为保存库存控制的最小可用单位，例如纺织品中一个SKU通常表示：规格、颜色、款式。 STOCK KEEP UNIT.这是客户拿到商品放到仓库后给商品编号,归类的一种方法. 通常是SKU#是多少多少这样子. 还有的译为存货单元\库存单元\库存单位\货物存储单位\存货保存单位\单元化单位\单品\品种,基于业务还有的是最小零售单位\最小销售单位\最小管理单位\库存盘点单位等；专业物流术语解释为“货格”。</td></tr> <tr><td>备货品类数</td> <td>指仓库中实际储存的货物种类。</td></tr> <tr><td>平均每款SKU数</td> <td>一般是基于品类或者平台来进行统计。</td></tr> <tr><td>平均每款备货数量</td> <td>平均每款备货量=总备货量/备货品类数</td></tr> <tr><td>品类采销比</td> <td>指采购商品种类和销售种类的比例</td></tr> <tr><td>价格带采销比</td> <td>指采购商品价格和销售价格的比例</td></tr> <tr><td>尺码采销比</td> <td>指采购尺码和销售尺码的比例</td></tr></tbody></table> <ul><li>销售</li></ul> <table><thead><tr><th>指标名词</th> <th>名词解释</th></tr></thead> <tbody><tr><td>销售结构（品类/价格带/折扣带）</td> <td>价格带(Price Zone )指各个商品品种销售价格的上限与下限之间的范围。在店铺内，为了满足顾客对既丰富又有效的商品构成的需要，有必要减少销售格层，并缩小价格带。如果销售价格的种类很多，则必然导致顾客不需要的商品增加，使顾客选择商品成为困难，并失去了商店的特性。</td></tr> <tr><td>畅滞销</td> <td>指市场的产品上因为一些原因不受消费者欢迎而导致销售速度极慢。其特征为:购买量为零;售价等于或低于成本;简单再生产难以为继;</td></tr> <tr><td>动销率</td> <td>动销，即拉动销售，指在营销的渠道终端，通过一系列的营销组合手段，提高单店/单点销售业绩的方式。促销是动销的方式之一，动销的手段和方式远超出促销的范畴。（1）动销率越高不一定越好（2）动销率等于100%也不一定就是正常，动销率小于100%也不一定就是滞销商品惹得祸。（3）实际工作中不能仅仅被百分比所迷惑，只看数据的表面，不透过表面找到问题的实质。 动销率计算公式为(商品动销率=动销品种数 /仓库总品种数×100%)</td></tr> <tr><td>售罄率</td> <td>指一定时间段某种货品的销售占总进货的比例，是根据一批进货销售多少比例才能收回销售成本和费用的一个考核指标，便于确定货品销售到何种程度可以进行折扣销售清仓处理的一个合理尺度。售罄率反映了产品的销售速度–是否受欢迎，要充分关注新货上市的售罄率，发现问题研究问题，及时采取措施. （售罄率=实际销售货品成本/总进货成本)或者(售罄率=实际销售货品/总进货零售价）</td></tr></tbody></table> <ul><li>库存</li></ul> <table><thead><tr><th>指标名词</th> <th>名词解释</th></tr></thead> <tbody><tr><td>周转率/天数</td> <td>存货周转率（次数）是指一定时期内企业销售成本与存货平均资金占用额的比率，是衡量和评价企业购入存货、投入生产、销售收回等各环节管理效率的综合性指标</td></tr> <tr><td>库存金额</td> <td>指的是存货按成本计价的金额</td></tr> <tr><td>库存数量</td> <td>指仓库中实际储存的货物数量</td></tr> <tr><td>库存结构（年份/品类/价格）</td> <td>指仓库中的货物记录的年份，品类和价格</td></tr> <tr><td>有效库存比</td> <td>要计算有效库存比首先需要定义有效库存的标准，有效库存定义是能给门店带来价值的商品的库存。从定义来看残次商品、过季商品和没有销售的商品肯定都不属于有效库存商品。不过在实际的分析过程中有效库存的确定会复杂很多，首先无效库存包括残次商品、过季商品、冻销商品、甚至是虚库存，滞销商品。对于滞销商品需要确定一个标准将将有销售的商品分成有效库存和无效库存，这个标准一般以周销售量或月销售量来衡量，并且渠道不同标准是不一样的。例如某款衣服某周销售了2件，2件对于单个专卖店来说这可能就是有效库存，但是对于一个区域或总公司来说销售2件的商品肯定不是有效库存，因为产生的价值不大，需要提高标准。 （有效库存比=有效库存金额/总库存金额×100%）</td></tr> <tr><td>可销天数</td> <td>指库存里面的总数量可以销售多少天。 有2种核算方式：1.(库存可销天数 = 库存总数量 / 日均销售数量) 2.(库存可销天数 = 库存总成本 / 日均销售成本)</td></tr></tbody></table> <ul><li>售后</li></ul> <table><thead><tr><th>指标名词</th> <th>名词解释</th></tr></thead> <tbody><tr><td>退货率（整体/单款）</td> <td>指产品售出后由于各种原因被退回的数量与同期售出的产品总数量之间的比率。有2种计算方式 1.（退货率=退货批次/出货总批次×100%）2.（退货率=退货总数量/出货总数量×100%）</td></tr></tbody></table> <h3 id="有关-场-的指标"><a href="#有关-场-的指标" class="header-anchor">#</a> 有关&quot;场&quot;的指标</h3> <p><img src="https://img-blog.csdnimg.cn/20201215003608182.png?,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        现在的电子商务：</p> <p>        1、大多买家通过搜索找到所买物品，而非电商网站的内部导航，搜索关键字更为重要；</p> <p>        2、电商商家通过推荐引擎来预测买家可能需要的商品。推荐引擎以历史上具有类似购买记录的买家数据以及用户自身的购买记录为基础，向用户提供推荐信息；</p> <p>        3、电商商家时刻优化网站性能，如A/B Test划分来访流量，并区别对待来源不同的访客，进而找到最优的产品、内容和价格；</p> <p>        4、购买流程早在买家访问网站前，即在社交网络、邮件以及在线社区中便已开始，即长漏斗流程（以一条推文、一段视频或一个链接开始，以购买交易结束）。</p> <p>        「相关数据指标」：<strong>关键词和搜索词</strong>、<strong>推荐接受率</strong>、<strong>邮件列表/短信链接点入率</strong></p> <p></p> <h2 id="电商8类基本指标"><a href="#电商8类基本指标" class="header-anchor">#</a> 电商8类基本指标</h2> <p>        1）总体运营指标：从流量、订单、总体销售业绩、整体指标进行把控，起码对运营的电商平台有个大致了解，到底运营的怎么样，是亏是赚。
+<img src="https://img-blog.csdn.net/20180821122830292?" alt="在这里插入图片描述"></p> <p>        2）站流量指标：即对访问你网站的访客进行分析，基于这些数据可以对网页进行改进，以及对访客的行为进行分析等等。
+<img src="https://img-blog.csdnimg.cn/20201216003741862.png" alt="在这里插入图片描述"></p> <p>        3）销售转化指标：分析从下单到支付整个过程的数据，帮助你提升商品转化率。也可以对一些频繁异常的数据展开分析。
+<img src="https://img-blog.csdnimg.cn/20201216003757288.png?" alt="在这里插入图片描述">
+        4）客户价值指标：这里主要就是分析客户的价值，可以建立RFM价值模型，找出那些有价值的客户，精准营销等等。
+<img src="https://img-blog.csdnimg.cn/20201216003905333.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        5）商品类指标：主要分析商品的种类，那些商品卖得好，库存情况，以及可以建立关联模型，分析哪些商品同时销售的几率比较高，而进行捆绑销售，有点像啤酒和尿不湿的故事。
+<img src="https://img-blog.csdnimg.cn/20201216003942668.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        6 ) 市场营销活动指标，主要监控某次活动给电商网站带来的效果，以及监控广告的投放指标。
+<img src="https://img-blog.csdnimg.cn/20201216004016641.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        7）风控类指标：分析卖家评论，以及投诉情况，发现问题，改正问题</p> <p><img src="https://img-blog.csdnimg.cn/20201216004036721.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        8）市场竞争指标：主要分析市场份额以及网站排名，进一步进行调整
+<img src="https://img-blog.csdnimg.cn/20201216004150134.png" alt="在这里插入图片描述"></p> <blockquote><p>以上总共从8个方面来阐述如何对电商平台进行数据分析，当然，具体问题具体分析，每个公司的侧重点也有所差异，所以如何分析还需因地制宜。</p></blockquote> <h2 id="项目回顾和总结"><a href="#项目回顾和总结" class="header-anchor">#</a> 项目回顾和总结</h2> <p>        本次基于flink 的电商用户行为数据分析项目组成模块如下：</p> <p><img src="https://img-blog.csdnimg.cn/20201216235911326.png?,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        这些指标的具体开发在之前的8篇文章中都有陆续介绍，我们在这里可以对其进行一个分类。其中<strong>统计类</strong>的开发套路有迹可循，无非就是将数据集进行读取，然后经过map封装成样例类，可能还会有filter过滤,keyBy分组的操作，接着就是开时间窗，做聚合。如果遇到稍复杂一点的情况，例如求每个时间范围内的topN，我们按照每个窗口结束的时间<code>indowEnd</code>进行分组，再做一个process自定义Function即可。</p> <p>        在后面的模块中，我们开发需要针对业务流程中的一些状态做<strong>检测</strong>和<strong>输出警告</strong>。跟时间相关的，我们就需要使用<code>processFunction</code>定义定时器。如果是正常的状态逻辑，我们就需要使用到状态编程，自定义一些状态，总体来讲，就是一套这样的处理规则。对于统计类指标的开发，如果我们不想用DataStreamAPI，想用更高级的API，也可以考虑用 <strong>tableAPI</strong> 和 <strong>flinkSQL</strong>，将需要计算的指标提取出来，做一个聚合即可。如果是对事件，逻辑，风控进行管理，往往我们可以定义CEP复杂事件处理去做定义。</p> <h2 id="项目收获"><a href="#项目收获" class="header-anchor">#</a> 项目收获</h2> <p>        首先谈谈为什么我会尝试去追B站的视频，来学习这个所谓的<strong>基于 flink 的电商用户行为数据分析</strong>项目。主要还是因为自己在平时的工作中，flink接触到的内容不多。而近几年flink社区的发展又非常迅猛，前几天才刚推出<strong>flink1.12.0，流批一体真正统一运行</strong>。所以说，大数据未来几年的发展，flink大势所趋！</p> <p>        通过这次项目的学习，让我这个大数据萌新对于flink又有了更深的认知。尤其是之前没有在意过flink的CEP编程，但是在一些复杂场景下，使用CEP却是真的能提高我们开发的效率，否则自己写逻辑代码要写到吐....另外，对于一些其他的含义，例如时间窗口，水印，以及各种不同的自定义处理函数，都让我加深了印象。尤其是现在再去看之前写的flink代码，果然是顺眼了很多（让我臭个美，顺便截个图）。</p> <p><img src="https://img-blog.csdnimg.cn/20201217004536931.png?,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <p>        我相信一定会有小伙伴看到这里，也想跟这个项目。这里我先投出网页视频链接：<code>https://www.bilibili.com/video/BV1yV411f7ZR</code>，其中项目源码我已经放到github上了，欢迎小伙伴们前来围观。</p> <blockquote><p>https://github.com/Alice-czxy/FlinkECUserBehaviorAnalysis/</p></blockquote> <p>        有留言之前几期文章内容的小伙伴都应该知道，我写的代码基本每行都有注释，所以不用担心看不懂哈，如果看了注释还不太理解，欢迎加微信交流哈~</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/电商业务/flink电商数据分析：【8】订单支付实时监控.html" class="prev">
+        基于 flink 的电商用户行为数据分析：【8】订单支付实时监控
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/133.4a4b3148.js" defer></script>
+  </body>
+</html>

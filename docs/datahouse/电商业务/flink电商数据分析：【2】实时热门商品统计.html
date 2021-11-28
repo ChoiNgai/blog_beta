@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>基于 flink 的电商用户行为数据分析：【2】实时热门商品统计 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/126.5ac52ff6.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>电商业务</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E7%94%B5%E5%95%86%E4%B8%9A%E5%8A%A1/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【1】 项目整体介绍.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【1】 项目整体介绍</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html" class="active sidebar-link">基于 flink 的电商用户行为数据分析：【2】实时热门商品统计</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#创建maven项目" class="sidebar-link">创建Maven项目</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#项目框架搭建" class="sidebar-link">项目框架搭建</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#声明项目中工具的版本信息" class="sidebar-link">声明项目中工具的版本信息</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#添加项目依赖" class="sidebar-link">添加项目依赖</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#数据准备" class="sidebar-link">数据准备</a></li></ul></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#模块代码实现" class="sidebar-link">模块代码实现</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#程序主体" class="sidebar-link">程序主体</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#过滤出点击事件" class="sidebar-link">过滤出点击事件</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#设置滑动窗口-统计点击量" class="sidebar-link">设置滑动窗口，统计点击量</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#计算最热门-topn-商品" class="sidebar-link">计算最热门 TopN 商品</a></li></ul></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#完整代码" class="sidebar-link">完整代码</a></li><li class="sidebar-sub-header"><a href="/./datahouse/电商业务/flink电商数据分析：【2】实时热门商品统计.html#参考" class="sidebar-link">参考</a></li></ul></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【3】实时流量统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【3】实时流量统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【4】恶意登录监控.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【4】恶意登录监控</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【5】 基于埋点日志数据的网络流量统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【5】 基于埋点日志数据的网络流量统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【6】 APP市场推广统计.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【6】 APP市场推广统计</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【7】页面广告分析.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【7】页面广告分析</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【8】订单支付实时监控.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【8】订单支付实时监控</a></li><li><a href="/./datahouse/电商业务/flink电商数据分析：【9】电商常见指标汇总 + 项目总结.html" class="sidebar-link">基于 flink 的电商用户行为数据分析：【9】电商常见指标汇总 + 项目总结</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="基于-flink-的电商用户行为数据分析-【2】实时热门商品统计"><a href="#基于-flink-的电商用户行为数据分析-【2】实时热门商品统计" class="header-anchor">#</a> 基于 flink 的电商用户行为数据分析：【2】实时热门商品统计</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>        在上一期内容中，菌哥已经为大家介绍了<strong>电商用户行为数据分析</strong>的主要功能和模块介绍。本期内容，我们需要介绍的是<strong>实时热门商品统计</strong>模块的功能开发。
+        </p> <hr> <p>        首先要实现的是实时热门商品统计，我们将会基于<strong>UserBehavior</strong>数据集来进行分析。</p> <p><img src="https://img-blog.csdnimg.cn/20201124190130309.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="UserBehavior.csv"></p> <p>项目主体用Scala编写，采用IDEA作为开发环境进行项目编写，采用maven作为项目构建和管理工具。首先我们需要搭建项目框架。</p> <h2 id="创建maven项目"><a href="#创建maven项目" class="header-anchor">#</a> 创建Maven项目</h2> <h3 id="项目框架搭建"><a href="#项目框架搭建" class="header-anchor">#</a> 项目框架搭建</h3> <p>        打开IDEA，创建一个maven项目，命名为<code>UserBehaviorAnalysis</code>。由于包含了多个模块，我们可以以UserBehaviorAnalysis作为父项目，并在其下建一个名为<code>HotItemsAnalysis</code>的子项目，用于<strong>实时统计热门top N商品</strong>。</p> <p>        在UserBehaviorAnalysis下新建一个 maven module作为子项目，命名为HotItemsAnalysis。</p> <p>        父项目只是为了规范化项目结构，方便依赖管理，本身是不需要代码实现的，所以UserBehaviorAnalysis下的src文件夹可以删掉。</p> <h3 id="声明项目中工具的版本信息"><a href="#声明项目中工具的版本信息" class="header-anchor">#</a> 声明项目中工具的版本信息</h3> <p>        我们整个项目需要的工具的不同版本可能会对程序运行造成影响，所以应该在最外层的UserBehaviorAnalysis中声明所有子模块共用的版本信息。</p> <p>        在pom.xml中加入以下配置：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token operator">&lt;</span>properties<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>flink.version<span class="token operator">&gt;</span><span class="token number">1.7</span>.<span class="token operator"><span class="token file-descriptor important">2</span>&lt;</span>/flink.version<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>scala.binary.version<span class="token operator">&gt;</span><span class="token number">2.1</span><span class="token operator"><span class="token file-descriptor important">1</span>&lt;</span>/scala.binary.version<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>kafka.version<span class="token operator">&gt;</span><span class="token number">2.2</span>.<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>/kafka.version<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/properties<span class="token operator">&gt;</span>
+</code></pre></div><h3 id="添加项目依赖"><a href="#添加项目依赖" class="header-anchor">#</a> 添加项目依赖</h3> <p>        对于整个项目而言，所有模块都会用到flink相关的组件，所以我们在UserBehaviorAnalysis中引入公有依赖：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&lt;</span>dependencies<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>dependency<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>groupId<span class="token operator">&gt;</span>org.apache.flink<span class="token operator">&lt;</span>/groupId<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>artifactId<span class="token operator">&gt;</span>flink-scala_<span class="token variable">${scala.binary.version}</span><span class="token operator">&lt;</span>/artifactId<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>version<span class="token operator">&gt;</span><span class="token variable">${flink.version}</span><span class="token operator">&lt;</span>/version<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>/dependency<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>dependency<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>groupId<span class="token operator">&gt;</span>org.apache.flink<span class="token operator">&lt;</span>/groupId<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>artifactId<span class="token operator">&gt;</span>flink-streaming-scala_<span class="token variable">${scala.binary.version}</span><span class="token operator">&lt;</span>/artifactId<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>version<span class="token operator">&gt;</span><span class="token variable">${flink.version}</span><span class="token operator">&lt;</span>/version<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>/dependency<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>dependency<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>groupId<span class="token operator">&gt;</span>org.apache.kafka<span class="token operator">&lt;</span>/groupId<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>artifactId<span class="token operator">&gt;</span>kafka_<span class="token variable">${scala.binary.version}</span><span class="token operator">&lt;</span>/artifactId<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>version<span class="token operator">&gt;</span><span class="token variable">${kafka.version}</span><span class="token operator">&lt;</span>/version<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/dependency<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>dependency<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>groupId<span class="token operator">&gt;</span>org.apache.flink<span class="token operator">&lt;</span>/groupId<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>artifactId<span class="token operator">&gt;</span>flink-connector-kafka_<span class="token variable">${scala.binary.version}</span><span class="token operator">&lt;</span>/artifactId<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>version<span class="token operator">&gt;</span><span class="token variable">${flink.version}</span><span class="token operator">&lt;</span>/version<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/dependency<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/dependencies<span class="token operator">&gt;</span>
+</code></pre></div><p>        同样，对于maven项目的构建，可以引入公有的插件：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&lt;</span>build<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>plugins<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">!</span>-- 该插件用于将Scala代码编译成class文件 --<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>plugin<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>groupId<span class="token operator">&gt;</span>net.alchim31.maven<span class="token operator">&lt;</span>/groupId<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>artifactId<span class="token operator">&gt;</span>scala-maven-plugin<span class="token operator">&lt;</span>/artifactId<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>version<span class="token operator">&gt;</span><span class="token number">3.4</span>.<span class="token operator"><span class="token file-descriptor important">6</span>&lt;</span>/version<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>executions<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>execution<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span><span class="token operator">!</span>-- 声明绑定到maven的compile阶段 --<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>goals<span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span>goal<span class="token operator">&gt;</span>testCompile<span class="token operator">&lt;</span>/goal<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>/goals<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>/execution<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>/executions<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>/plugin<span class="token operator">&gt;</span>
+
+        <span class="token operator">&lt;</span>plugin<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>groupId<span class="token operator">&gt;</span>org.apache.maven.plugins<span class="token operator">&lt;</span>/groupId<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>artifactId<span class="token operator">&gt;</span>maven-assembly-plugin<span class="token operator">&lt;</span>/artifactId<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>version<span class="token operator">&gt;</span><span class="token number">3.0</span>.<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>/version<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>configuration<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>descriptorRefs<span class="token operator">&gt;</span>
+                  <span class="token operator">&lt;</span>descriptorRef<span class="token operator">&gt;</span>
+jar-with-dependencies
+<span class="token operator">&lt;</span>/descriptorRef<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>/descriptorRefs<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>/configuration<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>executions<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>execution<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>id<span class="token operator">&gt;</span>make-assembly<span class="token operator">&lt;</span>/id<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>phase<span class="token operator">&gt;</span>package<span class="token operator">&lt;</span>/phase<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>goals<span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span>goal<span class="token operator">&gt;</span>single<span class="token operator">&lt;</span>/goal<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>/goals<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>/execution<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>/executions<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>/plugin<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>/plugins<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/build<span class="token operator">&gt;</span>
+</code></pre></div><p>        在HotItemsAnalysis子模块中，我们并没有引入更多的依赖，所以不需要改动pom文件。</p> <h3 id="数据准备"><a href="#数据准备" class="header-anchor">#</a> 数据准备</h3> <p>        在src/main/目录下，可以看到已有的默认源文件目录是java，我们可以将其改名为scala。将数据文件UserBehavior.csv复制到资源文件目录src/main/resources下，我们将从这里读取数据。</p> <p>        至此，我们的准备工作都已完成，接下来可以写代码了。</p> <h2 id="模块代码实现"><a href="#模块代码实现" class="header-anchor">#</a> 模块代码实现</h2> <p>        我们将实现一个“实时热门商品”的需求，可以将“实时热门商品”翻译成程序员更好理解的需求：<strong>每隔5分钟输出最近一小时内点击量最多的前N个商品</strong>。将这个需求进行分解我们大概要做这么几件事情：</p> <ul><li>抽取出业务时间戳，告诉Flink框架基于业务时间做窗口</li> <li>过滤出点击行为数据</li> <li>按一小时的窗口大小，每5分钟统计一次，做滑动窗口聚合（Sliding Window）</li> <li>按每个窗口聚合，输出每个窗口中点击量前N名的商品</li></ul> <h3 id="程序主体"><a href="#程序主体" class="header-anchor">#</a> 程序主体</h3> <p>        在src/main/scala下创建<strong>HotItems.scala</strong>文件，新建一个单例对象。定义样例类<strong>UserBehavior</strong>和<strong>ItemViewCount</strong>，在main函数中创建StreamExecutionEnvironment 并做配置，然后从UserBehavior.csv文件中读取数据，并包装成UserBehavior类型。代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token comment">/*
+ 1. @Author: Alice菌
+ 2. @Date: 2020/11/23 10:38
+ 3. @Description: 
+         电商用户行为数据分析：热门商品实时统计
+ */</span>
+<span class="token keyword">object</span> HotItems <span class="token punctuation">{</span>
+
+  <span class="token comment">// 定义样例类，用于封装数据</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> UserBehavior<span class="token punctuation">(</span>userId<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>itemId<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>categoryId<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span>behavior<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">,</span>timeStamp<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">)</span>
+  <span class="token comment">// 中间输出的商品浏览量的样例类</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> ItemViewCount<span class="token punctuation">(</span>itemId<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>windowEnd<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>count<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 定义流处理环境</span>
+    <span class="token keyword">val</span> env<span class="token operator">:</span> StreamExecutionEnvironment <span class="token operator">=</span> StreamExecutionEnvironment<span class="token punctuation">.</span>getExecutionEnvironment
+    <span class="token comment">// 为了打印到控制台的结果不乱序，我们配置全局的并发为1，这里改变并发对结果正确性没有影响</span>
+    env<span class="token punctuation">.</span>setParallelism<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token comment">// 设置时间特征为事件时间</span>
+    env<span class="token punctuation">.</span>setStreamTimeCharacteristic<span class="token punctuation">(</span>TimeCharacteristic<span class="token punctuation">.</span>EventTime<span class="token punctuation">)</span>
+    <span class="token comment">// 读取文本文件，以 Window 为例</span>
+    <span class="token keyword">val</span> stream<span class="token operator">:</span> DataStream<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> env<span class="token punctuation">.</span>readTextFile<span class="token punctuation">(</span><span class="token string">&quot;YOUR_PATH\\resources\\UserBehavior.csv&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment">// 对读取到的数据源进行处理</span>
+    stream<span class="token punctuation">.</span>map<span class="token punctuation">(</span>data <span class="token keyword">=&gt;</span><span class="token punctuation">{</span>
+      <span class="token keyword">val</span> dataArray<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+      <span class="token comment">// 将数据封装到新建的样例类中</span>
+      UserBehavior<span class="token punctuation">(</span>dataArray<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toLong<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toLong<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toInt<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toLong<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token comment">// 设置waterMark(水印)  --  处理乱序数据</span>
+      <span class="token punctuation">.</span>assignAscendingTimestamps<span class="token punctuation">(</span>_<span class="token punctuation">.</span>timeStamp <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 执行程序</span>
+    env<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;HotItems&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><p>        这里注意，我们需要统计业务时间上的每小时的点击量，所以要基于<strong>EventTime</strong>来处理。那么如何让Flink按照我们想要的<strong>业务时间</strong>来处理呢？这里主要有两件事情要做。</p> <p>        第一件是告诉Flink我们现在按照EventTime模式进行处理，Flink默认使用ProcessingTime处理，所以我们要显式设置如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code>env<span class="token punctuation">.</span>setStreamTimeCharacteristic<span class="token punctuation">(</span>TimeCharacteristic<span class="token punctuation">.</span>EventTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>        第二件事情是指定如何获得业务时间，以及生成Watermark。<strong>Watermark是用来追踪业务事件的概念，可以理解成EventTime世界中的时钟，用来指示当前处理到什么时刻的数据了</strong>。由于我们的数据源的数据已经经过整理，没有乱序，即事件的时间戳是单调递增的，所以可以将每条数据的业务时间就当做Watermark。这里我们用 <code>assignAscendingTimestamps</code>来实现时间戳的抽取和<code>Watermark</code>的生成。</p> <blockquote><p>注：真实业务场景一般都是乱序的，所以一般不用<strong>assignAscendingTimestamps</strong>，而是使用<strong>BoundedOutOfOrdernessTimestampExtractor</strong>。</p></blockquote> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token punctuation">.</span>assignAscendingTimestamps<span class="token punctuation">(</span>_<span class="token punctuation">.</span>timestamp <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+</code></pre></div><p>        这样我们就得到了一个带有时间标记的数据流了，后面就能做一些窗口的操作。</p> <h3 id="过滤出点击事件"><a href="#过滤出点击事件" class="header-anchor">#</a> 过滤出点击事件</h3> <p>        在开始窗口操作之前，先回顾下需求“每隔5分钟输出过去一小时内点击量最多的前N个商品”。由于原始数据中存在点击、购买、收藏、喜欢各种行为的数据，但是我们只需要统计点击量，所以先使用<strong>filter</strong>将点击行为数据过滤出来。</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>_<span class="token punctuation">.</span>behavior <span class="token operator">==</span> <span class="token string">&quot;pv&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="设置滑动窗口-统计点击量"><a href="#设置滑动窗口-统计点击量" class="header-anchor">#</a> 设置滑动窗口，统计点击量</h3> <p>        由于要每隔5分钟统计一次最近一小时每个商品的点击量，所以窗口大小是一小时，每隔5分钟滑动一次。即分别要统计[09:00, 10:00), [09:05, 10:05), [09:10, 10:10)…等窗口的商品点击量。是一个常见的滑动窗口需求（Sliding Window）。</p> <p><img src="https://img-blog.csdnimg.cn/20201124192441638.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <p><img src="https://img-blog.csdnimg.cn/2020112419301620.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token punctuation">.</span>keyBy<span class="token punctuation">(</span><span class="token string">&quot;itemId&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>timeWindow<span class="token punctuation">(</span>Time<span class="token punctuation">.</span>minutes<span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Time<span class="token punctuation">.</span>minutes<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>aggregate<span class="token punctuation">(</span><span class="token keyword">new</span> CountAgg<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> WindowResultFunction<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20201124200449677.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <p>        我们使用<code>.keyBy(&quot;itemId&quot;)</code>对商品进行分组，使用<code>.timeWindow(Time size, Time slide)</code>对每个商品做滑动窗口（1小时窗口，5分钟滑动一次）。然后我们使用 <code>.aggregate(AggregateFunction af, WindowFunction wf)</code>做<strong>增量的聚合</strong>操作，它能使用AggregateFunction提前聚合掉数据，减少state的存储压力。较之 <code>.apply(WindowFunction wf)</code>会将窗口中的数据都存储下来，最后一起计算要高效地多。这里的CountAgg实现了AggregateFunction接口，功能是<strong>统计窗口中的条数，即遇到一条数据就加一</strong>。</p> <p><img src="https://img-blog.csdnimg.cn/20201124193134601.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token comment">// COUNT统计的聚合函数实现，每出现一条记录就加一</span>
+<span class="token keyword">class</span> CountAgg <span class="token keyword">extends</span> AggregateFunction<span class="token punctuation">[</span>UserBehavior<span class="token punctuation">,</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> <span class="token builtin">Long</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> createAccumulator<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> <span class="token number">0L</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> add<span class="token punctuation">(</span>userBehavior<span class="token operator">:</span> UserBehavior<span class="token punctuation">,</span> acc<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> acc <span class="token operator">+</span> <span class="token number">1</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> getResult<span class="token punctuation">(</span>acc<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> acc
+  <span class="token keyword">override</span> <span class="token keyword">def</span> merge<span class="token punctuation">(</span>acc1<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> acc2<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> acc1 <span class="token operator">+</span> acc2
+<span class="token punctuation">}</span>
+</code></pre></div><p>        聚合操作.<code>aggregate(AggregateFunction af, WindowFunction wf)</code>的第二个参数<strong>WindowFunction</strong>将每个key每个窗口聚合后的结果带上其他信息进行输出。我们这里实现的WindowResultFunction将&lt;主键商品ID，窗口，点击量&gt;封装成了<strong>ItemViewCount</strong>进行输出。</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token comment">// 商品点击量(窗口操作的输出类型)</span>
+<span class="token keyword">case</span> <span class="token keyword">class</span> ItemViewCount<span class="token punctuation">(</span>itemId<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> windowEnd<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> count<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span>
+</code></pre></div><p>        代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token comment">// 自定义窗口函数，包装成 ItemViewCount输出</span>
+<span class="token keyword">class</span> WindowResult<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> WindowFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span>ItemViewCount<span class="token punctuation">,</span><span class="token builtin">Long</span><span class="token punctuation">,</span>TimeWindow<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">override</span> <span class="token keyword">def</span> apply<span class="token punctuation">(</span>key<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> window<span class="token operator">:</span> TimeWindow<span class="token punctuation">,</span> input<span class="token operator">:</span> Iterable<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">,</span> out<span class="token operator">:</span> Collector<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 在前面的步骤中，我们根据商品 id 进行了分组，次数的key就是  商品编号</span>
+    <span class="token keyword">val</span> itemId<span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> key
+    <span class="token comment">// 获取 窗口 末尾</span>
+    <span class="token keyword">val</span> windowEnd<span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> window<span class="token punctuation">.</span>getEnd
+    <span class="token comment">// 获取点击数大小 【累加器统计的结果 】</span>
+    <span class="token keyword">val</span> count<span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> input<span class="token punctuation">.</span>iterator<span class="token punctuation">.</span>next<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 将获取到的结果进行上传</span>
+    out<span class="token punctuation">.</span>collect<span class="token punctuation">(</span>ItemViewCount<span class="token punctuation">(</span>itemId<span class="token punctuation">,</span>windowEnd<span class="token punctuation">,</span>count<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        现在我们就得到了每个商品在每个窗口的点击量的数据流。</p> <p>        为了帮助大家理解，以上几步体现出来的核心思想，小菌这里贴出一张图帮助大家回顾</p> <p><img src="https://img-blog.csdnimg.cn/20201124200650758.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <h3 id="计算最热门-topn-商品"><a href="#计算最热门-topn-商品" class="header-anchor">#</a> 计算最热门 TopN 商品</h3> <p>        为了统计<strong>每个窗口下最热门的商品</strong>，我们需要再次按窗口进行分组，这里根据<code>ItemViewCount</code>中的<code>windowEnd</code>进行<code>keyBy()</code>操作。然后使用<strong>ProcessFunction</strong>实现一个自定义的TopN函数TopNHotItems来计算点击量排名前3名的商品，并将排名结果格式化成字符串，便于后续输出。</p> <p><img src="https://img-blog.csdnimg.cn/20201124201027299.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <div class="language-scala extra-class"><pre class="language-scala"><code>      <span class="token comment">// 按每个窗口聚合</span>
+      <span class="token punctuation">.</span>keyBy<span class="token punctuation">(</span>_<span class="token punctuation">.</span>windowEnd<span class="token punctuation">)</span>
+      <span class="token comment">// 输出每个窗口中点击量前N名的商品</span>
+      <span class="token punctuation">.</span>process<span class="token punctuation">(</span><span class="token keyword">new</span> TopNHotItems<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><p>        ProcessFunction是Flink提供的一个<strong>low-level</strong> API，用于实现更高级的功能。它主要提供了定时器<code>timer</code>的功能（支持<strong>EventTime</strong>或<strong>ProcessingTime</strong>）。本案例中我们将利用timer来判断何时收齐了某个window下所有商品的点击量数据。由于Watermark的进度是全局的，在processElement方法中，每当收到一条数据ItemViewCount，我们就注册一个windowEnd+1的定时器（<strong>Flink框架会自动忽略同一时间的重复注册</strong>）。windowEnd+1的定时器被触发时，意味着收到了windowEnd+1的Watermark，即收齐了该windowEnd下的所有商品窗口统计值。我们在<code>onTimer()</code>中处理将收集的所有商品及点击量进行排序，选出TopN，并将排名信息格式化成字符串后进行输出。</p> <p>        这里我们还使用了<code>ListState&lt;ItemViewCount&gt;</code>来存储收到的每条ItemViewCount消息，<strong>保证在发生故障时，状态数据的不丢失和一致性</strong>。ListState是Flink提供的类似Java List接口的State API，它集成了框架的<strong>checkpoint</strong>机制，自动做到了<strong>exactly-once</strong>的语义保证。</p> <p><img src="https://img-blog.csdnimg.cn/20201124201133810.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <p>        代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token comment">// 自定义 process function，排序处理数据</span>
+<span class="token keyword">class</span> TopNHotItems<span class="token punctuation">(</span>nSize<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> KeyedProcessFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span>ItemViewCount<span class="token punctuation">,</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">// 定义一个状态变量 list state，用来保存所有的 ItemViewCont</span>
+  <span class="token keyword">private</span> <span class="token keyword">var</span> itemState<span class="token operator">:</span> ListState<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span> <span class="token operator">=</span> _
+
+  <span class="token comment">// 在执行processElement方法之前，会最先执行并且只执行一次 open 方法</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> open<span class="token punctuation">(</span>parameters<span class="token operator">:</span> Configuration<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 初始化状态变量</span>
+    itemState <span class="token operator">=</span> getRuntimeContext<span class="token punctuation">.</span>getListState<span class="token punctuation">(</span><span class="token keyword">new</span> ListStateDescriptor<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token string">&quot;itemState&quot;</span><span class="token punctuation">,</span> classOf<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 每个元素都会执行这个方法</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> processElement<span class="token punctuation">(</span>value<span class="token operator">:</span> ItemViewCount<span class="token punctuation">,</span> ctx<span class="token operator">:</span> KeyedProcessFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span> ItemViewCount<span class="token punctuation">,</span> <span class="token builtin">String</span><span class="token punctuation">]</span>#Context<span class="token punctuation">,</span> collector<span class="token operator">:</span> Collector<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 每一条数据都存入 state 中</span>
+    itemState<span class="token punctuation">.</span>add<span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+    <span class="token comment">// 注册 windowEnd+1 的 EventTime Timer, 延迟触发，当触发时，说明收齐了属于windowEnd窗口的所有商品数据，统一排序处理</span>
+    ctx<span class="token punctuation">.</span>timerService<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>registerEventTimeTimer<span class="token punctuation">(</span>value<span class="token punctuation">.</span>windowEnd <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+   
+  <span class="token comment">// 定时器触发时，会执行 onTimer 任务</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> onTimer<span class="token punctuation">(</span>timestamp<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> ctx<span class="token operator">:</span> KeyedProcessFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span> ItemViewCount<span class="token punctuation">,</span> <span class="token builtin">String</span><span class="token punctuation">]</span>#OnTimerContext<span class="token punctuation">,</span> out<span class="token operator">:</span> Collector<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 已经收集到所有的数据，首先把所有的数据放到一个 List 中</span>
+    <span class="token keyword">val</span> allItems<span class="token operator">:</span> ListBuffer<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> ListBuffer<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">import</span> <span class="token namespace">scala<span class="token punctuation">.</span>collection<span class="token punctuation">.</span></span>JavaConversions<span class="token punctuation">.</span>_
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>item <span class="token keyword">&lt;-</span> itemState<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      allItems <span class="token operator">+=</span> item
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// 将状态清除</span>
+    itemState<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 按照 count 大小  倒序排序</span>
+    <span class="token keyword">val</span> sortedItems<span class="token operator">:</span> ListBuffer<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span> <span class="token operator">=</span> allItems<span class="token punctuation">.</span>sortBy<span class="token punctuation">(</span>_<span class="token punctuation">.</span>count<span class="token punctuation">)</span><span class="token punctuation">(</span>Ordering<span class="token punctuation">.</span><span class="token builtin">Long</span><span class="token punctuation">.</span>reverse<span class="token punctuation">)</span><span class="token punctuation">.</span>take<span class="token punctuation">(</span>nSize<span class="token punctuation">)</span>
+      
+    <span class="token comment">// 将数据排名信息格式化成 String，方便打印输出</span>
+    <span class="token keyword">val</span> result<span class="token operator">:</span> StringBuilder <span class="token operator">=</span> <span class="token keyword">new</span> StringBuilder<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    result<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;======================================================\n&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment">// 触发定时器时，我们多设置了0.1秒的延迟，这里我们将时间减去0.1获取到最精确的时间</span>
+    result<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;时间：&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token keyword">new</span> Timestamp<span class="token punctuation">(</span>timestamp <span class="token operator">-</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 每一个商品信息输出 (indices方法获取索引)</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span> i <span class="token keyword">&lt;-</span> sortedItems<span class="token punctuation">.</span>indices<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token keyword">val</span> currentTtem<span class="token operator">:</span> ItemViewCount <span class="token operator">=</span> sortedItems<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+         result<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;No&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;:&quot;</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;商品ID=&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>currentTtem<span class="token punctuation">.</span>itemId<span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;  &quot;</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;浏览量=&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>currentTtem<span class="token punctuation">.</span>count<span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;  &quot;</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    result<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;======================================================\n&quot;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 设置休眠时间</span>
+    Thread<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token comment">// 收集数据</span>
+    out<span class="token punctuation">.</span>collect<span class="token punctuation">(</span>result<span class="token punctuation">.</span>toString<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>        这部分的内容也可以通过流程图来表示：</p> <p><img src="https://img-blog.csdnimg.cn/20201124201416428.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <p>        最后我们可以在main函数中将结果打印输出到控制台，方便实时观测：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token punctuation">.</span>print<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>        至此整个程序代码全部完成，我们直接运行main函数，就可以在控制台看到不断输出的各个时间点统计出的热门商品。</p> <p><img src="https://img-blog.csdnimg.cn/20201124195051615.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <h2 id="完整代码"><a href="#完整代码" class="header-anchor">#</a> 完整代码</h2> <p>        最终的完整代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span></span>Timestamp
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>hypers<span class="token punctuation">.</span></span>HotItems<span class="token punctuation">.</span><span class="token punctuation">{</span>ItemViewCount<span class="token punctuation">,</span> UserBehavior<span class="token punctuation">}</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>api<span class="token punctuation">.</span>common<span class="token punctuation">.</span>functions<span class="token punctuation">.</span></span>AggregateFunction
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>api<span class="token punctuation">.</span>common<span class="token punctuation">.</span>state<span class="token punctuation">.</span></span><span class="token punctuation">{</span>ListState<span class="token punctuation">,</span> ListStateDescriptor<span class="token punctuation">}</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>configuration<span class="token punctuation">.</span></span>Configuration
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span>TimeCharacteristic
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>functions<span class="token punctuation">.</span></span>KeyedProcessFunction
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>scala<span class="token punctuation">.</span></span>_
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>scala<span class="token punctuation">.</span>function<span class="token punctuation">.</span></span>WindowFunction
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>windowing<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span>Time
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>streaming<span class="token punctuation">.</span>api<span class="token punctuation">.</span>windowing<span class="token punctuation">.</span>windows<span class="token punctuation">.</span></span>TimeWindow
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>flink<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span>Collector
+<span class="token keyword">import</span> <span class="token namespace">scala<span class="token punctuation">.</span>collection<span class="token punctuation">.</span>mutable<span class="token punctuation">.</span></span>ListBuffer
+
+<span class="token comment">/*
+ * @Author: Alice菌
+ * @Date: 2020/11/23 10:38
+ * @Description: 
+         电商用户行为数据分析：热门商品实时统计
+ */</span>
+<span class="token keyword">object</span> HotItems <span class="token punctuation">{</span>
+
+  <span class="token comment">// 定义样例类，用于封装数据</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> UserBehavior<span class="token punctuation">(</span>userId<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>itemId<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>categoryId<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span>behavior<span class="token operator">:</span><span class="token builtin">String</span><span class="token punctuation">,</span>timeStamp<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">)</span>
+  <span class="token comment">// 中间输出的商品浏览量的样例类</span>
+  <span class="token keyword">case</span> <span class="token keyword">class</span> ItemViewCount<span class="token punctuation">(</span>itemId<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>windowEnd<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">,</span>count<span class="token operator">:</span><span class="token builtin">Long</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 定义流处理环境</span>
+    <span class="token keyword">val</span> env<span class="token operator">:</span> StreamExecutionEnvironment <span class="token operator">=</span> StreamExecutionEnvironment<span class="token punctuation">.</span>getExecutionEnvironment
+    <span class="token comment">// 设置并行度</span>
+    env<span class="token punctuation">.</span>setParallelism<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token comment">// 设置时间特征为事件时间</span>
+    env<span class="token punctuation">.</span>setStreamTimeCharacteristic<span class="token punctuation">(</span>TimeCharacteristic<span class="token punctuation">.</span>EventTime<span class="token punctuation">)</span>
+    <span class="token comment">// 读取文本文件</span>
+    <span class="token keyword">val</span> stream<span class="token operator">:</span> DataStream<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> env<span class="token punctuation">.</span>readTextFile<span class="token punctuation">(</span><span class="token string">&quot;G:\\idea arc\\BIGDATA\\project\\src\\main\\resources\\UserBehavior.csv&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment">// 对读取到的数据源进行处理</span>
+    stream<span class="token punctuation">.</span>map<span class="token punctuation">(</span>data <span class="token keyword">=&gt;</span><span class="token punctuation">{</span>
+      <span class="token keyword">val</span> dataArray<span class="token operator">:</span> Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+      <span class="token comment">// 将数据封装到新建的样例类中</span>
+      UserBehavior<span class="token punctuation">(</span>dataArray<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toLong<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toLong<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toInt<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">,</span>dataArray<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">.</span>trim<span class="token punctuation">.</span>toLong<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token comment">// 设置waterMark(水印)  --  处理乱序数据</span>
+      <span class="token punctuation">.</span>assignAscendingTimestamps<span class="token punctuation">(</span>_<span class="token punctuation">.</span>timeStamp <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+      <span class="token comment">// 过滤出 “pv”的数据  -- 过滤出点击行为数据</span>
+      <span class="token punctuation">.</span>filter<span class="token punctuation">(</span>_<span class="token punctuation">.</span>behavior <span class="token operator">==</span> <span class="token string">&quot;pv&quot;</span><span class="token punctuation">)</span>
+      <span class="token comment">// 因为需要统计出每种商品的个数,这里先对商品id进行分组</span>
+      <span class="token punctuation">.</span>keyBy<span class="token punctuation">(</span>_<span class="token punctuation">.</span>itemId<span class="token punctuation">)</span>
+      <span class="token comment">// 需求: 统计近1小时内的热门商品，每5分钟更新一次  -- 滑动窗口聚合</span>
+      <span class="token punctuation">.</span>timeWindow<span class="token punctuation">(</span>Time<span class="token punctuation">.</span>hours<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>Time<span class="token punctuation">.</span>minutes<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token comment">// 预计算，统计出每种商品的个数</span>
+      <span class="token punctuation">.</span>aggregate<span class="token punctuation">(</span><span class="token keyword">new</span> CountAgg<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">new</span> WindowResult<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token comment">// 按每个窗口聚合</span>
+      <span class="token punctuation">.</span>keyBy<span class="token punctuation">(</span>_<span class="token punctuation">.</span>windowEnd<span class="token punctuation">)</span>
+      <span class="token comment">// 输出每个窗口中点击量前N名的商品</span>
+      <span class="token punctuation">.</span>process<span class="token punctuation">(</span><span class="token keyword">new</span> TopNHotItems<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>print<span class="token punctuation">(</span><span class="token string">&quot;HotItems&quot;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 执行程序</span>
+    env<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">&quot;HotItems&quot;</span><span class="token punctuation">)</span>
+
+
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 自定义预聚合函数，来一个数据就加一</span>
+<span class="token keyword">class</span> CountAgg<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> AggregateFunction<span class="token punctuation">[</span>UserBehavior<span class="token punctuation">,</span><span class="token builtin">Long</span><span class="token punctuation">,</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">{</span>
+
+  <span class="token comment">// 定义累加器的初始值</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> createAccumulator<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> <span class="token number">0L</span>
+
+  <span class="token comment">// 定义累加规则</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> add<span class="token punctuation">(</span>value<span class="token operator">:</span> UserBehavior<span class="token punctuation">,</span> accumulator<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> accumulator <span class="token operator">+</span> <span class="token number">1</span>
+
+  <span class="token comment">// 定义得到的结果</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> getResult<span class="token punctuation">(</span>accumulator<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> accumulator
+
+  <span class="token comment">// 合并的规则</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> merge<span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> a <span class="token operator">+</span> b
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+  * WindowFunction [输入参数类型，输出参数类型，Key值类型，窗口类型]
+  * 来处理窗口中的每一个元素(可能是分组的)
+  */</span>
+<span class="token comment">// 自定义窗口函数，包装成 ItemViewCount输出</span>
+<span class="token keyword">class</span> WindowResult<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> WindowFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span>ItemViewCount<span class="token punctuation">,</span><span class="token builtin">Long</span><span class="token punctuation">,</span>TimeWindow<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">override</span> <span class="token keyword">def</span> apply<span class="token punctuation">(</span>key<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> window<span class="token operator">:</span> TimeWindow<span class="token punctuation">,</span> input<span class="token operator">:</span> Iterable<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">]</span><span class="token punctuation">,</span> out<span class="token operator">:</span> Collector<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 在前面的步骤中，我们根据商品 id 进行了分组，次数的key就是  商品编号</span>
+    <span class="token keyword">val</span> itemId<span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> key
+    <span class="token comment">// 获取 窗口 末尾</span>
+    <span class="token keyword">val</span> windowEnd<span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> window<span class="token punctuation">.</span>getEnd
+    <span class="token comment">// 获取点击数大小 【累加器统计的结果】</span>
+    <span class="token keyword">val</span> count<span class="token operator">:</span> <span class="token builtin">Long</span> <span class="token operator">=</span> input<span class="token punctuation">.</span>iterator<span class="token punctuation">.</span>next<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 将获取到的结果进行上传</span>
+    out<span class="token punctuation">.</span>collect<span class="token punctuation">(</span>ItemViewCount<span class="token punctuation">(</span>itemId<span class="token punctuation">,</span>windowEnd<span class="token punctuation">,</span>count<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 自定义 process function，排序处理数据</span>
+<span class="token keyword">class</span> TopNHotItems<span class="token punctuation">(</span>nSize<span class="token operator">:</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> KeyedProcessFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span>ItemViewCount<span class="token punctuation">,</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">// 定义一个状态变量 list state，用来保存所有的 ItemViewCont</span>
+  <span class="token keyword">private</span> <span class="token keyword">var</span> itemState<span class="token operator">:</span> ListState<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span> <span class="token operator">=</span> _
+
+  <span class="token comment">// 在执行processElement方法之前，会最先执行并且只执行一次 open 方法</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> open<span class="token punctuation">(</span>parameters<span class="token operator">:</span> Configuration<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 初始化状态变量</span>
+    itemState <span class="token operator">=</span> getRuntimeContext<span class="token punctuation">.</span>getListState<span class="token punctuation">(</span><span class="token keyword">new</span> ListStateDescriptor<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token string">&quot;itemState&quot;</span><span class="token punctuation">,</span> classOf<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 每个元素都会执行这个方法</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> processElement<span class="token punctuation">(</span>value<span class="token operator">:</span> ItemViewCount<span class="token punctuation">,</span> ctx<span class="token operator">:</span> KeyedProcessFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span> ItemViewCount<span class="token punctuation">,</span> <span class="token builtin">String</span><span class="token punctuation">]</span>#Context<span class="token punctuation">,</span> collector<span class="token operator">:</span> Collector<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 每一条数据都存入 state 中</span>
+    itemState<span class="token punctuation">.</span>add<span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+    <span class="token comment">// 注册 windowEnd+1 的 EventTime Timer, 延迟触发，当触发时，说明收齐了属于windowEnd窗口的所有商品数据，统一排序处理</span>
+    ctx<span class="token punctuation">.</span>timerService<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>registerEventTimeTimer<span class="token punctuation">(</span>value<span class="token punctuation">.</span>windowEnd <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 定时器触发时，会执行 onTimer 任务</span>
+  <span class="token keyword">override</span> <span class="token keyword">def</span> onTimer<span class="token punctuation">(</span>timestamp<span class="token operator">:</span> <span class="token builtin">Long</span><span class="token punctuation">,</span> ctx<span class="token operator">:</span> KeyedProcessFunction<span class="token punctuation">[</span><span class="token builtin">Long</span><span class="token punctuation">,</span> ItemViewCount<span class="token punctuation">,</span> <span class="token builtin">String</span><span class="token punctuation">]</span>#OnTimerContext<span class="token punctuation">,</span> out<span class="token operator">:</span> Collector<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Unit</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 已经收集到所有的数据，首先把所有的数据放到一个 List 中</span>
+    <span class="token keyword">val</span> allItems<span class="token operator">:</span> ListBuffer<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> ListBuffer<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">import</span> <span class="token namespace">scala<span class="token punctuation">.</span>collection<span class="token punctuation">.</span></span>JavaConversions<span class="token punctuation">.</span>_
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>item <span class="token keyword">&lt;-</span> itemState<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      allItems <span class="token operator">+=</span> item
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 将状态清除</span>
+    itemState<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 按照 count 大小  倒序排序</span>
+    <span class="token keyword">val</span> sortedItems<span class="token operator">:</span> ListBuffer<span class="token punctuation">[</span>ItemViewCount<span class="token punctuation">]</span> <span class="token operator">=</span> allItems<span class="token punctuation">.</span>sortBy<span class="token punctuation">(</span>_<span class="token punctuation">.</span>count<span class="token punctuation">)</span><span class="token punctuation">(</span>Ordering<span class="token punctuation">.</span><span class="token builtin">Long</span><span class="token punctuation">.</span>reverse<span class="token punctuation">)</span><span class="token punctuation">.</span>take<span class="token punctuation">(</span>nSize<span class="token punctuation">)</span>
+
+    <span class="token comment">// 将数据排名信息格式化成 String，方便打印输出</span>
+    <span class="token keyword">val</span> result<span class="token operator">:</span> StringBuilder <span class="token operator">=</span> <span class="token keyword">new</span> StringBuilder<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    result<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;======================================================\n&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment">// 触发定时器时，我们多设置了0.1秒的延迟，这里我们将时间减去0.1获取到最精确的时间</span>
+    result<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;时间：&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token keyword">new</span> Timestamp<span class="token punctuation">(</span>timestamp <span class="token operator">-</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 每一个商品信息输出 (indices方法获取索引)</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span> i <span class="token keyword">&lt;-</span> sortedItems<span class="token punctuation">.</span>indices<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token keyword">val</span> currentTtem<span class="token operator">:</span> ItemViewCount <span class="token operator">=</span> sortedItems<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+         result<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;No&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;:&quot;</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;商品ID=&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>currentTtem<span class="token punctuation">.</span>itemId<span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;  &quot;</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;浏览量=&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>currentTtem<span class="token punctuation">.</span>count<span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;  &quot;</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    result<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;======================================================\n&quot;</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 设置休眠时间</span>
+    Thread<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token comment">// 收集数据</span>
+    out<span class="token punctuation">.</span>collect<span class="token punctuation">(</span>result<span class="token punctuation">.</span>toString<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>        为了让小伙伴们更好理解，菌哥基本每行代码都写上了注释，就冲这波细节，还不给安排一波三连😎开个玩笑，回到主题上，我们再来讨论一个问题。</p> <p>        实际生产环境中，我们的数据流往往是从Kafka获取到的。<strong>如果要让代码更贴近生产实际，我们只需将source更换为Kafka即可</strong>：</p> <div class="language-scala extra-class"><pre class="language-scala"><code>    <span class="token keyword">val</span> properties <span class="token operator">=</span> <span class="token keyword">new</span> Properties<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    properties<span class="token punctuation">.</span>setProperty<span class="token punctuation">(</span><span class="token string">&quot;bootstrap.servers&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;localhost:9092&quot;</span><span class="token punctuation">)</span>
+    properties<span class="token punctuation">.</span>setProperty<span class="token punctuation">(</span><span class="token string">&quot;group.id&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;consumer-group&quot;</span><span class="token punctuation">)</span>
+    properties<span class="token punctuation">.</span>setProperty<span class="token punctuation">(</span><span class="token string">&quot;key.deserializer&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span><span class="token punctuation">)</span>
+    properties<span class="token punctuation">.</span>setProperty<span class="token punctuation">(</span><span class="token string">&quot;value.deserializer&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span><span class="token punctuation">)</span>
+    properties<span class="token punctuation">.</span>setProperty<span class="token punctuation">(</span><span class="token string">&quot;auto.offset.reset&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;latest&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><p>        当然，根据实际的需要，我们还可以将Sink指定为Kafka、ES、Redis或其它存储，这里就不一一展开实现了。</p> <h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <blockquote><p>https://www.bilibili.com/video/BV1y54y127h2?from=search&amp;seid=5631307517601819264</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/电商业务/flink电商数据分析：【1】 项目整体介绍.html" class="prev">
+        基于 flink 的电商用户行为数据分析：【1】 项目整体介绍
+      </a></span> <span class="next"><a href="/./datahouse/电商业务/flink电商数据分析：【3】实时流量统计.html">
+        基于 flink 的电商用户行为数据分析：【3】实时流量统计
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/126.5ac52ff6.js" defer></script>
+  </body>
+</html>

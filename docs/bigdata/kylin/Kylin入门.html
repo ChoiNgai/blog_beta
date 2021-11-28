@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>了解Kylin | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/55.00d67ca6.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link router-link-active">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link router-link-active">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Kylin</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./bigdata/kylin/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./bigdata/kylin/Kylin入门.html" class="active sidebar-link">了解Kylin</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#kylin" class="sidebar-link">Kylin</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#诞生背景" class="sidebar-link">诞生背景</a></li><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#简介" class="sidebar-link">简介</a></li><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#架构" class="sidebar-link">架构</a></li><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#应用场景" class="sidebar-link">应用场景</a></li><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#使用-kylin-的公司" class="sidebar-link">使用 Kylin 的公司</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#hbase安装" class="sidebar-link">HBase安装</a></li><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#kylin安装" class="sidebar-link">Kylin安装</a></li><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#kylin的使用" class="sidebar-link">Kylin的使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#准备测试数据表" class="sidebar-link">准备测试数据表</a></li><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#导入测试数据" class="sidebar-link">导入测试数据</a></li><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#指标和维度" class="sidebar-link">指标和维度</a></li><li class="sidebar-sub-header"><a href="/./bigdata/kylin/Kylin入门.html#按照日期统计订单总额-总数量-kylin方式" class="sidebar-link">按照日期统计订单总额/总数量（Kylin方式）</a></li></ul></li></ul></li><li><a href="/./bigdata/kylin/Kylin BI展示.html" class="sidebar-link">Kylin如何通过BI工具展示</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="了解kylin"><a href="#了解kylin" class="header-anchor">#</a> 了解Kylin</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>        说到Apache顶级开源项目，大家首先会想到什么？？？</p> <p>        不熟悉Apache软件基金会的朋友也不用担心，大家可以去<a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer">Apache官网<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，下拉到最下边的页面，查看Apache有哪些开源项目。
+<img src="https://img-blog.csdnimg.cn/20200513173812206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        相信各位朋友在项目清单中肯定会看到不少熟悉的身影，<code>JavaEE</code>，<code>HTTP</code>,<code>FTP</code>,<code>Hadoop</code>,<code>SQL</code>,<code>Maven</code>,<code>Tomcat</code>,<code>Kafka</code>,<code>Hive</code>...这些几乎我们天天都在打交道的<code>朋友</code>，竟然都是Apache顶级项目“家族”的一员。</p> <p>        也许你会有些遗憾，这些顶级项目都是由外国友人所贡献的。但认真看了本期内容标题的朋友都应该期待着，接下来，我要为大家介绍的是正如题目所述，<font color="#9F35FF">第一个由国人开发的Apache顶级项目——Kylin</font>！</p> <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly90aW1nc2EuYmFpZHUuY29tL3RpbWc_aW1hZ2UmcXVhbGl0eT04MCZzaXplPWI5OTk5XzEwMDAwJnNlYz0xNTg5MzczNTI0NTYxJmRpPWE4NmYyMDE3NGYwNTA4ZTM3YWVhMGQzMTQ3MGQyMzMxJmltZ3R5cGU9MCZzcmM9aHR0cDovL3BpYzQuemhpbWcuY29tL3YyLTIxZDg2YzZhZjJmM2EzZmYyOTM1YzRkMmUxOWZhYWU2XzEyMDB4NTAwLmpwZyNwaWNfY2VudGVy?x-oss-process=image/format,png#pic_center" alt=""></p> <h2 id="kylin"><a href="#kylin" class="header-anchor">#</a> Kylin</h2> <h3 id="诞生背景"><a href="#诞生背景" class="header-anchor">#</a> 诞生背景</h3> <p>        目前大数据存在需要大量行为数据与用户标签数据的多维度的复杂分析统计场景，此场景同时有大量行为数据（事实数据）与多维度分析数据。需要在<strong>近实时查询</strong>的情况下快速得到结果帮助公司进行分析和决策。</p> <p>        Kylin是中国团队研发的，是第一个真正由中国人自己主导、从零开始、自主研发、并成为Apache顶级开源项目。它巧妙地将“Hive支持SQL灵活查询，但速度特别慢”与“HBase查询性能快，但原生不支持SQL”的设计巧妙结合在了一起。Kylin先将数据进行预处理，将预处理的结果放在HBase当中，大大提高了查询时的效率！</p> <h3 id="简介"><a href="#简介" class="header-anchor">#</a> 简介</h3> <p>        Apache Kylin 是一个开源的分布式分析引擎，提供 Hadoop/Spark 之上的 SQL 查询接口及多维分析的功能，支持超大规模数据，最初由 eBay 开发并贡献至开源社区。它能在亚秒内查询巨大的 Hive 表。</p> <h3 id="架构"><a href="#架构" class="header-anchor">#</a> 架构</h3> <p>        Kylin架构如图所示</p> <p><img src="https://img-blog.csdnimg.cn/20210327215013758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        其中，Kylin 具有如下几个关键组件。</p> <h4 id="_1-rest-server"><a href="#_1-rest-server" class="header-anchor">#</a> 1.REST Server</h4> <p>        REST Server是面向应用程序开发的入口点，旨在完成针对Kylin平台的应用开发工作，可以提供查询、获取结果、触发Cube 构建任务、获取元数据及获取用户权限等功能，另外可以通过 REST API 接口实现 SQL查询。</p> <h4 id="_2-query-engine"><a href="#_2-query-engine" class="header-anchor">#</a> 2.Query Engine</h4> <p>        当Cube准备就绪后，查询引擎即可获取并解析用户所查询的问题。它随后会与系统中的其他组件进行交互，从而向用户返回对应的结果。</p> <h4 id="_3-routing"><a href="#_3-routing" class="header-anchor">#</a> 3.Routing</h4> <p>        在最初设计时，设计者曾考虑将Kylin不能执行的查询引导到Hive中继续执行，但在实践后发现，Hive与Kylin的查询速度差异过大，导致用户无法对查询的速度有一致的期望，大多数查询几秒内就返回结果了，而有些查询则要等几分钟到几十分钟，因此，用户体验非常糟糕。最后这个路由功能在发行版中被默认关闭。</p> <h4 id="_4-metadata"><a href="#_4-metadata" class="header-anchor">#</a> 4.Metadata</h4> <p>        Kylin 是一款元数据驱动型应用程序。元数据管理工具是一大关键性组件，用于对保存在Kylin 中的所有元数据进行管理，其中包括最为重要的 Cube 元数据。其他组件的正常运作都需要以元数据管理工具为基础。<strong>Kylin的元数据存储在HBase中</strong>。</p> <h4 id="_5-cube-build-engine"><a href="#_5-cube-build-engine" class="header-anchor">#</a> 5.Cube Build Engine</h4> <p>        Cube构建引擎的设计目的在于处理所有离线任务，其中包括 Shell脚本、Java API、MapReduce任务等。Cube Build Engine对Kylin中的全部任务加以管理与协调，从而确保每项任务都能得到切实执行并解决期间出现的故障。</p> <p>        Kylin的主要特点及说明如下。</p> <ul><li><strong>支持标准SQL接口</strong>：Kylin以标准的SQL作为对外服务的接口。</li> <li><strong>支持超大规模数据集</strong>：Kylin对大数据的支撑能力是目前所有技术中较为领先的。早在2015年eBay的生产环境中就能支持百亿条记录的秒级查询，之后在移动的应用场景中又有了支持千亿条记录的秒级查询的案例。</li> <li><strong>亚秒级响应</strong>：Kylin拥有优异的查询响应速度，这点得益于预计算，很多复杂的计算，比如，连接、聚合，在离线的预计算过程中就已经完成，这大大降低了查询时刻所需的计算量，提高了响应速度。</li> <li><strong>高伸缩性和高吞吐率</strong>：单节点Kylin可实现每秒70个查询，还可以搭建Kylin的集群。</li> <li><strong>BI工具集成</strong>。Kylin可以与现有的BI工具集成。</li></ul> <p>        另外，Kylin开发团队还贡献了 Zeppelin 的插件，用户可以使用 Zeppelin 访问 Kylin 服务。</p> <h3 id="应用场景"><a href="#应用场景" class="header-anchor">#</a> 应用场景</h3> <p>Kylin 典型的<font color="tomato"><strong>应用场景</strong></font>如下：</p> <ul><li>用户数据存在于 Hadoop HDFS中，利用 Hive 将 HDFS文件数据以关系数据方式存取，数据量巨大，在500G以上</li> <li>每天有数G甚至数十G的数据增量导入</li> <li>有10个以内较为固定的分析维度.....</li></ul> <p>        Kylin 的<font color="tomato"><strong>核心思想</strong></font>是<strong>利用空间换时间</strong>，在数据 ETL 导入 OLAP 引擎时提前计算各维度的聚合结果并持久化保存。</p> <p><font color="tomato"><strong>原理</strong></font>为通过 hive 将海量数据通过统计转化为多维度数据模型表（星型模型、雪花模型等），通过 Kylin 使用字典编码（Dictionary-coder）将维度数据进行压缩生成维度字典。然后将事实维度数据转换为 Kylin 的 cube 数据模型，实现预计算，并可使用标准 SQL 查询。</p> <h3 id="使用-kylin-的公司"><a href="#使用-kylin-的公司" class="header-anchor">#</a> 使用 Kylin 的公司</h3> <p>        Kylin如今作为大数据业内十分热门的“OLAP”引擎，在越来越多公司中得到“重用”！</p> <p><img src="https://img-blog.csdnimg.cn/20210327222515101.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">
+        具体在企业中是如何使用的，我就不在这里赘述了，感兴趣大家可以从以下链接去做学习了解。</p> <blockquote><p>https://www.jianshu.com/p/aae410e5a2fe  《Apache Kylin在美团数十亿数据OLAP场景下的实践》
+https://www.sohu.com/a/240896646_659643 《实践 | Kylin在滴滴OLAP引擎中的应用》</p></blockquote> <h2 id="hbase安装"><a href="#hbase安装" class="header-anchor">#</a> HBase安装</h2> <p>        在安装 Kylin 前需要先安装部署好 Hadoop、Hive、Zookeeper 和 HBase，并且需要在 <code>/etc/profile</code> 目录下配置 <code>HADOOP_HOME</code> 、<code>HIVE_HOME</code>、<code>HBASE_HOME</code> 环境变量，注意执行<code>source/etc/profile</code>命令使其生效。</p> <p>        （1）保证 Zookeeper 集群的正常部署，并启动它。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token punctuation">[</span>root@node01 zookeeper<span class="token operator">-</span><span class="token number">3.4</span><span class="token number">.9</span><span class="token punctuation">]</span>$ bin<span class="token operator">/</span>zkServer<span class="token punctuation">.</span>sh start 
+<span class="token punctuation">[</span>root@node02 zookeeper<span class="token operator">-</span><span class="token number">3.4</span><span class="token number">.9</span><span class="token punctuation">]</span>$ bin<span class="token operator">/</span>zkServer<span class="token punctuation">.</span>sh start 
+<span class="token punctuation">[</span>root@node03 zookeeper<span class="token operator">-</span><span class="token number">3.4</span><span class="token number">.9</span><span class="token punctuation">]</span>$ bin<span class="token operator">/</span>zkServer<span class="token punctuation">.</span>sh start
+</code></pre></div><p>        （2）保证 Hadoop 集群的正常部署，并启动它</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token punctuation">[</span>root@node01 hadoop<span class="token operator">-</span><span class="token number">2.7</span><span class="token number">.2</span><span class="token punctuation">]</span>$ sbin<span class="token operator">/</span>start<span class="token operator">-</span>dfs<span class="token punctuation">.</span>sh 
+<span class="token punctuation">[</span>root@node01 hadoop<span class="token operator">-</span><span class="token number">2.7</span><span class="token number">.2</span><span class="token punctuation">]</span>$ sbin<span class="token operator">/</span>start<span class="token operator">-</span>yarn<span class="token punctuation">.</span>sh
+</code></pre></div><p>        （3）解压 HBase 安装包到指定目录。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token punctuation">[</span>root@node01 software<span class="token punctuation">]</span>$ tar <span class="token operator">-</span>zxvf hbase<span class="token operator">-</span><span class="token number">1.3</span><span class="token number">.1</span><span class="token operator">-</span>bin<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz <span class="token operator">-</span><span class="token constant">C</span> <span class="token operator">/</span><span class="token keyword">export</span><span class="token operator">/</span>servers
+</code></pre></div><p>        （4）修改 HBase 对应的配置文件</p> <p>        ① hbase-env.sh 文件的修改内容如下</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">export</span> <span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span>/opt/module/jdk1.8.0_144 
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">HBASE_MANAGES_ZK</span><span class="token operator">=</span>false
+</code></pre></div><p>        ② hbase-site.xml 文件的修改内容如下</p> <p>注意：</p> <ul><li>修改HDFS NameNode节点名称</li> <li>修改zookeeper服务器名称</li> <li>修改zookeeper数据目录位置</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token operator">&lt;</span>configuration<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>hbase<span class="token punctuation">.</span>rootdir<span class="token operator">&lt;</span><span class="token operator">/</span>name<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>hdfs<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>node01<span class="token operator">:</span><span class="token number">8020</span><span class="token operator">/</span>hbase_1<span class="token punctuation">.</span><span class="token number">3.1</span><span class="token operator">&lt;</span><span class="token operator">/</span>value<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>property<span class="token operator">&gt;</span>
+
+        <span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>hbase<span class="token punctuation">.</span>cluster<span class="token punctuation">.</span>distributed<span class="token operator">&lt;</span><span class="token operator">/</span>name<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span><span class="token boolean">true</span><span class="token operator">&lt;</span><span class="token operator">/</span>value<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>property<span class="token operator">&gt;</span>
+
+        <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> <span class="token number">0.98</span>后的新变动，之前版本没有<span class="token punctuation">.</span>port<span class="token punctuation">,</span>默认端口为<span class="token number">60000</span> <span class="token operator">--</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>hbase<span class="token punctuation">.</span>master<span class="token punctuation">.</span>port<span class="token operator">&lt;</span><span class="token operator">/</span>name<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span><span class="token number">16000</span><span class="token operator">&lt;</span><span class="token operator">/</span>value<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>property<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>hbase<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>property<span class="token punctuation">.</span>clientPort<span class="token operator">&lt;</span><span class="token operator">/</span>name<span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span><span class="token number">2181</span><span class="token operator">&lt;</span><span class="token operator">/</span>value<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>property<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>hbase<span class="token punctuation">.</span>master<span class="token punctuation">.</span>info<span class="token punctuation">.</span>port<span class="token operator">&lt;</span><span class="token operator">/</span>name<span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span><span class="token number">60010</span><span class="token operator">&lt;</span><span class="token operator">/</span>value<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>property<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>hbase<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>quorum<span class="token operator">&lt;</span><span class="token operator">/</span>name<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>node01<span class="token punctuation">,</span>node02<span class="token punctuation">,</span>node03<span class="token operator">&lt;</span><span class="token operator">/</span>value<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>property<span class="token operator">&gt;</span>
+
+        <span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+        	<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>hbase<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>property<span class="token punctuation">.</span>dataDir<span class="token operator">&lt;</span><span class="token operator">/</span>name<span class="token operator">&gt;</span>
+         	<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span><span class="token operator">/</span><span class="token keyword">export</span><span class="token operator">/</span>servers<span class="token operator">/</span>zookeeper<span class="token operator">-</span><span class="token number">3.4</span><span class="token number">.9</span><span class="token operator">/</span>zkdatas<span class="token operator">&lt;</span><span class="token operator">/</span>value<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>property<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>hbase<span class="token punctuation">.</span>thrift<span class="token punctuation">.</span>support<span class="token punctuation">.</span>proxyuser<span class="token operator">&lt;</span><span class="token operator">/</span>name<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span><span class="token boolean">true</span><span class="token operator">&lt;</span><span class="token operator">/</span>value<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>property<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>hbase<span class="token punctuation">.</span>regionserver<span class="token punctuation">.</span>thrift<span class="token punctuation">.</span>http<span class="token operator">&lt;</span><span class="token operator">/</span>name<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span><span class="token boolean">true</span><span class="token operator">&lt;</span><span class="token operator">/</span>value<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>property<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>configuration<span class="token operator">&gt;</span>
+</code></pre></div><p>        ③ 在 regionservers 文件中增加如下内容</p> <div class="language-bash extra-class"><pre class="language-bash"><code>node01
+node02
+node03
+</code></pre></div><p>        ④ 软连接 Hadoop 配置文件到 HBase</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">ln</span> -s /export/servers/hadoop-2.7.2/etc/hadoop/core-site.xml <span class="token environment constant">$PWD</span>/core-site.xml
+<span class="token function">ln</span> -s /export/servers/hadoop-2.7.2/etc/hadoop/hdfs-site.xml <span class="token environment constant">$PWD</span>/hdfs-site.xml
+</code></pre></div><p>        ⑤ 将 HBase 远程发送到其他集群</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 servers<span class="token punctuation">]</span>$ xsync hbase_1.3.1/
+</code></pre></div><p>        （4）配置 HBase 环境变量</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code># Apache HBase <span class="token number">1.3</span><span class="token number">.1</span>
+<span class="token keyword">export</span> <span class="token constant">HBASE_HOME</span><span class="token operator">=</span><span class="token operator">/</span><span class="token keyword">export</span><span class="token operator">/</span>servers<span class="token operator">/</span>hbase<span class="token operator">-</span><span class="token number">1.3</span><span class="token number">.1</span>
+<span class="token keyword">export</span> <span class="token constant">PATH</span><span class="token operator">=</span>$<span class="token constant">HADOOP</span><span class="token operator">/</span>sbin<span class="token operator">:</span>$<span class="token constant">HADOOP</span><span class="token operator">/</span>bin<span class="token operator">:</span>$<span class="token constant">HBASE_HOME</span><span class="token operator">/</span>bin<span class="token operator">:</span>$<span class="token constant">PATH</span>
+</code></pre></div><p>刷新环境变量</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>source <span class="token operator">/</span>etc<span class="token operator">/</span>profile
+</code></pre></div><p>        （5）启动 HBase 服务。</p> <p>         进入hbase shell</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>bin<span class="token operator">/</span>start<span class="token operator">-</span>hbase<span class="token punctuation">.</span>sh
+</code></pre></div><p>        执行上述操作，执行list命令，如果能显示以下内容，表示安装成功。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token function">hbase</span><span class="token punctuation">(</span>main<span class="token punctuation">)</span><span class="token operator">:</span><span class="token number">002</span><span class="token operator">:</span><span class="token number">0</span><span class="token operator">&gt;</span> list
+<span class="token constant">TABLE</span>                                                                                                                  
+<span class="token number">0</span> <span class="token function">row</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token keyword">in</span> <span class="token number">0.1380</span> <span class="token parameter">seconds</span>
+
+<span class="token operator">=&gt;</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+</code></pre></div><p>        当然，你也可以通过<code>host:port</code>的方式来访问 HBase 的页面，例如：<code>http://node01:16010/</code></p> <p><img src="https://img-blog.csdnimg.cn/20210327234156879.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <p>        OK，安装完了 Hbase1.3.1，接着我们开始安装 kylin 。
+        </p> <h2 id="kylin安装"><a href="#kylin安装" class="header-anchor">#</a> Kylin安装</h2> <p>        （1）下载 Kylin 安装包</p> <p>        （2）解压 <code>apache-kylin-2.6.3-bin-hbase1x.tar.gz</code> 到<code>/export/servers</code> 目录下</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">tar</span> -zxf /export/softwares/apache-kylin-2.6.3-bin-hbase1x.tar.gz -C /export/servers/
+</code></pre></div><p>        注 意 ： 启 动 前 需 检 查 <code>/etc/profile</code> 目 录 中 的 <code>HADOOP_HOME</code> 、 <code>HIVE_HOME</code> 和 <code>HBASE_HOME</code> 是否配置完毕</p> <p>        （3）启动</p> <p>        ① 在启动 Kylin 之前，需要先启动 Hadoop（HDFS、YARN、JobHistoryServer）、Zookeeper 和 HBase。需要注意的是，要同时启动 Hadoop 的历史服务器，对 Hadoop 集群配置进行如下修改。</p> <p>        配置 mapred-site.xml 文件。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 hadoop<span class="token punctuation">]</span>$ <span class="token function">vim</span> mapred-site.xml
+ <span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+ <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.jobhistory.address<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
+ <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>node01:1002<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>/value<span class="token operator">&gt;</span> 
+ <span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span> 
+ <span class="token operator">&lt;</span>property<span class="token operator">&gt;</span> 
+ <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>mapreduce.jobhistory.webapp.address<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span> 
+ <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>node01:1988<span class="token operator"><span class="token file-descriptor important">8</span>&lt;</span>/value<span class="token operator">&gt;</span>
+ <span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
+</code></pre></div><p>        配置 yarn-site.xml 文件。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 hadoop<span class="token punctuation">]</span>$ <span class="token function">vim</span> yarn-site.xml 
+<span class="token operator">&lt;</span><span class="token operator">!</span>-- 日志聚集功能开启 --<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>yarn.log-aggregation-enable<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span>true<span class="token operator">&lt;</span>/value<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">!</span>-- 日志保留时间设置为 <span class="token number">7</span> 天 --<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>property<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>yarn.log-aggregation.retain-seconds<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span>value<span class="token operator">&gt;</span><span class="token number">60480</span><span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>/value<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
+</code></pre></div><p>        修改配置后，分发配置文件，重启 Hadoop 的 HDFS 和 YARN 的所有进程。</p> <p>        启动 Hadoop 历史服务器。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 hadoop-2.6.0-cdh5.14.0<span class="token punctuation">]</span>$ sbin/mr-jobhistory-daemon.sh start historyserver
+</code></pre></div><p>        ② 启动 Kylin</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 kylin<span class="token punctuation">]</span>$ bin/kylin.sh start
+</code></pre></div><p>        启动之后查看各台节点服务器的进程。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>--------------------- node01 ---------------- 
+<span class="token number">3360</span> JobHistoryServer 
+<span class="token number">31425</span> HMaster 
+<span class="token number">3282</span> NodeManager
+<span class="token number">3026</span> DataNode 
+<span class="token number">53283</span> Jps 
+<span class="token number">2886</span> NameNode 
+<span class="token number">44007</span> RunJar 
+<span class="token number">2728</span> QuorumPeerMain 
+<span class="token number">31566</span> HRegionServer 
+--------------------- node02 ---------------- 
+<span class="token number">5040</span> HMaster 
+<span class="token number">2864</span> ResourceManager 
+<span class="token number">9729</span> Jps 
+<span class="token number">2657</span> QuorumPeerMain 
+<span class="token number">4946</span> HRegionServer 
+<span class="token number">2979</span> NodeManager 
+<span class="token number">2727</span> DataNode 
+--------------------- node03 ---------------- 
+<span class="token number">4688</span> HRegionServer 
+<span class="token number">2900</span> NodeManager 
+<span class="token number">9848</span> Jps 
+<span class="token number">2636</span> QuorumPeerMain 
+<span class="token number">2700</span> DataNode 
+<span class="token number">2815</span> SecondaryNameNode
+</code></pre></div><p>        在浏览器地址栏中输入<code>node01:7070/kylin/login</code>，查看 Web 页面，如图所示：
+<img src="https://img-blog.csdnimg.cn/20210328112703684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        用户名为 ADMIN，密码为 KYLIN（系统已填）</p> <p>        （4）关闭Kylin</p> <p>        如果我们想要关闭 Kylin，只需要执行下面的命令：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 apache-kylin-2.6.3<span class="token punctuation">]</span><span class="token comment"># bin/kylin.sh stop</span>
+</code></pre></div><h2 id="kylin的使用"><a href="#kylin的使用" class="header-anchor">#</a> Kylin的使用</h2> <p>        到了这一步，我们终于将 Kylin 安装好了，下面我们来讲一下 Kylin 的具体使用。</p> <h3 id="准备测试数据表"><a href="#准备测试数据表" class="header-anchor">#</a> 准备测试数据表</h3> <p>        为了让最终的演示更具有说明力，同时也为了方便后续的学习，接下来我们需要先准备几张测试数据表。</p> <p><strong>1、（事实表）dw_sales</strong></p> <table><thead><tr><th style="text-align:left;">列名</th> <th style="text-align:left;">列类型</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;">id</td> <td style="text-align:left;">string</td> <td style="text-align:left;">订单id</td></tr> <tr><td style="text-align:left;">date1</td> <td style="text-align:left;">string</td> <td style="text-align:left;">订单日期</td></tr> <tr><td style="text-align:left;">channelid</td> <td style="text-align:left;">string</td> <td style="text-align:left;">订单渠道（商场、京东、天猫）</td></tr> <tr><td style="text-align:left;">productid</td> <td style="text-align:left;">string</td> <td style="text-align:left;">产品id</td></tr> <tr><td style="text-align:left;">regionid</td> <td style="text-align:left;">string</td> <td style="text-align:left;">区域名称</td></tr> <tr><td style="text-align:left;">amount</td> <td style="text-align:left;">int</td> <td style="text-align:left;">商品下单数量</td></tr> <tr><td style="text-align:left;">price</td> <td style="text-align:left;">double</td> <td style="text-align:left;">商品金额</td></tr></tbody></table> <p><strong>2、（维度表_渠道方式）dim_channel</strong></p> <table><thead><tr><th style="text-align:left;">列名</th> <th style="text-align:left;">列类型</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;">channelid</td> <td style="text-align:left;">string</td> <td style="text-align:left;">渠道id</td></tr> <tr><td style="text-align:left;">channelname</td> <td style="text-align:left;">string</td> <td style="text-align:left;">渠道名称</td></tr></tbody></table> <p><strong>3、（维度表_产品名称）dim_product</strong></p> <table><thead><tr><th style="text-align:left;">列名</th> <th style="text-align:left;">列类型</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;">productid</td> <td style="text-align:left;">string</td> <td style="text-align:left;">产品id</td></tr> <tr><td style="text-align:left;">productname</td> <td style="text-align:left;">string</td> <td style="text-align:left;">产品名称</td></tr></tbody></table> <p><strong>4、（维度表_区域）dim_region</strong></p> <table><thead><tr><th style="text-align:left;">列名</th> <th style="text-align:left;">列类型</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;">regionid</td> <td style="text-align:left;">string</td> <td style="text-align:left;">区域id</td></tr> <tr><td style="text-align:left;">regionname</td> <td style="text-align:left;">string</td> <td style="text-align:left;">区域名称</td></tr></tbody></table> <h3 id="导入测试数据"><a href="#导入测试数据" class="header-anchor">#</a> 导入测试数据</h3> <p>        准备好了测试数据之后，我们需要将在 Hive 中 建好对应的表，这里我采取的是执行已经写好的脚本<code>hive.sql</code>文件，创建测试表。</p> <blockquote><p>对应的数据文件和sql脚本不方便在这里展示，需要的同学可以添加我的微信：zwj_bigdataer 获取</p></blockquote> <p><strong>操作步骤：</strong></p> <p>1、使用 beeline 连接Hive</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token operator">!</span><span class="token keyword">connect</span> jdbc:hive2:<span class="token comment">//node1:10000</span>
+</code></pre></div><p>2、创建并切换到 itcast_dw 数据库</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">create</span> <span class="token keyword">database</span> itcast_kylin_dw<span class="token punctuation">;</span>
+<span class="token keyword">use</span> itcast_kylin_dw<span class="token punctuation">;</span>
+</code></pre></div><p>3、执行上面我们提到的<code>hive.sql</code>文件，执行sql、创建测试表</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token comment">-- 执行sql文件</span>
+source hive<span class="token punctuation">.</span><span class="token keyword">sql</span>
+<span class="token comment">-- 查看表是否创建成功</span>
+<span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span>
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/2021032811570478.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述">
+4、在home目录创建<code>~/dat_file</code> 文件夹，并将测试数据文件上传到该文件夹中</p> <p><code>mkdir ~/dat_file</code></p> <p>导入数据到表中</p> <div class="language-bash extra-class"><pre class="language-bash"><code>-- 导入数据
+LOAD DATA LOCAL INPATH <span class="token string">'/root/dat_file/dw_sales_data.txt'</span> OVERWRITE  INTO TABLE dw_sales<span class="token punctuation">;</span>
+LOAD DATA LOCAL INPATH <span class="token string">'/root/dat_file/dim_channel_data.txt'</span> OVERWRITE  INTO TABLE dim_channel<span class="token punctuation">;</span>
+LOAD DATA LOCAL INPATH <span class="token string">'/root/dat_file/dim_product_data.txt'</span> OVERWRITE  INTO TABLE dim_product<span class="token punctuation">;</span>
+LOAD DATA LOCAL INPATH <span class="token string">'/root/dat_file/dim_region_data.txt'</span> OVERWRITE  INTO TABLE dim_region<span class="token punctuation">;</span>
+</code></pre></div><p>5、执行一条SQL语句，确认数据是否已经成功导入
+<img src="https://img-blog.csdnimg.cn/20210328220039366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <h3 id="指标和维度"><a href="#指标和维度" class="header-anchor">#</a> 指标和维度</h3> <p>        在确认完成了上面的数据准备操作之后，我们就可以对 kylin 进行实际操作了。但我们还需要先了解一下，什么是<strong>指标和维度</strong>？</p> <p>        首先来看下面的 demo
+<img src="https://img-blog.csdnimg.cn/20210328220226246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        相信各位朋友已经有了自己的想法和答案，这里提供一种思考方式：</p> <blockquote><p><font color="red">红色字体</font>是指标/度量？还是维度？
+答案：<font color="red">指标/度量【到底要看什么？获取什么？】</font><br> <font color="blue">蓝色字体</font>是指标/度量？还是维度？
+答案：<font color="blue">维度【怎么看！怎么获取！】</font></p></blockquote> <p>        ==<strong>结论</strong>：需求决定哪些是维度，哪些是指标。==</p> <p>        好了，明确了什么是维度，什么是指标之后，我们就可以正式开启kylin的使用之旅了~</p> <h3 id="按照日期统计订单总额-总数量-kylin方式"><a href="#按照日期统计订单总额-总数量-kylin方式" class="header-anchor">#</a> 按照日期统计订单总额/总数量（Kylin方式）</h3> <p>        做任何事情都有一个顺序，使用一门新的技术亦是如此。要使用Kylin进行OLAP分析，需要按照以下方式来进行。</p> <p>1、创建项目（Project）</p> <p>2、创建数据源（DataSource）</p> <ul><li>指定有哪些数据需要进行数据分析</li></ul> <p>3、创建模型（Model）</p> <ul><li>指定具体要对哪个事实表、那些维度进行数据分析</li></ul> <p>4、创建立方体（Cube）</p> <ul><li>指定对哪个数据模型执行数据预处理，生成不同维度的数据</li></ul> <p>5、执行构建、等待构建完成</p> <p>6、再执行SQL查询，获取结果</p> <h4 id="具体步骤"><a href="#具体步骤" class="header-anchor">#</a> 具体步骤：</h4> <h5 id="_1、创建-project"><a href="#_1、创建-project" class="header-anchor">#</a> 1、创建 Project</h5> <p>        （1）点击 + 图标创建工程，如图所示：</p> <p><img src="https://img-blog.csdnimg.cn/20210328221338574.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        （2）填写工程名称和描述信息，并单击“Submit”按钮提交
+<img src="https://img-blog.csdnimg.cn/20210328221539485.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <h5 id="_2、获取数据源"><a href="#_2、获取数据源" class="header-anchor">#</a> 2、获取数据源</h5> <p>        （1）选择“Data Source”选项卡，如图所示：
+<img src="https://img-blog.csdnimg.cn/2021032822175159.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        （2）单击图中箭头所指的图标，导入 Hive 表。</p> <p><img src="https://img-blog.csdnimg.cn/20210328221951331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        （3）选中所需数据表，并单击“Sync”按钮，如图所示：</p> <p><img src="https://img-blog.csdnimg.cn/20210328223529491.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <h5 id="_3、创建-model"><a href="#_3、创建-model" class="header-anchor">#</a> 3、创建 Model</h5> <p>（1）选择“Models”选项卡，然后单击“New”按钮，接着单击“NewModel”按钮。
+<img src="https://img-blog.csdnimg.cn/20210328224403983.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（2）填写Model信息，然后单击“Next”按钮，如图所示
+<img src="https://img-blog.csdnimg.cn/20210328224507467.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（3）选择事实表</p> <p><img src="https://img-blog.csdnimg.cn/20210328230324746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（4）选择事实表中，所有有可能用到的维度，然后点击 <code>Next</code>按钮<img src="https://img-blog.csdnimg.cn/20210328230608392.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（5）选择度量字段，并单击<code>Next</code>按钮
+<img src="https://img-blog.csdnimg.cn/20210328230830625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（6）指定事实表分区字段（仅支持时间分区），但是我们这次的演示用不上，所以我们这里直接单击“Save”按钮，然后在弹窗中点击“Yes”，Model 创建完毕！</p> <p><img src="https://img-blog.csdnimg.cn/20210328231206897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+此时我们就可以在初始界面看到已经创建好的 Model
+<img src="https://img-blog.csdnimg.cn/20210328231351390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <h5 id="_4、创建-cube"><a href="#_4、创建-cube" class="header-anchor">#</a> 4、创建 Cube</h5> <p>（1）单击“New Cube”按钮
+<img src="https://img-blog.csdnimg.cn/20210328232040174.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（2）填写Cube信息，选择Cube所依赖的 Model，并单击“Next”按钮，如图所示：</p> <p><img src="https://img-blog.csdnimg.cn/20210328232408532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（3）选择 Cube 所需的维度，如图</p> <p><img src="https://img-blog.csdnimg.cn/20210328233436244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20210328233648857.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（4）选择 Cube 所需的度量值
+<img src="https://img-blog.csdnimg.cn/20210328233746610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+根据我们SQL的查询需求，对指定的字段设置聚合
+<img src="https://img-blog.csdnimg.cn/20210328235336525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <p>点击 <code>Next</code> <img src="https://img-blog.csdnimg.cn/20210328233935914.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（5）Cube自动合并设置。每天Cube需按照日期分区字段进行构建，每次构建的结果会保存到 HBase的一张表中，为提高查询效率，需将每日的 Cube 进行合并，此处可设置合并周期
+<img src="https://img-blog.csdnimg.cn/20210328234348896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <p>（6）Kylin的高级配置（优化相关配置），这里我们就暂只修改一下计算引擎，其他配置不动，执行完毕点击<code>Next</code> <img src="https://img-blog.csdnimg.cn/20210328234620875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> <img src="https://img-blog.csdnimg.cn/20210328234625491.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（7）Kylin 属性值覆盖相关配置信息，我们不用进行任何操作，直接 <code>Next</code> <img src="https://img-blog.csdnimg.cn/20210328234827372.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（8）此时显示的是Cube的设计信息总览，如图单击<code>Save</code>按钮，Cube创建完成！
+<img src="https://img-blog.csdnimg.cn/20210328234934210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+保存完毕，我们可以看见一个新的Cube已经创建好了~
+<img src="https://img-blog.csdnimg.cn/20210328235424703.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（9）构建 Cube（计算），单击对应的Cube的“Action”下拉按钮，选择 “Build” 选项
+<img src="https://img-blog.csdnimg.cn/20210328235552659.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+（10）选择“Monitor”，查看构建进度，可以发现此时进度还在加载
+<img src="https://img-blog.csdnimg.cn/20210328235859325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+稍等片刻，刷新页面，可以看到 Cube 已经构建完毕
+<img src="https://img-blog.csdnimg.cn/2021032900035248.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+注意看此时 Cube 就已经变成 <code>READY</code>的状态了
+<img src="https://img-blog.csdnimg.cn/20210329000523872.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <h5 id="_5、执行sql查询"><a href="#_5、执行sql查询" class="header-anchor">#</a> 5、执行SQL查询</h5> <p>        忙碌了好一阵子，终于可以展示 Kylin 的威力了，接下来我们从 Cube 中查询数据</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> date1<span class="token punctuation">,</span>
+       <span class="token function">sum</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span>  <span class="token keyword">as</span> total_money<span class="token punctuation">,</span>
+       <span class="token function">sum</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">as</span> total_amount
+<span class="token keyword">from</span> dw_sales
+<span class="token keyword">group</span> <span class="token keyword">by</span> date1<span class="token punctuation">,</span> channelid<span class="token punctuation">;</span>
+</code></pre></div><p>        查询结果如下
+<img src="https://img-blog.csdnimg.cn/20210329001801589.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <p>        我们可以发现用 Kylin 执行 HQL 语句的速度最早为4.69s，第二次执行就变成了0.01s</p> <p>        那如果在Hive的命令行窗口执行相同的HQL语句，耗时将为多少呢？
+<img src="https://img-blog.csdnimg.cn/20200514201840605.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        可以看到 Hive 将 HQL 转化成 MapReduce 程序去执行后，查询的时间为<code>12.764</code> s，这个速度与上面用 <code>Kylin</code> 执行的速度相比，差了近  <strong>100</strong>  倍。如果数据量更大一些，Kylin的优势将会更加明显。
+        </p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./bigdata/kylin/" class="prev router-link-active">
+        目录
+      </a></span> <span class="next"><a href="/./bigdata/kylin/Kylin BI展示.html">
+        Kylin如何通过BI工具展示
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/55.00d67ca6.js" defer></script>
+  </body>
+</html>

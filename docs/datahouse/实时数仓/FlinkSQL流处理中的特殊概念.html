@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>FlinkSQL流处理中的特殊概念 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/117.03317ae7.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>实时数仓</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E5%AE%9E%E6%97%B6%E6%95%B0%E4%BB%93/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/实时数仓/实时数仓概述.html" class="sidebar-link">实时数仓概述</a></li><li><a href="/./datahouse/实时数仓/FlinkSQL入门.html" class="sidebar-link">FlinkSQL入门</a></li><li><a href="/./datahouse/实时数仓/FlinkSQL流处理中的特殊概念.html" class="active sidebar-link">FlinkSQL流处理中的特殊概念</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/FlinkSQL流处理中的特殊概念.html#二、流处理中的特殊概念" class="sidebar-link">二、流处理中的特殊概念</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/FlinkSQL流处理中的特殊概念.html#_2-1-流处理和关系代数-表-及sql-的区别" class="sidebar-link">2.1 流处理和关系代数（表，及SQL）的区别</a></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/FlinkSQL流处理中的特殊概念.html#_2-2-动态表-dynamic-tables" class="sidebar-link">2.2 动态表（Dynamic Tables）</a></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/FlinkSQL流处理中的特殊概念.html#_2-3-流式持续查询的过程" class="sidebar-link">2.3 流式持续查询的过程</a></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/FlinkSQL流处理中的特殊概念.html#_2-4-时间特性" class="sidebar-link">2.4 时间特性</a></li></ul></li><li class="sidebar-sub-header"><a href="/./datahouse/实时数仓/FlinkSQL流处理中的特殊概念.html#ref" class="sidebar-link">Ref</a></li></ul></li><li><a href="/./datahouse/实时数仓/kudu.html" class="sidebar-link">Kudu</a></li><li><a href="/./datahouse/实时数仓/小型实时数仓架构.html" class="sidebar-link">小型实时数仓架构</a></li><li><a href="/./datahouse/实时数仓/微信 ClickHouse 实时数仓的最佳实践.html" class="sidebar-link">微信 ClickHouse 实时数仓的最佳实践</a></li><li><a href="/./datahouse/实时数仓/电商实时数仓项目.html" class="sidebar-link">电商数仓项目</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="flinksql流处理中的特殊概念"><a href="#flinksql流处理中的特殊概念" class="header-anchor">#</a> FlinkSQL流处理中的特殊概念</h1> <h2 id="二、流处理中的特殊概念"><a href="#二、流处理中的特殊概念" class="header-anchor">#</a> 二、流处理中的特殊概念</h2> <p><font color="Tomato">Table API和SQL，本质上还是基于关系型表的操作方式；而关系型表、关系代数，以及SQL本身，一般是有界的，更适合批处理的场景。这就导致在进行流处理的过程中，理解会稍微复杂一些，需要引入一些特殊概念</font></p> <h3 id="_2-1-流处理和关系代数-表-及sql-的区别"><a href="#_2-1-流处理和关系代数-表-及sql-的区别" class="header-anchor">#</a> 2.1 流处理和关系代数（表，及SQL）的区别</h3> <table><thead><tr><th></th> <th>关系代数（表）/SQL</th> <th>流处理</th></tr></thead> <tbody><tr><td>处理的数据对象</td> <td>字段元组的有界集合</td> <td>字段元组的无限序列</td></tr> <tr><td>查询（Query）对数据的访问</td> <td>可以访问到完整的数据输入</td> <td>无法访问所有数据，必须持续“等待”流式输入</td></tr> <tr><td>查询终止条件</td> <td>生成固定大小的结果集后终止</td> <td>永不停止，根据持续收到的数据不断更新查询结果</td></tr></tbody></table> <p>        可以看到，其实关系代数（主要就是指关系型数据库中的表）和SQL，主要就是针对批处理的，这和流处理有天生的隔阂。
+        </p> <h3 id="_2-2-动态表-dynamic-tables"><a href="#_2-2-动态表-dynamic-tables" class="header-anchor">#</a> 2.2 动态表（Dynamic Tables）</h3> <p>        因为流处理面对的数据，是连续不断的，这和我们熟悉的关系型数据库中保存的“表”完全不同。所以，<strong>如果我们把流数据转换成Table，然后执行类似于table的 select 操作，结果就不是一成不变的，而是随着新数据的到来，会不停更新</strong>。</p> <p><font color="		Tomato">我们可以随着新数据的到来，不停地在之前的基础上更新结果。这样得到的表，在Flink Table API  概念里，就叫做 “动态表” （Dynamic Tables）</font></p> <p><strong>动态表是 Flink 对流数据的 Table API 和 SQL 支持的核心概念</strong>。与表示批处理数据的静态表不同，动态表是随时间变化的。动态表可以像静态的批处理表一样进行查询，查询一个动态表会产生持续查询（Continuous Query）。<strong>连续查询永远不会终止，并会生成另一个动态表。查询（Query）会不断更新其动态结果表，以反映其动态输入表上的更改</strong>。
+        </p> <h3 id="_2-3-流式持续查询的过程"><a href="#_2-3-流式持续查询的过程" class="header-anchor">#</a> 2.3 流式持续查询的过程</h3> <p>        下图显示了流、动态表和连续查询的关系：
+<img src="https://img-blog.csdnimg.cn/20210117101717553.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <p>        流式持续查询的过程为：</p> <ol><li>流被转换为动态表</li> <li>对动态表计算连续查询，生成新的动态表</li> <li>生成的动态表被转换回流</li></ol> <h4 id="_2-3-1-将流转换成表-table"><a href="#_2-3-1-将流转换成表-table" class="header-anchor">#</a> 2.3.1 将流转换成表（Table）</h4> <p><strong>为了处理带有关系查询的流，必须先将其转换为表</strong></p> <p>        从概念上讲，流的每个数据记录，都被解释为对结果表的插入（Insert）修改。因为流是持续不断的，而且之前的输出结果无法改变。本质上，我们其实是从一个、只有插入操作的 changelog（更新日志）流，来构建一个表</p> <p>        为了更好地说明动态表和持续查询的概念，我们来举一个具体的例子</p> <p>        比如，我们现在的输入数据，就是用户在网站上的访问行为，数据类型（Schema）如下：</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">[</span>
+  user<span class="token operator">:</span>  VARCHAR<span class="token punctuation">,</span>   <span class="token comment">// 用户名</span>
+  cTime<span class="token operator">:</span> TIMESTAMP<span class="token punctuation">,</span> <span class="token comment">// 访问某个URL的时间戳</span>
+  url<span class="token operator">:</span>   VARCHAR    <span class="token comment">// 用户访问的URL</span>
+<span class="token punctuation">]</span>
+</code></pre></div><p>        下图显示了如何将访问URL事件流，或者叫点击事件流（左侧）转换为表（右侧）。
+        </p> <p><img src="https://img-blog.csdnimg.cn/20210117101916237.png#pic_center" alt="在这里插入图片描述">
+        随着插入更多的访问事件流记录，生成的表将不断增长。
+        </p> <h4 id="_2-3-2-持续查询-continuous-query"><a href="#_2-3-2-持续查询-continuous-query" class="header-anchor">#</a> 2.3.2 持续查询（Continuous Query）</h4> <p>        持续查询，会在动态表上做计算处理，并作为结果生成新的动态表。与批处理查询不同，连续查询从不终止，并根据输入表上的更新更新其结果表。</p> <p>        在任何时间点，连续查询的结果在语义上，等同于在输入表的快照上，以批处理模式执行的同一查询的结果。</p> <p>        在下面的示例中，我们展示了对点击事件流中的一个持续查询。</p> <p>        这个Query很简单，是一个分组聚合做 count 统计的查询。它将用户字段上的 clicks 表分组，并统计访问的 url 数。图中显示了随着时间的推移，当 clicks 表被其他行更新时如何计算查询。</p> <p><img src="https://img-blog.csdnimg.cn/20210117102140746.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <h4 id="_2-3-3-将动态表转换成流"><a href="#_2-3-3-将动态表转换成流" class="header-anchor">#</a> 2.3.3 将动态表转换成流</h4> <p>        与常规的数据库表一样，动态表可以通过插入（Insert）、更新（Update）和删除（Delete）更改，进行持续的修改。<font color="	Tomato">将动态表转换为流或将其写入外部系统时，需要对这些更改进行编码</font>。Flink的Table API和SQL支持三种方式对动态表的更改进行编码：</p> <ul><li><strong>仅追加（Append-only）流</strong></li></ul> <p>        仅通过插入（Insert）更改，来修改的动态表，可以直接转换为“仅追加”流。这个流中发出的数据，就是动态表中新增的每一行。</p> <ul><li><strong>撤回（Retract）流</strong></li></ul> <p>        Retract流是包含两类消息的流，添加（Add）消息和撤回（Retract）消息。</p> <p>        动态表通过将 INSERT 编码为 add 消息、DELETE 编码为retract消息、UPDATE 编码为被更改行（前一行）的 retract 消息和更新后行（新行）的 add 消息，转换为 retract 流。</p> <p>        下图显示了将动态表转换为 Retract 流的过程。</p> <p><img src="https://img-blog.csdnimg.cn/20210117102643561.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <ul><li><strong>Upsert（更新插入）流</strong></li></ul> <p>        Upsert 流包含两种类型的消息：Upsert 消息和 delete 消息。转换为 upsert 流的动态表，需要有唯一的键（key）。</p> <p>        通过将 INSERT 和 UPDATE 更改编码为 upsert 消息，将DELETE更改编码为DELETE消息，就可以将具有唯一键（Unique Key）的动态表转换为流。</p> <p>        下图显示了将动态表转换为 upsert 流的过程。</p> <p><img src="https://img-blog.csdnimg.cn/2021011710302610.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p> <p>​          这些概念我们之前都已提到过。需要注意的是，在代码里将动态表转换为DataStream时，仅支持 Append 和Retract流 。而向外部系统输出动态表的TableSink接口，则可以有不同的实现，比如之前我们讲到的ES，就可以有Upsert模式。</p> <h3 id="_2-4-时间特性"><a href="#_2-4-时间特性" class="header-anchor">#</a> 2.4 时间特性</h3> <p>        基于时间的操作（比如 Table API 和 SQL 中窗口操作），需要定义相关的时间语义和时间数据来源的信息。所以，<strong>Table可以提供一个逻辑上的时间字段，用于在表处理程序中，指示时间和访问相应的时间戳</strong>。</p> <p>        时间属性，可以是每个表 schema 的一部分。一旦定义了时间属性，它就可以作为一个字段引用，并且可以在基于时间的操作中使用。</p> <p>        时间属性的行为类似于常规时间戳，可以访问，并且进行计算。</p> <h4 id="_2-4-1-处理时间-processing-time"><a href="#_2-4-1-处理时间-processing-time" class="header-anchor">#</a> 2.4.1 处理时间（Processing Time）</h4> <p>        处理时间语义下，允许表处理程序根据机器的本地时间生成结果。它是时间的最简单概念。它既不需要提取时间戳，也不需要生成watermark。</p> <p>        定义处理时间属性有三种方法：在 DataStream 转化时直接指定；在定义 Table Schema 时指定；在创建表的 DDL 中指定。</p> <h5 id="_2-4-1-1-datastream转化成table时指定"><a href="#_2-4-1-1-datastream转化成table时指定" class="header-anchor">#</a> 2.4.1.1 DataStream转化成Table时指定</h5> <p>        由 DataStream 转换成表时，可以在后面指定字段名来定义Schema。在定义 Schema 期间，可以使用 <code>.proctime</code> ，定义处理时间字段。</p> <p>        注意，这个 proctime 属性只能通过附加逻辑字段，来扩展物理schema 。因此，只能在 schema 定义的末尾定义它。</p> <p>        代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token comment">// 定义好 DataStream</span>
+<span class="token keyword">val</span> inputStream<span class="token operator">:</span> DataStream<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> env<span class="token punctuation">.</span>readTextFile<span class="token punctuation">(</span><span class="token string">&quot;\\sensor.txt&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> dataStream<span class="token operator">:</span> DataStream<span class="token punctuation">[</span>SensorReading<span class="token punctuation">]</span> <span class="token operator">=</span> inputStream
+  <span class="token punctuation">.</span>map<span class="token punctuation">(</span>data <span class="token keyword">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> dataArray <span class="token operator">=</span> data<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+    SensorReading<span class="token punctuation">(</span>dataArray<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toDouble<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 将 DataStream转换为 Table，并指定时间字段</span>
+<span class="token keyword">val</span> sensorTable <span class="token operator">=</span> tableEnv<span class="token punctuation">.</span>fromDataStream<span class="token punctuation">(</span>dataStream<span class="token punctuation">,</span> <span class="token string">'id, '</span>temperature<span class="token punctuation">,</span> <span class="token string">'timestamp, '</span>pt<span class="token punctuation">.</span>proctime<span class="token punctuation">)</span>
+</code></pre></div><h5 id="_2-4-1-2-定义table-schema-时指定"><a href="#_2-4-1-2-定义table-schema-时指定" class="header-anchor">#</a> 2.4.1.2 定义Table Schema 时指定</h5> <p>        这种方法其实也很简单，只要在定义 Schema 的时候，加上一个新的字段，并指定成 proctime 就可以了。</p> <p>        代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code>tableEnv<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>
+  <span class="token keyword">new</span> FileSystem<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>path<span class="token punctuation">(</span><span class="token string">&quot;..\\sensor.txt&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span>withFormat<span class="token punctuation">(</span><span class="token keyword">new</span> Csv<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span>withSchema<span class="token punctuation">(</span><span class="token keyword">new</span> Schema<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>field<span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">,</span> DataTypes<span class="token punctuation">.</span>STRING<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>field<span class="token punctuation">(</span><span class="token string">&quot;timestamp&quot;</span><span class="token punctuation">,</span> DataTypes<span class="token punctuation">.</span>BIGINT<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>field<span class="token punctuation">(</span><span class="token string">&quot;temperature&quot;</span><span class="token punctuation">,</span> DataTypes<span class="token punctuation">.</span>DOUBLE<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>field<span class="token punctuation">(</span><span class="token string">&quot;pt&quot;</span><span class="token punctuation">,</span> DataTypes<span class="token punctuation">.</span>TIMESTAMP<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>proctime<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment">// 指定 pt字段为处理时间</span>
+  <span class="token punctuation">)</span> <span class="token comment">// 定义表结构</span>
+  <span class="token punctuation">.</span>createTemporaryTable<span class="token punctuation">(</span><span class="token string">&quot;inputTable&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 创建临时表</span>
+</code></pre></div><h5 id="_2-4-1-3-创建表的ddl中指定"><a href="#_2-4-1-3-创建表的ddl中指定" class="header-anchor">#</a> 2.4.1.3 创建表的DDL中指定</h5> <p>        在创建表的DDL中，增加一个字段并指定成 proctime，也可以指定当前的时间字段。</p> <p>        代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token keyword">val</span> sinkDDL<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span>
+  <span class="token triple-quoted-string string">&quot;&quot;&quot;
+    |create table dataTable (
+    |  id varchar(20) not null,
+    |  ts bigint,
+    |  temperature double,
+    |  pt AS PROCTIME()
+    |) with (
+    |  'connector.type' = 'filesystem',
+    |  'connector.path' = 'file:///D:\\..\\sensor.txt',
+    |  'format.type' = 'csv'
+    |)
+  &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin
+
+tableEnv<span class="token punctuation">.</span>sqlUpdate<span class="token punctuation">(</span>sinkDDL<span class="token punctuation">)</span> <span class="token comment">// 执行 DDL</span>
+</code></pre></div><p><font color="red">注意：运行这段DDL，必须使用Blink Planner</font></p> <h4 id="_2-4-2-事件时间-event-time"><a href="#_2-4-2-事件时间-event-time" class="header-anchor">#</a> 2.4.2 事件时间（Event Time）</h4> <p><strong>事件时间语义，允许表处理程序根据每个记录中包含的时间生成结果</strong>。这样即使在有乱序事件或者延迟事件时，也可以获得正确的结果。</p> <p>        为了处理无序事件，并区分流中的准时和迟到事件；Flink需要从事件数据中，提取时间戳，并用来推进事件时间的进展（watermark）。</p> <h5 id="_2-4-2-1-datastream转化成table时指定"><a href="#_2-4-2-1-datastream转化成table时指定" class="header-anchor">#</a> 2.4.2.1 DataStream转化成Table时指定</h5> <p>        在 DataStream 转换成 Table，schema 的定义期间，使用 .rowtime 可以定义事件时间属性。注意，<font color="	Tomato">必须在转换的数据流中分配时间戳和watermark</font></p> <p>        在将数据流转换为表时，有两种定义时间属性的方法。根据指定的 <code>.rowtime</code> 字段名是否存在于数据流的架构中，timestamp 字段可以：</p> <ul><li>作为新字段追加到schema</li> <li>替换现有字段</li></ul> <p>        在这两种情况下，定义的事件时间戳字段，都将保存 DataStream 中事件时间戳的值。</p> <p>        代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token keyword">val</span> inputStream<span class="token operator">:</span> DataStream<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> env<span class="token punctuation">.</span>readTextFile<span class="token punctuation">(</span><span class="token string">&quot;\\sensor.txt&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> dataStream<span class="token operator">:</span> DataStream<span class="token punctuation">[</span>SensorReading<span class="token punctuation">]</span> <span class="token operator">=</span> inputStream
+    <span class="token punctuation">.</span>map<span class="token punctuation">(</span>data <span class="token keyword">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> dataArray <span class="token operator">=</span> data<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+        SensorReading<span class="token punctuation">(</span>dataArray<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toLong<span class="token punctuation">,</span> dataArray<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toDouble<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>assignAscendingTimestamps<span class="token punctuation">(</span>_<span class="token punctuation">.</span>timestamp <span class="token operator">*</span> <span class="token number">1000L</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 将 DataStream转换为 Table，并指定时间字段</span>
+<span class="token keyword">val</span> sensorTable <span class="token operator">=</span> tableEnv<span class="token punctuation">.</span>fromDataStream<span class="token punctuation">(</span>dataStream<span class="token punctuation">,</span> <span class="token string">'id, '</span>timestamp<span class="token punctuation">.</span>rowtime<span class="token punctuation">,</span> <span class="token symbol">'temperature</span><span class="token punctuation">)</span>
+<span class="token comment">// 或者，直接追加字段</span>
+<span class="token keyword">val</span> sensorTable2 <span class="token operator">=</span> tableEnv<span class="token punctuation">.</span>fromDataStream<span class="token punctuation">(</span>dataStream<span class="token punctuation">,</span> <span class="token string">'id, '</span>temperature<span class="token punctuation">,</span> <span class="token string">'timestamp, '</span>rt<span class="token punctuation">.</span>rowtime<span class="token punctuation">)</span>
+</code></pre></div><h5 id="_2-4-2-2-定义table-schema时指定"><a href="#_2-4-2-2-定义table-schema时指定" class="header-anchor">#</a> 2.4.2.2 定义Table Schema时指定</h5> <p>        这种方法只要在定义 Schema 的时候，将事件时间字段，并指定成 <code>rowtime</code> 就可以了。</p> <p>        代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code>tableEnv<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token keyword">new</span> FileSystem<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>path<span class="token punctuation">(</span><span class="token string">&quot;sensor.txt&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>withFormat<span class="token punctuation">(</span><span class="token keyword">new</span> Csv<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>withSchema<span class="token punctuation">(</span><span class="token keyword">new</span> Schema<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>field<span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">,</span> DataTypes<span class="token punctuation">.</span>STRING<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>field<span class="token punctuation">(</span><span class="token string">&quot;timestamp&quot;</span><span class="token punctuation">,</span> DataTypes<span class="token punctuation">.</span>BIGINT<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>rowtime<span class="token punctuation">(</span><span class="token keyword">new</span> Rowtime<span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span>timestampsFromField<span class="token punctuation">(</span><span class="token string">&quot;timestamp&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 从字段中提取时间戳</span>
+          <span class="token punctuation">.</span>watermarksPeriodicBounded<span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span> <span class="token comment">// watermark 延迟 1 秒 )</span>
+        <span class="token punctuation">)</span>
+        <span class="token punctuation">.</span>field<span class="token punctuation">(</span><span class="token string">&quot;temperature&quot;</span><span class="token punctuation">,</span> DataTypes<span class="token punctuation">.</span>DOUBLE<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 定义表结构</span>
+      <span class="token punctuation">.</span>createTemporaryTable<span class="token punctuation">(</span><span class="token string">&quot;inputTable&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 创建临时表</span>
+</code></pre></div><h5 id="_2-4-3-创建表的-ddl-中指定"><a href="#_2-4-3-创建表的-ddl-中指定" class="header-anchor">#</a> 2.4.3 创建表的 DDL 中指定</h5> <p><font color="Tomato">事件时间属性，是使用 watermark 语句，定义现有事件时间字段上的 watermark 生成表达式，该表达式将事件时间字段标记为事件时间属性</font></p> <p>        代码如下：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token keyword">val</span> sinkDDL<span class="token operator">:</span> <span class="token builtin">String</span> <span class="token operator">=</span>
+<span class="token triple-quoted-string string">&quot;&quot;&quot;
+|create table dataTable (
+|  id varchar(20) not null,
+|  ts bigint,
+|  temperature double,
+|  rt AS TO_TIMESTAMP( FROM_UNIXTIME(ts) ),
+|  watermark for rt as rt - interval '1' second
+|) with (
+|  'connector.type' = 'filesystem',
+|  'connector.path' = 'file:///D:\\..\\sensor.txt',
+|  'format.type' = 'csv'
+|)
+&quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin
+tableEnv<span class="token punctuation">.</span>sqlUpdate<span class="token punctuation">(</span>sinkDDL<span class="token punctuation">)</span> <span class="token comment">// 执行 DDL</span>
+</code></pre></div><p>        这里 <code>FROM_UNIXTIME</code> 是系统内置的时间函数，用来将一个整数（秒数）转换成“<code>YYYY-MM-DD hh:mm:ss</code>”格式（默认，也可以作为第二个String参数传入）的日期时间字符串（date time string）；然后再用<code>TO_TIMESTAMP</code>将其转换成<code>Timestamp</code></p> <h2 id="ref"><a href="#ref" class="header-anchor">#</a> Ref</h2> <blockquote><p>1、http://www.atguigu.com/
+2、https://www.bilibili.com/video/BV12k4y1z7LM?from=search&amp;seid=953051020130358915
+3、https://blog.csdn.net/u013411339/article/details/93267838</p></blockquote> <blockquote><p>tips：<strong>学习时间语义，要配合窗口操作才能发挥作用</strong></p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/实时数仓/FlinkSQL入门.html" class="prev">
+        FlinkSQL入门
+      </a></span> <span class="next"><a href="/./datahouse/实时数仓/kudu.html">
+        Kudu
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/117.03317ae7.js" defer></script>
+  </body>
+</html>

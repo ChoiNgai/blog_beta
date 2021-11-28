@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sqoop入门 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/66.fa850071.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Sqoop</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./bigdata/sqoop/Sqoop入门.html" class="active sidebar-link">Sqoop入门</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_1、sqoop简介" class="sidebar-link">1、Sqoop简介</a></li><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_2、sqoop架构" class="sidebar-link">2、Sqoop架构</a></li><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_3、sqoop数据导入过程" class="sidebar-link">3、Sqoop数据导入过程</a></li><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_4、sqoop数据导出过程" class="sidebar-link">4、Sqoop数据导出过程</a></li><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_5、sqoop的安装和配置" class="sidebar-link">5、Sqoop的安装和配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_5-1-下载sqoop" class="sidebar-link">5.1 下载Sqoop</a></li><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_5-2-安装并配置sqoop" class="sidebar-link">5.2 安装并配置Sqoop</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_6、sqoop的使用" class="sidebar-link">6、Sqoop的使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_6-1-sqoop的命令" class="sidebar-link">6.1 Sqoop的命令</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_7、sqoop的使用" class="sidebar-link">7、Sqoop的使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_7-1-全量导入mysql的数据到hdfs" class="sidebar-link">7.1 全量导入MySQL的数据到HDFS</a></li><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#_7-2-导入子数据集到hdfs" class="sidebar-link">7.2 导入子数据集到HDFS</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/sqoop/Sqoop入门.html#ref" class="sidebar-link">Ref</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="sqoop入门"><a href="#sqoop入门" class="header-anchor">#</a> Sqoop入门</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>        我们在日常开发中需要经常接触到关系型数据库，如MySQL，Oracle等等，用它们来将处理后的数据进行存储。为了能够在Hadoop上分析这些数据，我们需要一些“工具”，将关系型数据库中的<strong>结构化数据</strong>存储到HDFS上。本篇文章，菌哥将介绍的一个操作最简单，同时也是在工作中使用频率极高的开源组件——<strong>Sqoop</strong>，希望您能在耐心看完之后，有所收获！</p> <hr> <h2 id="_1、sqoop简介"><a href="#_1、sqoop简介" class="header-anchor">#</a> 1、Sqoop简介</h2> <p>        Sqoop全称是 <strong>Apache Sqoop</strong>，是一个<strong>开源工具</strong>，能够将数据从数据存储空间（<strong>数据仓库，系统文档存储空间，关系型数据库</strong>）导入 Hadoop 的 <strong>HDFS</strong>或<strong>列式数据库HBase</strong>，供 MapReduce 分析数据使用，也可以被 Hive 等工具使用。当 MapReduce 分析出结果数据后，Sqoop 可以将结果数据导出到数据存储空间，供其他客户端调用查看结果。</p> <p>        需要注意的是，数据传输的过程大部分是自动的，通过 <strong>MapReduce</strong> 过程来实现，只需要依赖数据库的<strong>Schema</strong>信息。Sqoop所执行的操作是<strong>并行</strong>的，数据传输<strong>性能高</strong>，具备较好的<strong>容错性</strong>，并且能够<strong>自动转换</strong>数据类型。</p> <p>        Sqoop存在两个版本，版本号分别是1.4.x和1.9.x，通常被称为<strong>Sqoop1</strong>和<strong>Sqoop2</strong>。Sqoop2在架构和实现上，对于Sqoop1做了比较大幅度的改进，因此两个版本之间是不兼容的。基于实际应用场景考虑，下面介绍的内容全都是基于<strong>Sqoop1</strong>的讲解。</p> <h2 id="_2、sqoop架构"><a href="#_2、sqoop架构" class="header-anchor">#</a> 2、Sqoop架构</h2> <p>        Sqoop的出现使 Hadoop 或 HBase 和数据存储空间之间的数据导入/导出变得简单，这得益于Sqoop的优良架构特征和其对数据的强大转化能力。Sqoop 导入/导出数据可抽象为下图：</p> <p><img src="https://img-blog.csdnimg.cn/20210124010518931.png#pic_center" alt="">
+        从图中可以看出，Sqoop作为 Hadoop 或 HBase 和数据存储空间之间的桥梁，很容易实现 Hadoop 或 HBase 和数据存储空间之间的数据传输。</p> <p>        Sqoop 的架构也非常简单，主要由3部分组成：Sqoop 客户端、数据存储与挖掘（HDFS/HBase/Hive）、数据存储空间，如图所示：
+        
+<img src="https://img-blog.csdnimg.cn/20210124012248834.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="">
+        由图中可以看出，Sqoop协调 Hadoop 中的 Map 任务将数据从数据存储空间（<strong>数据仓库、系统文档、关系型数据库</strong>）导入 HDFS/HBase供数据分析使用，同时数据分析人员也可以使用 Hive 对这些数据进行挖掘。当分析、挖掘出有价值的结果数据之后，Sqoop 又可以协调 Hadoop 中的 Map 任务将结果数据<strong>导出</strong>到数据存储空间。</p> <blockquote><p><font color="purple">注意：Sqoop 只负责数据传输，不负责数据分析，所以只会涉及 Hadoop 的 Map 任务，不会涉及 Reduce 任务</font></p></blockquote> <h2 id="_3、sqoop数据导入过程"><a href="#_3、sqoop数据导入过程" class="header-anchor">#</a> 3、Sqoop数据导入过程</h2> <p>        Sqoop数据导入过程：<strong>从表中读取一行行数据记录，经过Sqoop的传输，再通过Hadoop的Map任务将数据写入HDFS</strong>，如图所示：</p> <p><img src="https://img-blog.csdnimg.cn/20210124111551907.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        从图中可以看出，Sqoop数据导入过程如下：
+        （1）Sqoop通过JDBC获取所需要的数据库元数据信息，如表列名、数据类型等，并将这些元数据信息导入Sqoop。
+        （2）Sqoop生成一个与表名相同的记录容器类，记录容器类完成数据的序列化和反序列化过程，并保存表的每一行数据。
+        （3）Sqoop生成的记录容器类向Hadoop的Map作业提供序列化和反序列化的功能。
+        （4）Sqoop启动Hadoop的Map作业。
+        （5）Sqoop启动的Map作业在数据导入过程中，会通过JDBC读取数据库表中的内容，此时Sqoop生成的记录容器类同样提供反序列化功能。
+        （6）Map作业将读取的数据写入HDFS，此时Sqoop生成的记录容器类提供序列化功能。
+        </p> <h2 id="_4、sqoop数据导出过程"><a href="#_4、sqoop数据导出过程" class="header-anchor">#</a> 4、Sqoop数据导出过程</h2> <p>        Sqoop数据导出过程：<strong>将通过MapReduce或Hive分析后得出的数据结果导出到关系型数据库，供其他业务查看或生成报表使用</strong>，如图所示：</p> <p><img src="https://img-blog.csdnimg.cn/20210124114332393.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="">
+        由图中可以看出，Sqoop数据导出过程如下：</p> <p>        （1）Sqoop读取数据库的元数据信息（包括数据表列名、数据类型等）
+        （2）Sqoop生成记录容器类，该类与数据库的表对应，提供序列化和反序列化功能。
+        （3）Sqoop生成的记录容器类为Map作业提供序列化和反序列化功能。
+        （4）Sqoop启动Hadoop的Map作业。
+        （5）Map作业读取HDFS中的数据，此时Sqoop生成的记录容器类提供反序列化功能。
+        （6）Map作业将读取的数据通过一批 INSERT 语句写入目标数据库中，每条 INSERT 语句都会批量插入多条记录。
+        </p> <h2 id="_5、sqoop的安装和配置"><a href="#_5、sqoop的安装和配置" class="header-anchor">#</a> 5、Sqoop的安装和配置</h2> <p>        Sqoop的安装非常简单，只需要简单的进行配置即可，下面简单介绍一下Sqoop的安装与配置。</p> <blockquote><p><strong>注意：安装sqoop的前提是已经具备<font color="red">java</font>和<font color="red">hadoop</font>的环境</strong></p></blockquote> <h3 id="_5-1-下载sqoop"><a href="#_5-1-下载sqoop" class="header-anchor">#</a> 5.1 下载Sqoop</h3> <p>        可以到Apache官网下载Sqoop</p> <blockquote><p>网址：http://sqoop.apache.org/</p></blockquote> <p><img src="https://img-blog.csdnimg.cn/20210124135936732.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        当然也可以在服务器的命令行输入以下命令进行下载Sqoop：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">wget</span> http://mirrors.tuna.tsinghua.edu.cn/apache/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+</code></pre></div><h3 id="_5-2-安装并配置sqoop"><a href="#_5-2-安装并配置sqoop" class="header-anchor">#</a> 5.2 安装并配置Sqoop</h3> <p>        安装并配置Sqoop主要包括将Sqoop解压到指定的目录下，配置Sqoop系统的环境变量，修改Sqoop的配置文件，将所需要的数据库驱动复制到Sqoop的lib目录下。</p> <p>        （1）在命令行修改以下命令解压Sqoop，这里我解压的路径是<code>/export/server</code></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">tar</span> -zxvf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz /export/server
+</code></pre></div><p>        （2）修改Sqoop的环境变量</p> <p>        输入命令<code>vim /etc/profile.d/sqoop.sh</code>添加以下内容：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">export</span> <span class="token assign-left variable">SQOOP_HOME</span><span class="token operator">=</span>/export/servers/sqoop-1.4.7.bin__hadoop-2.6.0
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span><span class="token builtin class-name">:</span><span class="token variable">$SQOOP_HOME</span>/bin
+</code></pre></div><p>        （3）修改配置文件</p> <p>        进入到conf目录，修改文件名，然后编辑文件内容</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> <span class="token variable">$SQOOP_HOME</span>/conf
+<span class="token function">mv</span> sqoop-env-template.sh sqoop-env.sh
+<span class="token function">vi</span> sqoop-env.sh
+</code></pre></div><p>        这里我配置上Hadoop和Hive的信息</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">export</span> <span class="token assign-left variable">HADOOP_COMMON_HOME</span><span class="token operator">=</span> /export/servers/hadoop-2.7.5 
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">HADOOP_MAPRED_HOME</span><span class="token operator">=</span> /export/servers/hadoop-2.7.5
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">HIVE_HOME</span><span class="token operator">=</span> /export/servers/hive
+</code></pre></div><p>        （4）添加数据库驱动</p> <p>        我们将所需要的数据库驱动复制到Sqoop的lib目录下，如果你需要从SqlServer上进行抽取数据，那就需要添加SqlServer的相关jar包
+        
+<img src="https://img-blog.csdnimg.cn/20210124141750318.png" alt="">
+        然后将其复制到服务器上Sqoop的lib目录下。</p> <p>        （5）验证是否安装并配置成功</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>cdp_etl@ellassay-cdh-utility-2 ~<span class="token punctuation">]</span>$ sqoop version
+<span class="token number">21</span>/01/24 <span class="token number">14</span>:22:27 INFO sqoop.Sqoop: Running Sqoop version: <span class="token number">1.4</span>.6-cdh5.16.2
+Sqoop <span class="token number">1.4</span>.6-cdh5.16.2
+<span class="token function">git</span> commit <span class="token function">id</span>
+Compiled by jenkins on Mon Jun  <span class="token number">3</span> 03:34:57 PDT <span class="token number">2019</span>
+</code></pre></div><p>        当看到输出了Sqoop的版本，说明Sqoop的安装和配置就成功了！
+        </p> <h2 id="_6、sqoop的使用"><a href="#_6、sqoop的使用" class="header-anchor">#</a> 6、Sqoop的使用</h2> <p>        Sqoop的使用非常简单，只需要运行简单的命令即可实现将数据从数据库导入到HDFS，同时将数据分析结果从HDFS导出到数据库。</p> <h3 id="_6-1-sqoop的命令"><a href="#_6-1-sqoop的命令" class="header-anchor">#</a> 6.1 Sqoop的命令</h3> <p>        想知道Sqoop有哪些命令，可以运行<code>sqoop help</code>命令，可以显示 Sqoop 所支持的所有命令信息，如下所示：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>alice@node01 ~<span class="token punctuation">]</span>$ sqoop <span class="token builtin class-name">help</span>
+<span class="token number">21</span>/01/24 <span class="token number">14</span>:28:10 INFO sqoop.Sqoop: Running Sqoop version: <span class="token number">1.4</span>.6-cdh5.16.2
+usage: sqoop COMMAND <span class="token punctuation">[</span>ARGS<span class="token punctuation">]</span>
+
+Available commands:
+  codegen            Generate code to interact with database records
+  create-hive-table  Import a table definition into Hive
+  <span class="token builtin class-name">eval</span>               Evaluate a SQL statement and display the results
+  <span class="token builtin class-name">export</span>             Export an HDFS directory to a database table
+  <span class="token builtin class-name">help</span>               List available commands
+  <span class="token function">import</span>             Import a table from a database to HDFS
+  import-all-tables  Import tables from a database to HDFS
+  import-mainframe   Import datasets from a mainframe server to HDFS
+  job                Work with saved <span class="token function">jobs</span>
+  list-databases     List available databases on a server
+  list-tables        List available tables <span class="token keyword">in</span> a database
+  merge              Merge results of incremental imports
+  metastore          Run a standalone Sqoop metastore
+  version            Display version information
+
+See <span class="token string">'sqoop help COMMAND'</span> <span class="token keyword">for</span> information on a specific command.
+</code></pre></div><p>        根据输出的提示信息，如果需要查看Sqoop具体的命令信息，可以使用<code>sqoop help COMMAND</code>命令。下面我们以<code>export</code>命令为例，如下所示：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>alice@node01 ~<span class="token punctuation">]</span>$ sqoop <span class="token builtin class-name">help</span> <span class="token builtin class-name">export</span>
+<span class="token number">21</span>/01/24 <span class="token number">14</span>:30:17 INFO sqoop.Sqoop: Running Sqoop version: <span class="token number">1.4</span>.6-cdh5.16.2
+usage: sqoop <span class="token builtin class-name">export</span> <span class="token punctuation">[</span>GENERIC-ARGS<span class="token punctuation">]</span> <span class="token punctuation">[</span>TOOL-ARGS<span class="token punctuation">]</span>
+
+Common arguments:
+   --connect <span class="token operator">&lt;</span>jdbc-uri<span class="token operator">&gt;</span>                                       Specify JDBC
+                                                              connect
+                                                              string
+   --connection-manager <span class="token operator">&lt;</span>class-name<span class="token operator">&gt;</span>                          Specify
+                                                              connection
+                                                              manager
+                                                              class name
+   --connection-param-file <span class="token operator">&lt;</span>properties-file<span class="token operator">&gt;</span>                  Specify
+                                                              connection
+                                                              parameters
+                                                              <span class="token function">file</span>
+   --driver <span class="token operator">&lt;</span>class-name<span class="token operator">&gt;</span>                                      Manually
+                                                              specify JDBC
+                                                              driver class
+                                                              to use
+   --hadoop-home <span class="token operator">&lt;</span>hdir<span class="token operator">&gt;</span>                                       Override
+                                                              <span class="token variable">$HADOOP_MAPR</span>
+                                                              ED_HOME_ARG
+   --hadoop-mapred-home <span class="token operator">&lt;</span>dir<span class="token operator">&gt;</span>                                 Override
+                                                              <span class="token variable">$HADOOP_MAPR</span>
+                                                              ED_HOME_ARG
+   --help                                                     Print usage
+                                                              instructions
+   --metadata-transaction-isolation-level <span class="token operator">&lt;</span>isolationlevel<span class="token operator">&gt;</span>    Defines the
+                                                              transaction
+                                                              isolation
+                                                              level <span class="token keyword">for</span>
+                                                              metadata
+                                                              queries. For
+                                                              <span class="token function">more</span> details
+                                                              check
+                                                              java.sql.Con
+                                                              nection
+                                                              javadoc or
+                                                              the JDBC
+                                                              specificaito
+                                                              n
+   --oracle-escaping-disabled <span class="token operator">&lt;</span>boolean<span class="token operator">&gt;</span>                       Disable the
+                                                              escaping
+                                                              mechanism of
+                                                              the
+                                                              Oracle/OraOo
+                                                              p connection
+                                                              managers
+-P                                                            Read
+                                                              password
+                                                              from console
+   --password <span class="token operator">&lt;</span>password<span class="token operator">&gt;</span>                                      Set
+                                                              authenticati
+                                                              on password
+   --password-alias <span class="token operator">&lt;</span>password-alias<span class="token operator">&gt;</span>                          Credential
+                                                              provider
+                                                              password
+                                                              <span class="token builtin class-name">alias</span>
+   --password-file <span class="token operator">&lt;</span>password-file<span class="token operator">&gt;</span>                            Set
+                                                              authenticati
+                                                              on password
+                                                              <span class="token function">file</span> path
+   --relaxed-isolation                                        Use
+                                                              read-uncommi
+                                                              tted
+                                                              isolation
+                                                              <span class="token keyword">for</span> imports
+   --skip-dist-cache                                          Skip copying
+                                                              jars to
+                                                              distributed
+                                                              cache
+   --temporary-rootdir <span class="token operator">&lt;</span>rootdir<span class="token operator">&gt;</span>                              Defines the
+                                                              temporary
+                                                              root
+                                                              directory
+                                                              <span class="token keyword">for</span> the
+                                                              <span class="token function">import</span>
+   --throw-on-error                                           Rethrow a
+                                                              RuntimeExcep
+                                                              tion on
+                                                              error
+                                                              occurred
+                                                              during the
+                                                              job
+   --username <span class="token operator">&lt;</span>username<span class="token operator">&gt;</span>                                      Set
+                                                              authenticati
+                                                              on username
+   --verbose                                                  Print <span class="token function">more</span>
+                                                              information
+                                                              <span class="token keyword">while</span>
+                                                              working
+<span class="token punctuation">..</span><span class="token punctuation">..</span>
+Generic Hadoop command-line arguments:
+<span class="token punctuation">(</span>must preceed any tool-specific arguments<span class="token punctuation">)</span>
+Generic options supported are
+-conf <span class="token operator">&lt;</span>configuration file<span class="token operator">&gt;</span>     specify an application configuration <span class="token function">file</span>
+-D <span class="token operator">&lt;</span>property<span class="token operator">=</span>value<span class="token operator">&gt;</span>            use value <span class="token keyword">for</span> given property
+-fs <span class="token operator">&lt;</span>local<span class="token operator">|</span>namenode:port<span class="token operator">&gt;</span>      specify a namenode
+-jt <span class="token operator">&lt;</span>local<span class="token operator">|</span>resourcemanager:port<span class="token operator">&gt;</span>    specify a ResourceManager
+-files <span class="token operator">&lt;</span>comma separated list of files<span class="token operator">&gt;</span>    specify comma separated files to be copied to the map reduce cluster
+-libjars <span class="token operator">&lt;</span>comma separated list of jars<span class="token operator">&gt;</span>    specify comma separated jar files to include <span class="token keyword">in</span> the classpath.
+-archives <span class="token operator">&lt;</span>comma separated list of archives<span class="token operator">&gt;</span>    specify comma separated archives to be unarchived on the compute machines.
+
+The general <span class="token builtin class-name">command</span> line syntax is
+bin/hadoop <span class="token builtin class-name">command</span> <span class="token punctuation">[</span>genericOptions<span class="token punctuation">]</span> <span class="token punctuation">[</span>commandOptions<span class="token punctuation">]</span>
+
+
+At minimum, you must specify --connect, --export-dir, and --table
+</code></pre></div><p>        可以看到列出了<code>export</code>命令的使用格式和参数信息。</p> <p>        如果我们想将数据从数据存储空间导入到HDFS，那么我们就需要使用<code>import</code>命令：</p> <p>        其中<code>import</code>命令常用的参数如下：</p> <p><img src="https://img-blog.csdnimg.cn/20200219093739974.jpg?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dhaXhpYW95YW5nMTIz,size_16,color_FFFFFF,t_70#pic_center" alt="">
+        为了方便大家理解，下面我将通过一个例子来使用Sqoop</p> <h2 id="_7、sqoop的使用"><a href="#_7、sqoop的使用" class="header-anchor">#</a> 7、Sqoop的使用</h2> <h3 id="_7-1-全量导入mysql的数据到hdfs"><a href="#_7-1-全量导入mysql的数据到hdfs" class="header-anchor">#</a> 7.1 全量导入MySQL的数据到HDFS</h3> <p>        现在在MySQL的userdb数据库下有一张 emp 表，需要将表数据的内容全量导入到HDFS</p> <p><img src="https://img-blog.csdnimg.cn/20210124150602849.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p>        我们就只需要执行下面的Sqoop命令即可</p> <div class="language-bash extra-class"><pre class="language-bash"><code>bin/sqoop <span class="token function">import</span> <span class="token punctuation">\</span>
+--connect jdbc:mysql://192.168.100.100:3306/userdb <span class="token punctuation">\</span>
+--username root <span class="token punctuation">\</span>
+--password hadoop <span class="token punctuation">\</span>
+--delete-target-dir <span class="token punctuation">\</span>
+--target-dir /sqoopresult <span class="token punctuation">\</span>
+--table emp --m <span class="token number">1</span>
+</code></pre></div><p>        其中 <code>--target-dir</code> 可以用来指定导出数据存放至HDFS的目录</p> <p>        为了验证在HDFS导入的数据，请使用以下命令查看导入的数据：
+<code>hdfs dfs -cat /sqoopresult/part-m-00000</code></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token number">7369</span>,SMITH,CLERK,7902,1980-12-17,800,,20
+<span class="token number">7499</span>,ALLEN,SALESMAN,7698,1981-02-20,1600,300,30
+<span class="token number">7521</span>,WARD,SALESMAN,7698,1981-02-22,1250,500,30
+<span class="token number">7566</span>,JONES,MANAGER,7839,1981-04-02,2975,,20
+<span class="token number">7654</span>,MARTIN,SALESMAN,7698,1981-09-28,1250,1400,30
+<span class="token number">7698</span>,BLAKE,MANAGER,7839,1981-05-01,2850,,30
+<span class="token number">7782</span>,CLARK,MANAGER,7839,1981-06-09,2450,,10
+<span class="token number">7788</span>,SCOTT,ANALYST,7566,1987-04-19,3000,,20
+<span class="token number">7839</span>,KING,PRESIDENT,,1981-11-17,5000,,10
+<span class="token number">7844</span>,TURNER,SALESMAN,7698,1981-09-08,1500,0,30
+</code></pre></div><p>        可以看出它会在HDFS上默认用逗号<code>,</code>分隔emp表的数据和字段。当然我们也可以通过<code>--fields-terminated-by '\t'</code>来指定导出的分隔符</p> <h3 id="_7-2-导入子数据集到hdfs"><a href="#_7-2-导入子数据集到hdfs" class="header-anchor">#</a> 7.2 导入子数据集到HDFS</h3> <p>        上面我们导入的是全量的数据，很多时候，我们需要对数据进行过滤处理，导入的是原始数据的一个子数据集，那该怎么办呢？这里提供2种方式：</p> <h4 id="_7-2-1-3-where过滤"><a href="#_7-2-1-3-where过滤" class="header-anchor">#</a> 7.2.1 3．where过滤</h4> <p><code>--where</code>可以指定从关系数据库导入数据时的查询条件。它执行在数据库服务器相应的SQL查询，并将结果存储在 HDFS 的目标目录。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>bin/sqoop <span class="token function">import</span> <span class="token punctuation">\</span>
+--connect jdbc:mysql://192.168.100.100:3306/sqoopdb <span class="token punctuation">\</span>
+--username root <span class="token punctuation">\</span>
+--password hadoop <span class="token punctuation">\</span>
+--where <span class="token string">&quot;sex ='male'&quot;</span> <span class="token punctuation">\</span>
+--target-dir /wherequery <span class="token punctuation">\</span>
+--table employee --m <span class="token number">1</span>
+</code></pre></div><h4 id="_7-2-1-4-query查询"><a href="#_7-2-1-4-query查询" class="header-anchor">#</a> 7.2.1.4 query查询</h4> <p>        需要注意：<font color="	Tomato">使用query sql语句来进行查找不能加参数--table ;并且必须要添加where条件;where条件后面必须带一个$CONDITIONS 这个字符串;且这个sql语句必须用单引号，不能用双引号。</font></p> <div class="language-bash extra-class"><pre class="language-bash"><code>bin/sqoop <span class="token function">import</span> <span class="token punctuation">\</span>
+--connect jdbc:mysql://node-1:3306/userdb <span class="token punctuation">\</span>
+--username root <span class="token punctuation">\</span>
+--password hadoop <span class="token punctuation">\</span>
+--target-dir /wherequery12 <span class="token punctuation">\</span>
+--query <span class="token string">'select id,name,deg from emp WHERE  id&gt;1203 and $CONDITIONS'</span> <span class="token punctuation">\</span>
+--split-by <span class="token function">id</span> <span class="token punctuation">\</span>
+--fields-terminated-by <span class="token string">'\t'</span> <span class="token punctuation">\</span>
+--m <span class="token number">2</span>
+</code></pre></div><p>        sqoop命令中，<code>--split-by</code> id通常配合<code>-m</code> 参数使用。用于指定根据哪个字段进行划分并启动多少个maptask。</p> <blockquote><p><font color="red">注意，当 -m 设置的值大于1时，split-by必须设置字段，且只能是int类型</font></p></blockquote> <p>        另外，关于<code>--split-by</code>参数的深入理解大有学问：</p> <p>        1、split-by 根据不同的参数类型有不同的切分方法，如 int 型，Sqoop会取最大和最小split-by字段值，然后根据传入的num-mappers来 确定划分几个区域。比如 select max(split_by),min(split-by) from 得到的 max(split-by)和min(split-by) 分别为1000和1，而num-mappers（-m）为2的话，则会分成两个区域 (1,500)和(501-1000),同时也会分成2个sql给2个map去进行导入操作，最后每个map各自获取各自SQL中的数据进行导入工作。</p> <p>        2、split-by即便是int型，若不是<font color="blue"><strong>连续有规律递增</strong></font>的话，各个map分配的数据是<font color="blue"><strong>不均衡</strong></font>的，可能会有些map很忙，有些map几乎没有数据处理的情况，就容易出现<font color="blue"><strong>数据倾斜</strong></font>，所以一般<code>split by</code>的值为自增主键id。
+        </p> <h2 id="ref"><a href="#ref" class="header-anchor">#</a> Ref</h2> <blockquote><p>1、《海量数据处理与大数据实践》
+2、https://www.cnblogs.com/pejsidney/p/8962302.html
+3、《开源组件系列：关系型数据导入（Sqoop与Canal）》</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/66.fa850071.js" defer></script>
+  </body>
+</html>

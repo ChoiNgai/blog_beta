@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实时分析数据库Druid简介 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/8.e81bc496.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Druid</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./bigdata/druid/Druid入门.html" class="active sidebar-link">实时分析数据库Druid简介</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/druid/Druid入门.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/./bigdata/druid/Druid入门.html#druid" class="sidebar-link">Druid</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/druid/Druid入门.html#druid-简介" class="sidebar-link">Druid 简介</a></li><li class="sidebar-sub-header"><a href="/./bigdata/druid/Druid入门.html#druid-的三个设计原则" class="sidebar-link">Druid 的三个设计原则</a></li><li class="sidebar-sub-header"><a href="/./bigdata/druid/Druid入门.html#druid-特点" class="sidebar-link">Druid 特点</a></li><li class="sidebar-sub-header"><a href="/./bigdata/druid/Druid入门.html#druid-的使用场景" class="sidebar-link">Druid 的使用场景</a></li><li class="sidebar-sub-header"><a href="/./bigdata/druid/Druid入门.html#druid架构" class="sidebar-link">Druid架构</a></li><li class="sidebar-sub-header"><a href="/./bigdata/druid/Druid入门.html#druid-数据结构" class="sidebar-link">Druid 数据结构</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/druid/Druid入门.html#druid-安装" class="sidebar-link">Druid 安装</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/druid/Druid入门.html#安装部署" class="sidebar-link">安装部署</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/druid/Druid入门.html#巨人的肩膀" class="sidebar-link">巨人的肩膀</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="实时分析数据库druid简介"><a href="#实时分析数据库druid简介" class="header-anchor">#</a> 实时分析数据库Druid简介</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>        阿里巴巴也曾创建过一个开源项目叫作 Druid（简称阿里Druid），它是一个数据库连接池的项目。而本期内容介绍的是一个分布式的<strong>支持实时分析</strong>的数据存储系统（Data Store）。Druid 设计之初的想法就是为分析而生，它在处理数据的规模、数据处理的实时性方面，比传统的 OLAP 系统有了显著的性能改进，而且拥抱主流的开源生态，包括 Hadoop 等。多年以来，Druid 一直是非常活跃的开源项目！
+<img src="https://img-blog.csdnimg.cn/20210404192834410.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h2 id="druid"><a href="#druid" class="header-anchor">#</a> Druid</h2> <h3 id="druid-简介"><a href="#druid-简介" class="header-anchor">#</a> Druid 简介</h3> <p><font color="RoyalBlue">Druid 是一个<strong>高性能</strong>的实时分析数据库。它在 PB 级数据处理、毫秒级查询、数据实时处理方面，比传统的 OLAP 系统有显著的性能提升。</font></p> <blockquote><p>Druid 的官方网站是 <a href="http://druid.io" target="_blank" rel="noopener noreferrer">http://druid.io<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <p><img src="https://img-blog.csdnimg.cn/20210404192518991.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h3 id="druid-的三个设计原则"><a href="#druid-的三个设计原则" class="header-anchor">#</a> Druid 的三个设计原则</h3> <ul><li><strong>快速查询（Fast Query）</strong>：部分数据的聚合（Partial Aggregate）+内存化（In-emory）+索引（Index）。</li> <li><strong>水平扩展能力（Horizontal Scalability）</strong>：分布式数据（Distributed Data）+ 并行化查询（Parallelizable Query）</li> <li><strong>实时分析（Realtime Analytics）</strong>：不可变的过去，只追加的未来（Immutable Past，Append-Only Future）</li></ul> <h4 id="_1-快速查询-fast-query"><a href="#_1-快速查询-fast-query" class="header-anchor">#</a> 1. 快速查询（Fast Query）</h4> <p>        对于数据分析场景，大部分情况下，我们只关心一定粒度聚合的数据，而非每一行原始数据的细节情况。因此，数据聚合粒度可以是1 分钟、5 分钟、1 小时或1 天等。部分数据聚合（Partial Aggregate）给 Druid 争取了很大的性能优化空间。</p> <p>        数据内存化也是提高查询速度的杀手锏。内存和硬盘的访问速度相差近百倍，但内存的大小是非常有限的，因此在内存使用方面要精细设计，比如Druid  里面使用了 Bitmap 和各种压缩技术。</p> <p>        另外，为了支持 Drill-Down 某些维度，Druid 维护了一些倒排索引。这种方式可以加快 AND 和 OR 等计算操作。</p> <h4 id="_2、水平扩展能力-horizontal-scalability"><a href="#_2、水平扩展能力-horizontal-scalability" class="header-anchor">#</a> 2、水平扩展能力（Horizontal Scalability）</h4> <p>        Druid 查询性能在很大程度上依赖于内存的优化使用。数据可以分布在多个节点的内存中，因此当数据增长的时候，可以通过简单增加机器的方式进行扩容。为了保持平衡，Druid按照时间范围把聚合数据进行分区处理。对于高基数的维度，只按照时间切分有时候是不够的（Druid 的每个Segment 不超过2000 万行），故Druid 还支持对Segment 进一步分区。 历史Segment 数据可以保存在深度存储系统中，存储系统可以是本地磁盘、HDFS 或远程的云服务。如果某些节点出现故障，则可借助Zookeeper 协调其他节点重新构造数据。</p> <p>        Druid 的查询模块能够感知和处理集群的状态变化，查询总是在有效的集群架构中进行。集群上的查询可以进行灵活的水平扩展。</p> <h4 id="_3、实时分析-realtime-analytics"><a href="#_3、实时分析-realtime-analytics" class="header-anchor">#</a> 3、实时分析（Realtime Analytics）</h4> <p>        Druid 提供了包含基于时间维度数据的存储服务，并且任何一行数据都是历史真实发生的事件，因此在设计之初就约定事件一但进入系统，就不能再改变。</p> <p>        对于历史数据 Druid 以Segment 数据文件的方式组织，并且将它们存储到深度存储系统中，例如文件系统或亚马逊的S3 等。当需要查询这些数据的时候，Druid 再从深度存储系统中将它们装载到内存供查询使用。</p> <h3 id="druid-特点"><a href="#druid-特点" class="header-anchor">#</a> Druid 特点</h3> <p>        Druid具有如下技术特点：</p> <ul><li><strong>列式存储格式</strong></li></ul> <p>        Druid使用面向列的存储，这意味着它只需要加载特定查询所需的精确列。这为仅查看几列的查询提供了巨大的速度提升。此外，每列都针对其特定数据类型进行了优化，支持快速扫描和聚合。</p> <ul><li><strong>高可用性与高可拓展性</strong></li></ul> <p>        Druid采用分布式、SN(share-nothing)架构，管理类节点可配置HA，工作节点功能单一，不相互依赖，这些特性都使得Druid集群在管理、容错、灾备、扩容等方面变得十分简单。Druid通常部署在数十到数百台服务器的集群中，并且可以提供数百万条记录/秒的摄取率，保留数万亿条记录，以及亚秒级到几秒钟的查询延迟。</p> <ul><li><strong>大规模的并行查询</strong></li></ul> <p>        Druid可以在整个集群中进行大规模的并行查询。</p> <ul><li><strong>实时摄取或批量处理</strong></li></ul> <p>        实时流数据分析。区别于传统分析型数据库采用的批量导入数据进行分析的方式，Druid提供了实时流数据分析，采用<code>LSM(Long structure-merge)-Tree</code>结构使 Druid 拥有极高的实时写入性能；同时实现了实时数据在亚秒级内的可视化。</p> <ul><li><strong>自愈、自平衡、易操作</strong></li></ul> <p>        作为运营商，要将群集扩展或缩小，<strong>只需添加或删除服务器，群集将在后台自动重新平衡，无需任何停机时间</strong>。如果任何Druid服务器发生故障，系统将自动路由损坏，直到可以更换这些服务器。Druid旨在全天候运行，无需任何原因计划停机，包括配置更改和软件更新。</p> <ul><li><strong>云原生，容错的架构，不会丢失数据</strong></li></ul> <p>        一旦 Druid 摄取了您的数据，副本就会安全地存储在深层存储（通常是云存储，HDFS或共享文件系统）中。即使每个Druid服务器都出现故障，您的数据也可以从深层存储中恢复。对于仅影响少数 Druid 服务器的更有限的故障，复制可确保在系统恢复时仍可进行查询。</p> <ul><li><strong>亚秒级的OLAP查询分析</strong></li></ul> <p>        Druid采用了列式存储、倒排索引、位图索引等关键技术，能够在亚秒级别内完成海量数据的过滤、聚合以及多维分析等操作。</p> <ul><li><strong>丰富的数据分析功能</strong></li></ul> <p>        针对不同用户群体，Druid提供了友好的可视化界面、类SQL查询语言以及REST 查询接口。</p> <h3 id="druid-的使用场景"><a href="#druid-的使用场景" class="header-anchor">#</a> Druid 的使用场景</h3> <p>        了解了 Druid 有哪些常见的特点，我们还需要知道它具体的使用场景。</p> <p>        如果您的用例符合以下的几个描述，Druid 可能是一个不错的选择：</p> <ul><li>插入率非常高，但更新不常见</li> <li>大多数查询都是聚合和报告查询（“分组依据”查询）。您可能还有搜索和扫描查询。</li> <li>查询延迟定位为100毫秒到几秒钟</li> <li>数据有一个时间组件（Druid包括与时间特别相关的优化和设计选择）。</li> <li>可能有多个表，但每个查询只能访问一个大的分布式表。查询可能会触发多个较小的“查找”表。</li> <li>有高基数数据列（例如URL，用户ID），需要对它们进行快速计数和排名。</li> <li>希望从 Kafka，HDFS，平面文件或对象存储（如Amazon S3）加载数据。</li></ul> <p>        要是感觉看的不是很懂，简洁地<strong>总结</strong>一下：</p> <blockquote><ul><li><strong>适用于将清洗好的记录实时录入，但不需要更新操作的场景</strong></li> <li><strong>适用于支持宽表，不用join的场景（换句话说就是一张单表）</strong></li> <li><strong>适用于实时性要求高的场景</strong></li> <li><strong>适用于对数据质量的敏感度不高的场景</strong></li></ul></blockquote> <p>        当然以上列举的都是 <font color="blue"><strong>Druid 的适用情况</strong></font>，为了方便我们之后做技术选型，我们还需要知道它<font color="blue"><strong>不支持哪些操作</strong></font>。</p> <ul><li><strong>不支持精确去重</strong></li> <li><strong>不支持 Join（只能进行 semi-join）</strong></li> <li><strong>不支持根据主键的单条记录更新</strong></li></ul> <p>        所以如果不能接受这几点，则可以考虑放弃使用 Druid 了。</p> <p>        那 Druid 的常见应用领域有哪些呢 ？</p> <ul><li>点击流分析（网络和移动分析）</li> <li>风险/欺诈分析</li> <li>网络遥测分析（网络性能监控）</li> <li>服务器指标存储</li> <li>供应链分析（制造指标）</li> <li>应用程序性能指标</li> <li>商业智能/ OLAP</li></ul> <p>        关于更详细的描述，建议大家去多浏览官网<code>https://druid.apache.org/use-cases</code>，这里不做过多赘述 。</p> <p>        下面来侃侃 Druid 的 架构 ~</p> <h3 id="druid架构"><a href="#druid架构" class="header-anchor">#</a> Druid架构</h3> <p>        Druid 采用多进程，分布式的架构；其架构易于运维及部署，便于部署在云环境中。每个 Druid 进程都可以被独立地配置和横向扩展，这种设计一方面赋予了Druid集群 最大的灵活性和可扩展性，另一方面以提供了更高的容错性：避免了个别组件的失效影响了系统的其他模块。</p> <p><img src="https://img-blog.csdnimg.cn/20210404135206123.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        Druid的总体架构包含如下四类节点。</p> <ul><li><strong>中间管理节点</strong>（MiddleManager Node）：及时摄入实时数据，并生成 Segment 数据文件。</li> <li><strong>历史节点</strong>（Historical Node）：加载已生成的数据文件，以供用户查询数据。</li> <li><strong>查询节点</strong>（Broker Node）：对外提供数据查询服务，并同时从中间管理节点与历史节点中查询数据，合并后返回调用方。</li> <li><strong>协调节点</strong>（Coordinator Node）：负责历史节点的数据负载均衡，以及通过规则（Rule）管理数据的生命周期。</li></ul> <p>集群还包含如下三类外部依赖：</p> <ul><li><p><strong>元数据库</strong>（Metadata Storage）：存储Druid 集群的元数据信息，比如，Segment 的相关信息，一般使用 MySQL 或 PostgreSQL 存储。</p></li> <li><p><strong>分布式协调服务</strong>（Zookeeper）：为 Druid 集群提供一致性协调服务的组件，通常为 Zookeeper。</p></li> <li><p><strong>数据文件存储库</strong>（Deep Storage）：存放生成的 Segment 数据文件，并提供历史服务器下载功能，对于单节点集群，可以是本地磁盘，而对于分布式集群，一般是 HDFS 或 NFS 。</p></li></ul> <h3 id="druid-数据结构"><a href="#druid-数据结构" class="header-anchor">#</a> Druid 数据结构</h3> <p>        基于 DataSource 和 Segment 的 Druid 数据结构与 Druid 架构相辅相成，它们共同成就了 Druid 的高性能优势。</p> <p>        DataSource相当于关系型数据库中的表（Table）。DataSource的结构如下。</p> <ul><li><strong>时间列</strong>：表明每行数据的时间值，默认使用UTC时间格式且精确到毫秒级。</li> <li><strong>维度列</strong>：维度来自OLAP的概念，用来标识数据行的各个类别信息。</li> <li><strong>指标列</strong>：用于聚合和计算的列。通常是一些数字，计算操作包括Count、Sum等。</li></ul> <p>        DataSource 结构如表所示：</p> <p><img src="https://img-blog.csdnimg.cn/20210404170213774.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""> <font color="BlueViolet">无论是实时摄取数据还是批量处理数据，Druid 在基于 DataSource 结构存储数据时，可选择对任意的指标列进行聚合操作</font>。该聚合操作主要基于维度列与时间列。表显示的是 DataSource 聚合后的数据结构。
+<img src="https://img-blog.csdnimg.cn/2021040417040395.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""> <strong>在数据存储时便可对数据进行聚合操作</strong>是 Druid 的特点，该特点使得 Druid 不仅能够节省存储空间，而且能够提高聚合查询的效率。</p> <p><strong>DataSource是一个逻辑概念，Segment是数据的实际物理存储格式</strong>。Druid将不同时间范围内的数据存储在不同的 Segment 数据块中，这便是所谓的数据<font color="	BlueViolet"><strong>横向切割</strong></font>。按照时间横向切割数据，避免了全表查询，极大地提高了效率。</p> <p>        在Segment中，采用列式存储格式对数据进行压缩存储（Bitmap压缩技术），这便是所谓的数据<font color="BlueViolet"><strong>纵向切割</strong></font>。</p> <h2 id="druid-安装"><a href="#druid-安装" class="header-anchor">#</a> Druid 安装</h2> <p>        接下来为大家介绍如何安装 Druid，本次我们演示安装的是<strong>单机版</strong>。</p> <h3 id="安装部署"><a href="#安装部署" class="header-anchor">#</a> 安装部署</h3> <p>        我们可以选择去官网 <code>https://druid.apache.org/</code>下载
+<img src="https://img-blog.csdnimg.cn/20210404185221609.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        另外我们也可以选择<code>https://imply.io/</code>，从 imply页面下载 Druid 最新版本的安装包。因为 imply 集成了Druid ，提供了 Druid 从部署到配置再到各种可视化工具的完整解决方案，所以这里我们使用了第 2 种方法 ~</p> <p>（1）将 <code>imply-2.7.10.tar.gz</code>上传到 node01 节点的的 /opt/software 目录下，并解压到<code>/export/servers</code>目录下。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 software<span class="token punctuation">]</span><span class="token comment"># tar -zxvf imply-2.7.10.tar.gz -C ../servers/</span>
+</code></pre></div><p>（2）修改imply-2.7.10的名称为imply。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 servers<span class="token punctuation">]</span><span class="token comment"># mv imply-2.7.10 imply</span>
+</code></pre></div><p>（3）修改配置文件</p> <p>① 修改 Druid 的 ZK 配置</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 servers<span class="token punctuation">]</span><span class="token comment"># vim imply/conf/druid/_common/common.runtime.properties</span>
+</code></pre></div><p>需要修改的内容如下</p> <div class="language-bash extra-class"><pre class="language-bash"><code>druid.zk.service.host<span class="token operator">=</span>node01:2181,node02:2181,node03:2181
+</code></pre></div><p>② 修改启动命令参数，使其不校验、不启动内置ZK。
+<img src="https://img-blog.csdnimg.cn/20210404175044264.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+（4）启动</p> <p>① 启动 Zookeeper</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 imply<span class="token punctuation">]</span><span class="token comment"># zk_startall.sh</span>
+</code></pre></div><p>② 通过 bin 目录下的 supervise 命令启动 imply</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node01 imply<span class="token punctuation">]</span>$ bin/supervise -c conf/supervise/quickstart.conf
+</code></pre></div><blockquote><p><strong>说明</strong>：每启动一个服务均会打印出一条日志。我们可以在/opt/module/imply/var/sv/目录下查看服务启动时的日志信息。</p></blockquote> <p>        （1）启动成功之后呢，我们可以通过 <code>ip:端口</code>的方式进行访问，以我当前所安装 Druid 的节点 node01 为例，当我访问<code>node01:9095/datasets</code>，便可以在网页上看到如下界面：</p> <p><img src="https://img-blog.csdnimg.cn/20210404175713671.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p>        （2）单击“Load data”按钮，然后单击“Apache Kafka”按钮：
+<img src="https://img-blog.csdnimg.cn/2021040418265345.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        （3）添加 Kafka 集群和主题信息，并选择合适的格式化形式
+<img src="https://img-blog.csdnimg.cn/20210404180516962.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+（4）确认数据样本格式
+<img src="https://img-blog.csdnimg.cn/2021040418061031.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+（5）加载数据，必须要有时间字段
+<img src="https://img-blog.csdnimg.cn/20210404180734773.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+（6）配置要加载的列
+<img src="https://img-blog.csdnimg.cn/20210404180813326.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+（7）配置 Kafka 数据源
+<img src="https://img-blog.csdnimg.cn/20210404180906485.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+（8）确认加载数据的配置
+<img src="https://img-blog.csdnimg.cn/20210404181150957.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+（9）连接 Kafka 的 topics_start，刚开始会显示 Connecting，加载完成之后便会显示如下图所示：
+<img src="https://img-blog.csdnimg.cn/20210404181111923.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+（10）选择 SQL</p> <p>        因为 topic 为<code>ckTest</code>里存储的都是用户行为数据，这里我写了一个 SQL 获取每种渠道所对应的数据量，如下所示：
+<img src="https://img-blog.csdnimg.cn/20210404183824640.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <h2 id="巨人的肩膀"><a href="#巨人的肩膀" class="header-anchor">#</a> 巨人的肩膀</h2> <blockquote><p>1、hhttps://druid.apache.org/   Druid 官网
+2、https://www.jianshu.com/p/6f822e0f538c《Druid基本概念及架构介绍》
+3、https://zhuanlan.zhihu.com/p/82038648《Apache Druid 简介》
+4、https://blog.csdn.net/weixin_40735752/article/details/88218571《Druid.IO简介系列之二：Druid系统架构》</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/8.e81bc496.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HDFS的文件管理和容错 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/13.127a8756.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/113.e0bb8777.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link router-link-active">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link router-link-active">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Hadoop</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./bigdata/hadoop/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./bigdata/hadoop/HDFS ：架构.html" class="sidebar-link">HDFS架构</a></li><li><a href="/./bigdata/hadoop/HDFS：常用的40个命令.html" class="sidebar-link">HDFS常用的40个命令</a></li><li><a href="/./bigdata/hadoop/HDFS：文件管理和容错.html" class="active sidebar-link">HDFS的文件管理和容错</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/hadoop/HDFS：文件管理和容错.html#hdfs-文件管理" class="sidebar-link">HDFS 文件管理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./bigdata/hadoop/HDFS：文件管理和容错.html#_1、hdfs-的块分布" class="sidebar-link">1、HDFS 的块分布</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hadoop/HDFS：文件管理和容错.html#_2、数据读取" class="sidebar-link">2、数据读取</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hadoop/HDFS：文件管理和容错.html#_3、数据写入" class="sidebar-link">3、数据写入</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hadoop/HDFS：文件管理和容错.html#_4、数据完整性" class="sidebar-link">4、数据完整性</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hadoop/HDFS：文件管理和容错.html#_5、-hdfs-容错" class="sidebar-link">5、 HDFS 容错</a></li><li class="sidebar-sub-header"><a href="/./bigdata/hadoop/HDFS：文件管理和容错.html#_6、通过命令行管理文件" class="sidebar-link">6、通过命令行管理文件</a></li></ul></li><li class="sidebar-sub-header"><a href="/./bigdata/hadoop/HDFS：文件管理和容错.html#ref" class="sidebar-link">Ref</a></li></ul></li><li><a href="/./bigdata/hadoop/MapReduce：核心知识点.html" class="sidebar-link">MapReduce核心知识点</a></li><li><a href="/./bigdata/hadoop/倒排索引：Hadoop实现.html" class="sidebar-link">Hadoop实现[倒排索引]</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="hdfs的文件管理和容错"><a href="#hdfs的文件管理和容错" class="header-anchor">#</a> HDFS的文件管理和容错</h1> <h2 id="hdfs-文件管理"><a href="#hdfs-文件管理" class="header-anchor">#</a> HDFS 文件管理</h2> <h3 id="_1、hdfs-的块分布"><a href="#_1、hdfs-的块分布" class="header-anchor">#</a> 1、HDFS 的块分布</h3> <p>        HDFS 会将数据文件切分成一个个小的数据块进行存储，同时会将这些数据块的副本保存多份，分别保存到不同的 DataNode 上。HDFS 中数据块的副本数由 <code>hdfs-site.xml</code>文件中的<code>dfs.replication</code>属性决定，配置属性如下：</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>dfs.replication<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>        Hadoop 默认的副本数为3，并且在机架的存放上也有一定的<strong>策略</strong>。Hadoop 的默认布局策略，即默认的<strong>副本存放策略</strong>如下：</p> <p>        （1）第 1 个副本存放在 HDFS 客户端所在的节点上。</p> <p>        （2）第 2 个副本存放在与第1个副本不同的机架上，并且是随机选择的节点。</p> <p>        （3）第 3 个副本存放在与第2个副本相同的机架上，并且是不同的节点。</p> <h3 id="_2、数据读取"><a href="#_2、数据读取" class="header-anchor">#</a> 2、数据读取</h3> <p>        HDFS 的数据读取过程需要客户端先访问 NameNode，获取元数据信息，然后到具体的 DataNode 上读取数据，如下图所示：</p> <p><img src="https://img-blog.csdnimg.cn/20210306175744121.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p>​      （1）<strong>客户端向NameNode发起请求，读取元数据信息</strong>。<font color="tomato"><strong>NameNode上存储着整个HDFS集群的元数据信息</strong></font>，这些元数据信息包括<font color="tomato"><strong>文件名，所有者，所在组，权限，数据块和 DataNode列表</strong></font>。</p> <p>        这个过程中还要对客户端的身份信息进行<strong>验证</strong>，同时检测是否存在要读取的文件，并且需要验证客户端的身份是否具有<strong>访问权限</strong>。</p> <p>        （2）<strong>NameNode 将相关的元数据信息返回给客户端</strong>。</p> <p>        （3）<strong>客户端到指定的 DataNode 上读取相应的数据块</strong>。</p> <p>        （4）<strong>DataNode 返回相应的数据块信息</strong>。</p> <p>        第（3）和（4）步会持续进行，一直到文件的所有数据块都读取完毕或者 HDFS 客户端主动关闭了文件流为止。</p> <h3 id="_3、数据写入"><a href="#_3、数据写入" class="header-anchor">#</a> 3、数据写入</h3> <p>        HDFS 中的数据写入过程同样需要客户端先访问 NameNode，获取元数据信息，然后到具体的 DataNode 上写入数据，如图所示</p> <p><img src="https://img-blog.csdnimg.cn/20210308001223267.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt=""></p> <p>        以下是具体步骤：</p> <p>        （1）客户端请求 NameNode 获取元数据信息。这个过程中，NameNode 要对客户端的省份信息进行验证，同时需要<strong>验证</strong>客户端的身份是否具有<strong>写权限</strong>。</p> <p>        （2）<strong>NameNode 返回相应的元数据信息给客户端</strong>。</p> <p>        （3）<strong>客户端向第一个 DataNode 写数据</strong>。</p> <p>        （4）<strong>第 1 个 DataNode 向第 2 个 DataNode 写数据</strong>。</p> <p>        （5）<strong>第 2 个 DataNode 向第 3 个 DataNode 写数据</strong>。</p> <p>        （6）<strong>第 3 个 DataNode 向第 2 个 DataNode 返回确认结果信息</strong>。</p> <p>        （7）<strong>第 2 个 DataNode 向第 1 个 DataNode 返回确认结果信息</strong>。</p> <p>        （8）<strong>第 1 个 DataNode 向客户端返回确认结果信息</strong>。</p> <p>        其中，第（4）步和第（5）步是异步执行的，当 HDFS 中的多个 DataNode 发生故障或者发生错误时，只要正确写入了满足最少数目要求的数据副本数，HDFS客户端就可以从数据块的副本中恢复数据。</p> <p>        最少数目要求的数据副本数由<code>hdfs-site.xml</code>文件中的<code>dfs.namenode.replication.min</code>属性决定，配置属性如下：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>dfs.namenode.replication.min<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">1</span>&lt;</span>/value<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
+</code></pre></div><p><strong>最少数目要求的数据副本数默认为1，即只要正确写入了数据的一个副本，客户端就可以从数据副本中恢复数据</strong>。</p> <h3 id="_4、数据完整性"><a href="#_4、数据完整性" class="header-anchor">#</a> 4、数据完整性</h3> <p>        通常，在校验数据是否损坏时可以用如下方式。</p> <p>        （1）当数据<strong>第一次引入时</strong>，计算<strong>校验和</strong>，</p> <p>        （2）当数据经过一系列的<strong>传输或者复制时</strong>，再次<strong>计算校验和</strong>。</p> <p>        （3）对比第（1）和第（2）步的校验和是否一致，如果两次数据的校验和不一致，则证明数据已经被破坏。</p> <blockquote><p><strong>注意：这种使用校验和来验证数据的技术只能检测数据是否被损坏，并不能修复数据。</strong></p></blockquote> <p>        HDFS中校验数据是否损坏使用的也是校验和技术，无论是进行数据的写入还是进行数据的读取，都会验证数据的校验和。校验和的字节数由<code>core-site.xml</code>文件中的<code>io.bytes.per.checksum</code>属性指定，默认的字节长度为 512 B，具体配置如下：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token operator">&lt;</span>property<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>io.bytes.per.checksum<span class="token operator">&lt;</span>/name<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span><span class="token number">51</span><span class="token operator"><span class="token file-descriptor important">2</span>&lt;</span>/value<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/property<span class="token operator">&gt;</span>
+</code></pre></div><p><strong>当 HDFS 写数据时</strong>，HDFS 客户端会将<strong>要写入的数据及对应数据的校验和</strong>发送到 DataNode 组成的复制管道中，其中最后一个 DataNode 负责验证数据的校验和是否一致。<strong>如果检测到校验和与 HDFS 客户端发送的校验和不一致，则 HDFS 客户端 会收到校验和异常的信息，可以在程序中捕获到这个异常，进行相应的处理，如重新写入数据或者用其他方式处理</strong>。</p> <p>        H<strong>DFS 读数据时</strong>也会验证校验和，此时会将它们<strong>与 DataNode 中存储的校验和进行比较</strong>。如果其与 DataNode 中存储的校验和不一致，则说明数据已经损坏，需要重新从其他 DataNode 读取数据。其中，<strong>每个 DataNode 都会保存一个校验和日志，客户端成功验证一个数据块之后，DataNode会更新该校验和日志</strong>。</p> <p>        除此之外，<strong>每个 DataNode 也会在后台运行一个扫描器（DataBlockScanner），定期验证存储在这个 DataNode 上的所有数据块</strong>。</p> <p>        由于 <strong>HDFS</strong> 提供的<strong>数据块副本机制</strong>，<strong>当一个数据块损坏时，HDFS 能够自动复制其他完好的数据块来修复损坏的数据块</strong>，得到一个新的，完好的数据块，以达到系统设置的副本数要求，因此在某些数据块出现损坏时，保证了数据的完整性。</p> <h3 id="_5、-hdfs-容错"><a href="#_5、-hdfs-容错" class="header-anchor">#</a> 5、 HDFS 容错</h3> <p>        HDFS 的容错机制大体上可以分为两个方面：文件系统的容错和 Hadoop 自身的容错。</p> <h4 id="_5-1-文件系统的容错"><a href="#_5-1-文件系统的容错" class="header-anchor">#</a> 5.1 文件系统的容错</h4> <p>        文件系统的容错可以通过 NameNode 高可用、SecondaryNameNode 机制、数据块副本机制和心跳机制来实现。</p> <blockquote><p><strong>注意：当以本地模式或者伪集群模式部署 Hadoop 时，会存在 SeconddayNameNode；当以集群模式部署 Hadoop 时，如果配置了 NameNode 的 HA 机制，则不会存在 SecondaryNameNode，此时会存在备 NameNode</strong>。</p></blockquote> <p>        在这里重点说下集群模式下 HDFS 的容错，有关 SecondaryNameNode 机制可参见上一篇文章《<a href="https://alice.blog.csdn.net/article/details/114212487" target="_blank" rel="noopener noreferrer">前方高能 | HDFS 的架构，你吃透了吗？<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>》的说明：</p> <p>        HDFS 的容错机制如图所示：</p> <p><img src="https://img-blog.csdnimg.cn/20210305193259274.png?,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="">
+        具体的流程如下：</p> <p>        （1）备 NameNode 实时备份主 NameNode 上的元数据信息，一旦主 NameNode 发生故障不可用，则备 NameNode 迅速接管主 NameNode 的工作。</p> <p>        （2）客户端向 NameNode 读取元数据信息。</p> <p>        （3）NameNode 向客户端返回元数据信息。</p> <p>        （4）客户端向 DataNode 读取/写入 数据，此时会分为读取数据和写入数据两种情况。</p> <p>        ① 读取数据：HDFS 会检测文件块的完整性，确认文件块的<strong>检验和</strong>是否一致，如果不一致，则从其他的 DataNode 上获取相应的副本。</p> <p>        ② 写入数据：HDFS 会检测文件块的完整性，同时记录新创建的文件的所有文件块的<strong>校验和</strong>。</p> <p>        （5）	<strong>DataNode 会定期向 NameNode 发送心跳信息，将自身节点的状态告知 NameNode</strong>；<strong>NameNode 会将 DataNode 需要执行的命令放入心跳信息的返回结果中，返回给 DataNode 执</strong>行。</p> <p><strong>当 DataNode 发生故障没有正常发送心跳信息时，NameNode 会检测文件块的副本数是否小于 系统设置值，如果小于设置值，则自动复制新的副本并分发到其他的 DataNode 上</strong>。</p> <p>        （6）集群中有数据关联的 DataNode 之间复制数据副本。</p> <p>        当集群中的 DataNode 发生故障而失效，或者在集群中添加新的 DataNode 时，可能会导致<strong>数据分布不均匀</strong>。<strong>当某个 DataNode 上的空闲空间资源大于系统设置的临界值时，HDFS 就会从 其他的 DataNode 上将数据迁移过来</strong>。相对地，<strong>如果某个 DataNode 上的资源出现超负荷运载，HDFS 就会根据一定的规则寻找有空闲资源的 DataNode，将数据迁移过去</strong>。</p> <p>        还有一种从侧面说明 HDFS 支持容错的机制，即当<strong>从 HDFS 中删除数据时，数据并不是马上就会从 HDFS 中被删除，而是会将这些数据放到“回收站”目录中，随时可以恢复，直到超过了一定的时间才会真正删除这些数据</strong>。</p> <h4 id="_5-2-hadoop自身的容错"><a href="#_5-2-hadoop自身的容错" class="header-anchor">#</a> 5.2 Hadoop自身的容错</h4> <p>        Hadoop 自身的容错理解起来比较简单，当升级 Hadoop 系统时，如果出现 Hadoop 版本不兼容的问题，可以通过<strong>回滚 Hadoop 版本的方式</strong>来实现自身的容错。</p> <h3 id="_6、通过命令行管理文件"><a href="#_6、通过命令行管理文件" class="header-anchor">#</a> 6、通过命令行管理文件</h3> <p>        这部分内容在之前的文章中已经介绍，大概常用的有40个命令，详情👉<a href="https://blog.csdn.net/weixin_44318830/article/details/112752525?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161502761316780264016467%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=161502761316780264016467&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v1~rank_blog_v1-1-112752525.pc_v1_rank_blog_v1&amp;utm_term=%E5%91%BD%E4%BB%A4" target="_blank" rel="noopener noreferrer">干货 | HDFS常用的40个命令，你都知道吗？
+<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="ref"><a href="#ref" class="header-anchor">#</a> Ref</h2> <blockquote><p>1、《海量数据处理与大数据技术实践》
+2、《大数据平台架构与原型实现》
+3、https://www.cnblogs.com/mayundalao/p/11799849.html</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./bigdata/hadoop/HDFS：常用的40个命令.html" class="prev">
+        HDFS常用的40个命令
+      </a></span> <span class="next"><a href="/./bigdata/hadoop/MapReduce：核心知识点.html">
+        MapReduce核心知识点
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/13.127a8756.js" defer></script>
+  </body>
+</html>

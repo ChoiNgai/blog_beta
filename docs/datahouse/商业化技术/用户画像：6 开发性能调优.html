@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>用户画像：开发性能调优 | 大数据技术文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="从入门到入土">
+    
+    <link rel="preload" href="./assets/css/0.styles.2c6e287f.css" as="style"><link rel="preload" href="./assets/js/app.9ce0d262.js" as="script"><link rel="preload" href="./assets/js/2.fa5f1a4a.js" as="script"><link rel="preload" href="./assets/js/113.e0bb8777.js" as="script"><link rel="prefetch" href="./assets/js/10.6940d239.js"><link rel="prefetch" href="./assets/js/100.22cf6913.js"><link rel="prefetch" href="./assets/js/101.8a31dcdc.js"><link rel="prefetch" href="./assets/js/102.147ef11e.js"><link rel="prefetch" href="./assets/js/103.cc281f62.js"><link rel="prefetch" href="./assets/js/104.2e0465e5.js"><link rel="prefetch" href="./assets/js/105.910aa23c.js"><link rel="prefetch" href="./assets/js/106.5466141f.js"><link rel="prefetch" href="./assets/js/107.a92bd18e.js"><link rel="prefetch" href="./assets/js/108.51fca30a.js"><link rel="prefetch" href="./assets/js/109.6119ffd0.js"><link rel="prefetch" href="./assets/js/11.bd53d768.js"><link rel="prefetch" href="./assets/js/110.eda784ab.js"><link rel="prefetch" href="./assets/js/111.12c174e7.js"><link rel="prefetch" href="./assets/js/112.8f45d1d2.js"><link rel="prefetch" href="./assets/js/114.2ffc5abc.js"><link rel="prefetch" href="./assets/js/115.264d88bb.js"><link rel="prefetch" href="./assets/js/116.43a8b13e.js"><link rel="prefetch" href="./assets/js/117.03317ae7.js"><link rel="prefetch" href="./assets/js/118.dee53adb.js"><link rel="prefetch" href="./assets/js/119.662a11fb.js"><link rel="prefetch" href="./assets/js/12.b25bd03a.js"><link rel="prefetch" href="./assets/js/120.8d1c0658.js"><link rel="prefetch" href="./assets/js/121.c866d980.js"><link rel="prefetch" href="./assets/js/122.141777da.js"><link rel="prefetch" href="./assets/js/123.64bf1df0.js"><link rel="prefetch" href="./assets/js/124.0f402852.js"><link rel="prefetch" href="./assets/js/125.adf420b6.js"><link rel="prefetch" href="./assets/js/126.5ac52ff6.js"><link rel="prefetch" href="./assets/js/127.31a2c0b9.js"><link rel="prefetch" href="./assets/js/128.ee1158fc.js"><link rel="prefetch" href="./assets/js/129.ea47f41d.js"><link rel="prefetch" href="./assets/js/13.127a8756.js"><link rel="prefetch" href="./assets/js/130.169a1c91.js"><link rel="prefetch" href="./assets/js/131.25141855.js"><link rel="prefetch" href="./assets/js/132.1961433f.js"><link rel="prefetch" href="./assets/js/133.4a4b3148.js"><link rel="prefetch" href="./assets/js/134.3cf3137b.js"><link rel="prefetch" href="./assets/js/135.25c96955.js"><link rel="prefetch" href="./assets/js/136.34bc078a.js"><link rel="prefetch" href="./assets/js/137.0d68c97e.js"><link rel="prefetch" href="./assets/js/138.06820a54.js"><link rel="prefetch" href="./assets/js/139.25951593.js"><link rel="prefetch" href="./assets/js/14.ee4f6d75.js"><link rel="prefetch" href="./assets/js/140.9631a9a0.js"><link rel="prefetch" href="./assets/js/141.7e3c7d7b.js"><link rel="prefetch" href="./assets/js/142.fc0ba6d0.js"><link rel="prefetch" href="./assets/js/143.a87cd9f4.js"><link rel="prefetch" href="./assets/js/144.b8153695.js"><link rel="prefetch" href="./assets/js/145.5bb910bf.js"><link rel="prefetch" href="./assets/js/146.48346688.js"><link rel="prefetch" href="./assets/js/147.14fdd265.js"><link rel="prefetch" href="./assets/js/148.910c7bb0.js"><link rel="prefetch" href="./assets/js/149.17e89273.js"><link rel="prefetch" href="./assets/js/15.4c07895d.js"><link rel="prefetch" href="./assets/js/150.c09b3d84.js"><link rel="prefetch" href="./assets/js/151.1c6f270e.js"><link rel="prefetch" href="./assets/js/152.14fbeaa5.js"><link rel="prefetch" href="./assets/js/153.2452da0e.js"><link rel="prefetch" href="./assets/js/154.b4df1979.js"><link rel="prefetch" href="./assets/js/155.22d7abd8.js"><link rel="prefetch" href="./assets/js/156.2f9a9ccc.js"><link rel="prefetch" href="./assets/js/157.969faec2.js"><link rel="prefetch" href="./assets/js/158.3500ec52.js"><link rel="prefetch" href="./assets/js/159.e527d9a4.js"><link rel="prefetch" href="./assets/js/16.c4323435.js"><link rel="prefetch" href="./assets/js/160.e9019d68.js"><link rel="prefetch" href="./assets/js/161.85c34333.js"><link rel="prefetch" href="./assets/js/162.a46ae7b7.js"><link rel="prefetch" href="./assets/js/163.7be9bd8c.js"><link rel="prefetch" href="./assets/js/164.0c6811d8.js"><link rel="prefetch" href="./assets/js/165.57bd5bac.js"><link rel="prefetch" href="./assets/js/166.afa88f4a.js"><link rel="prefetch" href="./assets/js/167.29d4d5ce.js"><link rel="prefetch" href="./assets/js/168.e653cd83.js"><link rel="prefetch" href="./assets/js/169.e6f17762.js"><link rel="prefetch" href="./assets/js/17.505c5524.js"><link rel="prefetch" href="./assets/js/170.ef23a402.js"><link rel="prefetch" href="./assets/js/171.cad09bfd.js"><link rel="prefetch" href="./assets/js/172.70b28875.js"><link rel="prefetch" href="./assets/js/173.bd26a56b.js"><link rel="prefetch" href="./assets/js/174.eb342099.js"><link rel="prefetch" href="./assets/js/175.e65fe97d.js"><link rel="prefetch" href="./assets/js/176.991a568d.js"><link rel="prefetch" href="./assets/js/177.14728a0e.js"><link rel="prefetch" href="./assets/js/178.dd08b87f.js"><link rel="prefetch" href="./assets/js/179.35f52dd6.js"><link rel="prefetch" href="./assets/js/18.a3c1984e.js"><link rel="prefetch" href="./assets/js/180.fce6e839.js"><link rel="prefetch" href="./assets/js/181.344642d1.js"><link rel="prefetch" href="./assets/js/182.cb6d50af.js"><link rel="prefetch" href="./assets/js/183.18ccb5d5.js"><link rel="prefetch" href="./assets/js/184.7a48514f.js"><link rel="prefetch" href="./assets/js/19.e0fa9e47.js"><link rel="prefetch" href="./assets/js/20.da04fed8.js"><link rel="prefetch" href="./assets/js/21.039b78b5.js"><link rel="prefetch" href="./assets/js/22.91b1dd94.js"><link rel="prefetch" href="./assets/js/23.f70b01e1.js"><link rel="prefetch" href="./assets/js/24.bf935b15.js"><link rel="prefetch" href="./assets/js/25.740be3c8.js"><link rel="prefetch" href="./assets/js/26.f310e9df.js"><link rel="prefetch" href="./assets/js/27.0650d6da.js"><link rel="prefetch" href="./assets/js/28.30bd72ee.js"><link rel="prefetch" href="./assets/js/29.765dccf5.js"><link rel="prefetch" href="./assets/js/3.aa27e9f3.js"><link rel="prefetch" href="./assets/js/30.0484ae09.js"><link rel="prefetch" href="./assets/js/31.e09e1f25.js"><link rel="prefetch" href="./assets/js/32.9048892a.js"><link rel="prefetch" href="./assets/js/33.47a85736.js"><link rel="prefetch" href="./assets/js/34.162be571.js"><link rel="prefetch" href="./assets/js/35.27a56cfa.js"><link rel="prefetch" href="./assets/js/36.e2b24ea4.js"><link rel="prefetch" href="./assets/js/37.660e2ae2.js"><link rel="prefetch" href="./assets/js/38.e115bc82.js"><link rel="prefetch" href="./assets/js/39.786d0e1f.js"><link rel="prefetch" href="./assets/js/4.dac57b37.js"><link rel="prefetch" href="./assets/js/40.1034d892.js"><link rel="prefetch" href="./assets/js/41.2952b19a.js"><link rel="prefetch" href="./assets/js/42.75753f7b.js"><link rel="prefetch" href="./assets/js/43.af07ba27.js"><link rel="prefetch" href="./assets/js/44.c64a1c19.js"><link rel="prefetch" href="./assets/js/45.a3f07fbe.js"><link rel="prefetch" href="./assets/js/46.cde01b57.js"><link rel="prefetch" href="./assets/js/47.ca2de71c.js"><link rel="prefetch" href="./assets/js/48.264c1471.js"><link rel="prefetch" href="./assets/js/49.733bd546.js"><link rel="prefetch" href="./assets/js/5.6ca2ea8d.js"><link rel="prefetch" href="./assets/js/50.7b9d16c8.js"><link rel="prefetch" href="./assets/js/51.f427baa6.js"><link rel="prefetch" href="./assets/js/52.112ba3d3.js"><link rel="prefetch" href="./assets/js/53.bc7a9bfd.js"><link rel="prefetch" href="./assets/js/54.258fa5ae.js"><link rel="prefetch" href="./assets/js/55.00d67ca6.js"><link rel="prefetch" href="./assets/js/56.ea8c85f2.js"><link rel="prefetch" href="./assets/js/57.8263a106.js"><link rel="prefetch" href="./assets/js/58.e0b33df6.js"><link rel="prefetch" href="./assets/js/59.4d5f847f.js"><link rel="prefetch" href="./assets/js/6.a67b19a4.js"><link rel="prefetch" href="./assets/js/60.d3638a19.js"><link rel="prefetch" href="./assets/js/61.33bd82a8.js"><link rel="prefetch" href="./assets/js/62.6287fa56.js"><link rel="prefetch" href="./assets/js/63.f043aec3.js"><link rel="prefetch" href="./assets/js/64.fd61b3bb.js"><link rel="prefetch" href="./assets/js/65.088db422.js"><link rel="prefetch" href="./assets/js/66.fa850071.js"><link rel="prefetch" href="./assets/js/67.6f9263db.js"><link rel="prefetch" href="./assets/js/68.a40fea6a.js"><link rel="prefetch" href="./assets/js/69.82a38b9c.js"><link rel="prefetch" href="./assets/js/7.130b2290.js"><link rel="prefetch" href="./assets/js/70.78387c60.js"><link rel="prefetch" href="./assets/js/71.c8bafdac.js"><link rel="prefetch" href="./assets/js/72.f6af738e.js"><link rel="prefetch" href="./assets/js/73.483631aa.js"><link rel="prefetch" href="./assets/js/74.7a295ce2.js"><link rel="prefetch" href="./assets/js/75.4ee52419.js"><link rel="prefetch" href="./assets/js/76.bfa2477e.js"><link rel="prefetch" href="./assets/js/77.36dbbf31.js"><link rel="prefetch" href="./assets/js/78.99a9055a.js"><link rel="prefetch" href="./assets/js/79.cf91068c.js"><link rel="prefetch" href="./assets/js/8.e81bc496.js"><link rel="prefetch" href="./assets/js/80.5091cf53.js"><link rel="prefetch" href="./assets/js/81.1ab1ac83.js"><link rel="prefetch" href="./assets/js/82.075a98b9.js"><link rel="prefetch" href="./assets/js/83.f6479725.js"><link rel="prefetch" href="./assets/js/84.36b72a58.js"><link rel="prefetch" href="./assets/js/85.5a115a90.js"><link rel="prefetch" href="./assets/js/86.e2e2bc5e.js"><link rel="prefetch" href="./assets/js/87.7498c4d7.js"><link rel="prefetch" href="./assets/js/88.424c69e2.js"><link rel="prefetch" href="./assets/js/89.5997766e.js"><link rel="prefetch" href="./assets/js/9.7d490254.js"><link rel="prefetch" href="./assets/js/90.ba4d2a78.js"><link rel="prefetch" href="./assets/js/91.920a9ee1.js"><link rel="prefetch" href="./assets/js/92.7903dbd3.js"><link rel="prefetch" href="./assets/js/93.e120bbac.js"><link rel="prefetch" href="./assets/js/94.cddc34d7.js"><link rel="prefetch" href="./assets/js/95.0a7a80fe.js"><link rel="prefetch" href="./assets/js/96.26590fe7.js"><link rel="prefetch" href="./assets/js/97.91bdc308.js"><link rel="prefetch" href="./assets/js/98.9a1146d2.js"><link rel="prefetch" href="./assets/js/99.d5e87370.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.2c6e287f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">大数据技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程基础" class="dropdown-title"><span class="title">编程基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程基础" class="mobile-dropdown-title"><span class="title">编程基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java基础语法/" class="nav-link">
+  Java基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java基础实战
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Java进阶(选学)
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/java并发编程/java并发编程.html" class="nav-link">
+  Java并发编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/" class="nav-link">
+  Java网络编程
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java集合/Java集合（永盛）.html" class="nav-link">
+  Java集合
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/java虚拟机/" class="nav-link">
+  Java虚拟机
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/数据结构与算法/" class="nav-link">
+  数据结构（重要）
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/计算机网络/计算机网络（双祥）.html" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/操作系统/" class="nav-link">
+  操作系统
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Python（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/Python/python基础/" class="nav-link">
+  Python基础语法
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/Python/python库/" class="nav-link">
+  Python数据科学库
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架（选学）
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/./coding-base/框架/sprin系列/" class="nav-link">
+  Spring系列
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/flask/falsk.html" class="nav-link">
+  Flask
+</a></li><li class="dropdown-subitem"><a href="/./coding-base/框架/vue/flask.html" class="nav-link">
+  Vue
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/./database/hbase/" class="nav-link">
+  HBase
+</a></li><li class="dropdown-item"><!----> <a href="/./database/tidb/" class="nav-link">
+  TiDB
+</a></li><li class="dropdown-item"><!----> <a href="/./database/clickhouse/" class="nav-link">
+  ClickHouse
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据仓库" class="dropdown-title"><span class="title">数据仓库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据仓库" class="mobile-dropdown-title"><span class="title">数据仓库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./datahouse/sql/" class="nav-link">
+  SQL
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/大数据基础/bigdata-base.html" class="nav-link">
+  大数据基础
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/离线数仓/" class="nav-link">
+  离线数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/实时数仓/" class="nav-link">
+  实时数仓
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/商业化技术/" class="nav-link">
+  商业化技术
+</a></li><li class="dropdown-item"><!----> <a href="/./datahouse/电商业务/" class="nav-link">
+  电商业务
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大数据框架及组件" class="dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow down"></span></button> <button type="button" aria-label="大数据框架及组件" class="mobile-dropdown-title"><span class="title">大数据框架及组件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./bigdata/hadoop/" class="nav-link">
+  Hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/hive/" class="nav-link">
+  Hive
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/zookeeper/" class="nav-link">
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kafka/" class="nav-link">
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/spark/" class="nav-link">
+  Spark
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/flink/" class="nav-link">
+  Flink
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/sqoop/Sqoop入门.html" class="nav-link">
+  Sqoop
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/presto/Presto入门.html" class="nav-link">
+  Presto
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/kylin/" class="nav-link">
+  Kylin
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/Druid/Druid入门.html" class="nav-link">
+  Druid
+</a></li><li class="dropdown-item"><!----> <a href="/./bigdata/elasticsearch/ElasticSearch入门.html" class="nav-link">
+  ElasticSearch
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/./other/面经/" class="nav-link">
+  面经
+</a></li><li class="dropdown-item"><!----> <a href="/./other/机器学习/" class="nav-link">
+  机器学习
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>商业化技术</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/./datahouse/%E5%95%86%E4%B8%9A%E5%8C%96%E6%8A%80%E6%9C%AF/" aria-current="page" class="sidebar-link">目录</a></li><li><a href="/./datahouse/商业化技术/广告技术：腾讯广告大数据平台核心架构设计.html" class="sidebar-link">广告技术：腾讯广告大数据平台核心架构设计</a></li><li><a href="/./datahouse/商业化技术/广告风控：计算广告反作弊概述.html" class="sidebar-link">广告风控：计算广告反作弊概述</a></li><li><a href="/./datahouse/商业化技术/用户画像：1 概述.html" class="sidebar-link">用户画像：概述</a></li><li><a href="/./datahouse/商业化技术/用户画像：2 数据标签体系.html" class="sidebar-link">用户画像：数据标签体系</a></li><li><a href="/./datahouse/商业化技术/用户画像：3 标签数据存储.html" class="sidebar-link">用户画像：标签数据存储</a></li><li><a href="/./datahouse/商业化技术/用户画像：4 业务数据调研及ETL.html" class="sidebar-link">用户画像：业务数据调研及ETL</a></li><li><a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html" class="sidebar-link">用户画像：统计类标签数据开发</a></li><li><a href="/./datahouse/商业化技术/用户画像：6 开发性能调优.html" class="active sidebar-link">用户画像：开发性能调优</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：6 开发性能调优.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：6 开发性能调优.html#一、数据倾斜调优" class="sidebar-link">一、数据倾斜调优</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：6 开发性能调优.html#二、合并小文件" class="sidebar-link">二、合并小文件</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：6 开发性能调优.html#三、缓存中间数据" class="sidebar-link">三、缓存中间数据</a></li><li class="sidebar-sub-header"><a href="/./datahouse/商业化技术/用户画像：6 开发性能调优.html#四、开发中间表" class="sidebar-link">四、开发中间表</a></li></ul></li><li><a href="/./datahouse/商业化技术/用户画像：7 机器学习基础.html" class="sidebar-link">用户画像：机器学习基础</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="用户画像-开发性能调优"><a href="#用户画像-开发性能调优" class="header-anchor">#</a> 用户画像：开发性能调优</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>        马上就快过年了，祝福小伙伴们牛年大吉，牛气冲天。本期文章分享的是赵老师在《方法论与工程化解决解决方案》一书中提到的关于如何在用户画像项目开发中进行<strong>性能调优</strong>的例子，希望大家耐心看完后有所收获！</p> <hr> <h2 id="一、数据倾斜调优"><a href="#一、数据倾斜调优" class="header-anchor">#</a> 一、数据倾斜调优</h2> <p>        数据倾斜是开发画像过程中常遇到的问题，当任务执行一直卡在map 100%、reduce 99%，最后的1%花了几个小时都没执行完时，这时一般是遇到了<strong>数据倾斜</strong>。</p> <p>        问题出现的原因是当进行分布式计算时，由于<strong>某些节点需要计算的数据较多，导致其他节点的reduce阶段任务执行完成时，该节点的任务还没有执行完成</strong>，<strong>造成其他节点等待该节点执行完成</strong>的情况。比如两张大表在join的时候大部分key对应10条数据，但是个别几个key对应了100万条数据，对应10条数据的task很快执行完成了，但对应了100万数据的key则要执行几个小时。</p> <p>        下图便是一个典型的例子。</p> <p><img src="https://img-blog.csdnimg.cn/20210208210738487.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <p>​         bb这个key在3个节点上有11条数据，aa和cc在3个节点上分别有2条和1条数据，这些数据都会被拉取到一个task上处理。处理bb这个task的运行时间可能是处理aa和cc的task的运行时间数倍，<strong>整体运行速度由最慢的task决定</strong>。</p> <p>        下面介绍两种解决<strong>数据倾斜</strong>问题的方案。</p> <p><font color="RoyalBlue"><strong>方案一：过滤掉倾斜数据</strong></font></p> <p>        当少量key重复次数特别多，如果这种key不是业务需要的key，可以直接过滤掉。这里有一张埋点日志表 ods.page_event_log ，需要和订单表 dw.order_info_fact 做join关联。在执行Hive的过程中发现任务卡在map 100%、reduce 99%，最后的1%一直运行不完。考虑应该是在join的过程中出现了数据倾斜，下面进行排查。</p> <p>        对于ods.page_event_log表查看出现次数最多的key：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> cookieid<span class="token punctuation">,</span>
+       <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> num
+<span class="token keyword">from</span> ods<span class="token punctuation">.</span>page_event_log
+<span class="token keyword">where</span> data_date <span class="token operator">=</span> <span class="token string">&quot;20190101&quot;</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> cookieid
+    distribute <span class="token keyword">by</span> cookieid
+    sort <span class="token keyword">by</span> num
+    <span class="token keyword">desc</span>
+<span class="token keyword">limit</span> <span class="token number">10</span><span class="token punctuation">;</span>
+</code></pre></div><p>        将 key 按出现次数从多到少排序</p> <p><img src="https://img-blog.csdnimg.cn/20210208211636888.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt=""></p> <p>        同样地，对订单表dw.order_info_fact查看出现次数最多的key：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> cookieid<span class="token punctuation">,</span>
+       <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> num
+<span class="token keyword">from</span> dw<span class="token punctuation">.</span>order_info_fact
+<span class="token keyword">group</span> <span class="token keyword">by</span> cookieid
+    distribute <span class="token keyword">by</span> cookieid
+    sort <span class="token keyword">by</span> num <span class="token keyword">desc</span>
+<span class="token keyword">limit</span> <span class="token number">10</span>
+</code></pre></div><p>        将key按出现次数从多到少排序</p> <p><img src="https://img-blog.csdnimg.cn/20210208211736133.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p> <p>从上面的例子可以看出，日志表和订单表通过 cookieid  进行join，当 cookieid 为0的时候，join操作将会产生142286×142286条数据，数量如此庞大的节点系统无法处理过来。同样当 cookieid 为 NULL 值和 空值 时也会出现这种情况，而且 cookieid 为这3个值时并没有实际的业务意义。因此在对两个表做关联时，排除掉这3个值以后，就可以很快计算出结果了。</p> <p><font color="RoyalBlue"><strong>方案二：引入随机数</strong></font></p> <p>        数据按照类型 group by 时，会将相同的key所需的数据拉取到一个节点进行聚合，而当某组数据量过大时，会出现其他组已经计算完成而当前任务未完成的情况。<strong>可以考虑加入随机数，将原来的一组key强制拆分为多组进行聚合</strong>。下面通过一个案例进行介绍。</p> <p>        现需要统计用户的订单量，执行如下代码：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> t1<span class="token punctuation">.</span>user_id<span class="token punctuation">,</span>
+       t2<span class="token punctuation">.</span>order_num
+    <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">select</span> user_id
+          <span class="token keyword">from</span> dim<span class="token punctuation">.</span>user_info_fact   <span class="token comment"># 用户维度表</span>
+       <span class="token keyword">where</span> data_date <span class="token operator">=</span> <span class="token string">&quot;20190101&quot;</span>
+          <span class="token operator">and</span> user_status_id<span class="token operator">=</span><span class="token number">1</span>
+       <span class="token punctuation">)</span> t1
+  <span class="token keyword">join</span> <span class="token punctuation">(</span> <span class="token keyword">select</span> user_id<span class="token punctuation">,</span>
+            <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> order_num
+       <span class="token keyword">from</span> dw<span class="token punctuation">.</span>dw_order_fact      <span class="token comment"># 订单表</span>
+       <span class="token keyword">where</span> site_id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">600</span><span class="token punctuation">,</span> <span class="token number">900</span><span class="token punctuation">)</span>
+          <span class="token operator">and</span> order_status_id <span class="token operator">in</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+     <span class="token keyword">group</span> <span class="token keyword">by</span> user_id
+ <span class="token punctuation">)</span> t2
+    <span class="token keyword">on</span> t1<span class="token punctuation">.</span>user_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>user_id<span class="token punctuation">;</span>
+</code></pre></div><p>        用户维度表中有2000万条数据，订单表有10亿条数据，任务在未优化前执行了1个小时也没有跑出结果，判断可能是出现了<strong>数据倾斜</strong>。</p> <p>        订单表中某些 key 值数量较多，在group by 的过程中拉取到一个 task 上执行时，会出现其他task执行完毕，等待该task执行的情况。</p> <p>        这里可以将原本相同的key通过添加随机前缀的方式变成多个 key ，<strong>这样将原本被一个 task 处理的 key 分散到多个 task 上先做一次聚合，然后去掉前缀再进行一次聚合得到最终结果</strong>。</p> <p><img src="https://img-blog.csdnimg.cn/20210208212354588.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p> <p>修改后代码执行如下：</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> t1<span class="token punctuation">.</span>user_id<span class="token punctuation">,</span>
+       t2<span class="token punctuation">.</span>order_num
+<span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">select</span> user_id
+      <span class="token keyword">from</span> dim_user_info_fact
+      <span class="token keyword">where</span> data_date <span class="token operator">=</span> <span class="token string">&quot;20190101&quot;</span>
+     <span class="token punctuation">)</span> t1
+         <span class="token keyword">join</span> <span class="token punctuation">(</span><span class="token keyword">select</span> t<span class="token punctuation">.</span>user_id<span class="token punctuation">,</span>
+                      <span class="token function">sum</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>order_num<span class="token punctuation">)</span> <span class="token keyword">as</span> order_num
+               <span class="token keyword">from</span> <span class="token punctuation">(</span><span class="token keyword">select</span> user_id<span class="token punctuation">,</span>
+                            <span class="token function">round</span><span class="token punctuation">(</span>rand<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token keyword">as</span> rnd<span class="token punctuation">,</span>
+                            <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>             <span class="token keyword">as</span> order_num
+                     <span class="token keyword">from</span> dw<span class="token punctuation">.</span>order_info_fact
+                     <span class="token keyword">where</span> pay_status <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+                     <span class="token keyword">group</span> <span class="token keyword">by</span> user_id<span class="token punctuation">,</span> <span class="token function">round</span><span class="token punctuation">(</span>rand<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">)</span> t
+               <span class="token keyword">group</span> <span class="token keyword">by</span> t<span class="token punctuation">.</span>user_id
+<span class="token punctuation">)</span> t2
+              <span class="token keyword">on</span> t1<span class="token punctuation">.</span>user_id <span class="token operator">=</span> t2<span class="token punctuation">.</span>user_id
+</code></pre></div><h2 id="二、合并小文件"><a href="#二、合并小文件" class="header-anchor">#</a> 二、合并小文件</h2> <p>        在Spark执行“insert overwrite table表名”的语句时，由于<strong>多线程并行向HDFS写入且RDD默认分区为200个</strong>，因此默认情况下会产生200个小文件。</p> <p>        Spark中可以使用 <code>reparation</code> 或 <code>coalesce</code> 对RDD的分区重新进行划分，reparation 是 coalesce 接口中 shuffle 为true的实现。</p> <p>        在Spark内部会对每一个分区分配一个task 执行，如果task过多，那么每个task处理的数据量很小，这就会造成线程频繁在task之间切换，导致集群工作效率低下。为解决这个问题，常采用<strong>RDD重分区函数来减少分区数量，将小分区合并为大分区，从而提高集群工作效率</strong>。</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token comment">// 合并插入用户宽表数据的分区</span>
+<span class="token keyword">val</span> executesqls <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span>
+  <span class="token triple-quoted-string string">&quot;&quot;&quot;
+    |     select user_id,
+    |           org_id,
+    |           org_name,
+    |           sum(act_weight) as act_weight,
+    |           sum(cnt) as cnt
+    |       from dw.peasona_user_tag_relation
+    |      where user_id is not null
+    |        and user_id &lt;&gt; 'null'
+    |   group by user_id,org_id,org_name
+&quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span><span class="token punctuation">.</span>rdd<span class="token punctuation">.</span>coalesce<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword">val</span> datardd <span class="token operator">=</span> executesqls<span class="token punctuation">.</span>map<span class="token punctuation">(</span>row <span class="token keyword">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> user_id <span class="token operator">=</span> row<span class="token punctuation">.</span>getAs<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token string">&quot;user_id&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> org_id <span class="token operator">=</span> row<span class="token punctuation">.</span>getAs<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token string">&quot;org_id&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> org_name <span class="token operator">=</span> row<span class="token punctuation">.</span>getAs<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token string">&quot;org_name&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> act_weight <span class="token operator">=</span> row<span class="token punctuation">.</span>getAs<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token string">&quot;act_weight&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> cnt <span class="token operator">=</span> row<span class="token punctuation">.</span>getAs<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token string">&quot;cnt&quot;</span><span class="token punctuation">)</span>
+    Row<span class="token punctuation">(</span>user_id<span class="token punctuation">,</span>org_id<span class="token punctuation">,</span>org_name<span class="token punctuation">,</span>act_weight<span class="token punctuation">,</span>cnt<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+spark<span class="token punctuation">.</span>createDataFrame<span class="token punctuation">(</span>datardd<span class="token punctuation">,</span> StructType<span class="token punctuation">(</span>Seq<span class="token punctuation">(</span>
+    StructField<span class="token punctuation">(</span><span class="token string">&quot;user_id&quot;</span><span class="token punctuation">,</span> StringType<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    StructField<span class="token punctuation">(</span><span class="token string">&quot;org_id&quot;</span><span class="token punctuation">,</span> StringType<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    StructField<span class="token punctuation">(</span><span class="token string">&quot;org_name&quot;</span><span class="token punctuation">,</span> StringType<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    StructField<span class="token punctuation">(</span><span class="token string">&quot;act_weight&quot;</span><span class="token punctuation">,</span> StringType<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    StructField<span class="token punctuation">(</span><span class="token string">&quot;cnt&quot;</span><span class="token punctuation">,</span> StringType<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>createOrReplaceTempView<span class="token punctuation">(</span><span class="token string">&quot;user_act_info&quot;</span><span class="token punctuation">)</span>
+
+spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span>
+  s<span class="token triple-quoted-string string">&quot;&quot;&quot;
+    | INSERT OVERWRITE TABLE dw.peasona_user_tag_relation partition(data_date=&quot;$data_date&quot;)
+    |     SELECT user_id,org_id,org_name,act_weight,cnt
+    |      FROM user_act_info
+  &quot;&quot;&quot;</span><span class="token punctuation">.</span>stripMargin<span class="token punctuation">)</span>
+</code></pre></div><h2 id="三、缓存中间数据"><a href="#三、缓存中间数据" class="header-anchor">#</a> 三、缓存中间数据</h2> <p>        Spark的一个重要的能力就是<strong>将数据持久化缓存</strong>，这样在多个操作期间都可以访问这些持久化的数据。<strong>当持久化一个RDD时，每个节点的其他分区都可以使用RDD在内存中进行计算，在该数据上的其他action操作将直接使用内存中的数据，这样会使其操作计算速度加快</strong>。对RDD的复杂操作如果没有持久化，那么一切的操作都会从源头开始，一步步往后计算，不会复用原始数据。</p> <p>        在画像标签每天ETL的时候，对于一些中间计算结果可以不落磁盘，只需把数据缓存在内存中。而使用Hive进行ETL时需要将一些中间计算结果落在临时表中，使用完临时表后再将其删除。</p> <p>        RDD可以使用 <code>persist</code> 或 <code>cache</code>方法进行持久化，使用 <code>StorageLevel</code> 对象给 persist 方法设置存储级别时，常用的存储级别如下所示。</p> <ul><li><strong>MEMORY_ONLY</strong>：只存储在内存中</li> <li><strong>MEMORY_ONLY_2</strong>：只存储在内存中，每个分区在集群中两个节点上建立副本；</li> <li><strong>DISK_ONLY</strong>：只存储在磁盘中；</li> <li><strong>MEMORY_AND_DISK</strong>：先存储在内存中，内存不够的话存储在磁盘中</li></ul> <p>        其中 <code>cache</code> 方法等同于调用 <strong>persist</strong>（）的 <code>MEMORY_ONLY</code>方法</p> <p>        在画像标签开发中，一般从Hive中读取数据，然后将需要做中间处理的DataFrame注册成缓存表。</p> <p>        这里介绍一个开发画像标签时缓存中间数据的案例。</p> <p>        执行如下代码：</p> <div class="language-scala extra-class"><pre class="language-scala"><code><span class="token comment">// 读取原数据 下单用户</span>
+<span class="token keyword">val</span> peopleRDD <span class="token operator">=</span> spark<span class="token punctuation">.</span>sparkContext<span class="token punctuation">.</span>textFile<span class="token punctuation">(</span><span class="token string">&quot;C:\\Users\\king\\Desktop\\practice\\cookiesession&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span>map<span class="token punctuation">(</span>_<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>       <span class="token comment">// RDD[Array[String]]</span>
+  <span class="token punctuation">.</span>map<span class="token punctuation">(</span> row <span class="token keyword">=&gt;</span> Row<span class="token punctuation">(</span>row<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>row<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>row<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>row<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>row<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment">// RDD[Row]</span>
+peopleRDD<span class="token punctuation">.</span>persist<span class="token punctuation">(</span>StorageLevel<span class="token punctuation">.</span>MEMORY_ONLY<span class="token punctuation">)</span>
+peopleRDD<span class="token punctuation">.</span>createOrReplaceTempView<span class="token punctuation">(</span>“user_base_info”<span class="token punctuation">)</span>
+</code></pre></div><p>        这里将读取的用户数据缓存在内存中并注册为一张视图。后续直接从视图中读取对应用户数据。<strong>在该Spark任务执行完成后，释放内存，不需要清除该缓存数据。</strong></p> <h2 id="四、开发中间表"><a href="#四、开发中间表" class="header-anchor">#</a> 四、开发中间表</h2> <p>        在用户画像迭代开发的过程中，初期开发完标签后，通过对标签加工作业的血缘图整理，可以找到使用相同数据源的标签，对这部分标签，可以通过加工中间表缩减每日画像调度作业时间。</p> <p>        做中间层设计前需要明确几个重要的点：</p> <p>        1）这个中间层对应的业务场景、业务目标是什么？</p> <p>        2）业务方有了这份中间层数据以后可以进行哪些维度的分析，ETL时有了这份中间层数据可以减少对哪些数据的重复开发计算？</p> <p>        3) 这个业务场景分析中包含哪些分析维度和指标？</p> <p>        4）同时面向很多业务场景的中间层不一定是好的中间层。</p> <p>        在开发中间表前，首先需要梳理目前用户标签计算时依赖的上游数据仓库的表（如图5-5所示）</p> <p><img src="https://img-blog.csdnimg.cn/20210208213800193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        和标签的血缘依赖
+<img src="https://img-blog.csdnimg.cn/20210208213832522.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDMxODgzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+        例如在开发过程中，可以在 dwd 层的日分区存放当天日期对应的订单，而 dws层作为服务层，其日分区用于存放当天日期对应的全量数据。这样，在日常调度计算的过程中，可避免在dwd层重复计算历史数据，只需计算当天的新增数据，既节省了ETL时间，也不会影响服务层的数据。</p> <p>        通过对用户标签的血缘图进行梳理，找到共同依赖的上游数据。</p> <blockquote><p>        之前在笔者的项目开发过程中，ETL调度时间过长是一个较难解决的“瓶颈”，每天的调度在跑完计算标签、标签校验预警、计算人群、人群校验预警、同步到服务层等环节后往往需要几个小时，最后提供到服务层数据时也比较晚了。在这个过程中为了减少调度时间，我们也做了很多尝试，包括对一些Hive表设计多个分区，并行跑任务插入数据；对一些执行时间过长的脚本进行调优；梳理数据血缘开发中间层表，对一些常见的公共数据直接从中间层表获取数据，减少数据的重复开发计算等。在经过多次迭代后也取得了不错的效果，将整体调度时间压缩了1/3，可以满足每天及时将画像数据输出到服务层的需要。</p> <p>        本期介绍了画像系统在数据开发中可能遇到的需要调优的场景。通过对数据倾斜、合并小文件、缓存中间数据、开发中间表几个常见问题的处理，可以优化ETL作业流程，减少调度的整体时间。</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/./datahouse/商业化技术/用户画像：5 统计类标签数据开发.html" class="prev">
+        用户画像：统计类标签数据开发
+      </a></span> <span class="next"><a href="/./datahouse/商业化技术/用户画像：7 机器学习基础.html">
+        用户画像：机器学习基础
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="./assets/js/app.9ce0d262.js" defer></script><script src="./assets/js/2.fa5f1a4a.js" defer></script><script src="./assets/js/113.e0bb8777.js" defer></script>
+  </body>
+</html>
