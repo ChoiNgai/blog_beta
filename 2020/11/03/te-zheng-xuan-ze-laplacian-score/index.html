@@ -491,7 +491,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-06
+                    2021-11-30
                 </div>
                 
 
@@ -516,7 +516,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>上次介绍了<a href="">一种特征选择方法：FisherScore</a>，但是没有介绍特征选择，更没有介绍特征工程。这里上一张别人的图简单介绍一下整个框架（找找特征选择在哪）。</p>
-<p> <img src="https://img-blog.csdn.net/20180920175451704?" alt="img"> </p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211130141110.png" alt=""></p>
 <h2 id="Laplacian-Score"><a href="#Laplacian-Score" class="headerlink" title="Laplacian Score"></a>Laplacian Score</h2><p>数据集$X={x_{ij} }$,$i=1,2…n;j=1,2…d.$其中$n$为样本数，$d$为样本特征数。标签信息$y_k,k={1,2…c}$,其中$c$为类簇数，$d_k^{ii’}$表示样本$i$与样本$i’$之间最近邻$k$个样本的最大距离。</p>
 <p>构建无向权重图$G(V,E)$，其节点由图集$V=x_i$构成，样本间的近邻关系表示为图的边形成边集$E$。如果$||x_i-x_i^{‘}||\le d_k^{ii’}$，则样本$i$与样本$i’$连接成边。可定义下生成相似度矩阵 ：<br>$$<br>S_{ii’} =<br>\left{<br>             \begin{array}{<strong>lr</strong>}<br>            \dfrac{1}{n_k} , &amp; y_i=y_{i’}=k \<br>             0,&amp; 其他\  </p>
 <pre><code>         \end{array}  </code></pre><p>\right.<br>$$<br>定义$L_0$为无向权重图$G$中的拉普拉斯矩阵，令邻接矩阵$W_{ii’}=S_{ii’}(1\le i,i’ \le n)$，$W$是对称矩阵，其度矩阵$D$为：<br>$$<br>D_{ii’} =<br>\left{<br>             \begin{array}{<strong>lr</strong>}<br>            \sum_{i’=1}^n W_{ii’} , &amp; i’= i \<br>             0,&amp; i’ \not=i \  </p>
@@ -2564,7 +2564,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br> -->
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">157.5k</span>&nbsp;字
+                class="white-color">177.9k</span>&nbsp;字
             
             
             
