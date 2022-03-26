@@ -532,7 +532,7 @@
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20220326053704.png" alt=""></p>
 <h3 id="2-2-生成校验快"><a href="#2-2-生成校验快" class="headerlink" title="2.2 生成校验快"></a>2.2 生成校验快</h3><p>EC存储生成校验块后能恢复数据，乍一看挺神奇，但实际上小学数学里已经学过了，先来看个简单的例子。</p>
-<p>如果有三个整数如下：<br>$$<br>\left{<br>\begin{array}{<strong>lr</strong>}<br>x_1 = 1 \<br>x_2 = 2 \<br>x_3 = 3<br>\end{array}<br>\right.<br>$$<br>如果有其中一个数可能会丢失，就需要从这几个数里搞出点新的信息用来以备数据丢失一部分后还能恢复，我们把这个信息称为<strong>校验块</strong></p>
+<p>如果有三个整数如下：<br>$$<br>\left{<br>\begin{array}{<strong>lr</strong>}<br>x_1 = 1 \\<br>x_2 = 2 \\<br>x_3 = 3<br>\end{array}<br>\right.<br>$$<br>如果有其中一个数可能会丢失，就需要从这几个数里搞出点新的信息用来以备数据丢失一部分后还能恢复，我们把这个信息称为<strong>校验块</strong></p>
 <ul>
 <li><p>当丢失一个数据</p>
 <p>最简单的方式有，直接把这三个累加得到一个数值$s_1$，那么当丢失其中一个数据后，将$s_1$减去剩下的两个数据即可得到丢失的数据。</p>
@@ -689,7 +689,7 @@ M<span class="token punctuation">.</span>join<span class="token punctuation">(</
 <span class="token comment" spellcheck="true"># |  0|     0| 58|</span>
 <span class="token comment" spellcheck="true"># +---+------+---+</span></code></pre>
 <p>看一下一般的矩阵乘法优化过后的乘法性能对比：</p>
-<p><img src="http://hejunhao.me/wordpress/wp-content/uploads/2018/08/spark.png" alt="性能对比"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20220326081529.png" alt="性能对比"></p>
 <h4 id="3-2-3-超大矩阵运算"><a href="#3-2-3-超大矩阵运算" class="headerlink" title="3.2.3 超大矩阵运算"></a>3.2.3 超大矩阵运算</h4><p>超大矩阵的运算几乎都是分块的思想</p>
 <p><a href="https://blog.csdn.net/u010376788/article/details/49764805" target="_blank" rel="noopener">基于Spark实现的超大矩阵运算</a></p>
 <p><a href="https://blog.csdn.net/qq_31687015/article/details/79367047" target="_blank" rel="noopener">基于Spark框架的大型分布式矩阵求逆运算实现（二）——大型下三角矩阵求逆运算</a></p>
