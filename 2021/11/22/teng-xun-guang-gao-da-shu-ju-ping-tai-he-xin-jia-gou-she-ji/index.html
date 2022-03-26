@@ -505,7 +505,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    21 分
                 </div>
                 
 
@@ -671,7 +671,25 @@
 <p>4)近半年数据推送及查询涉及团队：28个部门、112个团队</p>
 <p>5)曝光收入类查询中位数耗时15s</p>
 <p>本文从数据接入、数据处理、数据应用三个层面剖析了大数据平台的架构设计，鉴于篇幅的限制，本文无法对数据平台中的每一个模块进行细致而全面的介绍，之后我们将通过开辟新的文章的方式对上文中提到的核心系统进行全面的分享。除了上文中提到的应用和服务之外，数据平台还负责着统一缓存服务(提供用户的基础属性等的查询)、TencentAdId服务、Poseidon海量标签检索服务等相对独立的数据服务，后面我们也将对此进行分享。</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1277,27 +1295,19 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
+			
             <!-- <a href="/about" target="_blank">CAIWEI</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br> -->
+			
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">177.9k</span>&nbsp;字
+                class="white-color">182.3k</span>&nbsp;字
             
             
             
             
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
             
             <br>
             

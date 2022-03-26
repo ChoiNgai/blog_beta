@@ -485,7 +485,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    14
+                    66
                 </div>
                 
 
@@ -502,9 +502,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
-<!-- 因为vue和botui更新导至bug,现将对话移至js下的botui中配置 -->
-<div class="entry-content">
+                <div class="entry-content">
   <div class="moe-mashiro" style="text-align:center; font-size: 50px; margin-bottom: 20px;">プログラマ</div>
   <div id="hello-mashiro" class="popcontainer" style="min-height: 300px; padding: 2px 6px 4px; background-color: rgba(242, 242, 242, 0.5); border-radius: 10px;">
     <center>
@@ -523,15 +521,33 @@
     <p>
     </p>
     </center>
-    <bot-ui></botui>
-  </div>
+    <bot-ui>
+  </bot-ui></div>
 </div>
 <script src="/js/botui.js"></script>
 <script>
 bot_ui_ini()
 </script>
 
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -914,8 +930,6 @@ bot_ui_ini()
                     <div class="summary block-with-text">
                         
                             
-
-
   プログラマ
   
     
@@ -932,7 +946,8 @@ bot_ui_ini()
     
     对话中...
     
-   
+    
+
                         
                     </div>
                     <div class="publish-info">
@@ -971,8 +986,6 @@ bot_ui_ini()
                     <div class="summary block-with-text">
                         
                             
-
-
   プログラマ
   
     
@@ -989,7 +1002,8 @@ bot_ui_ini()
     
     对话中...
     
-   
+    
+
                         
                     </div>
                     <div class="publish-info">
@@ -1148,27 +1162,19 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
+			
             <!-- <a href="/about" target="_blank">CAIWEI</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br> -->
+			
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">177.9k</span>&nbsp;字
+                class="white-color">182.3k</span>&nbsp;字
             
             
             
             
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
             
             <br>
             

@@ -532,7 +532,7 @@
 </li>
 </ol>
 <p>卷积神经网络中常见的降采样通过是池化层实现，目前常见的池化层有：最大池化层，平均池化层等。池化目的是对输入的特征图（Feature Map）进行降维以减少参数并且保留有效的特征，以减少之后的运算量。</p>
- <center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/paper/深度学习图像采样综述(1.jpg" width="600"/></center> 
+ <center><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/paper/深度学习图像采样综述(1.jpg" width="600"></center> 
 
 
 
@@ -540,7 +540,7 @@
 <p>典型的卷积神经网络一般包括输入层、输出层以及诸多的隐藏层，其中隐藏层一般由卷积层、池化层、全连接层、等构成，其中卷积以及池化其本质是图像采用。卷积神经网络最具有特色的结构便是卷积核，由于卷积才使得卷积神经网络在处理图像上相对于循环神经网络等效果较好。卷积和池化是提取特征和降维的过程，特征图经过数层的卷积运算最终得到的是较为高级的特征，因而，如何利用有限的计算资源提取出更多有效的高级特征便是深度学习在计算机视觉领域研究内至关重要的研究。</p>
 <p>卷积神经网络中的图像采样主要表现在卷积以及池化，卷积主要目的在于提取特征，而池化的目的在于降维减少计算量。输入层读入规则化的图像，每一层的每个神经元将前一层的一组小的局部感受野并权值共享。神经元抽取边缘、角点等基本的视觉特征，经过一层层的采样逐渐转变为高级视觉特征。卷积神经网络通过卷积操作获得特征图，每个位置，来自不同特征图的单元得到各自不同类型的特征。一个卷积层中可能包含多个不同权值的特征图，这使得被保留的图像具备更丰富的特征。卷积层后边会连接池化层进行降采样操作，一方面可以降低图像的分辨率，减少参数量，另一方面可以获得平移和形变的鲁棒性。卷积层和池化层的交替分布，使得特征图的数目逐步增多，而且分辨率逐渐降低，最终完成分类。</p>
 <h3 id="3-1-卷积自编码器"><a href="#3-1-卷积自编码器" class="headerlink" title="3.1 卷积自编码器"></a>3.1 卷积自编码器</h3><p>无监督学习方法的主要目的是从未标记的数据中提取一般有用的特征，检测和去除输入冗余，并在稳健和有区别的表示中仅保留数据的基本方面。卷积自编码器是一种结合了卷积和池化操作的无监督学习方法，其通过特征提取、堆栈，实现深层的神经网络[3.1-1]。 </p>
-<center><img src="http://deeplearning.stanford.edu/wiki/images/f/f9/Autoencoder636.png" width="300"></img></center>
+<center><img src="http://deeplearning.stanford.edu/wiki/images/f/f9/Autoencoder636.png" width="300"></center>
 <center>图 卷积自编码器</center>
 
 <p>假设有k个卷积核，每个卷积核由参数$w^k$和$b^k$组成，用和$h^k$表示卷积层，则<br>$$<br>h^k=σ(x∗w^k+b^k)<br>$$<br>将得到的$h^k$进行特征重构，可以得到下式：<br>$$<br>y=σ(h^k∗w^k+c)<br>$$</p>
@@ -624,7 +624,7 @@
 <p>最早的图神经网络起源于Franco博士的论文[2], 它的理论基础是<strong>不动点</strong>理论。给定一张图 GG，每个结点都有其自己的特征(feature), 本文中用xvxv表示结点v的特征；连接两个结点的边也有自己的特征，本文中用x(v,u)x(v,u)表示结点v与结点u之间边的特征；GNN的学习目标是获得每个结点的图感知的隐藏状态 hvhv(state embedding)，这就意味着：对于每个节点，它的隐藏状态包含了来自邻居节点的信息。那么，如何让每个结点都感知到图上其他的结点呢？GNN通过<strong>迭代式更新</strong>所有结点的隐藏状态来实现，在t+1t+1时刻，结点vv的隐藏状态按照如下方式更新：</p>
 <p>ht+1v=f(xv,xco[v],htne[v],xne[v]),𝐡𝑣t+1=𝑓(𝐱𝑣,𝐱𝑐𝑜[𝑣],𝐡𝑛t𝑒[𝑣],𝐱𝑛𝑒[𝑣]),</p>
 <p>上面这个公式中的 ff 就是隐藏状态的<strong>状态更新</strong>函数，在论文中也被称为<strong>局部转移函数</strong>(local transaction function)。公式中的xco[v]𝐱𝑐𝑜[𝑣]指的是与结点vv相邻的边的特征，xne[v]𝐱𝑛𝑒[𝑣]指的是结点vv的邻居结点的特征，htne[v]𝐡𝑛t𝑒[𝑣]则指邻居结点在tt时刻的隐藏状态。注意 ff 是对所有结点都成立的，是一个全局共享的函数。那么怎么把它跟深度学习结合在一起呢？聪明的读者应该想到了，那就是利用神经网络(Neural Network)来拟合这个复杂函数 ff。值得一提的是，虽然看起来 ff 的输入是不定长参数，但在 ff 内部我们可以先将不定长的参数通过一定操作变成一个固定的参数，比如说用所有隐藏状态的加和来代表所有隐藏状态。我们举个例子来说明一下：</p>
-<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/imsafma134.jpg" width="40%"></img></p>
+<p><img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/md/imsafma134.jpg" width="40%"></p>
 <p>假设结点55为中心结点，其隐藏状态的更新函数如图所示。这个更新公式表达的思想自然又贴切：不断地利用当前时刻邻居结点的隐藏状态作为部分输入来生成下一时刻中心结点的隐藏状态，直到每个结点的隐藏状态变化幅度很小，整个图的信息流动趋于平稳。至此，每个结点都“知晓”了其邻居的信息。状态更新公式仅描述了如何获取每个结点的隐藏状态，除它以外，我们还需要另外一个函数 gg 来描述如何适应下游任务。举个例子，给定一个社交网络，一个可能的下游任务是判断各个结点是否为水军账号。</p>
 <p>ov=g(hv,xv)𝐨𝑣=𝑔(𝐡𝑣,𝐱𝑣)</p>
 <p>在原论文中，gg 又被称为<strong>局部输出函数</strong>(local output function)，与 f类似，g 也可以由一个神经网络来表达，它也是一个全局共享的函数。那么，整个流程可以用下面这张图表达：</p>
@@ -737,7 +737,25 @@
 <p>[5-1]  Goodfellow I J , Pouget-Abadie J , Mirza M , et al. Generative Adversarial Networks[J]. Advances in Neural Information Processing Systems, 2014, 3:2672-2680. </p>
 <p>[5-2]   朱秀昌. 生成对抗网络图像处理综述[J]. 南京邮电大学学报:自然科学版, 2019, 39(3):1-12. </p>
 <p>[5-3]  Creswell, Antonia, et al. “Generative adversarial networks: An overview.” <em>IEEE Signal Processing Magazine</em> 35.1 (2018): 53-65. </p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1359,27 +1377,19 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
+			
             <!-- <a href="/about" target="_blank">CAIWEI</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br> -->
+			
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">177.9k</span>&nbsp;字
+                class="white-color">182.3k</span>&nbsp;字
             
             
             
             
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
             
             <br>
             

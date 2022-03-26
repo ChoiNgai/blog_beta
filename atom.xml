@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.memorydrive.online/"/>
-  <updated>2022-03-06T23:16:19.404Z</updated>
+  <updated>2022-03-26T00:06:00.021Z</updated>
   <id>https://www.memorydrive.online/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>EC存储原理及简单工程化实现</title>
+    <link href="https://www.memorydrive.online/2022/03/26/ec-cun-chu-yuan-li-ji-jian-dan-gong-cheng-hua-shi-xian/"/>
+    <id>https://www.memorydrive.online/2022/03/26/ec-cun-chu-yuan-li-ji-jian-dan-gong-cheng-hua-shi-xian/</id>
+    <published>2022-03-25T20:52:41.000Z</published>
+    <updated>2022-03-26T00:06:00.021Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-为什么要EC？&quot;&gt;&lt;a href=&quot;#1-为什么要EC？&quot; class=&quot;headerlink&quot; title=&quot;1. 为什么要EC？&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+    
+      <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="存储" scheme="https://www.memorydrive.online/tags/%E5%AD%98%E5%82%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>数据开发修仙手册</title>
@@ -560,33 +587,6 @@
     
     
       <category term="数据结构" scheme="https://www.memorydrive.online/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SQL底层原理及实操记录</title>
-    <link href="https://www.memorydrive.online/2021/03/31/sql-di-ceng-yuan-li-ji-shi-cao-ji-lu/"/>
-    <id>https://www.memorydrive.online/2021/03/31/sql-di-ceng-yuan-li-ji-shi-cao-ji-lu/</id>
-    <published>2021-03-31T02:41:16.000Z</published>
-    <updated>2021-05-09T15:32:50.737Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="大数据技术" scheme="https://www.memorydrive.online/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="SQL" scheme="https://www.memorydrive.online/tags/SQL/"/>
     
   </entry>
   

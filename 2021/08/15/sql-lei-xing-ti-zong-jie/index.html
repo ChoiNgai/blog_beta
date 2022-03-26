@@ -498,14 +498,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15.6k
+                    15.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    63 分
+                    64 分
                 </div>
                 
 
@@ -529,7 +529,7 @@
     <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> t
 <span class="token punctuation">)</span> <span class="token number">a</span></code></pre>
 </blockquote>
-<h2 id="累计求和"><a href="#累计求和" class="headerlink" title="累计求和"></a>累计求和</h2><h4 id="SQL60-统计salary的累计和running-total（较难）"><a href="#SQL60-统计salary的累计和running-total（较难）" class="headerlink" title="SQL60 统计salary的累计和running_total（较难）"></a><a href="https://www.nowcoder.com/practice/58824cd644ea47d7b2b670c506a159a6?tpId=82&&tqId=29828&rp=1&ru=/ta/sql&qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL60</strong> <strong>统计salary的累计和running_total</strong></a>（较难）</h4><blockquote>
+<h2 id="累计求和"><a href="#累计求和" class="headerlink" title="累计求和"></a>累计求和</h2><h4 id="SQL60-统计salary的累计和running-total（较难）"><a href="#SQL60-统计salary的累计和running-total（较难）" class="headerlink" title="SQL60 统计salary的累计和running_total（较难）"></a><a href="https://www.nowcoder.com/practice/58824cd644ea47d7b2b670c506a159a6?tpId=82&amp;&amp;tqId=29828&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL60</strong> <strong>统计salary的累计和running_total</strong></a>（较难）</h4><blockquote>
 <p>描述</p>
 <p>按照salary的累计和running_total，其中running_total为前N个当前( to_date = ‘9999-01-01’)员工的salary累计和，其他以此类推。 具体结果如下Demo展示。。<br>CREATE TABLE <code>salaries</code> ( <code>emp_no</code> int(11) NOT NULL,<br><code>salary</code> int(11) NOT NULL,<br><code>from_date</code> date NOT NULL,<br><code>to_date</code> date NOT NULL,<br>PRIMARY KEY (<code>emp_no</code>,<code>from_date</code>));<br>输出格式:</p>
 <table>
@@ -584,7 +584,7 @@
 <span class="token keyword">SELECT</span> emp_no<span class="token punctuation">,</span>salary<span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> emp_no<span class="token punctuation">)</span> <span class="token keyword">AS</span> running_total
 <span class="token keyword">FROM</span> salaries
 <span class="token keyword">WHERE</span> to_date <span class="token operator">=</span> <span class="token string">'9999-01-01'</span></code></pre>
-<h4 id="SQL71-牛客每个人最近的登录日期-六-（较难）"><a href="#SQL71-牛客每个人最近的登录日期-六-（较难）" class="headerlink" title="SQL71 牛客每个人最近的登录日期(六)（较难）"></a><a href="https://www.nowcoder.com/practice/572a027e52804c058e1f8b0c5e8a65b4?tpId=82&&tqId=35089&rp=1&ru=/activity/oj&qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL71</strong> <strong>牛客每个人最近的登录日期(六)</strong></a>（较难）</h4><blockquote>
+<h4 id="SQL71-牛客每个人最近的登录日期-六-（较难）"><a href="#SQL71-牛客每个人最近的登录日期-六-（较难）" class="headerlink" title="SQL71 牛客每个人最近的登录日期(六)（较难）"></a><a href="https://www.nowcoder.com/practice/572a027e52804c058e1f8b0c5e8a65b4?tpId=82&amp;&amp;tqId=35089&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL71</strong> <strong>牛客每个人最近的登录日期(六)</strong></a>（较难）</h4><blockquote>
 <p>描述</p>
 <p>牛客每天有很多人登录，请你统计一下牛客每个用户查询刷题信息，包括: 用户的名字，以及截止到某天，累计总共通过了多少题。 不存在没有登录却刷题的情况，但是存在登录了没刷题的情况，不会存在刷题表里面，有提交代码没有通过的情况，但是会记录在刷题表里，只不过通过数目是0。<br>有一个登录(login)记录表，简况如下:</p>
 <p><img src="https://uploadfiles.nowcoder.com/images/20200820/557336_1597903934415_A5E822A1E15CEBC7E16183ECD9D7CC7A" alt="img"></p>
@@ -613,7 +613,7 @@
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">user</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">OVER</span><span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> user_id <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">,</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> passing_number
 <span class="token keyword">JOIN</span> <span class="token keyword">user</span> <span class="token keyword">ON</span> passing_number<span class="token punctuation">.</span>user_id <span class="token operator">=</span> <span class="token keyword">user</span><span class="token punctuation">.</span>id
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">date</span><span class="token punctuation">,</span><span class="token keyword">user</span><span class="token punctuation">.</span>name</code></pre>
-<h2 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h2><h4 id="SQL73-考试分数-二-（中等）"><a href="#SQL73-考试分数-二-（中等）" class="headerlink" title="SQL73 考试分数(二)（中等）"></a><a href="https://www.nowcoder.com/practice/f456dedf88a64f169aadd648491a27c1?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL73</strong> <strong>考试分数(二)</strong></a>（中等）</h4><blockquote>
+<h2 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h2><h4 id="SQL73-考试分数-二-（中等）"><a href="#SQL73-考试分数-二-（中等）" class="headerlink" title="SQL73 考试分数(二)（中等）"></a><a href="https://www.nowcoder.com/practice/f456dedf88a64f169aadd648491a27c1?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL73</strong> <strong>考试分数(二)</strong></a>（中等）</h4><blockquote>
 <p>描述</p>
 <p>牛客每次考试完，都会有一个成绩表(grade)，如下:</p>
 <p><img src="https://uploadfiles.nowcoder.com/images/20210204/557336_1612434140530/A40EBCABDBC68539EE224EE1DC2A7FE7" alt="img"></p>
@@ -648,7 +648,7 @@
 <span class="token keyword">ON</span> <span class="token number">a</span><span class="token punctuation">.</span>job <span class="token operator">=</span> <span class="token number">b</span><span class="token punctuation">.</span>job
 <span class="token keyword">WHERE</span> <span class="token number">a</span><span class="token punctuation">.</span>score <span class="token operator">></span> <span class="token number">b</span><span class="token punctuation">.</span>score
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id</code></pre>
-<h4 id="SQL86-实习广场投递简历分析-三-（困难）"><a href="#SQL86-实习广场投递简历分析-三-（困难）" class="headerlink" title="SQL86 实习广场投递简历分析(三)（困难）"></a><a href="https://www.nowcoder.com/practice/83f84aa5c32b4cf5a75558d02dd7743c?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL86</strong> <strong>实习广场投递简历分析(三)</strong></a>（困难）</h4><blockquote>
+<h4 id="SQL86-实习广场投递简历分析-三-（困难）"><a href="#SQL86-实习广场投递简历分析-三-（困难）" class="headerlink" title="SQL86 实习广场投递简历分析(三)（困难）"></a><a href="https://www.nowcoder.com/practice/83f84aa5c32b4cf5a75558d02dd7743c?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL86</strong> <strong>实习广场投递简历分析(三)</strong></a>（困难）</h4><blockquote>
 <p>描述</p>
 <p>在牛客实习广场有很多公司开放职位给同学们投递，同学投递完就会把简历信息存到数据库里。</p>
 <p>现在有简历信息表(resume_info)，部分信息简况如下:</p>
@@ -707,7 +707,7 @@
 <span class="token keyword">WHERE</span> <span class="token number">a</span><span class="token punctuation">.</span>job <span class="token operator">=</span><span class="token number">b</span><span class="token punctuation">.</span>job
 <span class="token operator">AND</span> SUBSTR<span class="token punctuation">(</span><span class="token number">a</span><span class="token punctuation">.</span>mon<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">=</span> SUBSTR<span class="token punctuation">(</span><span class="token number">b</span><span class="token punctuation">.</span>mon<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token number">a</span><span class="token punctuation">.</span>mon <span class="token keyword">DESC</span><span class="token punctuation">,</span>job <span class="token keyword">DESC</span></code></pre>
-<h2 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h2><h3 id="取整"><a href="#取整" class="headerlink" title="取整"></a>取整</h3><h4 id="SQL75-考试分数-四-（较难）"><a href="#SQL75-考试分数-四-（较难）" class="headerlink" title="SQL75 考试分数(四)（较难）"></a><a href="https://www.nowcoder.com/practice/502fb6e2b1ad4e56aa2e0dd90c6edf3c?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL75</strong> <strong>考试分数(四)</strong></a>（较难）</h4><blockquote>
+<h2 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h2><h3 id="取整"><a href="#取整" class="headerlink" title="取整"></a>取整</h3><h4 id="SQL75-考试分数-四-（较难）"><a href="#SQL75-考试分数-四-（较难）" class="headerlink" title="SQL75 考试分数(四)（较难）"></a><a href="https://www.nowcoder.com/practice/502fb6e2b1ad4e56aa2e0dd90c6edf3c?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL75</strong> <strong>考试分数(四)</strong></a>（较难）</h4><blockquote>
 <p>描述</p>
 <p>牛客每次考试完，都会有一个成绩表(grade)，如下:</p>
 <p><img src="https://uploadfiles.nowcoder.com/images/20210204/557336_1612434754935/ECC08FF796C5751177B2300798551D67" alt="img"></p>
@@ -742,7 +742,7 @@
     <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> job
 <span class="token punctuation">)</span> <span class="token number">a</span>
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> job</code></pre>
-<h4 id="SQL76-考试分数-五"><a href="#SQL76-考试分数-五" class="headerlink" title="SQL76 考试分数(五)"></a><a href="#NIUKE_SQL76">SQL76 考试分数(五)</a></h4><h3 id="正序-逆序"><a href="#正序-逆序" class="headerlink" title="正序+逆序"></a>正序+逆序</h3><h4 id="SQL88-最差是第几名-二-（较难）"><a href="#SQL88-最差是第几名-二-（较难）" class="headerlink" title="SQL88 最差是第几名(二)（较难）"></a><a href="https://www.nowcoder.com/practice/165d88474d434597bcd2af8bf72b24f1?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL88</strong> <strong>最差是第几名(二)</strong></a>（较难）</h4><blockquote>
+<h4 id="SQL76-考试分数-五"><a href="#SQL76-考试分数-五" class="headerlink" title="SQL76 考试分数(五)"></a><a href="#NIUKE_SQL76">SQL76 考试分数(五)</a></h4><h3 id="正序-逆序"><a href="#正序-逆序" class="headerlink" title="正序+逆序"></a>正序+逆序</h3><h4 id="SQL88-最差是第几名-二-（较难）"><a href="#SQL88-最差是第几名-二-（较难）" class="headerlink" title="SQL88 最差是第几名(二)（较难）"></a><a href="https://www.nowcoder.com/practice/165d88474d434597bcd2af8bf72b24f1?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL88</strong> <strong>最差是第几名(二)</strong></a>（较难）</h4><blockquote>
 <p>描述</p>
 <p>TM小哥和FH小妹在牛客大学若干年后成立了牛客SQL班，班的每个人的综合成绩用A,B,C,D,E表示，90分以上都是A，80<del>90分都是B，60</del>70分为C，50~60为D，E为50分以下</p>
 <p>因为每个名次最多1个人，比如有2个A，那么必定有1个A是第1名，有1个A是第2名(综合成绩同分也会按照某一门的成绩分先后)。</p>
@@ -781,19 +781,19 @@
 <span class="token punctuation">)</span> t
 <span class="token keyword">WHERE</span> t<span class="token punctuation">.</span>rs1 <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">FROM</span> class_grade<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span>
 <span class="token operator">AND</span> t<span class="token punctuation">.</span>rs2 <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token keyword">FROM</span> class_grade<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span></code></pre>
-<h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h4 id="SQL51-查找字符串-10-A-B-中逗号-出现的次数cnt（中等）"><a href="#SQL51-查找字符串-10-A-B-中逗号-出现的次数cnt（中等）" class="headerlink" title="SQL51 查找字符串 10,A,B 中逗号,出现的次数cnt（中等）"></a><a href="https://www.nowcoder.com/practice/e3870bd5d6744109a902db43c105bd50?tpId=82&&tqId=29819&rp=1&ru=/activity/oj&qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL51</strong> <strong>查找字符串 10,A,B 中逗号,出现的次数cnt</strong></a>（中等）</h4><blockquote>
+<h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h4 id="SQL51-查找字符串-10-A-B-中逗号-出现的次数cnt（中等）"><a href="#SQL51-查找字符串-10-A-B-中逗号-出现的次数cnt（中等）" class="headerlink" title="SQL51 查找字符串 10,A,B 中逗号,出现的次数cnt（中等）"></a><a href="https://www.nowcoder.com/practice/e3870bd5d6744109a902db43c105bd50?tpId=82&amp;&amp;tqId=29819&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL51</strong> <strong>查找字符串 10,A,B 中逗号,出现的次数cnt</strong></a>（中等）</h4><blockquote>
 <p>描述</p>
 <p>查找字符串’10,A,B’ 中逗号’,’出现的次数cnt。</p>
 <p>示例1</p>
 <p>输入：</p>
-<pre><code>&quot;10,A,B&quot;</code></pre><p>输出：</p>
+<pre><code>"10,A,B"</code></pre><p>输出：</p>
 <pre><code>2.0000</code></pre></blockquote>
 <p>思路：用<code>REPLACE()</code>函数替换需要处理的字符串，将逗号替换为空，用<code>length()</code>函数统计原字符串长度以及处理后的字符串长度，相减得到个数</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token punctuation">(</span>length<span class="token punctuation">(</span><span class="token string">'10,A,B'</span><span class="token punctuation">)</span> <span class="token operator">-</span> length<span class="token punctuation">(</span>REPLACE<span class="token punctuation">(</span><span class="token string">'10,A,B'</span><span class="token punctuation">,</span><span class="token string">","</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt</code></pre>
 <blockquote>
 <p>拓展：此题不需要取整，如果需要取整的话可以用<code>ROUND()</code>函数</p>
 </blockquote>
-<h4 id="SQL52-获取Employees中的first-name（中等）"><a href="#SQL52-获取Employees中的first-name（中等）" class="headerlink" title="SQL52 获取Employees中的first_name（中等）"></a><a href="https://www.nowcoder.com/practice/74d90728827e44e2864cce8b26882105?tpId=82&&tqId=29820&rp=1&ru=/activity/oj&qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL52</strong> <strong>获取Employees中的first_name</strong></a>（中等）</h4><p>（我觉得题名该写成<strong>SQL52</strong> <strong>获取Employees中的first_name并按照first_name后两个字符串排序</strong>）</p>
+<h4 id="SQL52-获取Employees中的first-name（中等）"><a href="#SQL52-获取Employees中的first-name（中等）" class="headerlink" title="SQL52 获取Employees中的first_name（中等）"></a><a href="https://www.nowcoder.com/practice/74d90728827e44e2864cce8b26882105?tpId=82&amp;&amp;tqId=29820&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL52</strong> <strong>获取Employees中的first_name</strong></a>（中等）</h4><p>（我觉得题名该写成<strong>SQL52</strong> <strong>获取Employees中的first_name并按照first_name后两个字符串排序</strong>）</p>
 <blockquote>
 <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>获取Employees中的first_name，查询按照first_name最后两个字母，按照升序进行排列<br>CREATE TABLE <code>employees</code> (<br><code>emp_no</code> int(11) NOT NULL,<br><code>birth_date</code> date NOT NULL,<br><code>first_name</code> varchar(14) NOT NULL,<br><code>last_name</code> varchar(16) NOT NULL,<br><code>gender</code> char(1) NOT NULL,<br><code>hire_date</code> date NOT NULL,<br>PRIMARY KEY (<code>emp_no</code>));<br>输出格式：</p>
 <table>
@@ -831,7 +831,7 @@
 <p>格式2：<br> 1、string 需要截取的字符串<br> 2、a 可以理解为从第a个字符开始截取后面所有的字符串。</p>
 </blockquote>
 <p>此外，也可以用<code>RIGHT()</code>函数，这题将SUBSRT函数换成``RIGHT(first_name,2)<code>也可以达到同样的效果，表示从右开始数截取两个字符（所以</code>LEFT(first_name,2)<code>函数就表示从左开始截取first_name字段的2个字符）。限于认知水平，本人觉得</code>RIGHT()<code>和</code>LEFT()`很鸡肋。</p>
-<h4 id="SQL83-牛客的课程订单分析-七-（较难）"><a href="#SQL83-牛客的课程订单分析-七-（较难）" class="headerlink" title="SQL83 牛客的课程订单分析(七)（较难）"></a><a href="https://www.nowcoder.com/practice/d6f4a37f966145da8900ba9edcc4c068?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL83</strong> <strong>牛客的课程订单分析(七)</strong></a>（较难）</h4><blockquote>
+<h4 id="SQL83-牛客的课程订单分析-七-（较难）"><a href="#SQL83-牛客的课程订单分析-七-（较难）" class="headerlink" title="SQL83 牛客的课程订单分析(七)（较难）"></a><a href="https://www.nowcoder.com/practice/d6f4a37f966145da8900ba9edcc4c068?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL83</strong> <strong>牛客的课程订单分析(七)</strong></a>（较难）</h4><blockquote>
 <p>描述</p>
 <p>有很多同学在牛客购买课程来学习，购买会产生订单存到数据库里。</p>
 <p>有一个订单信息表(order_info)，简况如下:</p>
@@ -906,7 +906,7 @@
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> client<span class="token punctuation">.</span>name
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> source
 </code></pre>
-<h2 id="字段拼接"><a href="#字段拼接" class="headerlink" title="字段拼接"></a>字段拼接</h2><h4 id="将employees表中的所有员工的last-name和first-name通过引号连接起来（中等）"><a href="#将employees表中的所有员工的last-name和first-name通过引号连接起来（中等）" class="headerlink" title="将employees表中的所有员工的last_name和first_name通过引号连接起来（中等）"></a><a href="https://www.nowcoder.com/practice/810bf4ee3ac64949b08983aa66ec7bee?tpId=82&&tqId=29818&rp=1&ru=/activity/oj&qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>将employees表中的所有员工的last_name和first_name通过引号连接起来</strong></a>（中等）</h4><blockquote>
+<h2 id="字段拼接"><a href="#字段拼接" class="headerlink" title="字段拼接"></a>字段拼接</h2><h4 id="将employees表中的所有员工的last-name和first-name通过引号连接起来（中等）"><a href="#将employees表中的所有员工的last-name和first-name通过引号连接起来（中等）" class="headerlink" title="将employees表中的所有员工的last_name和first_name通过引号连接起来（中等）"></a><a href="https://www.nowcoder.com/practice/810bf4ee3ac64949b08983aa66ec7bee?tpId=82&amp;&amp;tqId=29818&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>将employees表中的所有员工的last_name和first_name通过引号连接起来</strong></a>（中等）</h4><blockquote>
 <p>描述</p>
 <p>将employees表中的所有员工的last_name和first_name通过(‘)连接起来。(sqlite不支持concat，请用||实现，mysql支持concat)<br>CREATE TABLE <code>employees</code> (<br><code>emp_no</code> int(11) NOT NULL,<br><code>birth_date</code> date NOT NULL,<br><code>first_name</code> varchar(14) NOT NULL,<br><code>last_name</code> varchar(16) NOT NULL,<br><code>gender</code> char(1) NOT NULL,<br><code>hire_date</code> date NOT NULL,<br>PRIMARY KEY (<code>emp_no</code>));<br>输出格式:</p>
 <table>
@@ -928,7 +928,7 @@
 </blockquote>
 <p><code>CONCAT( )</code>函数可以实现两个字段拼接，例如<code>CONCAT(a,b)</code>可以将字段a和字段b拼接成一个字段，如果拼接三个字段则<code>CONCAT(a,b,c)</code>，因而该题SQL语句如下：</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> CONCAT<span class="token punctuation">(</span>last_name<span class="token punctuation">,</span><span class="token string">"'"</span><span class="token punctuation">,</span>first_name<span class="token punctuation">)</span> <span class="token keyword">FROM</span> employees</code></pre>
-<h4 id="SQL53-按照dept-no进行汇总（中等）"><a href="#SQL53-按照dept-no进行汇总（中等）" class="headerlink" title="SQL53 按照dept_no进行汇总（中等）"></a><a href="https://www.nowcoder.com/practice/6e86365af15e49d8abe2c3d4b5126e87?tpId=82&tqId=29813&rp=1&ru=%2Factivity%2Foj&qru=%2Fta%2Fsql%2Fquestion-ranking" target="_blank" rel="noopener"><strong>SQL53</strong> <strong>按照dept_no进行汇总</strong></a>（中等）</h4><blockquote>
+<h4 id="SQL53-按照dept-no进行汇总（中等）"><a href="#SQL53-按照dept-no进行汇总（中等）" class="headerlink" title="SQL53 按照dept_no进行汇总（中等）"></a><a href="https://www.nowcoder.com/practice/6e86365af15e49d8abe2c3d4b5126e87?tpId=82&amp;tqId=29813&amp;rp=1&amp;ru=%2Factivity%2Foj&amp;qru=%2Fta%2Fsql%2Fquestion-ranking" target="_blank" rel="noopener"><strong>SQL53</strong> <strong>按照dept_no进行汇总</strong></a>（中等）</h4><blockquote>
 <p>描述</p>
 <p>按照dept_no进行汇总，属于同一个部门的emp_no按照逗号进行连接，结果给出dept_no以及连接出的结果employees<br>CREATE TABLE <code>dept_emp</code> (<br><code>emp_no</code> int(11) NOT NULL,<br><code>dept_no</code> char(4) NOT NULL,<br><code>from_date</code> date NOT NULL,<br><code>to_date</code> date NOT NULL,<br>PRIMARY KEY (<code>emp_no</code>,<code>dept_no</code>));<br>输出格式:</p>
 <table>
@@ -960,7 +960,7 @@
 <p>但CONCAT并不是聚合函数，在GROUP BY操作之后用CONCAT并不会将字段拼接（只会显示第一个），所以这里需要用聚合函数<code>GROUP_CONCAT</code>，正确SQL实现如下：</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> dept_no<span class="token punctuation">,</span>GROUP_CONCAT<span class="token punctuation">(</span>emp_no<span class="token punctuation">)</span> employees
 <span class="token keyword">FROM</span> dept_emp <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> dept_no</code></pre>
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h4 id="SQL61-对于employees表中，给出奇数行的first-name（较难）"><a href="#SQL61-对于employees表中，给出奇数行的first-name（较难）" class="headerlink" title="SQL61 对于employees表中，给出奇数行的first_name（较难）"></a><a href="https://www.nowcoder.com/practice/e3cf1171f6cc426bac85fd4ffa786594?tpId=82&&tqId=29829&rp=1&ru=/activity/oj&qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL61</strong> <strong>对于employees表中，给出奇数行的first_name</strong></a>（较难）</h4><p>（我觉得题名该写成<strong>SQL61</strong> <strong>对于employees表中，first_name的行号由升序排序，给出结果数据顺序与原表相同的奇数行的first_name</strong>）</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h4 id="SQL61-对于employees表中，给出奇数行的first-name（较难）"><a href="#SQL61-对于employees表中，给出奇数行的first-name（较难）" class="headerlink" title="SQL61 对于employees表中，给出奇数行的first_name（较难）"></a><a href="https://www.nowcoder.com/practice/e3cf1171f6cc426bac85fd4ffa786594?tpId=82&amp;&amp;tqId=29829&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL61</strong> <strong>对于employees表中，给出奇数行的first_name</strong></a>（较难）</h4><p>（我觉得题名该写成<strong>SQL61</strong> <strong>对于employees表中，first_name的行号由升序排序，给出结果数据顺序与原表相同的奇数行的first_name</strong>）</p>
 <blockquote>
 <p>描述</p>
 <p>对于employees表中，输出first_name排名(按first_name升序排序)为奇数的first_name<br>CREATE TABLE <code>employees</code> (<br><code>emp_no</code> int(11) NOT NULL,<br><code>birth_date</code> date NOT NULL,<br><code>first_name</code> varchar(14) NOT NULL,<br><code>last_name</code> varchar(16) NOT NULL,<br><code>gender</code> char(1) NOT NULL,<br><code>hire_date</code> date NOT NULL,</p>
@@ -1014,7 +1014,7 @@
 <p>本质上都一样（都是from原表），只是这里将子查询作为一个表来与原表连接了</p>
 </li>
 </ul>
-<h4 id="SQL63-刷题通过的题目排名（中等）"><a href="#SQL63-刷题通过的题目排名（中等）" class="headerlink" title="SQL63 刷题通过的题目排名（中等）"></a><a href="https://www.nowcoder.com/practice/cd2e10a588dc4c1db0407d0bf63394f3?tpId=82&&tqId=35080&rp=1&ru=/ta/sql&qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL63</strong> <strong>刷题通过的题目排名</strong></a>（中等）</h4><blockquote>
+<h4 id="SQL63-刷题通过的题目排名（中等）"><a href="#SQL63-刷题通过的题目排名（中等）" class="headerlink" title="SQL63 刷题通过的题目排名（中等）"></a><a href="https://www.nowcoder.com/practice/cd2e10a588dc4c1db0407d0bf63394f3?tpId=82&amp;&amp;tqId=35080&amp;rp=1&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL63</strong> <strong>刷题通过的题目排名</strong></a>（中等）</h4><blockquote>
 <p>描述</p>
 <p>在牛客刷题有一个通过题目个数的(passing_number)表，id是主键，简化如下:</p>
 <p><img src="https://uploadfiles.nowcoder.com/images/20200813/557336_1597308916086_6B7E692D15E9D27D855F76C56E00D52A" alt="img"></p>
@@ -1033,7 +1033,7 @@
 <p><strong>rank</strong>函数用于返回结果集的分区内每行的排名，行的排名是相关行之前的排名数加一。简单来说rank函数就是对查询出来的记录进行排名，与row_number函数不同的是，rank函数考虑到了over子句中排序字段值相同的情况，如果使用rank函数来生成序号，over子句中排序字段值相同的序号是一样的，后面字段值不相同的序号将跳过相同的排名号排下一个，也就是相关行之前的排名数加一，可以理解为根据当前的记录数生成序号，后面的记录依此类推。</p>
 <p><strong>dense_rank</strong>函数的功能与rank函数类似，dense_rank函数在生成序号时是连续的，而rank函数生成的序号有可能不连续。dense_rank函数出现相同排名时，将不跳过相同排名号，rank值紧接上一次的rank值。在各个分组内，rank()是跳跃排序，有两个第一名时接下来就是第三名，dense_rank()是连续排序，有两个第一名时仍然跟着第二名。</p>
 </blockquote>
-<h4 id="SQL74-考试分数-三-（较难）"><a href="#SQL74-考试分数-三-（较难）" class="headerlink" title="SQL74 考试分数(三)（较难）"></a><a href="https://www.nowcoder.com/practice/b83f8b0e7e934d95a56c24f047260d91?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL74</strong> <strong>考试分数(三)</strong></a>（较难）</h4><blockquote>
+<h4 id="SQL74-考试分数-三-（较难）"><a href="#SQL74-考试分数-三-（较难）" class="headerlink" title="SQL74 考试分数(三)（较难）"></a><a href="https://www.nowcoder.com/practice/b83f8b0e7e934d95a56c24f047260d91?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL74</strong> <strong>考试分数(三)</strong></a>（较难）</h4><blockquote>
 <p>描述</p>
 <p>牛客每次举办企业笔试的时候，企业一般都会有不同的语言岗位，比如C++工程师，JAVA工程师，Python工程师，每个用户笔试完有不同的分数，现在有一个分数(grade)表简化如下:</p>
 <p><img src="https://uploadfiles.nowcoder.com/images/20200817/557336_1597652427039_07E19104EBD63DA9EDB41F5DD4489F99" alt="img"></p>
@@ -1065,7 +1065,7 @@
 <span class="token keyword">ON</span> <span class="token number">a</span><span class="token punctuation">.</span>language_id <span class="token operator">=</span> <span class="token number">c</span><span class="token punctuation">.</span>id
 <span class="token keyword">WHERE</span> <span class="token number">b</span><span class="token punctuation">.</span>rs <span class="token operator">&lt;=</span> <span class="token number">2</span>
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token number">c</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token number">a</span><span class="token punctuation">.</span>score <span class="token keyword">DESC</span><span class="token punctuation">,</span><span class="token number">a</span><span class="token punctuation">.</span>id</code></pre>
-<h4 id="SQL76-考试分数-五-（困难）"><a href="#SQL76-考试分数-五-（困难）" class="headerlink" title="SQL76 考试分数(五)（困难）"></a><a href="https://www.nowcoder.com/practice/b626ff9e2ad04789954c2132c74c0512?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL76</strong> <strong>考试分数(五)</strong></a>（困难）</h4><p><span id="NIUKE_SQL76">锚点：中位数</span></p>
+<h4 id="SQL76-考试分数-五-（困难）"><a href="#SQL76-考试分数-五-（困难）" class="headerlink" title="SQL76 考试分数(五)（困难）"></a><a href="https://www.nowcoder.com/practice/b626ff9e2ad04789954c2132c74c0512?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL76</strong> <strong>考试分数(五)</strong></a>（困难）</h4><p><span id="NIUKE_SQL76">锚点：中位数</span></p>
 <blockquote>
 <p>描述</p>
 <p>牛客每次考试完，都会有一个成绩表(grade)，如下:</p>
@@ -1248,7 +1248,7 @@
 <span class="token punctuation">)</span> t3
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id<span class="token punctuation">,</span><span class="token number">d</span>
 <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">7</span></code></pre>
-<h2 id="比例"><a href="#比例" class="headerlink" title="比例"></a>比例</h2><h4 id="SQL65-异常的邮件概率（较难）"><a href="#SQL65-异常的邮件概率（较难）" class="headerlink" title="SQL65 异常的邮件概率（较难）"></a><a href="https://www.nowcoder.com/practice/d6dd656483b545159d3aa89b4c26004e?tpId=82&&tqId=35083&rp=1&ru=/activity/oj&qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL65</strong> <strong>异常的邮件概率</strong></a>（较难）</h4><p>（题目很长，你忍一下）简单来说就统计每天正常用户对正常用户发送邮件失败的比例</p>
+<h2 id="比例"><a href="#比例" class="headerlink" title="比例"></a>比例</h2><h4 id="SQL65-异常的邮件概率（较难）"><a href="#SQL65-异常的邮件概率（较难）" class="headerlink" title="SQL65 异常的邮件概率（较难）"></a><a href="https://www.nowcoder.com/practice/d6dd656483b545159d3aa89b4c26004e?tpId=82&amp;&amp;tqId=35083&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL65</strong> <strong>异常的邮件概率</strong></a>（较难）</h4><p>（题目很长，你忍一下）简单来说就统计每天正常用户对正常用户发送邮件失败的比例</p>
 <blockquote>
 <p>描述</p>
 <p>现在有一个需求，让你统计正常用户发送给正常用户邮件失败的概率:<br>有一个邮件(email)表，id为主键， type是枚举类型，枚举成员为(completed，no_completed)，completed代表邮件发送是成功的，no_completed代表邮件是发送失败的。简况如下:<br><img src="https://uploadfiles.nowcoder.com/images/20200817/557336_1597652115615_43081841018939871F6352EF230E6D8E" alt="img"></p>
@@ -1277,11 +1277,11 @@
 <span class="token punctuation">)</span></code></pre>
 </blockquote>
 <p>为了方便描述，我们将上面这个子查询得到的表给个别名a，在表a里所有的用户id都是正常id了。那么接下来只需要统计type字段中no_completed占的比例即可，那么在使用表a的情况下，统计no_completed占用比例可以这样写：</p>
-<p><code>SUM(IF(type = &#39;no_completed&#39;,1,0))/COUNT(*)</code></p>
+<p><code>SUM(IF(type = 'no_completed',1,0))/COUNT(*)</code></p>
 <p>上面里层的<code>IF()</code>语句中，如果type 等于’no_completed’则返回数值1，否则返回数值0</p>
 <p>外层嵌套一个<code>SUM()/COUNT(*)</code>就可以实现统计发送失败的比例了（因为发送失败返回了1，所以用<code>SUM( )</code> ）</p>
 <p>因为题目要求保留三位小数，所以外层还得套一个<code>ROUND(value,3)</code>函数，即：</p>
-<p><code>ROUND(SUM(IF(type = &#39;no_completed&#39;,1,0))/COUNT(*),3)</code></p>
+<p><code>ROUND(SUM(IF(type = 'no_completed',1,0))/COUNT(*),3)</code></p>
 <p>那么，SQL逻辑为</p>
 <blockquote>
 <p>– SQL查询逻辑</p>
@@ -1335,7 +1335,7 @@ Status 是一个表示行程状态的枚举类型，枚举成员为(‘completed
 +-------------+----------+
 Users_Id 是这张表的主键。
 这张表中存所有用户，每个用户都有一个唯一的 Users_Id ，Role 是一个表示用户身份的枚举类型，枚举成员为 (‘client’, ‘driver’, ‘partner’) 。
-Banned 是一个表示用户是否被禁止的枚举类型，枚举成员为 (‘Yes’, ‘No’) 。</code></pre><p>写一段 SQL 语句查出 <code>&quot;2013-10-01&quot;</code> 至 <code>&quot;2013-10-03&quot;</code> 期间非禁止用户（<strong>乘客和司机都必须未被禁止</strong>）的取消率。非禁止用户即 Banned 为 No 的用户，禁止用户即 Banned 为 Yes 的用户。</p>
+Banned 是一个表示用户是否被禁止的枚举类型，枚举成员为 (‘Yes’, ‘No’) 。</code></pre><p>写一段 SQL 语句查出 <code>"2013-10-01"</code> 至 <code>"2013-10-03"</code> 期间非禁止用户（<strong>乘客和司机都必须未被禁止</strong>）的取消率。非禁止用户即 Banned 为 No 的用户，禁止用户即 Banned 为 Yes 的用户。</p>
 <p><strong>取消率</strong> 的计算方式如下：(被司机或乘客取消的非禁止用户生成的订单数量) / (非禁止用户生成的订单总数)。</p>
 <p>返回结果表中的数据可以按任意顺序组织。其中取消率 <code>Cancellation Rate</code> 需要四舍五入保留 <strong>两位小数</strong> 。</p>
 <p>查询结果格式如下例所示：</p>
@@ -1458,7 +1458,7 @@ Result 表：
     <span class="token keyword">WHERE</span> request_at <span class="token operator">BETWEEN</span> <span class="token string">'2013-10-01'</span> <span class="token operator">AND</span> <span class="token string">'2013-10-03'</span>
 <span class="token punctuation">)</span> t2
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> Request_at</code></pre>
-<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><h4 id="SQL66-牛客每个人最近的登录日期-一-（简单）"><a href="#SQL66-牛客每个人最近的登录日期-一-（简单）" class="headerlink" title="SQL66 牛客每个人最近的登录日期(一)（简单）"></a><a href="https://www.nowcoder.com/practice/ca274ebe6eac40ab9c33ced3f2223bb2?tpId=82&&tqId=35084&rp=1&ru=/activity/oj&qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL66</strong> <strong>牛客每个人最近的登录日期(一)</strong></a>（简单）</h4><blockquote>
+<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><h4 id="SQL66-牛客每个人最近的登录日期-一-（简单）"><a href="#SQL66-牛客每个人最近的登录日期-一-（简单）" class="headerlink" title="SQL66 牛客每个人最近的登录日期(一)（简单）"></a><a href="https://www.nowcoder.com/practice/ca274ebe6eac40ab9c33ced3f2223bb2?tpId=82&amp;&amp;tqId=35084&amp;rp=1&amp;ru=/activity/oj&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener"><strong>SQL66</strong> <strong>牛客每个人最近的登录日期(一)</strong></a>（简单）</h4><blockquote>
 <p>描述</p>
 <p>牛客每天有很多人登录，请你统计一下牛客每个用户最近登录是哪一天。</p>
 <p>有一个登录(login)记录表，简况如下:</p>
@@ -1472,7 +1472,7 @@ Result 表：
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token function">MAX</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> login
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id</code></pre>
-<h4 id="SQL67-牛客每个人最近的登录日期-二-（较难）"><a href="#SQL67-牛客每个人最近的登录日期-二-（较难）" class="headerlink" title="SQL67 牛客每个人最近的登录日期(二)（较难）"></a><a href="https://www.nowcoder.com/practice/7cc3c814329546e89e71bb45c805c9ad?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL67</strong> <strong>牛客每个人最近的登录日期(二)</strong></a>（较难）</h4><blockquote>
+<h4 id="SQL67-牛客每个人最近的登录日期-二-（较难）"><a href="#SQL67-牛客每个人最近的登录日期-二-（较难）" class="headerlink" title="SQL67 牛客每个人最近的登录日期(二)（较难）"></a><a href="https://www.nowcoder.com/practice/7cc3c814329546e89e71bb45c805c9ad?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL67</strong> <strong>牛客每个人最近的登录日期(二)</strong></a>（较难）</h4><blockquote>
 <p>描述</p>
 <p>牛客每天有很多人登录，请你统计一下牛客每个用户最近登录是哪一天，用的是什么设备.</p>
 <p>有一个登录(login)记录表，简况如下:</p>
@@ -1531,7 +1531,7 @@ Result 表：
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
     <span class="token punctuation">)</span>
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">user</span><span class="token punctuation">.</span>name</code></pre>
-<h4 id="SQL68-牛客每个人最近的登录日期-三-（较难）"><a href="#SQL68-牛客每个人最近的登录日期-三-（较难）" class="headerlink" title="SQL68 牛客每个人最近的登录日期(三)（较难）"></a><a href="https://www.nowcoder.com/practice/16d41af206cd4066a06a3a0aa585ad3d?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL68</strong> <strong>牛客每个人最近的登录日期(三)</strong></a>（较难）</h4><blockquote>
+<h4 id="SQL68-牛客每个人最近的登录日期-三-（较难）"><a href="#SQL68-牛客每个人最近的登录日期-三-（较难）" class="headerlink" title="SQL68 牛客每个人最近的登录日期(三)（较难）"></a><a href="https://www.nowcoder.com/practice/16d41af206cd4066a06a3a0aa585ad3d?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL68</strong> <strong>牛客每个人最近的登录日期(三)</strong></a>（较难）</h4><blockquote>
 <p>描述</p>
 <p>牛客每天有很多人登录，请你统计一下牛客新登录用户的次日成功的留存率，<br>有一个登录(login)记录表，简况如下:</p>
 <p><img src="https://uploadfiles.nowcoder.com/images/20201026/557336_1603701796116_54BBC7EED94F0CAAFEC8DB042BBBCD01" alt="img"></p>
@@ -1586,7 +1586,7 @@ Result 表：
     <span class="token keyword">SELECT</span> user_id<span class="token punctuation">,</span><span class="token keyword">DATE</span><span class="token punctuation">(</span><span class="token function">MIN</span><span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> login 
     <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
 <span class="token punctuation">)</span> </code></pre>
-<h4 id="SQL69-牛客每个人最近的登录日期-四-（较难）"><a href="#SQL69-牛客每个人最近的登录日期-四-（较难）" class="headerlink" title="SQL69 牛客每个人最近的登录日期(四)（较难）"></a><a href="https://www.nowcoder.com/practice/e524dc7450234395aa21c75303a42b0a?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL69</strong> <strong>牛客每个人最近的登录日期(四)</strong></a>（较难）</h4><blockquote>
+<h4 id="SQL69-牛客每个人最近的登录日期-四-（较难）"><a href="#SQL69-牛客每个人最近的登录日期-四-（较难）" class="headerlink" title="SQL69 牛客每个人最近的登录日期(四)（较难）"></a><a href="https://www.nowcoder.com/practice/e524dc7450234395aa21c75303a42b0a?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL69</strong> <strong>牛客每个人最近的登录日期(四)</strong></a>（较难）</h4><blockquote>
 <h2 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h2><p>牛客每天有很多人登录，请你统计一下牛客每个日期登录新用户个数，<br>有一个登录(login)记录表，简况如下:</p>
 <p><img src="https://uploadfiles.nowcoder.com/images/20200820/557336_1597903671918_2C3C4BF94A59FB9AEEA6FEA89DEE17C9" alt="img"></p>
 <p>第1行表示user_id为2的用户在2020-10-12使用了客户端id为1的设备登录了牛客网，因为是第1次登录，所以是新用户<br>。。。<br>第4行表示user_id为2的用户在2020-10-13使用了客户端id为2的设备登录了牛客网，因为是第2次登录，所以是老用户<br>。。<br>最后1行表示user_id为4的用户在2020-10-15使用了客户端id为1的设备登录了牛客网，因为是第2次登录，所以是老用户</p>
@@ -1632,7 +1632,7 @@ Result 表：
 <span class="token keyword">ON</span> login<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">=</span> <span class="token number">a</span><span class="token punctuation">.</span><span class="token keyword">date</span>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token keyword">date</span>
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">date</span></code></pre>
-<h4 id="SQL70-牛客每个人最近的登录日期-五-（困难）"><a href="#SQL70-牛客每个人最近的登录日期-五-（困难）" class="headerlink" title="SQL70 牛客每个人最近的登录日期(五)（困难）"></a><a href="https://www.nowcoder.com/practice/ea0c56cd700344b590182aad03cc61b8?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL70</strong> <strong>牛客每个人最近的登录日期(五)</strong></a>（困难）</h4><blockquote>
+<h4 id="SQL70-牛客每个人最近的登录日期-五-（困难）"><a href="#SQL70-牛客每个人最近的登录日期-五-（困难）" class="headerlink" title="SQL70 牛客每个人最近的登录日期(五)（困难）"></a><a href="https://www.nowcoder.com/practice/ea0c56cd700344b590182aad03cc61b8?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL70</strong> <strong>牛客每个人最近的登录日期(五)</strong></a>（困难）</h4><blockquote>
 <p>描述</p>
 <p>牛客每天有很多人登录，请你统计一下牛客每个日期新用户的次日留存率。<br>有一个登录(login)记录表，简况如下:</p>
 <p><img src="https://uploadfiles.nowcoder.com/images/20200820/557336_1597903752757_A02F3DF1419BC2D3D4EE9B2B4557053B" alt="img"></p>
@@ -1722,7 +1722,7 @@ Result 表：
     <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token number">a</span><span class="token punctuation">.</span><span class="token keyword">date</span>
 <span class="token punctuation">)</span> <span class="token number">c</span>
 <span class="token keyword">ON</span> login<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">=</span> <span class="token number">c</span><span class="token punctuation">.</span><span class="token keyword">date</span></code></pre>
-<h4 id="SQL80-牛客的课程订单分析-四-（较难）"><a href="#SQL80-牛客的课程订单分析-四-（较难）" class="headerlink" title="SQL80 牛客的课程订单分析(四)（较难）"></a><a href="https://www.nowcoder.com/practice/c93d2079282f4943a3771ca6fd081c23?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL80</strong> <strong>牛客的课程订单分析(四)</strong></a>（较难）</h4><blockquote>
+<h4 id="SQL80-牛客的课程订单分析-四-（较难）"><a href="#SQL80-牛客的课程订单分析-四-（较难）" class="headerlink" title="SQL80 牛客的课程订单分析(四)（较难）"></a><a href="https://www.nowcoder.com/practice/c93d2079282f4943a3771ca6fd081c23?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL80</strong> <strong>牛客的课程订单分析(四)</strong></a>（较难）</h4><blockquote>
 <p>描述</p>
 <p>有很多同学在牛客购买课程来学习，购买会产生订单存到数据库里。</p>
 <p>有一个订单信息表(order_info)，简况如下:</p>
@@ -1751,7 +1751,7 @@ Result 表：
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
 <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">2</span>
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> user_id</code></pre>
-<h4 id="SQL81-牛客的课程订单分析-五-（困难）"><a href="#SQL81-牛客的课程订单分析-五-（困难）" class="headerlink" title="SQL81 牛客的课程订单分析(五)（困难）"></a><a href="https://www.nowcoder.com/practice/348afda488554ceb922efd2f3effc427?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL81</strong> <strong>牛客的课程订单分析(五)</strong></a>（困难）</h4><blockquote>
+<h4 id="SQL81-牛客的课程订单分析-五-（困难）"><a href="#SQL81-牛客的课程订单分析-五-（困难）" class="headerlink" title="SQL81 牛客的课程订单分析(五)（困难）"></a><a href="https://www.nowcoder.com/practice/348afda488554ceb922efd2f3effc427?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL81</strong> <strong>牛客的课程订单分析(五)</strong></a>（困难）</h4><blockquote>
 <p>描述</p>
 <p>有很多同学在牛客购买课程来学习，购买会产生订单存到数据库里。</p>
 <p>有一个订单信息表(order_info)，简况如下:</p>
@@ -1815,7 +1815,7 @@ Result 表：
 <span class="token operator">AND</span> order_info<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token operator">></span> <span class="token string">'2025-10-15'</span>
 <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> order_info<span class="token punctuation">.</span>user_id
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> order_info<span class="token punctuation">.</span>user_id</code></pre>
-<h4 id="SQL90-获得积分最多的人-二-（较难）"><a href="#SQL90-获得积分最多的人-二-（较难）" class="headerlink" title="SQL90 获得积分最多的人(二)（较难）"></a><a href="https://www.nowcoder.com/practice/b6248d075d2d4213948b2e768080dc92?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL90</strong> <strong>获得积分最多的人(二)</strong></a>（较难）</h4><blockquote>
+<h4 id="SQL90-获得积分最多的人-二-（较难）"><a href="#SQL90-获得积分最多的人-二-（较难）" class="headerlink" title="SQL90 获得积分最多的人(二)（较难）"></a><a href="https://www.nowcoder.com/practice/b6248d075d2d4213948b2e768080dc92?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL90</strong> <strong>获得积分最多的人(二)</strong></a>（较难）</h4><blockquote>
 <p>描述</p>
 <p>牛客每天有很多用户刷题，发帖，点赞，点踩等等，这些都会记录相应的积分。</p>
 <p>有一个用户表(user)，简况如下：</p>
@@ -1872,7 +1872,7 @@ Result 表：
 <span class="token keyword">ON</span> <span class="token keyword">user</span><span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token number">b</span><span class="token punctuation">.</span>user_id
 <span class="token keyword">WHERE</span> rs <span class="token operator">=</span> <span class="token number">1</span>
 <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token keyword">user</span><span class="token punctuation">.</span>id</code></pre>
-<h4 id="SQL91-获得积分最多的人-三-（困难）"><a href="#SQL91-获得积分最多的人-三-（困难）" class="headerlink" title="SQL91 获得积分最多的人(三)（困难）"></a><a href="https://www.nowcoder.com/practice/d2b7e2a305a7499fb310dc82a43820e8?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1" target="_blank" rel="noopener"><strong>SQL91</strong> <strong>获得积分最多的人(三)</strong></a>（困难）</h4><blockquote>
+<h4 id="SQL91-获得积分最多的人-三-（困难）"><a href="#SQL91-获得积分最多的人-三-（困难）" class="headerlink" title="SQL91 获得积分最多的人(三)（困难）"></a><a href="https://www.nowcoder.com/practice/d2b7e2a305a7499fb310dc82a43820e8?tpId=82&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=1" target="_blank" rel="noopener"><strong>SQL91</strong> <strong>获得积分最多的人(三)</strong></a>（困难）</h4><blockquote>
 <p>描述</p>
 <p>牛客每天有很多用户刷题，发帖，点赞，点踩等等，这些都会记录相应的积分。</p>
 <p>有一个用户表(user)，简况如下：</p>
@@ -1950,7 +1950,25 @@ Result 表：
 <span class="token keyword">JOIN</span> <span class="token keyword">user</span>
 <span class="token keyword">ON</span> <span class="token keyword">user</span><span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token number">c</span><span class="token punctuation">.</span>user_id
 <span class="token keyword">WHERE</span> <span class="token number">c</span><span class="token punctuation">.</span>rs <span class="token operator">=</span> <span class="token number">1</span></code></pre>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -2552,27 +2570,19 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
+			
             <!-- <a href="/about" target="_blank">CAIWEI</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br> -->
+			
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">177.9k</span>&nbsp;字
+                class="white-color">182.3k</span>&nbsp;字
             
             
             
             
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
             
             <br>
             

@@ -485,7 +485,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    16.6k
+                    16.7k
                 </div>
                 
 
@@ -781,7 +781,7 @@
 </tr>
 </tbody></table>
 <h2 id="3-维度建模"><a href="#3-维度建模" class="headerlink" title="3. 维度建模"></a>3. 维度建模</h2><h3 id="3-1-三种模型"><a href="#3-1-三种模型" class="headerlink" title="3.1 三种模型"></a>3.1 三种模型</h3><p>数据仓库建模方法论可分为：<strong>维度建模</strong>、范式建模、Data Vault模型、Anchor模型</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210801225303.png" width="50%"></img></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210801225303.png" width="50%"></p>
 <p>其中数仓最为常用的是<strong>维度建模</strong>，而维度建模建立的模型主要有三种：（1）<strong>星型模型</strong>、（2）<strong>雪花模型</strong>、（3）<strong>星座模型</strong></p>
 <h4 id="3-1-1-星型模型"><a href="#3-1-1-星型模型" class="headerlink" title="3.1.1 星型模型"></a>3.1.1 星型模型</h4><p>星型模型主要由维表和事实表构成，<strong>以事实表为中心</strong>，所有维度直接关联在事实表上，呈星型分布。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20210912040748.png" alt=""></p>
@@ -1273,7 +1273,25 @@
 </li>
 </ul>
 <h1 id="后端开发篇"><a href="#后端开发篇" class="headerlink" title="后端开发篇"></a>后端开发篇</h1><h2 id="1-Java"><a href="#1-Java" class="headerlink" title="1.Java"></a>1.Java</h2><h2 id="2-数据库理论"><a href="#2-数据库理论" class="headerlink" title="2. 数据库理论"></a>2. 数据库理论</h2><h3 id="2-1-ACID与事务隔离级别"><a href="#2-1-ACID与事务隔离级别" class="headerlink" title="2.1 ACID与事务隔离级别"></a>2.1 ACID与事务隔离级别</h3><h3 id="2-2-CAP分布式理论"><a href="#2-2-CAP分布式理论" class="headerlink" title="2.2 CAP分布式理论"></a>2.2 CAP分布式理论</h3><h2 id="3-实时计算"><a href="#3-实时计算" class="headerlink" title="3.实时计算"></a>3.实时计算</h2><h1 id="数据挖掘篇"><a href="#数据挖掘篇" class="headerlink" title="数据挖掘篇"></a>数据挖掘篇</h1><h2 id="1-统计学基础"><a href="#1-统计学基础" class="headerlink" title="1.统计学基础"></a>1.统计学基础</h2><h2 id="2-python"><a href="#2-python" class="headerlink" title="2.python"></a>2.python</h2><h2 id="3-时间序列预测模型"><a href="#3-时间序列预测模型" class="headerlink" title="3.时间序列预测模型"></a>3.时间序列预测模型</h2><h3 id="2-1确定数据范围"><a href="#2-1确定数据范围" class="headerlink" title="2.1确定数据范围"></a>2.1确定数据范围</h3><h3 id="2-2-特征选择方法"><a href="#2-2-特征选择方法" class="headerlink" title="2.2 特征选择方法"></a>2.2 特征选择方法</h3><h3 id="2-3-参数与工业界的区别"><a href="#2-3-参数与工业界的区别" class="headerlink" title="2.3 参数与工业界的区别"></a>2.3 参数与工业界的区别</h3><h1 id="数据治理篇"><a href="#数据治理篇" class="headerlink" title="数据治理篇"></a>数据治理篇</h1><h2 id="0-前言-1"><a href="#0-前言-1" class="headerlink" title="0.前言"></a>0.前言</h2><p>从数据仓库篇单独拆分出来详细讲解</p>
-<h2 id="1-数据质量"><a href="#1-数据质量" class="headerlink" title="1.数据质量"></a>1.数据质量</h2><h2 id="2-数据成本"><a href="#2-数据成本" class="headerlink" title="2.数据成本"></a>2.数据成本</h2><h2 id="3-数据价值"><a href="#3-数据价值" class="headerlink" title="3.数据价值"></a>3.数据价值</h2>
+<h2 id="1-数据质量"><a href="#1-数据质量" class="headerlink" title="1.数据质量"></a>1.数据质量</h2><h2 id="2-数据成本"><a href="#2-数据成本" class="headerlink" title="2.数据成本"></a>2.数据成本</h2><h2 id="3-数据价值"><a href="#3-数据价值" class="headerlink" title="3.数据价值"></a>3.数据价值</h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1638,38 +1656,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/03/07/shu-ju-kai-fa-xiu-xian-shou-ce/">
+                <a href="/2022/03/26/ec-cun-chu-yuan-li-ji-jian-dan-gong-cheng-hua-shi-xian/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20220307061558.jpg" class="responsive-img" alt="数据开发修仙手册">
                         
-                        <span class="card-title">数据开发修仙手册</span>
+                        <img src="https://auto2dev.coding.net/p/ImageHostingService/d/ImageHostingService/git/raw/master/higan/catoon_thumbnail/catoon_2200.jpg" class="responsive-img" alt="EC存储原理及简单工程化实现">
+                        
+                        <span class="card-title">EC存储原理及简单工程化实现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            百炼成仙
+                            主要是为了省钱
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-26
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            CAIWEI
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    大数据技术
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%98%E5%82%A8/">
+                        <span class="chip bg-color">存储</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1862,27 +1891,19 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
+			
             <!-- <a href="/about" target="_blank">CAIWEI</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br> -->
+			
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">177.9k</span>&nbsp;字
+                class="white-color">182.3k</span>&nbsp;字
             
             
             
             
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
             
             <br>
             

@@ -498,14 +498,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.4k
+                    6.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    25 分
                 </div>
                 
 
@@ -548,12 +548,12 @@
 <p>Column提供数据读取能力，DataType负责正反序列化，所以Block在这些对象的基础上实现了进一步的抽象和封装，使得仅通过Block对象就能完成一系列的数据操作（Block并没有直接聚合Column和DataType对象，而是间接引用）。</p>
 <p>Block流有两个顶层接口，分别是IBlockInputStream和IBlockOutputStream，每个顶层接口又有很多类方法。</p>
 <pre class="mermaid">graph LR
-A[Block流] -->B(IBlockInputStream)
-    A --> C(IBlockOutputStream)
-    B --> D(DDL操作)
-    B --> E(关系运算)
-    B --> F(表引擎)
-    C --> G(表引擎)</pre>
+A[Block流] --&gt;B(IBlockInputStream)
+    A --&gt; C(IBlockOutputStream)
+    B --&gt; D(DDL操作)
+    B --&gt; E(关系运算)
+    B --&gt; F(表引擎)
+    C --&gt; G(表引擎)</pre>
 
 <h4 id="2-2-4-Table"><a href="#2-2-4-Table" class="headerlink" title="2.2.4 Table"></a>2.2.4 Table</h4><p>数据表的底层设计中并没有所谓的Table对象，它直接使用<code>IStorage接口</code>指代数据表。</p>
 <p>IStorage定义了DDL（如ALTER、RENAME、OPTIMIZE、DROP等）、read、write方法，它们分别负责数据的定义、查询、写入。</p>
@@ -626,8 +626,8 @@ A[Block流] -->B(IBlockInputStream)
 <h2 id="第5章-数据字典"><a href="#第5章-数据字典" class="headerlink" title="第5章 数据字典"></a>第5章 数据字典</h2><p>数据字典是ClickHouse提供的一种存储介质，它以（键值，属性映射）的形式定义数据。</p>
 <p>数据字典被<strong>加载到内存</strong>，支持动态更新，因而数据字典非常适合保存常量或者经常使用的维度表数据，以避免不必要的JOIN查询。</p>
 <pre class="mermaid">graph LR
-A[数据字典] -->B(内置字典 _ ClickHouse默认自带的字典)
-    A --> C(外部扩展字典 _ 用户自定义配置实现的字典)</pre>
+A[数据字典] --&gt;B(内置字典 _ ClickHouse默认自带的字典)
+    A --&gt; C(外部扩展字典 _ 用户自定义配置实现的字典)</pre>
 
 <p>字典中的数据只能通过<strong>字典函数</strong>访问（有一种例外情况，就是使用特殊的字典表引擎）</p>
 <ul>
@@ -764,7 +764,7 @@ A[数据字典] -->B(内置字典 _ ClickHouse默认自带的字典)
 <h4 id="6-2-3-分区目录的合并过程"><a href="#6-2-3-分区目录的合并过程" class="headerlink" title="6.2.3 分区目录的合并过程"></a>6.2.3 分区目录的合并过程</h4><p>MinBlockNum：取同一分区内所有目录中最小的MinBlockNum值</p>
 <p>MaxBlockNum：取同一分区内所有目录中最小的MaxBlockNum值</p>
 <p>Level：取同一分区内最大Level值并加1</p>
-<h3 id="6-3-一级索引"><a href="#6-3-一级索引" class="headerlink" title="6.3 一级索引"></a>6.3 一级索引</h3><h4 id="6-3-1-稀疏索引"><a href="#6-3-1-稀疏索引" class="headerlink" title="6.3.1 稀疏索引"></a>6.3.1 稀疏索引</h4><p><img src = "https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211109165101.png" width="50%"> </img></p>
+<h3 id="6-3-一级索引"><a href="#6-3-一级索引" class="headerlink" title="6.3 一级索引"></a>6.3 一级索引</h3><h4 id="6-3-1-稀疏索引"><a href="#6-3-1-稀疏索引" class="headerlink" title="6.3.1 稀疏索引"></a>6.3.1 稀疏索引</h4><p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211109165101.png" width="50%"> </p>
 <h4 id="6-3-2-索引粒度"><a href="#6-3-2-索引粒度" class="headerlink" title="6.3.2 索引粒度"></a>6.3.2 索引粒度</h4><p>ClickHouse中索引粒度默认为8192，数据以index_granularity的粒度（默认8192）被标记成多个小的区间，其中每个区间最多8192行数据。</p>
 <h4 id="6-3-3-索引数据的生成规则"><a href="#6-3-3-索引数据的生成规则" class="headerlink" title="6.3.3 索引数据的生成规则"></a>6.3.3 索引数据的生成规则</h4><p>由于是稀疏索引，所以MergeTree需要间隔 index_granularity 行数据才会生成一条索引记录。</p>
 <h4 id="6-3-4-索引的查询过程"><a href="#6-3-4-索引的查询过程" class="headerlink" title="6.3.4 索引的查询过程"></a>6.3.4 索引的查询过程</h4><p>根据索引粒度生成多个MarkRange，两个相邻的MarkRange相距步长为1，所有MarkRange（整个数据片段）的最大数值区间为[0,+inf]</p>
@@ -1117,7 +1117,7 @@ ARRAY <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</
 <p>如果N1的Y和N2的Y数据相同，则它们互为副本（N1Y = N2Y），否则互为分片（N1Y != N2Y）</p>
 <h3 id="10-2-数据副本"><a href="#10-2-数据副本" class="headerlink" title="10.2 数据副本"></a>10.2 数据副本</h3><p>MegreTree表引擎前缀加了Replicated才有应用副本的能力（还有另一种副本的实现方式），例如ReplicatedMergeTree、ReplicatedReplacingMergeTree、ReplicatedSummingMergeTree，这类表引擎称为复制表系列引擎。</p>
 <p>ReplicatedMergeTree在MergeTree的基础上加入了分布式协同的能力，如图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211110102012.png" width="70%"></img></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211110102012.png" width="70%"></p>
 <p>在MergeTree中，一个数据分区由开始创建到全部完成，会经历两类存储区域：</p>
 <ol>
 <li>内存：数据首先会被写入内存缓冲区</li>
@@ -1174,7 +1174,7 @@ ARRAY <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</
 </ul>
 <h3 id="10-4-数据分片"><a href="#10-4-数据分片" class="headerlink" title="10.4 数据分片"></a>10.4 数据分片</h3><p>通过引入副本可以有效降低数据丢失的风险（多份存储），并提升查询的性能（分摊查询、读写分离），但是仍没有解决数据表容量的问题。每个副本保存了数据表全量的数据，所以在业务庞大的场景中，依靠副本并不能解决单表的性能瓶颈，所以需要将数据水平切分，也就分片（shard）。</p>
 <p>数据表A分布在N个ClickHouse服务节点，且这些数据彼此之间没有重复数据，则称为数据表A有N个分片。为了进一步考虑数据在写入时，如何被均匀地写至各个分片，以及查询时路由到每个分片并组成结果集，所以ClickHouse的数据分片需要结合Distributed表引擎一同使用，如图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211110110330.png" width="60%"></img></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211110110330.png" width="60%"></p>
 <p>Distributed表引擎自身不存储任何数据，它能够作为分布式表的一层透明代理，在集群内部自动开展数据的写入、分发、查询、路由等工作。</p>
 <p>接下来以创建test_1_local的过程为例子，解释分布式DDL的核心执行流程</p>
 <ul>
@@ -1184,16 +1184,34 @@ ARRAY <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</
 <li>拉取日志并执行</li>
 <li>确认执行进度</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211110110947.png" width="60%"></img></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211110110947.png" width="60%"></p>
 </li>
 </ul>
 <h3 id="10-5-Distributed原理解析"><a href="#10-5-Distributed原理解析" class="headerlink" title="10.5 Distributed原理解析"></a>10.5 Distributed原理解析</h3><p>Distributed表引擎是作为数据分片的透明代理，能自动路由数据至集群中的各个节点，所以Distributed表引擎和其他数据表一起协同工作，如图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211110112518.png" width="60%"></img></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/20211110112518.png" width="60%"></p>
 <ul>
 <li>本地表：通常以 _local 为后缀进行命名。本地表是承载数据的载体，可以使用非Distributed的任意表引擎，一张本地表对应了一个数据分片</li>
 <li>分布式表：通常以 _all 为后缀进行命名。分布式表只能用Distributed表引擎，它与本地表形成一对多的映射关系，日后将通过分布式表代理操作多张本地表</li>
 </ul>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1796,27 +1814,19 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
+			
             <!-- <a href="/about" target="_blank">CAIWEI</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br> -->
+			
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">177.9k</span>&nbsp;字
+                class="white-color">182.3k</span>&nbsp;字
             
             
             
             
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
             
             <br>
             

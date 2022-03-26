@@ -498,7 +498,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.7k
+                    3.8k
                 </div>
                 
 
@@ -530,7 +530,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/v2-d2b03cf98869849d1d6a4d91a05d6571_720w.jpg" alt="img"></p>
 <p>SVM算法认为图(b)中的分类器比图(c)的分类器效果要好，其依据是分类间隔（支持）更大。</p>
 <p><strong>分类间隔的计算</strong>：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/v2-17ea1d3c2532f3df5db77f39484acaad_720w.jpg" width="50%"></img></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ChoiNgai/ImageServer/img/v2-17ea1d3c2532f3df5db77f39484acaad_720w.jpg" width="50%"></p>
 <p>由<a href="https://baike.baidu.com/item/%E7%82%B9%E5%88%B0%E7%9B%B4%E7%BA%BF%E8%B7%9D%E7%A6%BB/8673346?fr=aladdin" target="_blank" rel="noopener">点到线的公式</a>可知分类间隔距离的表达式为：<br>$$<br>d = \frac{w^T x + b}{||w||}<br>$$<br>$||w||$为向量$w$的模，此时为求解</p>
 <p><strong>约束条件</strong>:</p>
 <p>样本$x_i$的类别标签$y_i$，其约束条件为：<br>$$<br>y_i =\left{<br>\begin{aligned}<br>+1 &amp;, &amp; 属于类别1（蓝色） \<br>-1 &amp;, &amp; 属于类别2（红色）<br>\end{aligned}<br>\right.<br>$$<br>故<br>$$<br>\left{<br>\begin{aligned}</p>
@@ -645,7 +645,25 @@
 <p>适用情况：</p>
 <p>FisherScore适用于对<strong>离散</strong>的数值作为因变量（即标签）筛选出特征评分。所有也有学者用这种方法来完成图像分类。。。</p>
 </blockquote>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1236,27 +1254,19 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
+			
             <!-- <a href="/about" target="_blank">CAIWEI</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br> -->
+			
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">177.9k</span>&nbsp;字
+                class="white-color">182.3k</span>&nbsp;字
             
             
             
             
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
             
             <br>
             
